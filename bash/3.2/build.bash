@@ -8,19 +8,21 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-set -e
-rm -f bash-4.1.tar.gz
-rm -f -r bash-4.1
-url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
-wget -O bash-4.1.tar.gz "$url"
-sha256sum -c bash-4.1.tar.gz.sha256sum
-tar xf bash-4.1.tar.gz
-cd bash-4.1
+set -E -e -u -o pipefail
+trap exit ERR
+
+rm -f bash-3.2.tar.gz
+rm -f -r bash-3.2
+url=${1-'https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz'}
+wget -O bash-3.2.tar.gz "$url"
+sha256sum -c bash-3.2.tar.gz.sha256sum
+tar xf bash-3.2.tar.gz
+cd bash-3.2
 cp lib/readline/doc/hsuser.texi doc
 cp lib/readline/doc/rluser.texi doc
 cd doc
 texi2any --html --no-split bashref.texi
 cp bashref.html ../../index.html
 cd ../..
-rm -f bash-4.1.tar.gz
-rm -f -r bash-4.1
+rm -f bash-3.2.tar.gz
+rm -f -r bash-3.2
