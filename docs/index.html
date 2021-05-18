@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+(async function() {
+  const user_regex = /^https:\/\/([^.]*).*/;
+  const repo_regex = /^https:\/\/[^\/]*\/([^\/]*).*/;
+  const path_regex = /^https:\/\/[^\/]*\/[^\/]*(\/?.*)/;
+  const user = window.location.href.replace(user_regex, "$1");
+  const repo = window.location.href.replace(repo_regex, "$1");
+  const path = window.location.href.replace(path_regex, "$1")
+               .replace(/\/index\.html$/, "")
+               .replace(/\/$/, "");
+  const url = "https://api.github.com/repos/"
+              + `${user}/${repo}/contents/docs/${path}`;
+  const response = await fetch(url);
+  const json = await r.json();
+  let html = "<ul>";
+  for (let entry of json) {
+    if (entry.type == "dir") {
+      html += `<li><a href="${entry.name}">${entry.name}</a></li>`;
+    }
+  }
+  html += "</ul>";
+  document.body.innerHTML = html;
+})()
+</script>
+</body>
+</html>
