@@ -15,12 +15,13 @@ declare -r -x LC_ALL=C
 shopt -s globstar
 
 for dir in ./**/; do
-  if [[ -f $dir/.leaf ]]; then
-    continue
-  fi
-
   (
+
     cd $dir
+
+    if [[ -f date ]]; then
+      exit 0
+    fi
 
     >index.html
 
@@ -104,8 +105,19 @@ $h
 <div></div>
 EOF
 
-    for x in */; do
-      x=${x%/}
+    xs=$(
+      for x in */; do
+        x=${x%/}
+        if [[ -f $x/date ]]; then
+          d=$(cat $x/date)
+        else
+          d=0000-00-00
+        fi
+        printf '%s\n' "$d $x"
+      done | sort | cut -d ' ' -f 2
+    )
+
+    for x in $xs; do
       cat <<EOF >>index.html
 <li><a href="$x">$x</a></li>
 EOF
