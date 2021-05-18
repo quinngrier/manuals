@@ -14,7 +14,7 @@
   const url = "https://api.github.com/repos/"
               + `${user}/${repo}/contents/docs/${path}`;
   const response = await fetch(url);
-  const json = await r.json();
+  const json = await response.json();
   let html = "<ul>";
   for (let entry of json) {
     if (entry.type == "dir") {
