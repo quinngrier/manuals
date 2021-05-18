@@ -45,7 +45,7 @@ Loading...
     let d = ".";
     if (path != "") {
       for (let x of path.substr(1).split("/").reverse()) {
-        h = ` / <a href="${d}">${x}</a>` + h;
+        h = `/<a href="${d}">${x}</a>` + h;
         d = d == "." ? ".." : d + "/..";
       }
     }
