@@ -1,3 +1,4 @@
+#! /bin/sh -
 #
 # The authors of this file have waived all copyright and
 # related or neighboring rights to the extent permitted by
@@ -8,9 +9,8 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-set -E -e -u -o pipefail
-trap exit ERR
-declare -r -x LC_ALL=C
+set -e || exit $?
+. ../../prelude.bash
 
 url=${1-'https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz'}
 readonly url
