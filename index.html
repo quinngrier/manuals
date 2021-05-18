@@ -29,7 +29,7 @@ Loading directory listing...
   let html = "<ul>";
   for (let x of json) {
     if (x.type == "dir") {
-      html += `<li><a href="${x.name}/">${x.name}</a></li>`;
+      html += `<li><a href="${x.name}">${x.name}</a></li>`;
     }
   }
   html += "</ul>";
