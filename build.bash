@@ -55,8 +55,7 @@ body {
 }
 
 ul {
-  margin-left: 0.5em;
-  margin-top: 0.2em;
+  margin-left: 0.5ch;
   position: relative;
 }
 
@@ -70,7 +69,7 @@ div {
 }
 
 li {
-  margin-left: 0.2em;
+  margin-left: 0.5ch;
 }
 
 li:before {
@@ -78,10 +77,10 @@ li:before {
   content: "";
   display: inline-block;
   height: 3px;
-  left: -0.2em;
+  left: -0.5ch;
   position: relative;
   vertical-align: middle;
-  width: 0.5em;
+  width: 1ch;
 }
 
 </style>
