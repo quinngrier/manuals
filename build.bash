@@ -19,7 +19,7 @@ for dir in ./**/; do
 
     cd $dir
 
-    if [[ -f date ]]; then
+    if [[ -f date.txt ]]; then
       exit 0
     fi
 
@@ -110,8 +110,8 @@ EOF
     xs=$(
       for x in */; do
         x=${x%/}
-        if [[ -f $x/date ]]; then
-          d=$(cat $x/date)
+        if [[ -f $x/date.txt ]]; then
+          d=$(cat $x/date.txt)
         else
           d=0000-00-00
         fi
