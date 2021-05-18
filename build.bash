@@ -76,10 +76,10 @@ li:before {
   border-top: 1px solid lightgray;
   content: "";
   display: inline-block;
-  height: 3px;
   left: -0.5ch;
   position: relative;
-  vertical-align: middle;
+  transform: translateY(0.5em);
+  vertical-align: top;
   width: 1ch;
 }
 
