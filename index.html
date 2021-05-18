@@ -25,8 +25,7 @@ Loading directory listing...
                .replace(/\/$/, "");
   const url = "https://api.github.com/repos/"
               + `${user}/${repo}/contents${path}`;
-  const response = await fetch(url);
-  const json = await response.json();
+  const json = await (await fetch(url)).json();
   let html = "<ul>";
   for (let x of json) {
     if (x.type == "dir") {
