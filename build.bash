@@ -53,11 +53,32 @@ body {
 }
 
 ul {
-  border-left: 1px solid black;
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+  position: relative;
+}
+
+div {
+  border-left: 1px solid lightgray;
+  bottom: 0.5em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 li {
-  margin-left: 1em;
+  margin-left: 0.2em;
+}
+
+li:before {
+  border-top: 1px solid lightgray;
+  content: "";
+  display: inline-block;
+  left: -0.2em;
+  position: relative;
+  vertical-align: middle;
+  width: 1em;
 }
 
 </style>
@@ -80,6 +101,7 @@ EOF
     cat <<EOF >>index.html
 $h
 <ul>
+<div></div>
 EOF
 
     for x in */; do
