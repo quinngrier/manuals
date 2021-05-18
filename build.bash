@@ -44,6 +44,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
 * {
   font-family: "Source Code Pro", monospace;
+  line-height: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -76,10 +77,11 @@ li:before {
   border-top: 1px solid lightgray;
   content: "";
   display: inline-block;
+  height: 3px;
   left: -0.2em;
   position: relative;
   vertical-align: middle;
-  width: 1em;
+  width: 0.5em;
 }
 
 </style>
