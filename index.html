@@ -27,6 +27,9 @@ Loading directory listing...
               + `${user}/${repo}/contents${path}`;
   const json = await (await fetch(url)).json();
   let html = "<ul>";
+  if (path != "") {
+    html += `<li><a href="..">..</a></li>`;
+  }
   for (let x of json) {
     if (x.type == "dir") {
       html += `<li><a href="${x.name}">${x.name}</a></li>`;
