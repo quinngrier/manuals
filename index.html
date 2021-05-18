@@ -29,7 +29,7 @@
   let html = "<ul>";
   for (let entry of json) {
     if (entry.type == "dir") {
-      html += `<li><a href="${entry.name}">${entry.name}</a></li>`;
+      html += `<li><a href="${entry.name}/">${entry.name}</a></li>`;
     }
   }
   html += "</ul>";
