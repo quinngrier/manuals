@@ -17,7 +17,7 @@ readonly url
 
 rm -f bash-3.2.tar.gz
 rm -f -r bash-3.2
-wget -O bash-3.2.tar.gz "$url"
+wget -O bash-3.2.tar.gz -- "$url"
 sha256sum -c bash-3.2.tar.gz.sha256sum
 tar xf bash-3.2.tar.gz
 cd bash-3.2

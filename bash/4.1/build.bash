@@ -17,7 +17,7 @@ readonly url
 
 rm -f bash-4.1.tar.gz
 rm -f -r bash-4.1
-wget -O bash-4.1.tar.gz "$url"
+wget -O bash-4.1.tar.gz -- "$url"
 sha256sum -c bash-4.1.tar.gz.sha256sum
 tar xf bash-4.1.tar.gz
 cd bash-4.1
