@@ -10,6 +10,7 @@
 
 set -E -e -u -o pipefail
 trap exit ERR
+declare -r -x LC_ALL=C
 
 rm -f bash-3.2.tar.gz
 rm -f -r bash-3.2

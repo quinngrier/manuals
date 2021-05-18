@@ -10,6 +10,7 @@
 
 set -E -e -u -o pipefail
 trap exit ERR
+declare -r -x LC_ALL=C
 
 shopt -s globstar
 
