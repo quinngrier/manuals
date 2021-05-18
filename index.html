@@ -40,7 +40,7 @@ Loading directory listing...
 
   let html = "";
 
-  html += "<h1>" + (function() {
+  html += function() {
     let h = "";
     let d = ".";
     if (path != "") {
@@ -51,7 +51,7 @@ Loading directory listing...
     }
     h = `<a href="${d}">manuals</a>` + h;
     return h;
-  })() + "</h1>";
+  }();
 
   html += "<ul>";
   for (let x of json) {
