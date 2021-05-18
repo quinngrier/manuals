@@ -27,9 +27,9 @@
   const response = await fetch(url);
   const json = await response.json();
   let html = "<ul>";
-  for (let entry of json) {
-    if (entry.type == "dir") {
-      html += `<li><a href="${entry.name}/">${entry.name}</a></li>`;
+  for (let x of json) {
+    if (x.type == "dir") {
+      html += `<li><a href="${x.name}/">${x.name}</a></li>`;
     }
   }
   html += "</ul>";
