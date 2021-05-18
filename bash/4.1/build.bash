@@ -12,9 +12,11 @@ set -E -e -u -o pipefail
 trap exit ERR
 declare -r -x LC_ALL=C
 
+url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
+readonly url
+
 rm -f bash-4.1.tar.gz
 rm -f -r bash-4.1
-url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
 wget -O bash-4.1.tar.gz "$url"
 sha256sum -c bash-4.1.tar.gz.sha256sum
 tar xf bash-4.1.tar.gz

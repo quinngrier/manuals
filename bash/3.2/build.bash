@@ -12,9 +12,11 @@ set -E -e -u -o pipefail
 trap exit ERR
 declare -r -x LC_ALL=C
 
+url=${1-'https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz'}
+readonly url
+
 rm -f bash-3.2.tar.gz
 rm -f -r bash-3.2
-url=${1-'https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz'}
 wget -O bash-3.2.tar.gz "$url"
 sha256sum -c bash-3.2.tar.gz.sha256sum
 tar xf bash-3.2.tar.gz
