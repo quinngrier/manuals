@@ -26,17 +26,32 @@ Loading directory listing...
   const url = "https://api.github.com/repos/"
               + `${user}/${repo}/contents${path}`;
   const json = await (await fetch(url)).json();
-  let html = "<ul>";
-  if (path != "") {
-    html += `<li><a href="..">..</a></li>`;
-  }
+
+  let html = "";
+
+  html += "<h1>" + (function() {
+    let h = "";
+    let d = ".";
+    if (path != "") {
+      for (let x of path.substr(1).split("/").reverse()) {
+        h = ` / <a href="${d}">${x}</a>` + h;
+        d = d == "." ? ".." : d + "/..";
+      }
+    }
+    h = `<a href="${d}">(root)</a>` + h;
+    return h;
+  })() + "</h1>";
+
+  html += "<ul>";
   for (let x of json) {
     if (x.type == "dir") {
       html += `<li><a href="${x.name}">${x.name}</a></li>`;
     }
   }
   html += "</ul>";
+
   document.body.innerHTML = html;
+
 })()
 </script>
 </body>
