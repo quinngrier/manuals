@@ -15,8 +15,7 @@ declare -r -x LC_ALL=C
 url=${1-'https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz'}
 readonly url
 
-rm -f bash-3.2.tar.gz
-rm -f -r bash-3.2
+rm -f -r bash-3.2.tar.gz bash-3.2
 wget -O bash-3.2.tar.gz -- "$url"
 sha256sum -c bash-3.2.tar.gz.sha256sum
 tar xf bash-3.2.tar.gz
@@ -27,5 +26,4 @@ cd doc
 texi2any --html --no-split bashref.texi
 cp bashref.html ../../index.html
 cd ../..
-rm -f bash-3.2.tar.gz
-rm -f -r bash-3.2
+rm -f -r bash-3.2.tar.gz bash-3.2

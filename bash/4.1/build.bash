@@ -15,8 +15,7 @@ declare -r -x LC_ALL=C
 url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
 readonly url
 
-rm -f bash-4.1.tar.gz
-rm -f -r bash-4.1
+rm -f -r bash-4.1.tar.gz bash-4.1
 wget -O bash-4.1.tar.gz -- "$url"
 sha256sum -c bash-4.1.tar.gz.sha256sum
 tar xf bash-4.1.tar.gz
@@ -27,5 +26,4 @@ cd doc
 texi2any --html --no-split bashref.texi
 cp bashref.html ../../index.html
 cd ../..
-rm -f bash-4.1.tar.gz
-rm -f -r bash-4.1
+rm -f -r bash-4.1.tar.gz bash-4.1

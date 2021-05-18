@@ -15,8 +15,7 @@ declare -r -x LC_ALL=C
 url=${1-'https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz'}
 readonly url
 
-rm -f autoconf-2.69.tar.gz
-rm -f -r autoconf-2.69
+rm -f -r autoconf-2.69.tar.gz autoconf-2.69
 wget -O autoconf-2.69.tar.gz -- "$url"
 sha256sum -c autoconf-2.69.tar.gz.sha256sum
 tar xf autoconf-2.69.tar.gz
@@ -34,5 +33,4 @@ mv x autoconf.texi
 texi2any --html --no-split autoconf.texi
 cp autoconf.html ../../index.html
 cd ../..
-rm -f autoconf-2.69.tar.gz
-rm -f -r autoconf-2.69
+rm -f -r autoconf-2.69.tar.gz autoconf-2.69
