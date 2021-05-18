@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <!--
-#
-# The authors of this file have waived all copyright and
-# related or neighboring rights to the extent permitted by
-# law as described by the CC0 1.0 Universal Public Domain
-# Dedication. You should have received a copy of the full
-# dedication along with this file, typically as a file
-# named <CC0-1.0.txt>. If not, it may be available at
-# <https://creativecommons.org/publicdomain/zero/1.0/>.
-#
+The authors of this file have waived all copyright and
+related or neighboring rights to the extent permitted by
+law as described by the CC0 1.0 Universal Public Domain
+Dedication. You should have received a copy of the full
+dedication along with this file, typically as a file
+named <CC0-1.0.txt>. If not, it may be available at
+<https://creativecommons.org/publicdomain/zero/1.0/>.
 -->
 <html>
 <head>
@@ -38,47 +36,9 @@ li {
 </style>
 </head>
 <body>
-Loading...
-<script>
-(async function() {
-  const user_regex = /^https:\/\/([^.]*).*/;
-  const repo_regex = /^https:\/\/[^\/]*\/([^\/]*).*/;
-  const path_regex = /^https:\/\/[^\/]*\/[^\/]*(\/?.*)/;
-  const user = window.location.href.replace(user_regex, "$1");
-  const repo = window.location.href.replace(repo_regex, "$1");
-  const path = window.location.href.replace(path_regex, "$1")
-               .replace(/\/index\.html$/, "")
-               .replace(/\/$/, "");
-  const url = "https://api.github.com/repos/"
-              + `${user}/${repo}/contents${path}`;
-  const json = await (await fetch(url)).json();
-
-  let html = "";
-
-  html += function() {
-    let h = "";
-    let d = ".";
-    if (path != "") {
-      for (let x of path.substr(1).split("/").reverse()) {
-        h = `/<a href="${d}">${x}</a>` + h;
-        d = d == "." ? ".." : d + "/..";
-      }
-    }
-    h = `<a href="${d}">manuals</a>` + h;
-    return h;
-  }();
-
-  html += "<ul>";
-  for (let x of json) {
-    if (x.type == "dir") {
-      html += `<li><a href="${x.name}">${x.name}</a></li>`;
-    }
-  }
-  html += "</ul>";
-
-  document.body.innerHTML = html;
-
-})()
-</script>
+<a href=".">manuals</a>
+<ul>
+<li><a href="bash">bash</a></li>
+</ul>
 </body>
 </html>
