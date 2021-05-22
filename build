@@ -106,8 +106,8 @@ EOF
     xs=$(
       for x in */; do
         x=${x%/}
-        if [[ -f $x/date.txt ]]; then
-          d=$(cat $x/date.txt)
+        if [[ -f $x/date ]]; then
+          d=$(cat $x/date)
         else
           d=0000-00-00
         fi
