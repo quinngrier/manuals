@@ -31,6 +31,10 @@ awk '
 ' autoconf.texi >x
 mv x autoconf.texi
 texi2any --html --no-split autoconf.texi
-cp autoconf.html ../..
+mv autoconf.html ../..
+cd ../man
+for x in *.1; do
+  groff -mandoc -T html $x >../../$x.html
+done
 cd ../..
 rm -f -r autoconf-2.69.tar.gz autoconf-2.69
