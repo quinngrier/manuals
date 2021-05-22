@@ -12,16 +12,12 @@
 set -e || exit $?
 . ./prelude.bash
 
-shopt -s globstar
+shopt -s globstar nullglob
 
 for dir in ./**/; do
   (
 
     cd $dir
-
-    if [[ -f date.txt ]]; then
-      exit 0
-    fi
 
     >index.html
 
@@ -90,16 +86,16 @@ li:before {
 EOF
 
     h=
-    d=.
+    d=./
     x=$dir
     while [[ $x != ./ ]]; do
       x=${x%/}
-      h="/<a href=\"$d\">${x##*/}</a>$h"
-      d+=/..
+      h="<a href=\"$d\">${x##*/}/</a>$h"
+      d+=../
       d=${d#./}
       x=${x%/*}/
     done
-    h="<a href=\"$d\">manuals</a>$h"
+    h="<a href=\"$d\">manuals/</a>$h"
 
     cat <<EOF >>index.html
 $h
@@ -121,9 +117,18 @@ EOF
 
     for x in $xs; do
       cat <<EOF >>index.html
-<li><a href="$x">$x</a></li>
+<li><a href="$x/">$x/</a></li>
 EOF
     done
+
+    if [[ -f files ]]; then
+      xs=$(cat files)
+      for x in $xs; do
+        cat <<EOF >>index.html
+<li><a href="$x">$x</a></li>
+EOF
+      done
+    fi
 
     cat <<'EOF' >>index.html
 </ul>

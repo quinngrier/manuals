@@ -24,6 +24,6 @@ cp lib/readline/doc/hsuser.texi doc
 cp lib/readline/doc/rluser.texi doc
 cd doc
 texi2any --html --no-split bashref.texi
-cp bashref.html ../../index.html
+cp bashref.html ../..
 cd ../..
 rm -f -r bash-4.1.tar.gz bash-4.1

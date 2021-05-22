@@ -31,6 +31,6 @@ awk '
 ' autoconf.texi >x
 mv x autoconf.texi
 texi2any --html --no-split autoconf.texi
-cp autoconf.html ../../index.html
+cp autoconf.html ../..
 cd ../..
 rm -f -r autoconf-2.69.tar.gz autoconf-2.69
