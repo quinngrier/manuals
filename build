@@ -10,18 +10,29 @@
 #
 
 set -e || exit $?
-. ./prelude.bash
+. ${1-./}prelude.bash
 
 shopt -s globstar nullglob
 
-for dir in ./**/; do
-  (
+f() {
 
-    cd $dir
+  declare current
+  declare d
+  declare h
+  declare root
+  declare skip
+  declare x
+  declare xs
 
-    >index.html
+  root=${1-./}
+  readonly root
 
-    cat <<'EOF' >>index.html
+  current=${2-./}
+  readonly current
+
+  >index.html
+
+  cat <<'EOF' >>index.html
 <!DOCTYPE html>
 <!--
 The authors of this file have waived all copyright and
@@ -85,57 +96,72 @@ li:before {
 <body>
 EOF
 
-    h=
-    d=./
-    x=$dir
-    while [[ $x != ./ ]]; do
-      x=${x%/}
-      h="<a href=\"$d\">${x##*/}/</a>$h"
-      d+=../
-      d=${d#./}
-      x=${x%/*}/
-    done
-    h="<a href=\"$d\">manuals/</a>$h"
+  h=
+  d=./
+  x=$current
+  while [[ $x != ./ ]]; do
+    x=${x%/}
+    h="<a href=\"$d\">${x##*/}/</a>$h"
+    d+=../
+    d=${d#./}
+    x=${x%/*}/
+  done
+  h="<a href=\"$d\">manuals/</a>$h"
 
-    cat <<EOF >>index.html
+  cat <<EOF >>index.html
 $h
 <ul>
 <div></div>
 EOF
 
-    xs=$(
-      for x in */; do
-        x=${x%/}
-        if [[ -f $x/date ]]; then
-          d=$(cat $x/date)
-        else
-          d=0000-00-00
-        fi
-        printf '%s\n' "$d $x"
-      done | sort | cut -d ' ' -f 2
-    )
+  xs=$(
+    for x in */; do
+      x=${x%/}
+      if [[ -f $x/date ]]; then
+        d=$(cat $x/date)
+      else
+        d=0000-00-00
+      fi
+      printf '%s\n' "$d $x"
+    done | sort | cut -d ' ' -f 2
+  )
 
-    for x in $xs; do
-      cat <<EOF >>index.html
+  for x in $xs; do
+    cat <<EOF >>index.html
 <li><a href="$x/">$x/</a></li>
 EOF
-    done
+  done
 
-    if [[ -f files ]]; then
-      xs=$(cat files)
-      for x in $xs; do
-        cat <<EOF >>index.html
+  if [[ -f files ]]; then
+    xs=$(cat files)
+    for x in $xs; do
+      cat <<EOF >>index.html
 <li><a href="$x">$x</a></li>
 EOF
-      done
-    fi
+    done
+  fi
 
-    cat <<'EOF' >>index.html
+  cat <<'EOF' >>index.html
 </ul>
 </body>
 </html>
 EOF
 
-  )
-done
+  if [[ -f skip ]]; then
+    skip=' '$(tr '\n' ' ' <skip)' '
+  else
+    skip=
+  fi
+  readonly skip
 
+  for d in */; do
+    if [[ "$d" != .* && "$skip" != *" $d "* ]]; then
+      cd $d
+      ../$0 ../$root $current$d
+      cd ..
+    fi
+  done
+
+}; readonly -f
+
+f "$@"
