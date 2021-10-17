@@ -112,13 +112,15 @@ EOF
 
   xs=$(
     for x in */; do
-      x=${x%/}
-      if [[ -f $x/date ]]; then
-        d=$(cat $x/date)
-      else
-        d=0000-00-00
+      if [[ "$x" != .* ]]; then
+        x=${x%/}
+        if [[ -f $x/date ]]; then
+          d=$(cat $x/date)
+        else
+          d=0000-00-00
+        fi
+        printf '%s\n' "$d $x"
       fi
-      printf '%s\n' "$d $x"
     done | sort | cut -d ' ' -f 2
   )
 
