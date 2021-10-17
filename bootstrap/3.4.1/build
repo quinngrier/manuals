@@ -34,6 +34,20 @@ sha256sum --check --quiet repo.sha256sum
 
 cd repo
 
+sed '
+  s|^url:.*|url: https://manuals.quinngrier.com|
+  s|^baseurl:.*|baseurl: /bootstrap/3.4.1/gh-pages|
+' _config.yml >../tmp
+cat ../tmp >_config.yml
+
+for x in docs/_includes/**/*.html; do
+  sed '
+    /<link.*https:/d
+    /<script.*https:/d
+  ' $x >../tmp
+  cat ../tmp >$x
+done
+
 u=$(id -u)
 readonly u
 
