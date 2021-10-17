@@ -1,0 +1,65 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+clean() {
+  rm -f -r \
+    repo \
+    tmp \
+  ;
+}; readonly -f clean
+
+clean
+
+git clone \
+  --branch v3.4.1 \
+  --depth 1 \
+  https://github.com/twbs/bootstrap.git \
+  repo \
+;
+
+rm -f -r repo/.git
+
+sha256sum --check --quiet repo.sha256sum
+
+cd repo
+
+u=$(id -u)
+readonly u
+
+g=$(id -g)
+readonly g
+
+docker run \
+  --rm \
+  -i \
+  -t \
+  -v "$PWD":/srv/jekyll \
+  jekyll/jekyll \
+  sh -c ': \
+    && gem install bundler:1.17.3 \
+    && bundle install \
+    && bundle exec jekyll build \
+    && chown -R '$u:$g' . \
+  ' \
+;
+
+rm -f -r ../gh-pages
+mv -f _gh_pages ../gh-pages
+
+cd ..
+
+sed '/<lastmod>/d' gh-pages/sitemap.xml >tmp
+cat tmp >gh-pages/sitemap.xml
+
+clean
