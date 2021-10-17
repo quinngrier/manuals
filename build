@@ -47,6 +47,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
 * {
   font-family: monospace;
+  font-size: 18px;
   line-height: 1;
   list-style-type: none;
   margin: 0;
@@ -56,6 +57,10 @@ named <CC0-1.0.txt>. If not, it may be available at
 
 body {
   margin: 1em;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 ul {
@@ -76,7 +81,7 @@ li {
   margin-left: 0.25ch;
 }
 
-li:before {
+li::before {
   border-top: 1px solid lightgray;
   content: "";
   display: inline-block;
