@@ -12,8 +12,6 @@
 set -e || exit $?
 . ${1-./}prelude.bash
 
-shopt -s globstar nullglob
-
 f() {
 
   declare current

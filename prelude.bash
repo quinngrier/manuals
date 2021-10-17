@@ -27,4 +27,11 @@ esac
 set -E -e -u -o pipefail || exit
 trap exit ERR
 
+shopt -s \
+  dotglob \
+  extglob \
+  globstar \
+  nullglob \
+;
+
 declare -r -x LC_ALL=C
