@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat May 22 07:34:48 2021 -->
+<!-- CreationDate: Fri Nov 19 12:33:36 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,7 +15,7 @@
 </style>
 <title>BASH_BUILTINS</title>
 
-</head>
+<script defer src="qref.js"></script></head>
 <body>
 
 <h1 align="center">BASH_BUILTINS</h1>
@@ -321,7 +321,7 @@ directory containing <i>dir</i>. Alternative directory names
 in <b><small>CDPATH</small></b> are separated by a colon
 (:). A null directory name in <b><small>CDPATH</small></b>
 is the same as the current directory, i.e.,
-&rsquo;&rsquo;<b>.</b>&rsquo;&rsquo;. If <i>dir</i> begins
+&lsquo;&lsquo;<b>.</b>&rsquo;&rsquo;. If <i>dir</i> begins
 with a slash (/), then <b><small>CDPATH</small></b> is not
 used. The <b>-P</b> option says to use the physical
 directory structure instead of following symbolic links (see
@@ -402,12 +402,12 @@ reused as input. The <b>-r</b> option removes a completion
 specification for each <i>name</i>, or, if no <i>name</i>s
 are supplied, all completion specifications. The <b>-D</b>
 option indicates that the remaining options and actions
-should apply to the &rsquo;&rsquo;default&rsquo;&rsquo;
+should apply to the &lsquo;&lsquo;default&rsquo;&rsquo;
 command completion; that is, completion attempted on a
 command for which no completion has previously been defined.
 The <b>-E</b> option indicates that the remaining options
 and actions should apply to
-&rsquo;&rsquo;empty&rsquo;&rsquo; command completion; that
+&lsquo;&lsquo;empty&rsquo;&rsquo; command completion; that
 is, completion attempted on a blank line.</p>
 
 <p style="margin-left:22%; margin-top: 1em">The process of
@@ -808,11 +808,11 @@ completion options for each <i>name</i> or the current
 completion. The possible values of <i>option</i> are those
 valid for the <b>complete</b> builtin described above. The
 <b>-D</b> option indicates that the remaining options should
-apply to the &rsquo;&rsquo;default&rsquo;&rsquo; command
+apply to the &lsquo;&lsquo;default&rsquo;&rsquo; command
 completion; that is, completion attempted on a command for
 which no completion has previously been defined. The
 <b>-E</b> option indicates that the remaining options should
-apply to &rsquo;&rsquo;empty&rsquo;&rsquo; command
+apply to &lsquo;&lsquo;empty&rsquo;&rsquo; command
 completion; that is, completion attempted on a blank
 line.</p>
 
@@ -829,7 +829,7 @@ the enclosing <b>for</b>, <b>while</b>, <b>until</b>, or
 <i>n</i>th enclosing loop. <i>n</i> must be &ge; 1. If
 <i>n</i> is greater than the number of enclosing loops, the
 last enclosing loop (the
-&rsquo;&rsquo;top-level&rsquo;&rsquo; loop) is resumed. The
+&lsquo;&lsquo;top-level&rsquo;&rsquo; loop) is resumed. The
 return value is 0 unless <i>n</i> is not greater than or
 equal to 1.</p>
 
@@ -979,7 +979,7 @@ the environment.</p></td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">Using
-&rsquo;+&rsquo; instead of &rsquo;-&rsquo; turns off the
+&lsquo;+&rsquo; instead of &lsquo;-&rsquo; turns off the
 attribute instead, with the exceptions that <b>+a</b> may
 not be used to destroy an array variable and <b>+r</b> will
 not remove the readonly attribute. When used in a function,
@@ -987,7 +987,7 @@ makes each <i>name</i> local, as with the <b>local</b>
 command. If a variable name is followed by =<i>value</i>,
 the value of the variable is set to <i>value</i>. The return
 value is 0 unless an invalid option is encountered, an
-attempt is made to define a function using &rsquo;&rsquo;-f
+attempt is made to define a function using &lsquo;&lsquo;-f
 foo=bar&rsquo;&rsquo;, an attempt is made to assign a value
 to a readonly variable, an attempt is made to assign a value
 to an array variable without using the compound assignment
@@ -1276,7 +1276,7 @@ normally searches for builtins before disk commands. If
 <i>names</i> are enabled. For example, to use the
 <b>test</b> binary found via the <b><small>PATH</small></b>
 instead of the shell builtin version, run
-&rsquo;&rsquo;enable -n test&rsquo;&rsquo;. The <b>-f</b>
+&lsquo;&lsquo;enable -n test&rsquo;&rsquo;. The <b>-f</b>
 option means to load the new builtin command <i>name</i>
 from shared object <i>filename</i>, on systems that support
 dynamic loading. The <b>-d</b> option will delete a builtin
@@ -1364,7 +1364,7 @@ beginning with that string) or as a number (an index into
 the history list, where a negative number is used as an
 offset from the current command number). If <i>last</i> is
 not specified it is set to the current command for listing
-(so that &rsquo;&rsquo;fc -l -10&rsquo;&rsquo; prints the
+(so that &lsquo;&lsquo;fc -l -10&rsquo;&rsquo; prints the
 last 10 commands) and to <i>first</i> otherwise. If
 <i>first</i> is not specified it is set to the previous
 command for editing and -16 for listing.</p>
@@ -1385,11 +1385,11 @@ commands are echoed and executed.</p>
 <p style="margin-left:22%; margin-top: 1em">In the second
 form, <i>command</i> is re-executed after each instance of
 <i>pat</i> is replaced by <i>rep</i>. A useful alias to use
-with this is &rsquo;&rsquo;r=&quot;fc
--s&quot;&rsquo;&rsquo;, so that typing &rsquo;&rsquo;r
+with this is &lsquo;&lsquo;r=&quot;fc
+-s&quot;&rsquo;&rsquo;, so that typing &lsquo;&lsquo;r
 cc&rsquo;&rsquo; runs the last command beginning with
-&rsquo;&rsquo;cc&rsquo;&rsquo; and typing
-&rsquo;&rsquo;r&rsquo;&rsquo; re-executes the last
+&lsquo;&lsquo;cc&rsquo;&rsquo; and typing
+&lsquo;&lsquo;r&rsquo;&rsquo; re-executes the last
 command.</p>
 
 <p style="margin-left:22%; margin-top: 1em">If the first
@@ -1604,7 +1604,7 @@ position <i>offset</i>.</p>
 <td width="68%">
 
 
-<p>Append the &rsquo;&rsquo;new&rsquo;&rsquo; history lines
+<p>Append the &lsquo;&lsquo;new&rsquo;&rsquo; history lines
 (history lines entered since the beginning of the current
 <b>bash</b> session) to the history file.</p></td></tr>
 <tr valign="top" align="left">
@@ -1992,8 +1992,8 @@ manipulated.</p> </td></tr>
 
 <p>Removes the <i>n</i>th entry counting from the left of
 the list shown by <b>dirs</b>, starting with zero. For
-example: &rsquo;&rsquo;popd +0&rsquo;&rsquo; removes the
-first directory, &rsquo;&rsquo;popd +1&rsquo;&rsquo; the
+example: &lsquo;&lsquo;popd +0&rsquo;&rsquo; removes the
+first directory, &lsquo;&lsquo;popd +1&rsquo;&rsquo; the
 second.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
@@ -2007,8 +2007,8 @@ second.</p> </td></tr>
 
 <p>Removes the <i>n</i>th entry counting from the right of
 the list shown by <b>dirs</b>, starting with zero. For
-example: &rsquo;&rsquo;popd -0&rsquo;&rsquo; removes the
-last directory, &rsquo;&rsquo;popd -1&rsquo;&rsquo; the next
+example: &lsquo;&lsquo;popd -0&rsquo;&rsquo; removes the
+last directory, &lsquo;&lsquo;popd -1&rsquo;&rsquo; the next
 to last.</p></td></tr>
 </table>
 
@@ -2562,7 +2562,7 @@ on by default in interactive shells.</p></td></tr>
 <p style="margin-left:34%;"><b>ignoreeof</b></p>
 
 <p style="margin-left:46%;">The effect is as if the shell
-command &rsquo;&rsquo;IGNOREEOF=10&rsquo;&rsquo; had been
+command &lsquo;&lsquo;IGNOREEOF=10&rsquo;&rsquo; had been
 executed (see <b>Shell Variables</b> above).</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -3185,7 +3185,7 @@ exist.</p>
 
 
 <p>If set, <b>bash</b> includes filenames beginning with a
-&rsquo;.&rsquo; in the results of pathname expansion.</p></td></tr>
+&lsquo;.&rsquo; in the results of pathname expansion.</p></td></tr>
 </table>
 
 <p style="margin-left:22%;"><b>execfail</b></p>
@@ -3415,7 +3415,7 @@ be changed.</p>
 
 <p style="margin-left:34%;">If set, and a file that
 <b>bash</b> is checking for mail has been accessed since the
-last time it was checked, the message &rsquo;&rsquo;The mail
+last time it was checked, the message &lsquo;&lsquo;The mail
 in <i>mailfile</i> has been read&rsquo;&rsquo; is
 displayed.</p>
 
@@ -3698,10 +3698,10 @@ not found, then nothing is printed, and an exit status of
 false is returned. If the <b>-p</b> option is used,
 <b>type</b> either returns the name of the disk file that
 would be executed if <i>name</i> were specified as a command
-name, or nothing if &rsquo;&rsquo;type -t name&rsquo;&rsquo;
+name, or nothing if &lsquo;&lsquo;type -t name&rsquo;&rsquo;
 would not return <i>file</i>. The <b>-P</b> option forces a
 <b><small>PATH</small></b> search for each <i>name</i>, even
-if &rsquo;&rsquo;type -t name&rsquo;&rsquo; would not return
+if &lsquo;&lsquo;type -t name&rsquo;&rsquo; would not return
 <i>file</i>. If a command is hashed, <b>-p</b> and <b>-P</b>
 print the hashed value, not necessarily the file that
 appears first in <b><small>PATH</small></b><small>.</small>

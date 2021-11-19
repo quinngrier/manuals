@@ -12,21 +12,56 @@
 set -e || exit $?
 . ../../prelude.bash
 
-url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
-readonly url
+main() {
 
-rm -f -r bash-4.1.tar.gz bash-4.1
-wget -O bash-4.1.tar.gz -- "$url"
-sha256sum -c bash-4.1.tar.gz.sha256sum
-tar xf bash-4.1.tar.gz
-cd bash-4.1
-cp lib/readline/doc/hsuser.texi doc
-cp lib/readline/doc/rluser.texi doc
-cd doc
-texi2any --html --no-split bashref.texi
-mv bashref.html ../..
-for x in *.1; do
-  groff -mandoc -T html $x >../../$x.html
-done
-cd ../..
-rm -f -r bash-4.1.tar.gz bash-4.1
+  declare    container
+  declare    image
+  declare    url
+  declare    x
+
+  url=${1-'https://ftp.gnu.org/gnu/bash/bash-4.1.tar.gz'}
+  rm -f -r bash-4.1.tar.gz bash-4.1
+  wget -O bash-4.1.tar.gz -- "$url"
+  sha512sum -c bash-4.1.tar.gz.sha512sum
+
+  url=${1-'http://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz'}
+  rm -f -r groff-1.22.4.tar.gz groff-1.22.4
+  wget -O groff-1.22.4.tar.gz -- "$url"
+  sha512sum -c groff-1.22.4.tar.gz.sha512sum
+
+  url=${1-'http://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz'}
+  rm -f -r texinfo-6.7.tar.gz texinfo-6.7
+  wget -O texinfo-6.7.tar.gz -- "$url"
+  sha512sum -c texinfo-6.7.tar.gz.sha512sum
+
+  docker build --iidfile image .
+
+  image=$(cat image)
+  readonly image
+
+  container=$(docker create -- "$image")
+  readonly container
+
+  rm -f -r out
+  mkdir out
+
+  docker cp -- "$container":/bash-4.1/doc/out/. out
+
+  for x in out/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+  done
+
+  mv -f out/* .
+
+  rm bash-4.1.tar.gz
+  rm groff-1.22.4.tar.gz
+  rm image
+  rm texinfo-6.7.tar.gz
+  rmdir out
+
+}; readonly -f main
+
+main "$@"

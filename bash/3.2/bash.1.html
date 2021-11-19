@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Sat May 22 07:34:42 2021 -->
+<!-- CreationDate: Fri Nov 19 12:12:01 2021 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,7 +15,7 @@
 </style>
 <title>BASH</title>
 
-</head>
+<script defer src="qref.js"></script></head>
 <body>
 
 <h1 align="center">BASH</h1>
@@ -991,12 +991,12 @@ backslash.</p>
 <p style="margin-left:11%; margin-top: 1em">Enclosing
 characters in double quotes preserves the literal value of
 all characters within the quotes, with the exception of
-<b>$</b>, <b>&rsquo;</b>, <b>\</b>, and, when history
+<b>$</b>, <b>&lsquo;</b>, <b>\</b>, and, when history
 expansion is enabled, <b>!</b>. The characters <b>$</b> and
-<b>&rsquo;</b> retain their special meaning within double
+<b>&lsquo;</b> retain their special meaning within double
 quotes. The backslash retains its special meaning only when
 followed by one of the following characters: <b>$</b>,
-<b>&rsquo;</b>, <b>&quot;</b>, <b>\</b>, or
+<b>&lsquo;</b>, <b>&quot;</b>, <b>\</b>, or
 <b>&lt;newline&gt;</b>. A double quote may be quoted within
 double quotes by preceding it with a backslash. If enabled,
 history expansion will be performed unless an <b>!</b>
@@ -2041,12 +2041,12 @@ writing it when an interactive shell exits.</p>
 patterns used to decide which command lines should be saved
 on the history list. Each pattern is anchored at the
 beginning of the line and must match the complete line (no
-implicit &rsquo;<b>*</b>&rsquo; is appended). Each pattern
+implicit &lsquo;<b>*</b>&rsquo; is appended). Each pattern
 is tested against the line after the checks specified by
 <b>HISTCONTROL</b> are applied. In addition to the normal
 shell pattern matching characters,
-&rsquo;<b>&amp;</b>&rsquo; matches the previous history
-line. &rsquo;<b>&amp;</b>&rsquo; may be escaped using a
+&lsquo;<b>&amp;</b>&rsquo; matches the previous history
+line. &lsquo;<b>&amp;</b>&rsquo; may be escaped using a
 backslash; the backslash is removed before attempting a
 match. The second and subsequent lines of a multi-line
 compound command are not tested, and are added to the
@@ -2117,7 +2117,7 @@ is cleared.</p>
 <p>The <i>Internal Field Separator</i> that is used for
 word splitting after expansion and to split lines into words
 with the <b>read</b> builtin command. The default value is
-&rsquo;&rsquo;&lt;space&gt;&lt;tab&gt;&lt;newline&gt;&rsquo;&rsquo;.</p> </td></tr>
+&lsquo;&lsquo;&lt;space&gt;&lt;tab&gt;&lt;newline&gt;&rsquo;&rsquo;.</p> </td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>IGNOREEOF</b></p>
@@ -2239,7 +2239,7 @@ or equal to zero, the shell disables mail checking.</p>
 names to be checked for mail. The message to be printed when
 mail arrives in a particular file may be specified by
 separating the file name from the message with a
-&rsquo;?&rsquo;. When used in the text of the message,
+&lsquo;?&rsquo;. When used in the text of the message,
 <b>$_</b> expands to the name of the current mailfile.
 Example: <b><br>
 MAILPATH</b>='/var/mail/bfox?&quot;You have
@@ -2284,7 +2284,7 @@ directory name may appear as two adjacent colons, or as an
 initial or trailing colon. The default path is
 system-dependent, and is set by the administrator who
 installs <b>bash</b>. A common value is
-&rsquo;&rsquo;/usr/gnu/bin:/usr/local/bin:/usr/ucb:/bin:/usr/bin&rsquo;&rsquo;.</p> </td></tr>
+&lsquo;&lsquo;/usr/gnu/bin:/usr/local/bin:/usr/ucb:/bin:/usr/bin&rsquo;&rsquo;.</p> </td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>POSIXLY_CORRECT</b></p>
@@ -2317,7 +2317,7 @@ as a command prior to issuing each primary prompt.</p>
 <p>The value of this parameter is expanded (see
 <b><small>PROMPTING</small></b> below) and used as the
 primary prompt string. The default value is
-&rsquo;&rsquo;<b>\s-\v\$</b> &rsquo;&rsquo;.</p></td></tr>
+&lsquo;&lsquo;<b>\s-\v\$</b> &rsquo;&rsquo;.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="7%">
@@ -2330,7 +2330,7 @@ primary prompt string. The default value is
 
 <p>The value of this parameter is expanded as with
 <b>PS1</b> and used as the secondary prompt string. The
-default is &rsquo;&rsquo;<b>&gt;</b> &rsquo;&rsquo;.</p></td></tr>
+default is &lsquo;&lsquo;<b>&gt;</b> &rsquo;&rsquo;.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="7%">
@@ -2359,7 +2359,7 @@ GRAMMAR</small></b> above).</p></td></tr>
 <b>bash</b> displays during an execution trace. The first
 character of <b><small>PS4</small></b> is replicated
 multiple times, as necessary, to indicate multiple levels of
-indirection. The default is &rsquo;&rsquo;<b>+</b>
+indirection. The default is &lsquo;&lsquo;<b>+</b>
 &rsquo;&rsquo;.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
@@ -2531,14 +2531,14 @@ which control history expansion and tokenization (see
 <b><small>HISTORY EXPANSION</small></b> below). The first
 character is the <i>history expansion</i> character, the
 character which signals the start of a history expansion,
-normally &rsquo;<b>!</b>&rsquo;. The second character is the
+normally &lsquo;<b>!</b>&rsquo;. The second character is the
 <i>quick substitution</i> character, which is used as
 shorthand for re-running the previous command entered,
 substituting one string for another in the command. The
-default is &rsquo;<b>^</b>&rsquo;. The optional third
+default is &lsquo;<b>^</b>&rsquo;. The optional third
 character is the character which indicates that the
 remainder of the line is a comment when found as the first
-character of a word, normally &rsquo;<b>#</b>&rsquo;. The
+character of a word, normally &lsquo;<b>#</b>&rsquo;. The
 history comment character causes history substitution to be
 skipped for the remaining words on the line. It does not
 necessarily cause the shell parser to treat the rest of the
@@ -2670,7 +2670,7 @@ resulting string, expanding left to right.</p>
 <p style="margin-left:11%; margin-top: 1em">Brace
 expansions may be nested. The results of each expanded
 string are not sorted; left to right order is preserved. For
-example, a<b>{</b>d,c,b<b>}</b>e expands into &rsquo;ade ace
+example, a<b>{</b>d,c,b<b>}</b>e expands into &lsquo;ade ace
 abe&rsquo;.</p>
 
 <p style="margin-left:11%; margin-top: 1em">A sequence
@@ -2731,7 +2731,7 @@ the <b>+B</b> option to the <b>set</b> command (see
 <p style="margin-left:11%; margin-top: 1em"><b>Tilde
 Expansion</b> <br>
 If a word begins with an unquoted tilde character
-(&rsquo;<b>~</b>&rsquo;), all of the characters preceding
+(&lsquo;<b>~</b>&rsquo;), all of the characters preceding
 the first unquoted slash (or all characters, if there is no
 unquoted slash) are considered a <i>tilde-prefix</i>. If
 none of the characters in the tilde-prefix are quoted, the
@@ -2746,20 +2746,20 @@ Otherwise, the tilde-prefix is replaced with the home
 directory associated with the specified login name.</p>
 
 <p style="margin-left:11%; margin-top: 1em">If the
-tilde-prefix is a &rsquo;~+&rsquo;, the value of the shell
+tilde-prefix is a &lsquo;~+&rsquo;, the value of the shell
 variable <b><small>PWD</small></b> replaces the
-tilde-prefix. If the tilde-prefix is a &rsquo;~-&rsquo;, the
+tilde-prefix. If the tilde-prefix is a &lsquo;~-&rsquo;, the
 value of the shell variable
 <b><small>OLDPWD</small></b><small>,</small> if it is set,
 is substituted. If the characters following the tilde in the
 tilde-prefix consist of a number <i>N</i>, optionally
-prefixed by a &rsquo;+&rsquo; or a &rsquo;-&rsquo;, the
+prefixed by a &lsquo;+&rsquo; or a &lsquo;-&rsquo;, the
 tilde-prefix is replaced with the corresponding element from
 the directory stack, as it would be displayed by the
 <b>dirs</b> builtin invoked with the tilde-prefix as an
 argument. If the characters following the tilde in the
 tilde-prefix consist of a number without a leading
-&rsquo;+&rsquo; or &rsquo;-&rsquo;, &rsquo;+&rsquo; is
+&lsquo;+&rsquo; or &lsquo;-&rsquo;, &lsquo;+&rsquo; is
 assumed.</p>
 
 <p style="margin-left:11%; margin-top: 1em">If the login
@@ -2778,7 +2778,7 @@ assigns the expanded value.</p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>Parameter
 Expansion</b> <br>
-The &rsquo;<b>$</b>&rsquo; character introduces parameter
+The &lsquo;<b>$</b>&rsquo; character introduces parameter
 expansion, command substitution, or arithmetic expansion.
 The parameter name or symbol to be expanded may be enclosed
 in braces, which are optional but serve to protect the
@@ -2788,7 +2788,7 @@ name.</p>
 
 <p style="margin-left:11%; margin-top: 1em">When braces are
 used, the matching ending brace is the first
-&rsquo;<b>}</b>&rsquo; not escaped by a backslash or within
+&lsquo;<b>}</b>&rsquo; not escaped by a backslash or within
 a quoted string, and not within an embedded arithmetic
 expansion, command substitution, or parameter expansion.
 <br>
@@ -2928,9 +2928,9 @@ produce a pattern just as in pathname expansion. If the
 pattern matches the beginning of the value of
 <i>parameter</i>, then the result of the expansion is the
 expanded value of <i>parameter</i> with the shortest
-matching pattern (the &rsquo;&rsquo;<b>#</b>&rsquo;&rsquo;
+matching pattern (the &lsquo;&lsquo;<b>#</b>&rsquo;&rsquo;
 case) or the longest matching pattern (the
-&rsquo;&rsquo;<b>##</b>&rsquo;&rsquo; case) deleted. If
+&lsquo;&lsquo;<b>##</b>&rsquo;&rsquo; case) deleted. If
 <i>parameter</i> is <b>@</b> or <b>*</b>, the pattern
 removal operation is applied to each positional parameter in
 turn, and the expansion is the resultant list. If
@@ -2949,9 +2949,9 @@ produce a pattern just as in pathname expansion. If the
 pattern matches a trailing portion of the expanded value of
 <i>parameter</i>, then the result of the expansion is the
 expanded value of <i>parameter</i> with the shortest
-matching pattern (the &rsquo;&rsquo;<b>%</b>&rsquo;&rsquo;
+matching pattern (the &lsquo;&lsquo;<b>%</b>&rsquo;&rsquo;
 case) or the longest matching pattern (the
-&rsquo;&rsquo;<b>%%</b>&rsquo;&rsquo; case) deleted. If
+&lsquo;&lsquo;<b>%%</b>&rsquo;&rsquo; case) deleted. If
 <i>parameter</i> is <b>@</b> or <b>*</b>, the pattern
 removal operation is applied to each positional parameter in
 turn, and the expansion is the resultant list. If
@@ -2993,7 +2993,7 @@ replace the command name. There are two forms:</p>
 <p style="margin-left:11%;">or</p>
 
 
-<p style="margin-left:22%;"><b>&rsquo;</b><i>command</i><b>&rsquo;</b></p>
+<p style="margin-left:22%;"><b>&lsquo;</b><i>command</i><b>&lsquo;</b></p>
 
 <p style="margin-left:11%; margin-top: 1em"><b>Bash</b>
 performs the expansion by executing <i>command</i> and
@@ -3007,7 +3007,7 @@ faster <b>$(&lt;</b> <i>file</i><b>)</b>.</p>
 <p style="margin-left:11%; margin-top: 1em">When the
 old-style backquote form of substitution is used, backslash
 retains its literal meaning except when followed by
-<b>$</b>, <b>&rsquo;</b>, or <b>\</b>. The first backquote
+<b>$</b>, <b>&lsquo;</b>, or <b>\</b>. The first backquote
 not preceded by a backslash terminates the command
 substitution. When using the $(<i>command</i>) form, all
 characters between the parentheses make up the command; none
@@ -3120,12 +3120,12 @@ executed. If the shell option <b>nocaseglob</b> is enabled,
 the match is performed without regard to the case of
 alphabetic characters. When a pattern is used for pathname
 expansion, the character
-<b>&rsquo;&rsquo;.&rsquo;&rsquo;</b> at the start of a name
+<b>&lsquo;&lsquo;.&rsquo;&rsquo;</b> at the start of a name
 or immediately following a slash must be matched explicitly,
 unless the shell option <b>dotglob</b> is set. When matching
 a pathname, the slash character must always be matched
 explicitly. In other cases, the
-<b>&rsquo;&rsquo;.&rsquo;&rsquo;</b> character is not
+<b>&lsquo;&lsquo;.&rsquo;&rsquo;</b> character is not
 treated specially. See the description of <b>shopt</b> below
 under <b><small>SHELL BUILTIN COMMANDS</small></b> for a
 description of the <b>nocaseglob</b>, <b>nullglob</b>,
@@ -3137,16 +3137,16 @@ to restrict the set of file names matching a <i>pattern</i>.
 If <b><small>GLOBIGNORE</small></b> is set, each matching
 file name that also matches one of the patterns in
 <b><small>GLOBIGNORE</small></b> is removed from the list of
-matches. The file names <b>&rsquo;&rsquo;.&rsquo;&rsquo;</b>
-and <b>&rsquo;&rsquo;..&rsquo;&rsquo;</b> are always ignored
+matches. The file names <b>&lsquo;&lsquo;.&rsquo;&rsquo;</b>
+and <b>&lsquo;&lsquo;..&rsquo;&rsquo;</b> are always ignored
 when <b><small>GLOBIGNORE</small></b> is set and not null.
 However, setting <b><small>GLOBIGNORE</small></b> to a
 non-null value has the effect of enabling the <b>dotglob</b>
 shell option, so all other file names beginning with a
-<b>&rsquo;&rsquo;.&rsquo;&rsquo;</b> will match. To get the
+<b>&lsquo;&lsquo;.&rsquo;&rsquo;</b> will match. To get the
 old behavior of ignoring file names beginning with a
-<b>&rsquo;&rsquo;.&rsquo;&rsquo;</b>, make
-<b>&rsquo;&rsquo;.*&rsquo;&rsquo;</b> one of the patterns in
+<b>&lsquo;&lsquo;.&rsquo;&rsquo;</b>, make
+<b>&lsquo;&lsquo;.*&rsquo;&rsquo;</b> one of the patterns in
 <b><small>GLOBIGNORE</small></b><small>.</small> The
 <b>dotglob</b> option is disabled when
 <b><small>GLOBIGNORE</small></b> is unset.</p>
@@ -3486,7 +3486,7 @@ parameter expansion, command substitution, and arithmetic
 expansion. In the latter case, the character sequence
 <b>\&lt;newline&gt;</b> is ignored, and <b>\</b> must be
 used to quote the characters <b>\</b>, <b>$</b>, and
-<b>&rsquo;</b>.</p>
+<b>&lsquo;</b>.</p>
 
 <p style="margin-left:11%; margin-top: 1em">If the
 redirection operator is <b>&lt;&lt;-</b>, then all leading
@@ -3589,7 +3589,7 @@ list of aliases that may be set and unset with the
 first word of each simple command, if unquoted, is checked
 to see if it has an alias. If so, that word is replaced by
 the text of the alias. The characters <b>/</b>, <b>$</b>,
-<b>&rsquo;</b>, and <b>=</b> and any of the shell
+<b>&lsquo;</b>, and <b>=</b> and any of the shell
 <i>metacharacters</i> or quoting characters listed above may
 not appear in an alias name. The replacement text may
 contain any valid shell input, including shell
@@ -4010,7 +4010,7 @@ is a symbolic link.</p>
 <p style="margin-left:11%;"><b>-k</b> <i>file</i></p>
 
 <p style="margin-left:22%;">True if <i>file</i> exists and
-its &rsquo;&rsquo;sticky&rsquo;&rsquo; bit is set.</p>
+its &lsquo;&lsquo;sticky&rsquo;&rsquo; bit is set.</p>
 
 <p style="margin-left:11%;"><b>-p</b> <i>file</i></p>
 
@@ -4770,11 +4770,11 @@ specification) also refers to the current job.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Simply naming a
 job can be used to bring it into the foreground: <b>%1</b>
-is a synonym for <b>&rsquo;&rsquo;fg %1&rsquo;&rsquo;</b>,
+is a synonym for <b>&lsquo;&lsquo;fg %1&rsquo;&rsquo;</b>,
 bringing job 1 from the background into the foreground.
-Similarly, <b>&rsquo;&rsquo;%1 &amp;&rsquo;&rsquo;</b>
+Similarly, <b>&lsquo;&lsquo;%1 &amp;&rsquo;&rsquo;</b>
 resumes job 1 in the background, equivalent to
-<b>&rsquo;&rsquo;bg %1&rsquo;&rsquo;</b>.</p>
+<b>&lsquo;&lsquo;bg %1&rsquo;&rsquo;</b>.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The shell
 learns immediately whenever a job changes state. Normally,
@@ -4867,7 +4867,7 @@ required</p>
 <td width="68%">
 
 
-<p>the hostname up to the first &rsquo;.&rsquo;</p></td></tr>
+<p>the hostname up to the first &lsquo;.&rsquo;</p></td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
 <td width="6%">
@@ -5249,7 +5249,7 @@ example, <i>C-u</i> is bound to the function
 <b>universal-argument</b>, <i>M-DEL</i> is bound to the
 function <b>backward-kill-word</b>, and <i>C-o</i> is bound
 to run the macro expressed on the right hand side (that is,
-to insert the text &rsquo;&rsquo;&gt; output&rsquo;&rsquo;
+to insert the text &lsquo;&lsquo;&gt; output&rsquo;&rsquo;
 into the line).</p>
 
 <p style="margin-left:11%; margin-top: 1em">In the second
@@ -5271,7 +5271,7 @@ universal-argument <br>
 example, <i>C-u</i> is again bound to the function
 <b>universal-argument</b>. <i>C-x C-r</i> is bound to the
 function <b>re-read-init-file</b>, and <i>ESC [ 1 1 ~</i> is
-bound to insert the text &rsquo;&rsquo;Function Key
+bound to insert the text &lsquo;&lsquo;Function Key
 1&rsquo;&rsquo;.</p>
 
 <p style="margin-left:11%; margin-top: 1em">The full set of
@@ -5528,7 +5528,7 @@ the kernel&rsquo;s terminal driver to their readline
 equivalents.</p>
 
 <p style="margin-left:11%;"><b>comment-begin
-(&rsquo;&rsquo;#&rsquo;&rsquo;)</b></p>
+(&lsquo;&lsquo;#&rsquo;&rsquo;)</b></p>
 
 <p style="margin-left:22%;">The string that is inserted
 when the readline <b>insert-comment</b> command is executed.
@@ -5615,7 +5615,7 @@ the terminal claims it can support. The name
 <b>meta-flag</b> is a synonym for this variable.</p>
 
 <p style="margin-left:11%;"><b>isearch-terminators
-(&rsquo;&rsquo;C-[C-J&rsquo;&rsquo;)</b></p>
+(&lsquo;&lsquo;C-[C-J&rsquo;&rsquo;)</b></p>
 
 <p style="margin-left:22%;">The string of characters that
 should terminate an incremental search without subsequently
@@ -5660,8 +5660,8 @@ appended (subject to the value of
 
 <p style="margin-left:22%;">This variable, when set to
 <b>On</b>, causes readline to match files whose names begin
-with a &rsquo;.&rsquo; (hidden files) when performing
-filename completion, unless the leading &rsquo;.&rsquo; is
+with a &lsquo;.&rsquo; (hidden files) when performing
+filename completion, unless the leading &lsquo;.&rsquo; is
 supplied by the user in the filename to be completed.</p>
 
 <p style="margin-left:11%;"><b>output-meta (Off)</b></p>
@@ -5969,14 +5969,14 @@ history, i.e., the line currently being entered.</p>
 (C-r)</b></p>
 
 <p style="margin-left:22%;">Search backward starting at the
-current line and moving &rsquo;up&rsquo; through the history
+current line and moving &lsquo;up&rsquo; through the history
 as necessary. This is an incremental search.</p>
 
 <p style="margin-left:11%;"><b>forward-search-history
 (C-s)</b></p>
 
 <p style="margin-left:22%;">Search forward starting at the
-current line and moving &rsquo;down&rsquo; through the
+current line and moving &lsquo;down&rsquo; through the
 history as necessary. This is an incremental search.</p>
 
 
@@ -6929,7 +6929,7 @@ in the history list.</p>
 
 
 <p>Refer to the previous command. This is a synonym for
-&rsquo;!-1&rsquo;.</p> </td></tr>
+&lsquo;!-1&rsquo;.</p> </td></tr>
 </table>
 
 <p style="margin-left:11%;"><b>!</b><i>string</i></p>
@@ -6952,7 +6952,7 @@ newline.</p>
 <p style="margin-left:22%;">Quick substitution. Repeat the
 last command, replacing <i>string1</i> with <i>string2</i>.
 Equivalent to
-&rsquo;&rsquo;!!:s/<i>string1</i>/<i>string2</i>/&rsquo;&rsquo;
+&lsquo;&lsquo;!!:s/<i>string1</i>/<i>string2</i>/&rsquo;&rsquo;
 (see <b>Modifiers</b> below).</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -7033,7 +7033,7 @@ this is the command word.</p>
 
 
 <p>The word matched by the most recent
-&rsquo;?<i>string</i>?&rsquo; search.</p></td></tr>
+&lsquo;?<i>string</i>?&rsquo; search.</p></td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="4%">
@@ -7044,8 +7044,8 @@ this is the command word.</p>
 <td width="78%">
 
 
-<p>A range of words; &rsquo;-<i>y</i>&rsquo; abbreviates
-&rsquo;0-<i>y</i>&rsquo;.</p> </td></tr>
+<p>A range of words; &lsquo;-<i>y</i>&rsquo; abbreviates
+&lsquo;0-<i>y</i>&rsquo;.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="11%"></td>
 <td width="4%">
@@ -7057,7 +7057,7 @@ this is the command word.</p>
 
 
 <p>All of the words but the zeroth. This is a synonym for
-&rsquo;<i>1-$</i>&rsquo;. It is not an error to use <b>*</b>
+&lsquo;<i>1-$</i>&rsquo;. It is not an error to use <b>*</b>
 if there is just one word in the event; the empty string is
 returned in that case.</p></td></tr>
 <tr valign="top" align="left">
@@ -7094,7 +7094,7 @@ previous command is used as the event.</p>
 <br>
 After the optional word designator, there may appear a
 sequence of one or more of the following modifiers, each
-preceded by a &rsquo;:&rsquo;.</p>
+preceded by a &lsquo;:&rsquo;.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
        cellspacing="0" cellpadding="0">
@@ -7221,11 +7221,11 @@ substitutions took place, the last <i>string</i> in a
 
 
 <p>Cause changes to be applied over the entire event line.
-This is used in conjunction with &rsquo;<b>:s</b>&rsquo;
+This is used in conjunction with &lsquo;<b>:s</b>&rsquo;
 (e.g.,
-&rsquo;<b>:gs/</b><i>old</i><b>/</b><i>new</i><b>/</b>&rsquo;)
-or &rsquo;<b>:&amp;</b>&rsquo;. If used with
-&rsquo;<b>:s</b>&rsquo;, any delimiter can be used in place
+&lsquo;<b>:gs/</b><i>old</i><b>/</b><i>new</i><b>/</b>&rsquo;)
+or &lsquo;<b>:&amp;</b>&rsquo;. If used with
+&lsquo;<b>:s</b>&rsquo;, any delimiter can be used in place
 of /, and the final delimiter is optional if it is the last
 character of the event line. An <b>a</b> may be used as a
 synonym for <b>g</b>.</p></td></tr>
@@ -7239,7 +7239,7 @@ synonym for <b>g</b>.</p></td></tr>
 <td width="78%">
 
 
-<p>Apply the following &rsquo;<b>s</b>&rsquo; modifier once
+<p>Apply the following &lsquo;<b>s</b>&rsquo; modifier once
 to each word in the event line.</p></td></tr>
 </table>
 
@@ -7491,7 +7491,7 @@ directory containing <i>dir</i>. Alternative directory names
 in <b><small>CDPATH</small></b> are separated by a colon
 (:). A null directory name in <b><small>CDPATH</small></b>
 is the same as the current directory, i.e.,
-&rsquo;&rsquo;<b>.</b>&rsquo;&rsquo;. If <i>dir</i> begins
+&lsquo;&lsquo;<b>.</b>&rsquo;&rsquo;. If <i>dir</i> begins
 with a slash (/), then <b><small>CDPATH</small></b> is not
 used. The <b>-P</b> option says to use the physical
 directory structure instead of following symbolic links (see
@@ -7982,7 +7982,7 @@ the enclosing <b>for</b>, <b>while</b>, <b>until</b>, or
 <i>n</i>th enclosing loop. <i>n</i> must be &ge; 1. If
 <i>n</i> is greater than the number of enclosing loops, the
 last enclosing loop (the
-&rsquo;&rsquo;top-level&rsquo;&rsquo; loop) is resumed. The
+&lsquo;&lsquo;top-level&rsquo;&rsquo; loop) is resumed. The
 return value is 0 unless the shell is not executing a loop
 when <b>continue</b> is executed.</p>
 
@@ -8087,7 +8087,7 @@ the environment.</p></td></tr>
 </table>
 
 <p style="margin-left:22%; margin-top: 1em">Using
-&rsquo;+&rsquo; instead of &rsquo;-&rsquo; turns off the
+&lsquo;+&rsquo; instead of &lsquo;-&rsquo; turns off the
 attribute instead, with the exception that <b>+a</b> may not
 be used to destroy an array variable. When used in a
 function, makes each <i>name</i> local, as with the
@@ -8095,7 +8095,7 @@ function, makes each <i>name</i> local, as with the
 =<i>value</i>, the value of the variable is set to
 <i>value</i>. The return value is 0 unless an invalid option
 is encountered, an attempt is made to define a function
-using &rsquo;&rsquo;-f foo=bar&rsquo;&rsquo;, an attempt is
+using &lsquo;&lsquo;-f foo=bar&rsquo;&rsquo;, an attempt is
 made to assign a value to a readonly variable, an attempt is
 made to assign a value to an array variable without using
 the compound assignment syntax (see <b>Arrays</b> above),
@@ -8380,7 +8380,7 @@ normally searches for builtins before disk commands. If
 <i>names</i> are enabled. For example, to use the
 <b>test</b> binary found via the <b><small>PATH</small></b>
 instead of the shell builtin version, run
-&rsquo;&rsquo;enable -n test&rsquo;&rsquo;. The <b>-f</b>
+&lsquo;&lsquo;enable -n test&rsquo;&rsquo;. The <b>-f</b>
 option means to load the new builtin command <i>name</i>
 from shared object <i>filename</i>, on systems that support
 dynamic loading. The <b>-d</b> option will delete a builtin
@@ -8468,7 +8468,7 @@ beginning with that string) or as a number (an index into
 the history list, where a negative number is used as an
 offset from the current command number). If <i>last</i> is
 not specified it is set to the current command for listing
-(so that &rsquo;&rsquo;fc -l -10&rsquo;&rsquo; prints the
+(so that &lsquo;&lsquo;fc -l -10&rsquo;&rsquo; prints the
 last 10 commands) and to <i>first</i> otherwise. If
 <i>first</i> is not specified it is set to the previous
 command for editing and -16 for listing.</p>
@@ -8489,11 +8489,11 @@ edited commands are echoed and executed.</p>
 <p style="margin-left:22%; margin-top: 1em">In the second
 form, <i>command</i> is re-executed after each instance of
 <i>pat</i> is replaced by <i>rep</i>. A useful alias to use
-with this is &rsquo;&rsquo;r=&quot;fc
--s&quot;&rsquo;&rsquo;, so that typing &rsquo;&rsquo;r
+with this is &lsquo;&lsquo;r=&quot;fc
+-s&quot;&rsquo;&rsquo;, so that typing &lsquo;&lsquo;r
 cc&rsquo;&rsquo; runs the last command beginning with
-&rsquo;&rsquo;cc&rsquo;&rsquo; and typing
-&rsquo;&rsquo;r&rsquo;&rsquo; re-executes the last
+&lsquo;&lsquo;cc&rsquo;&rsquo; and typing
+&lsquo;&lsquo;r&rsquo;&rsquo; re-executes the last
 command.</p>
 
 <p style="margin-left:22%; margin-top: 1em">If the first
@@ -8671,7 +8671,7 @@ position <i>offset</i>.</p>
 <td width="68%">
 
 
-<p>Append the &rsquo;&rsquo;new&rsquo;&rsquo; history lines
+<p>Append the &lsquo;&lsquo;new&rsquo;&rsquo; history lines
 (history lines entered since the beginning of the current
 <b>bash</b> session) to the history file.</p></td></tr>
 <tr valign="top" align="left">
@@ -8922,8 +8922,8 @@ following meanings:</p>
 
 <p>Removes the <i>n</i>th entry counting from the left of
 the list shown by <b>dirs</b>, starting with zero. For
-example: &rsquo;&rsquo;popd +0&rsquo;&rsquo; removes the
-first directory, &rsquo;&rsquo;popd +1&rsquo;&rsquo; the
+example: &lsquo;&lsquo;popd +0&rsquo;&rsquo; removes the
+first directory, &lsquo;&lsquo;popd +1&rsquo;&rsquo; the
 second.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
@@ -8937,8 +8937,8 @@ second.</p> </td></tr>
 
 <p>Removes the <i>n</i>th entry counting from the right of
 the list shown by <b>dirs</b>, starting with zero. For
-example: &rsquo;&rsquo;popd -0&rsquo;&rsquo; removes the
-last directory, &rsquo;&rsquo;popd -1&rsquo;&rsquo; the next
+example: &lsquo;&lsquo;popd -0&rsquo;&rsquo; removes the
+last directory, &lsquo;&lsquo;popd -1&rsquo;&rsquo; the next
 to last.</p></td></tr>
 <tr valign="top" align="left">
 <td width="22%"></td>
@@ -9464,7 +9464,7 @@ on by default in interactive shells.</p></td></tr>
 <p style="margin-left:34%;"><b>ignoreeof</b></p>
 
 <p style="margin-left:46%;">The effect is as if the shell
-command &rsquo;&rsquo;IGNOREEOF=10&rsquo;&rsquo; had been
+command &lsquo;&lsquo;IGNOREEOF=10&rsquo;&rsquo; had been
 executed (see <b>Shell Variables</b> above).</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -9997,7 +9997,7 @@ easy re-editing of multi-line commands.</p></td></tr>
 
 
 <p>If set, <b>bash</b> includes filenames beginning with a
-&rsquo;.&rsquo; in the results of pathname expansion.</p></td></tr>
+&lsquo;.&rsquo; in the results of pathname expansion.</p></td></tr>
 </table>
 
 <p style="margin-left:22%;"><b>execfail</b></p>
@@ -10217,7 +10217,7 @@ be changed.</p>
 
 <p style="margin-left:34%;">If set, and a file that
 <b>bash</b> is checking for mail has been accessed since the
-last time it was checked, the message &rsquo;&rsquo;The mail
+last time it was checked, the message &lsquo;&lsquo;The mail
 in <i>mailfile</i> has been read&rsquo;&rsquo; is
 displayed.</p>
 
@@ -10491,10 +10491,10 @@ not found, then nothing is printed, and an exit status of
 false is returned. If the <b>-p</b> option is used,
 <b>type</b> either returns the name of the disk file that
 would be executed if <i>name</i> were specified as a command
-name, or nothing if &rsquo;&rsquo;type -t name&rsquo;&rsquo;
+name, or nothing if &lsquo;&lsquo;type -t name&rsquo;&rsquo;
 would not return <i>file</i>. The <b>-P</b> option forces a
 <b><small>PATH</small></b> search for each <i>name</i>, even
-if &rsquo;&rsquo;type -t name&rsquo;&rsquo; would not return
+if &lsquo;&lsquo;type -t name&rsquo;&rsquo; would not return
 <i>file</i>. If a command is hashed, <b>-p</b> and <b>-P</b>
 print the hashed value, not necessarily the file that
 appears first in <b><small>PATH</small></b><small>.</small>
@@ -11053,7 +11053,7 @@ version is always available from
 determined that a bug actually exists, use the
 <i>bashbug</i> command to submit a bug report. If you have a
 fix, you are encouraged to mail that as well! Suggestions
-and &rsquo;philosophical&rsquo; bug reports may be mailed to
+and &lsquo;philosophical&rsquo; bug reports may be mailed to
 <i>bug-bash@gnu.org</i> or posted to the Usenet newsgroup
 <b>gnu.bash.bug</b>.</p>
 
@@ -11063,7 +11063,7 @@ The version number of <b>bash</b> <br>
 The hardware and operating system <br>
 The compiler used to compile <br>
 A description of the bug behaviour <br>
-A short script or &rsquo;recipe&rsquo; which exercises the
+A short script or &lsquo;recipe&rsquo; which exercises the
 bug</p>
 
 <p style="margin-left:11%; margin-top: 1em"><i>bashbug</i>
@@ -11094,7 +11094,7 @@ confusing in some uses.</p>
 commands and functions are not stoppable/restartable.</p>
 
 <p style="margin-left:11%; margin-top: 1em">Compound
-commands and command sequences of the form &rsquo;a ; b ;
+commands and command sequences of the form &lsquo;a ; b ;
 c&rsquo; are not handled gracefully when process suspension
 is attempted. When a process is stopped, the shell
 immediately executes the next command in the sequence. It
