@@ -12,10 +12,16 @@ named <CC0-1.0.txt>. If not, it may be available at
 <head>
 <style>
 
+:root {
+  --line_height: 1.2em;
+  --tree_border: 1px solid #444444;
+}
+
 * {
+  background: #111111;
   font-family: monospace;
   font-size: 18px;
-  line-height: 1;
+  line-height: var(--line_height);
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,6 +30,14 @@ named <CC0-1.0.txt>. If not, it may be available at
 
 body {
   margin: 1em;
+}
+
+a {
+  color: #66AAFF;
+}
+
+a:visited {
+  color: #AAAAAA;
 }
 
 a:hover {
@@ -36,12 +50,12 @@ ul {
 }
 
 div {
-  border-left: 1px solid lightgray;
-  bottom: 0.5em;
+  border-left: var(--tree_border);
+  height: calc(100% - 0.5em);
   left: 0;
   position: absolute;
   right: 100%;
-  top: 0;
+  top: calc(0px - var(--line_height) / 2 + 0.5em);
 }
 
 li {
@@ -49,12 +63,12 @@ li {
 }
 
 li::before {
-  border-top: 1px solid lightgray;
+  border-top: var(--tree_border);
   content: "";
   display: inline-block;
   left: -0.25ch;
   position: relative;
-  transform: translateY(0.5em);
+  transform: translateY(calc(var(--line_height) / 2));
   vertical-align: top;
   width: 1.25ch;
 }
