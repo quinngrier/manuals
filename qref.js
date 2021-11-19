@@ -17,6 +17,7 @@ style.innerHTML = `
 
   .qref {
     background: #FFFF99;
+    color: #000000;
   }
 
   .qref_popup {
@@ -25,8 +26,8 @@ style.innerHTML = `
 
   .qref_popup > a {
     background: #FFFF99;
-    border-color: #BBBBBB;
-    border-style: solid;
+    border-color: #777777;
+    border-style: dotted;
     border-width: 1px;
     color: #777777;
     display: inline-block;
@@ -47,7 +48,7 @@ style.innerHTML = `
 
   .qref_popup > a:hover {
     background: #FFFF00;
-    border-color: #555555;
+    border-color: #000000;
     color: #000000;
   }
 
