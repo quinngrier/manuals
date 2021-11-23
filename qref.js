@@ -19,6 +19,9 @@
 //       highlighted? Maybe we can make get_highlights return whether
 //       anything was highlighted, and prune the ranges based on that.
 
+// TODO: get_viewport is probably still slightly wrong for
+//       document.body.
+
 function qref(...args) {
 
   const [root] = args;
@@ -39,6 +42,7 @@ function qref(...args) {
   //
 
   function get_viewport() {
+    const bound = root.getBoundingClientRect();
     const style = window.getComputedStyle(root);
     const padding_left = parseFloat(style.paddingLeft);
     const padding_top = parseFloat(style.paddingTop);
@@ -47,18 +51,20 @@ function qref(...args) {
     const border_left = parseFloat(style.borderLeftWidth);
     const border_top = parseFloat(style.borderTopWidth);
     if (root === document.body) {
+      const html = document.documentElement;
       const border_right = parseFloat(style.borderRightWidth);
       const border_bottom = parseFloat(style.borderBottomWidth);
       const margin_left = parseFloat(style.marginLeft);
       const margin_top = parseFloat(style.marginTop);
       const margin_right = parseFloat(style.marginRight);
       const margin_bottom = parseFloat(style.marginBottom);
-      const space_left = margin_left + border_left + padding_left;
-      const space_top = margin_top + border_top + padding_top;
+      const space_left =
+          bound.left + html.scrollLeft + border_left + padding_left;
+      const space_top =
+          bound.top + html.scrollTop + border_top + padding_top;
       const space_right = margin_right + border_right + padding_right;
       const space_bottom =
           margin_bottom + border_bottom + padding_bottom;
-      const html = document.documentElement;
       const overlap_left = Math.max(space_left - html.scrollLeft, 0);
       const overlap_top = Math.max(space_top - html.scrollTop, 0);
       const overlap_right =
@@ -87,7 +93,6 @@ function qref(...args) {
       };
       return {left, top, right, bottom, width, height, scroll};
     } else {
-      const bound = root.getBoundingClientRect();
       const overlap_left = Math.max(padding_left - root.scrollLeft, 0);
       const overlap_top = Math.max(padding_top - root.scrollTop, 0);
       const overlap_right = Math.max(
