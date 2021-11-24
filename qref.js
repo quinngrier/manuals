@@ -8,20 +8,6 @@
 // <https://creativecommons.org/publicdomain/zero/1.0/>.
 //
 
-// TODO: Sometimes the more buttons scroll way above where they should,
-//       as our scrolling to a text node scrolls to the parent, which
-//       can sometimes start way further up. Maybe scrollTo is better,
-//       or finding a qref_wrapper in the range to scroll into view
-//       (which should always exist?).
-
-// TODO: Is it possible to get a "blank" range that ends up not being
-//       pruned by way of certain whitespace-only nodes not being
-//       highlighted? Maybe we can make get_highlights return whether
-//       anything was highlighted, and prune the ranges based on that.
-
-// TODO: get_viewport is probably still slightly wrong for
-//       document.body.
-
 function qref(...args) {
 
   const [root] = args;
@@ -42,7 +28,7 @@ function qref(...args) {
   //
 
   function get_viewport() {
-    const bound = root.getBoundingClientRect();
+    const root_bound = root.getBoundingClientRect();
     const style = window.getComputedStyle(root);
     const padding_left = parseFloat(style.paddingLeft);
     const padding_top = parseFloat(style.paddingTop);
@@ -51,40 +37,43 @@ function qref(...args) {
     const border_left = parseFloat(style.borderLeftWidth);
     const border_top = parseFloat(style.borderTopWidth);
     if (root === document.body) {
-      const html = document.documentElement;
+      const root_bound_width = root_bound.right - root_bound.left;
+      const root_bound_height = root_bound.bottom - root_bound.top;
       const border_right = parseFloat(style.borderRightWidth);
       const border_bottom = parseFloat(style.borderBottomWidth);
-      const margin_left = parseFloat(style.marginLeft);
-      const margin_top = parseFloat(style.marginTop);
-      const margin_right = parseFloat(style.marginRight);
-      const margin_bottom = parseFloat(style.marginBottom);
-      const space_left =
-          bound.left + html.scrollLeft + border_left + padding_left;
+      const html = document.documentElement;
+      const html_bound = html.getBoundingClientRect();
+      const html_client_width = html_bound.right - html_bound.left;
+      const html_client_height = html.clientHeight;
+      const space_left = root_bound.left + html.scrollLeft + border_left
+                         + padding_left;
       const space_top =
-          bound.top + html.scrollTop + border_top + padding_top;
-      const space_right = margin_right + border_right + padding_right;
-      const space_bottom =
-          margin_bottom + border_bottom + padding_bottom;
+          root_bound.top + html.scrollTop + border_top + padding_top;
+      const space_right = html_client_width - root_bound_width
+                          - (root_bound.left + html.scrollLeft)
+                          + border_right + padding_right;
+      const space_bottom = html_client_height - root_bound_height
+                           - (root_bound.top + html.scrollTop)
+                           + border_bottom + padding_bottom;
       const overlap_left = Math.max(space_left - html.scrollLeft, 0);
       const overlap_top = Math.max(space_top - html.scrollTop, 0);
       const overlap_right =
           Math.max(space_right
-                       - (margin_left + border_left + root.scrollWidth
-                          + border_right + margin_right
-                          - html.scrollLeft - html.clientWidth),
+                       - (html.scrollWidth - html.scrollLeft
+                          - html_client_width),
                    0);
       const overlap_bottom =
           Math.max(space_bottom
-                       - (margin_top + border_top + root.scrollHeight
-                          + border_bottom + margin_bottom
-                          - html.scrollTop - html.clientHeight),
+                       - (html.scrollHeight - html.scrollTop
+                          - html_client_height),
                    0);
       const left = Math.max(space_left - html.scrollLeft, 0);
       const top = Math.max(space_top - html.scrollTop, 0);
       const width =
-          Math.max(html.clientWidth - overlap_left - overlap_right, 0);
+          Math.max(html_client_width - overlap_left - overlap_right, 0);
       const height =
-          Math.max(html.clientHeight - overlap_top - overlap_bottom, 0);
+          Math.max(html_client_height - overlap_top - overlap_bottom,
+                   0);
       const right = left + width;
       const bottom = top + height;
       const scroll = {
@@ -104,8 +93,8 @@ function qref(...args) {
                        - (root.scrollHeight - root.scrollTop
                           - root.clientHeight),
                    0);
-      const left = bound.left + border_left + overlap_left;
-      const top = bound.top + border_top + overlap_top;
+      const left = root_bound.left + border_left + overlap_left;
+      const top = root_bound.top + border_top + overlap_top;
       const width =
           Math.max(root.clientWidth - overlap_left - overlap_right, 0);
       const height =
@@ -231,29 +220,86 @@ function qref(...args) {
     return is_element(node) && node.className === "qref_highlight";
   }
 
-  function scroll_node_into_view(node) {
-    if (is_char(node)) {
-      node = node.parentNode;
-    }
-    node.scrollIntoView();
+  //--------------------------------------------------------------------
+  // node_length
+  //--------------------------------------------------------------------
+
+  function node_length(node) {
+    return (is_char(node) ? node.textContent : node.childNodes).length;
   }
 
+  //--------------------------------------------------------------------
+  // assert_normalized
+  //--------------------------------------------------------------------
+
+  function assert_normalized(condition) {
+    const message = "Unexpected unnormalized range boundary.";
+    console.assert(condition, message);
+  }
+
+  //--------------------------------------------------------------------
+
   function scroll_range_into_view(range) {
-    let node = range.startContainer;
-    const offset = range.startOffset;
-    if (is_char(node)) {
-      scroll_node_into_view(node);
-    } else if (offset < node.childNodes.length) {
-      scroll_node_into_view(node.childNodes[offset]);
+    // Save the ranges.
+    old_ranges = [];
+    for (const range of ranges) {
+      old_ranges.push({
+        start: {
+          container: range.startContainer,
+          offset: range.startOffset,
+        },
+        end: {
+          container: range.endContainer,
+          offset: range.endOffset,
+        },
+      });
+    }
+
+    const {container, offset} = (function() {
+      if (is_char(range.startContainer)) {
+        const container = range.startContainer;
+        const offset = range.startOffset;
+        assert_normalized(offset < container.textContent.length);
+        return {container, offset};
+      }
+      const x = range.startContainer.childNodes;
+      const i = range.startOffset;
+      assert_normalized(i < x.length);
+      const container = x[i];
+      const offset = 0;
+      return {container, offset};
+    })();
+
+    if (!is_char(container)) {
+      container.scrollIntoView();
+    } else if (offset == 0) {
+      const span = document.createElement("span");
+      const parent = container.parentNode;
+      parent.insertBefore(span, container);
+      span.scrollIntoView();
+      parent.removeChild(span);
     } else {
-      while (node !== root && node.nextSibling === null) {
-        node = node.parentNode;
-      }
-      if (node !== root) {
-        scroll_node_into_view(node.nextSibling);
-      } else if (root.firstChild !== null) {
-        scroll_node_into_view(root.firstChild);
-      }
+      const span = document.createElement("span");
+      const parent = container.parentNode;
+      const s1 = container.textContent.substring(0, offset);
+      const s2 = container.textContent.substring(offset);
+      const x1 = document.createTextNode(s1);
+      const x2 = document.createTextNode(s2);
+      span.addChild(x2);
+      parent.replaceChild(span, container);
+      parent.insertBefore(x1, span);
+      span.scrollIntoView();
+      parent.removeChild(x1);
+      parent.replaceChild(container, span);
+    }
+
+    // Restore the ranges.
+    for (let i = 0; i < ranges.length; ++i) {
+      const start = old_ranges[i].start;
+      const end = old_ranges[i].end;
+      ranges[i] = document.createRange();
+      ranges[i].setStart(start.container, start.offset);
+      ranges[i].setEnd(end.container, end.offset);
     }
   }
 
@@ -434,10 +480,6 @@ function qref(...args) {
     return highlights;
   }
 
-  function node_length(node) {
-    return (is_char(node) ? node.textContent : node.childNodes).length;
-  }
-
   //--------------------------------------------------------------------
   // Parse the query string and do the highlighting
   //--------------------------------------------------------------------
@@ -473,7 +515,7 @@ function qref(...args) {
       return null;
     }
 
-    // Move backwards through the offsets, removing as many
+    // Move backwards through the offsets, normalizing as many
     // one-past-the-end components as possible. For example, if every
     // component of 1.2.3.4 is pointing at its last child except for the
     // last component, which is pointing one-past-the-end, this produces
@@ -557,10 +599,6 @@ function qref(...args) {
     get_highlights(highlights, range);
   }
 
-  if (ranges.length > 0) {
-    scroll_range_into_view(ranges[0], true);
-  }
-
   for (const [node, pairs] of highlights) {
     pairs.sort((x, y) => x[0] - y[0]);
     const parent = node.parentNode;
@@ -591,7 +629,9 @@ function qref(...args) {
         let i = 0;
         let n = new_nodes[0].textContent.length;
         while (n <= offset) {
-          n += new_nodes[++i].textContent.length;
+          ++i;
+          assert_normalized(i < new_nodes.length);
+          n += new_nodes[i].textContent.length;
         }
         container = new_nodes[i];
         if (!is_text(container)) {
@@ -619,6 +659,10 @@ function qref(...args) {
       ranges[i].setStart(starts[i].container, starts[i].offset);
       ranges[i].setEnd(ends[i].container, ends[i].offset);
     }
+  }
+
+  if (ranges.length > 0) {
+    scroll_range_into_view(ranges[0]);
   }
 
   //--------------------------------------------------------------------
@@ -816,6 +860,8 @@ function qref(...args) {
     }
   });
 }
+
+//----------------------------------------------------------------------
 
 {
   const root = window.qref_root_element;
