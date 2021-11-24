@@ -10,34 +10,28 @@ named <CC0-1.0.txt>. If not, it may be available at
 -->
 <html>
 <head>
+<meta charset="UTF-8">
+<title>manuals/autoconf/2.69/</title>
 <style>
 
 :root {
   --line_height: 1.2em;
-  --tree_border: 1px solid #444444;
-}
-
-* {
-  background: #111111;
-  font-family: monospace;
-  font-size: 18px;
-  line-height: var(--line_height);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+  --text_color: #CCC;
+  --tree_border: 1px solid #333;
 }
 
 body {
+  background: #000;
+  color: var(--text_color);
+  font-family: monospace;
+  font-size: 20px;
+  line-height: var(--line_height);
   margin: 1em;
 }
 
 a {
-  color: #66AAFF;
-}
-
-a:visited {
-  color: #AAAAAA;
+  color: var(--text_color);
+  text-decoration: none;
 }
 
 a:hover {
@@ -45,12 +39,15 @@ a:hover {
 }
 
 ul {
-  margin-left: 0.5ch;
+  list-style-type: none;
+  margin: 0 0 0 0.5ch;
+  padding: 0;
   position: relative;
 }
 
-div {
+li:first-child {
   border-left: var(--tree_border);
+  display: block;
   height: calc(100% - 0.5em);
   left: 0;
   position: absolute;
@@ -58,11 +55,11 @@ div {
   top: calc(0px - var(--line_height) / 2 + 0.5em);
 }
 
-li {
+li:not(:first-child) {
   margin-left: 0.25ch;
 }
 
-li::before {
+li:not(:first-child)::before {
   border-top: var(--tree_border);
   content: "";
   display: inline-block;
@@ -78,7 +75,7 @@ li::before {
 <body>
 <a href="../../">manuals/</a><a href="../">autoconf/</a><a href="./">2.69/</a>
 <ul>
-<div></div>
+<li></li>
 <li><a href="autoconf.1.html">autoconf.1.html</a></li>
 <li><a href="autoconf.html">autoconf.html</a></li>
 <li><a href="autoheader.1.html">autoheader.1.html</a></li>
