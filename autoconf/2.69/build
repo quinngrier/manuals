@@ -39,15 +39,15 @@ main() {
   image=$(cat image)
   readonly image
 
-  container=$(docker create -- "$image")
+  container=$(docker create $image)
   readonly container
 
   rm -f -r out
   mkdir out
 
-  docker cp -- "$container":/autoconf-2.69/doc/out/. out
+  docker cp $container:/autoconf-2.69/doc/out/. out
 
-  docker rm -- "$container"
+  docker rm $container
 
   for x in out/*; do
     sed '
