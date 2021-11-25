@@ -19,17 +19,17 @@ main() {
   declare    url
   declare    x
 
-  url=${1-'https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz'}
+  url=https://ftp.gnu.org/gnu/bash/bash-3.2.tar.gz
   rm -f -r bash-3.2.tar.gz bash-3.2
   wget -O bash-3.2.tar.gz -- "$url"
   sha512sum -c bash-3.2.tar.gz.sha512sum
 
-  url=${1-'http://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz'}
+  url=http://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz
   rm -f -r groff-1.22.4.tar.gz groff-1.22.4
   wget -O groff-1.22.4.tar.gz -- "$url"
   sha512sum -c groff-1.22.4.tar.gz.sha512sum
 
-  url=${1-'http://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz'}
+  url=http://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
   rm -f -r texinfo-6.7.tar.gz texinfo-6.7
   wget -O texinfo-6.7.tar.gz -- "$url"
   sha512sum -c texinfo-6.7.tar.gz.sha512sum
