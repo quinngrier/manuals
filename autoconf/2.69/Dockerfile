@@ -51,8 +51,8 @@ RUN awk '                                                              \
       print;                                                           \
     }                                                                  \
   }                                                                    \
-' autoconf.texi >autoconf.texi.tmp
-RUN mv -f autoconf.texi.tmp autoconf.texi
+' autoconf.texi >tmp
+RUN mv -f tmp autoconf.texi
 RUN texi2any --html --no-split autoconf.texi
 RUN mkdir out
 RUN mv -f autoconf.html out
