@@ -10,7 +10,14 @@
 
 = Manuals archive
 
-Mirrors:
+This repository is a static website that provides version-pinned manuals
+for long-term reference purposes.
+Most of the manuals have selection permalinking added on via
+link:https://github.com/quinngrier/qref[Qref].
+
+The primary mirror is link:https://manuals.quinngrier.com/[].
+
+Other mirrors are also available:
 
 * link:https://quinngrier.github.io/manuals[]
 
