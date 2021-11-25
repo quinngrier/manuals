@@ -21,5 +21,6 @@ Other mirrors are also available:
 
 * link:https://quinngrier.github.io/manuals/[]
 * link:https://quinngrier.gitlab.io/manuals/[]
+* link:https://manuals.sourceforge.io/[]
 
 //
