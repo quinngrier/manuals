@@ -12,29 +12,58 @@
 set -e || exit $?
 . ../../prelude.bash
 
-url=${1-'https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz'}
-readonly url
+main() {
 
-rm -f -r autoconf-2.69.tar.gz autoconf-2.69
-wget -O autoconf-2.69.tar.gz -- "$url"
-sha256sum -c autoconf-2.69.tar.gz.sha256sum
-tar xf autoconf-2.69.tar.gz
-cd autoconf-2.69/doc
-awk '
-  {
-    if (sub(/ @$/, " ")) {
-      printf "%s", $0;
-    } else {
-      print;
-    }
-  }
-' autoconf.texi >x
-mv x autoconf.texi
-texi2any --html --no-split autoconf.texi
-mv autoconf.html ../..
-cd ../man
-for x in *.1; do
-  groff -mandoc -T html $x >../../$x.html
-done
-cd ../..
-rm -f -r autoconf-2.69.tar.gz autoconf-2.69
+  declare    container
+  declare    image
+  declare    url
+  declare    x
+
+  url=https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+  rm -f -r autoconf-2.69.tar.gz autoconf-2.69
+  wget -O autoconf-2.69.tar.gz -- "$url"
+  sha512sum -c autoconf-2.69.tar.gz.sha512sum
+
+  url=https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz
+  rm -f -r groff-1.22.4.tar.gz groff-1.22.4
+  wget -O groff-1.22.4.tar.gz -- "$url"
+  sha512sum -c groff-1.22.4.tar.gz.sha512sum
+
+  url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
+  rm -f -r texinfo-6.7.tar.gz texinfo-6.7
+  wget -O texinfo-6.7.tar.gz -- "$url"
+  sha512sum -c texinfo-6.7.tar.gz.sha512sum
+
+  docker build --iidfile image .
+
+  image=$(cat image)
+  readonly image
+
+  container=$(docker create -- "$image")
+  readonly container
+
+  rm -f -r out
+  mkdir out
+
+  docker cp -- "$container":/autoconf-2.69/doc/out/. out
+
+  docker rm -- "$container"
+
+  for x in out/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+  done
+
+  mv -f out/* .
+
+  rm autoconf-2.69.tar.gz
+  rm groff-1.22.4.tar.gz
+  rm image
+  rm texinfo-6.7.tar.gz
+  rmdir out
+
+}; readonly -f main
+
+main "$@"
