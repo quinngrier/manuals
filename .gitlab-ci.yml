@@ -27,6 +27,7 @@ pages:
 sourceforge:
   script:
     - |
+      chmod 600 -- "${SOURCEFORGE_SSH_SECRET_KEY?}" || exit $?
       xs=`git ls-tree --name-only HEAD:` || exit $?
       scp \
         -i "${SOURCEFORGE_SSH_SECRET_KEY?}" \
