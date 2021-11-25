@@ -9,6 +9,7 @@
 #
 
 pages:
+  artifacts: [public]
   script:
     - |
       mkdir public || exit $?
