@@ -10,6 +10,9 @@
 
 // https://github.com/quinngrier/qref
 
+// TODO: Support prefixing, i.e., so "foo_qref" can be used instead of
+//       "qref" everywhere.
+
 // TODO: Instead of using color: #000 in .qref_highlight, adjust the
 //       color of every .qref_highlight node individually by adjusting
 //       the existing color, if necessary, to give a minimum contrast.
@@ -132,6 +135,7 @@ function qref(...args) {
 
       .qref_link {
         position: absolute;
+        z-index: 32767;
       }
 
       .qref_links {
@@ -142,6 +146,7 @@ function qref(...args) {
       .qref_more_below {
         display: none;
         position: sticky;
+        z-index: 32767;
       }
 
       .qref_link,
@@ -294,7 +299,7 @@ function qref(...args) {
       const s2 = container.textContent.substring(offset);
       const x1 = document.createTextNode(s1);
       const x2 = document.createTextNode(s2);
-      span.addChild(x2);
+      span.appendChild(x2);
       parent.replaceChild(span, container);
       parent.insertBefore(x1, span);
       span.scrollIntoView();
@@ -866,7 +871,7 @@ function qref(...args) {
 
 //----------------------------------------------------------------------
 
-{
+window.addEventListener("load", function() {
   const root = window.qref_root_element;
   if (root !== null) {
     if (root === undefined) {
@@ -879,4 +884,4 @@ function qref(...args) {
       qref(root);
     }
   }
-}
+});
