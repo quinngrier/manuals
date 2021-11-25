@@ -14,13 +14,13 @@ set -e || exit $?
 
 f() {
 
-  declare current
-  declare d
-  declare h
-  declare root
-  declare skip
-  declare x
-  declare xs
+  declare    current
+  declare    d
+  declare    h
+  declare    root
+  declare    skip
+  declare    x
+  declare    xs
 
   root=${1-./}
   readonly root
