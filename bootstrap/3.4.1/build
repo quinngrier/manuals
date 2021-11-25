@@ -19,61 +19,76 @@ clean() {
   ;
 }; readonly -f clean
 
-clean
+main() {
 
-git clone \
-  --branch v3.4.1 \
-  --depth 1 \
-  https://github.com/twbs/bootstrap.git \
-  repo \
-;
+  declare    g
+  declare    u
+  declare    url
+  declare    x
+  declare    y
 
-rm -f -r repo/.git
+  url=https://github.com/twbs/bootstrap.git
+  rm -f -r repo
+  git clone --branch v3.4.1 --depth 1 "$url" repo
+  rm -f -r repo/.git
+  sha256sum --check --quiet repo.sha256sum
+  sha512sum --check --quiet repo.sha512sum
 
-sha256sum --check --quiet repo.sha256sum
+  cd repo
 
-cd repo
-
-sed '
-  s|^url:.*|url: https://manuals.quinngrier.com|
-  s|^baseurl:.*|baseurl: /bootstrap/3.4.1/gh-pages|
-' _config.yml >../tmp
-cat ../tmp >_config.yml
-
-for x in docs/_includes/**/*.html; do
   sed '
-    /<link.*https:/d
-    /<script.*https:/d
-  ' $x >../tmp
-  cat ../tmp >$x
-done
+    s|^url:.*|url: https://manuals.quinngrier.com|
+    s|^baseurl:.*|baseurl: /bootstrap/3.4.1/gh-pages|
+  ' _config.yml >tmp
+  mv -f tmp _config.yml
 
-u=$(id -u)
-readonly u
+  for x in docs/_includes/**/*.html; do
+    sed '
+      /<link.*https:/ d
+      /<script.*https:/ d
+      /GoogleAnalyticsObject/,/pageview/ d
+    ' $x >tmp
+    mv -f tmp $x
+  done
 
-g=$(id -g)
-readonly g
+  u=$(id -u)
+  readonly u
 
-docker run \
-  --rm \
-  -i \
-  -t \
-  -v "$PWD":/srv/jekyll \
-  jekyll/jekyll \
-  sh -c ': \
-    && gem install bundler:1.17.3 \
-    && bundle install \
-    && bundle exec jekyll build \
-    && chown -R '$u:$g' . \
-  ' \
-;
+  g=$(id -g)
+  readonly g
 
-rm -f -r ../gh-pages
-mv -f _gh_pages ../gh-pages
+  docker run \
+    --rm \
+    -i \
+    -t \
+    -v "$PWD":/srv/jekyll \
+    jekyll/jekyll:4.2.0 \
+    sh -c ': \
+      && gem install bundler:1.17.3 \
+      && bundle install \
+      && bundle exec jekyll build \
+      && chown -R '$u:$g' . \
+    ' \
+  ;
 
-cd ..
+  rm -f -r ../gh-pages
+  mv -f _gh_pages ../gh-pages
 
-sed '/<lastmod>/d' gh-pages/sitemap.xml >tmp
-cat tmp >gh-pages/sitemap.xml
+  cd ..
 
-clean
+  sed '/<lastmod>/ d' gh-pages/sitemap.xml >tmp
+  mv -f tmp gh-pages/sitemap.xml
+
+  for x in gh-pages/**/*.html; do
+    y=$(sed 's|[^/]*/|../|g' <<<${x%/*}/)qref.js
+    sed '
+      s|</head>|<script defer src="'$y'"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+  done
+
+  rm -f -r repo
+
+}; readonly -f main
+
+main "$@"
