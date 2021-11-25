@@ -162,7 +162,9 @@ EOF
 EOF
 
   if [[ -f skip ]]; then
-    skip=' '$(tr '\n' ' ' <skip)' '
+    skip=' '$(
+      sed $'/^[\t ]*#/ d' <skip | tr '\t\n\v\f\r' '[ *]'
+    )' '
   else
     skip=
   fi
