@@ -14,14 +14,10 @@ pages:
       - public
   script:
     - |
-      xs=`git ls-files` || exit $?
+      xs=`git ls-tree --name-only HEAD:` || exit $?
       mkdir public || exit $?
       for x in $xs; do
-        case $x in */*)
-          :
-        ;; *)
-          cp -L -R $x public || exit $?
-        esac
+        cp -L -R $x public || exit $?
       done
   variables:
     GIT_DEPTH: 1

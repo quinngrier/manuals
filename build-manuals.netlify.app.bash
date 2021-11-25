@@ -17,14 +17,12 @@ main() {
   declare    x
   declare    xs
 
-  xs=$(git ls-files)
+  xs=$(git ls-tree --name-only HEAD:)
   readonly xs
 
   mkdir public
   for x in $xs; do
-    if [[ $x != */* ]]; then
-      cp -L -R $x public
-    fi
+    cp -L -R $x public
   done
 
 }; readonly -f main
