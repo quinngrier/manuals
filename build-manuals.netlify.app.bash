@@ -14,7 +14,6 @@ set -e || exit $?
 
 main() {
 
-  declare    d
   declare    x
   declare    xs
 
@@ -23,10 +22,9 @@ main() {
 
   mkdir public
   for x in $xs; do
-    x=./$x
-    d=public/${x%/*}
-    mkdir -p $d
-    cp $x $d
+    if [[ $x != */* ]]; then
+      cp -L -R $x public
+    fi
   done
 
 }; readonly -f main

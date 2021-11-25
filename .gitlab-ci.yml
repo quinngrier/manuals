@@ -14,9 +14,10 @@ pages:
       - public
   script:
     - |
+      xs=`git ls-files` || exit $?
       mkdir public || exit $?
-      for x in *; do
-        case $x in public)
+      for x in $xs; do
+        case $x in */*)
           :
         ;; *)
           cp -L -R $x public || exit $?
