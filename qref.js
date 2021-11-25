@@ -8,6 +8,15 @@
 // <https://creativecommons.org/publicdomain/zero/1.0/>.
 //
 
+// https://github.com/quinngrier/qref
+
+// TODO: Instead of using color: #000 in .qref_highlight, adjust the
+//       color of every .qref_highlight node individually by adjusting
+//       the existing color, if necessary, to give a minimum contrast.
+//       Maybe convert RGB to HSL, adjust L up or down to satisfy the
+//       minimum contrast (whichever of up or down will be a smaller
+//       change), then convert back to RGB.
+
 function qref(...args) {
 
   const [root] = args;
@@ -241,7 +250,7 @@ function qref(...args) {
 
   function scroll_range_into_view(range) {
     // Save the ranges.
-    old_ranges = [];
+    const old_ranges = [];
     for (const range of ranges) {
       old_ranges.push({
         start: {
@@ -699,15 +708,15 @@ function qref(...args) {
   links.className = "qref_links";
   root.insertBefore(links, root.firstChild);
 
-  let popup_count = 0;
-  function get_popup(j) {
+  let link_count = 0;
+  function get_link(j) {
     const id = "qref_" + j;
-    var popup = document.getElementById(id);
-    if (popup === null) {
-      popup = document.createElement("div");
-      popup.id = id;
-      popup.className = "qref_link";
-      popup.innerHTML = `
+    var link = document.getElementById(id);
+    if (link === null) {
+      link = document.createElement("div");
+      link.id = id;
+      link.className = "qref_link";
+      link.innerHTML = `
         <a href="">
           <!-- https://icons.getbootstrap.com/icons/link-45deg/ -->
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -716,10 +725,10 @@ function qref(...args) {
           </svg>Permalink
         </a>
       `;
-      links.appendChild(popup);
-      ++popup_count;
+      links.appendChild(link);
+      ++link_count;
     }
-    return popup;
+    return link;
   }
 
   document.addEventListener("selectionchange", function(event) {
@@ -747,35 +756,29 @@ function qref(...args) {
       const viewport = get_viewport();
       const range_left = range_rects[0].left;
       const range_top = range_rects[0].top;
-      const permalink = get_popup(j++);
-      permalink.style.display = "block";
-      const permalink_bound = permalink.getBoundingClientRect();
-      const permalink_width =
-          permalink_bound.right - permalink_bound.left;
-      const permalink_height =
-          permalink_bound.bottom - permalink_bound.top;
-      const permalink_left =
+      const link = get_link(j++);
+      link.style.display = "block";
+      const link_bound = link.getBoundingClientRect();
+      const link_width = link_bound.right - link_bound.left;
+      const link_height = link_bound.bottom - link_bound.top;
+      const link_left =
           viewport.scroll.left
           + Math.max(Math.min(range_left - viewport.left,
-                              viewport.width - permalink_width),
+                              viewport.width - link_width),
                      0);
-      const permalink_top =
-          viewport.scroll.top
-          + Math.max(Math.min(range_top - viewport.top,
-                              viewport.height - permalink_height)
-                         - permalink_height,
-                     0);
-      permalink.style.left = `${permalink_left}px`;
-      permalink.style.top = `${permalink_top}px`;
+      const link_top =
+          viewport.scroll.top + range_top - viewport.top - link_height;
+      link.style.left = `${link_left}px`;
+      link.style.top = `${link_top}px`;
     }
     pairs.sort((x, y) => cmp_addr(x[0], y[0]));
     pairs = pairs.map(x => x.map(y => y.join(".")).join("-")).join("+");
     for (let i = 0; i < j; ++i) {
-      const popup = get_popup(i);
-      popup.children[0].href = `?qref=${pairs}`;
+      const link = get_link(i);
+      link.children[0].href = `?qref=${pairs}`;
     }
-    for (; j < popup_count; ++j) {
-      get_popup(j).style.display = "none";
+    for (; j < link_count; ++j) {
+      get_link(j).style.display = "none";
     }
   });
 
