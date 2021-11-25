@@ -30,6 +30,11 @@ sourceforge:
       xs=`git ls-tree --name-only HEAD:` || exit $?
       scp \
         -i "${SOURCEFORGE_SSH_SECRET_KEY?}" \
+        -o IdentitiesOnly=yes \
+        -o PasswordAuthentication=no \
+        -o PreferredAuthentications=publickey \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
         -r \
         $xs \
         quinngrier@web.sourceforge.net:/home/project-web/manuals/htdocs \
