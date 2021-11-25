@@ -17,6 +17,7 @@ f() {
   declare    current
   declare    d
   declare    h
+  declare    ignore
   declare    root
   declare    skip
   declare    x
@@ -126,17 +127,27 @@ $h
 <li></li>
 EOF
 
+  if [[ -f ignore ]]; then
+    ignore=' '$(
+      sed $'/^[\t ]*#/ d' <ignore | tr '\t\n\v\f\r' '[ *]'
+    )' '
+  else
+    ignore=
+  fi
+  readonly ignore
+
   xs=$(
     for x in */; do
-      if [[ "$x" != .* ]]; then
-        x=${x%/}
-        if [[ -f $x/date ]]; then
-          d=$(cat $x/date)
-        else
-          d=0000-00-00
-        fi
-        printf '%s\n' "$d $x"
+      if [[ $x == .* || "$ignore" == *" $x "* ]]; then
+        continue
       fi
+      x=${x%/}
+      if [[ -f $x/date ]]; then
+        d=$(cat $x/date)
+      else
+        d=0000-00-00
+      fi
+      printf '%s\n' "$d $x"
     done | sort | cut -d ' ' -f 2
   )
 
@@ -171,11 +182,12 @@ EOF
   readonly skip
 
   for d in */; do
-    if [[ "$d" != .* && "$skip" != *" $d "* ]]; then
-      cd $d
-      ../$0 ../$root $current$d
-      cd ..
+    if [[ $d == .* || "$ignore $skip" == *" $d "* ]]; then
+      continue
     fi
+    cd $d
+    ../$0 ../$root $current$d
+    cd ..
   done
 
 }; readonly -f

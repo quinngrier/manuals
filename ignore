@@ -9,9 +9,9 @@
 #
 
 #
-# This is a skip file. Any subdirectories listed in this file will be
-# linked to by this directory's index.html page but not recursed into
-# for further indexing.
+# This is an ignore file. Any subdirectories listed in this file will be
+# ignored by this directory's index.html page and not recursed into for
+# further indexing.
 #
 # Subdirectories should be written with a trailing slash, like "foo/".
 # If a subdirectory is listed in both an ignore file and a skip file,
@@ -19,4 +19,4 @@
 # character are always ignored.
 #
 
-gh-pages/
+hashes/
