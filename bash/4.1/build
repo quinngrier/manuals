@@ -47,6 +47,8 @@ main() {
 
   docker cp -- "$container":/bash-4.1/doc/out/. out
 
+  docker rm -- "$container"
+
   for x in out/*; do
     sed '
       s|</head>|<script defer src="qref.js"></script>&|
