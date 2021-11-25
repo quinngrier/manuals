@@ -59,6 +59,7 @@ RUN mv -f autoconf.html out
 WORKDIR ../man
 RUN ( \
   for x in *.1; do \
-    groff -mandoc -T html $x >../doc/out/$x.html || exit $?; \
+    groff -mandoc -T html $x >tmp || exit $?; \
+    sed '/^<!-- CreationDate:/ d' tmp >../doc/out/$x.html || exit $?; \
   done; \
 )

@@ -51,6 +51,7 @@ RUN mkdir out
 RUN mv bashref.html out
 RUN ( \
   for x in *.1; do \
-    groff -mandoc -T html $x >out/$x.html || exit $?; \
+    groff -mandoc -T html $x >tmp || exit $?; \
+    sed '/^<!-- CreationDate:/ d' tmp >out/$x.html || exit $?; \
   done; \
 )
