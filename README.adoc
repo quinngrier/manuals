@@ -8,12 +8,12 @@
 // <https://creativecommons.org/publicdomain/zero/1.0/>.
 //
 
-= Manuals archive
+= Manuals
 
 This repository is a static website that provides version-pinned manuals
 for long-term reference purposes.
-Most of the manuals have selection permalinking added on via
-link:https://github.com/quinngrier/qref[Qref].
+Selection permalinking has been added to the manuals wherever possible
+using link:https://github.com/quinngrier/qref[Qref].
 
 The primary mirror is link:https://manuals.quinngrier.com/[].
 
