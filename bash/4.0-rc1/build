@@ -34,6 +34,11 @@ main() {
   wget -O texinfo-6.7.tar.gz -- "$url"
   sha512sum -c texinfo-6.7.tar.gz.sha512sum
 
+  tar xzf bash-4.0-rc1.tar.gz
+  x=$(find bash-4.0-rc1 -type f -printf '%T@\n' | sort -n | tail -1)
+  date -d "@$x" -u +%Y-%m-%d >date
+  rm -f -r bash-4.0-rc1
+
   docker build --iidfile image .
 
   image=$(cat image)
