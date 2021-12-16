@@ -17,7 +17,7 @@ RUN apk --no-cache add \
 
 COPY texinfo-6.7.tar.gz /
 WORKDIR /
-RUN tar xf texinfo-6.7.tar.gz
+RUN tar xzf texinfo-6.7.tar.gz
 WORKDIR /texinfo-6.7
 RUN ./configure
 RUN make
@@ -25,7 +25,7 @@ RUN make install
 
 COPY automake-1.15.tar.gz /
 WORKDIR /
-RUN tar xf automake-1.15.tar.gz
+RUN tar xzf automake-1.15.tar.gz
 WORKDIR /automake-1.15/doc
 RUN mkdir out
 RUN texi2any --html --no-split automake.texi

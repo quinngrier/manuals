@@ -17,7 +17,7 @@ RUN apk --no-cache add \
 
 COPY texinfo-6.7.tar.gz /
 WORKDIR /
-RUN tar xf texinfo-6.7.tar.gz
+RUN tar xzf texinfo-6.7.tar.gz
 WORKDIR /texinfo-6.7
 RUN ./configure
 RUN make
@@ -25,7 +25,7 @@ RUN make install
 
 COPY groff-1.22.4.tar.gz /
 WORKDIR /
-RUN tar xf groff-1.22.4.tar.gz
+RUN tar xzf groff-1.22.4.tar.gz
 WORKDIR /groff-1.22.4
 RUN sed -i.old \
   -e 's/{ "\\\\-", "2212" }/{ "\\\\-", "002D" }/' \
@@ -41,7 +41,7 @@ RUN make install
 
 COPY bash-5.1-beta.tar.gz /
 WORKDIR /
-RUN tar xf bash-5.1-beta.tar.gz
+RUN tar xzf bash-5.1-beta.tar.gz
 WORKDIR /bash-5.1-beta
 RUN cp lib/readline/doc/hsuser.texi doc
 RUN cp lib/readline/doc/rluser.texi doc
