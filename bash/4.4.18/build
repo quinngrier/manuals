@@ -22,17 +22,17 @@ main() {
   url=https://ftp.gnu.org/gnu/bash/bash-4.4.18.tar.gz
   rm -f -r bash-4.4.18.tar.gz bash-4.4.18
   wget -O bash-4.4.18.tar.gz -- "$url"
-  sha512sum -c bash-4.4.18.tar.gz.sha512sum
+  sha512sum -c --quiet bash-4.4.18.tar.gz.sha512sum
 
   url=http://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz
   rm -f -r groff-1.22.4.tar.gz groff-1.22.4
   wget -O groff-1.22.4.tar.gz -- "$url"
-  sha512sum -c groff-1.22.4.tar.gz.sha512sum
+  sha512sum -c --quiet groff-1.22.4.tar.gz.sha512sum
 
   url=http://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
   rm -f -r texinfo-6.7.tar.gz texinfo-6.7
   wget -O texinfo-6.7.tar.gz -- "$url"
-  sha512sum -c texinfo-6.7.tar.gz.sha512sum
+  sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
 
   tar xzf bash-4.4.18.tar.gz
   x=$(find bash-4.4.18 -type f -printf '%T@\n' | sort -n | tail -1)

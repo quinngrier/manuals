@@ -22,17 +22,17 @@ main() {
   url=https://ftp.gnu.org/gnu/autoconf/autoconf-2.70.tar.gz
   rm -f -r autoconf-2.70.tar.gz autoconf-2.70
   wget -O autoconf-2.70.tar.gz -- "$url"
-  sha512sum -c autoconf-2.70.tar.gz.sha512sum
+  sha512sum -c --quiet autoconf-2.70.tar.gz.sha512sum
 
   url=https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz
   rm -f -r groff-1.22.4.tar.gz groff-1.22.4
   wget -O groff-1.22.4.tar.gz -- "$url"
-  sha512sum -c groff-1.22.4.tar.gz.sha512sum
+  sha512sum -c --quiet groff-1.22.4.tar.gz.sha512sum
 
   url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
   rm -f -r texinfo-6.7.tar.gz texinfo-6.7
   wget -O texinfo-6.7.tar.gz -- "$url"
-  sha512sum -c texinfo-6.7.tar.gz.sha512sum
+  sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
 
   tar xzf autoconf-2.70.tar.gz
   x=$(find autoconf-2.70 -type f -printf '%T@\n' | sort -n | tail -1)
