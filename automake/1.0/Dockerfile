@@ -31,5 +31,5 @@ WORKDIR automake
 RUN tar xzf ../automake-*.tar.gz
 RUN mv * automake
 WORKDIR automake
-COPY build-html.bash /
+COPY build-html.bash.flat /build-html.bash
 RUN bash /build-html.bash

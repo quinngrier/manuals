@@ -37,7 +37,9 @@ main() {
   date -d "@$x" -u +%Y-%m-%d >date
   rm -f -r automake-$v
 
-  docker build --iidfile image .
+  cp -L Dockerfile Dockerfile.flat
+  cp -L build-html.bash build-html.bash.flat
+  docker build -f Dockerfile.flat --iidfile image .
 
   image=$(cat image)
   readonly image
@@ -63,7 +65,9 @@ main() {
 
   mv -f out/* .
 
+  rm Dockerfile.flat
   rm automake-$v.tar.gz
+  rm build-html.bash.flat
   rm image
   rm texinfo-6.7.tar.gz
   rmdir out
