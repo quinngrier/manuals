@@ -1,0 +1,70 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+main() {
+
+  declare    container
+  declare    image
+  declare    url
+  declare    x
+
+  url=https://ftp.gnu.org/gnu/automake/automake-1.13.tar.gz
+  rm -f -r automake-1.13.tar.gz automake-1.13
+  wget -O automake-1.13.tar.gz -- "$url"
+  sha512sum -c --quiet automake-1.13.tar.gz.sha512sum
+
+  url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
+  rm -f -r texinfo-6.7.tar.gz texinfo-6.7
+  wget -O texinfo-6.7.tar.gz -- "$url"
+  sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
+
+  tar xzf automake-1.13.tar.gz
+  x=$(find automake-1.13 -type f -printf '%T@\n' | sort -n | tail -1)
+  date -d "@$x" -u +%Y-%m-%d >date
+  rm -f -r automake-1.13
+
+  docker build --iidfile image .
+
+  image=$(cat image)
+  readonly image
+
+  container=$(docker create $image)
+  readonly container
+
+  rm -f -r out
+  mkdir out
+
+  docker cp $container:/automake/automake/out/. out
+
+  docker rm $container
+
+  >files
+  for x in out/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+    echo ${x#out/} >>files
+  done
+
+  mv -f out/* .
+
+  rm automake-1.13.tar.gz
+  rm image
+  rm texinfo-6.7.tar.gz
+  rmdir out
+
+}; readonly -f main
+
+main "$@"

@@ -1,0 +1,1848 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- 
+This manual describes (part of) the history of GNU Automake, a program
+that creates GNU standards-compliant Makefiles from template files.
+
+Copyright (C) 1995-2012 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License,
+Version 1.3 or any later version published by the Free Software
+Foundation; with no Invariant Sections, with no Front-Cover texts,
+and with no Back-Cover Texts.  A copy of the license is included in the
+section entitled "GNU Free Documentation License."
+ -->
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>automake-history</title>
+
+<meta name="description" content="automake-history">
+<meta name="keywords" content="automake-history">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">automake-history</h1>
+
+
+
+<span id="SEC_Contents"></span>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Timeline-1" href="#Timeline">1 Timeline</a></li>
+  <li><a id="toc-Evolution-of-Automatic-Dependency-Tracking" href="#Dependency-Tracking-Evolution">2 Evolution of Automatic Dependency Tracking</a>
+  <ul class="no-bullet">
+    <li><a id="toc-First-Take-on-Dependency-Tracking" href="#First-Take-on-Dependencies">2.1 First Take on Dependency Tracking</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Description" href="#Description">Description</a></li>
+      <li><a id="toc-Bugs" href="#Bugs">Bugs</a></li>
+      <li><a id="toc-Historical-Note" href="#Historical-Note">Historical Note</a></li>
+    </ul></li>
+    <li><a id="toc-Dependencies-As-Side-Effects-1" href="#Dependencies-As-Side-Effects">2.2 Dependencies As Side Effects</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Description-1" href="#Description-1">Description</a></li>
+      <li><a id="toc-Bugs-1" href="#Bugs-1">Bugs</a></li>
+    </ul></li>
+    <li><a id="toc-Dependencies-for-the-User-1" href="#Dependencies-for-the-User">2.3 Dependencies for the User</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Description-2" href="#Description-2">Description</a></li>
+      <li><a id="toc-Bugs-2" href="#Bugs-2">Bugs</a></li>
+    </ul></li>
+    <li><a id="toc-Techniques-for-Computing-Dependencies" href="#Techniques-for-Dependencies">2.4 Techniques for Computing Dependencies</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Recommendations-for-Tool-Writers-1" href="#Recommendations-for-Tool-Writers">2.4.1 Recommendations for Tool Writers</a></li>
+      <li><a id="toc-Future-Directions-for-Dependencies-1" href="#Future-Directions-for-Dependencies">2.4.2 Future Directions for Dependencies</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Release-Statistics" href="#Releases">3 Release Statistics</a></li>
+  <li><a id="toc-Copying-This-Manual-1" href="#Copying-This-Manual">Appendix A Copying This Manual</a>
+  <ul class="no-bullet">
+    <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">A.1 GNU Free Documentation License</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#Timeline" accesskey="n" rel="next">Timeline</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Brief-History-of-Automake"></span><h1 class="top">Brief History of Automake</h1>
+
+
+<p>This manual describes (part of) the history of GNU Automake, a program
+that creates GNU standards-compliant Makefiles from template files.
+</p>
+<p>Copyright &copy; 1995-2012 Free Software Foundation, Inc.
+</p>
+<blockquote>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License,
+Version 1.3 or any later version published by the Free Software
+Foundation; with no Invariant Sections, with no Front-Cover texts,
+and with no Back-Cover Texts.  A copy of the license is included in the
+section entitled &ldquo;GNU Free Documentation License.&rdquo;
+</p>
+</blockquote>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Timeline" accesskey="1">Timeline</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Automake story.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependency-Tracking-Evolution" accesskey="2">Dependency Tracking Evolution</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Evolution of Automatic Dependency Tracking
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Releases" accesskey="3">Releases</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Release statistics
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Copying-This-Manual" accesskey="4">Copying This Manual</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to make copies of this manual
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment"> &mdash; The Detailed Node Listing &mdash;
+
+Evolution of Automatic Dependency Tracking
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#First-Take-on-Dependencies" accesskey="5">First Take on Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Precomputed dependency tracking
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies-As-Side-Effects" accesskey="6">Dependencies As Side Effects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Update at developer compile time
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies-for-the-User" accesskey="7">Dependencies for the User</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Update at user compile time
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Techniques-for-Dependencies" accesskey="8">Techniques for Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Alternative approaches
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Techniques for Computing Dependencies
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Recommendations-for-Tool-Writers" accesskey="9">Recommendations for Tool Writers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Future-Directions-for-Dependencies">Future Directions for Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Copying This Manual
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">License for copying this manual
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr></table>
+
+
+<hr>
+<span id="Timeline"></span><div class="header">
+<p>
+Next: <a href="#Dependency-Tracking-Evolution" accesskey="n" rel="next">Dependency Tracking Evolution</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Timeline-1"></span><h2 class="chapter">1 Timeline</h2>
+
+<dl compact="compact">
+<dt>1994-09-19 First CVS commit.</dt>
+<dd>
+<p>If we can trust the CVS repository, David J.&nbsp;MacKenzie (djm) started
+working on Automake (or AutoMake, as it was spelt then) this Monday.
+</p>
+<p>The first version of the <code>automake</code> script looks as follows.
+</p>
+<div class="example">
+<pre class="example">#!/bin/sh
+
+status=0
+
+for makefile
+do
+  if test ! -f ${makefile}.am; then
+    echo &quot;automake: ${makefile}.am: No such honkin' file&quot;
+    status=1
+    continue
+  fi
+
+  exec 4&gt; ${makefile}.in
+
+done
+</pre></div>
+
+<p>From this you can already see that Automake will be about reading
+<samp>*.am</samp> file and producing <samp>*.in</samp> files.  You cannot see
+anything else, but if you also know that David is the one who created
+Autoconf two years before you can guess the rest.
+</p>
+<p>Several commits follow, and by the end of the day Automake is
+reported to work for GNU fileutils and GNU m4.
+</p>
+<p>The modus operandi is the one that is still used today: variable
+assignments in <samp>Makefile.am</samp> files trigger injections of
+precanned <samp>Makefile</samp> fragments into the generated
+<samp>Makefile.in</samp>.  The use of <samp>Makefile</samp> fragments was inspired
+by the 4.4BSD <code>make</code> and include files, however Automake aims
+to be portable and to conform to the GNU standards for <samp>Makefile</samp>
+variables and targets.
+</p>
+<p>At this point, the most recent release of Autoconf is version 1.11,
+and David is preparing to release Autoconf 2.0 in late October.  As a
+matter of fact, he will barely touch Automake after September.
+</p>
+</dd>
+<dt>1994-11-05 David MacKenzie&rsquo;s last commit.</dt>
+<dd>
+<p>At this point Automake is a 200 line portable shell script, plus 332
+lines of <samp>Makefile</samp> fragments.  In the <samp>README</samp>, David
+states his ambivalence between &ldquo;portable shell&rdquo; and &ldquo;more
+appropriate language&rdquo;:
+</p>
+<blockquote>
+<p>I wrote it keeping in mind the possibility of it becoming an Autoconf
+macro, so it would run at configure-time.  That would slow
+configuration down a bit, but allow users to modify the Makefile.am
+without needing to fetch the AutoMake package.  And, the Makefile.in
+files wouldn&rsquo;t need to be distributed.  But all of AutoMake would.  So
+I might reimplement AutoMake in Perl, m4, or some other more
+appropriate language.
+</p></blockquote>
+
+<p>Automake is described as &ldquo;an experimental Makefile generator&rdquo;.
+There is no documentation.  Adventurous users are referred to the
+examples and patches needed to use Automake with GNU m4 1.3, fileutils
+3.9, time 1.6, and development versions of find and indent.
+</p>
+<p>These examples seem to have been lost.  However at the time of writing
+(10 years later in September, 2004) the FSF still distributes a
+package that uses this version of Automake: check out GNU termutils
+2.0.
+</p>
+</dd>
+<dt>1995-11-12 Tom Tromey&rsquo;s first commit.</dt>
+<dd>
+<p>After one year of inactivity, Tom Tromey takes over the package.
+Tom was working on GNU cpio back then, and doing this just for fun,
+having trouble finding a project to contribute to.  So while hacking
+he wanted to bring the <samp>Makefile.in</samp> up to GNU standards.  This
+was hard, and one day he saw Automake on <a href="ftp://alpha.gnu.org/">ftp://alpha.gnu.org/</a>,
+grabbed it and tried it out.
+</p>
+<p>Tom didn&rsquo;t talk to djm about it until later, just to make sure he
+didn&rsquo;t mind if he made a release.  He did a bunch of early releases to
+the Gnits folks.
+</p>
+<p>Gnits was (and still is) totally informal, just a few GNU friends who
+Fran&ccedil;ois Pinard knew, who were all interested in making a common
+infrastructure for GNU projects, and shared a similar outlook on how
+to do it.  So they were able to make some progress.  It came along
+with Autoconf and extensions thereof, and then Automake from David and
+Tom (who were both gnitsians).  One of their ideas was to write a
+document paralleling the GNU standards, that was more strict in some
+ways and more detailed.  They never finished the GNITS standards, but
+the ideas mostly made their way into Automake.
+</p>
+</dd>
+<dt>1995-11-23 Automake 0.20</dt>
+<dd>
+<p>Besides introducing automatic dependency tracking (see <a href="#Dependency-Tracking-Evolution">Dependency Tracking Evolution</a>), this version also supplies a 9-page manual.
+</p>
+<p>At this time <code>aclocal</code> and <code>AM_INIT_AUTOMAKE</code> did not
+exist, so many things had to be done by hand.  For instance, here is
+what a configure.in (this is the former name of the
+<samp>configure.ac</samp> we use today) must contain in order to use
+Automake 0.20:
+</p>
+<div class="example">
+<pre class="example">PACKAGE=cpio
+VERSION=2.3.911
+AC_DEFINE_UNQUOTED(PACKAGE, &quot;$PACKAGE&quot;)
+AC_DEFINE_UNQUOTED(VERSION, &quot;$VERSION&quot;)
+AC_SUBST(PACKAGE)
+AC_SUBST(VERSION)
+AC_ARG_PROGRAM
+AC_PROG_INSTALL
+</pre></div>
+
+<p>(Today all of the above is achieved by <code>AC_INIT</code> and
+<code>AM_INIT_AUTOMAKE</code>.)
+</p>
+<p>Here is how programs are specified in <samp>Makefile.am</samp>:
+</p>
+<div class="example">
+<pre class="example">PROGRAMS = hello
+hello_SOURCES = hello.c
+</pre></div>
+
+<p>This looks pretty much like what we do today, except the
+<code>PROGRAMS</code> variable has no directory prefix specifying where
+<samp>hello</samp> should be installed: all programs are installed in
+&lsquo;<samp>$(bindir)</samp>&rsquo;.  <code>LIBPROGRAMS</code> can be used to specify programs
+that must be built but not installed (it is called
+<code>noinst_PROGRAMS</code> nowadays).
+</p>
+<p>Programs can be built conditionally using <code>AC_SUBST</code>itutions:
+</p>
+<div class="example">
+<pre class="example">PROGRAMS = @progs@
+AM_PROGRAMS = foo bar baz
+</pre></div>
+
+<p>(<code>AM_PROGRAMS</code> has since then been renamed to
+<code>EXTRA_PROGRAMS</code>.)
+</p>
+<p>Similarly scripts, static libraries, and data can be built and installed
+using the <code>LIBRARIES</code>, <code>SCRIPTS</code>, and <code>DATA</code> variables.
+However <code>LIBRARIES</code> were treated a bit specially in that Automake
+did automatically supply the <samp>lib</samp> and <samp>.a</samp> prefixes.
+Therefore to build <samp>libcpio.a</samp>, one had to write
+</p>
+<div class="example">
+<pre class="example">LIBRARIES = cpio
+cpio_SOURCES = ...
+</pre></div>
+
+<p>Extra files to distribute must be listed in <code>DIST_OTHER</code> (the
+ancestor of <code>EXTRA_DIST</code>).  Also extra directories that are to be
+distributed should appear in <code>DIST_SUBDIRS</code>, but the manual
+describes this as a temporary ugly hack (today extra directories should
+also be listed in <code>EXTRA_DIST</code>, and <code>DIST_SUBDIRS</code> is used
+for another purpose, see <a href="https://www.gnu.org/software/automake/manual/automake.html#Conditional-Subdirectories">Conditional
+Subdirectories</a> in <cite>GNU Automake</cite>).
+</p>
+</dd>
+<dt>1995-11-26 Automake 0.21</dt>
+<dd>
+<p>In less time than it takes to cook a frozen pizza, Tom rewrites
+Automake using Perl.  At this time Perl 5 is only one year old, and
+Perl 4.036 is in use at many sites.  Supporting several Perl versions
+has been a source of problems through the whole history of Automake.
+</p>
+<p>If you never used Perl 4, imagine Perl 5 without objects, without
+&lsquo;<samp>my</samp>&rsquo; variables (only dynamically scoped &lsquo;<samp>local</samp>&rsquo; variables),
+without function prototypes, with function calls that needs to be
+prefixed with &lsquo;<samp>&amp;</samp>&rsquo;, etc.  Traces of this old style can still be
+found in today&rsquo;s <code>automake</code>.
+</p>
+</dd>
+<dt>1995-11-28 Automake 0.22</dt>
+<dt>1995-11-29 Automake 0.23</dt>
+<dd>
+<p>Bug fixes.
+</p>
+</dd>
+<dt>1995-12-08 Automake 0.24</dt>
+<dt>1995-12-10 Automake 0.25</dt>
+<dd>
+<p>Releases are raining.  0.24 introduces the uniform naming scheme we
+use today, i.e., <code>bin_PROGRAMS</code> instead of <code>PROGRAMS</code>,
+<code>noinst_LIBRARIES</code> instead of <code>LIBLIBRARIES</code>, etc.  (However
+<code>EXTRA_PROGRAMS</code> does not exist yet, <code>AM_PROGRAMS</code> is still
+in use; and <code>TEXINFOS</code> and <code>MANS</code> still have no directory
+prefixes.)  Adding support for prefixes like that was one of the major
+ideas in <code>automake</code>; it has lasted pretty well.
+</p>
+<p>AutoMake is renamed to Automake (Tom seems to recall it was Fran&ccedil;ois
+Pinard&rsquo;s doing).
+</p>
+<p>0.25 fixes a Perl 4 portability bug.
+</p>
+</dd>
+<dt>1995-12-18 Jim Meyering starts using Automake in GNU Textutils.</dt>
+<dt>1995-12-31 Fran&ccedil;ois Pinard starts using Automake in GNU tar.</dt>
+<dt>1996-01-03 Automake 0.26</dt>
+<dt>1996-01-03 Automake 0.27</dt>
+<dd>
+<p>Of the many changes and suggestions sent by Fran&ccedil;ois Pinard and
+included in 0.26, perhaps the most important is the advice that to
+ease customization a user rule or variable definition should always
+override an Automake rule or definition.
+</p>
+<p>Gordon Matzigkeit and Jim Meyering are two other early contributors
+that have been sending fixes.
+</p>
+<p>0.27 fixes yet another Perl 4 portability bug.
+</p>
+</dd>
+<dt>1996-01-13 Automake 0.28</dt>
+<dd>
+<p>Automake starts scanning <samp>configure.in</samp> for <code>LIBOBJS</code>
+support.  This is an important step because until this version
+Automake only knew about the <samp>Makefile.am</samp>s it processed.
+<samp>configure.in</samp> was Autoconf&rsquo;s world and the link between Autoconf
+and Automake had to be done by the <samp>Makefile.am</samp> author.  For
+instance, if <samp>config.h</samp> was generated by <samp>configure</samp>, it was the
+package maintainer&rsquo;s responsibility to define the <code>CONFIG_HEADER</code>
+variable in each <samp>Makefile.am</samp>.
+</p>
+<p>Succeeding releases will rely more and more on scanning
+<samp>configure.in</samp> to better automate the Autoconf integration.
+</p>
+<p>0.28 also introduces the <code>AUTOMAKE_OPTIONS</code> variable and the
+<samp>--gnu</samp> and <samp>--gnits</samp> options, the latter being stricter.
+</p>
+</dd>
+<dt>1996-02-07 Automake 0.29</dt>
+<dd>
+<p>Thanks to <samp>configure.in</samp> scanning, <code>CONFIG_HEADER</code> is gone,
+and rebuild rules for <samp>configure</samp>-generated file are
+automatically output.
+</p>
+<p><code>TEXINFOS</code> and <code>MANS</code> converted to the uniform naming
+scheme.
+</p>
+</dd>
+<dt>1996-02-24 Automake 0.30</dt>
+<dd>
+<p>The test suite is born.  It contains 9 tests.  From now on test cases
+will be added pretty regularly (see <a href="#Releases">Releases</a>), and this proved to
+be really helpful later on.
+</p>
+<p><code>EXTRA_PROGRAMS</code> finally replaces <code>AM_PROGRAMS</code>.
+</p>
+<p>All the third-party Autoconf macros, written mostly by Fran&ccedil;ois
+Pinard (and later Jim Meyering), are distributed in Automake&rsquo;s
+hand-written <samp>aclocal.m4</samp> file.  Package maintainers are expected
+to extract the necessary macros from this file.  (In previous versions
+you had to copy and paste them from the manual...)
+</p>
+</dd>
+<dt>1996-03-11 Automake 0.31</dt>
+<dd>
+<p>The test suite in 0.30 was run via a long <code>check-local</code> rule.  Upon
+Ulrich Drepper&rsquo;s suggestion, 0.31 makes it an Automake rule output
+whenever the <code>TESTS</code> variable is defined.
+</p>
+<p><code>DIST_OTHER</code> is renamed to <code>EXTRA_DIST</code>, and the <code>check_</code>
+prefix is introduced.  The syntax is now the same as today.
+</p>
+</dd>
+<dt>1996-03-15 Gordon Matzigkeit starts writing libtool.</dt>
+<dt>1996-04-27 Automake 0.32</dt>
+<dd>
+<p><code>-hook</code> targets are introduced; an idea from Dieter Baron.
+</p>
+<p><samp>*.info</samp> files, which were output in the build directory are
+now built in the source directory, because they are distributed.  It
+seems these files like to move back and forth as that will happen
+again in future versions.
+</p>
+</dd>
+<dt>1996-05-18 Automake 0.33</dt>
+<dd>
+<p>Gord Matzigkeit&rsquo;s main two contributions:
+</p>
+<ul>
+<li> very preliminary libtool support
+</li><li> the distcheck rule
+</li></ul>
+
+<p>Although they were very basic at this point, these are probably
+among the top features for Automake today.
+</p>
+<p>Jim Meyering also provides the infamous <code>jm_MAINTAINER_MODE</code>, since
+then renamed to <code>AM_MAINTAINER_MODE</code> and abandoned by its author
+(see <a href="https://www.gnu.org/software/automake/manual/automake.html#maintainer_002dmode">maintainer-mode</a> in <cite>GNU Automake</cite>).
+</p>
+</dd>
+<dt>1996-05-28 Automake 1.0</dt>
+<dd>
+<p>After only six months of heavy development, the <code>automake</code> script is
+3134 lines long, plus 973 lines of <samp>Makefile</samp> fragments.  The
+package has 30 pages of documentation, and 38 test cases.
+<samp>aclocal.m4</samp> contains 4 macros.
+</p>
+<p>From now on and until version 1.4, new releases will occur at a rate
+of about one a year.  1.1 did not exist, actually 1.1b to 1.1p have
+been the name of beta releases for 1.2.  This is the first time
+Automake uses suffix letters to designate beta releases, a habit that
+lasts.
+</p>
+</dd>
+<dt>1996-10-10 Kevin Dalley packages Automake 1.0 for Debian GNU/Linux.</dt>
+<dt>1996-11-26 David J.&nbsp;MacKenzie releases Autoconf 2.12.</dt>
+<dd>
+<p>Between June and October, the Autoconf development is almost stalled.
+Roland McGrath has been working at the beginning of the year.  David
+comes back in November to release 2.12, but he won&rsquo;t touch Autoconf
+anymore after this year, and Autoconf then really stagnates.  The
+desolate Autoconf <samp>ChangeLog</samp> for 1997 lists only 7 commits.
+</p>
+</dd>
+<dt>1997-02-28 <a href="mailto:automake@gnu.ai.mit.edu">automake@gnu.ai.mit.edu</a> list alive</dt>
+<dd>
+<p>The mailing list is announced as follows:
+</p><div class="example">
+<pre class="example">I've created the &quot;automake&quot; mailing list.  It is
+&quot;automake@gnu.ai.mit.edu&quot;.  Administrivia, as always, to
+automake-request@gnu.ai.mit.edu.
+
+The charter of this list is discussion of automake, autoconf, and
+other configuration/portability tools (e.g., libtool).  It is expected
+that discussion will range from pleas for help all the way up to
+patches.
+
+This list is archived on the FSF machines.  Offhand I don't know if
+you can get the archive without an account there.
+
+This list is open to anybody who wants to join.  Tell all your
+friends!
+-- Tom Tromey
+</pre></div>
+
+<p>Before that people were discussing Automake privately, on the Gnits
+mailing list (which is not public either), and less frequently on
+<code>gnu.misc.discuss</code>.
+</p>
+<p><code>gnu.ai.mit.edu</code> is now <code>gnu.org</code>, in case you never
+noticed.  The archives of the early years of the
+<code>automake@gnu.org</code> list have been lost, so today it is almost
+impossible to find traces of discussions that occurred before 1999.
+This has been annoying more than once, as such discussions can be
+useful to understand the rationale behind a piece of uncommented code
+that was introduced back then.
+</p>
+</dd>
+<dt>1997-06-22 Automake 1.2</dt>
+<dd>
+<p>Automake developments continues, and more and more new Autoconf macros
+are required.  Distributing them in <samp>aclocal.m4</samp> and requiring
+people to browse this file to extract the relevant macros becomes
+uncomfortable.  Ideally, some of them should be contributed to
+Autoconf so that they can be used directly, however Autoconf is
+currently inactive.  Automake 1.2 consequently introduces
+<code>aclocal</code> (<code>aclocal</code> was actually started on
+1996-07-28), a tool that automatically constructs an <samp>aclocal.m4</samp>
+file from a repository of third-party macros.  Because Autoconf has
+stalled, Automake also becomes a kind of repository for such
+third-party macros, even macros completely unrelated to Automake (for
+instance macros that fix broken Autoconf macros).
+</p>
+<p>The 1.2 release contains 20 macros, including the
+<code>AM_INIT_AUTOMAKE</code> macro that simplifies the creation of
+<samp>configure.in</samp>.
+</p>
+<p>Libtool is fully supported using <code>*_LTLIBRARIES</code>.
+</p>
+<p>The missing script is introduced by Fran&ccedil;ois Pinard; it is meant
+to be a better solution than <code>AM_MAINTAINER_MODE</code>
+(see <a href="https://www.gnu.org/software/automake/manual/automake.html#maintainer_002dmode">maintainer-mode</a> in <cite>GNU Automake</cite>).
+</p>
+<p>Conditionals support was implemented by Ian Lance Taylor.  At the
+time, Tom and Ian were working on an internal project at Cygnus.  They
+were using ILU, which is pretty similar to CORBA.  They wanted to
+integrate ILU into their build, which was all <samp>configure</samp>-based,
+and Ian thought that adding conditionals to <code>automake</code> was
+simpler than doing all the work in <samp>configure</samp> (which was the
+standard at the time).  So this was actually funded by Cygnus.
+</p>
+<p>This very useful but tricky feature will take a lot of time to
+stabilize.  (At the time this text is written, there are still
+primaries that have not been updated to support conditional
+definitions in Automake 1.9.)
+</p>
+<p>The <code>automake</code> script has almost doubled: 6089 lines of Perl,
+plus 1294 lines of <samp>Makefile</samp> fragments.
+</p>
+</dd>
+<dt>1997-07-08 Gordon Matzigkeit releases Libtool 1.0.</dt>
+<dt>1998-04-05 Automake 1.3</dt>
+<dd>
+<p>This is a small advance compared to 1.2.
+It adds support for assembly, and preliminary support for Java.
+</p>
+<p>Perl 5.004_04 is out, but fixes to support Perl 4 are still
+regularly submitted whenever Automake breaks it.
+</p>
+</dd>
+<dt>1998-09-06 <code>sourceware.cygnus.com</code> is on-line.</dt>
+<dd>
+<p>Sourceware was setup by Jason Molenda to host open source projects.
+</p>
+</dd>
+<dt>1998-09-19  Automake CVS repository moved to <code>sourceware.cygnus.com</code></dt>
+<dt>1998-10-26  <code>sourceware.cygnus.com</code> announces it hosts Automake:</dt>
+<dd><p>Automake is now hosted on <code>sourceware.cygnus.com</code>.  It has a
+publicly accessible CVS repository.  This CVS repository is a copy of
+the one Tom was using on his machine, which in turn is based on
+a copy of the CVS repository of David MacKenzie.  This is why we still
+have to full source history.  (Automake was on Sourceware until 2007-10-29,
+when it moved to a git repository on <code>savannah.gnu.org</code>,
+but the Sourceware host had been renamed to <code>sources.redhat.com</code>.)
+</p>
+<p>The oldest file in the administrative directory of the CVS repository
+that was created on Sourceware is dated 1998-09-19, while the
+announcement that <code>automake</code> and <code>autoconf</code> had joined
+<code>sourceware</code> was made on 1998-10-26.  They were among the
+first projects to be hosted there.
+</p>
+<p>The heedful reader will have noticed Automake was exactly 4 years old
+on 1998-09-19.
+</p>
+</dd>
+<dt>1999-01-05 Ben Elliston releases Autoconf 2.13.</dt>
+<dt>1999-01-14 Automake 1.4</dt>
+<dd>
+<p>This release adds support for Fortran 77 and for the <code>include</code>
+statement.  Also, &lsquo;<samp>+=</samp>&rsquo; assignments are introduced, but it is
+still quite easy to fool Automake when mixing this with conditionals.
+</p>
+<p>These two releases, Automake 1.4 and Autoconf 2.13 make a duo that
+will be used together for years.
+</p>
+<p><code>automake</code> is 7228 lines, plus 1591 lines of Makefile
+fragment, 20 macros (some 1.3 macros were finally contributed back to
+Autoconf), 197 test cases, and 51 pages of documentation.
+</p>
+</dd>
+<dt>1999-03-27 The <code>user-dep-branch</code> is created on the CVS repository.</dt>
+<dd>
+<p>This implements a new dependency tracking schemed that should be
+able to handle automatic dependency tracking using any compiler (not
+just gcc) and any make (not just GNU <code>make</code>).  In addition,
+the new scheme should be more reliable than the old one, as
+dependencies are generated on the end user&rsquo;s machine.  Alexandre Oliva
+creates depcomp for this purpose.
+</p>
+<p>See <a href="#Dependency-Tracking-Evolution">Dependency Tracking Evolution</a>, for more details about the
+evolution of automatic dependency tracking in Automake.
+</p>
+</dd>
+<dt>1999-11-21 The <code>user-dep-branch</code> is merged into the main trunk.</dt>
+<dd>
+<p>This was a huge problem since we also had patches going in on the
+trunk.  The merge took a long time and was very painful.
+</p>
+</dd>
+<dt>2000-05-10</dt>
+<dd>
+<p>Since September 1999 and until 2003, Akim Demaille will be zealously
+revamping Autoconf.
+</p>
+<blockquote>
+<p>I think the next release should be called &quot;3.0&quot;.<br>
+Let&rsquo;s face it: you&rsquo;ve basically rewritten autoconf.<br>
+Every weekend there are 30 new patches.<br>
+I don&rsquo;t see how we could call this &quot;2.15&quot; with a straight face.<br>
+&ndash; Tom Tromey on <a href="mailto:autoconf@gnu.org">autoconf@gnu.org</a>
+</p></blockquote>
+
+<p>Actually Akim works like a submarine: he will pile up patches while he
+works off-line during the weekend, and flush them in batch when he
+resurfaces on Monday.
+</p>
+</dd>
+<dt>2001-01-24</dt>
+<dd>
+<p>On this Wednesday, Autoconf 2.49c, the last beta before Autoconf 2.50
+is out, and Akim has to find something to do during his week-end :)
+</p>
+</dd>
+<dt>2001-01-28</dt>
+<dd>
+<p>Akim sends a batch of 14 patches to <a href="mailto:automake@gnu.org">automake@gnu.org</a>.
+</p>
+<blockquote>
+<p>Aiieeee!  I was dreading the day that the Demaillator turned his
+sights on automake&hellip; and now it has arrived! &ndash; Tom Tromey
+</p></blockquote>
+
+<p>It&rsquo;s only the beginning: in two months he will send 192 patches.  Then
+he would slow down so Tom can catch up and review all this.  Initially
+Tom actually read all of these patches, then he probably trustingly
+answered OK to most of them, and finally gave up and let Akim apply
+whatever he wanted.  There was no way to keep up with that patch rate.
+</p>
+<blockquote>
+<p>Anyway the patch below won&rsquo;t apply since it predates Akim&rsquo;s
+sourcequake; I have yet to figure where the relevant passage has
+been moved :) &ndash; Alexandre Duret-Lutz
+</p></blockquote>
+
+<p>All of these patches were sent to and discussed on
+<a href="mailto:automake@gnu.org">automake@gnu.org</a>, so subscribed users were literally drowning in
+technical mails.  Eventually, the <a href="mailto:automake-patches@gnu.org">automake-patches@gnu.org</a>
+mailing list was created in May.
+</p>
+<p>Year after year, Automake had drifted away from its initial design:
+construct <samp>Makefile.in</samp> by assembling various <samp>Makefile</samp>
+fragments.  In 1.4, lots of <samp>Makefile</samp> rules are being emitted at
+various places in the <code>automake</code> script itself; this does not
+help ensuring a consistent treatment of these rules (for instance
+making sure that user-defined rules override Automake&rsquo;s own rules).
+One of Akim&rsquo;s goal was moving all of these hard-coded rules to separate
+<samp>Makefile</samp> fragments, so the logic could be centralized in a
+<samp>Makefile</samp> fragment processor.
+</p>
+<p>Another significant contribution of Akim is the interface with the
+&ldquo;trace&rdquo; feature of Autoconf.  The way to scan <samp>configure.in</samp> at
+this time was to read the file and grep the various macro of interest
+to Automake.  Doing so could break in many unexpected ways; <code>automake</code>
+could miss some definition (for instance &lsquo;<samp>AC_SUBST([$1], [$2])</samp>&rsquo;
+where the arguments are known only when M4 is run), or conversely it
+could detect some macro that was not expanded (because it is called
+conditionally).  In the CVS version of Autoconf, Akim had implemented
+the <samp>--trace</samp> option, which provides accurate information about
+where macros are actually called and with what arguments.  Akim will
+equip Automake with a second <samp>configure.in</samp> scanner that uses
+this <samp>--trace</samp> interface.  Since it was not sensible to drop the
+Autoconf 2.13 compatibility yet, this experimental scanner was only
+used when an environment variable was set, the traditional
+grep-scanner being still the default.
+</p>
+</dd>
+<dt>2001-04-25 Gary V.&nbsp;Vaughan releases Libtool 1.4</dt>
+<dd>
+<p>It has been more than two years since Automake 1.4, CVS Automake has
+suffered lot&rsquo;s of heavy changes and still is not ready for release.
+Libtool 1.4 had to be distributed with a patch against Automake 1.4.
+</p>
+</dd>
+<dt>2001-05-08 Automake 1.4-p1</dt>
+<dt>2001-05-24 Automake 1.4-p2</dt>
+<dd>
+<p>Gary V.&nbsp;Vaughan, the principal Libtool maintainer, makes a &ldquo;patch
+release&rdquo; of Automake:
+</p>
+<blockquote>
+<p>The main purpose of this release is to have a stable automake
+which is compatible with the latest stable libtool.
+</p></blockquote>
+
+<p>The release also contains obvious fixes for bugs in Automake 1.4,
+some of which were reported almost monthly.
+</p>
+</dd>
+<dt>2001-05-21 Akim Demaille releases Autoconf 2.50</dt>
+<dt>2001-06-07 Automake 1.4-p3</dt>
+<dt>2001-06-10 Automake 1.4-p4</dt>
+<dt>2001-07-15 Automake 1.4-p5</dt>
+<dd>
+<p>Gary continues his patch-release series.  These also add support for
+some new Autoconf 2.50 idioms.  Essentially, Autoconf now advocates
+<samp>configure.ac</samp> over <samp>configure.in</samp>, and it introduces a new
+syntax for <code>AC_OUTPUT</code>ing files.
+</p>
+</dd>
+<dt>2001-08-23 Automake 1.5</dt>
+<dd>
+<p>A major and long-awaited release, that comes more than two years after
+1.4.  It brings many changes, among which:
+</p><ul>
+<li> The new dependency tracking scheme that uses <code>depcomp</code>.
+Aside from the improvement on the dependency tracking itself
+(see <a href="#Dependency-Tracking-Evolution">Dependency Tracking Evolution</a>), this also streamlines the use
+of <code>automake</code>-generated <samp>Makefile.in</samp>s as the <samp>Makefile.in</samp>s
+used during development are now the same as those used in
+distributions.  Before that the <samp>Makefile.in</samp>s generated for
+maintainers required GNU <code>make</code> and GCC, they were different
+from the portable <samp>Makefile</samp> generated for distribution; this was
+causing some confusion.
+
+</li><li> Support for per-target compilation flags.
+
+</li><li> Support for reference to files in subdirectories in most
+<samp>Makefile.am</samp> variables.
+
+</li><li> Introduction of the <code>dist_</code>, <code>nodist_</code>, and <code>nobase_</code>
+prefixes.
+</li><li> Perl 4 support is finally dropped.
+</li></ul>
+
+<p>1.5 did break several packages that worked with 1.4.  Enough so that
+Linux distributions could not easily install the new Automake version
+without breaking many of the packages for which they had to run
+<code>automake</code>.
+</p>
+<p>Some of these breakages were effectively bugs that would eventually be
+fixed in the next release.  However, a lot of damage was caused by
+some changes made deliberately to render Automake stricter on some
+setup we did consider bogus.  For instance, &lsquo;<samp>make distcheck</samp>&rsquo; was
+improved to check that &lsquo;<samp>make uninstall</samp>&rsquo; did remove all the files
+&lsquo;<samp>make install</samp>&rsquo; installed, that &lsquo;<samp>make distclean</samp>&rsquo; did not omit
+some file, and that a VPATH build would work even if the source
+directory was read-only.  Similarly, Automake now rejects multiple
+definitions of the same variable (because that would mix very badly
+with conditionals), and &lsquo;<samp>+=</samp>&rsquo; assignments with no previous
+definition.  Because these changes all occurred suddenly after 1.4 had
+been established for more than two years, it hurt users.
+</p>
+<p>To make matter worse, meanwhile Autoconf (now at version 2.52) was
+facing similar troubles, for similar reasons.
+</p>
+</dd>
+<dt>2002-03-05 Automake 1.6</dt>
+<dd>
+<p>This release introduced versioned installation (see <a href="https://www.gnu.org/software/automake/manual/automake.html#API-Versioning">API Versioning</a> in <cite>GNU Automake</cite>). This was mainly pushed by
+Havoc Pennington, taking the GNOME source tree as motive: due to
+incompatibilities between the autotools it&rsquo;s impossible for the GNOME
+packages to switch to Autoconf 2.53 and Automake 1.5 all at once, so
+they are currently stuck with Autoconf 2.13 and Automake 1.4.
+</p>
+<p>The idea was to call this version <samp>automake-1.6</samp>, call all its
+bug-fix versions identically, and switch to <samp>automake-1.7</samp> for
+the next release that adds new features or changes some rules.  This
+scheme implies maintaining a bug-fix branch in addition to the
+development trunk, which means more work from the maintainer, but
+providing regular bug-fix releases proved to be really worthwhile.
+</p>
+<p>Like 1.5, 1.6 also introduced a bunch of incompatibilities, intentional or
+not.  Perhaps the more annoying was the dependence on the newly
+released Autoconf 2.53.  Autoconf seemed to have stabilized enough
+since its explosive 2.50 release and included changes required to fix
+some bugs in Automake.  In order to upgrade to Automake 1.6, people
+now had to upgrade Autoconf too; for some packages it was no picnic.
+</p>
+<p>While versioned installation helped people to upgrade, it also
+unfortunately allowed people not to upgrade.  At the time of writing,
+some Linux distributions are shipping packages for Automake 1.4, 1.5,
+1.6, 1.7, 1.8, and 1.9.  Most of these still install 1.4 by default.
+Some distribution also call 1.4 the &ldquo;stable&rdquo; version, and present
+&ldquo;1.9&rdquo; as the development version; this does not really makes sense
+since 1.9 is way more solid than 1.4.  All this does not help the
+newcomer.
+</p>
+</dd>
+<dt>2002-04-11 Automake 1.6.1</dt>
+<dd>
+<p>1.6, and the upcoming 1.4-p6 release were the last release by Tom.
+This one and those following will be handled by Alexandre
+Duret-Lutz.  Tom is still around, and will be there until about 1.7,
+but his interest into Automake is drifting away towards projects like
+<code>gcj</code>.
+</p>
+<p>Alexandre has been using Automake since 2000, and started to
+contribute mostly on Akim&rsquo;s incitement (Akim and Alexandre have been
+working in the same room from 1999 to 2002).  In 2001 and 2002 he had
+a lot of free time to enjoy hacking Automake.
+</p>
+</dd>
+<dt>2002-06-14 Automake 1.6.2</dt>
+<dt>2002-07-28 Automake 1.6.3</dt>
+<dt>2002-07-28 Automake 1.4-p6</dt>
+<dd>
+<p>Two releases on the same day.  1.6.3 is a bug-fix release.
+</p>
+<p>Tom Tromey backported the versioned installation mechanism on the 1.4
+branch, so that Automake 1.6.x and Automake 1.4-p6 could be installed
+side by side.  Another request from the GNOME folks.
+</p>
+</dd>
+<dt>2002-09-25 Automake 1.7</dt>
+<dd>
+<p>This release switches to the new <samp>configure.ac</samp> scanner Akim
+was experimenting in 1.5.
+</p>
+</dd>
+<dt>2002-10-16 Automake 1.7.1</dt>
+<dt>2002-12-06 Automake 1.7.2</dt>
+<dt>2003-02-20 Automake 1.7.3</dt>
+<dt>2003-04-23 Automake 1.7.4</dt>
+<dt>2003-05-18 Automake 1.7.5</dt>
+<dt>2003-07-10 Automake 1.7.6</dt>
+<dt>2003-09-07 Automake 1.7.7</dt>
+<dt>2003-10-07 Automake 1.7.8</dt>
+<dd>
+<p>Many bug-fix releases.  1.7 lasted because the development version
+(upcoming 1.8) was suffering some major internal revamping.
+</p>
+</dd>
+<dt>2003-10-26 Automake on screen</dt>
+<dd>
+<p>Episode 49, &lsquo;Repercussions&rsquo;, in the third season of the &lsquo;Alias&rsquo; TV
+show is first aired.
+</p>
+<p>Marshall, one of the characters, is working on a computer virus that he
+has to modify before it gets into the wrong hands or something like
+that.  The screenshots you see do not show any program code, they show
+a <samp>Makefile.in</samp> generated by automake...
+</p>
+</dd>
+<dt>2003-11-09 Automake 1.7.9</dt>
+<dt>2003-12-10 Automake 1.8</dt>
+<dd>
+<p>The most striking update is probably that of <code>aclocal</code>.
+</p>
+<p><code>aclocal</code> now uses <code>m4_include</code> in the produced
+<samp>aclocal.m4</samp> when the included macros are already distributed
+with the package (an idiom used in many packages), which reduces code
+duplication.  Many people liked that, but in fact this change was
+really introduced to fix a bug in rebuild rules: <samp>Makefile.in</samp>
+must be rebuilt whenever a dependency of <samp>configure</samp> changes, but
+all the <samp>m4</samp> files included in <samp>aclocal.m4</samp> where unknown
+from <code>automake</code>.  Now <code>automake</code> can just trace the
+<code>m4_include</code>s to discover the dependencies.
+</p>
+<p><code>aclocal</code> also starts using the <samp>--trace</samp> Autoconf option
+in order to discover used macros more accurately.  This will turn out
+to be very tricky (later releases will improve this) as people had
+devised many ways to cope with the limitation of previous
+<code>aclocal</code> versions, notably using handwritten
+<code>m4_include</code>s: <code>aclocal</code> must make sure not to redefine a
+rule that is already included by such statement.
+</p>
+<p>Automake also has seen its guts rewritten.  Although this rewriting
+took a lot of efforts, it is only apparent to the users in that some
+constructions previously disallowed by the implementation now work
+nicely.  Conditionals, Locations, Variable and Rule definitions,
+Options: these items on which Automake works have been rewritten as
+separate Perl modules, and documented.
+</p>
+</dd>
+<dt>2004-01-11 Automake 1.8.1</dt>
+<dt>2004-01-12 Automake 1.8.2</dt>
+<dt>2004-03-07 Automake 1.8.3</dt>
+<dt>2004-04-25 Automake 1.8.4</dt>
+<dt>2004-05-16 Automake 1.8.5</dt>
+<dt>2004-07-28 Automake 1.9</dt>
+<dd>
+<p>This release tries to simplify the compilation rules it outputs to
+reduce the size of the Makefile.  The complaint initially come from
+the libgcj developers.  Their <samp>Makefile.in</samp> generated with
+Automake 1.4 and custom build rules (1.4 did not support compiled
+Java) is 250KB.  The one generated by 1.8 was over 9MB!  1.9 gets it
+down to 1.2MB.
+</p>
+<p>Aside from this it contains mainly minor changes and bug-fixes.
+</p>
+</dd>
+<dt>2004-08-11 Automake 1.9.1</dt>
+<dt>2004-09-19 Automake 1.9.2</dt>
+<dd>
+<p>Automake has ten years.  This chapter of the manual was initially
+written for this occasion.
+</p>
+</dd>
+<dt>2007-10-29 Automake repository moves to <code>savannah.gnu.org</code></dt>
+<dd><p>and uses git as primary repository.
+</p>
+</dd>
+</dl>
+
+<hr>
+<span id="Dependency-Tracking-Evolution"></span><div class="header">
+<p>
+Next: <a href="#Releases" accesskey="n" rel="next">Releases</a>, Previous: <a href="#Timeline" accesskey="p" rel="prev">Timeline</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Evolution-of-Automatic-Dependency-Tracking"></span><h2 class="chapter">2 Evolution of Automatic Dependency Tracking</h2>
+
+<p>Over the years Automake has deployed three different dependency
+tracking methods.  Each method, including the current one, has had
+flaws of various sorts.  Here we lay out the different dependency
+tracking methods, their flaws, and their fixes.  We conclude with
+recommendations for tool writers, and by indicating future directions
+for dependency tracking work in Automake.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#First-Take-on-Dependencies" accesskey="1">First Take on Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Precomputed dependency tracking
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies-As-Side-Effects" accesskey="2">Dependencies As Side Effects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Update at developer compile time
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies-for-the-User" accesskey="3">Dependencies for the User</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Update at user compile time
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Techniques-for-Dependencies" accesskey="4">Techniques for Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Alternative approaches
+</td></tr>
+</table>
+
+<hr>
+<span id="First-Take-on-Dependencies"></span><div class="header">
+<p>
+Next: <a href="#Dependencies-As-Side-Effects" accesskey="n" rel="next">Dependencies As Side Effects</a>, Up: <a href="#Dependency-Tracking-Evolution" accesskey="u" rel="up">Dependency Tracking Evolution</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="First-Take-on-Dependency-Tracking"></span><h3 class="section">2.1 First Take on Dependency Tracking</h3>
+<span id="Description"></span><h4 class="unnumberedsubsec">Description</h4>
+
+<p>Our first attempt at automatic dependency tracking was based on the
+method recommended by GNU <code>make</code>.  (see <a href="https://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites">Generating Prerequisites Automatically</a> in <cite>The GNU
+make Manual</cite>)
+</p>
+<p>This version worked by precomputing dependencies ahead of time.  For
+each source file, it had a special <samp>.P</samp> file that held the
+dependencies.  There was a rule to generate a <samp>.P</samp> file by
+invoking the compiler appropriately.  All such <samp>.P</samp> files were
+included by the <samp>Makefile</samp>, thus implicitly becoming dependencies
+of <samp>Makefile</samp>.
+</p>
+<span id="Bugs"></span><h4 class="unnumberedsubsec">Bugs</h4>
+
+<p>This approach had several critical bugs.
+</p>
+<ul>
+<li> The code to generate the <samp>.P</samp> file relied on <code>gcc</code>.
+(A limitation, not technically a bug.)
+</li><li> The dependency tracking mechanism itself relied on GNU <code>make</code>.
+(A limitation, not technically a bug.)
+</li><li> Because each <samp>.P</samp> file was a dependency of <samp>Makefile</samp>, this
+meant that dependency tracking was done eagerly by <code>make</code>.
+For instance, &lsquo;<samp>make clean</samp>&rsquo; would cause all the dependency files
+to be updated, and then immediately removed.  This eagerness also
+caused problems with some configurations; if a certain source file
+could not be compiled on a given architecture for some reason,
+dependency tracking would fail, aborting the entire build.
+</li><li> As dependency tracking was done as a pre-pass, compile times were
+doubled&ndash;the compiler had to be run twice per source file.
+</li><li> &lsquo;<samp>make dist</samp>&rsquo; re-ran <code>automake</code> to generate a
+<samp>Makefile</samp> that did not have automatic dependency tracking (and
+that was thus portable to any version of <code>make</code>).  In order to
+do this portably, Automake had to scan the dependency files and remove
+any reference that was to a source file not in the distribution.
+This process was error-prone.  Also, if &lsquo;<samp>make dist</samp>&rsquo; was run in an
+environment where some object file had a dependency on a source file
+that was only conditionally created, Automake would generate a
+<samp>Makefile</samp> that referred to a file that might not appear in the
+end user&rsquo;s build.  A special, hacky mechanism was required to work
+around this.
+</li></ul>
+
+<span id="Historical-Note"></span><h4 class="unnumberedsubsec">Historical Note</h4>
+
+<p>The code generated by Automake is often inspired by the
+<samp>Makefile</samp> style of a particular author.  In the case of the first
+implementation of dependency tracking, I believe the impetus and
+inspiration was Jim Meyering.  (I could be mistaken.  If you know
+otherwise feel free to correct me.)
+</p>
+<hr>
+<span id="Dependencies-As-Side-Effects"></span><div class="header">
+<p>
+Next: <a href="#Dependencies-for-the-User" accesskey="n" rel="next">Dependencies for the User</a>, Previous: <a href="#First-Take-on-Dependencies" accesskey="p" rel="prev">First Take on Dependencies</a>, Up: <a href="#Dependency-Tracking-Evolution" accesskey="u" rel="up">Dependency Tracking Evolution</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Dependencies-As-Side-Effects-1"></span><h3 class="section">2.2 Dependencies As Side Effects</h3>
+<span id="Description-1"></span><h4 class="unnumberedsubsec">Description</h4>
+
+<p>The next refinement of Automake&rsquo;s automatic dependency tracking scheme
+was to implement dependencies as side effects of the compilation.
+This was aimed at solving the most commonly reported problems with the
+first approach.  In particular we were most concerned with eliminating
+the weird rebuilding effect associated with make clean.
+</p>
+<p>In this approach, the <samp>.P</samp> files were included using the
+<code>-include</code> command, which let us create these files lazily.  This
+avoided the &lsquo;<samp>make clean</samp>&rsquo; problem.
+</p>
+<p>We only computed dependencies when a file was actually compiled.  This
+avoided the performance penalty associated with scanning each file
+twice.  It also let us avoid the other problems associated with the
+first, eager, implementation.  For instance, dependencies would never
+be generated for a source file that was not compilable on a given
+architecture (because it in fact would never be compiled).
+</p>
+<span id="Bugs-1"></span><h4 class="unnumberedsubsec">Bugs</h4>
+
+<ul>
+<li> This approach also relied on the existence of <code>gcc</code> and GNU
+<code>make</code>.  (A limitation, not technically a bug.)
+</li><li> Dependency tracking was still done by the developer, so the problems
+from the first implementation relating to massaging of dependencies by
+&lsquo;<samp>make dist</samp>&rsquo; were still in effect.
+</li><li> This implementation suffered from the &ldquo;deleted header file&rdquo; problem.
+Suppose a lazily-created <samp>.P</samp> file includes a dependency on a
+given header file, like this:
+
+<div class="example">
+<pre class="example">maude.o: maude.c something.h
+</pre></div>
+
+<p>Now suppose that you remove <samp>something.h</samp> and update <samp>maude.c</samp>
+so that this include is no longer needed.  If you run <code>make</code>,
+you will get an error because there is no way to create
+<samp>something.h</samp>.
+</p>
+<p>We fixed this problem in a later release by further massaging the
+output of <code>gcc</code> to include a dummy dependency for each header
+file.
+</p></li></ul>
+
+<hr>
+<span id="Dependencies-for-the-User"></span><div class="header">
+<p>
+Next: <a href="#Techniques-for-Dependencies" accesskey="n" rel="next">Techniques for Dependencies</a>, Previous: <a href="#Dependencies-As-Side-Effects" accesskey="p" rel="prev">Dependencies As Side Effects</a>, Up: <a href="#Dependency-Tracking-Evolution" accesskey="u" rel="up">Dependency Tracking Evolution</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Dependencies-for-the-User-1"></span><h3 class="section">2.3 Dependencies for the User</h3>
+<span id="Description-2"></span><h4 class="unnumberedsubsec">Description</h4>
+
+<p>The bugs associated with &lsquo;<samp>make dist</samp>&rsquo;, over time, became a real
+problem.  Packages using Automake were being built on a large number
+of platforms, and were becoming increasingly complex.  Broken
+dependencies were distributed in &ldquo;portable&rdquo; <samp>Makefile.in</samp>s,
+leading to user complaints.  Also, the requirement for <code>gcc</code>
+and GNU <code>make</code> was a constant source of bug reports.  The next
+implementation of dependency tracking aimed to remove these problems.
+</p>
+<p>We realized that the only truly reliable way to automatically track
+dependencies was to do it when the package itself was built.  This
+meant discovering a method portable to any version of make and any
+compiler.  Also, we wanted to preserve what we saw as the best point
+of the second implementation: dependency computation as a side effect
+of compilation.
+</p>
+<p>In the end we found that most modern make implementations support some
+form of include directive.  Also, we wrote a wrapper script that let
+us abstract away differences between dependency tracking methods for
+compilers.  For instance, some compilers cannot generate dependencies
+as a side effect of compilation.  In this case we simply have the
+script run the compiler twice.  Currently our wrapper script
+(<code>depcomp</code>) knows about twelve different compilers (including
+a &quot;compiler&quot; that simply invokes <code>makedepend</code> and then the
+real compiler, which is assumed to be a standard Unix-like C compiler
+with no way to do dependency tracking).
+</p>
+<span id="Bugs-2"></span><h4 class="unnumberedsubsec">Bugs</h4>
+
+<ul>
+<li> Running a wrapper script for each compilation slows down the build.
+</li><li> Many users don&rsquo;t really care about precise dependencies.
+</li><li> This implementation, like every other automatic dependency tracking
+scheme in common use today (indeed, every one we&rsquo;ve ever heard of),
+suffers from the &ldquo;duplicated new header&rdquo; bug.
+
+<p>This bug occurs because dependency tracking tools, such as the
+compiler, only generate dependencies on the successful opening of a
+file, and not on every probe.
+</p>
+<p>Suppose for instance that the compiler searches three directories for
+a given header, and that the header is found in the third directory.
+If the programmer erroneously adds a header file with the same name to
+the first directory, then a clean rebuild from scratch could fail
+(suppose the new header file is buggy), whereas an incremental rebuild
+will succeed.
+</p>
+<p>What has happened here is that people have a misunderstanding of what
+a dependency is.  Tool writers think a dependency encodes information
+about which files were read by the compiler.  However, a dependency
+must actually encode information about what the compiler tried to do.
+</p>
+<p>This problem is not serious in practice.  Programmers typically do not
+use the same name for a header file twice in a given project.  (At
+least, not in C or C++.  This problem may be more troublesome in
+Java.)  This problem is easy to fix, by modifying dependency
+generators to record every probe, instead of every successful open.
+</p>
+</li><li> Since Automake generates dependencies as a side effect of compilation,
+there is a bootstrapping problem when header files are generated by
+running a program.  The problem is that, the first time the build is
+done, there is no way by default to know that the headers are
+required, so make might try to run a compilation for which the headers
+have not yet been built.
+
+<p>This was also a problem in the previous dependency tracking implementation.
+</p>
+<p>The current fix is to use <code>BUILT_SOURCES</code> to list built headers
+(see <a href="https://www.gnu.org/software/automake/manual/automake.html#Sources">Sources</a> in <cite>GNU Automake</cite>).  This causes them
+to be built before any other build rules are run.  This is unsatisfactory
+as a general solution, however in practice it seems sufficient for most
+actual programs.
+</p></li></ul>
+
+<p>This code is used since Automake 1.5.
+</p>
+<p>In GCC 3.0, we managed to convince the maintainers to add special
+command-line options to help Automake more efficiently do its job.  We
+hoped this would let us avoid the use of a wrapper script when
+Automake&rsquo;s automatic dependency tracking was used with <code>gcc</code>.
+</p>
+<p>Unfortunately, this code doesn&rsquo;t quite do what we want.  In
+particular, it removes the dependency file if the compilation fails;
+we&rsquo;d prefer that it instead only touch the file in any way if the
+compilation succeeds.
+</p>
+<p>Nevertheless, since Automake 1.7, when a recent <code>gcc</code> is
+detected at <code>configure</code> time, we inline the
+dependency-generation code and do not use the <code>depcomp</code>
+wrapper script.  This makes compilations faster for those using this
+compiler (probably our primary user base).  The counterpart is that
+because we have to encode two compilation rules in <samp>Makefile</samp>
+(with or without <code>depcomp</code>), the produced <samp>Makefile</samp>s are
+larger.
+</p>
+<hr>
+<span id="Techniques-for-Dependencies"></span><div class="header">
+<p>
+Previous: <a href="#Dependencies-for-the-User" accesskey="p" rel="prev">Dependencies for the User</a>, Up: <a href="#Dependency-Tracking-Evolution" accesskey="u" rel="up">Dependency Tracking Evolution</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Techniques-for-Computing-Dependencies"></span><h3 class="section">2.4 Techniques for Computing Dependencies</h3>
+
+<p>There are actually several ways for a build tool like Automake to
+cause tools to generate dependencies.
+</p>
+<dl compact="compact">
+<dt><code>makedepend</code></dt>
+<dd><p>This was a commonly-used method in the past.  The idea is to run a
+special program over the source and have it generate dependency
+information.  Traditional implementations of <code>makedepend</code> are
+not completely precise; ordinarily they were conservative and
+discovered too many dependencies.
+</p></dd>
+<dt>The tool</dt>
+<dd><p>An obvious way to generate dependencies is to simply write the tool so
+that it can generate the information needed by the build tool.  This is
+also the most portable method.  Many compilers have an option to
+generate dependencies.  Unfortunately, not all tools provide such an
+option.
+</p></dd>
+<dt>The file system</dt>
+<dd><p>It is possible to write a special file system that tracks opens,
+reads, writes, etc, and then feed this information back to the build
+tool.  <code>clearmake</code> does this.  This is a very powerful
+technique, as it doesn&rsquo;t require cooperation from the
+tool.  Unfortunately it is also very difficult to implement and also
+not practical in the general case.
+</p></dd>
+<dt><code>LD_PRELOAD</code></dt>
+<dd><p>Rather than use the file system, one could write a special library to
+intercept <code>open</code> and other syscalls.  This technique is also quite
+powerful, but unfortunately it is not portable enough for use in
+<code>automake</code>.
+</p></dd>
+</dl>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Recommendations-for-Tool-Writers" accesskey="1">Recommendations for Tool Writers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Future-Directions-for-Dependencies" accesskey="2">Future Directions for Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="Recommendations-for-Tool-Writers"></span><div class="header">
+<p>
+Next: <a href="#Future-Directions-for-Dependencies" accesskey="n" rel="next">Future Directions for Dependencies</a>, Up: <a href="#Techniques-for-Dependencies" accesskey="u" rel="up">Techniques for Dependencies</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Recommendations-for-Tool-Writers-1"></span><h4 class="subsection">2.4.1 Recommendations for Tool Writers</h4>
+
+<p>We think that every compilation tool ought to be able to generate
+dependencies as a side effect of compilation.  Furthermore, at least
+while <code>make</code>-based tools are nearly universally in use (at
+least in the free software community), the tool itself should generate
+dummy dependencies for header files, to avoid the deleted header file
+bug.  Finally, the tool should generate a dependency for each probe,
+instead of each successful file open, in order to avoid the duplicated
+new header bug.
+</p>
+<hr>
+<span id="Future-Directions-for-Dependencies"></span><div class="header">
+<p>
+Previous: <a href="#Recommendations-for-Tool-Writers" accesskey="p" rel="prev">Recommendations for Tool Writers</a>, Up: <a href="#Techniques-for-Dependencies" accesskey="u" rel="up">Techniques for Dependencies</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Future-Directions-for-Dependencies-1"></span><h4 class="subsection">2.4.2 Future Directions for Dependencies</h4>
+
+<p>Currently, only languages and compilers understood by Automake can
+have dependency tracking enabled.  We would like to see if it is
+practical (and worthwhile) to let this support be extended by the user
+to languages unknown to Automake.
+</p>
+<hr>
+<span id="Releases"></span><div class="header">
+<p>
+Next: <a href="#Copying-This-Manual" accesskey="n" rel="next">Copying This Manual</a>, Previous: <a href="#Dependency-Tracking-Evolution" accesskey="p" rel="prev">Dependency Tracking Evolution</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Release-Statistics"></span><h2 class="chapter">3 Release Statistics</h2>
+
+<p>The following table (inspired by &lsquo;<samp>perlhist(1)</samp>&rsquo;) quantifies the
+evolution of Automake using these metrics:
+</p>
+<dl compact="compact">
+<dt>Date, Rel</dt>
+<dd><p>The date and version of the release.
+</p></dd>
+<dt>am</dt>
+<dd><p>The number of lines of the <code>automake</code> script.
+</p></dd>
+<dt>acl</dt>
+<dd><p>The number of lines of the <code>aclocal</code> script.
+</p></dd>
+<dt>pm</dt>
+<dd><p>The number of lines of the <code>Perl</code> supporting modules.
+</p></dd>
+<dt><samp>*.am</samp></dt>
+<dd><p>The number of lines of the <samp>Makefile</samp> fragments.  The number in
+parentheses is the number of files.
+</p></dd>
+<dt>m4</dt>
+<dd><p>The number of lines (and files) of Autoconf macros.
+</p></dd>
+<dt>doc</dt>
+<dd><p>The number of pages of the documentation (the Postscript version).
+</p></dd>
+<dt>t</dt>
+<dd><p>The number of test cases in the test suite.  Of those, the number in
+parentheses is the number of generated test cases.
+</p></dd>
+</dl>
+
+<table>
+<thead><tr><th>Date</th><th>Rel</th><th>am</th><th>acl</th><th>pm</th><th><samp>*.am</samp></th><th>m4</th><th>doc</th><th>t</th></tr></thead>
+<tr><td>1994-09-19</td><td>CVS</td><td>141</td><td></td><td></td><td>299 (24)</td><td></td><td></td><td></td></tr>
+<tr><td>1994-11-05</td><td>CVS</td><td>208</td><td></td><td></td><td>332 (28)</td><td></td><td></td><td></td></tr>
+<tr><td>1995-11-23</td><td>0.20</td><td>533</td><td></td><td></td><td>458 (35)</td><td></td><td>9</td><td></td></tr>
+<tr><td>1995-11-26</td><td>0.21</td><td>613</td><td></td><td></td><td>480 (36)</td><td></td><td>11</td><td></td></tr>
+<tr><td>1995-11-28</td><td>0.22</td><td>1116</td><td></td><td></td><td>539 (38)</td><td></td><td>12</td><td></td></tr>
+<tr><td>1995-11-29</td><td>0.23</td><td>1240</td><td></td><td></td><td>541 (38)</td><td></td><td>12</td><td></td></tr>
+<tr><td>1995-12-08</td><td>0.24</td><td>1462</td><td></td><td></td><td>504 (33)</td><td></td><td>14</td><td></td></tr>
+<tr><td>1995-12-10</td><td>0.25</td><td>1513</td><td></td><td></td><td>511 (37)</td><td></td><td>15</td><td></td></tr>
+<tr><td>1996-01-03</td><td>0.26</td><td>1706</td><td></td><td></td><td>438 (36)</td><td></td><td>16</td><td></td></tr>
+<tr><td>1996-01-03</td><td>0.27</td><td>1706</td><td></td><td></td><td>438 (36)</td><td></td><td>16</td><td></td></tr>
+<tr><td>1996-01-13</td><td>0.28</td><td>1964</td><td></td><td></td><td>934 (33)</td><td></td><td>16</td><td></td></tr>
+<tr><td>1996-02-07</td><td>0.29</td><td>2299</td><td></td><td></td><td>936 (33)</td><td></td><td>17</td><td></td></tr>
+<tr><td>1996-02-24</td><td>0.30</td><td>2544</td><td></td><td></td><td>919 (32)</td><td>85 (1)</td><td>20</td><td>9</td></tr>
+<tr><td>1996-03-11</td><td>0.31</td><td>2877</td><td></td><td></td><td>919 (32)</td><td>85 (1)</td><td>29</td><td>17</td></tr>
+<tr><td>1996-04-27</td><td>0.32</td><td>3058</td><td></td><td></td><td>921 (31)</td><td>85 (1)</td><td>30</td><td>26</td></tr>
+<tr><td>1996-05-18</td><td>0.33</td><td>3110</td><td></td><td></td><td>926 (31)</td><td>105 (1)</td><td>30</td><td>35</td></tr>
+<tr><td>1996-05-28</td><td>1.0</td><td>3134</td><td></td><td></td><td>973 (32)</td><td>105 (1)</td><td>30</td><td>38</td></tr>
+<tr><td>1997-06-22</td><td>1.2</td><td>6089</td><td>385</td><td></td><td>1294 (36)</td><td>592 (20)</td><td>37</td><td>126</td></tr>
+<tr><td>1998-04-05</td><td>1.3</td><td>6415</td><td>422</td><td></td><td>1470 (39)</td><td>741 (23)</td><td>39</td><td>156</td></tr>
+<tr><td>1999-01-14</td><td>1.4</td><td>7240</td><td>426</td><td></td><td>1591 (40)</td><td>734 (20)</td><td>51</td><td>197</td></tr>
+<tr><td>2001-05-08</td><td>1.4-p1</td><td>7251</td><td>426</td><td></td><td>1591 (40)</td><td>734 (20)</td><td>51</td><td>197</td></tr>
+<tr><td>2001-05-24</td><td>1.4-p2</td><td>7268</td><td>439</td><td></td><td>1591 (40)</td><td>734 (20)</td><td>49</td><td>197</td></tr>
+<tr><td>2001-06-07</td><td>1.4-p3</td><td>7312</td><td>439</td><td></td><td>1591 (40)</td><td>734 (20)</td><td>49</td><td>197</td></tr>
+<tr><td>2001-06-10</td><td>1.4-p4</td><td>7321</td><td>439</td><td></td><td>1591 (40)</td><td>734 (20)</td><td>49</td><td>198</td></tr>
+<tr><td>2001-07-15</td><td>1.4-p5</td><td>7228</td><td>426</td><td></td><td>1596 (40)</td><td>734 (20)</td><td>51</td><td>198</td></tr>
+<tr><td>2001-08-23</td><td>1.5</td><td>8016</td><td>475</td><td>600</td><td>2654 (39)</td><td>1166 (29)</td><td>63</td><td>327</td></tr>
+<tr><td>2002-03-05</td><td>1.6</td><td>8465</td><td>475</td><td>1136</td><td>2732 (39)</td><td>1603 (27)</td><td>66</td><td>365</td></tr>
+<tr><td>2002-04-11</td><td>1.6.1</td><td>8544</td><td>475</td><td>1136</td><td>2741 (39)</td><td>1603 (27)</td><td>66</td><td>372</td></tr>
+<tr><td>2002-06-14</td><td>1.6.2</td><td>8575</td><td>475</td><td>1136</td><td>2800 (39)</td><td>1609 (27)</td><td>67</td><td>386</td></tr>
+<tr><td>2002-07-28</td><td>1.6.3</td><td>8600</td><td>475</td><td>1153</td><td>2809 (39)</td><td>1609 (27)</td><td>67</td><td>391</td></tr>
+<tr><td>2002-07-28</td><td>1.4-p6</td><td>7332</td><td>455</td><td></td><td>1596 (40)</td><td>735 (20)</td><td>49</td><td>197</td></tr>
+<tr><td>2002-09-25</td><td>1.7</td><td>9189</td><td>471</td><td>1790</td><td>2965 (39)</td><td>1606 (28)</td><td>73</td><td>430</td></tr>
+<tr><td>2002-10-16</td><td>1.7.1</td><td>9229</td><td>475</td><td>1790</td><td>2977 (39)</td><td>1606 (28)</td><td>73</td><td>437</td></tr>
+<tr><td>2002-12-06</td><td>1.7.2</td><td>9334</td><td>475</td><td>1790</td><td>2988 (39)</td><td>1606 (28)</td><td>77</td><td>445</td></tr>
+<tr><td>2003-02-20</td><td>1.7.3</td><td>9389</td><td>475</td><td>1790</td><td>3023 (39)</td><td>1651 (29)</td><td>84</td><td>448</td></tr>
+<tr><td>2003-04-23</td><td>1.7.4</td><td>9429</td><td>475</td><td>1790</td><td>3031 (39)</td><td>1644 (29)</td><td>85</td><td>458</td></tr>
+<tr><td>2003-05-18</td><td>1.7.5</td><td>9429</td><td>475</td><td>1790</td><td>3033 (39)</td><td>1645 (29)</td><td>85</td><td>459</td></tr>
+<tr><td>2003-07-10</td><td>1.7.6</td><td>9442</td><td>475</td><td>1790</td><td>3033 (39)</td><td>1660 (29)</td><td>85</td><td>461</td></tr>
+<tr><td>2003-09-07</td><td>1.7.7</td><td>9443</td><td>475</td><td>1790</td><td>3041 (39)</td><td>1660 (29)</td><td>90</td><td>467</td></tr>
+<tr><td>2003-10-07</td><td>1.7.8</td><td>9444</td><td>475</td><td>1790</td><td>3041 (39)</td><td>1660 (29)</td><td>90</td><td>468</td></tr>
+<tr><td>2003-11-09</td><td>1.7.9</td><td>9444</td><td>475</td><td>1790</td><td>3048 (39)</td><td>1660 (29)</td><td>90</td><td>468</td></tr>
+<tr><td>2003-12-10</td><td>1.8</td><td>7171</td><td>585</td><td>7730</td><td>3236 (39)</td><td>1666 (31)</td><td>104</td><td>521</td></tr>
+<tr><td>2004-01-11</td><td>1.8.1</td><td>7217</td><td>663</td><td>7726</td><td>3287 (39)</td><td>1686 (31)</td><td>104</td><td>525</td></tr>
+<tr><td>2004-01-12</td><td>1.8.2</td><td>7217</td><td>663</td><td>7726</td><td>3288 (39)</td><td>1686 (31)</td><td>104</td><td>526</td></tr>
+<tr><td>2004-03-07</td><td>1.8.3</td><td>7214</td><td>686</td><td>7735</td><td>3303 (39)</td><td>1695 (31)</td><td>111</td><td>530</td></tr>
+<tr><td>2004-04-25</td><td>1.8.4</td><td>7214</td><td>686</td><td>7736</td><td>3310 (39)</td><td>1701 (31)</td><td>112</td><td>531</td></tr>
+<tr><td>2004-05-16</td><td>1.8.5</td><td>7240</td><td>686</td><td>7736</td><td>3299 (39)</td><td>1701 (31)</td><td>112</td><td>533</td></tr>
+<tr><td>2004-07-28</td><td>1.9</td><td>7508</td><td>715</td><td>7794</td><td>3352 (40)</td><td>1812 (32)</td><td>115</td><td>551</td></tr>
+<tr><td>2004-08-11</td><td>1.9.1</td><td>7512</td><td>715</td><td>7794</td><td>3354 (40)</td><td>1812 (32)</td><td>115</td><td>552</td></tr>
+<tr><td>2004-09-19</td><td>1.9.2</td><td>7512</td><td>715</td><td>7794</td><td>3354 (40)</td><td>1812 (32)</td><td>132</td><td>554</td></tr>
+<tr><td>2004-11-01</td><td>1.9.3</td><td>7507</td><td>718</td><td>7804</td><td>3354 (40)</td><td>1812 (32)</td><td>134</td><td>556</td></tr>
+<tr><td>2004-12-18</td><td>1.9.4</td><td>7508</td><td>718</td><td>7856</td><td>3361 (40)</td><td>1811 (32)</td><td>140</td><td>560</td></tr>
+<tr><td>2005-02-13</td><td>1.9.5</td><td>7523</td><td>719</td><td>7859</td><td>3373 (40)</td><td>1453 (32)</td><td>142</td><td>562</td></tr>
+<tr><td>2005-07-10</td><td>1.9.6</td><td>7539</td><td>699</td><td>7867</td><td>3400 (40)</td><td>1453 (32)</td><td>144</td><td>570</td></tr>
+<tr><td>2006-10-15</td><td>1.10</td><td>7859</td><td>1072</td><td>8024</td><td>3512 (40)</td><td>1496 (34)</td><td>172</td><td>604</td></tr>
+<tr><td>2008-01-19</td><td>1.10.1</td><td>7870</td><td>1089</td><td>8025</td><td>3520 (40)</td><td>1499 (34)</td><td>173</td><td>617</td></tr>
+<tr><td>2008-11-23</td><td>1.10.2</td><td>7882</td><td>1089</td><td>8027</td><td>3540 (40)</td><td>1509 (34)</td><td>176</td><td>628</td></tr>
+<tr><td>2009-05-17</td><td>1.11</td><td>8721</td><td>1092</td><td>8289</td><td>4164 (42)</td><td>1714 (37)</td><td>181</td><td>732 (20)</td></tr>
+</table>
+
+
+
+<hr>
+<span id="Copying-This-Manual"></span><div class="header">
+<p>
+Previous: <a href="#Releases" accesskey="p" rel="prev">Releases</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="Copying-This-Manual-1"></span><h2 class="appendix">Appendix A Copying This Manual</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="1">GNU Free Documentation License</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">License for copying this manual
+</td></tr>
+</table>
+
+<hr>
+<span id="GNU-Free-Documentation-License"></span><div class="header">
+<p>
+Up: <a href="#Copying-This-Manual" accesskey="u" rel="up">Copying This Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<span id="GNU-Free-Documentation-License-1"></span><h3 class="appendixsec">A.1 GNU Free Documentation License</h3>
+<div align="center">Version 1.3, 3 November 2008
+</div>
+
+<div class="display">
+<pre class="display">Copyright &copy; 2000-2012 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</pre></div>
+
+<ol start="0">
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
+assure everyone the effective freedom to copy and redistribute it,
+with or without modifying it, either commercially or noncommercially.
+Secondarily, this License preserves for the author and publisher a way
+to get credit for their work, while not being considered responsible
+for modifications made by others.
+</p>
+<p>This License is a kind of &ldquo;copyleft&rdquo;, which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+</p>
+<p>We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+</p>
+</li><li> APPLICABILITY AND DEFINITIONS
+
+<p>This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License.  Such a notice grants a
+world-wide, royalty-free license, unlimited in duration, to use that
+work under the conditions stated herein.  The &ldquo;Document&rdquo;, below,
+refers to any such manual or work.  Any member of the public is a
+licensee, and is addressed as &ldquo;you&rdquo;.  You accept the license if you
+copy, modify or distribute the work in a way requiring permission
+under copyright law.
+</p>
+<p>A &ldquo;Modified Version&rdquo; of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+</p>
+<p>A &ldquo;Secondary Section&rdquo; is a named appendix or a front-matter section
+of the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document&rsquo;s overall
+subject (or to related matters) and contains nothing that could fall
+directly within that overall subject.  (Thus, if the Document is in
+part a textbook of mathematics, a Secondary Section may not explain
+any mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+</p>
+<p>The &ldquo;Invariant Sections&rdquo; are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.  If a
+section does not fit the above definition of Secondary then it is not
+allowed to be designated as Invariant.  The Document may contain zero
+Invariant Sections.  If the Document does not identify any Invariant
+Sections then there are none.
+</p>
+<p>The &ldquo;Cover Texts&rdquo; are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.  A Front-Cover Text may
+be at most 5 words, and a Back-Cover Text may be at most 25 words.
+</p>
+<p>A &ldquo;Transparent&rdquo; copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, that is suitable for revising the document
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup, or absence of markup, has been arranged to thwart
+or discourage subsequent modification by readers is not Transparent.
+An image format is not Transparent if used for any substantial amount
+of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
+</p>
+<p>Examples of suitable formats for Transparent copies include plain
+<small>ASCII</small> without markup, Texinfo input format, LaTeX input
+format, <acronym>SGML</acronym> or <acronym>XML</acronym> using a publicly available
+<acronym>DTD</acronym>, and standard-conforming simple <acronym>HTML</acronym>,
+PostScript or <acronym>PDF</acronym> designed for human modification.  Examples
+of transparent image formats include <acronym>PNG</acronym>, <acronym>XCF</acronym> and
+<acronym>JPG</acronym>.  Opaque formats include proprietary formats that can be
+read and edited only by proprietary word processors, <acronym>SGML</acronym> or
+<acronym>XML</acronym> for which the <acronym>DTD</acronym> and/or processing tools are
+not generally available, and the machine-generated <acronym>HTML</acronym>,
+PostScript or <acronym>PDF</acronym> produced by some word processors for
+output purposes only.
+</p>
+<p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, &ldquo;Title Page&rdquo; means
+the text near the most prominent appearance of the work&rsquo;s title,
+preceding the beginning of the body of the text.
+</p>
+<p>The &ldquo;publisher&rdquo; means any person or entity that distributes copies
+of the Document to the public.
+</p>
+<p>A section &ldquo;Entitled XYZ&rdquo; means a named subunit of the Document whose
+title either is precisely XYZ or contains XYZ in parentheses following
+text that translates XYZ in another language.  (Here XYZ stands for a
+specific section name mentioned below, such as &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, &ldquo;Endorsements&rdquo;, or &ldquo;History&rdquo;.)  To &ldquo;Preserve the Title&rdquo;
+of such a section when you modify the Document means that it remains a
+section &ldquo;Entitled XYZ&rdquo; according to this definition.
+</p>
+<p>The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document.  These Warranty
+Disclaimers are considered to be included by reference in this
+License, but only as regards disclaiming warranties: any other
+implication that these Warranty Disclaimers may have is void and has
+no effect on the meaning of this License.
+</p>
+</li><li> VERBATIM COPYING
+
+<p>You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+</p>
+<p>You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+</p>
+</li><li> COPYING IN QUANTITY
+
+<p>If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document&rsquo;s license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all of these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+</p>
+<p>If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+</p>
+<p>If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute an
+Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+</p>
+<p>It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+</p>
+</li><li> MODIFICATIONS
+
+<p>You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+</p>
+<ol type="A" start="1">
+<li> Use in the Title Page (and on the covers, if any) a title distinct
+from that of the Document, and from those of previous versions
+(which should, if there were any, be listed in the History section
+of the Document).  You may use the same title as a previous version
+if the original publisher of that version gives permission.
+
+</li><li> List on the Title Page, as authors, one or more persons or entities
+responsible for authorship of the modifications in the Modified
+Version, together with at least five of the principal authors of the
+Document (all of its principal authors, if it has fewer than five),
+unless they release you from this requirement.
+
+</li><li> State on the Title page the name of the publisher of the
+Modified Version, as the publisher.
+
+</li><li> Preserve all the copyright notices of the Document.
+
+</li><li> Add an appropriate copyright notice for your modifications
+adjacent to the other copyright notices.
+
+</li><li> Include, immediately after the copyright notices, a license notice
+giving the public permission to use the Modified Version under the
+terms of this License, in the form shown in the Addendum below.
+
+</li><li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document&rsquo;s license notice.
+
+</li><li> Include an unaltered copy of this License.
+
+</li><li> Preserve the section Entitled &ldquo;History&rdquo;, Preserve its Title, and add
+to it an item stating at least the title, year, new authors, and
+publisher of the Modified Version as given on the Title Page.  If
+there is no section Entitled &ldquo;History&rdquo; in the Document, create one
+stating the title, year, authors, and publisher of the Document as
+given on its Title Page, then add an item describing the Modified
+Version as stated in the previous sentence.
+
+</li><li> Preserve the network location, if any, given in the Document for
+public access to a Transparent copy of the Document, and likewise
+the network locations given in the Document for previous versions
+it was based on.  These may be placed in the &ldquo;History&rdquo; section.
+You may omit a network location for a work that was published at
+least four years before the Document itself, or if the original
+publisher of the version it refers to gives permission.
+
+</li><li> For any section Entitled &ldquo;Acknowledgements&rdquo; or &ldquo;Dedications&rdquo;, Preserve
+the Title of the section, and preserve in the section all the
+substance and tone of each of the contributor acknowledgements and/or
+dedications given therein.
+
+</li><li> Preserve all the Invariant Sections of the Document,
+unaltered in their text and in their titles.  Section numbers
+or the equivalent are not considered part of the section titles.
+
+</li><li> Delete any section Entitled &ldquo;Endorsements&rdquo;.  Such a section
+may not be included in the Modified Version.
+
+</li><li> Do not retitle any existing section to be Entitled &ldquo;Endorsements&rdquo; or
+to conflict in title with any Invariant Section.
+
+</li><li> Preserve any Warranty Disclaimers.
+</li></ol>
+
+<p>If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version&rsquo;s license notice.
+These titles must be distinct from any other section titles.
+</p>
+<p>You may add a section Entitled &ldquo;Endorsements&rdquo;, provided it contains
+nothing but endorsements of your Modified Version by various
+parties&mdash;for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+</p>
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+</p>
+<p>The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+</p>
+</li><li> COMBINING DOCUMENTS
+
+<p>You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice, and that you preserve all their Warranty Disclaimers.
+</p>
+<p>The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+</p>
+<p>In the combination, you must combine any sections Entitled &ldquo;History&rdquo;
+in the various original documents, forming one section Entitled
+&ldquo;History&rdquo;; likewise combine any sections Entitled &ldquo;Acknowledgements&rdquo;,
+and any sections Entitled &ldquo;Dedications&rdquo;.  You must delete all
+sections Entitled &ldquo;Endorsements.&rdquo;
+</p>
+</li><li> COLLECTIONS OF DOCUMENTS
+
+<p>You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+</p>
+<p>You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+</p>
+</li><li> AGGREGATION WITH INDEPENDENT WORKS
+
+<p>A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, is called an &ldquo;aggregate&rdquo; if the copyright
+resulting from the compilation is not used to limit the legal rights
+of the compilation&rsquo;s users beyond what the individual works permit.
+When the Document is included in an aggregate, this License does not
+apply to the other works in the aggregate which are not themselves
+derivative works of the Document.
+</p>
+<p>If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half of
+the entire aggregate, the Document&rsquo;s Cover Texts may be placed on
+covers that bracket the Document within the aggregate, or the
+electronic equivalent of covers if the Document is in electronic form.
+Otherwise they must appear on printed covers that bracket the whole
+aggregate.
+</p>
+</li><li> TRANSLATION
+
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License, and all the license notices in the
+Document, and any Warranty Disclaimers, provided that you also include
+the original English version of this License and the original versions
+of those notices and disclaimers.  In case of a disagreement between
+the translation and the original version of this License or a notice
+or disclaimer, the original version will prevail.
+</p>
+<p>If a section in the Document is Entitled &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, or &ldquo;History&rdquo;, the requirement (section 4) to Preserve
+its Title (section 1) will typically require changing the actual
+title.
+</p>
+</li><li> TERMINATION
+
+<p>You may not copy, modify, sublicense, or distribute the Document
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense, or distribute it is void, and
+will automatically terminate your rights under this License.
+</p>
+<p>However, if you cease all violation of this License, then your license
+from a particular copyright holder is reinstated (a) provisionally,
+unless and until the copyright holder explicitly and finally
+terminates your license, and (b) permanently, if the copyright holder
+fails to notify you of the violation by some reasonable means prior to
+60 days after the cessation.
+</p>
+<p>Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+</p>
+<p>Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, receipt of a copy of some or all of the same material does
+not give you any rights to use it.
+</p>
+</li><li> FUTURE REVISIONS OF THIS LICENSE
+
+<p>The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+</p>
+<p>Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License &ldquo;or any later version&rdquo; applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.  If the Document
+specifies that a proxy can decide which future versions of this
+License can be used, that proxy&rsquo;s public statement of acceptance of a
+version permanently authorizes you to choose that version for the
+Document.
+</p>
+</li><li> RELICENSING
+
+<p>&ldquo;Massive Multiauthor Collaboration Site&rdquo; (or &ldquo;MMC Site&rdquo;) means any
+World Wide Web server that publishes copyrightable works and also
+provides prominent facilities for anybody to edit those works.  A
+public wiki that anybody can edit is an example of such a server.  A
+&ldquo;Massive Multiauthor Collaboration&rdquo; (or &ldquo;MMC&rdquo;) contained in the
+site means any set of copyrightable works thus published on the MMC
+site.
+</p>
+<p>&ldquo;CC-BY-SA&rdquo; means the Creative Commons Attribution-Share Alike 3.0
+license published by Creative Commons Corporation, a not-for-profit
+corporation with a principal place of business in San Francisco,
+California, as well as future copyleft versions of that license
+published by that same organization.
+</p>
+<p>&ldquo;Incorporate&rdquo; means to publish or republish a Document, in whole or
+in part, as part of another Document.
+</p>
+<p>An MMC is &ldquo;eligible for relicensing&rdquo; if it is licensed under this
+License, and if all works that were first published under this License
+somewhere other than this MMC, and subsequently incorporated in whole
+or in part into the MMC, (1) had no cover texts or invariant sections,
+and (2) were thus incorporated prior to November 1, 2008.
+</p>
+<p>The operator of an MMC Site may republish an MMC contained in the site
+under CC-BY-SA on the same site at any time before August 1, 2009,
+provided the MMC is eligible for relicensing.
+</p>
+</li></ol>
+
+<span id="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></span><h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
+
+<p>To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+</p>
+<div class="example">
+<pre class="example">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
+</pre></div>
+
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the &ldquo;with&hellip;Texts.&rdquo; line with this:
+</p>
+<div class="example">
+<pre class="example">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
+</pre></div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+</p>
+<p>If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+</p>
+
+
+<hr>
+
+
+
+</body>
+</html>
