@@ -16,7 +16,7 @@ RUN apk --no-cache add \
   perl \
 ;
 
-COPY texinfo-6.7.tar.gz /
+COPY texinfo-6.7.tar.gz.flat /texinfo-6.7.tar.gz
 WORKDIR /
 RUN tar xzf texinfo-6.7.tar.gz
 WORKDIR /texinfo-6.7
@@ -24,11 +24,11 @@ RUN ./configure
 RUN make
 RUN make install
 
-COPY automake-*.tar.gz /
+COPY automake-*.tar.gz.flat /automake.tar.gz
 WORKDIR /
 RUN mkdir automake
 WORKDIR automake
-RUN tar xzf ../automake-*.tar.gz
+RUN tar xzf ../automake.tar.gz
 RUN mv * automake
 WORKDIR automake
 COPY build-html.bash.flat /build-html.bash

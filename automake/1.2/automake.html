@@ -10,9 +10,10 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<link href="#Introduction" rel="start" title="Introduction">
+<link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -46,10 +47,70 @@ ul.no-bullet {list-style: none}
 
 
 
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="GNU-Automake"></span><h1 class="top">GNU Automake</h1>
 
+<p>This file documents the GNU Automake package for creating GNU
+Standards-compliant Makefiles from template files.  This edition
+documents version 1.2.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Automake&rsquo;s purpose
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Generalities" accesskey="2">Generalities</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">General ideas
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Examples" accesskey="3">Examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some example packages
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Invoking-Automake" accesskey="4">Invoking Automake</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Creating a Makefile.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#configure" accesskey="5">configure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Scanning configure.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Top-level" accesskey="6">Top level</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The top-level Makefile.am
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Programs" accesskey="7">Programs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building programs and libraries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Other-objects" accesskey="8">Other objects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other derived objects
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Other-GNU-Tools" accesskey="9">Other GNU Tools</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other GNU Tools
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Documentation">Documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building documentation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Install">Install</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What gets installed
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Clean">Clean</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What gets cleaned
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dist">Dist</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What goes in a distribution
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tests">Tests</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Support for test suites
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Options">Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Changing Automake&rsquo;s behavior
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Miscellaneous">Miscellaneous</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Miscellaneous rules
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Conditionals">Conditionals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Conditionals
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Gnits">Gnits</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The effect of <code>--gnu</code> and <code>--gnits</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cygnus">Cygnus</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The effect of <code>--cygnus</code>
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Extending">Extending</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Extending Automake
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Distributing">Distributing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Distributing the Makefile.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Future">Future</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some ideas for the future
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index" rel="index">Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">General index
+</td></tr>
+</table>
+
+
+<hr>
 <span id="Introduction"></span><div class="header">
 <p>
-Next: <a href="#Generalities" accesskey="n" rel="next">Generalities</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Generalities" accesskey="n" rel="next">Generalities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
@@ -88,7 +149,7 @@ to be built.
 <hr>
 <span id="Generalities"></span><div class="header">
 <p>
-Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="General-ideas"></span><h2 class="chapter">2 General ideas</h2>
 
@@ -357,7 +418,7 @@ underscores when making macro references.  E.g., if your program is named
 <hr>
 <span id="Examples"></span><div class="header">
 <p>
-Next: <a href="#Invoking-Automake" accesskey="n" rel="next">Invoking Automake</a>, Previous: <a href="#Generalities" accesskey="p" rel="prev">Generalities</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Invoking-Automake" accesskey="n" rel="next">Invoking Automake</a>, Previous: <a href="#Generalities" accesskey="p" rel="prev">Generalities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Some-example-packages"></span><h2 class="chapter">3 Some example packages</h2>
 
@@ -585,7 +646,7 @@ ctags._o: etags._c
 <hr>
 <span id="Invoking-Automake"></span><div class="header">
 <p>
-Next: <a href="#configure" accesskey="n" rel="next">configure</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#configure" accesskey="n" rel="next">configure</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Creating-a-Makefile_002ein"></span><h2 class="chapter">4 Creating a <samp>Makefile.in</samp></h2>
 
@@ -703,7 +764,7 @@ created.
 <hr>
 <span id="configure"></span><div class="header">
 <p>
-Next: <a href="#Top-level" accesskey="n" rel="next">Top level</a>, Previous: <a href="#Invoking-Automake" accesskey="p" rel="prev">Invoking Automake</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Top-level" accesskey="n" rel="next">Top level</a>, Previous: <a href="#Invoking-Automake" accesskey="p" rel="prev">Invoking Automake</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Scanning-configure_002ein"></span><h2 class="chapter">5 Scanning <samp>configure.in</samp></h2>
 
@@ -1198,7 +1259,7 @@ installed in <samp>$(datadir)/aclocal</samp>.
 <hr>
 <span id="Top-level"></span><div class="header">
 <p>
-Next: <a href="#Programs" accesskey="n" rel="next">Programs</a>, Previous: <a href="#configure" accesskey="p" rel="prev">configure</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Programs" accesskey="n" rel="next">Programs</a>, Previous: <a href="#configure" accesskey="p" rel="prev">configure</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-top_002dlevel-Makefile_002eam"></span><h2 class="chapter">6 The top-level <samp>Makefile.am</samp></h2>
 
@@ -1241,7 +1302,7 @@ arbitrary depth.
 <hr>
 <span id="Programs"></span><div class="header">
 <p>
-Next: <a href="#Other-objects" accesskey="n" rel="next">Other objects</a>, Previous: <a href="#Top-level" accesskey="p" rel="prev">Top level</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Other-objects" accesskey="n" rel="next">Other objects</a>, Previous: <a href="#Top-level" accesskey="p" rel="prev">Top level</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Building-Programs-and-Libraries"></span><h2 class="chapter">7 Building Programs and Libraries</h2>
 
@@ -1797,7 +1858,7 @@ automatically recreated during the next build.
 <hr>
 <span id="Other-objects"></span><div class="header">
 <p>
-Next: <a href="#Other-GNU-Tools" accesskey="n" rel="next">Other GNU Tools</a>, Previous: <a href="#Programs" accesskey="p" rel="prev">Programs</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Other-GNU-Tools" accesskey="n" rel="next">Other GNU Tools</a>, Previous: <a href="#Programs" accesskey="p" rel="prev">Programs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-Derived-Objects"></span><h2 class="chapter">8 Other Derived Objects</h2>
 
@@ -1920,7 +1981,7 @@ what might seem like funny times.
 <hr>
 <span id="Other-GNU-Tools"></span><div class="header">
 <p>
-Next: <a href="#Documentation" accesskey="n" rel="next">Documentation</a>, Previous: <a href="#Other-objects" accesskey="p" rel="prev">Other objects</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Documentation" accesskey="n" rel="next">Documentation</a>, Previous: <a href="#Other-objects" accesskey="p" rel="prev">Other objects</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-GNU-Tools-1"></span><h2 class="chapter">9 Other GNU Tools</h2>
 
@@ -2023,7 +2084,7 @@ primary.  See <a href="#A-Shared-Library">A Shared Library</a>.
 <hr>
 <span id="Documentation"></span><div class="header">
 <p>
-Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href="#Other-GNU-Tools" accesskey="p" rel="prev">Other GNU Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href="#Other-GNU-Tools" accesskey="p" rel="prev">Other GNU Tools</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Building-documentation"></span><h2 class="chapter">10 Building documentation</h2>
 
@@ -2141,7 +2202,7 @@ uncommon for man pages to be automatically generated.
 <hr>
 <span id="Install"></span><div class="header">
 <p>
-Next: <a href="#Clean" accesskey="n" rel="next">Clean</a>, Previous: <a href="#Documentation" accesskey="p" rel="prev">Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Clean" accesskey="n" rel="next">Clean</a>, Previous: <a href="#Documentation" accesskey="p" rel="prev">Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Gets-Installed"></span><h2 class="chapter">11 What Gets Installed</h2>
 
@@ -2191,7 +2252,7 @@ the name (eg &lsquo;<samp>myexecbin_PROGRAMS</samp>&rsquo; is installed by
 <hr>
 <span id="Clean"></span><div class="header">
 <p>
-Next: <a href="#Dist" accesskey="n" rel="next">Dist</a>, Previous: <a href="#Install" accesskey="p" rel="prev">Install</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Dist" accesskey="n" rel="next">Dist</a>, Previous: <a href="#Install" accesskey="p" rel="prev">Install</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Gets-Cleaned"></span><h2 class="chapter">12 What Gets Cleaned</h2>
 
@@ -2210,7 +2271,7 @@ be defined to specify additional files to clean.  These variables are
 <hr>
 <span id="Dist"></span><div class="header">
 <p>
-Next: <a href="#Tests" accesskey="n" rel="next">Tests</a>, Previous: <a href="#Clean" accesskey="p" rel="prev">Clean</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Tests" accesskey="n" rel="next">Tests</a>, Previous: <a href="#Clean" accesskey="p" rel="prev">Clean</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Goes-in-a-Distribution"></span><h2 class="chapter">13 What Goes in a Distribution</h2>
 
@@ -2267,7 +2328,7 @@ makes a distribution, and then tries to do a <code>VPATH</code> build.
 <hr>
 <span id="Tests"></span><div class="header">
 <p>
-Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Dist" accesskey="p" rel="prev">Dist</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Dist" accesskey="p" rel="prev">Dist</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Support-for-test-suites"></span><h2 class="chapter">14 Support for test suites</h2>
 
@@ -2311,7 +2372,7 @@ default values do not take into account host and target names.
 <hr>
 <span id="Options"></span><div class="header">
 <p>
-Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Tests" accesskey="p" rel="prev">Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Tests" accesskey="p" rel="prev">Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Changing-Automake_0027s-Behavior"></span><h2 class="chapter">15 Changing Automake&rsquo;s Behavior</h2>
 
@@ -2404,7 +2465,7 @@ will be suppressed.
 <hr>
 <span id="Miscellaneous"></span><div class="header">
 <p>
-Next: <a href="#Conditionals" accesskey="n" rel="next">Conditionals</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Conditionals" accesskey="n" rel="next">Conditionals</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Miscellaneous-Rules"></span><h2 class="chapter">16 Miscellaneous Rules</h2>
 
@@ -2485,7 +2546,7 @@ source files, you would also need to add these suffixes to the list:
 <hr>
 <span id="Conditionals"></span><div class="header">
 <p>
-Next: <a href="#Gnits" accesskey="n" rel="next">Gnits</a>, Previous: <a href="#Miscellaneous" accesskey="p" rel="prev">Miscellaneous</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Gnits" accesskey="n" rel="next">Gnits</a>, Previous: <a href="#Miscellaneous" accesskey="p" rel="prev">Miscellaneous</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Conditionals-1"></span><h2 class="chapter">17 Conditionals</h2>
 
@@ -2552,7 +2613,7 @@ and are based on variables passed to the make program or defined in the
 <hr>
 <span id="Gnits"></span><div class="header">
 <p>
-Next: <a href="#Cygnus" accesskey="n" rel="next">Cygnus</a>, Previous: <a href="#Conditionals" accesskey="p" rel="prev">Conditionals</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Cygnus" accesskey="n" rel="next">Cygnus</a>, Previous: <a href="#Conditionals" accesskey="p" rel="prev">Conditionals</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-effect-of-_002d_002dgnu-and-_002d_002dgnits"></span><h2 class="chapter">18 The effect of <code>--gnu</code> and <code>--gnits</code></h2>
 
@@ -2603,7 +2664,7 @@ should be included.
 <hr>
 <span id="Cygnus"></span><div class="header">
 <p>
-Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Gnits" accesskey="p" rel="prev">Gnits</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Gnits" accesskey="p" rel="prev">Gnits</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-effect-of-_002d_002dcygnus"></span><h2 class="chapter">19 The effect of <code>--cygnus</code></h2>
 
@@ -2647,7 +2708,7 @@ to the special Cygnus mode.
 <hr>
 <span id="Extending"></span><div class="header">
 <p>
-Next: <a href="#Distributing" accesskey="n" rel="next">Distributing</a>, Previous: <a href="#Cygnus" accesskey="p" rel="prev">Cygnus</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Distributing" accesskey="n" rel="next">Distributing</a>, Previous: <a href="#Cygnus" accesskey="p" rel="prev">Cygnus</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="When-Automake-Isn_0027t-Enough"></span><h2 class="chapter">20 When Automake Isn&rsquo;t Enough</h2>
 
@@ -2706,7 +2767,7 @@ with &lsquo;<samp>-hook</samp>&rsquo; appended.  The targets allowing hooks are
 <hr>
 <span id="Distributing"></span><div class="header">
 <p>
-Next: <a href="#Future" accesskey="n" rel="next">Future</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Future" accesskey="n" rel="next">Future</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Distributing-Makefile_002eins"></span><h2 class="chapter">21 Distributing <samp>Makefile.in</samp>s</h2>
 
@@ -2723,7 +2784,7 @@ to see.
 <hr>
 <span id="Future"></span><div class="header">
 <p>
-Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Distributing" accesskey="p" rel="prev">Distributing</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Distributing" accesskey="p" rel="prev">Distributing</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Some-ideas-for-the-future"></span><h2 class="chapter">22 Some ideas for the future</h2>
 
@@ -2752,7 +2813,7 @@ eventually happen.
 <hr>
 <span id="Index"></span><div class="header">
 <p>
-Previous: <a href="#Future" accesskey="p" rel="prev">Future</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Future" accesskey="p" rel="prev">Future</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-1"></span><h2 class="unnumbered">Index</h2>
 
@@ -3039,81 +3100,81 @@ Previous: <a href="#Future" accesskey="p" rel="prev">Future</a> &nbsp; [<a href=
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
-<ul class="no-bullet">
-<li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a></li>
-<li><a id="toc-General-ideas" href="#Generalities">2 General ideas</a>
-<ul class="no-bullet">
-  <li><a id="toc-General-Operation-1" href="#General-Operation">2.1 General Operation</a></li>
-  <li><a id="toc-Depth-1" href="#Depth">2.2 Depth</a></li>
-  <li><a id="toc-Strictness-1" href="#Strictness">2.3 Strictness</a></li>
-  <li><a id="toc-The-Uniform-Naming-Scheme" href="#Uniform">2.4 The Uniform Naming Scheme</a></li>
-  <li><a id="toc-How-derived-variables-are-named" href="#Canonicalization">2.5 How derived variables are named</a></li>
-</ul></li>
-<li><a id="toc-Some-example-packages" href="#Examples">3 Some example packages</a>
-<ul class="no-bullet">
-  <li><a id="toc-A-simple-example_002c-start-to-finish" href="#Complete">3.1 A simple example, start to finish</a></li>
-  <li><a id="toc-A-classic-program" href="#Hello">3.2 A classic program</a></li>
-  <li><a id="toc-Building-etags-and-ctags" href="#etags">3.3 Building etags and ctags</a></li>
-</ul></li>
-<li><a id="toc-Creating-a-Makefile_002ein" href="#Invoking-Automake">4 Creating a <samp>Makefile.in</samp></a></li>
-<li><a id="toc-Scanning-configure_002ein" href="#configure">5 Scanning <samp>configure.in</samp></a>
-<ul class="no-bullet">
-  <li><a id="toc-Configuration-requirements" href="#Requirements">5.1 Configuration requirements</a></li>
-  <li><a id="toc-Other-things-Automake-recognizes" href="#Optional">5.2 Other things Automake recognizes</a></li>
-  <li><a id="toc-Auto_002dgenerating-aclocal_002em4" href="#Invoking-aclocal">5.3 Auto-generating aclocal.m4</a></li>
-  <li><a id="toc-Autoconf-macros-supplied-with-Automake" href="#Macros">5.4 Autoconf macros supplied with Automake</a></li>
-  <li><a id="toc-Writing-your-own-aclocal-macros" href="#Extending-aclocal">5.5 Writing your own aclocal macros</a></li>
-</ul></li>
-<li><a id="toc-The-top_002dlevel-Makefile_002eam" href="#Top-level">6 The top-level <samp>Makefile.am</samp></a></li>
-<li><a id="toc-Building-Programs-and-Libraries" href="#Programs">7 Building Programs and Libraries</a>
-<ul class="no-bullet">
-  <li><a id="toc-Building-a-program" href="#A-Program">7.1 Building a program</a></li>
-  <li><a id="toc-Building-a-library" href="#A-Library">7.2 Building a library</a></li>
-  <li><a id="toc-Special-handling-for-LIBOBJS-and-ALLOCA" href="#LIBOBJS">7.3 Special handling for LIBOBJS and ALLOCA</a></li>
-  <li><a id="toc-Building-a-Shared-Library" href="#A-Shared-Library">7.4 Building a Shared Library</a></li>
-  <li><a id="toc-Variables-used-when-building-a-program" href="#Program-variables">7.5 Variables used when building a program</a></li>
-  <li><a id="toc-Yacc-and-Lex-support" href="#Yacc-and-Lex">7.6 Yacc and Lex support</a></li>
-  <li><a id="toc-C_002b_002b-and-other-languages" href="#C_002b_002b">7.7 C++ and other languages</a></li>
-  <li><a id="toc-Automatic-de_002dANSI_002dfication" href="#ANSI">7.8 Automatic de-ANSI-fication</a></li>
-  <li><a id="toc-Automatic-dependency-tracking" href="#Dependencies">7.9 Automatic dependency tracking</a></li>
-</ul></li>
-<li><a id="toc-Other-Derived-Objects" href="#Other-objects">8 Other Derived Objects</a>
-<ul class="no-bullet">
-  <li><a id="toc-Executable-Scripts" href="#Scripts">8.1 Executable Scripts</a></li>
-  <li><a id="toc-Header-files" href="#Headers">8.2 Header files</a></li>
-  <li><a id="toc-Architecture_002dindependent-data-files" href="#Data">8.3 Architecture-independent data files</a></li>
-  <li><a id="toc-Built-sources" href="#Sources">8.4 Built sources</a></li>
-</ul></li>
-<li><a id="toc-Other-GNU-Tools-1" href="#Other-GNU-Tools">9 Other GNU Tools</a>
-<ul class="no-bullet">
-  <li><a id="toc-Emacs-Lisp-1" href="#Emacs-Lisp">9.1 Emacs Lisp</a></li>
-  <li><a id="toc-Gettext" href="#gettext">9.2 Gettext</a></li>
-  <li><a id="toc-Guile-1" href="#Guile">9.3 Guile</a></li>
-  <li><a id="toc-Libtool-1" href="#Libtool">9.4 Libtool</a></li>
-</ul></li>
-<li><a id="toc-Building-documentation" href="#Documentation">10 Building documentation</a>
-<ul class="no-bullet">
-  <li><a id="toc-Texinfo-1" href="#Texinfo">10.1 Texinfo</a></li>
-  <li><a id="toc-Man-pages-1" href="#Man-pages">10.2 Man pages</a></li>
-</ul></li>
-<li><a id="toc-What-Gets-Installed" href="#Install">11 What Gets Installed</a></li>
-<li><a id="toc-What-Gets-Cleaned" href="#Clean">12 What Gets Cleaned</a></li>
-<li><a id="toc-What-Goes-in-a-Distribution" href="#Dist">13 What Goes in a Distribution</a></li>
-<li><a id="toc-Support-for-test-suites" href="#Tests">14 Support for test suites</a></li>
-<li><a id="toc-Changing-Automake_0027s-Behavior" href="#Options">15 Changing Automake&rsquo;s Behavior</a></li>
-<li><a id="toc-Miscellaneous-Rules" href="#Miscellaneous">16 Miscellaneous Rules</a>
-<ul class="no-bullet">
-  <li><a id="toc-Interfacing-to-etags" href="#Tags">16.1 Interfacing to <code>etags</code></a></li>
-  <li><a id="toc-Handling-new-file-extensions" href="#Suffixes">16.2 Handling new file extensions</a></li>
-</ul></li>
-<li><a id="toc-Conditionals-1" href="#Conditionals">17 Conditionals</a></li>
-<li><a id="toc-The-effect-of-_002d_002dgnu-and-_002d_002dgnits" href="#Gnits">18 The effect of <code>--gnu</code> and <code>--gnits</code></a></li>
-<li><a id="toc-The-effect-of-_002d_002dcygnus" href="#Cygnus">19 The effect of <code>--cygnus</code></a></li>
-<li><a id="toc-When-Automake-Isn_0027t-Enough" href="#Extending">20 When Automake Isn&rsquo;t Enough</a></li>
-<li><a id="toc-Distributing-Makefile_002eins" href="#Distributing">21 Distributing <samp>Makefile.in</samp>s</a></li>
-<li><a id="toc-Some-ideas-for-the-future" href="#Future">22 Some ideas for the future</a></li>
-<li><a id="toc-Index-1" href="#Index" rel="index">Index</a></li>
 
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a></li>
+  <li><a id="toc-General-ideas" href="#Generalities">2 General ideas</a>
+  <ul class="no-bullet">
+    <li><a id="toc-General-Operation-1" href="#General-Operation">2.1 General Operation</a></li>
+    <li><a id="toc-Depth-1" href="#Depth">2.2 Depth</a></li>
+    <li><a id="toc-Strictness-1" href="#Strictness">2.3 Strictness</a></li>
+    <li><a id="toc-The-Uniform-Naming-Scheme" href="#Uniform">2.4 The Uniform Naming Scheme</a></li>
+    <li><a id="toc-How-derived-variables-are-named" href="#Canonicalization">2.5 How derived variables are named</a></li>
+  </ul></li>
+  <li><a id="toc-Some-example-packages" href="#Examples">3 Some example packages</a>
+  <ul class="no-bullet">
+    <li><a id="toc-A-simple-example_002c-start-to-finish" href="#Complete">3.1 A simple example, start to finish</a></li>
+    <li><a id="toc-A-classic-program" href="#Hello">3.2 A classic program</a></li>
+    <li><a id="toc-Building-etags-and-ctags" href="#etags">3.3 Building etags and ctags</a></li>
+  </ul></li>
+  <li><a id="toc-Creating-a-Makefile_002ein" href="#Invoking-Automake">4 Creating a <samp>Makefile.in</samp></a></li>
+  <li><a id="toc-Scanning-configure_002ein" href="#configure">5 Scanning <samp>configure.in</samp></a>
+  <ul class="no-bullet">
+    <li><a id="toc-Configuration-requirements" href="#Requirements">5.1 Configuration requirements</a></li>
+    <li><a id="toc-Other-things-Automake-recognizes" href="#Optional">5.2 Other things Automake recognizes</a></li>
+    <li><a id="toc-Auto_002dgenerating-aclocal_002em4" href="#Invoking-aclocal">5.3 Auto-generating aclocal.m4</a></li>
+    <li><a id="toc-Autoconf-macros-supplied-with-Automake" href="#Macros">5.4 Autoconf macros supplied with Automake</a></li>
+    <li><a id="toc-Writing-your-own-aclocal-macros" href="#Extending-aclocal">5.5 Writing your own aclocal macros</a></li>
+  </ul></li>
+  <li><a id="toc-The-top_002dlevel-Makefile_002eam" href="#Top-level">6 The top-level <samp>Makefile.am</samp></a></li>
+  <li><a id="toc-Building-Programs-and-Libraries" href="#Programs">7 Building Programs and Libraries</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Building-a-program" href="#A-Program">7.1 Building a program</a></li>
+    <li><a id="toc-Building-a-library" href="#A-Library">7.2 Building a library</a></li>
+    <li><a id="toc-Special-handling-for-LIBOBJS-and-ALLOCA" href="#LIBOBJS">7.3 Special handling for LIBOBJS and ALLOCA</a></li>
+    <li><a id="toc-Building-a-Shared-Library" href="#A-Shared-Library">7.4 Building a Shared Library</a></li>
+    <li><a id="toc-Variables-used-when-building-a-program" href="#Program-variables">7.5 Variables used when building a program</a></li>
+    <li><a id="toc-Yacc-and-Lex-support" href="#Yacc-and-Lex">7.6 Yacc and Lex support</a></li>
+    <li><a id="toc-C_002b_002b-and-other-languages" href="#C_002b_002b">7.7 C++ and other languages</a></li>
+    <li><a id="toc-Automatic-de_002dANSI_002dfication" href="#ANSI">7.8 Automatic de-ANSI-fication</a></li>
+    <li><a id="toc-Automatic-dependency-tracking" href="#Dependencies">7.9 Automatic dependency tracking</a></li>
+  </ul></li>
+  <li><a id="toc-Other-Derived-Objects" href="#Other-objects">8 Other Derived Objects</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Executable-Scripts" href="#Scripts">8.1 Executable Scripts</a></li>
+    <li><a id="toc-Header-files" href="#Headers">8.2 Header files</a></li>
+    <li><a id="toc-Architecture_002dindependent-data-files" href="#Data">8.3 Architecture-independent data files</a></li>
+    <li><a id="toc-Built-sources" href="#Sources">8.4 Built sources</a></li>
+  </ul></li>
+  <li><a id="toc-Other-GNU-Tools-1" href="#Other-GNU-Tools">9 Other GNU Tools</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Emacs-Lisp-1" href="#Emacs-Lisp">9.1 Emacs Lisp</a></li>
+    <li><a id="toc-Gettext" href="#gettext">9.2 Gettext</a></li>
+    <li><a id="toc-Guile-1" href="#Guile">9.3 Guile</a></li>
+    <li><a id="toc-Libtool-1" href="#Libtool">9.4 Libtool</a></li>
+  </ul></li>
+  <li><a id="toc-Building-documentation" href="#Documentation">10 Building documentation</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Texinfo-1" href="#Texinfo">10.1 Texinfo</a></li>
+    <li><a id="toc-Man-pages-1" href="#Man-pages">10.2 Man pages</a></li>
+  </ul></li>
+  <li><a id="toc-What-Gets-Installed" href="#Install">11 What Gets Installed</a></li>
+  <li><a id="toc-What-Gets-Cleaned" href="#Clean">12 What Gets Cleaned</a></li>
+  <li><a id="toc-What-Goes-in-a-Distribution" href="#Dist">13 What Goes in a Distribution</a></li>
+  <li><a id="toc-Support-for-test-suites" href="#Tests">14 Support for test suites</a></li>
+  <li><a id="toc-Changing-Automake_0027s-Behavior" href="#Options">15 Changing Automake&rsquo;s Behavior</a></li>
+  <li><a id="toc-Miscellaneous-Rules" href="#Miscellaneous">16 Miscellaneous Rules</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Interfacing-to-etags" href="#Tags">16.1 Interfacing to <code>etags</code></a></li>
+    <li><a id="toc-Handling-new-file-extensions" href="#Suffixes">16.2 Handling new file extensions</a></li>
+  </ul></li>
+  <li><a id="toc-Conditionals-1" href="#Conditionals">17 Conditionals</a></li>
+  <li><a id="toc-The-effect-of-_002d_002dgnu-and-_002d_002dgnits" href="#Gnits">18 The effect of <code>--gnu</code> and <code>--gnits</code></a></li>
+  <li><a id="toc-The-effect-of-_002d_002dcygnus" href="#Cygnus">19 The effect of <code>--cygnus</code></a></li>
+  <li><a id="toc-When-Automake-Isn_0027t-Enough" href="#Extending">20 When Automake Isn&rsquo;t Enough</a></li>
+  <li><a id="toc-Distributing-Makefile_002eins" href="#Distributing">21 Distributing <samp>Makefile.in</samp>s</a></li>
+  <li><a id="toc-Some-ideas-for-the-future" href="#Future">22 Some ideas for the future</a></li>
+  <li><a id="toc-Index-1" href="#Index" rel="index">Index</a></li>
 </ul>
 </div>
 

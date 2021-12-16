@@ -10,8 +10,9 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<link href="#Introduction" rel="start" title="Introduction">
+<link href="#Top" rel="start" title="Top">
 <link href="#Variables" rel="index" title="Variables">
+<link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -44,10 +45,66 @@ ul.no-bullet {list-style: none}
 
 
 
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="GNU-Automake"></span><h1 class="top">GNU Automake</h1>
 
+<p>This file documents the GNU Automake package for creating GNU
+Standards-compliant Makefiles from template files.  This edition
+documents version 1.0.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction" accesskey="1">Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Automake&rsquo;s purpose
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Invoking-Automake" accesskey="2">Invoking Automake</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Creating a Makefile.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Generalities" accesskey="3">Generalities</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">General ideas
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#configure" accesskey="4">configure</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Scanning configure.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Top-level" accesskey="5">Top level</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The top-level Makefile.am
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Programs" accesskey="6">Programs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building programs and libraries
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Other-objects" accesskey="7">Other objects</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Other derived objects
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Documentation" accesskey="8">Documentation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building documentation
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Install" accesskey="9">Install</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What gets installed
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Clean">Clean</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What gets cleaned
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dist">Dist</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What goes in a distribution
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tests">Tests</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Support for test suites
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Options">Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Changing Automake&rsquo;s behavior
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Miscellaneous">Miscellaneous</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Miscellaneous rules
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Extending">Extending</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Extending Automake
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Distributing">Distributing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Distributing the Makefile.in
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Examples">Examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some example packages
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Future">Future</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some ideas for the future
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Variables" rel="index">Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of variables
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Configure-variables" rel="index">Configure variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of configure variables and macros
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Targets" rel="index">Targets</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Index of targets
+</td></tr>
+</table>
+
+
+<hr>
 <span id="Introduction"></span><div class="header">
 <p>
-Next: <a href="#Invoking-Automake" accesskey="n" rel="next">Invoking Automake</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Invoking-Automake" accesskey="n" rel="next">Invoking Automake</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
@@ -85,7 +142,7 @@ to be built.
 <hr>
 <span id="Invoking-Automake"></span><div class="header">
 <p>
-Next: <a href="#Generalities" accesskey="n" rel="next">Generalities</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Generalities" accesskey="n" rel="next">Generalities</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Creating-a-Makefile_002ein"></span><h2 class="chapter">2 Creating a <samp>Makefile.in</samp></h2>
 
@@ -171,7 +228,7 @@ created.
 <hr>
 <span id="Generalities"></span><div class="header">
 <p>
-Next: <a href="#configure" accesskey="n" rel="next">configure</a>, Previous: <a href="#Invoking-Automake" accesskey="p" rel="prev">Invoking Automake</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#configure" accesskey="n" rel="next">configure</a>, Previous: <a href="#Invoking-Automake" accesskey="p" rel="prev">Invoking Automake</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="General-ideas"></span><h2 class="chapter">3 General ideas</h2>
 
@@ -347,7 +404,7 @@ Automake.
 <hr>
 <span id="configure"></span><div class="header">
 <p>
-Next: <a href="#Top-level" accesskey="n" rel="next">Top level</a>, Previous: <a href="#Generalities" accesskey="p" rel="prev">Generalities</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Top-level" accesskey="n" rel="next">Top level</a>, Previous: <a href="#Generalities" accesskey="p" rel="prev">Generalities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Scanning-configure_002ein"></span><h2 class="chapter">4 Scanning <samp>configure.in</samp></h2>
 
@@ -508,7 +565,7 @@ they are missing.
 <hr>
 <span id="Top-level"></span><div class="header">
 <p>
-Next: <a href="#Programs" accesskey="n" rel="next">Programs</a>, Previous: <a href="#configure" accesskey="p" rel="prev">configure</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Programs" accesskey="n" rel="next">Programs</a>, Previous: <a href="#configure" accesskey="p" rel="prev">configure</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-top_002dlevel-Makefile_002eam"></span><h2 class="chapter">5 The top-level <samp>Makefile.am</samp></h2>
 
@@ -544,7 +601,7 @@ Automake itself does not actually examine the contents of this variable.
 <hr>
 <span id="Programs"></span><div class="header">
 <p>
-Next: <a href="#Other-objects" accesskey="n" rel="next">Other objects</a>, Previous: <a href="#Top-level" accesskey="p" rel="prev">Top level</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Other-objects" accesskey="n" rel="next">Other objects</a>, Previous: <a href="#Top-level" accesskey="p" rel="prev">Top level</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Building-Programs-and-Libraries"></span><h2 class="chapter">6 Building Programs and Libraries</h2>
 
@@ -776,7 +833,7 @@ variable <code>AUTOMAKE_OPTIONS</code>.
 <hr>
 <span id="Other-objects"></span><div class="header">
 <p>
-Next: <a href="#Documentation" accesskey="n" rel="next">Documentation</a>, Previous: <a href="#Programs" accesskey="p" rel="prev">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Documentation" accesskey="n" rel="next">Documentation</a>, Previous: <a href="#Programs" accesskey="p" rel="prev">Programs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-Derived-Objects"></span><h2 class="chapter">7 Other Derived Objects</h2>
 
@@ -898,7 +955,7 @@ distribution.
 <hr>
 <span id="Documentation"></span><div class="header">
 <p>
-Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href="#Other-objects" accesskey="p" rel="prev">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href="#Other-objects" accesskey="p" rel="prev">Other objects</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Building-documentation"></span><h2 class="chapter">8 Building documentation</h2>
 
@@ -997,7 +1054,7 @@ for the purposes of making a distribution.
 <hr>
 <span id="Install"></span><div class="header">
 <p>
-Next: <a href="#Clean" accesskey="n" rel="next">Clean</a>, Previous: <a href="#Documentation" accesskey="p" rel="prev">Documentation</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Clean" accesskey="n" rel="next">Clean</a>, Previous: <a href="#Documentation" accesskey="p" rel="prev">Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Gets-Installed"></span><h2 class="chapter">9 What Gets Installed</h2>
 
@@ -1032,7 +1089,7 @@ targets exist, they will be run at &lsquo;<samp>make install</samp>&rsquo; time.
 <hr>
 <span id="Clean"></span><div class="header">
 <p>
-Next: <a href="#Dist" accesskey="n" rel="next">Dist</a>, Previous: <a href="#Install" accesskey="p" rel="prev">Install</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Dist" accesskey="n" rel="next">Dist</a>, Previous: <a href="#Install" accesskey="p" rel="prev">Install</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Gets-Cleaned"></span><h2 class="chapter">10 What Gets Cleaned</h2>
 
@@ -1059,7 +1116,7 @@ causes it to be removed by &lsquo;<samp>make clean</samp>&rsquo;:
 <hr>
 <span id="Dist"></span><div class="header">
 <p>
-Next: <a href="#Tests" accesskey="n" rel="next">Tests</a>, Previous: <a href="#Clean" accesskey="p" rel="prev">Clean</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Tests" accesskey="n" rel="next">Tests</a>, Previous: <a href="#Clean" accesskey="p" rel="prev">Clean</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="What-Goes-in-a-Distribution"></span><h2 class="chapter">11 What Goes in a Distribution</h2>
 
@@ -1105,7 +1162,7 @@ makes a distribution, and then tries to do a <code>VPATH</code> build.
 <hr>
 <span id="Tests"></span><div class="header">
 <p>
-Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Dist" accesskey="p" rel="prev">Dist</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Dist" accesskey="p" rel="prev">Dist</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Support-for-test-suites"></span><h2 class="chapter">12 Support for test suites</h2>
 
@@ -1137,7 +1194,7 @@ default values do not take into account host and target names.
 <hr>
 <span id="Options"></span><div class="header">
 <p>
-Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Tests" accesskey="p" rel="prev">Tests</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Tests" accesskey="p" rel="prev">Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Changing-Automake_0027s-Behavior"></span><h2 class="chapter">13 Changing Automake&rsquo;s Behavior</h2>
 
@@ -1196,7 +1253,7 @@ will be suppressed.
 <hr>
 <span id="Miscellaneous"></span><div class="header">
 <p>
-Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Miscellaneous-Rules"></span><h2 class="chapter">14 Miscellaneous Rules</h2>
 
@@ -1276,7 +1333,7 @@ Previous: <a href="#Suffixes" accesskey="p" rel="prev">Suffixes</a>, Up: <a href
 <hr>
 <span id="Extending"></span><div class="header">
 <p>
-Next: <a href="#Distributing" accesskey="n" rel="next">Distributing</a>, Previous: <a href="#Miscellaneous" accesskey="p" rel="prev">Miscellaneous</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Distributing" accesskey="n" rel="next">Distributing</a>, Previous: <a href="#Miscellaneous" accesskey="p" rel="prev">Miscellaneous</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="When-Automake-Isn_0027t-Enough"></span><h2 class="chapter">15 When Automake Isn&rsquo;t Enough</h2>
 
@@ -1332,7 +1389,7 @@ with &lsquo;<samp>-hook</samp>&rsquo; appended.  The targets allowing hooks are
 <hr>
 <span id="Distributing"></span><div class="header">
 <p>
-Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Distributing-Makefile_002eins"></span><h2 class="chapter">16 Distributing <samp>Makefile.in</samp>s</h2>
 
@@ -1349,7 +1406,7 @@ to see.
 <hr>
 <span id="Examples"></span><div class="header">
 <p>
-Next: <a href="#Future" accesskey="n" rel="next">Future</a>, Previous: <a href="#Distributing" accesskey="p" rel="prev">Distributing</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Future" accesskey="n" rel="next">Future</a>, Previous: <a href="#Distributing" accesskey="p" rel="prev">Distributing</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Some-example-packages"></span><h2 class="chapter">17 Some example packages</h2>
 
@@ -1673,7 +1730,7 @@ Automake.
 <hr>
 <span id="Future"></span><div class="header">
 <p>
-Next: <a href="#Variables" accesskey="n" rel="next">Variables</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Variables" accesskey="n" rel="next">Variables</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Some-ideas-for-the-future"></span><h2 class="chapter">18 Some ideas for the future</h2>
 
@@ -1695,7 +1752,7 @@ ISO&nbsp;10646<!-- /@w --> with the UTF-8 encoding.
 <hr>
 <span id="Variables"></span><div class="header">
 <p>
-Next: <a href="#Configure-variables" accesskey="n" rel="next">Configure variables</a>, Previous: <a href="#Future" accesskey="p" rel="prev">Future</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configure-variables" accesskey="n" rel="next">Configure variables</a>, Previous: <a href="#Future" accesskey="p" rel="prev">Future</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-of-Variables"></span><h2 class="unnumbered">Index of Variables</h2>
 
@@ -1836,7 +1893,7 @@ Next: <a href="#Configure-variables" accesskey="n" rel="next">Configure variable
 <hr>
 <span id="Configure-variables"></span><div class="header">
 <p>
-Next: <a href="#Targets" accesskey="n" rel="next">Targets</a>, Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Targets" accesskey="n" rel="next">Targets</a>, Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-of-Configure-Variables-and-Macros"></span><h2 class="unnumbered">Index of Configure Variables and Macros</h2>
 
@@ -1932,7 +1989,7 @@ Next: <a href="#Targets" accesskey="n" rel="next">Targets</a>, Previous: <a href
 <hr>
 <span id="Targets"></span><div class="header">
 <p>
-Previous: <a href="#Configure-variables" accesskey="p" rel="prev">Configure variables</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Configure-variables" accesskey="p" rel="prev">Configure variables</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-of-Targets"></span><h2 class="unnumbered">Index of Targets</h2>
 

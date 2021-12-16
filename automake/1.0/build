@@ -18,24 +18,41 @@ main() {
   declare    image
   declare    url
   declare    v
+  declare    v1
+  declare    v2
   declare    x
 
   v=${PWD##*/}
+  readonly v
 
-  url=https://ftp.gnu.org/gnu/automake/automake-$v.tar.gz
-  rm -f -r automake-$v.tar.gz automake-$v
-  wget -O automake-$v.tar.gz -- "$url"
+  v1=${v%%.*}
+  readonly v1
+
+  v2=${v#"$v1."}
+  v2=${v2%%[-.]*}
+  readonly v2
+
+  if [[ ! -f automake-$v.tar.gz ]]; then
+    url=https://ftp.gnu.org/gnu/automake/automake-$v.tar.gz
+    wget -O - -- "$url" >automake-$v.tar.gz
+  fi
   sha512sum -c --quiet automake-$v.tar.gz.sha512sum
+  cp -L automake-$v.tar.gz automake-$v.tar.gz.flat
 
-  url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
-  rm -f -r texinfo-6.7.tar.gz texinfo-6.7
-  wget -O texinfo-6.7.tar.gz -- "$url"
+  if [[ ! -f texinfo-6.7.tar.gz ]]; then
+    url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
+    wget -O - -- "$url" >texinfo-6.7.tar.gz
+  fi
   sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
+  cp -L texinfo-6.7.tar.gz texinfo-6.7.tar.gz.flat
 
+  rm -f -r automake-$v
   tar xzf automake-$v.tar.gz
   x=$(find automake-$v -type f -printf '%T@\n' | sort -n | tail -1)
-  date -d "@$x" -u +%Y-%m-%d >date
-  rm -f -r automake-$v
+  {
+    printf %02d%02d: "$v1" "$v2"
+    date -d "@$x" -u +%Y-%m-%d
+  } >date
 
   cp -L Dockerfile Dockerfile.flat
   cp -L build-html.bash build-html.bash.flat
@@ -65,12 +82,15 @@ main() {
 
   mv -f out/* .
 
-  rm Dockerfile.flat
-  rm automake-$v.tar.gz
-  rm build-html.bash.flat
-  rm image
-  rm texinfo-6.7.tar.gz
-  rmdir out
+  rm -f -r \
+    Dockerfile.flat \
+    automake-$v \
+    automake-$v.tar.gz.flat \
+    build-html.bash.flat \
+    image \
+    out \
+    texinfo-6.7.tar.gz.flat \
+  ;
 
 }; readonly -f main
 
