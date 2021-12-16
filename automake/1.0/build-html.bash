@@ -13,18 +13,28 @@ trap exit ERR
 
 mkdir out
 if test -f automake.texi; then
-  sed 's/^@itemx \(....-..-.. Automake\)/@item \1/' automake.texi >tmp
+  sed '
+    s/^@itemx \(....-..-.. Automake\)/@item \1/
+    /^@titlepage/,$ {
+      /^@ifinfo$/ d
+      /^@end ifinfo$/ d
+    }
+  ' automake.texi >tmp
   mv -f tmp automake.texi
   texi2any --html --no-split automake.texi
   mv -f automake.html out
 else
   cd doc
-  sed 's/^@itemx \(....-..-.. Automake\)/@item \1/' automake.texi >tmp
+  sed '
+    s/^@itemx \(....-..-.. Automake\)/@item \1/
+  ' automake.texi >tmp
   mv -f tmp automake.texi
   texi2any --html --no-split automake.texi
   mv -f automake.html ../out
   if test -f automake-history.texi; then
-    sed 's/^@itemx \(....-..-.. Automake\)/@item \1/' automake-history.texi >tmp
+    sed '
+      s/^@itemx \(....-..-.. Automake\)/@item \1/
+    ' automake-history.texi >tmp
     mv -f tmp automake-history.texi
     texi2any --html --no-split automake-history.texi
     mv -f automake-history.html ../out
