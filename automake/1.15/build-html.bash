@@ -8,28 +8,19 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-FROM alpine
+set -E -e -u -o pipefail || exit $?
+trap exit ERR
 
-RUN apk --no-cache add \
-  bash \
-  build-base \
-  perl \
-;
-
-COPY texinfo-6.7.tar.gz /
-WORKDIR /
-RUN tar xzf texinfo-6.7.tar.gz
-WORKDIR /texinfo-6.7
-RUN ./configure
-RUN make
-RUN make install
-
-COPY automake-*.tar.gz /
-WORKDIR /
-RUN mkdir automake
-WORKDIR automake
-RUN tar xzf ../automake-*.tar.gz
-RUN mv * automake
-WORKDIR automake
-COPY build-html.bash /
-RUN bash /build-html.bash
+mkdir out
+if test -f automake.texi; then
+  texi2any --html --no-split automake.texi
+  mv -f automake.html out
+else
+  cd doc
+  texi2any --html --no-split automake.texi
+  mv -f automake.html ../out
+  if test -f automake-history.texi; then
+    texi2any --html --no-split automake-history.texi
+    mv -f automake-history.html ../out
+  fi
+fi

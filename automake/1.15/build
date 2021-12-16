@@ -45,7 +45,7 @@ main() {
   rm -f -r out
   mkdir out
 
-  docker cp $container:/automake-1.15/doc/out/. out
+  docker cp $container:/automake/automake/out/. out
 
   docker rm $container
 
