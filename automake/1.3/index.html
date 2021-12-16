@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+The authors of this file have waived all copyright and
+related or neighboring rights to the extent permitted by
+law as described by the CC0 1.0 Universal Public Domain
+Dedication. You should have received a copy of the full
+dedication along with this file, typically as a file
+named <CC0-1.0.txt>. If not, it may be available at
+<https://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>manuals/automake/1.3/</title>
+<style>
+
+:root {
+  --line_height: 1.2em;
+  --text_color: #CCC;
+  --tree_border: 1px solid #333;
+}
+
+body {
+  background: #000;
+  color: var(--text_color);
+  font-family: monospace;
+  font-size: 20px;
+  line-height: var(--line_height);
+  margin: 1em;
+}
+
+a {
+  color: var(--text_color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 0 0 0.5ch;
+  padding: 0;
+  position: relative;
+}
+
+li:first-child {
+  border-left: var(--tree_border);
+  display: block;
+  height: calc(100% - 0.5em);
+  left: 0;
+  position: absolute;
+  right: 100%;
+  top: calc(0px - var(--line_height) / 2 + 0.5em);
+}
+
+li:not(:first-child) {
+  margin-left: 0.25ch;
+}
+
+li:not(:first-child)::before {
+  border-top: var(--tree_border);
+  content: "";
+  display: inline-block;
+  left: -0.25ch;
+  position: relative;
+  transform: translateY(calc(var(--line_height) / 2));
+  vertical-align: top;
+  width: 1.25ch;
+}
+
+</style>
+</head>
+<body>
+<a href="../../">manuals/</a><a href="../">automake/</a><a href="./">1.3/</a>
+<ul>
+<li></li>
+<li><a href="automake.html">automake.html</a></li>
+</ul>
+</body>
+</html>

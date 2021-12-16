@@ -11,10 +11,16 @@
 set -E -e -u -o pipefail || exit $?
 trap exit ERR
 
+LC_ALL=C
+readonly LC_ALL
+export LC_ALL
+
 mkdir out
 if test -f automake.texi; then
   sed '
     s/^@itemx \(....-..-.. Automake\)/@item \1/
+    s/Fran.ois Pinard/Fran@,{c}ois Pinard/g
+    s/Fran.ois'\''s/Fran@,{c}ois'\''s/g
     /^@titlepage/,$ {
       /^@ifinfo$/ d
       /^@end ifinfo$/ d
