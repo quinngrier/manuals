@@ -32,6 +32,8 @@ main() {
   v2=${v2%%[-.]*}
   readonly v2
 
+  rm -f automake-$v.tar.gz
+  ln -s ../../downloads/automake-$v.tar.gz automake-$v.tar.gz
   if [[ ! -f automake-$v.tar.gz ]]; then
     url=https://ftp.gnu.org/gnu/automake/automake-$v.tar.gz
     wget -O - -- "$url" >automake-$v.tar.gz
@@ -39,6 +41,8 @@ main() {
   sha512sum -c --quiet automake-$v.tar.gz.sha512sum
   cp -L automake-$v.tar.gz automake-$v.tar.gz.flat
 
+  rm -f texinfo-6.7.tar.gz
+  ln -s ../../downloads/texinfo-6.7.tar.gz texinfo-6.7.tar.gz
   if [[ ! -f texinfo-6.7.tar.gz ]]; then
     url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
     wget -O - -- "$url" >texinfo-6.7.tar.gz
@@ -85,10 +89,12 @@ main() {
   rm -f -r \
     Dockerfile.flat \
     automake-$v \
+    automake-$v.tar.gz \
     automake-$v.tar.gz.flat \
     build-html.bash.flat \
     image \
     out \
+    texinfo-6.7.tar.gz \
     texinfo-6.7.tar.gz.flat \
   ;
 
