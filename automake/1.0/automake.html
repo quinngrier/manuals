@@ -1,0 +1,2014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>automake</title>
+
+<meta name="description" content="automake">
+<meta name="keywords" content="automake">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Introduction" rel="start" title="Introduction">
+<link href="#Variables" rel="index" title="Variables">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">automake</h1>
+
+
+
+
+
+
+
+
+
+<span id="Introduction"></span><div class="header">
+<p>
+Next: <a href="#Invoking-Automake" accesskey="n" rel="next">Invoking Automake</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
+
+<p>Automake is a tool for automatically generating
+<samp>Makefile.in</samp>s from files called <samp>Makefile.am</samp>.  The
+<samp>Makefile.am</samp> is basically a series of <code>make</code> macro
+definitions (with rules being thrown in occasionally).  The generated
+<samp>Makefile.in</samp>s are compliant with the GNU Makefile standards.
+</p>
+<p>The GNU Makefile Standards Document
+(see <a href="https://www.gnu.org/prep/standards/standards.html#Makefile-Conventions">Makefile Conventions</a> in <cite>The GNU Coding Standards</cite>)
+is long, complicated, and subject to change.  The goal of Automake is to
+remove the burden of Makefile maintenance from the back of the
+individual GNU maintainer (and put it on the back of the Automake
+maintainer).
+</p>
+<p>The typical Automake input files is simply a series of macro
+definitions.  Each such file is processed to create a
+<samp>Makefile.in</samp>.  There should generally be one <samp>Makefile.am</samp>
+per directory of a project.
+</p>
+<p>Automake does constrain a project in certain ways; for instance it
+assumes that the project uses Autoconf
+(see <a href="https://www.gnu.org/software/autoconf/manual/autoconf.html#Top">The Autoconf Manual</a> in <cite>The Autoconf Manual</cite>),
+and enforces certain restrictions on the <samp>configure.in</samp> contents.
+</p>
+<p><code>Automake</code> requires <code>perl</code> in order to generate the
+<samp>Makefile.in</samp>s.  However, the distributions created by Automake are
+fully GNU standards-compliant, and do not require <code>perl</code> in order
+to be built.
+</p>
+<p>Mail suggestions and bug reports for Automake to tromey@cygnus.com.
+</p>
+
+<hr>
+<span id="Invoking-Automake"></span><div class="header">
+<p>
+Next: <a href="#Generalities" accesskey="n" rel="next">Generalities</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Creating-a-Makefile_002ein"></span><h2 class="chapter">2 Creating a <samp>Makefile.in</samp></h2>
+
+<p>To create all the <samp>Makefile.in</samp>s for a package, run the
+<code>automake</code> program in the top level directory, with no arguments.
+<code>automake</code> will automatically find each appropriate
+<samp>Makefile.am</samp> (by scanning <samp>configure.in</samp>; see <a href="#configure">configure</a>)
+and generate the corresponding <samp>Makefile.in</samp>.
+</p>
+<p>You can optionally give <code>automake</code> an argument; &lsquo;<samp>.am</samp>&rsquo; is
+appended to the argument and the result is used as the name of the input
+file.  This feature is generally only used to automatically rebuild an
+out-of-date <samp>Makefile.in</samp>.  Note that <code>automake</code> must always
+be run from the topmost directory of a project, even if being used to
+regenerate the <samp>Makefile.in</samp> in some subdirectory.  This is
+necessary because <code>automake</code> must scan <samp>configure.in</samp>, and
+because <code>automake</code> uses the knowledge that a <samp>Makefile.in</samp> is
+in a subdirectory to change its behavior in some cases.
+</p>
+<p><code>automake</code> accepts the following options:
+</p>
+<dl compact="compact">
+<dt><code>--amdir=<var>dir</var></code></dt>
+<dd><p>Look for Automake data files in directory <var>dir</var> instead of in the
+installation directory.  This is typically used for debugging.
+</p>
+</dd>
+<dt><code>--foreign</code></dt>
+<dd><p>An alias for &lsquo;<samp>--strictness=foreign</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>--gnits</code></dt>
+<dd><p>An alias for &lsquo;<samp>--strictness=gnits</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>--gnu</code></dt>
+<dd><p>An alias for &lsquo;<samp>--strictness=gnu</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>--help</code></dt>
+<dd><p>Print a summary of the command line options and exit.
+</p>
+</dd>
+<dt><code>--include-deps</code></dt>
+<dd><p>Include all automatically generated dependency information
+(see <a href="#Dependencies">Dependencies</a>) in the generated
+<samp>Makefile.in</samp>.  This is generally done when making a distribution;
+see <a href="#Dist">Dist</a>.
+</p>
+</dd>
+<dt><code>--add-missing</code></dt>
+<dd><p>Automake requires certain common files to exist in certain situations;
+for instance <samp>config.guess</samp> is required if <samp>configure.in</samp> runs
+<code>AC_CANONICAL_HOST</code>.  Automake is distributed with several of these
+files; this option will cause the missing ones to be automatically added
+to the package, whenever possible.
+</p>
+</dd>
+<dt><code>--output-dir=<var>dir</var></code></dt>
+<dd><p>Put the generated <samp>Makefile.in</samp> in the directory <var>dir</var>.
+Ordinarily each <samp>Makefile.in</samp> is created in the directory of the
+corresponding <samp>Makefile.am</samp>.  This option is used when making
+distributions.
+</p>
+</dd>
+<dt><code>--strictness=<var>level</var></code></dt>
+<dd><p>Set the global strictness to <var>level</var>; this can be overridden in each
+<samp>Makefile.am</samp> if required.  See <a href="#Generalities">Generalities</a> for more
+information.
+</p>
+</dd>
+<dt><code>--verbose</code></dt>
+<dd><p>Cause Automake to print information about which files are being read or
+created.
+</p>
+</dd>
+<dt><code>--version</code></dt>
+<dd><p>Print the version number of Automake and exit.
+</p></dd>
+</dl>
+
+
+<hr>
+<span id="Generalities"></span><div class="header">
+<p>
+Next: <a href="#configure" accesskey="n" rel="next">configure</a>, Previous: <a href="#Invoking-Automake" accesskey="p" rel="prev">Invoking Automake</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="General-ideas"></span><h2 class="chapter">3 General ideas</h2>
+
+<span id="Depth"></span><h3 class="section">3.1 Depth</h3>
+<p><code>automake</code> supports three kinds of directory hierarchy: &ldquo;flat&rdquo;,
+&ldquo;shallow&rdquo;, and &ldquo;deep&rdquo;.
+</p>
+<p>A <em>flat</em> package is one in which all the files are in a single
+directory.  The <samp>Makefile.am</samp> for such a package by definition
+lacks a <code>SUBDIRS</code> macro.  An example of such a package is
+<code>termutils</code>.
+<span id="index-SUBDIRS"></span>
+</p>
+<p>A <em>deep</em> package is one in which all the source lies in
+subdirectories; the top level directory contains mainly configuration
+information.  GNU cpio is a good example of such a package, as is GNU
+<code>tar</code>.  The top level <samp>Makefile.am</samp> for a deep package will
+contain a <code>SUBDIRS</code> macro, but no other macros to define objects
+which are built.
+</p>
+<p>A <em>shallow</em> package is one in which the primary source resides in
+the top-level directory, while various parts (typically libraries)
+reside in subdirectories.  <code>automake</code> is one such package (as is
+GNU <code>make</code>, which does not currently use <code>automake</code>).
+</p>
+
+<span id="Strictness"></span><h3 class="section">3.2 Strictness</h3>
+<p>While Automake is intended to be used by maintainers of GNU packages, it
+does make some effort to accomodate those who wish to use it, but do not
+want to use all the GNU conventions.
+</p>
+<p>To this end, Automake supports three levels of <em>strictness</em> &ndash; the
+strictness indicating how stringently Automake should check standards
+conformance.
+</p>
+<p>The valid strictness levels are:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>foreign</samp>&rsquo;</dt>
+<dd><p>Automake will check for only those things which are absolutely
+required for proper operations.  For instance, whereas GNU standards
+dictate the existence of a <samp>NEWS</samp> file, it will not be required in
+this mode.  The name comes from the fact that Automake is intended to be
+used for GNU programs; these relaxed rules are not the standard mode of
+operation.
+</p>
+</dd>
+<dt>&lsquo;<samp>gnu</samp>&rsquo;</dt>
+<dd><p>Automake will check &ndash; as much as possible &ndash; for compliance to the GNU
+standards for packages.  This is the default.
+</p>
+</dd>
+<dt>&lsquo;<samp>gnits</samp>&rsquo;</dt>
+<dd><p>Automake will check for compliance to the as-yet-unwritten GNITS
+standards.  These are based on the GNU standards, but are even more
+detailed.  Unless you are a GNITS standards contributor, it is
+recommended that you avoid this option until such time as the GNITS
+standard is actually published.
+</p></dd>
+</dl>
+
+
+<span id="The-Uniform-Naming-Scheme"></span><h3 class="section">3.3 The Uniform Naming Scheme</h3>
+<p>Automake variables generally follow a uniform naming scheme that makes
+it easy to decide how programs (and other derived objects) are built,
+and how they are installed.  This scheme also supports <code>configure</code>
+time determination of what should be built.
+</p>
+<p>At <code>make</code> time, certain variables are used to determine which
+objects are to be built.  These variables are called <em>primary</em>
+variables.  For instance, the primary variable <code>PROGRAMS</code> holds a
+list of programs which are to be compiled and linked.
+<span id="index-PROGRAMS"></span>
+</p>
+<p>A different set of variables is used to decide where the built objects
+should be installed.  These variables are named after the primary
+variables, but have a prefix indicating which standard directory should
+be used as the installation directory.  The standard directory names are
+given in the GNU standards
+(see <a href="https://www.gnu.org/prep/standards/standards.html#Directory-Variables">Directory Variables</a> in <cite>The GNU Coding
+Standards</cite>).
+<code>automake</code> extends this list with <code>pkglibdir</code>,
+<code>pkgincludedir</code>, and <code>pkgdatadir</code>; these are the same as the
+non-&lsquo;<samp>pkg</samp>&rsquo; versions, but with &lsquo;<samp>@PACKAGE@</samp>&rsquo; appended.
+<span id="index-PACKAGE"></span>
+</p>
+<p>For each primary, there is one additional variable named by prepending
+&lsquo;<samp>EXTRA_</samp>&rsquo; to the primary name.  This variable is used to list
+objects which may or may not be built, depending on what
+<code>configure</code> decides.  This variable is required because Automake
+must know the entire list of objects to be built in order to generate a
+<samp>Makefile.in</samp> that will work in all cases.
+</p>
+<p>For instance, <code>cpio</code> decides at configure time which programs are
+built.  Some of the programs are installed in <code>bindir</code>, and some
+are installed in <code>sbindir</code>:
+</p>
+<div class="example">
+<pre class="example">EXTRA_PROGRAMS = mt rmt
+bin_PROGRAMS = cpio pax
+sbin_PROGRAMS = @PROGRAMS@
+</pre></div>
+
+<p>Defining a primary variable is an error.
+</p>
+<p>Note that the common &lsquo;<samp>dir</samp>&rsquo; suffix is left off when constructing the
+variable names; thus one writes &lsquo;<samp>bin_PROGRAMS</samp>&rsquo; and not
+&lsquo;<samp>bindir_PROGRAMS</samp>&rsquo;.
+</p>
+<p>Not every sort of object can be installed in every directory.  Automake
+will flag those attempts it finds in error.  Automake will also diagnose
+obvious misspellings in directory names.
+</p>
+<p>Sometimes the standard directories &ndash; even as augmented by Automake &ndash;
+are not enough.  In particular it is sometimes useful, for clarity, to
+install objects in a subdirectory of some predefined directory.  To this
+end, Automake allows you to extend the list of possible installation
+directories.  A given prefix (eg &lsquo;<samp>zar</samp>&rsquo;) is valid if a variable of
+the same name with &lsquo;<samp>dir</samp>&rsquo; appended is defined (eg &lsquo;<samp>zardir</samp>&rsquo;).
+</p>
+<p>For instance, until HTML support is part of Automake, you could use this
+to install raw HTML documentation:
+</p>
+<div class="example">
+<pre class="example">htmldir = $(prefix)/html
+html_DATA = automake.html
+</pre></div>
+
+<p>The special prefix &lsquo;<samp>noinst</samp>&rsquo; indicates that the objects in question
+should not be installed at all.
+</p>
+<p>The special prefix &lsquo;<samp>check</samp>&rsquo; indicates that the objects in question
+should not be built until the <code>make check</code> command is run.
+</p>
+<p>Possible primary names are &lsquo;<samp>PROGRAMS</samp>&rsquo;, &lsquo;<samp>LIBRARIES</samp>&rsquo;,
+&lsquo;<samp>SCRIPTS</samp>&rsquo;, &lsquo;<samp>DATA</samp>&rsquo;, &lsquo;<samp>HEADERS</samp>&rsquo;, &lsquo;<samp>MANS</samp>&rsquo;, and
+&lsquo;<samp>TEXINFOS</samp>&rsquo;.
+<span id="index-PROGRAMS-1"></span>
+<span id="index-LIBRARIES"></span>
+<span id="index-SCRIPTS"></span>
+<span id="index-DATA"></span>
+<span id="index-HEADERS"></span>
+<span id="index-MANS"></span>
+<span id="index-TEXINFOS"></span>
+</p>
+<span id="General-Operation"></span><h3 class="section">3.4 General Operation</h3>
+<p>Automake essentially works by reading a <samp>Makefile.am</samp> and
+generating a <samp>Makefile.in</samp>.  The macro definitions and targets in
+the <samp>Makefile.am</samp> are copied into the generated file.
+</p>
+<p>Automake tries to group comments with adjoining targets (or variable
+definitions) in an intelligent way.
+</p>
+<p>A target defined in <samp>Makefile.am</samp> generally overrides any such
+target of a similar name that would be automatically generated by
+<code>automake</code>.  Although this is a supported feature, it is generally
+best to avoid making use of it, as sometimes the generated rules are
+very particular.
+</p>
+<p>Automake also allows a form of comment which is <em>not</em> copied into
+the output; all lines beginning with &lsquo;<samp>##</samp>&rsquo; are completely ignored by
+Automake.
+</p>
+<p>It is customary to make the first line of <samp>Makefile.am</samp> read:
+</p>
+<div class="example">
+<pre class="example">## Process this file with automake to produce Makefile.in
+</pre></div>
+
+
+
+
+<hr>
+<span id="configure"></span><div class="header">
+<p>
+Next: <a href="#Top-level" accesskey="n" rel="next">Top level</a>, Previous: <a href="#Generalities" accesskey="p" rel="prev">Generalities</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Scanning-configure_002ein"></span><h2 class="chapter">4 Scanning <samp>configure.in</samp></h2>
+
+<p>Automake requires certain variables to be defined and certain macros to
+be used in the package <samp>configure.in</samp>.
+</p>
+<p>One such requirement is that <samp>configure.in</samp> must define the
+variables <code>PACKAGE</code> and <code>VERSION</code> with <code>AC_SUBST</code>.
+<span id="index-PACKAGE-1"></span>
+<span id="index-VERSION"></span>
+<code>PACKAGE</code> should be the name of the package as it appears when
+bundled for distribution.  For instance, Automake definees
+<code>PACKAGE</code> to be &lsquo;<samp>automake</samp>&rsquo;.  <code>VERSION</code> should be the
+version number of the release that is being developed.  We recommend
+that you make <samp>configure.in</samp> the only place in your package where
+the version number is defined; this makes releases simpler.
+</p>
+<p>Automake requires the use of the macro <code>AC_ARG_PROGRAM</code> if a
+program or script is installed.
+<span id="index-AC_005fARG_005fPROGRAM"></span>
+</p>
+<p>If your package is not a flat distribution, Automake requires the use of
+<code>AC_PROG_MAKE_SET</code>.
+<span id="index-AC_005fPROG_005fMAKE_005fSET"></span>
+</p>
+<p>Automake will also recognize the use of certain macros and tailor the
+generated <samp>Makefile.in</samp> appropriately.  Currently recognized macros
+and their effects are:
+</p>
+<dl compact="compact">
+<dt><code>AC_CONFIG_HEADER</code></dt>
+<dd><p>Automake will generate rules to automatically regenerate the config
+header.  If you do use this macro, you must create the file
+<samp>stamp-h.in</samp>.  It can be empty.  Also, the <code>AC_OUTPUT</code> command
+in <samp>configure.in</samp> must create <samp>stamp-h</samp>, eg:
+</p><div class="example">
+<pre class="example">AC_OUTPUT(Makefile, [test -z &quot;$CONFIG_HEADERS&quot; || echo timestamp &gt; stamp-h])
+</pre></div>
+<span id="index-AC_005fCONFIG_005fHEADER"></span>
+
+</dd>
+<dt><code>AC_CONFIG_AUX_DIR</code></dt>
+<dd><p>Automake will look for various helper scripts, such as
+<samp>mkinstalldirs</samp>, in the directory named in this macro invocation.
+If not seen, the scripts are looked for in their &ldquo;standard&rdquo; locations
+(either the top source directory, or in the source directory
+corresponding to the current <samp>Makefile.am</samp>, whichever is
+appropriate).
+<span id="index-AC_005fCONFIG_005fAUX_005fDIR"></span>
+</p>
+</dd>
+<dt><code>AC_OUTPUT</code></dt>
+<dd><p>Automake uses this to determine which files to create.
+<span id="index-AC_005fOUTPUT"></span>
+</p>
+</dd>
+<dt><code>AC_PATH_XTRA</code></dt>
+<dd><p>Automake will insert definitions for the variables defined by
+<code>AC_PATH_XTRA</code> into each <samp>Makefile.in</samp> that builds a C program
+or library.
+<span id="index-AC_005fPATH_005fXTRA"></span>
+</p>
+</dd>
+<dt><code>AC_CANONICAL_HOST</code></dt>
+<dt><code>AC_CANONICAL_SYSTEM</code></dt>
+<dt><code>AC_CHECK_TOOL</code></dt>
+<dd><p>Automake will ensure that <samp>config.guess</samp> and <samp>config.sub</samp>
+exist.
+<span id="index-AC_005fCANONICAL_005fHOST"></span>
+<span id="index-AC_005fCANONICAL_005fSYSTEM"></span>
+<span id="index-AC_005fCHECK_005fTOOL"></span>
+</p>
+</dd>
+<dt><code>AC_FUNC_ALLOCA</code></dt>
+<dt><code>AC_FUNC_GETLOADAVG</code></dt>
+<dt><code>AC_FUNC_MEMCMP</code></dt>
+<dt><code>AC_STRUCT_ST_BLOCKS</code></dt>
+<dt><code>fp_FUNC_FNMATCH</code></dt>
+<dt><code>AC_FUNC_FNMATCH</code></dt>
+<dt><code>AC_REPLACE_FUNCS</code></dt>
+<dt><code>AC_REPLACE_GNU_GETOPT</code></dt>
+<dd><p>Automake will ensure that the appropriate source files are part of the
+distribution, and will ensure that the appropriate dependencies are
+generated for these objects.  See <a href="#A-Library">A Library</a> for more
+information.
+<span id="index-AC_005fFUNC_005fALLOCA"></span>
+<span id="index-AC_005fFUNC_005fGETLOADAVG"></span>
+<span id="index-AC_005fFUNC_005fMEMCMP"></span>
+<span id="index-AC_005fSTRUCT_005fST_005fBLOCKS"></span>
+<span id="index-fp_005fFUNC_005fFNMATCH"></span>
+<span id="index-AC_005fFUNC_005fFNMATCH"></span>
+<span id="index-AC_005fREPLACE_005fFUNCS"></span>
+<span id="index-AC_005fREPLACE_005fGNU_005fGETOPT"></span>
+</p>
+<p>Automake will also detect statements which put &lsquo;<samp>.o</samp>&rsquo; files into
+<code>LIBOBJS</code>, and will treat these additional files in a similar way.
+<span id="index-LIBOBJS"></span>
+</p>
+</dd>
+<dt><code>AC_PROG_RANLIB</code></dt>
+<dd><p>This is required if any libraries are built in the package.
+<span id="index-AC_005fPROG_005fRANLIB"></span>
+</p>
+</dd>
+<dt><code>AC_PROG_INSTALL</code></dt>
+<dt><code>fp_PROG_INSTALL</code></dt>
+<dd><p><code>fp_PROG_INSTALL</code> is required if any scripts (see <a href="#Scripts">Scripts</a>) are
+installed by the package.  Otherwise, <code>AC_PROG_INSTALL</code> is
+required.
+<span id="index-AC_005fPROG_005fINSTALL"></span>
+<span id="index-fp_005fPROG_005fINSTALL"></span>
+</p>
+</dd>
+<dt><code>gm_PROG_LIBTOOL</code></dt>
+<dt><code>AC_PROG_LIBTOOL</code></dt>
+<dd><p>Automake will turn on processing for <code>libtool</code> (see <a href="https://www.gnu.org/software/libtool/manual/libtool.html#Top">The
+Libtool Manual</a> in <cite>The Libtool Manual</cite>).  This work is
+still preliminary.
+<span id="index-gm_005fPROG_005fLIBTOOL"></span>
+<span id="index-AC_005fPROG_005fLIBTOOL"></span>
+</p>
+</dd>
+<dt><code>ALL_LINGUAS</code></dt>
+<dd><p>If Automake sees that this variable is set in <samp>configure.in</samp>, it
+will check the <samp>po</samp> directory to ensure that all the named
+&lsquo;<samp>.po</samp>&rsquo; files exist, and that all the &lsquo;<samp>.po</samp>&rsquo; files that exist are
+named.
+<span id="index-ALL_005fLINGUAS"></span>
+</p>
+</dd>
+<dt><code>fp_C_PROTOTYPES</code></dt>
+<dd><p>This is required when using automatic de-ANSI-fication, see <a href="#ANSI">ANSI</a>.
+<span id="index-fp_005fC_005fPROTOTYPES"></span>
+</p>
+</dd>
+<dt><code>ud_GNU_GETTEXT</code></dt>
+<dd><p>This macro is required for packages which use GNU gettext (FIXME xref).
+It is distributed with gettext.  Automake uses this macro to ensure that
+the package meets some of gettext&rsquo;s requirements.
+<span id="index-ud_005fGNU_005fGETTEXT"></span>
+</p>
+</dd>
+<dt><code>jm_MAINTAINER_MODE</code></dt>
+<dd><p>This macro adds a &lsquo;<samp>--enable-maintainer-mode</samp>&rsquo; option to
+<code>configure</code>.  If this is used, <code>automake</code> will cause
+&ldquo;maintainer-only&rdquo; rules to be turned off by default in the generated
+<samp>Makefile.in</samp>s.
+<span id="index-jm_005fMAINTAINER_005fMODE"></span>
+</p></dd>
+</dl>
+
+<p>The &lsquo;<samp>fp_</samp>&rsquo; macros are from {No value for &lsquo;Francois&rsquo;} Pinard and the
+&lsquo;<samp>jm_</samp>&rsquo; macro is from Jim Meyering.  Both sets are included with
+Automake.  <code>automake</code> will tell where the macros can be found if
+they are missing.
+</p>
+
+<hr>
+<span id="Top-level"></span><div class="header">
+<p>
+Next: <a href="#Programs" accesskey="n" rel="next">Programs</a>, Previous: <a href="#configure" accesskey="p" rel="prev">configure</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-top_002dlevel-Makefile_002eam"></span><h2 class="chapter">5 The top-level <samp>Makefile.am</samp></h2>
+
+<p>In non-flat packages, the top level <samp>Makefile.am</samp> must tell
+Automake which subdirectories are to be built.  This is done via the
+<code>SUBDIRS</code> variable.
+<span id="index-SUBDIRS-1"></span>
+</p>
+<p>The <code>SUBDIRS</code> macro holds a list of subdirectories in which
+building of various sorts can occur.  Many targets (eg <code>all</code>) in
+the generated <samp>Makefile</samp> will run both locally and in all specified
+subdirectories.  Note that the directories listed in <code>SUBDIRS</code> are
+not required to contain <samp>Makefile.am</samp>s; only <samp>Makefile</samp>s
+(after configuration).  This allows inclusion of libraries from packages
+which do not use Automake (such as <code>gettext</code>).
+</p>
+<p>In a deep package, the top-level <samp>Makefile.am</samp> is often very short.
+For instance, here is the <samp>Makefile.am</samp> from the textutils
+distribution:
+</p>
+<div class="example">
+<pre class="example">SUBDIRS = lib src doc man
+EXTRA_DIST = @README_ALPHA@
+</pre></div>
+
+<p><code>SUBDIRS</code> can contain configure substitutions (eg &lsquo;<samp>@DIRS@</samp>&rsquo;);
+Automake itself does not actually examine the contents of this variable.
+</p>
+<p>If <code>SUBDIRS</code> is defined, then your <samp>configure.in</samp> must include
+<code>AC_PROG_MAKE_SET</code>.
+</p>
+
+<hr>
+<span id="Programs"></span><div class="header">
+<p>
+Next: <a href="#Other-objects" accesskey="n" rel="next">Other objects</a>, Previous: <a href="#Top-level" accesskey="p" rel="prev">Top level</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Building-Programs-and-Libraries"></span><h2 class="chapter">6 Building Programs and Libraries</h2>
+
+<p>A large part of Automake&rsquo;s functionality is dedicated to making it easy
+to build C programs and libraries.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#A-Program" accesskey="1">A Program</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building a program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#A-Library" accesskey="2">A Library</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Building a library
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ANSI" accesskey="3">ANSI</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Automatic de-ANSI-fication
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="4">Dependencies</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Automatic dependency tracking
+</td></tr>
+</table>
+
+
+<hr>
+<span id="A-Program"></span><div class="header">
+<p>
+Next: <a href="#A-Library" accesskey="n" rel="next">A Library</a>, Up: <a href="#Programs" accesskey="u" rel="up">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Building-a-program"></span><h3 class="section">6.1 Building a program</h3>
+
+<p>In a directory containing source that gets built into a program (as
+opposed to a library), the &lsquo;<samp>PROGRAMS</samp>&rsquo; primary is used.  Programs
+can be installed in <code>bindir</code>, <code>sbindir</code>, <code>libexecdir</code>,
+<code>pkglibdir</code>, or not at all.
+</p>
+<p>For instance:
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = hello
+</pre></div>
+
+<p>In this simple case, the resulting <samp>Makefile.in</samp> will contain code
+to generate a program named <code>hello</code>.  The variable
+<code>hello_SOURCES</code> is used to specify which source files get built
+into an executable:
+</p>
+<div class="example">
+<pre class="example">hello_SOURCES = hello.c
+</pre></div>
+
+<p>This causes <samp>hello.c</samp> to be compiled into <samp>hello.o</samp>, and then
+linked to produce <samp>hello</samp>.
+</p>
+<p>If &lsquo;<samp>prog_SOURCES</samp>&rsquo; is needed, but not specified, then it defaults to
+the single file <samp>prog.c</samp>.  Id est in the example above, the
+definition of <code>hello_SOURCES</code> is actually redundant.
+<span id="index-_005fSOURCES"></span>
+<span id="index-SOURCES"></span>
+</p>
+<p>Multiple programs can be built in a single directory.  Multiple programs
+can share a single source file.  The source file must be listed in each
+&lsquo;<samp>_SOURCES</samp>&rsquo; definition.
+</p>
+<p>Header files listed in a &lsquo;<samp>_SOURCES</samp>&rsquo; definition will be ignored.
+Lex (&lsquo;<samp>.l</samp>&rsquo;) and yacc (&lsquo;<samp>.y</samp>&rsquo;) files can also be listed; support
+for these should work but is still preliminary.
+</p>
+<p>Sometimes it is useful to determine the programs that are to be built at
+configure time.  For instance, GNU <code>cpio</code> only builts <code>mt</code> and
+<code>rmt</code> under special circumstances.
+</p>
+<p>In this case, you must notify <code>Automake</code> of all the programs that
+can possibly be built, but at the same time cause the generated
+<samp>Makefile.in</samp> to use the programs specified by <code>configure</code>.
+This is done by having <code>configure</code> substitute values into each
+&lsquo;<samp>_PROGRAMS</samp>&rsquo; definition, while listing all optionally built programs in
+<code>EXTRA_PROGRAMS</code>.
+<span id="index-EXTRA_005fPROGRAMS"></span>
+</p>
+<p>If you need to link against libraries that are not found by
+<code>configure</code>, you can use <code>LDADD</code> to do so.  This variable
+actually can be used to add any options to the linker command line.
+<span id="index-LDADD"></span>
+</p>
+<p>Sometimes, multiple programs are built in one directory but do not share
+the same link-time requirements.  In this case, you can use the
+&lsquo;<samp><var>prog</var>_LDADD</samp>&rsquo; variable (where <var>PROG</var> is the name of the
+program as it appears in some &lsquo;<samp>_PROGRAMS</samp>&rsquo; variable, and usually
+written in lowercase) to override the global <code>LDADD</code>.  (If this
+variable exists for a given program, then that program is not linked
+using <code>LDADD</code>.)
+<span id="index-_005fLDADD"></span>
+</p>
+<p>For instance, in GNU cpio, <code>pax</code>, <code>cpio</code>, and <code>mt</code> are
+linked against the library <samp>libcpio.a</samp>.  However, <code>rmt</code> is
+built in the same directory, and has no such link requirement.  Also,
+<code>mt</code> and <code>rmt</code> are only built on certain architectures.  Here
+is what cpio&rsquo;s <samp>src/Makefile.am</samp> looks like (abridged):
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = cpio pax @MT@
+libexec_PROGRAMS = @RMT@
+EXTRA_PROGRAMS = mt rmt
+
+LDADD = ../lib/libcpio.a @INTLLIBS@
+rmt_LDADD =
+
+cpio_SOURCES = &hellip;
+pax_SOURCES = &hellip;
+mt_SOURCES = &hellip;
+rmt_SOURCES = &hellip;
+</pre></div>
+
+<p>It is also occasionally useful to have a program depend on some other
+target which is not actually part of that program.  This can be done
+using the &lsquo;<samp>prog_DEPENDENCIES</samp>&rsquo; variable.  Each program depends on
+the contents of such a variable, but no further interpretation is done.
+</p>
+<p>Since program names are rewritten into Makefile macro names, program
+names must follow Makefile macro syntax.  Sometimes it is useful to have
+a program whose name does not follow such rules.  In these cases,
+Automake canonicalizes the program name.  All characters in the name
+except for letters, numbers, and the underscore are turned into
+underscores when making macro references.  Eg, if your program is named
+<code>sniff-glue</code>, you would use <code>sniff_glue_SOURCES</code>, not
+<code>sniff-glue_SOURCES</code>.
+</p>
+
+<hr>
+<span id="A-Library"></span><div class="header">
+<p>
+Next: <a href="#ANSI" accesskey="n" rel="next">ANSI</a>, Previous: <a href="#A-Program" accesskey="p" rel="prev">A Program</a>, Up: <a href="#Programs" accesskey="u" rel="up">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Building-a-library"></span><h3 class="section">6.2 Building a library</h3>
+
+<p>Building a library is much like building a program.  In this case, the
+name of the primary is &lsquo;<samp>LIBRARIES</samp>&rsquo;.  Libraries can be installed in
+<code>libdir</code> or <code>pkglibdir</code>.
+</p>
+<p>Each &lsquo;<samp>_LIBRARIES</samp>&rsquo; variable is a list of the base names of
+libraries to be built.  For instance to create a library named
+<samp>libcpio.a</samp>, but not install it, you would write:
+</p>
+<div class="example">
+<pre class="example">noinst_LIBRARIES = cpio
+</pre></div>
+
+<p>The sources that go into a library are determined exactly as they are
+for programs, via the &lsquo;<samp>_SOURCES</samp>&rsquo; variables.  Note that programs and
+libraries share a namespace, so one cannot have a program (<samp>lob</samp>) and
+a library (<samp>liblob.a</samp>) with the same name in one directory.
+</p>
+<p>Extra objects can be added to a library using the &lsquo;<samp>library_LIBADD</samp>&rsquo;
+variable.  This should be used for objects determined by
+<code>configure</code>.  Again from cpio:
+<span id="index-_005fLIBADD"></span>
+<span id="index-LIBADD"></span>
+</p>
+<div class="example">
+<pre class="example">cpio_LIBADD = @LIBOBJS@ @ALLOCA@
+</pre></div>
+
+<p>Note that Automake explicitly recognizes the use of <code>@LIBOBJS@</code>
+and <code>@ALLOCA@</code> in the above example, and uses this information,
+plus the list of <code>LIBOBJS</code> files derived from <samp>configure.in</samp>
+to automatically include the appropriate source files in the
+distribution (see <a href="#Dist">Dist</a>).  These source files are also automatically
+handled in the dependency-tracking scheme, see See <a href="#Dependencies">Dependencies</a>.
+</p>
+
+<hr>
+<span id="ANSI"></span><div class="header">
+<p>
+Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previous: <a href="#A-Library" accesskey="p" rel="prev">A Library</a>, Up: <a href="#Programs" accesskey="u" rel="up">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Automatic-de_002dANSI_002dfication"></span><h3 class="section">6.3 Automatic de-ANSI-fication</h3>
+
+<p>Although the GNU standards prohibit it, some GNU programs are written in
+ANSI C; see FIXME.  This is possible because each source file can be
+&ldquo;de-ANSI-fied&rdquo; before the actual compilation takes place.
+</p>
+<p>If the <samp>Makefile.am</samp> variable <code>AUTOMAKE_OPTIONS</code>
+<span id="index-AUTOMAKE_005fOPTIONS"></span>
+(<a href="#Options">Options</a>) contains the option <code>ansi2knr</code>
+<span id="index-ansi2knr"></span>
+then code to handle de-ANSI-fication is inserted into the generated
+<samp>Makefile.in</samp>.
+</p>
+<p>This causes each source file to be treated as ANSI C.  If an ANSI C
+compiler is available, it is used.
+</p>
+<p>This support requires the source files <samp>ansi2knr.c</samp> and
+<samp>ansi2knr.1</samp> to be in the same directory as the ANSI C source;
+these files are distributed with Automake.
+Also, the package <samp>configure.in</samp> must call the macro
+<code>fp_C_PROTOTYPES</code>.
+<span id="index-fp_005fC_005fPROTOTYPES-1"></span>
+</p>
+
+<hr>
+<span id="Dependencies"></span><div class="header">
+<p>
+Previous: <a href="#ANSI" accesskey="p" rel="prev">ANSI</a>, Up: <a href="#Programs" accesskey="u" rel="up">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Automatic-dependency-tracking"></span><h3 class="section">6.4 Automatic dependency tracking</h3>
+
+<p>As a developer it is often painful to continually update the
+<samp>Makefile.in</samp> whenever the include-file dependencies change in a
+project.  <code>automake</code> supplies a way to automatically track
+dependency changes, and distribute the dependencies in the generated
+<samp>Makefile.in</samp>.
+</p>
+<p>Currently this support requires the use of GNU <code>make</code> and
+<code>gcc</code>.  It might become possible in the future to supply a
+different dependency generating program, if there is enough demand.
+</p>
+<p>This mode is enabled by default if any C program or library is defined
+in the current directory.
+</p>
+<p>When you decide to make a distribution, the <code>dist</code> target will
+<span id="index-dist"></span>
+re-run <code>automake</code> with the &lsquo;<samp>--include-deps</samp>&rsquo; option.  This
+causes the previously generated dependencies to be inserted into the
+generated <samp>Makefile.in</samp>, and thus into the distribution.
+&lsquo;<samp>--include-deps</samp>&rsquo; also turns off inclusion of the dependency
+generation code.
+</p>
+<p>This mode can be suppressed by putting <code>no-dependencies</code> in the
+variable <code>AUTOMAKE_OPTIONS</code>.
+<span id="index-AUTOMAKE_005fOPTIONS-1"></span>
+<span id="index-no_002ddependencies"></span>
+</p>
+
+<hr>
+<span id="Other-objects"></span><div class="header">
+<p>
+Next: <a href="#Documentation" accesskey="n" rel="next">Documentation</a>, Previous: <a href="#Programs" accesskey="p" rel="prev">Programs</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Other-Derived-Objects"></span><h2 class="chapter">7 Other Derived Objects</h2>
+
+<p>Automake can handle derived objects which are not C programs.  Sometimes
+the support for actually building such objects must be explicitly
+supplied, but Automake will still automatically handle installation and
+distribution.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Scripts" accesskey="1">Scripts</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Executable scripts
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Headers" accesskey="2">Headers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Header files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Data" accesskey="3">Data</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Architecture-independent data files
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Sources" accesskey="4">Sources</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Derived sources
+</td></tr>
+</table>
+
+
+<hr>
+<span id="Scripts"></span><div class="header">
+<p>
+Next: <a href="#Headers" accesskey="n" rel="next">Headers</a>, Up: <a href="#Other-objects" accesskey="u" rel="up">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Executable-Scripts"></span><h3 class="section">7.1 Executable Scripts</h3>
+
+<p>It is possible to define and install programs which are scripts.  Such
+programs are listed using the &lsquo;<samp>SCRIPTS</samp>&rsquo; primary name.
+<code>automake</code> doesn&rsquo;t define any dependencies for scripts; the
+<samp>Makefile.am</samp> should include the appropriate rules.
+<span id="index-SCRIPTS-1"></span>
+</p>
+<p><code>automake</code> does not assume that scripts are derived objects; such
+objects are must be deleted by hand; see <a href="#Clean">Clean</a> for more
+information.
+</p>
+<p><code>automake</code> itself is a script that is generated at configure time
+from <samp>automake.in</samp>.  Here is how this is handled:
+</p>
+<div class="example">
+<pre class="example">bin_SCRIPTS = automake
+</pre></div>
+
+<p>Since <code>automake</code> appears in the <code>AC_OUTPUT</code> macro,
+dependencies for it are automatically generated.
+</p>
+<p>Script objects can be installed in <code>bindir</code>, <code>sbindir</code>,
+<code>libexecdir</code>, or <code>pkgdatadir</code>.
+</p>
+
+<hr>
+<span id="Headers"></span><div class="header">
+<p>
+Next: <a href="#Data" accesskey="n" rel="next">Data</a>, Previous: <a href="#Scripts" accesskey="p" rel="prev">Scripts</a>, Up: <a href="#Other-objects" accesskey="u" rel="up">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Header-files"></span><h3 class="section">7.2 Header files</h3>
+
+<p>Header files are specified by the &lsquo;<samp>HEADERS</samp>&rsquo; family of variables.
+Generally header files are not installed, so the <code>noinst_HEADERS</code>
+variable will be the most used.
+<span id="index-HEADERS-1"></span>
+</p>
+<p>All header files must be listed somewhere; missing ones will not appear
+in the distribution.  Often it is most convenient to list uninstalled
+headers with the rest of the sources for a program.  See <a href="#A-Program">A Program</a>.
+</p>
+<p>Headers can be installed in <code>includedir</code>, <code>oldincludedir</code>, or
+<code>pkgincludedir</code>.
+</p>
+
+<hr>
+<span id="Data"></span><div class="header">
+<p>
+Next: <a href="#Sources" accesskey="n" rel="next">Sources</a>, Previous: <a href="#Headers" accesskey="p" rel="prev">Headers</a>, Up: <a href="#Other-objects" accesskey="u" rel="up">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Architecture_002dindependent-data-files"></span><h3 class="section">7.3 Architecture-independent data files</h3>
+
+<p>Automake supports the installation of miscellaneous data files using the
+&lsquo;<samp>DATA</samp>&rsquo; family of variables.
+<span id="index-DATA-1"></span>
+</p>
+<p>Such data can be installed in the directories <code>datadir</code>,
+<code>sysconfdir</code>, <code>sharedstatedir</code>, <code>localstatedir</code>, or
+<code>pkgdatadir</code>.
+</p>
+<p>All such data files are included in the distribution.
+</p>
+<p>Here is how <code>autoconf</code> installs its auxiliary data files:
+</p>
+<div class="example">
+<pre class="example">pkgdata_DATA = clean-kr.am clean.am compile-kr.am compile-vars.am \
+compile.am data.am depend.am dist-subd-top.am dist-subd-vars.am \
+dist-subd.am dist-vars.am dist.am footer.am header-vars.am header.am \
+libscripts.am libprograms.am libraries-vars.am libraries.am library.am \
+mans-vars.am mans.am packagedata.am program.am programs.am remake-hdr.am \
+remake-subd.am remake.am scripts.am subdirs.am tags.am tags-subd.am \
+texinfos-vars.am texinfos.am hack-make.sed nl-remove.sed
+</pre></div>
+
+
+<hr>
+<span id="Sources"></span><div class="header">
+<p>
+Previous: <a href="#Data" accesskey="p" rel="prev">Data</a>, Up: <a href="#Other-objects" accesskey="u" rel="up">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Built-sources"></span><h3 class="section">7.4 Built sources</h3>
+
+<p>Occasionally a file which would otherwise be called &ldquo;source&rdquo; (eg a C
+&lsquo;<samp>.h</samp>&rsquo; file) is actually derived from some other file.  Such files
+should be listed in the <code>BUILT_SOURCES</code> variable.
+<span id="index-BUILT_005fSOURCES"></span>
+</p>
+<p>Files listed in <code>BUILT_SOURCES</code> are built before any automatic
+dependency tracking is done.  Built sources are included in a
+distribution.
+</p>
+
+<hr>
+<span id="Documentation"></span><div class="header">
+<p>
+Next: <a href="#Install" accesskey="n" rel="next">Install</a>, Previous: <a href="#Other-objects" accesskey="p" rel="prev">Other objects</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Building-documentation"></span><h2 class="chapter">8 Building documentation</h2>
+
+<p>Currently Automake provides support for Texinfo and man pages.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Texinfo" accesskey="1">Texinfo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Texinfo
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Man-pages" accesskey="2">Man pages</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Man pages
+</td></tr>
+</table>
+
+
+<hr>
+<span id="Texinfo"></span><div class="header">
+<p>
+Next: <a href="#Man-pages" accesskey="n" rel="next">Man pages</a>, Up: <a href="#Documentation" accesskey="u" rel="up">Documentation</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Texinfo-1"></span><h3 class="section">8.1 Texinfo</h3>
+
+<p>If the current directory contains Texinfo source, you must declare it
+with the &lsquo;<samp>TEXINFOS</samp>&rsquo; primary.  Generally Texinfo files are converted
+into info, and thus the <code>info_TEXINFOS</code> macro is most commonly used
+here.  Note that any Texinfo source file must end in the &lsquo;<samp>.texi</samp>&rsquo;
+extension (&lsquo;<samp>.texinfo</samp>&rsquo; won&rsquo;t work).
+<span id="index-TEXINFOS-1"></span>
+<span id="index-info_005fTEXINFOS"></span>
+</p>
+<p>If the &lsquo;<samp>.texi</samp>&rsquo; file <code>@include</code>s <samp>version.texi</samp>, then that
+file will be automatically generated.  <samp>version.texi</samp> defines three
+Texinfo macros you can reference: <code>EDITION</code>, <code>VERSION</code>, and
+<code>UPDATED</code>.  The first two hold the version number of your package
+(but are kept separate for clarity); the last is the date the primary
+file was last modified.  The <samp>version.texi</samp> support requires the
+<code>mdate-sh</code> program; this program is supplied with Automake.
+</p>
+<p>Sometimes an info file actually depends on more than one &lsquo;<samp>.texi</samp>&rsquo;
+file.  For instance, in the <code>xdvik</code> distribution,
+<samp>kpathsea.texi</samp> includes the files <samp>install.texi</samp>,
+<samp>copying.texi</samp>, and <samp>freedom.texi</samp>.  You can tell Automake
+about these dependencies using the &lsquo;<samp>texi_TEXINFOS</samp>&rsquo; variable.  Here
+is how <code>xdvik</code> could do it:
+<span id="index-TEXINFOS-2"></span>
+<span id="index-_005fTEXINFOS"></span>
+</p>
+<div class="example">
+<pre class="example">info_TEXINFOS = kpathsea.texi
+kpathsea_TEXINFOS = install.texi copying.texi freedom.texi
+</pre></div>
+
+<p>Automake will warn if a directory containing Texinfo source does not
+also contain the file <samp>texinfo.tex</samp>.  This file is supplied with
+Automake.
+</p>
+<p>Automake generates an <code>install-info</code> target; some people apparently
+use this.
+</p>
+
+<hr>
+<span id="Man-pages"></span><div class="header">
+<p>
+Previous: <a href="#Texinfo" accesskey="p" rel="prev">Texinfo</a>, Up: <a href="#Documentation" accesskey="u" rel="up">Documentation</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Man-pages-1"></span><h3 class="section">8.2 Man pages</h3>
+
+<p>A package can also include man pages.  (Though see the GNU standards on
+this matter, <a href="https://www.gnu.org/prep/standards/standards.html#Man-Pages">Man Pages</a> in <cite>The GNU Coding
+Standards</cite>.)  Man pages are declared using the &lsquo;<samp>MANS</samp>&rsquo; primary.
+Generally the <code>man_MANS</code> macro is used.  Man pages are
+automatically installed in the correct subdirectory of <code>mandir</code>,
+based on the file extension.
+<span id="index-MANS-1"></span>
+<span id="index-man_005fMANS"></span>
+</p>
+<p>By default, man pages are installed by &lsquo;<samp>make install</samp>&rsquo;.  However,
+since the GNU project does not require man pages, many maintainers do
+not expend effort to keep the man pages up to date.  In these cases, the
+<code>no-installman</code> option will prevent the man pages from being
+installed by default.  The user can still explicitly install them via
+&lsquo;<samp>make install-man</samp>&rsquo;.
+<span id="index-no_002dinstallman"></span>
+<span id="index-install_002dman"></span>
+</p>
+<p>Here is how the documentation is handled in GNU <code>cpio</code> (which
+includes both Texinfo documentation and man pages):
+</p>
+<div class="example">
+<pre class="example">info_TEXINFOS = cpio.texi
+man_MANS = cpio.1 mt.1
+</pre></div>
+
+<p>Texinfo source, info pages and man pages are all considered to be source
+for the purposes of making a distribution.
+</p>
+
+<hr>
+<span id="Install"></span><div class="header">
+<p>
+Next: <a href="#Clean" accesskey="n" rel="next">Clean</a>, Previous: <a href="#Documentation" accesskey="p" rel="prev">Documentation</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="What-Gets-Installed"></span><h2 class="chapter">9 What Gets Installed</h2>
+
+<p>Naturally, Automake handles the details of actually installing your
+program once it has been built.  All <code>PROGRAMS</code>, <code>SCRIPTS</code>,
+<code>LIBRARIES</code>, <code>DATA</code> and <code>HEADERS</code> are automatically
+installed in the appropriate places.
+</p>
+<p>Automake also handles installing any specified info and man pages.
+</p>
+<p>Automake generates separate <code>install-data</code> and <code>install-exec</code>
+targets, in case the installer is installing on multiple machines which
+share directory structure &ndash; these targets allow the machine-independent
+parts to be installed only once.  The <code>install</code> target depends on
+both of these targets.
+<span id="index-install_002ddata"></span>
+<span id="index-install_002dexec"></span>
+<span id="index-install"></span>
+</p>
+<p>Automake also generates an <code>uninstall</code> target, and an
+<code>installdirs</code> target.
+<span id="index-uninstall"></span>
+<span id="index-installdirs"></span>
+</p>
+<p>It is possible to extend this mechanism by defining an
+<code>install-exec-local</code> or <code>install-data-local</code> target.  If these
+targets exist, they will be run at &lsquo;<samp>make install</samp>&rsquo; time.
+<span id="index-install_002dexec_002dlocal"></span>
+<span id="index-install_002ddata_002dlocal"></span>
+</p>
+
+<hr>
+<span id="Clean"></span><div class="header">
+<p>
+Next: <a href="#Dist" accesskey="n" rel="next">Dist</a>, Previous: <a href="#Install" accesskey="p" rel="prev">Install</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="What-Gets-Cleaned"></span><h2 class="chapter">10 What Gets Cleaned</h2>
+
+<p>The GNU Makefile Standards specify a number of different clean rules.
+Generally the files that can cleaned are determined automatically by
+Automake.  Of course, Automake also recognizes some variables that can
+be defined to specify additional files to clean.  These variables are
+<code>MOSTLYCLEANFILES</code>, <code>CLEANFILES</code>, <code>DISTCLEANFILES</code>, and
+<code>MAINTAINERCLEANFILES</code>.
+<span id="index-MOSTLYCLEANFILES"></span>
+<span id="index-CLEANFILES"></span>
+<span id="index-DISTCLEANFILES"></span>
+<span id="index-MAINTAINERCLEANFILES"></span>
+</p>
+<p>In Automake, the <code>automake</code> program is not automatically removed,
+because it is an executable script.  So this code in <samp>Makefile.am</samp>
+causes it to be removed by &lsquo;<samp>make clean</samp>&rsquo;:
+</p>
+<div class="example">
+<pre class="example">CLEANFILES = automake
+</pre></div>
+
+
+<hr>
+<span id="Dist"></span><div class="header">
+<p>
+Next: <a href="#Tests" accesskey="n" rel="next">Tests</a>, Previous: <a href="#Clean" accesskey="p" rel="prev">Clean</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="What-Goes-in-a-Distribution"></span><h2 class="chapter">11 What Goes in a Distribution</h2>
+
+<p>The <code>dist</code> target in the generated <samp>Makefile.in</samp> can be used
+to generate a gzip&rsquo;d <code>tar</code> file for distribution.  The tar file is
+named based on the <var>PACKAGE</var> and <var>VERSION</var> variables.
+<span id="index-PACKAGE-2"></span>
+<span id="index-VERSION-1"></span>
+<span id="index-dist-1"></span>
+</p>
+<p>For the most part, the files to distribute are automatically found by
+Automake: all source files are automatically included in a distribution,
+as are all <samp>Makefile.am</samp>s and <samp>Makefile.in</samp>s.  Automake also
+has a built-in list of commonly used files which, if present in the
+current directory, are automatically included.  This list is printed by
+&lsquo;<samp>automake --help</samp>&rsquo;.  Also, files which are read by <code>configure</code>
+(ie, the source files corresponding to the files specified in the
+<code>AC_OUTPUT</code> invocation) are automatically distributed.
+</p>
+<p>Still, sometimes there are files which must be distributed, but which
+are not covered in the automatic rules.  These files should be listed in
+the <code>EXTRA_DIST</code> variable.
+<span id="index-EXTRA_005fDIST"></span>
+</p>
+<p>Occasionally it is useful to be able to change the distribution before
+it is packaged up.  If the <code>dist-hook</code> target exists, it is run
+after the distribution directory is filled, but before the actual tar
+(or shar) file is created.  One way to use this is for distributing file
+in subdirectories for which a new <samp>Makefile.am</samp> is overkill:
+</p>
+<div class="example">
+<pre class="example">dist-hook:
+        mkdir $(distdir)/random
+        cp -p random/a1 random/a2 $(distdir)/random
+</pre></div>
+
+<p>Automake also generates a <code>distcheck</code> target which can be help to
+ensure that a given distribution will actually work.  <code>distcheck</code>
+makes a distribution, and then tries to do a <code>VPATH</code> build.
+<span id="index-distcheck"></span>
+</p>
+
+<hr>
+<span id="Tests"></span><div class="header">
+<p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Dist" accesskey="p" rel="prev">Dist</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Support-for-test-suites"></span><h2 class="chapter">12 Support for test suites</h2>
+
+<p>Automake supports a two forms of test suite.
+</p>
+<p>If the variable <code>TESTS</code> is defined, its value is taken to be a list
+of programs to run in order to do the testing.  The programs can either
+be derived objects or source objects; the generated rule will look both
+in <var>srcdir</var> and <samp>.</samp>.  The number of failures will be printed at
+the end of the run.
+</p>
+<p>If &lsquo;<samp>dejagnu</samp>&rsquo; appears in <code>AUTOMAKE_OPTIONS</code>, then the a
+<code>dejagnu</code>-based test suite is assumed.  The value of the variable
+<code>DEJATOOL</code> is passed as the <code>--tool</code> argument to
+<code>runtest</code>; it defaults to the name of the package.  The variables
+<code>EXPECT</code>, <code>RUNTEST</code> and <code>RUNTESTFLAGS</code> can also be
+overridden to provide project-specific values.  For instance, you will
+need to do this if you are testing a compiler toolchain, because the
+default values do not take into account host and target names.
+<span id="index-dejagnu"></span>
+<span id="index-DEJATOOL"></span>
+<span id="index-EXPECT"></span>
+<span id="index-RUNTEST"></span>
+<span id="index-RUNTESTFLAGS"></span>
+</p>
+<p>In either case, the testing is done via &lsquo;<samp>make check</samp>&rsquo;.
+</p>
+
+<hr>
+<span id="Options"></span><div class="header">
+<p>
+Next: <a href="#Miscellaneous" accesskey="n" rel="next">Miscellaneous</a>, Previous: <a href="#Tests" accesskey="p" rel="prev">Tests</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Changing-Automake_0027s-Behavior"></span><h2 class="chapter">13 Changing Automake&rsquo;s Behavior</h2>
+
+<p>Various features of Automake can be controlled by options in the
+<samp>Makefile.am</samp>.  Such options are listed in a special variable named
+<code>AUTOMAKE_OPTIONS</code>.  Currently understood options are:
+<span id="index-AUTOMAKE_005fOPTIONS-2"></span>
+</p>
+<dl compact="compact">
+<dt><code>gnits</code></dt>
+<dt><code>gnu</code></dt>
+<dt><code>foreign</code></dt>
+<dd><p>The same as the corresponding &lsquo;<samp>--strictness</samp>&rsquo; option.
+</p>
+</dd>
+<dt><code>no-installman</code></dt>
+<dd><p>The generated <samp>Makefile.in</samp> will not cause man pages to be
+installed by default.  However, an <code>install-man</code> target will still
+be available for optional installation.
+<span id="index-install_002dman-1"></span>
+</p>
+</dd>
+<dt><code>ansi2knr</code></dt>
+<dd><p>Turn on automatic de-ANSI-fication.
+</p>
+</dd>
+<dt><code>dist-shar</code></dt>
+<dd><p>Generate a <code>dist-shar</code> target as well as the ordinary <code>dist</code>
+target.
+<span id="index-dist_002dshar"></span>
+</p>
+</dd>
+<dt><code>dist-zip</code></dt>
+<dd><p>Generate a <code>dist-zip</code> target as well as the ordinary <code>dist</code>
+target.
+<span id="index-dist_002dzip"></span>
+</p>
+</dd>
+<dt><code>no-dependencies</code></dt>
+<dd><p>This is similar to using &lsquo;<samp>--include-deps</samp>&rsquo; on the command line, but
+is useful for those situations where you don&rsquo;t have the necessary bits
+to make automatic dependency tracking work See <a href="#Dependencies">Dependencies</a>.  In this
+case the effect is to effectively disable automatic dependency tracking.
+</p>
+</dd>
+<dt><var>version</var></dt>
+<dd><p>A version number (eg &lsquo;<samp>0.30</samp>&rsquo;) can be specified.  If Automake is not
+newer than the version specified, creation of the <samp>Makefile.in</samp>
+will be suppressed.
+</p></dd>
+</dl>
+
+<p>Unrecognized options are diagnosed by <code>automake</code>.
+</p>
+
+<hr>
+<span id="Miscellaneous"></span><div class="header">
+<p>
+Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Miscellaneous-Rules"></span><h2 class="chapter">14 Miscellaneous Rules</h2>
+
+<p>There are a few rules and variables that didn&rsquo;t fit anywhere else.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Tags" accesskey="1">Tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Interfacing to etags and mkid
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Suffixes" accesskey="2">Suffixes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Handling new file extensions
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Built" accesskey="3">Built</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Built sources
+</td></tr>
+</table>
+
+
+<hr>
+<span id="Tags"></span><div class="header">
+<p>
+Next: <a href="#Suffixes" accesskey="n" rel="next">Suffixes</a>, Up: <a href="#Miscellaneous" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Interfacing-to-etags"></span><h3 class="section">14.1 Interfacing to <code>etags</code></h3>
+
+<p><code>automake</code> will generate rules to generate <samp>TAGS</samp> files for
+use with GNU Emacs under some circumstances.
+</p>
+<p>If any C source code or headers are present, then a <code>tags</code> target
+will be generated for the directory.
+<span id="index-tags"></span>
+</p>
+<p>At the topmost directory of a multi-directory package, a <code>tags</code>
+target file will be generated which, when run, will generate a
+<samp>TAGS</samp> file that includes by reference all <samp>TAGS</samp> files from
+subdirectories.
+</p>
+<p>Also, if the variable <code>ETAGS_ARGS</code> is defined, a <code>tags</code> target
+will be generated.  This variable is intended for use in directories
+which contain taggable source that <code>etags</code> does not understand.
+</p>
+<p>Here is how Automake generates tags for its source, and for nodes in its
+Texinfo file:
+</p>
+<div class="example">
+<pre class="example">ETAGS_ARGS = automake.in --lang=none \
+ --regex='/^@node[ \t]+\([^,]+\)/\1/' automake.texi
+</pre></div>
+
+<p>Automake will also generate an <code>ID</code> target which will run
+<code>mkid</code> on the source.  This is only supported on a
+directory-by-directory basis.
+<span id="index-id"></span>
+</p>
+
+<hr>
+<span id="Suffixes"></span><div class="header">
+<p>
+Next: <a href="#Built" accesskey="n" rel="next">Built</a>, Previous: <a href="#Tags" accesskey="p" rel="prev">Tags</a>, Up: <a href="#Miscellaneous" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Handling-new-file-extensions"></span><h3 class="section">14.2 Handling new file extensions</h3>
+
+<p>It is sometimes useful to introduce a new implicit rule to handle a file
+type that Automake does not know about.  If this is done, you must
+notify GNU Make of the new suffixes.  This can be done by putting a list
+of new suffixes in the <code>SUFFIXES</code> variable.
+<span id="index-SUFFIXES"></span>
+</p>
+
+<hr>
+<span id="Built"></span><div class="header">
+<p>
+Previous: <a href="#Suffixes" accesskey="p" rel="prev">Suffixes</a>, Up: <a href="#Miscellaneous" accesskey="u" rel="up">Miscellaneous</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Built-sources-1"></span><h3 class="section">14.3 Built sources</h3>
+
+<p>FIXME write this
+</p>
+
+<hr>
+<span id="Extending"></span><div class="header">
+<p>
+Next: <a href="#Distributing" accesskey="n" rel="next">Distributing</a>, Previous: <a href="#Miscellaneous" accesskey="p" rel="prev">Miscellaneous</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="When-Automake-Isn_0027t-Enough"></span><h2 class="chapter">15 When Automake Isn&rsquo;t Enough</h2>
+
+<p>Sometimes <code>automake</code> isn&rsquo;t enough.  Then you just lose.
+</p>
+<p>Actually, <code>automake</code>s implicit copying semantics means that many
+problems can be worked around by simply adding some <code>make</code> targets
+and rules to <samp>Makefile.in</samp>.  <code>automake</code> will ignore these
+additions.
+</p>
+<p>There are some caveats to doing this.  Although you can overload a
+target already used by <code>automake</code>, it is often inadvisable,
+particularly in the topmost directory of a non-flat package.  However,
+various useful targets have a &lsquo;<samp>-local</samp>&rsquo; version you can specify in your
+<samp>Makefile.in</samp>.  Automake will supplement the standard target with
+these user-supplied targets.
+</p>
+<p>The targets that support a local version are <code>all</code>, <code>info</code>,
+<code>dvi</code>, <code>check</code>, <code>install-data</code>, <code>install-exec</code>, and
+<code>uninstall</code>.
+<span id="index-all"></span>
+<span id="index-info"></span>
+<span id="index-dvi"></span>
+<span id="index-check"></span>
+<span id="index-install_002ddata-1"></span>
+<span id="index-install_002dexec-1"></span>
+<span id="index-uninstall-1"></span>
+</p>
+<p>For instance, here is how to install a file in <samp>/etc</samp>:
+</p>
+<div class="example">
+<pre class="example">install-data-local:
+        $(INSTALL_DATA) $(srcdir)/afile /etc/afile
+</pre></div>
+
+<p>Some targets also have a way to run another target, called a <em>hook</em>,
+after their work is done.  The hook is named after the principal target,
+with &lsquo;<samp>-hook</samp>&rsquo; appended.  The targets allowing hooks are
+<code>install-data</code>, <code>install-exec</code>, and <code>dist</code>.
+<span id="index-install_002ddata_002dhook"></span>
+<span id="index-install_002dexec_002dhook"></span>
+<span id="index-dist_002dhook"></span>
+</p>
+<p>For instance, here is how to create a hard link to an installed program:
+</p>
+<div class="example">
+<pre class="example">install-exec-hook:
+        $(LN) $(bindir)/program $(bindir)/proglink
+</pre></div>
+
+
+
+<hr>
+<span id="Distributing"></span><div class="header">
+<p>
+Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Distributing-Makefile_002eins"></span><h2 class="chapter">16 Distributing <samp>Makefile.in</samp>s</h2>
+
+<p>Automake places no restrictions on the distribution of the resulting
+<samp>Makefile.in</samp>s.  We still encourage software authors to distribute
+their work under terms like those of the GPL, but doing so is not
+required to use Automake.
+</p>
+<p>Some of the files that can be automatically installed via the
+&lsquo;<samp>--add-missing</samp>&rsquo; switch do fall under the GPL; examine each file
+to see.
+</p>
+
+<hr>
+<span id="Examples"></span><div class="header">
+<p>
+Next: <a href="#Future" accesskey="n" rel="next">Future</a>, Previous: <a href="#Distributing" accesskey="p" rel="prev">Distributing</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Some-example-packages"></span><h2 class="chapter">17 Some example packages</h2>
+
+<p>Here are some examples of how Automake can be used.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Hello" accesskey="1">Hello</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The simplest GNU program
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tricky" accesskey="2">Tricky</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A trickier example
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Automake" accesskey="3">Automake</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Automake&rsquo;s own use
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Textutils" accesskey="4">Textutils</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A deep hierarchy
+</td></tr>
+</table>
+
+<hr>
+<span id="Hello"></span><div class="header">
+<p>
+Next: <a href="#Tricky" accesskey="n" rel="next">Tricky</a>, Up: <a href="#Examples" accesskey="u" rel="up">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-simplest-GNU-program"></span><h3 class="section">17.1 The simplest GNU program</h3>
+
+<p><code>hello</code> is renowned for its classic simplicity and versatility.
+What better place to begin a tour?  The below shows what could be used
+as the Hello distribution&rsquo;s <samp>Makefile.am</samp>.
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = hello
+hello_SOURCES = hello.c version.c getopt.c getopt1.c getopt.h
+hello_LDADD = @ALLOCA@
+info_TEXINFOS = hello.texi
+hello_TEXINFOS = gpl.texi
+
+EXTRA_DIST = testdata
+
+check-local: hello
+        @echo expect no output from diff
+        ./hello &gt; test.out
+        diff -c $(srcdir)/testdata test.out
+        rm -f test.out
+</pre></div>
+
+<p>Of course, Automake also requires some minor changes to
+<samp>configure.in</samp>.  The new <samp>configure.in</samp> would read:
+</p>
+<div class="example">
+<pre class="example">dnl Process this file with autoconf to produce a configure script.
+AC_INIT(hello.c)
+VERSION=1.3
+AC_SUBST(VERSION)
+PACKAGE=hello
+AC_SUBST(PACKAGE)
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_STDC_HEADERS
+AC_HAVE_HEADERS(string.h fcntl.h sys/file.h)
+AC_ALLOCA
+AC_OUTPUT(Makefile)
+</pre></div>
+
+<p>If Hello were really going to use Automake, the <samp>version.c</samp> file
+would probably be deleted, or changed so as to be automatically
+generated.
+</p>
+
+<hr>
+<span id="Tricky"></span><div class="header">
+<p>
+Next: <a href="#Automake" accesskey="n" rel="next">Automake</a>, Previous: <a href="#Hello" accesskey="p" rel="prev">Hello</a>, Up: <a href="#Examples" accesskey="u" rel="up">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="A-tricker-example"></span><h3 class="section">17.2 A tricker example</h3>
+
+<p>Here is another, trickier example.  It shows how to generate two
+programs (<code>ctags</code> and <code>etags</code>) from the same source file
+(<samp>etags.c</samp>).  The difficult part is that each compilation of
+<samp>etags.c</samp> requires different <code>cpp</code> flags.
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = etags ctags
+ctags_SOURCES =
+ctags_LDADD = ctags.o
+ctags_DEPENDENCIES = ctags.o
+
+etags.o:
+        $(COMPILE) -DETAGS_REGEXPS etags.c
+
+ctags.o:
+        $(COMPILE) -DCTAGS -o ctags.o etags.c
+</pre></div>
+
+<p>Note that <code>ctags_SOURCES</code> is defined to be empty &ndash; that way no
+implicit value is substituted.  The implicit value, however, is used to
+generate <code>etags</code> from <samp>etags.o</samp>.
+</p>
+<p><code>ctags_LDADD</code> is used to get <samp>ctags.o</samp> into the link line,
+while <code>ctags_DEPENDENCIES</code> exists to make sure that <samp>ctags.o</samp>
+gets built in the first place.
+</p>
+<p>This is a somewhat pathological example.
+</p>
+
+<hr>
+<span id="Automake"></span><div class="header">
+<p>
+Next: <a href="#Textutils" accesskey="n" rel="next">Textutils</a>, Previous: <a href="#Tricky" accesskey="p" rel="prev">Tricky</a>, Up: <a href="#Examples" accesskey="u" rel="up">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Automake-uses-itself"></span><h3 class="section">17.3 Automake uses itself</h3>
+
+<p>Automake, of course, uses itself to generate its <samp>Makefile.in</samp>.
+Since Automake is a shallow package, it has more than one
+<samp>Makefile.am</samp>.  Here is the top-level <samp>Makefile.am</samp>:
+</p>
+<div class="example">
+<pre class="example">## Process this file with automake to create Makefile.in
+
+AUTOMAKE_OPTIONS = gnits
+MAINT_CHARSET = latin1
+PERL = @PERL@
+
+SUBDIRS = tests
+
+bin_SCRIPTS = automake
+info_TEXINFOS = automake.texi
+
+pkgdata_DATA = clean-kr.am clean.am compile-kr.am compile-vars.am \
+compile.am data.am depend.am \
+dist-vars.am footer.am header.am header-vars.am \
+kr-vars.am libraries-vars.am \
+libraries.am library.am mans-vars.am \
+program.am programs.am remake-hdr.am \
+remake-subd.am remake.am scripts.am subdirs.am tags.am tags-subd.am \
+tags-clean.am \
+texi-version.am texinfos-vars.am texinfos.am \
+libraries-clean.am programs-clean.am data-clean.am \
+COPYING INSTALL texinfo.tex \
+ansi2knr.c ansi2knr.1 \
+aclocal.m4
+
+## These must all be executable when installed.
+pkgdata_SCRIPTS = config.guess config.sub install-sh mdate-sh mkinstalldirs
+
+CLEANFILES = automake
+
+# The following requires a fixed version of the Emacs 19.30 etags.
+ETAGS_ARGS = automake.in --lang=none \
+ --regex='/^@node[ \t]+\([^,]+\)/\1/' automake.texi
+
+## `test -x' is not portable.  So we use Perl instead.  If Perl
+## doesn't exist, then this test is meaningless anyway.
+# Check to make sure some installed files are executable.
+installcheck-local:
+	$(PERL) -e &quot;exit ! -x '$(pkgdatadir)/config.guess';&quot;
+	$(PERL) -e &quot;exit ! -x '$(pkgdatadir)/config.sub';&quot;
+	$(PERL) -e &quot;exit ! -x '$(pkgdatadir)/install-sh';&quot;
+	$(PERL) -e &quot;exit ! -x '$(pkgdatadir)/mdate-sh';&quot;
+	$(PERL) -e &quot;exit ! -x '$(pkgdatadir)/mkinstalldirs';&quot;
+
+# Some simple checks:
+# * syntax check with perl4 and perl5.
+# * make sure the scripts don't use 'true'
+# * expect no instances of '${...}'
+# These are only really guaranteed to work on my machine.
+maintainer-check: automake check
+	$(PERL) -c -w automake
+	@if grep '^[^#].*true' $(srcdir)/[a-z]*.am; then \
+	  echo &quot;can't use 'true' in GNU Makefile&quot; 1&gt;&amp;2; \
+	  exit 1;				\
+	else :; fi
+	@if test `fgrep '$${' $(srcdir)/[a-z]*.am | wc -l` -ne 0; then \
+	  echo &quot;found too many uses of '\$${'&quot; 1&gt;&amp;2; \
+	  exit 1;				\
+	fi
+	if $(SHELL) -c 'perl4.036 -v' &gt;/dev/null 2&gt;&amp;1; then \
+	  perl4.036 -c -w automake; \
+	else :; fi
+
+# Tag before making distribution.  Also, don't make a distribution if
+# checks fail.  Also, make sure the NEWS file is up-to-date.
+cvs-dist: maintainer-check
+	@if sed 1q NEWS | grep -e &quot;$(VERSION)&quot; &gt; /dev/null; then :; else \
+	  echo &quot;NEWS not updated; not releasing&quot; 1&gt;&amp;2; \
+	  exit 1;				\
+	fi
+	cvs tag `echo &quot;Release-$(VERSION)&quot; | sed 's/\./-/g'`
+	$(MAKE) dist
+</pre></div>
+
+<p>As you can see, Automake defines many of its own rules, to make the
+maintainer&rsquo;s job easier.  For instance the <code>cvs-dist</code> rule
+automatically tags the current version in the CVS repository, and then
+makes a standard distribution.
+</p>
+<p>Automake consists primarily of one program, <code>automake</code>, and a
+number of auxiliary scripts.  Automake also installs a number of
+programs which are possibly installed via the &lsquo;<samp>--add-missing</samp>&rsquo;
+option; these scripts are listed in the <code>pkgdata_SCRIPTS</code> variable.
+</p>
+<p>Automake also has a <samp>tests</samp> subdirectory, as indicated in the
+<code>SUBDIRS</code> variable above.  Here is <samp>tests/Makefile.am</samp>:
+</p>
+<div class="example">
+<pre class="example">## Process this file with automake to create Makefile.in
+
+AUTOMAKE_OPTIONS = gnits
+
+TESTS = mdate.test vtexi.test acoutput.test instexec.test checkall.test \
+acoutnoq.test acouttbs.test libobj.test proginst.test acoutqnl.test \
+confincl.test spelling.test prefix.test badprog.test depend.test
+
+EXTRA_DIST = defs
+</pre></div>
+
+<p>This is where all the tests are really run.  <samp>defs</samp> is an
+initialization file used by each test script; it is explicitly mentioned
+because <code>automake</code> has no way of automatically finding it.
+</p>
+
+<hr>
+<span id="Textutils"></span><div class="header">
+<p>
+Previous: <a href="#Automake" accesskey="p" rel="prev">Automake</a>, Up: <a href="#Examples" accesskey="u" rel="up">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="A-deep-hierarchy"></span><h3 class="section">17.4 A deep hierarchy</h3>
+
+<p>The GNU textutils are a collection of programs for manipulating text
+files.  They are distributed as a deep package.  The textutils have only
+recently been modified to use Automake; the examples come from a
+prerelease.
+</p>
+<p>Here is the top-level <samp>Makefile.am</samp>:
+</p>
+<div class="example">
+<pre class="example">SUBDIRS = lib src doc man
+</pre></div>
+
+<p>In the <samp>lib</samp> directory, a library is built which is used by each
+textutil.  Here is <samp>lib/Makefile.am</samp>:
+</p>
+<div class="example">
+<pre class="example">noinst_LIBRARIES = tu
+
+EXTRA_DIST = rx.c regex.c
+
+tu_SOURCES = error.h getline.h getopt.h linebuffer.h \
+long-options.h md5.h regex.h rx.h xstrtod.h xstrtol.h xstrtoul.h \
+error.c full-write.c getline.c getopt.c getopt1.c \
+linebuffer.c long-options.c md5.c memchr.c safe-read.c \
+xmalloc.c xstrtod.c xstrtol.c xstrtoul.c
+
+tu_LIBADD = @REGEXOBJ@ @LIBOBJS@ @ALLOCA@
+</pre></div>
+
+<p>The <samp>src</samp> directory contains the source for all the textutils &ndash; 23
+programs in all.  The <samp>Makefile.am</samp> for this directory also
+includes some simple checking code, and constructs a <samp>version.c</samp>
+file on the fly:
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = cat cksum comm csplit cut expand fmt fold head join md5sum \
+nl od paste pr sort split sum tac tail tr unexpand uniq wc
+
+noinst_HEADERS = system.h version.h
+DISTCLEANFILES = stamp-v version.c
+
+INCLUDES = -I$(top_srcdir)/lib
+
+LDADD = version.o ../lib/libtu.a
+
+$(PROGRAMS): version.o ../lib/libtu.a
+
+AUTOMAKE_OPTIONS = ansi2knr
+
+version.c: stamp-v
+stamp-v: Makefile
+	rm -f t-version.c
+	echo '#include &lt;config.h&gt;' &gt; t-version.c
+	echo '#include &quot;version.h&quot;' &gt;&gt; t-version.c
+	echo 'const char *version_string = &quot;'GNU @PACKAGE@ @VERSION@'&quot;;' \
+		&gt;&gt; t-version.c
+	if cmp -s version.c t-version.c; then	\
+	  rm t-version.c;			\
+	else					\
+	  mv t-version.c version.c;		\
+	fi
+	echo timestamp &gt; $@
+
+check: md5sum
+	./md5sum \
+	 --string=&quot;&quot; \
+	 --string=&quot;a&quot; \
+	 --string=&quot;abc&quot; \
+	 --string=&quot;message digest&quot; \
+	 --string=&quot;abcdefghijklmnopqrstuvwxyz&quot; \
+	 --string=&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot; \
+	 --string=&quot;12345678901234567890123456789012345678901234567890123456789012345678901234567890&quot; \
+       | diff -c $(srcdir)/md5-test.rfc -
+</pre></div>
+
+<p>The <samp>doc</samp> directory builds the info documentation for the
+textutils:
+</p>
+<div class="example">
+<pre class="example">info_TEXINFOS = textutils.texi
+</pre></div>
+
+<p>And, last, the <samp>man</samp> directory installs the man pages for all the
+textutils:
+</p>
+<div class="example">
+<pre class="example">man_MANS = cat.1 cksum.1 comm.1 csplit.1 cut.1 expand.1 fmt.1 fold.1 head.1 \
+join.1 md5sum.1 nl.1 od.1 paste.1 pr.1 sort.1 split.1 sum.1 tac.1 tail.1 \
+tr.1 unexpand.1 uniq.1 wc.1
+</pre></div>
+
+<p>You can now see how easy it is to handle even a largish project using
+Automake.
+</p>
+
+<hr>
+<span id="Future"></span><div class="header">
+<p>
+Next: <a href="#Variables" accesskey="n" rel="next">Variables</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Some-ideas-for-the-future"></span><h2 class="chapter">18 Some ideas for the future</h2>
+
+<p>Here are some things that might happen in the future:
+</p>
+<ul>
+<li> HTML support.
+
+</li><li> The output will be cleaned up.  For instance, only variables which are
+actually used will appear in the generated <samp>Makefile.in</samp>.
+
+</li><li> There will be support for automatically recoding a distribution.  The
+intent is to allow a maintainer to use whatever character set is most
+convenient locally, but for all distributions to be Unicode or
+ISO&nbsp;10646<!-- /@w --> with the UTF-8 encoding.
+</li></ul>
+
+
+<hr>
+<span id="Variables"></span><div class="header">
+<p>
+Next: <a href="#Configure-variables" accesskey="n" rel="next">Configure variables</a>, Previous: <a href="#Future" accesskey="p" rel="prev">Future</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Index-of-Variables"></span><h2 class="unnumbered">Index of Variables</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variables_vr_symbol-1"><b>_</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Variables_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_symbol-1">_</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005fLDADD"><code>_LDADD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Program">A Program</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005fLIBADD"><code>_LIBADD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Library">A Library</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005fSOURCES"><code>_SOURCES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Program">A Program</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005fTEXINFOS"><code>_TEXINFOS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Texinfo">Texinfo</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AUTOMAKE_005fOPTIONS"><code>AUTOMAKE_OPTIONS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#ANSI">ANSI</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AUTOMAKE_005fOPTIONS-1"><code>AUTOMAKE_OPTIONS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dependencies">Dependencies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AUTOMAKE_005fOPTIONS-2"><code>AUTOMAKE_OPTIONS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-BUILT_005fSOURCES"><code>BUILT_SOURCES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sources">Sources</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CLEANFILES"><code>CLEANFILES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean">Clean</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DATA"><code>DATA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DATA-1"><code>DATA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Data">Data</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DEJATOOL"><code>DEJATOOL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests">Tests</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DISTCLEANFILES"><code>DISTCLEANFILES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean">Clean</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-EXPECT"><code>EXPECT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests">Tests</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-EXTRA_005fDIST"><code>EXTRA_DIST</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dist">Dist</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-EXTRA_005fPROGRAMS"><code>EXTRA_PROGRAMS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Program">A Program</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-HEADERS"><code>HEADERS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-HEADERS-1"><code>HEADERS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Headers">Headers</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-info_005fTEXINFOS"><code>info_TEXINFOS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Texinfo">Texinfo</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-L">L</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LDADD"><code>LDADD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Program">A Program</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LIBADD"><code>LIBADD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Library">A Library</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LIBRARIES"><code>LIBRARIES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MAINTAINERCLEANFILES"><code>MAINTAINERCLEANFILES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean">Clean</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MANS"><code>MANS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MANS-1"><code>MANS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Man-pages">Man pages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-man_005fMANS"><code>man_MANS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Man-pages">Man pages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MOSTLYCLEANFILES"><code>MOSTLYCLEANFILES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean">Clean</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PROGRAMS"><code>PROGRAMS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PROGRAMS-1"><code>PROGRAMS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RUNTEST"><code>RUNTEST</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests">Tests</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RUNTESTFLAGS"><code>RUNTESTFLAGS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests">Tests</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SCRIPTS"><code>SCRIPTS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SCRIPTS-1"><code>SCRIPTS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scripts">Scripts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SOURCES"><code>SOURCES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#A-Program">A Program</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SUBDIRS"><code>SUBDIRS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SUBDIRS-1"><code>SUBDIRS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top-level">Top level</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SUFFIXES"><code>SUFFIXES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Suffixes">Suffixes</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Variables_vr_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TEXINFOS"><code>TEXINFOS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TEXINFOS-1"><code>TEXINFOS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Texinfo">Texinfo</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TEXINFOS-2"><code>TEXINFOS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Texinfo">Texinfo</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variables_vr_symbol-1"><b>_</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Variables_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variables_vr_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+
+
+<hr>
+<span id="Configure-variables"></span><div class="header">
+<p>
+Next: <a href="#Targets" accesskey="n" rel="next">Targets</a>, Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Index-of-Configure-Variables-and-Macros"></span><h2 class="unnumbered">Index of Configure Variables and Macros</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Configure-variables_cv_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-V"><b>V</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cv" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fARG_005fPROGRAM"><code>AC_ARG_PROGRAM</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCANONICAL_005fHOST"><code>AC_CANONICAL_HOST</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCANONICAL_005fSYSTEM"><code>AC_CANONICAL_SYSTEM</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCHECK_005fTOOL"><code>AC_CHECK_TOOL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCONFIG_005fAUX_005fDIR"><code>AC_CONFIG_AUX_DIR</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCONFIG_005fHEADER"><code>AC_CONFIG_HEADER</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fFUNC_005fALLOCA"><code>AC_FUNC_ALLOCA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fFUNC_005fFNMATCH"><code>AC_FUNC_FNMATCH</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fFUNC_005fGETLOADAVG"><code>AC_FUNC_GETLOADAVG</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fFUNC_005fMEMCMP"><code>AC_FUNC_MEMCMP</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fOUTPUT"><code>AC_OUTPUT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPATH_005fXTRA"><code>AC_PATH_XTRA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fINSTALL"><code>AC_PROG_INSTALL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fLIBTOOL"><code>AC_PROG_LIBTOOL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fMAKE_005fSET"><code>AC_PROG_MAKE_SET</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fPROG_005fRANLIB"><code>AC_PROG_RANLIB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fREPLACE_005fFUNCS"><code>AC_REPLACE_FUNCS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fREPLACE_005fGNU_005fGETOPT"><code>AC_REPLACE_GNU_GETOPT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fSTRUCT_005fST_005fBLOCKS"><code>AC_STRUCT_ST_BLOCKS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ALL_005fLINGUAS"><code>ALL_LINGUAS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fp_005fC_005fPROTOTYPES"><code>fp_C_PROTOTYPES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fp_005fC_005fPROTOTYPES-1"><code>fp_C_PROTOTYPES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#ANSI">ANSI</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fp_005fFUNC_005fFNMATCH"><code>fp_FUNC_FNMATCH</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fp_005fPROG_005fINSTALL"><code>fp_PROG_INSTALL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gm_005fPROG_005fLIBTOOL"><code>gm_PROG_LIBTOOL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-J">J</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jm_005fMAINTAINER_005fMODE"><code>jm_MAINTAINER_MODE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-L">L</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LIBOBJS"><code>LIBOBJS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PACKAGE"><code>PACKAGE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Generalities">Generalities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PACKAGE-1"><code>PACKAGE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PACKAGE-2"><code>PACKAGE</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dist">Dist</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ud_005fGNU_005fGETTEXT"><code>ud_GNU_GETTEXT</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Configure-variables_cv_letter-V">V</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-VERSION"><code>VERSION</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#configure">configure</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-VERSION-1"><code>VERSION</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dist">Dist</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Configure-variables_cv_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Configure-variables_cv_letter-V"><b>V</b></a>
+ &nbsp; 
+</td></tr></table>
+
+
+<hr>
+<span id="Targets"></span><div class="header">
+<p>
+Previous: <a href="#Configure-variables" accesskey="p" rel="prev">Configure variables</a> &nbsp; [<a href="#Variables" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Index-of-Targets"></span><h2 class="unnumbered">Index of Targets</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Targets_tr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-tr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-all"><code>all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-check"><code>check</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dist"><code>dist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dependencies">Dependencies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dist-1"><code>dist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dist">Dist</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dist_002dhook"><code>dist-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dist_002dshar"><code>dist-shar</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dist_002dzip"><code>dist-zip</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-distcheck"><code>distcheck</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dist">Dist</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dvi"><code>dvi</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-id"><code>id</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tags">Tags</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-info"><code>info</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install"><code>install</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002ddata"><code>install-data</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002ddata-1"><code>install-data</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002ddata_002dhook"><code>install-data-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002ddata_002dlocal"><code>install-data-local</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dexec"><code>install-exec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dexec-1"><code>install-exec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dexec_002dhook"><code>install-exec-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dexec_002dlocal"><code>install-exec-local</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dman"><code>install-man</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Man-pages">Man pages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install_002dman-1"><code>install-man</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-installdirs"><code>installdirs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tags"><code>tags</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tags">Tags</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Targets_tr_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-uninstall"><code>uninstall</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install">Install</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-uninstall-1"><code>uninstall</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending">Extending</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Targets_tr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Targets_tr_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+
+
+<hr>
+
+
+
+</body>
+</html>

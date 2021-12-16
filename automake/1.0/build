@@ -19,20 +19,20 @@ main() {
   declare    url
   declare    x
 
-  url=https://ftp.gnu.org/gnu/automake/automake-1.15.tar.gz
-  rm -f -r automake-1.15.tar.gz automake-1.15
-  wget -O automake-1.15.tar.gz -- "$url"
-  sha512sum -c --quiet automake-1.15.tar.gz.sha512sum
+  url=https://ftp.gnu.org/gnu/automake/automake-1.0.tar.gz
+  rm -f -r automake-1.0.tar.gz automake-1.0
+  wget -O automake-1.0.tar.gz -- "$url"
+  sha512sum -c --quiet automake-1.0.tar.gz.sha512sum
 
   url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
   rm -f -r texinfo-6.7.tar.gz texinfo-6.7
   wget -O texinfo-6.7.tar.gz -- "$url"
   sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
 
-  tar xzf automake-1.15.tar.gz
-  x=$(find automake-1.15 -type f -printf '%T@\n' | sort -n | tail -1)
+  tar xzf automake-1.0.tar.gz
+  x=$(find automake-1.0 -type f -printf '%T@\n' | sort -n | tail -1)
   date -d "@$x" -u +%Y-%m-%d >date
-  rm -f -r automake-1.15
+  rm -f -r automake-1.0
 
   docker build --iidfile image .
 
@@ -60,7 +60,7 @@ main() {
 
   mv -f out/* .
 
-  rm automake-1.15.tar.gz
+  rm automake-1.0.tar.gz
   rm image
   rm texinfo-6.7.tar.gz
   rmdir out
