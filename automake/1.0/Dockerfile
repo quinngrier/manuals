@@ -16,10 +16,13 @@ RUN apk --no-cache add \
   perl \
 ;
 
-COPY texinfo-6.7.tar.gz.flat /texinfo-6.7.tar.gz
+COPY texinfo-*.tar.gz.flat /texinfo.tar.gz
 WORKDIR /
-RUN tar xzf texinfo-6.7.tar.gz
-WORKDIR /texinfo-6.7
+RUN mkdir texinfo
+WORKDIR texinfo
+RUN tar xzf ../texinfo.tar.gz
+RUN mv * texinfo
+WORKDIR texinfo
 RUN ./configure
 RUN make
 RUN make install
