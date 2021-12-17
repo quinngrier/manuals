@@ -10,7 +10,7 @@
 
 variables:
   GIT_DEPTH: 1
-  GIT_STRATEGY: clone
+  GIT_STRATEGY: fetch
 
 pages:
   artifacts:
@@ -19,10 +19,9 @@ pages:
   script:
     - |
       xs=`git ls-tree --name-only HEAD:` || exit $?
+      rm -f -r public || exit $?
       mkdir public || exit $?
-      for x in $xs; do
-        cp -L -R $x public || exit $?
-      done
+      cp -L -R -- $xs public || exit $?
 
 sourceforge:
   script:
@@ -37,6 +36,7 @@ sourceforge:
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
         -r \
+        -- \
         $xs \
         quinngrier@web.sourceforge.net:/home/project-web/manuals/htdocs \
       || exit $?
