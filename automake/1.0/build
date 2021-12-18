@@ -16,7 +16,6 @@ main() {
 
   declare    container
   declare    image
-  declare    url
   declare    v
   declare    v1
   declare    v2
@@ -32,23 +31,8 @@ main() {
   v2=${v2%%[-.]*}
   readonly v2
 
-  rm -f automake-$v.tar.gz
-  ln -s ../../downloads/automake-$v.tar.gz automake-$v.tar.gz
-  if [[ ! -f automake-$v.tar.gz ]]; then
-    url=https://ftp.gnu.org/gnu/automake/automake-$v.tar.gz
-    wget -O - -- "$url" >automake-$v.tar.gz
-  fi
-  sha512sum -c --quiet automake-$v.tar.gz.sha512sum
-  cp -L automake-$v.tar.gz automake-$v.tar.gz.flat
-
-  rm -f texinfo-6.7.tar.gz
-  ln -s ../../downloads/texinfo-6.7.tar.gz texinfo-6.7.tar.gz
-  if [[ ! -f texinfo-6.7.tar.gz ]]; then
-    url=https://ftp.gnu.org/gnu/texinfo/texinfo-6.7.tar.gz
-    wget -O - -- "$url" >texinfo-6.7.tar.gz
-  fi
-  sha512sum -c --quiet texinfo-6.7.tar.gz.sha512sum
-  cp -L texinfo-6.7.tar.gz texinfo-6.7.tar.gz.flat
+  download automake-$v.tar.gz
+  download texinfo-6.7.tar.gz
 
   rm -f -r automake-$v
   tar xzf automake-$v.tar.gz
@@ -58,10 +42,9 @@ main() {
     date -d "@$x" -u +%Y-%m-%d
   } >date
 
-  cp -L Dockerfile Dockerfile.flat
-  cp -L build-html.bash build-html.bash.flat
-  docker build -f Dockerfile.flat --iidfile image .
+  cp ../common/* .
 
+  docker build --iidfile image .
   image=$(cat image)
   readonly image
 
@@ -87,15 +70,13 @@ main() {
   mv -f out/* .
 
   rm -f -r \
-    Dockerfile.flat \
+    Dockerfile \
     automake-$v \
     automake-$v.tar.gz \
-    automake-$v.tar.gz.flat \
-    build-html.bash.flat \
+    build-html.bash \
     image \
     out \
-    texinfo-6.7.tar.gz \
-    texinfo-6.7.tar.gz.flat \
+    texinfo-*.tar.gz \
   ;
 
 }; readonly -f main

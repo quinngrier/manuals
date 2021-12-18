@@ -12,7 +12,7 @@
 set -e || exit $?
 . ${1-./}prelude.bash
 
-f() {
+main() {
 
   declare    current
   declare    d
@@ -190,6 +190,6 @@ EOF
     cd ..
   done
 
-}; readonly -f
+}; readonly -f main
 
-f "$@"
+main "$@"

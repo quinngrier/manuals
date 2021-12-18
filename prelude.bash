@@ -35,3 +35,118 @@ shopt -s \
 ;
 
 declare -r -x LC_ALL=C
+
+#-----------------------------------------------------------------------
+# prelude_dir
+#-----------------------------------------------------------------------
+
+if [[ "$BASH_SOURCE" == */* ]]; then
+  prelude_dir=${BASH_SOURCE%/*}/
+  if [[ "$prelude_dir" != /* ]]; then
+    if [[ "$PWD" == / ]]; then
+      prelude_dir=/$prelude_dir
+    else
+      prelude_dir=$PWD/$prelude_dir
+    fi
+  fi
+else
+  prelude_dir=$PWD
+fi
+if [[ "$prelude_dir" == */ ]]; then
+  prelude_dir+=.
+fi
+if [[ "$prelude_dir" != //* ]]; then
+  while [[ "$prelude_dir" == */./* ]]; do
+    prelude_dir=${prelude_dir//'/./'/'/'}
+  done
+  while [[ "$prelude_dir" == *//* ]]; do
+    prelude_dir=${prelude_dir//'//'/'/'}
+  done
+  if [[ "$prelude_dir" != /. ]]; then
+    prelude_dir=${prelude_dir%/.}
+  fi
+fi
+readonly prelude_dir
+
+#-----------------------------------------------------------------------
+
+download() {
+
+  declare    file
+  declare    path
+  declare    sum
+  declare -a sums
+  declare    url
+  declare    urls
+
+  path=./$1
+  readonly path
+  shift
+
+  file=${path##*/}
+  readonly file
+
+  rm -f "$file"
+  ln -s "$prelude_dir/downloads/$path" "$file"
+
+  sums=()
+  for sum in "$prelude_dir/downloads/$path".*sum; do
+    sum=${sum##*.}
+    sums+=($sum)
+    rm -f "$file.$sum"
+    ln -s "$prelude_dir/downloads/$path.$sum" "$file.$sum"
+  done
+
+  if ((${#sums[@]} == 0)); then
+    printf '%s\n' "No hashes for $file" >&2
+    exit 1
+  fi
+
+  if [[ -f "$file" ]]; then
+    for sum in ${sums[@]}; do
+      if ! $sum -c --quiet "$file.$sum"; then
+        rm "$prelude_dir/downloads/$path"
+        break
+      fi
+    done
+  fi
+
+  if [[ ! -f "$file" ]]; then
+    urls=$(cat "$prelude_dir/downloads/$path.urls")
+    url=
+    for url in $urls; do
+      if ! wget -O - -T 5 -- "$url" >"$file"; then
+        rm "$prelude_dir/downloads/$path"
+        continue
+      fi
+      for sum in ${sums[@]}; do
+        if ! $sum -c --quiet "$file.$sum"; then
+          rm "$prelude_dir/downloads/$path"
+          continue 2
+        fi
+      done
+      break
+    done
+    if [[ ! "$url" ]]; then
+      printf '%s\n' "No URLs for $file" >&2
+      exit 1
+    fi
+    if [[ ! -f "$file" ]]; then
+      printf '%s\n' "All downloads failed for $file" >&2
+      exit 1
+    fi
+  fi
+
+  rm -f "$file.flat"
+  cp -L "$file" "$file.flat"
+
+  rm "$file"
+  for sum in ${sums[@]}; do
+    rm "$file.$sum"
+  done
+
+  mv -f "$file.flat" "$file"
+
+}; readonly -f download
+
+#-----------------------------------------------------------------------

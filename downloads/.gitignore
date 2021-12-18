@@ -11,4 +11,5 @@
 *
 
 !*.*sum
+!*.urls
 !.gitignore
