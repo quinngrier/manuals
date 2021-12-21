@@ -1,0 +1,86 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+main() {
+
+  declare    container
+  declare    image
+  declare    v
+  declare    v1
+  declare    v2
+  declare    x
+
+  v=${PWD##*/}
+  readonly v
+
+  v1=${v%%.*}
+  readonly v1
+
+  v2=${v#"$v1."}
+  v2=${v2%%[-.]*}
+  readonly v2
+
+  download autoconf/autoconf-$v.tar.gz
+  download groff-1.22.4.tar.gz
+  download texinfo-6.7.tar.gz
+
+  rm -f -r autoconf-$v
+  tar xzf autoconf-$v.tar.gz
+  x=$(find autoconf-$v -type f -printf '%T@\n' | sort -n | tail -1)
+  {
+    printf %03d%03d: "$v1" "$v2"
+    date -d "@$x" -u +%Y-%m-%d
+  } >date
+
+  cp ../common/* .
+
+  docker build --iidfile image .
+  image=$(cat image)
+  readonly image
+
+  container=$(docker create $image)
+  readonly container
+
+  rm -f -r out
+  mkdir out
+
+  docker cp $container:/autoconf/autoconf/out/. out
+
+  docker rm $container
+
+  >files
+  for x in out/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+    echo ${x#out/} >>files
+  done
+
+  mv -f out/* .
+
+  rm -f -r \
+    Dockerfile \
+    autoconf-$v \
+    autoconf-$v.tar.gz \
+    build-html.bash \
+    groff-*.tar.gz \
+    image \
+    out \
+    texinfo-*.tar.gz \
+  ;
+
+}; readonly -f main
+
+main "$@"

@@ -1,0 +1,292 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>AUTOM4TE</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">AUTOM4TE</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">autom4te -
+Generate files and scripts thanks to M4</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>autom4te</b>
+[<i>OPTION</i>] ... [<i>FILES</i>]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Run GNU M4 on
+the FILES, avoiding useless runs. Output the traces if
+tracing, the frozen file if freezing, otherwise the
+expansion of the FILES.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If some of the
+FILES are named &lsquo;FILE.m4f&rsquo; they are considered
+to be M4 frozen files of all the previous files (which are
+therefore not loaded). If &lsquo;FILE.m4f&rsquo; is not
+found, then &lsquo;FILE.m4&rsquo; will be used, together
+with all the previous files.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Some files may
+be optional, i.e., will only be processed if found in the
+include path, but then must end in &lsquo;.m4?&rsquo;; the
+question mark is not part of the actual file name.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Operation
+modes: <br>
+-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">print this help, then exit</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--version</b></p>
+
+<p style="margin-left:22%;">print version number, then
+exit</p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--verbose</b></p>
+
+<p style="margin-left:22%;">verbosely report processing</p>
+
+<p style="margin-left:11%;"><b>-d</b>, <b>--debug</b></p>
+
+<p style="margin-left:22%;">don&rsquo;t remove temporary
+files</p>
+
+<p style="margin-left:11%;"><b>-o</b>,
+<b>--output</b>=<i>FILE</i></p>
+
+<p style="margin-left:22%;">save output in FILE (defaults
+to &lsquo;-&rsquo;, stdout)</p>
+
+<p style="margin-left:11%;"><b>-f</b>, <b>--force</b></p>
+
+<p style="margin-left:22%;">don&rsquo;t rely on cached
+values</p>
+
+<p style="margin-left:11%;"><b>-W</b>,
+<b>--warnings</b>=<i>CATEGORY</i></p>
+
+<p style="margin-left:22%;">report the warnings falling in
+CATEGORY</p>
+
+<p style="margin-left:11%;"><b>-l</b>,
+<b>--language</b>=<i>LANG</i></p>
+
+<p style="margin-left:22%;">specify the set of M4 macros to
+use</p>
+
+<p style="margin-left:11%;"><b>-m</b>,
+<b>--mode</b>=<i>OCTAL</i></p>
+
+<p style="margin-left:22%;">change the non trace output
+file mode (0666)</p>
+
+<p style="margin-left:11%;"><b>-M</b>, <b>--melt</b></p>
+
+<p style="margin-left:22%;">don&rsquo;t use M4 frozen
+files</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Languages
+include:</b> <br>
+&lsquo;Autoconf&rsquo;</p>
+
+<p style="margin-left:22%;">create Autoconf configure
+scripts</p>
+
+<p style="margin-left:11%;">&lsquo;Autotest&rsquo;</p>
+
+<p style="margin-left:22%;">create Autotest test suites</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p>&lsquo;M4sh&rsquo;</p></td>
+<td width="2%"></td>
+<td width="38%">
+
+
+<p>create M4sh shell scripts</p></td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;">&lsquo;M4sugar&rsquo;</p>
+
+<p style="margin-left:22%;">create M4sugar output</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Warning
+categories include:</b> <br>
+&lsquo;cross&rsquo;</p>
+
+<p style="margin-left:22%;">cross compilation issues</p>
+
+<p style="margin-left:11%;">&lsquo;obsolete&rsquo;</p>
+
+<p style="margin-left:22%;">obsolete constructs</p>
+
+<p style="margin-left:11%;">&lsquo;syntax&rsquo;</p>
+
+<p style="margin-left:22%;">dubious syntactic
+constructs</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p>&lsquo;all&rsquo;</p></td>
+<td width="4%"></td>
+<td width="24%">
+
+
+<p>all the warnings</p></td>
+<td width="54%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;">&lsquo;no-CATEGORY&rsquo;</p>
+
+<p style="margin-left:22%;">turn off the warnings on
+CATEGORY</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p>&lsquo;none&rsquo;</p></td>
+<td width="2%"></td>
+<td width="38%">
+
+
+<p>turn off all the warnings</p></td>
+<td width="40%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;">&lsquo;error&rsquo;</p>
+
+<p style="margin-left:22%;">warnings are error</p>
+
+<p style="margin-left:11%; margin-top: 1em">The environment
+variable &lsquo;WARNINGS&rsquo; is honored.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Library
+directories: <br>
+-I</b>, <b>--include</b>=<i>DIR</i></p>
+
+<p style="margin-left:22%;">look for FILES in DIR
+(cumulative)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Tracing:
+<br>
+-t</b>, <b>--trace</b>=<i>MACRO</i></p>
+
+<p style="margin-left:22%;">report the MACRO
+invocations</p>
+
+<p style="margin-left:11%;"><b>-p</b>,
+<b>--preselect</b>=<i>MACRO</i></p>
+
+<p style="margin-left:22%;">prepare to trace MACRO in a
+future run</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Freezing:
+<br>
+-F</b>, <b>--freeze</b></p>
+
+<p style="margin-left:22%;">produce an M4 frozen state file
+for FILES</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by Akim
+Demaille.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Copyright 2002
+Free Software Foundation, Inc. This is free software; see
+the source for copying conditions. There is NO warranty; not
+even for MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Report bugs to
+&lt;bug-autoconf@gnu.org&gt;.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>autoconf</b>(1),
+<b>automake</b>(1), <b>autoreconf</b>(1),
+<b>autoupdate</b>(1), <b>autoheader</b>(1),
+<b>autoscan</b>(1), <b>config.guess</b>(1),
+<b>config.sub</b>(1), <b>ifnames</b>(1),
+<b>libtool</b>(1).</p>
+
+<p style="margin-left:11%; margin-top: 1em">The full
+documentation for <b>autom4te</b> is maintained as a Texinfo
+manual. If the <b>info</b> and <b>autom4te</b> programs are
+properly installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+autom4te</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>
