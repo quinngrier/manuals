@@ -50,6 +50,10 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a 
 </div>
 <h1 class="node-heading">Top</h1>
 
+<p>This file documents the GNU Autoconf package for creating scripts to
+configure source code packages using templates and an <code>m4</code> macro
+package.  This is edition 2.11, for Autoconf version 2.11.
+</p>
 
 
 <table class="menu" border="0" cellspacing="0">
@@ -5940,6 +5944,7 @@ the Holy Grail of portability (er, that is, alpha testers) to give me
 feedback as I encapsulated pieces of my handwritten scripts in <code>m4</code>
 macros and continued to add features and improve the techniques used in
 the checks.  Prominent among the testers were
+Fran&ccedil;ois
 Pinard, who came up with the idea of making an <samp>autoconf</samp> shell
 script to run <code>m4</code> and check for unresolved macro calls; Richard
 Pixley, who suggested running the compiler instead of searching the file
@@ -5979,6 +5984,7 @@ version is better, but still doesn&rsquo;t provide everything we need.
 <p>More development occurred as people put Autoconf under more stresses
 (and to uses I hadn&rsquo;t anticipated).  Karl Berry added checks for X11.
 david zuhn contributed C++ support.
+Fran&ccedil;ois
 Pinard made it diagnose invalid arguments.  Jim Blandy bravely coerced
 it into configuring GNU Emacs, laying the groundwork for several later
 improvements.  Roland McGrath got it to configure the GNU C Library,
@@ -6030,6 +6036,7 @@ ambiguous, always printing a result.  I regularized the names of the
 macros and cleaned up coding style inconsistencies.  I added some
 auxiliary utilities that I had developed to help convert source code
 packages to use Autoconf.  With the help of
+Fran&ccedil;ois
 Pinard, I made the macros not interrupt each others&rsquo; messages.
 (That feature revealed some performance bottlenecks in GNU <code>m4</code>,
 which he hastily corrected!)
@@ -6039,6 +6046,7 @@ had shown that Autoconf has a pronounced tendency to regress when we
 change it.
 </p>
 <p>Again, several alpha testers gave invaluable feedback, especially
+Fran&ccedil;ois
 Pinard, Jim Meyering, Karl Berry, Rob Savoye, Ken Raeburn, and Mark Eichin.
 </p>
 <p>Finally, version 2.0 was ready.  And there was much rejoicing.

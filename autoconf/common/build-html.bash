@@ -25,7 +25,15 @@ adjust_texi() {
         print;
       }
     }
-  ' "$1" >"$1".tmp
+  ' "$1" | sed '
+    /^@titlepage/,$ {
+      /^@ifinfo$/ d
+      /^@end ifinfo$/ d
+    }
+    s/Franc,ois/Fran@,{c}ois/g
+    /^@set CODESTD/a\
+@set CHAPTER chapter
+  ' >"$1".tmp
   mv -f "$1".tmp "$1"
 
 }; readonly -f adjust_texi
@@ -36,14 +44,18 @@ main() {
 
   mkdir out
   if [[ -f autoconf.texi ]]; then
-    adjust_texi autoconf.texi
-    texi2any --html --no-split autoconf.texi
-    mv -f autoconf.html out
+    for x in autoconf standards; do
+      adjust_texi $x.texi
+      texi2any --html --no-split $x.texi
+      mv -f $x.html out
+    done
   else
     cd doc
-    adjust_texi autoconf.texi
-    texi2any --html --no-split autoconf.texi
-    mv -f autoconf.html ../out
+    for x in autoconf standards; do
+      adjust_texi $x.texi
+      texi2any --html --no-split $x.texi
+      mv -f $x.html ../out
+    done
     cd ../man
     for x in *.1; do
       groff -mandoc -T html "$x" >"$x".tmp
