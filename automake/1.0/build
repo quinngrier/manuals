@@ -38,7 +38,7 @@ main() {
   tar xzf automake-$v.tar.gz
   x=$(find automake-$v -type f -printf '%T@\n' | sort -n | tail -1)
   {
-    printf %02d%02d: "$v1" "$v2"
+    printf %03d%03d: "$v1" "$v2"
     date -d "@$x" -u +%Y-%m-%d
   } >date
 
