@@ -14,6 +14,8 @@ This repository is a static website that provides version-pinned manuals
 for long-term reference purposes.
 Selection permalinking has been added to the manuals wherever possible
 using link:https://github.com/quinngrier/qref[Qref].
+The manuals are generally stable so that Qref links don't break, with
+breaking changes only made to fix strong rendering deficiencies.
 
 The primary mirror is link:https://manuals.quinngrier.com/[].
 
