@@ -1770,7 +1770,8 @@ Even if these descriptions are short and are not actually broken, double
 quoting them yields weird results.
 </p>
 <p>Some macros take optional arguments, which this documentation represents
-as <span class="roman">[</span><var>arg</var><span class="roman">]</span>just leave them empty, or use &lsquo;<samp>[]</samp>&rsquo; to make the emptiness of the
+as <span class="roman">[</span><var>arg</var><span class="roman">]</span> (not to be confused with the quote characters).  You may
+just leave them empty, or use &lsquo;<samp>[]</samp>&rsquo; to make the emptiness of the
 argument explicit, or you may simply omit the trailing commas.  The
 three lines below are equivalent:
 </p>
@@ -2360,7 +2361,7 @@ anything else.  The only other required macro is <code>AC_OUTPUT</code>
 (see <a href="#Output">Output</a>).
 </p>
 <span id="AC_005fINIT"></span><dl>
-<dt id="index-AC_005fINIT-2">Macro: <strong>AC_INIT</strong> <em>(<var>package</var>, <var>version</var>, <span class="roman">[</span><var>bug-report</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fINIT-2">Macro: <strong>AC_INIT</strong> <em>(<var>package</var>, <var>version</var>, <span class="roman">[</span><var>bug-report</var><span class="roman">]</span>,   <span class="roman">[</span><var>tarname</var><span class="roman">]</span>, <span class="roman">[</span><var>url</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fINIT"></span>
 <p>Process any command-line arguments and perform various initializations
 and verifications.
@@ -2854,7 +2855,7 @@ Next: <a href="#Makefile-Substitutions" accesskey="n" rel="next">Makefile Substi
 <p>Be sure to read the previous section, <a href="#Configuration-Actions">Configuration Actions</a>.
 </p>
 <span id="AC_005fCONFIG_005fFILES"></span><dl>
-<dt id="index-AC_005fCONFIG_005fFILES-1">Macro: <strong>AC_CONFIG_FILES</strong> <em>(<var>file</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fFILES-1">Macro: <strong>AC_CONFIG_FILES</strong> <em>(<var>file</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fFILES"></span>
 <p>Make <code>AC_OUTPUT</code> create each <samp><var>file</var></samp> by copying an input
 file (by default <samp><var>file</var>.in</samp>), substituting the output variable
@@ -3765,7 +3766,7 @@ because in the rare case when the source directory contains another
 </p>
 
 <dl>
-<dt id="index-AC_005fCONFIG_005fHEADERS-1">Macro: <strong>AC_CONFIG_HEADERS</strong> <em>(<var>header</var> &hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fHEADERS-1">Macro: <strong>AC_CONFIG_HEADERS</strong> <em>(<var>header</var> &hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fHEADERS"></span>
 <span id="index-HAVE_005fCONFIG_005fH"></span>
 <p>This macro is one of the instantiating macros; see <a href="#Configuration-Actions">Configuration Actions</a>.  Make <code>AC_OUTPUT</code> create the file(s) in the
@@ -4119,7 +4120,7 @@ commands to run when they are called multiple times.
 <code>AC_OUTPUT_COMMANDS</code>; see <a href="#Obsolete-Macros">Obsolete Macros</a>, for details.
 </p>
 <span id="AC_005fCONFIG_005fCOMMANDS"></span><dl>
-<dt id="index-AC_005fCONFIG_005fCOMMANDS-1">Macro: <strong>AC_CONFIG_COMMANDS</strong> <em>(<var>tag</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fCOMMANDS-1">Macro: <strong>AC_CONFIG_COMMANDS</strong> <em>(<var>tag</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fCOMMANDS"></span>
 <p>Specify additional shell commands to run at the end of
 <samp>config.status</samp>, and shell commands to initialize any variables
@@ -4181,7 +4182,7 @@ creation of relative symbolic links can be delicate when the package is
 built in a directory different from the source directory.
 </p>
 <span id="AC_005fCONFIG_005fLINKS"></span><dl>
-<dt id="index-AC_005fCONFIG_005fLINKS-1">Macro: <strong>AC_CONFIG_LINKS</strong> <em>(<var>dest</var>:<var>source</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fLINKS-1">Macro: <strong>AC_CONFIG_LINKS</strong> <em>(<var>dest</var>:<var>source</var>&hellip;, <span class="roman">[</span><var>cmds</var><span class="roman">]</span>,   <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fLINKS"></span>
 <span id="index-Links"></span>
 <p>Make <code>AC_OUTPUT</code> link each of the existing files <var>source</var> to
@@ -4468,7 +4469,7 @@ include beforehand (see <a href="#Header-Files">Header Files</a>).
 of includes:
 </p>
 <dl>
-<dt id="index-AC_005fINCLUDES_005fDEFAULT-1">Macro: <strong>AC_INCLUDES_DEFAULT</strong> <em>(<span class="roman">[</span><var>include-directives</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fINCLUDES_005fDEFAULT-1">Macro: <strong>AC_INCLUDES_DEFAULT</strong> <em>(<span class="roman">[</span><var>include-directives</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fINCLUDES_005fDEFAULT"></span>
 <p>Expand to <var>include-directives</var> if defined, otherwise to:
 </p>
@@ -4805,7 +4806,7 @@ instead, like this:
 <code>AC_ARG_VAR</code>, for more details.
 </p>
 <span id="AC_005fCHECK_005fPROG"></span><dl>
-<dt id="index-AC_005fCHECK_005fPROG-1">Macro: <strong>AC_CHECK_PROG</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <var>value-if-found</var>, <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fPROG-1">Macro: <strong>AC_CHECK_PROG</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <var>value-if-found</var>, <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>,   <span class="roman">[</span><var>reject</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fPROG"></span>
 <p>Check whether program <var>prog-to-check-for</var> exists in <var>path</var>.  If
 it is found, set <var>variable</var> to <var>value-if-found</var>, otherwise to
@@ -4818,7 +4819,7 @@ that case, set <var>variable</var> using the absolute file name of the
 </p></dd></dl>
 
 <span id="AC_005fCHECK_005fPROGS"></span><dl>
-<dt id="index-AC_005fCHECK_005fPROGS-1">Macro: <strong>AC_CHECK_PROGS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fPROGS-1">Macro: <strong>AC_CHECK_PROGS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fPROGS"></span>
 <p>Check for each program in the blank-separated list
 <var>progs-to-check-for</var> existing in the <var>path</var>.  If one is found, set
@@ -4830,7 +4831,7 @@ is not changed.  Calls <code>AC_SUBST</code> for <var>variable</var>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fTARGET_005fTOOL-1">Macro: <strong>AC_CHECK_TARGET_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTARGET_005fTOOL-1">Macro: <strong>AC_CHECK_TARGET_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTARGET_005fTOOL"></span>
 <p>Like <code>AC_CHECK_PROG</code>, but first looks for <var>prog-to-check-for</var>
 with a prefix of the target type as determined by
@@ -4848,7 +4849,7 @@ uses to produce objects, archives or executables</em>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fTOOL-1">Macro: <strong>AC_CHECK_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTOOL-1">Macro: <strong>AC_CHECK_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTOOL"></span>
 <p>Like <code>AC_CHECK_PROG</code>, but first looks for <var>prog-to-check-for</var>
 with a prefix of the host type as specified by <samp>--host</samp>, followed by a
@@ -4867,7 +4868,7 @@ For more information, see <a href="#Specifying-Target-Triplets">Specifying Targe
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fTARGET_005fTOOLS-1">Macro: <strong>AC_CHECK_TARGET_TOOLS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTARGET_005fTOOLS-1">Macro: <strong>AC_CHECK_TARGET_TOOLS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTARGET_005fTOOLS"></span>
 <p>Like <code>AC_CHECK_TARGET_TOOL</code>, each of the tools in the list
 <var>progs-to-check-for</var> are checked with a prefix of the target type as
@@ -4882,7 +4883,7 @@ is not specified, the value of <var>variable</var> is not changed.  Calls
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fTOOLS-1">Macro: <strong>AC_CHECK_TOOLS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTOOLS-1">Macro: <strong>AC_CHECK_TOOLS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTOOLS"></span>
 <p>Like <code>AC_CHECK_TOOL</code>, each of the tools in the list
 <var>progs-to-check-for</var> are checked with a prefix of the host type as
@@ -4900,14 +4901,14 @@ For more information, see <a href="#Specifying-Target-Triplets">Specifying Targe
 </p></dd></dl>
 
 <span id="AC_005fPATH_005fPROG"></span><dl>
-<dt id="index-AC_005fPATH_005fPROG-1">Macro: <strong>AC_PATH_PROG</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPATH_005fPROG-1">Macro: <strong>AC_PATH_PROG</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPATH_005fPROG"></span>
 <p>Like <code>AC_CHECK_PROG</code>, but set <var>variable</var> to the absolute
 name of <var>prog-to-check-for</var> if found.
 </p></dd></dl>
 
 <span id="AC_005fPATH_005fPROGS"></span><dl>
-<dt id="index-AC_005fPATH_005fPROGS-1">Macro: <strong>AC_PATH_PROGS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPATH_005fPROGS-1">Macro: <strong>AC_PATH_PROGS</strong> <em>(<var>variable</var>, <var>progs-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPATH_005fPROGS"></span>
 <p>Like <code>AC_CHECK_PROGS</code>, but if any of <var>progs-to-check-for</var>
 are found, set <var>variable</var> to the absolute name of the program
@@ -4915,7 +4916,7 @@ found.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fPATH_005fPROGS_005fFEATURE_005fCHECK-1">Macro: <strong>AC_PATH_PROGS_FEATURE_CHECK</strong> <em>(<var>variable</var>,   <var>progs-to-check-for</var>, <var>feature-test</var>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPATH_005fPROGS_005fFEATURE_005fCHECK-1">Macro: <strong>AC_PATH_PROGS_FEATURE_CHECK</strong> <em>(<var>variable</var>,   <var>progs-to-check-for</var>, <var>feature-test</var>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPATH_005fPROGS_005fFEATURE_005fCHECK"></span>
 <p>This macro was introduced in Autoconf 2.62.  If <var>variable</var> is not
 empty, then set the cache variable <code>$ac_cv_path_<var>variable</var></code> to
@@ -4957,14 +4958,14 @@ AC_SUBST([M4], [$ac_cv_path_M4])
 </dd></dl>
 
 <dl>
-<dt id="index-AC_005fPATH_005fTARGET_005fTOOL-1">Macro: <strong>AC_PATH_TARGET_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPATH_005fTARGET_005fTOOL-1">Macro: <strong>AC_PATH_TARGET_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPATH_005fTARGET_005fTOOL"></span>
 <p>Like <code>AC_CHECK_TARGET_TOOL</code>, but set <var>variable</var> to the absolute
 name of the program if it is found.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fPATH_005fTOOL-1">Macro: <strong>AC_PATH_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPATH_005fTOOL-1">Macro: <strong>AC_PATH_TOOL</strong> <em>(<var>variable</var>, <var>prog-to-check-for</var>,   <span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPATH_005fTOOL"></span>
 <p>Like <code>AC_CHECK_TOOL</code>, but set <var>variable</var> to the absolute
 name of the program if it is found.
@@ -4989,7 +4990,7 @@ solution.  Be aware that, like most Autoconf macros, they test a feature
 of the host machine, and therefore, they die when cross-compiling.
 </p>
 <dl>
-<dt id="index-AC_005fCHECK_005fFILE-1">Macro: <strong>AC_CHECK_FILE</strong> <em>(<var>file</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fFILE-1">Macro: <strong>AC_CHECK_FILE</strong> <em>(<var>file</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fFILE"></span>
 <p>Check whether file <var>file</var> exists on the native system.  If it is
 found, execute <var>action-if-found</var>, otherwise do
@@ -4997,7 +4998,7 @@ found, execute <var>action-if-found</var>, otherwise do
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fFILES-1">Macro: <strong>AC_CHECK_FILES</strong> <em>(<var>files</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fFILES-1">Macro: <strong>AC_CHECK_FILES</strong> <em>(<var>files</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fFILES"></span>
 <p>Executes <code>AC_CHECK_FILE</code> once for each file listed in <var>files</var>.
 Additionally, defines &lsquo;<samp>HAVE_<var>file</var></samp>&rsquo; (see <a href="#Standard-Symbols">Standard Symbols</a>)
@@ -5017,7 +5018,7 @@ Next: <a href="#Library-Functions" accesskey="n" rel="next">Library Functions</a
 library archive files.
 </p>
 <span id="AC_005fCHECK_005fLIB"></span><dl>
-<dt id="index-AC_005fCHECK_005fLIB-1">Macro: <strong>AC_CHECK_LIB</strong> <em>(<var>library</var>, <var>function</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fLIB-1">Macro: <strong>AC_CHECK_LIB</strong> <em>(<var>library</var>, <var>function</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>other-libraries</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fLIB"></span>
 <p>Test whether the library <var>library</var> is available by trying to link
 a test program that calls function <var>function</var> with the library.
@@ -5057,7 +5058,7 @@ days it is normally better to use <code>AC_SEARCH_LIBS([gethostbyname],
 </p></dd></dl>
 
 <span id="AC_005fSEARCH_005fLIBS"></span><dl>
-<dt id="index-AC_005fSEARCH_005fLIBS-1">Macro: <strong>AC_SEARCH_LIBS</strong> <em>(<var>function</var>, <var>search-libs</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fSEARCH_005fLIBS-1">Macro: <strong>AC_SEARCH_LIBS</strong> <em>(<var>function</var>, <var>search-libs</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>other-libraries</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fSEARCH_005fLIBS"></span>
 <p>Search for a library defining <var>function</var> if it&rsquo;s not already
 available.  This equates to calling
@@ -5962,7 +5963,7 @@ whether it is present, you have to write your own test for
 it (see <a href="#Writing-Tests">Writing Tests</a>).
 </p>
 <span id="AC_005fCHECK_005fFUNC"></span><dl>
-<dt id="index-AC_005fCHECK_005fFUNC-1">Macro: <strong>AC_CHECK_FUNC</strong> <em>(<var>function</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fFUNC-1">Macro: <strong>AC_CHECK_FUNC</strong> <em>(<var>function</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fFUNC"></span>
 <p>If C function <var>function</var> is available, run shell commands
 <var>action-if-found</var>, otherwise <var>action-if-not-found</var>.  If you just
@@ -5974,7 +5975,7 @@ about selecting the language for checks.)
 </p></dd></dl>
 
 <span id="AC_005fCHECK_005fFUNCS"></span><dl>
-<dt id="index-AC_005fCHECK_005fFUNCS-1">Macro: <strong>AC_CHECK_FUNCS</strong> <em>(<var>function</var>&hellip;, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fFUNCS-1">Macro: <strong>AC_CHECK_FUNCS</strong> <em>(<var>function</var>&hellip;, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fFUNCS"></span>
 <span id="index-HAVE_005ffunction"></span>
 <p>For each <var>function</var> enumerated in the blank-or-newline-separated argument
@@ -6623,7 +6624,7 @@ as well as find out whether it is present, you have to write your own
 test for it (see <a href="#Writing-Tests">Writing Tests</a>).
 </p>
 <span id="AC_005fCHECK_005fHEADER"></span><dl>
-<dt id="index-AC_005fCHECK_005fHEADER-1">Macro: <strong>AC_CHECK_HEADER</strong> <em>(<var>header-file</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fHEADER-1">Macro: <strong>AC_CHECK_HEADER</strong> <em>(<var>header-file</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fHEADER"></span>
 <p>If the system header file <var>header-file</var> is compilable, execute shell
 commands <var>action-if-found</var>, otherwise execute
@@ -6652,7 +6653,7 @@ it obvious that only a preprocessor check is desired).
 </p></dd></dl>
 
 <span id="AC_005fCHECK_005fHEADERS"></span><dl>
-<dt id="index-AC_005fCHECK_005fHEADERS-1">Macro: <strong>AC_CHECK_HEADERS</strong> <em>(<var>header-file</var>&hellip;,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fHEADERS-1">Macro: <strong>AC_CHECK_HEADERS</strong> <em>(<var>header-file</var>&hellip;,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>includes</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fHEADERS"></span>
 <span id="index-HAVE_005fheader"></span>
 <p>For each given system header file <var>header-file</var> in the
@@ -6747,7 +6748,7 @@ Previous: <a href="#Particular-Declarations" accesskey="p" rel="prev">Particular
 test macros.
 </p>
 <dl>
-<dt id="index-AC_005fCHECK_005fDECL-1">Macro: <strong>AC_CHECK_DECL</strong> <em>(<var>symbol</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fDECL-1">Macro: <strong>AC_CHECK_DECL</strong> <em>(<var>symbol</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fDECL"></span>
 <p>If <var>symbol</var> (a function, variable, or constant) is not declared in
 <var>includes</var> and a declaration is needed, run the shell commands
@@ -6763,7 +6764,7 @@ introducing extra declarations when they are not needed.
 </p></dd></dl>
 
 <span id="AC_005fCHECK_005fDECLS"></span><dl>
-<dt id="index-AC_005fCHECK_005fDECLS-1">Macro: <strong>AC_CHECK_DECLS</strong> <em>(<var>symbols</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fDECLS-1">Macro: <strong>AC_CHECK_DECLS</strong> <em>(<var>symbols</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fDECLS"></span>
 <span id="index-HAVE_005fDECL_005fsymbol"></span>
 <p>For each of the <var>symbols</var> (<em>comma</em>-separated list), define
@@ -6932,7 +6933,7 @@ Previous: <a href="#Particular-Structures" accesskey="p" rel="prev">Particular S
 &ldquo;particular&rdquo; test macros.
 </p>
 <dl>
-<dt id="index-AC_005fCHECK_005fMEMBER-1">Macro: <strong>AC_CHECK_MEMBER</strong> <em>(<var>aggregate</var>.<var>member</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fMEMBER-1">Macro: <strong>AC_CHECK_MEMBER</strong> <em>(<var>aggregate</var>.<var>member</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fMEMBER"></span>
 <p>Check whether <var>member</var> is a member of the aggregate <var>aggregate</var>.
 If no <var>includes</var> are specified, the default includes are used
@@ -6952,7 +6953,7 @@ If no <var>includes</var> are specified, the default includes are used
 </dd></dl>
 
 <span id="AC_005fCHECK_005fMEMBERS"></span><dl>
-<dt id="index-AC_005fCHECK_005fMEMBERS-1">Macro: <strong>AC_CHECK_MEMBERS</strong> <em>(<var>members</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fMEMBERS-1">Macro: <strong>AC_CHECK_MEMBERS</strong> <em>(<var>members</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fMEMBERS"></span>
 <span id="index-HAVE_005faggregate_005fmember"></span>
 <p>Check for the existence of each &lsquo;<samp><var>aggregate</var>.<var>member</var></samp>&rsquo; of
@@ -7261,7 +7262,7 @@ Previous: <a href="#Particular-Types" accesskey="p" rel="prev">Particular Types<
 test macros.
 </p>
 <dl>
-<dt id="index-AC_005fCHECK_005fTYPE-2">Macro: <strong>AC_CHECK_TYPE</strong> <em>(<var>type</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTYPE-2">Macro: <strong>AC_CHECK_TYPE</strong> <em>(<var>type</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTYPE"></span>
 <p>Check whether <var>type</var> is defined.  It may be a compiler builtin type
 or defined by the <var>includes</var>.  <var>includes</var> is a series of include
@@ -7276,7 +7277,7 @@ same test is applied when compiling for C++, which means that in C++
 
 
 <dl>
-<dt id="index-AC_005fCHECK_005fTYPES-1">Macro: <strong>AC_CHECK_TYPES</strong> <em>(<var>types</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fTYPES-1">Macro: <strong>AC_CHECK_TYPES</strong> <em>(<var>types</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fTYPES"></span>
 <span id="index-HAVE_005ftype"></span>
 <p>For each <var>type</var> of the <var>types</var> that is defined, define
@@ -7385,7 +7386,7 @@ Next: <a href="#C-Compiler" accesskey="n" rel="next">C Compiler</a>, Previous: <
 <span id="Generic-Compiler-Characteristics-1"></span><h4 class="subsection">5.10.2 Generic Compiler Characteristics</h4>
 
 <span id="AC_005fCHECK_005fSIZEOF"></span><dl>
-<dt id="index-AC_005fCHECK_005fSIZEOF-1">Macro: <strong>AC_CHECK_SIZEOF</strong> <em>(<var>type-or-expr</var>, <span class="roman">[</span><var>unused</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fSIZEOF-1">Macro: <strong>AC_CHECK_SIZEOF</strong> <em>(<var>type-or-expr</var>, <span class="roman">[</span><var>unused</var><span class="roman">]</span>,   <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fSIZEOF"></span>
 <span id="index-SIZEOF_005ftype_002dor_002dexpr"></span>
 <p>Define <code>SIZEOF_<var>type-or-expr</var></code> (see <a href="#Standard-Symbols">Standard Symbols</a>) to be
@@ -7409,7 +7410,7 @@ argument was used when cross-compiling.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCHECK_005fALIGNOF-1">Macro: <strong>AC_CHECK_ALIGNOF</strong> <em>(<var>type</var>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCHECK_005fALIGNOF-1">Macro: <strong>AC_CHECK_ALIGNOF</strong> <em>(<var>type</var>, <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCHECK_005fALIGNOF"></span>
 <span id="index-ALIGNOF_005ftype"></span>
 <p>Define <code>ALIGNOF_<var>type</var></code> (see <a href="#Standard-Symbols">Standard Symbols</a>) to be the
@@ -7420,7 +7421,7 @@ is 0.  If no <var>includes</var> are specified, the default includes are used
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCOMPUTE_005fINT-1">Macro: <strong>AC_COMPUTE_INT</strong> <em>(<var>var</var>, <var>expression</var>,   <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCOMPUTE_005fINT-1">Macro: <strong>AC_COMPUTE_INT</strong> <em>(<var>var</var>, <var>expression</var>,   <span class="roman">[</span><var>includes</var> = &lsquo;<samp>AC_INCLUDES_DEFAULT</samp>&rsquo;<span class="roman">]</span>, <span class="roman">[</span><var>action-if-fails</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCOMPUTE_005fINT"></span>
 <p>Store into the shell variable <var>var</var> the value of the integer
 <var>expression</var>.  The
@@ -7567,7 +7568,7 @@ makes this invalid.  That is why Autoconf stopped issuing
 </dl>
 
 <dl>
-<dt id="index-AC_005fPROG_005fCC-1">Macro: <strong>AC_PROG_CC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPROG_005fCC-1">Macro: <strong>AC_PROG_CC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPROG_005fCC"></span>
 <span id="index-CC"></span>
 <span id="index-CFLAGS-1"></span>
@@ -7724,7 +7725,7 @@ New programs need not use this macro.
 </p></dd></dl>
 
 <span id="AC_005fC_005fBIGENDIAN"></span><dl>
-<dt id="index-AC_005fC_005fBIGENDIAN-1">Macro: <strong>AC_C_BIGENDIAN</strong> <em>(<span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fC_005fBIGENDIAN-1">Macro: <strong>AC_C_BIGENDIAN</strong> <em>(<span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-unknown</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-universal</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fC_005fBIGENDIAN"></span>
 <span id="index-WORDS_005fBIGENDIAN"></span>
 <span id="index-Endianness"></span>
@@ -7976,7 +7977,7 @@ Next: <a href="#Objective-C-Compiler" accesskey="n" rel="next">Objective C Compi
 
 
 <dl>
-<dt id="index-AC_005fPROG_005fCXX-1">Macro: <strong>AC_PROG_CXX</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPROG_005fCXX-1">Macro: <strong>AC_PROG_CXX</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPROG_005fCXX"></span>
 <span id="index-CXX"></span>
 <span id="index-CXXFLAGS-1"></span>
@@ -8045,7 +8046,7 @@ Next: <a href="#Erlang-Compiler-and-Interpreter" accesskey="n" rel="next">Erlang
 
 
 <dl>
-<dt id="index-AC_005fPROG_005fOBJC-1">Macro: <strong>AC_PROG_OBJC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPROG_005fOBJC-1">Macro: <strong>AC_PROG_OBJC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPROG_005fOBJC"></span>
 <span id="index-OBJC"></span>
 <span id="index-OBJCFLAGS-1"></span>
@@ -8095,7 +8096,7 @@ Next: <a href="#Fortran-Compiler" accesskey="n" rel="next">Fortran Compiler</a>,
 Erlang/OTP programs:
 </p>
 <dl>
-<dt id="index-AC_005fERLANG_005fPATH_005fERLC-1">Macro: <strong>AC_ERLANG_PATH_ERLC</strong> <em>(<span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fERLANG_005fPATH_005fERLC-1">Macro: <strong>AC_ERLANG_PATH_ERLC</strong> <em>(<span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fERLANG_005fPATH_005fERLC"></span>
 <span id="index-ERLC"></span>
 <span id="index-ERLCFLAGS-1"></span>
@@ -8117,7 +8118,7 @@ directory:
 </dd></dl>
 
 <dl>
-<dt id="index-AC_005fERLANG_005fNEED_005fERLC-1">Macro: <strong>AC_ERLANG_NEED_ERLC</strong> <em>(<span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fERLANG_005fNEED_005fERLC-1">Macro: <strong>AC_ERLANG_NEED_ERLC</strong> <em>(<span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fERLANG_005fNEED_005fERLC"></span>
 <p>A simplified variant of the <code>AC_ERLANG_PATH_ERLC</code> macro, that prints an
 error message and exits the <code>configure</code> script if the <code>erlc</code>
@@ -8125,7 +8126,7 @@ program is not found.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fERLANG_005fPATH_005fERL-1">Macro: <strong>AC_ERLANG_PATH_ERL</strong> <em>(<span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fERLANG_005fPATH_005fERL-1">Macro: <strong>AC_ERLANG_PATH_ERL</strong> <em>(<span class="roman">[</span><var>value-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fERLANG_005fPATH_005fERL"></span>
 <span id="index-ERL"></span>
 <span id="index-ERL-1"></span>
@@ -8145,7 +8146,7 @@ directory:
 </dd></dl>
 
 <dl>
-<dt id="index-AC_005fERLANG_005fNEED_005fERL-1">Macro: <strong>AC_ERLANG_NEED_ERL</strong> <em>(<span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fERLANG_005fNEED_005fERL-1">Macro: <strong>AC_ERLANG_NEED_ERL</strong> <em>(<span class="roman">[</span><var>path</var> = &lsquo;<samp>$PATH</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fERLANG_005fNEED_005fERL"></span>
 <p>A simplified variant of the <code>AC_ERLANG_PATH_ERL</code> macro, that prints an
 error message and exits the <code>configure</code> script if the <code>erl</code>
@@ -8177,7 +8178,7 @@ section.
 </p>
 
 <dl>
-<dt id="index-AC_005fPROG_005fF77-1">Macro: <strong>AC_PROG_F77</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPROG_005fF77-1">Macro: <strong>AC_PROG_F77</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPROG_005fF77"></span>
 <span id="index-F77-1"></span>
 <span id="index-FFLAGS-1"></span>
@@ -8208,7 +8209,7 @@ where <code>g77</code> does not accept <samp>-g</samp>).  Otherwise, set
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fPROG_005fFC-1">Macro: <strong>AC_PROG_FC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPROG_005fFC-1">Macro: <strong>AC_PROG_FC</strong> <em>(<span class="roman">[</span><var>compiler-search-list</var><span class="roman">]</span>, <span class="roman">[</span><var>dialect</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPROG_005fFC"></span>
 <span id="index-FC"></span>
 <span id="index-FCFLAGS-1"></span>
@@ -8294,8 +8295,8 @@ link C/C++ with Fortran; see below.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fF77_005fDUMMY_005fMAIN-1">Macro: <strong>AC_F77_DUMMY_MAIN</strong> <em>(<span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
-<dt id="index-AC_005fFC_005fDUMMY_005fMAIN">Macro: <strong>AC_FC_DUMMY_MAIN</strong> <em>(<span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fF77_005fDUMMY_005fMAIN-1">Macro: <strong>AC_F77_DUMMY_MAIN</strong> <em>(<span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
+<dt id="index-AC_005fFC_005fDUMMY_005fMAIN">Macro: <strong>AC_FC_DUMMY_MAIN</strong> <em>(<span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fF77_005fDUMMY_005fMAIN"></span>
 <span id="index-F77_005fDUMMY_005fMAIN"></span>
 <p>With many compilers, the Fortran libraries detected by
@@ -8446,8 +8447,8 @@ an underscore.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fF77_005fFUNC-1">Macro: <strong>AC_F77_FUNC</strong> <em>(<var>name</var>, <span class="roman">[</span><var>shellvar</var><span class="roman">]</span></em></dt>
-<dt id="index-AC_005fFC_005fFUNC-1">Macro: <strong>AC_FC_FUNC</strong> <em>(<var>name</var>, <span class="roman">[</span><var>shellvar</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fF77_005fFUNC-1">Macro: <strong>AC_F77_FUNC</strong> <em>(<var>name</var>, <span class="roman">[</span><var>shellvar</var><span class="roman">]</span>)</em></dt>
+<dt id="index-AC_005fFC_005fFUNC-1">Macro: <strong>AC_FC_FUNC</strong> <em>(<var>name</var>, <span class="roman">[</span><var>shellvar</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fF77_005fFUNC"></span>
 <span id="index-AC_005fFC_005fFUNC"></span>
 <p>Given an identifier <var>name</var>, set the shell variable <var>shellvar</var> to
@@ -8461,7 +8462,7 @@ to call Fortran routines from some language other than C/C++.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fFC_005fSRCEXT-1">Macro: <strong>AC_FC_SRCEXT</strong> <em>(<var>ext</var>, <span class="roman">[</span><var>action-if-success</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fFC_005fSRCEXT-1">Macro: <strong>AC_FC_SRCEXT</strong> <em>(<var>ext</var>, <span class="roman">[</span><var>action-if-success</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-failure</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fFC_005fSRCEXT"></span>
 <p>By default, the <code>FC</code> macros perform their tests using a <samp>.f</samp>
 extension for source-code files.  Some compilers, however, only enable
@@ -8506,7 +8507,7 @@ error message).
 </dd></dl>
 
 <dl>
-<dt id="index-AC_005fFC_005fFREEFORM-1">Macro: <strong>AC_FC_FREEFORM</strong> <em>(<span class="roman">[</span><var>action-if-success</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fFC_005fFREEFORM-1">Macro: <strong>AC_FC_FREEFORM</strong> <em>(<span class="roman">[</span><var>action-if-success</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-failure</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fFC_005fFREEFORM"></span>
 
 <p>The <code>AC_FC_FREEFORM</code> tries to ensure that the Fortran compiler
@@ -8747,7 +8748,7 @@ when running <code>configure</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fERLANG_005fCHECK_005fLIB-1">Macro: <strong>AC_ERLANG_CHECK_LIB</strong> <em>(<var>library</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fERLANG_005fCHECK_005fLIB-1">Macro: <strong>AC_ERLANG_CHECK_LIB</strong> <em>(<var>library</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fERLANG_005fCHECK_005fLIB"></span>
 <span id="index-ERLANG_005fLIB_005fDIR_005flibrary"></span>
 <span id="index-ERLANG_005fLIB_005fVER_005flibrary"></span>
@@ -8964,7 +8965,7 @@ in macros that need to temporarily switch to a particular language.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fLANG_005fPOP-1">Macro: <strong>AC_LANG_POP</strong> <em>(<span class="roman">[</span><var>language</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fLANG_005fPOP-1">Macro: <strong>AC_LANG_POP</strong> <em>(<span class="roman">[</span><var>language</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fLANG_005fPOP"></span>
 <p>Select the language that is saved on the top of the stack, as set by
 <code>AC_LANG_PUSH</code>, and remove it from the stack.
@@ -9312,7 +9313,7 @@ temptation of following the easiest path.
 Fortran, since those languages require no preprocessor.
 </p>
 <span id="AC_005fPREPROC_005fIFELSE"></span><dl>
-<dt id="index-AC_005fPREPROC_005fIFELSE-1">Macro: <strong>AC_PREPROC_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fPREPROC_005fIFELSE-1">Macro: <strong>AC_PREPROC_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fPREPROC_005fIFELSE"></span>
 <p>Run the preprocessor of the current language (see <a href="#Language-Choice">Language Choice</a>)
 on the <var>input</var>, run the shell commands <var>action-if-true</var> on
@@ -9366,7 +9367,7 @@ get rid of your old use of the macro <code>AC_TRY_CPP</code> in favor of
 to run the <em>preprocessor</em> and not the compiler?
 </p>
 <span id="AC_005fEGREP_005fHEADER"></span><dl>
-<dt id="index-AC_005fEGREP_005fHEADER-1">Macro: <strong>AC_EGREP_HEADER</strong> <em>(<var>pattern</var>, <var>header-file</var>,   <var>action-if-found</var>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fEGREP_005fHEADER-1">Macro: <strong>AC_EGREP_HEADER</strong> <em>(<var>pattern</var>, <var>header-file</var>,   <var>action-if-found</var>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fEGREP_005fHEADER"></span>
 <p>If the output of running the preprocessor on the system header file
 <var>header-file</var> matches the extended regular expression
@@ -9375,7 +9376,7 @@ execute <var>action-if-not-found</var>.
 </p></dd></dl>
 
 <span id="AC_005fEGREP_005fCPP"></span><dl>
-<dt id="index-AC_005fEGREP_005fCPP-1">Macro: <strong>AC_EGREP_CPP</strong> <em>(<var>pattern</var>, <var>program</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fEGREP_005fCPP-1">Macro: <strong>AC_EGREP_CPP</strong> <em>(<var>pattern</var>, <var>program</var>,   <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fEGREP_005fCPP"></span>
 <p><var>program</var> is the text of a C or C++ program, on which shell
 variable, back quote, and backslash substitutions are performed.  If the
@@ -9398,7 +9399,7 @@ simply to try some library feature, use <code>AC_COMPILE_IFELSE</code> to try
 to compile a small program that uses that feature.
 </p>
 <dl>
-<dt id="index-AC_005fCOMPILE_005fIFELSE-1">Macro: <strong>AC_COMPILE_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCOMPILE_005fIFELSE-1">Macro: <strong>AC_COMPILE_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCOMPILE_005fIFELSE"></span>
 <p>Run the compiler and compilation flags of the current language
 (see <a href="#Language-Choice">Language Choice</a>) on the <var>input</var>, run the shell commands
@@ -9449,7 +9450,7 @@ checked for to <code>LIBS</code> temporarily and trying to link a small
 program.
 </p>
 <span id="AC_005fLINK_005fIFELSE"></span><dl>
-<dt id="index-AC_005fLINK_005fIFELSE-1">Macro: <strong>AC_LINK_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fLINK_005fIFELSE-1">Macro: <strong>AC_LINK_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fLINK_005fIFELSE"></span>
 <p>Run the compiler (and compilation flags) and the linker of the current
 language (see <a href="#Language-Choice">Language Choice</a>) on the <var>input</var>, run the shell
@@ -9490,7 +9491,7 @@ possible, because this prevents people from configuring your package for
 cross-compiling.
 </p>
 <span id="AC_005fRUN_005fIFELSE"></span><dl>
-<dt id="index-AC_005fRUN_005fIFELSE-1">Macro: <strong>AC_RUN_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fRUN_005fIFELSE-1">Macro: <strong>AC_RUN_IFELSE</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-cross-compiling</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fRUN_005fIFELSE"></span>
 <p>If <var>program</var> compiles and links successfully and returns an exit
 status of 0 when executed, run shell commands <var>action-if-true</var>.
@@ -9756,7 +9757,7 @@ See <a href="#Configuration-Headers">Configuration Headers</a>, for more informa
 output.
 </p>
 <dl>
-<dt id="index-AC_005fDEFINE-1">Macro: <strong>AC_DEFINE</strong> <em>(<var>variable</var>, <var>value</var>, <span class="roman">[</span><var>description</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fDEFINE-1">Macro: <strong>AC_DEFINE</strong> <em>(<var>variable</var>, <var>value</var>, <span class="roman">[</span><var>description</var><span class="roman">]</span>)</em></dt>
 <dt id="index-AC_005fDEFINE-2">Macro: <strong>AC_DEFINE</strong> <em>(<var>variable</var>)</em></dt>
 <dd><span id="index-variable"></span>
 <span id="index-AC_005fDEFINE"></span>
@@ -9804,7 +9805,7 @@ the last one wins.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fDEFINE_005fUNQUOTED-1">Macro: <strong>AC_DEFINE_UNQUOTED</strong> <em>(<var>variable</var>, <var>value</var>, <span class="roman">[</span><var>description</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fDEFINE_005fUNQUOTED-1">Macro: <strong>AC_DEFINE_UNQUOTED</strong> <em>(<var>variable</var>, <var>value</var>, <span class="roman">[</span><var>description</var><span class="roman">]</span>)</em></dt>
 <dt id="index-AC_005fDEFINE_005fUNQUOTED-2">Macro: <strong>AC_DEFINE_UNQUOTED</strong> <em>(<var>variable</var>)</em></dt>
 <dd><span id="index-AC_005fDEFINE_005fUNQUOTED"></span>
 <span id="index-variable-1"></span>
@@ -9867,7 +9868,7 @@ output variables.  See <a href="#Preset-Output-Variables">Preset Output Variable
 variables that are always available.
 </p>
 <dl>
-<dt id="index-AC_005fSUBST-1">Macro: <strong>AC_SUBST</strong> <em>(<var>variable</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fSUBST-1">Macro: <strong>AC_SUBST</strong> <em>(<var>variable</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fSUBST"></span>
 <p>Create an output variable from a shell variable.  Make <code>AC_OUTPUT</code>
 substitute the variable <var>variable</var> into output files (typically one
@@ -10143,7 +10144,8 @@ Next: <a href="#Cache-Files" accesskey="n" rel="next">Cache Files</a>, Up: <a hr
 <p>The names of cache variables should have the following format:
 </p>
 <div class="example">
-<pre class="example"><var>package-prefix</var>_cv_<var>value-type</var>_<var>specific-value</var>_<span class="roman">[</span><var>additional-options</var><span class="roman">]</span></pre></div>
+<pre class="example"><var>package-prefix</var>_cv_<var>value-type</var>_<var>specific-value</var>_<span class="roman">[</span><var>additional-options</var><span class="roman">]</span>
+</pre></div>
 
 <p>for example, &lsquo;<samp>ac_cv_header_stat_broken</samp>&rsquo; or
 &lsquo;<samp>ac_cv_prog_gcc_traditional</samp>&rsquo;.  The parts of the variable name are:
@@ -10349,7 +10351,7 @@ e.g.,
 </p></dd></dl>
 
 <span id="AC_005fMSG_005fERROR"></span><dl>
-<dt id="index-AC_005fMSG_005fERROR-1">Macro: <strong>AC_MSG_ERROR</strong> <em>(<var>error-description</var>, <span class="roman">[</span><var>exit-status</var> = &lsquo;<samp>$?/1</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fMSG_005fERROR-1">Macro: <strong>AC_MSG_ERROR</strong> <em>(<var>error-description</var>, <span class="roman">[</span><var>exit-status</var> = &lsquo;<samp>$?/1</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fMSG_005fERROR"></span>
 <p>Notify the user of an error that prevents <code>configure</code> from
 completing.  This macro prints an error message to the standard error
@@ -10363,7 +10365,7 @@ $HOME for \$HOME</samp>&rsquo;.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fMSG_005fFAILURE-1">Macro: <strong>AC_MSG_FAILURE</strong> <em>(<var>error-description</var>, <span class="roman">[</span><var>exit-status</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fMSG_005fFAILURE-1">Macro: <strong>AC_MSG_FAILURE</strong> <em>(<var>error-description</var>, <span class="roman">[</span><var>exit-status</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fMSG_005fFAILURE"></span>
 <p>This <code>AC_MSG_ERROR</code> wrapper notifies the user of an error that
 prevents <code>configure</code> from completing <em>and</em> that additional
@@ -11707,7 +11709,7 @@ file after all other M4 expansions.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fbpatsubst-1">Macro: <strong>m4_bpatsubst</strong> <em>(<var>string</var>, <var>regexp</var>, <span class="roman">[</span><var>replacement</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fbpatsubst-1">Macro: <strong>m4_bpatsubst</strong> <em>(<var>string</var>, <var>regexp</var>, <span class="roman">[</span><var>replacement</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fbpatsubst"></span>
 <p>This macro corresponds to <code>patsubst</code>.  The name <code>m4_patsubst</code>
 is kept for future versions of M4sugar, once <acronym>GNU</acronym> M4 2.0 is
@@ -11715,7 +11717,7 @@ released and supports extended regular expression syntax.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fbregexp-1">Macro: <strong>m4_bregexp</strong> <em>(<var>string</var>, <var>regexp</var>, <span class="roman">[</span><var>replacement</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fbregexp-1">Macro: <strong>m4_bregexp</strong> <em>(<var>string</var>, <var>regexp</var>, <span class="roman">[</span><var>replacement</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fbregexp"></span>
 <p>This macro corresponds to <code>regexp</code>.  The name <code>m4_regexp</code>
 is kept for future versions of M4sugar, once <acronym>GNU</acronym> M4 2.0 is
@@ -11812,8 +11814,8 @@ substitution.
 
 <dl>
 <dt id="index-m4_005fif-1">Macro: <strong>m4_if</strong> <em>(<var>comment</var>)</em></dt>
-<dt id="index-m4_005fif-2">Macro: <strong>m4_if</strong> <em>(<var>string-1</var>, <var>string-2</var>, <var>equal</var>, <span class="roman">[</span><var>not-equal</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fif-3">Macro: <strong>m4_if</strong> <em>(<var>string-1</var>, <var>string-2</var>, <var>equal-1</var>,   <var>string-3</var>, <var>string-4</var>, <var>equal-2</var>, &hellip;, <span class="roman">[</span><var>not-equal</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fif-2">Macro: <strong>m4_if</strong> <em>(<var>string-1</var>, <var>string-2</var>, <var>equal</var>, <span class="roman">[</span><var>not-equal</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fif-3">Macro: <strong>m4_if</strong> <em>(<var>string-1</var>, <var>string-2</var>, <var>equal-1</var>,   <var>string-3</var>, <var>string-4</var>, <var>equal-2</var>, &hellip;, <span class="roman">[</span><var>not-equal</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fif"></span>
 <p>This macro corresponds to <code>ifelse</code>.  <var>string-1</var> and
 <var>string-2</var> are compared literally, so usually one of the two
@@ -11908,7 +11910,7 @@ they should report them using these macros.  For issuing dynamic issues,
 i.e., when <code>configure</code> is run, see <a href="#Printing-Messages">Printing Messages</a>.
 </p>
 <dl>
-<dt id="index-m4_005fassert-1">Macro: <strong>m4_assert</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>exit-status</var> = &lsquo;<samp>1</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-m4_005fassert-1">Macro: <strong>m4_assert</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>exit-status</var> = &lsquo;<samp>1</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fassert"></span>
 <p>Assert that the arithmetic <var>expression</var> evaluates to non-zero.
 Otherwise, issue a fatal error, and exit <code>autom4te</code> with
@@ -12086,7 +12088,7 @@ to breakage in a future release of Autoconf.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fdivert_005fonce-1">Macro: <strong>m4_divert_once</strong> <em>(<var>diversion</var>, <span class="roman">[</span><var>content</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fdivert_005fonce-1">Macro: <strong>m4_divert_once</strong> <em>(<var>diversion</var>, <span class="roman">[</span><var>content</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fdivert_005fonce"></span>
 <p>Similar to <code>m4_divert_text</code>, except that <var>content</var> is only
 output to <var>diversion</var> if this is the first time that
@@ -12094,7 +12096,7 @@ output to <var>diversion</var> if this is the first time that
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fdivert_005fpop-1">Macro: <strong>m4_divert_pop</strong> <em>(<span class="roman">[</span><var>diversion</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fdivert_005fpop-1">Macro: <strong>m4_divert_pop</strong> <em>(<span class="roman">[</span><var>diversion</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fdivert_005fpop"></span>
 <p>If provided, check that the current diversion is indeed <var>diversion</var>.
 Then change to the diversion located earlier on the stack, giving an
@@ -12112,7 +12114,7 @@ push.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fdivert_005ftext-1">Macro: <strong>m4_divert_text</strong> <em>(<var>diversion</var>, <span class="roman">[</span><var>content</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fdivert_005ftext-1">Macro: <strong>m4_divert_text</strong> <em>(<var>diversion</var>, <span class="roman">[</span><var>content</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fdivert_005ftext"></span>
 <p>Output <var>content</var> and a newline into <var>diversion</var>, without
 affecting the current diversion.  Shorthand for:
@@ -12140,7 +12142,7 @@ Next: <a href="#Looping-constructs" accesskey="n" rel="next">Looping constructs<
 convenience wrappers around <code>m4_if</code>.
 </p>
 <dl>
-<dt id="index-m4_005fbmatch-1">Macro: <strong>m4_bmatch</strong> <em>(<var>string</var>, <var>regex-1</var>, <var>value-1</var>,   <span class="roman">[</span><var>regex-2</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fbmatch-1">Macro: <strong>m4_bmatch</strong> <em>(<var>string</var>, <var>regex-1</var>, <var>value-1</var>,   <span class="roman">[</span><var>regex-2</var><span class="roman">]</span>, <span class="roman">[</span><var>value-2</var><span class="roman">]</span>, &hellip;, <span class="roman">[</span><var>default</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fbmatch"></span>
 <p>The string <var>string</var> is repeatedly compared against a series of
 <var>regex</var> arguments; if a match is found, the expansion is the
@@ -12150,7 +12152,7 @@ corresponding <var>value</var>, otherwise, the macro moves on to the next
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fbpatsubsts-1">Macro: <strong>m4_bpatsubsts</strong> <em>(<var>string</var>, <var>regex-1</var>, <var>subst-1</var>,   <span class="roman">[</span><var>regex-2</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fbpatsubsts-1">Macro: <strong>m4_bpatsubsts</strong> <em>(<var>string</var>, <var>regex-1</var>, <var>subst-1</var>,   <span class="roman">[</span><var>regex-2</var><span class="roman">]</span>, <span class="roman">[</span><var>subst-2</var><span class="roman">]</span>, &hellip;)</em></dt>
 <dd><span id="index-m4_005fbpatsubsts"></span>
 <p>The string <var>string</var> is altered by <var>regex-1</var> and <var>subst-1</var>,
 as if by:
@@ -12170,7 +12172,7 @@ substitution.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fcase-1">Macro: <strong>m4_case</strong> <em>(<var>string</var>, <var>value-1</var>, <var>if-value-1</var>,   <span class="roman">[</span><var>value-2</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fcase-1">Macro: <strong>m4_case</strong> <em>(<var>string</var>, <var>value-1</var>, <var>if-value-1</var>,   <span class="roman">[</span><var>value-2</var><span class="roman">]</span>, <span class="roman">[</span><var>if-value-2</var><span class="roman">]</span>, &hellip;, <span class="roman">[</span><var>default</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fcase"></span>
 <p>Test <var>string</var> against multiple <var>value</var> possibilities, resulting
 in the first <var>if-value</var> for a match, or in the optional
@@ -12183,7 +12185,7 @@ in the first <var>if-value</var> for a match, or in the optional
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fcond-1">Macro: <strong>m4_cond</strong> <em>(<var>test-1</var>, <var>value-1</var>, <var>if-value-1</var>,   <span class="roman">[</span><var>test-2</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fcond-1">Macro: <strong>m4_cond</strong> <em>(<var>test-1</var>, <var>value-1</var>, <var>if-value-1</var>,   <span class="roman">[</span><var>test-2</var><span class="roman">]</span>, <span class="roman">[</span><var>value-2</var><span class="roman">]</span>, <span class="roman">[</span><var>if-value-2</var><span class="roman">]</span>, &hellip;, <span class="roman">[</span><var>default</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fcond"></span>
 <p>This macro was introduced in Autoconf 2.62.  Similar to <code>m4_if</code>,
 except that each <var>test</var> is expanded only when it is encountered.
@@ -12218,8 +12220,8 @@ m4_cond([m4_index([$1], [\])], [-1], [$2],
 <dl>
 <dt id="index-m4_005fdefault-1">Macro: <strong>m4_default</strong> <em>(<var>expr-1</var>, <var>expr-2</var>)</em></dt>
 <dt id="index-m4_005fdefault_005fquoted-1">Macro: <strong>m4_default_quoted</strong> <em>(<var>expr-1</var>, <var>expr-2</var>)</em></dt>
-<dt id="index-m4_005fdefault_005fnblank-1">Macro: <strong>m4_default_nblank</strong> <em>(<var>expr-1</var>, <span class="roman">[</span><var>expr-2</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fdefault_005fnblank_005fquoted-1">Macro: <strong>m4_default_nblank_quoted</strong> <em>(<var>expr-1</var>, <span class="roman">[</span><var>expr-2</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fdefault_005fnblank-1">Macro: <strong>m4_default_nblank</strong> <em>(<var>expr-1</var>, <span class="roman">[</span><var>expr-2</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fdefault_005fnblank_005fquoted-1">Macro: <strong>m4_default_nblank_quoted</strong> <em>(<var>expr-1</var>, <span class="roman">[</span><var>expr-2</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fdefault"></span>
 <span id="index-m4_005fdefault_005fquoted"></span>
 <span id="index-m4_005fdefault_005fnblank"></span>
@@ -12276,8 +12278,8 @@ demo4([empty], [text])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fifblank-1">Macro: <strong>m4_ifblank</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-blank</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fifnblank-1">Macro: <strong>m4_ifnblank</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-text</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fifblank-1">Macro: <strong>m4_ifblank</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-blank</var><span class="roman">]</span>, <span class="roman">[</span><var>if-text</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fifnblank-1">Macro: <strong>m4_ifnblank</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-text</var><span class="roman">]</span>, <span class="roman">[</span><var>if-blank</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fifblank"></span>
 <span id="index-m4_005fifnblank"></span>
 <p>If <var>cond</var> is empty or consists only of blanks (space, tab, newline),
@@ -12291,7 +12293,7 @@ than the equivalent behavior of:
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fifndef-1">Macro: <strong>m4_ifndef</strong> <em>(<var>macro</var>, <var>if-not-defined</var>, <span class="roman">[</span><var>if-defined</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fifndef-1">Macro: <strong>m4_ifndef</strong> <em>(<var>macro</var>, <var>if-not-defined</var>, <span class="roman">[</span><var>if-defined</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fifndef"></span>
 <p>This is shorthand for:
 </p><div class="example">
@@ -12300,7 +12302,7 @@ than the equivalent behavior of:
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fifset-1">Macro: <strong>m4_ifset</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fifset-1">Macro: <strong>m4_ifset</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fifset"></span>
 <p>If <var>macro</var> is undefined, or is defined as the empty string, expand
 to <var>if-false</var>.  Otherwise, expands to <var>if-true</var>.  Similar to:
@@ -12311,7 +12313,7 @@ to <var>if-false</var>.  Otherwise, expands to <var>if-true</var>.  Similar to:
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fifval-1">Macro: <strong>m4_ifval</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fifval-1">Macro: <strong>m4_ifval</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fifval"></span>
 <p>Expands to <var>if-true</var> if <var>cond</var> is not empty, otherwise to
 <var>if-false</var>.  This is shorthand for:
@@ -12321,7 +12323,7 @@ to <var>if-false</var>.  Otherwise, expands to <var>if-true</var>.  Similar to:
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fifvaln-1">Macro: <strong>m4_ifvaln</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fifvaln-1">Macro: <strong>m4_ifvaln</strong> <em>(<var>cond</var>, <span class="roman">[</span><var>if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fifvaln"></span>
 <p>Similar to <code>m4_ifval</code>, except guarantee that a newline is present
 after any non-empty expansion.  Often followed by <code>dnl</code>.
@@ -12368,7 +12370,7 @@ m4_foreach([i], [list], [i])
 </pre></div>
 
 <dl>
-<dt id="index-m4_005fargn-1">Macro: <strong>m4_argn</strong> <em>(<var>n</var>, <span class="roman">[</span><var>arg</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fargn-1">Macro: <strong>m4_argn</strong> <em>(<var>n</var>, <span class="roman">[</span><var>arg</var><span class="roman">]</span>&hellip;)</em></dt>
 <dd><span id="index-m4_005fargn"></span>
 <p>Extracts argument <var>n</var> (larger than 0) from the remaining arguments.
 If there are too few arguments, the empty string is used.  For any
@@ -12408,7 +12410,7 @@ m4_map([ m4_eval], [[[1]], [[1+1]], [[10],[16]]])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005ffor-1">Macro: <strong>m4_for</strong> <em>(<var>var</var>, <var>first</var>, <var>last</var>, <span class="roman">[</span><var>step</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005ffor-1">Macro: <strong>m4_for</strong> <em>(<var>var</var>, <var>first</var>, <var>last</var>, <span class="roman">[</span><var>step</var><span class="roman">]</span>,   <var>expression</var>)</em></dt>
 <dd><span id="index-m4_005ffor"></span>
 <p>Loop over the numeric values between <var>first</var> and <var>last</var>
 including bounds by increments of <var>step</var>.  For each iteration,
@@ -12543,7 +12545,7 @@ list_add_x([1], list)
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fmap_005fargs_005fpair-1">Macro: <strong>m4_map_args_pair</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>macro-end</var> = &lsquo;<samp>macro</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-m4_005fmap_005fargs_005fpair-1">Macro: <strong>m4_map_args_pair</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>macro-end</var> = &lsquo;<samp>macro</samp>&rsquo;<span class="roman">]</span>,   <var>arg</var>&hellip;)</em></dt>
 <dd><span id="index-m4_005fmap_005fargs_005fpair"></span>
 <p>For every pair of arguments <var>arg</var>, invoke <var>macro</var> with two
 arguments.  If there is an odd number of arguments, invoke
@@ -12561,7 +12563,7 @@ m4_map_args_pair([, m4_reverse], [, m4_dquote], [1], [2], [3], [4])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fmap_005fargs_005fsep-1">Macro: <strong>m4_map_args_sep</strong> <em>(<span class="roman">[</span><var>pre</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fmap_005fargs_005fsep-1">Macro: <strong>m4_map_args_sep</strong> <em>(<span class="roman">[</span><var>pre</var><span class="roman">]</span>, <span class="roman">[</span><var>post</var><span class="roman">]</span>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>, <var>arg</var>&hellip;)</em></dt>
 <dd><span id="index-m4_005fmap_005fargs_005fsep"></span>
 <p>Expand the sequence <code><var>pre</var>[<var>arg</var>]<var>post</var></code> for each
 argument, additionally expanding <var>sep</var> between arguments.  One
@@ -12575,7 +12577,7 @@ call with more arguments than <var>arg</var>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fmap_005fargs_005fw-1">Macro: <strong>m4_map_args_w</strong> <em>(<var>string</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fmap_005fargs_005fw-1">Macro: <strong>m4_map_args_w</strong> <em>(<var>string</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span>, <span class="roman">[</span><var>post</var><span class="roman">]</span>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fmap_005fargs_005fw"></span>
 <p>Expand the sequence <code><var>pre</var>[word]<var>post</var></code> for each word in
 the whitespace-separated <var>string</var>, additionally expanding <var>sep</var>
@@ -12630,8 +12632,8 @@ m4_stack_foreach_lifo([a], [ m4_curry([m4_substr], [abcd])])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fstack_005fforeach_005fsep-1">Macro: <strong>m4_stack_foreach_sep</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fstack_005fforeach_005fsep_005flifo-1">Macro: <strong>m4_stack_foreach_sep_lifo</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fstack_005fforeach_005fsep-1">Macro: <strong>m4_stack_foreach_sep</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span>, <span class="roman">[</span><var>post</var><span class="roman">]</span>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fstack_005fforeach_005fsep_005flifo-1">Macro: <strong>m4_stack_foreach_sep_lifo</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span>, <span class="roman">[</span><var>post</var><span class="roman">]</span>,   <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fstack_005fforeach_005fsep"></span>
 <span id="index-m4_005fstack_005fforeach_005fsep_005flifo"></span>
 <p>Expand the sequence <code><var>pre</var>[definition]<var>post</var></code> for each
@@ -12936,8 +12938,8 @@ characters, the arguments are passed with single quoting rather than
 double.
 </p>
 <dl>
-<dt id="index-m4_005fappend-1">Macro: <strong>m4_append</strong> <em>(<var>macro-name</var>, <var>string</var>, <span class="roman">[</span><var>separator</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fappend_005funiq-1">Macro: <strong>m4_append_uniq</strong> <em>(<var>macro-name</var>, <var>string</var>, <span class="roman">[</span><var>separator</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fappend-1">Macro: <strong>m4_append</strong> <em>(<var>macro-name</var>, <var>string</var>, <span class="roman">[</span><var>separator</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fappend_005funiq-1">Macro: <strong>m4_append_uniq</strong> <em>(<var>macro-name</var>, <var>string</var>, <span class="roman">[</span><var>separator</var><span class="roman">]</span>   <span class="roman">[</span><var>if-uniq</var><span class="roman">]</span>, <span class="roman">[</span><var>if-duplicate</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fappend"></span>
 <span id="index-m4_005fappend_005funiq"></span>
 <p>Redefine <var>macro-name</var> to its former contents with <var>separator</var>
@@ -13023,7 +13025,7 @@ and backslash does not influence the result.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fcombine-1">Macro: <strong>m4_combine</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fcombine-1">Macro: <strong>m4_combine</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span>, <var>prefix-list</var>, <span class="roman">[</span><var>infix</var><span class="roman">]</span>,   <var>suffix-1</var>, <span class="roman">[</span><var>suffix-2</var><span class="roman">]</span>, &hellip;)</em></dt>
 <dd><span id="index-m4_005fcombine"></span>
 <p>This macro produces a quoted string containing the pairwise combination
 of every element of the quoted, comma-separated <var>prefix-list</var>, and
@@ -13056,8 +13058,8 @@ still a quoted string.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fjoin-1">Macro: <strong>m4_join</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fjoinall-1">Macro: <strong>m4_joinall</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fjoin-1">Macro: <strong>m4_join</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span>, <var>args</var>&hellip;)</em></dt>
+<dt id="index-m4_005fjoinall-1">Macro: <strong>m4_joinall</strong> <em>(<span class="roman">[</span><var>separator</var><span class="roman">]</span>, <var>args</var>&hellip;)</em></dt>
 <dd><span id="index-m4_005fjoin"></span>
 <span id="index-m4_005fjoinall"></span>
 <p>Concatenate each <var>arg</var>, separated by <var>separator</var>.
@@ -13078,7 +13080,7 @@ efficient to use <code>m4_dquote</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fnewline-1">Macro: <strong>m4_newline</strong> <em>(<span class="roman">[</span><var>text</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fnewline-1">Macro: <strong>m4_newline</strong> <em>(<span class="roman">[</span><var>text</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fnewline"></span>
 <p>This macro was introduced in Autoconf 2.62, and expands to a newline,
 followed by any <var>text</var>.
@@ -13105,7 +13107,7 @@ regexps.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fsplit-1">Macro: <strong>m4_split</strong> <em>(<var>string</var>, <span class="roman">[</span><var>regexp</var> = &lsquo;<samp>[\t ]+</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-m4_005fsplit-1">Macro: <strong>m4_split</strong> <em>(<var>string</var>, <span class="roman">[</span><var>regexp</var> = &lsquo;<samp>[\t ]+</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fsplit"></span>
 <p>Split <var>string</var> into an M4 list of elements quoted by &lsquo;<samp>[</samp>&rsquo; and
 &lsquo;<samp>]</samp>&rsquo;, while keeping white space at the beginning and at the end.
@@ -13125,7 +13127,7 @@ quickly test if <var>string</var> has only whitespace, use <code>m4_ifblank</cod
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005ftext_005fbox-1">Macro: <strong>m4_text_box</strong> <em>(<var>message</var>, <span class="roman">[</span><var>frame</var> = &lsquo;<samp>-</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-m4_005ftext_005fbox-1">Macro: <strong>m4_text_box</strong> <em>(<var>message</var>, <span class="roman">[</span><var>frame</var> = &lsquo;<samp>-</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005ftext_005fbox"></span>
 <p>Add a text box around <var>message</var>, using <var>frame</var> as the border
 character above and below the message.  The frame correctly accounts for
@@ -13143,7 +13145,7 @@ quadrigraphs can be used to work around this.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005ftext_005fwrap-1">Macro: <strong>m4_text_wrap</strong> <em>(<var>string</var>, <span class="roman">[</span><var>prefix</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005ftext_005fwrap-1">Macro: <strong>m4_text_wrap</strong> <em>(<var>string</var>, <span class="roman">[</span><var>prefix</var><span class="roman">]</span>,   <span class="roman">[</span><var>prefix1</var> = &lsquo;<samp><var>prefix</var></samp>&rsquo;<span class="roman">]</span>, <span class="roman">[</span><var>width</var> = &lsquo;<samp>79</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005ftext_005fwrap"></span>
 <p>Break <var>string</var> into a series of whitespace-separated words, then
 output those words separated by spaces, and wrapping lines any time the
@@ -13298,7 +13300,7 @@ m4_version_compare([2.61b], [2.61a-248-dc51])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fversion_005fprereq-1">Macro: <strong>m4_version_prereq</strong> <em>(<var>version</var>, <span class="roman">[</span><var>if-new-enough</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fversion_005fprereq-1">Macro: <strong>m4_version_prereq</strong> <em>(<var>version</var>, <span class="roman">[</span><var>if-new-enough</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-old</var> = &lsquo;<samp>m4_fatal</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fversion_005fprereq"></span>
 <p>Compares <var>version</var> against the version of Autoconf currently
 running.  If the running version is at <var>version</var> or newer, expand
@@ -13333,7 +13335,7 @@ that may slow down some operations until the memory for removed elements
 is pruned, it still guarantees linear performance.
 </p>
 <dl>
-<dt id="index-m4_005fset_005fadd-1">Macro: <strong>m4_set_add</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-uniq</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fadd-1">Macro: <strong>m4_set_add</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-uniq</var><span class="roman">]</span>, <span class="roman">[</span><var>if-dup</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fadd"></span>
 <p>Adds the string <var>value</var> as a member of set <var>set</var>.  Expand
 <var>if-uniq</var> if the element was added, or <var>if-dup</var> if it was
@@ -13349,7 +13351,7 @@ efficient than repeatedly invoking <code>m4_set_add</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fset_005fcontains-1">Macro: <strong>m4_set_contains</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-present</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fcontains-1">Macro: <strong>m4_set_contains</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-present</var><span class="roman">]</span>,  <span class="roman">[</span><var>if-absent</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fcontains"></span>
 <p>Expands <var>if-present</var> if the string <var>value</var> is a member of
 <var>set</var>, otherwise <var>if-absent</var>.
@@ -13373,8 +13375,8 @@ m4_set_remove([a], [1], [removed], [missing])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fset_005fcontents-1">Macro: <strong>m4_set_contents</strong> <em>(<var>set</var>, <span class="roman">[</span><var>sep</var><span class="roman">]</span></em></dt>
-<dt id="index-m4_005fset_005fdump-1">Macro: <strong>m4_set_dump</strong> <em>(<var>set</var>, <span class="roman">[</span><var>sep</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fcontents-1">Macro: <strong>m4_set_contents</strong> <em>(<var>set</var>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
+<dt id="index-m4_005fset_005fdump-1">Macro: <strong>m4_set_dump</strong> <em>(<var>set</var>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fcontents"></span>
 <span id="index-m4_005fset_005fdump"></span>
 <p>Expands to a single string consisting of all the members of the set
@@ -13449,7 +13451,7 @@ m4_set_union([a], [b])
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fset_005fempty-1">Macro: <strong>m4_set_empty</strong> <em>(<var>set</var>, <span class="roman">[</span><var>if-empty</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fempty-1">Macro: <strong>m4_set_empty</strong> <em>(<var>set</var>, <span class="roman">[</span><var>if-empty</var><span class="roman">]</span>, <span class="roman">[</span><var>if-elements</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fempty"></span>
 <p>Expand <var>if-empty</var> if the set <var>set</var> has no elements, otherwise
 expand <var>if-elements</var>.  This macro operates in constant time.  Using
@@ -13541,7 +13543,7 @@ more efficient to use <code>m4_set_map_sep</code> in that case.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fset_005fmap_005fsep-1">Macro: <strong>m4_set_map_sep</strong> <em>(<var>set</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fmap_005fsep-1">Macro: <strong>m4_set_map_sep</strong> <em>(<var>set</var>, <span class="roman">[</span><var>pre</var><span class="roman">]</span>, <span class="roman">[</span><var>post</var><span class="roman">]</span>, <span class="roman">[</span><var>sep</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fmap_005fsep"></span>
 <p>For each element in the set <var>set</var>, expand
 <code><var>pre</var>[element]<var>post</var></code>, additionally expanding <var>sep</var>
@@ -13555,7 +13557,7 @@ to <code>m4_set_map_sep([<var>set</var>], [<var>action</var>(], [)])</code>.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005fset_005fremove-1">Macro: <strong>m4_set_remove</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-present</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fset_005fremove-1">Macro: <strong>m4_set_remove</strong> <em>(<var>set</var>, <var>value</var>, <span class="roman">[</span><var>if-present</var><span class="roman">]</span>,  <span class="roman">[</span><var>if-absent</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005fset_005fremove"></span>
 <p>If <var>value</var> is an element in the set <var>set</var>, then remove it and
 expand <var>if-present</var>.  Otherwise expand <var>if-absent</var>.  This macro
@@ -13725,7 +13727,7 @@ that unfortunately are not portable in practice.
 </p>
 
 <dl>
-<dt id="index-AS_005fCASE-1">Macro: <strong>AS_CASE</strong> <em>(<var>word</var>, <span class="roman">[</span><var>pattern1</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fCASE-1">Macro: <strong>AS_CASE</strong> <em>(<var>word</var>, <span class="roman">[</span><var>pattern1</var><span class="roman">]</span>, <span class="roman">[</span><var>if-matched1</var><span class="roman">]</span>,   &hellip;, <span class="roman">[</span><var>default</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fCASE"></span>
 <p>Expand into a shell &lsquo;<samp>case</samp>&rsquo; statement, where <var>word</var> is matched
 against one or more patterns.  <var>if-matched</var> is run if the
@@ -13757,7 +13759,7 @@ Redirections can be placed outside the macro invocation.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AS_005fESCAPE-1">Macro: <strong>AS_ESCAPE</strong> <em>(<var>string</var>, <span class="roman">[</span><var>chars</var> = &lsquo;<samp>`\&quot;$</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AS_005fESCAPE-1">Macro: <strong>AS_ESCAPE</strong> <em>(<var>string</var>, <span class="roman">[</span><var>chars</var> = &lsquo;<samp>`\&quot;$</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fESCAPE"></span>
 <p>Expands to <var>string</var>, with any characters in <var>chars</var> escaped with
 a backslash (&lsquo;<samp>\</samp>&rsquo;).  <var>chars</var> should be at most four bytes long,
@@ -13804,7 +13806,7 @@ AS_ECHO([&quot;AS_ESCAPE(m4_dquote(m4_expand([macro])))&quot;])
 </dd></dl>
 
 <dl>
-<dt id="index-AS_005fEXIT-1">Macro: <strong>AS_EXIT</strong> <em>(<span class="roman">[</span><var>status</var> = &lsquo;<samp>$?</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AS_005fEXIT-1">Macro: <strong>AS_EXIT</strong> <em>(<span class="roman">[</span><var>status</var> = &lsquo;<samp>$?</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fEXIT"></span>
 <p>Emit code to exit the shell with <var>status</var>, defaulting to &lsquo;<samp>$?</samp>&rsquo;.
 This macro
@@ -13814,7 +13816,7 @@ of Shell Builtins</a>).
 </p></dd></dl>
 
 <dl>
-<dt id="index-AS_005fIF-1">Macro: <strong>AS_IF</strong> <em>(<var>test1</var>, <span class="roman">[</span><var>run-if-true1</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fIF-1">Macro: <strong>AS_IF</strong> <em>(<var>test1</var>, <span class="roman">[</span><var>run-if-true1</var><span class="roman">]</span>, &hellip;, <span class="roman">[</span><var>run-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fIF"></span>
 <p>Run shell code <var>test1</var>.  If <var>test1</var> exits with a zero status then
 run shell code <var>run-if-true1</var>, else examine further tests.  If no test
@@ -13902,7 +13904,7 @@ Builtins</a>).  <var>var</var> can be a literal or indirect variable name.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AS_005fVERSION_005fCOMPARE-1">Macro: <strong>AS_VERSION_COMPARE</strong> <em>(<var>version-1</var>, <var>version-2</var>,   <span class="roman">[</span><var>action-if-less</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fVERSION_005fCOMPARE-1">Macro: <strong>AS_VERSION_COMPARE</strong> <em>(<var>version-1</var>, <var>version-2</var>,   <span class="roman">[</span><var>action-if-less</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-equal</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-greater</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fVERSION_005fCOMPARE"></span>
 <p>Compare two strings <var>version-1</var> and <var>version-2</var>, possibly
 containing shell variables, as version strings, and expand
@@ -13934,7 +13936,7 @@ undefined if expansion of an indirect variable does not result in a
 literal variable name.
 </p>
 <dl>
-<dt id="index-AS_005fLITERAL_005fIF-1">Macro: <strong>AS_LITERAL_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fLITERAL_005fIF-1">Macro: <strong>AS_LITERAL_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span>, <span class="roman">[</span><var>if-not</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fLITERAL_005fIF"></span>
 <p>If the expansion of <var>expression</var> is definitely a shell literal,
 expand <var>if-literal</var>.  If the expansion of <var>expression</var> looks
@@ -14031,7 +14033,7 @@ done
 
 
 <dl>
-<dt id="index-AS_005fVAR_005fIF-1">Macro: <strong>AS_VAR_IF</strong> <em>(<var>var</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fVAR_005fIF-1">Macro: <strong>AS_VAR_IF</strong> <em>(<var>var</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span>, <span class="roman">[</span><var>if-equal</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-not-equal</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fVAR_005fIF"></span>
 <p>Output a shell conditional statement.  If the contents of the
 polymorphic shell variable <var>var</var> match the string <var>value</var>,
@@ -14094,7 +14096,7 @@ header stdlib.h detected
 </dd></dl>
 
 <dl>
-<dt id="index-AS_005fVAR_005fSET-1">Macro: <strong>AS_VAR_SET</strong> <em>(<var>var</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fVAR_005fSET-1">Macro: <strong>AS_VAR_SET</strong> <em>(<var>var</var>, <span class="roman">[</span><var>value</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fVAR_005fSET"></span>
 <p>Emit shell code to assign the contents of the polymorphic shell variable
 <var>var</var> to the shell expansion of <var>value</var>.  <var>value</var> is not
@@ -14106,7 +14108,7 @@ is unspecified if late expansion results in any shell meta-characters.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AS_005fVAR_005fSET_005fIF-1">Macro: <strong>AS_VAR_SET_IF</strong> <em>(<var>var</var>, <span class="roman">[</span><var>if-set</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fVAR_005fSET_005fIF-1">Macro: <strong>AS_VAR_SET_IF</strong> <em>(<var>var</var>, <span class="roman">[</span><var>if-set</var><span class="roman">]</span>, <span class="roman">[</span><var>if-undef</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fVAR_005fSET_005fIF"></span>
 <p>Emit a shell conditional statement, which executes <var>if-set</var> if the
 polymorphic shell variable <code>var</code> is set to any value, and
@@ -14152,7 +14154,7 @@ ensure the C locale.  Finally, it changes the current diversion to
 </p></dd></dl>
 
 <dl>
-<dt id="index-AS_005fINIT_005fGENERATED-1">Macro: <strong>AS_INIT_GENERATED</strong> <em>(<var>file</var>, <span class="roman">[</span><var>comment</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fINIT_005fGENERATED-1">Macro: <strong>AS_INIT_GENERATED</strong> <em>(<var>file</var>, <span class="roman">[</span><var>comment</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fINIT_005fGENERATED"></span>
 <p>Emit shell code to start the creation of a subsidiary shell script in
 <var>file</var>, including changing <var>file</var> to be executable.  This macro
@@ -14337,7 +14339,7 @@ Next: <a href="#Macro-Names" accesskey="n" rel="next">Macro Names</a>, Up: <a hr
 <span id="Macro-Definitions-1"></span><h3 class="section">10.1 Macro Definitions</h3>
 
 <dl>
-<dt id="index-AC_005fDEFUN-1">Macro: <strong>AC_DEFUN</strong> <em>(<var>name</var>, <span class="roman">[</span><var>body</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fDEFUN-1">Macro: <strong>AC_DEFUN</strong> <em>(<var>name</var>, <span class="roman">[</span><var>body</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fDEFUN"></span>
 <p>Autoconf macros are defined using the <code>AC_DEFUN</code> macro, which is
 similar to the M4 builtin <code>m4_define</code> macro; this creates a macro
@@ -14889,7 +14891,7 @@ with their modern implementation.
 <p>Autoconf provides a simple means to obsolete a macro.
 </p>
 <span id="AU_005fDEFUN"></span><dl>
-<dt id="index-AU_005fDEFUN-1">Macro: <strong>AU_DEFUN</strong> <em>(<var>old-macro</var>, <var>implementation</var>, <span class="roman">[</span><var>message</var><span class="roman">]</span></em></dt>
+<dt id="index-AU_005fDEFUN-1">Macro: <strong>AU_DEFUN</strong> <em>(<var>old-macro</var>, <var>implementation</var>, <span class="roman">[</span><var>message</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AU_005fDEFUN"></span>
 <p>Define <var>old-macro</var> as <var>implementation</var>.  The only difference
 with <code>AC_DEFUN</code> is that the user is warned that
@@ -21226,7 +21228,7 @@ user asked to use it.  Whether each package is used or not by default,
 and which arguments are valid, is up to you.
 </p>
 <span id="AC_005fARG_005fWITH"></span><dl>
-<dt id="index-AC_005fARG_005fWITH-1">Macro: <strong>AC_ARG_WITH</strong> <em>(<var>package</var>, <var>help-string</var>,   <span class="roman">[</span><var>action-if-given</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fARG_005fWITH-1">Macro: <strong>AC_ARG_WITH</strong> <em>(<var>package</var>, <var>help-string</var>,   <span class="roman">[</span><var>action-if-given</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fARG_005fWITH"></span>
 <p>If the user gave <code>configure</code> the option <samp>--with-<var>package</var></samp>
 or <samp>--without-<var>package</var></samp>, run shell commands
@@ -21375,7 +21377,7 @@ to include it.  Whether each feature is included or not by default, and
 which arguments are valid, is up to you.
 </p>
 <span id="AC_005fARG_005fENABLE"></span><dl>
-<dt id="index-AC_005fARG_005fENABLE-1">Macro: <strong>AC_ARG_ENABLE</strong> <em>(<var>feature</var>, <var>help-string</var>,   <span class="roman">[</span><var>action-if-given</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fARG_005fENABLE-1">Macro: <strong>AC_ARG_ENABLE</strong> <em>(<var>feature</var>, <var>help-string</var>,   <span class="roman">[</span><var>action-if-given</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fARG_005fENABLE"></span>
 <p>If the user gave <code>configure</code> the option
 <samp>--enable-<var>feature</var></samp> or <samp>--disable-<var>feature</var></samp>, run
@@ -21416,7 +21418,7 @@ your own &lsquo;<samp>help strings</samp>&rsquo; to line up in the appropriate c
 strings</samp>&rsquo; do.  This is the purpose of the <code>AS_HELP_STRING</code> macro.
 </p>
 <span id="AS_005fHELP_005fSTRING"></span><dl>
-<dt id="index-AS_005fHELP_005fSTRING-1">Macro: <strong>AS_HELP_STRING</strong> <em>(<var>left-hand-side</var>, <var>right-hand-side</var>   <span class="roman">[</span><var>indent-column</var> = &lsquo;<samp>26</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AS_005fHELP_005fSTRING-1">Macro: <strong>AS_HELP_STRING</strong> <em>(<var>left-hand-side</var>, <var>right-hand-side</var>   <span class="roman">[</span><var>indent-column</var> = &lsquo;<samp>26</samp>&rsquo;<span class="roman">]</span>, <span class="roman">[</span><var>wrap-column</var> = &lsquo;<samp>79</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fHELP_005fSTRING"></span>
 
 <p>Expands into a help string that looks pretty when the user executes
@@ -22310,7 +22312,8 @@ package was last configured in case reconfiguring is needed.
 </p>
 <p>Synopsis:
 </p><div class="example">
-<pre class="example">./config.status <span class="roman">[</span><var>option</var><span class="roman">]</span></pre></div>
+<pre class="example">./config.status <span class="roman">[</span><var>option</var><span class="roman">]</span>&hellip; <span class="roman">[</span><var>tag</var><span class="roman">]</span>&hellip;
+</pre></div>
 
 <p>It configures each <var>tag</var>; if none are specified, all the templates
 are instantiated.  A <var>tag</var> refers to a file or other tag associated
@@ -22799,7 +22802,7 @@ typedef loff_t off_t;
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fCOMPILE_005fCHECK-1">Macro: <strong>AC_COMPILE_CHECK</strong> <em>(<var>echo-text</var>, <var>includes</var>,   <var>function-body</var>, <var>action-if-true</var>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCOMPILE_005fCHECK-1">Macro: <strong>AC_COMPILE_CHECK</strong> <em>(<var>echo-text</var>, <var>includes</var>,   <var>function-body</var>, <var>action-if-true</var>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCOMPILE_005fCHECK"></span>
 <p>This is an obsolete version of <code>AC_TRY_COMPILE</code> itself replaced by
 <code>AC_COMPILE_IFELSE</code> (see <a href="#Running-the-Compiler">Running the Compiler</a>), with the
@@ -22923,7 +22926,7 @@ check the nature of the host is using <code>AC_CANONICAL_HOST</code>
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fENABLE-1">Macro: <strong>AC_ENABLE</strong> <em>(<var>feature</var>, <var>action-if-given</var>,   <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fENABLE-1">Macro: <strong>AC_ENABLE</strong> <em>(<var>feature</var>, <var>action-if-given</var>,   <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fENABLE"></span>
 <p>This is an obsolete version of <code>AC_ARG_ENABLE</code> that does not
 support providing a help string (see <a href="#AC_005fARG_005fENABLE">AC_ARG_ENABLE</a>).
@@ -23024,7 +23027,7 @@ is no longer needed.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fHAVE_005fLIBRARY-1">Macro: <strong>AC_HAVE_LIBRARY</strong> <em>(<var>library</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fHAVE_005fLIBRARY-1">Macro: <strong>AC_HAVE_LIBRARY</strong> <em>(<var>library</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>, <span class="roman">[</span><var>other-libraries</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fHAVE_005fLIBRARY"></span>
 <p>This macro is equivalent to calling <code>AC_CHECK_LIB</code> with a
 <var>function</var> argument of <code>main</code>.  In addition, <var>library</var> can
@@ -23275,7 +23278,7 @@ this automatically.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fOBSOLETE-1">Macro: <strong>AC_OBSOLETE</strong> <em>(<var>this-macro-name</var>, <span class="roman">[</span><var>suggestion</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fOBSOLETE-1">Macro: <strong>AC_OBSOLETE</strong> <em>(<var>this-macro-name</var>, <span class="roman">[</span><var>suggestion</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fOBSOLETE"></span>
 <p>Make M4 print a message to the standard error output warning that
 <var>this-macro-name</var> is obsolete, and giving the file and line number
@@ -23301,7 +23304,7 @@ services to the user (see <a href="#AU_005fDEFUN">AU_DEFUN</a>).
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fOUTPUT-3">Macro: <strong>AC_OUTPUT</strong> <em>(<span class="roman">[</span><var>file</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fOUTPUT-3">Macro: <strong>AC_OUTPUT</strong> <em>(<span class="roman">[</span><var>file</var><span class="roman">]</span>&hellip;, <span class="roman">[</span><var>extra-cmds</var><span class="roman">]</span>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fOUTPUT-1"></span>
 <p>The use of <code>AC_OUTPUT</code> with arguments is deprecated.  This obsoleted
 interface is equivalent to:
@@ -23317,7 +23320,7 @@ AC_OUTPUT
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fOUTPUT_005fCOMMANDS-1">Macro: <strong>AC_OUTPUT_COMMANDS</strong> <em>(<var>extra-cmds</var>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fOUTPUT_005fCOMMANDS-1">Macro: <strong>AC_OUTPUT_COMMANDS</strong> <em>(<var>extra-cmds</var>, <span class="roman">[</span><var>init-cmds</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fOUTPUT_005fCOMMANDS"></span>
 <p>Specify additional shell commands to run at the end of
 <samp>config.status</samp>, and shell commands to initialize any variables
@@ -23589,7 +23592,7 @@ name is obsolete, as the same functionality is now acheived via
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fTRY_005fCOMPILE-1">Macro: <strong>AC_TRY_COMPILE</strong> <em>(<var>includes</var>, <var>function-body</var>,   <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fTRY_005fCOMPILE-1">Macro: <strong>AC_TRY_COMPILE</strong> <em>(<var>includes</var>, <var>function-body</var>,   <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fTRY_005fCOMPILE"></span>
 <p>Same as:
 </p>
@@ -23613,7 +23616,7 @@ and compilation flags are determined by the current language
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fTRY_005fCPP-1">Macro: <strong>AC_TRY_CPP</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fTRY_005fCPP-1">Macro: <strong>AC_TRY_CPP</strong> <em>(<var>input</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fTRY_005fCPP"></span>
 <p>Same as:
 </p>
@@ -23630,7 +23633,7 @@ and compilation flags are determined by the current language
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fTRY_005fLINK-1">Macro: <strong>AC_TRY_LINK</strong> <em>(<var>includes</var>, <var>function-body</var>,   <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fTRY_005fLINK-1">Macro: <strong>AC_TRY_LINK</strong> <em>(<var>includes</var>, <var>function-body</var>,   <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fTRY_005fLINK"></span>
 <p>Same as:
 </p>
@@ -23663,7 +23666,7 @@ and compilation flags are determined by the current language
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fTRY_005fLINK_005fFUNC-1">Macro: <strong>AC_TRY_LINK_FUNC</strong> <em>(<var>function</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fTRY_005fLINK_005fFUNC-1">Macro: <strong>AC_TRY_LINK_FUNC</strong> <em>(<var>function</var>, <span class="roman">[</span><var>action-if-found</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-not-found</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fTRY_005fLINK_005fFUNC"></span>
 <p>This macro is equivalent to
 </p><div class="example">
@@ -23674,7 +23677,7 @@ and compilation flags are determined by the current language
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fTRY_005fRUN-1">Macro: <strong>AC_TRY_RUN</strong> <em>(<var>program</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fTRY_005fRUN-1">Macro: <strong>AC_TRY_RUN</strong> <em>(<var>program</var>, <span class="roman">[</span><var>action-if-true</var><span class="roman">]</span>,   <span class="roman">[</span><var>action-if-false</var><span class="roman">]</span>, <span class="roman">[</span><var>action-if-cross-compiling</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fTRY_005fRUN"></span>
 <p>Same as:
 </p>
@@ -23740,7 +23743,7 @@ hup_handler ()
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fVALIDATE_005fCACHED_005fSYSTEM_005fTUPLE-1">Macro: <strong>AC_VALIDATE_CACHED_SYSTEM_TUPLE</strong> <em>(<span class="roman">[</span><var>cmd</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fVALIDATE_005fCACHED_005fSYSTEM_005fTUPLE-1">Macro: <strong>AC_VALIDATE_CACHED_SYSTEM_TUPLE</strong> <em>(<span class="roman">[</span><var>cmd</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fVALIDATE_005fCACHED_005fSYSTEM_005fTUPLE"></span>
 <p>If the cache file is inconsistent with the current host, target and
 build system types, it used to execute <var>cmd</var> or print a default
@@ -23780,7 +23783,7 @@ portable programs should use <code>waitpid</code>, not <code>wait3</code>, as
 </p></dd></dl>
 
 <dl>
-<dt id="index-AC_005fWITH-1">Macro: <strong>AC_WITH</strong> <em>(<var>package</var>, <var>action-if-given</var>,   <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fWITH-1">Macro: <strong>AC_WITH</strong> <em>(<var>package</var>, <var>action-if-given</var>,   <span class="roman">[</span><var>action-if-not-given</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fWITH"></span>
 <p>This is an obsolete version of <code>AC_ARG_WITH</code> that does not
 support providing a help string (see <a href="#AC_005fARG_005fWITH">AC_ARG_WITH</a>).
@@ -24707,7 +24710,7 @@ of those namespaces (&lsquo;<samp>^_?\(m4\|AS\)_</samp>&rsquo;).  In general, yo
 macro or shell code you are writing.
 </p>
 <dl>
-<dt id="index-AT_005fINIT-1">Macro: <strong>AT_INIT</strong> <em>(<span class="roman">[</span><var>name</var><span class="roman">]</span></em></dt>
+<dt id="index-AT_005fINIT-1">Macro: <strong>AT_INIT</strong> <em>(<span class="roman">[</span><var>name</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AT_005fINIT"></span>
 <p>Initialize Autotest.  Giving a <var>name</var> to the test suite is
 encouraged if your package includes several test suites.  Before this
@@ -24865,8 +24868,8 @@ be a single shell word that expands into a single file name.
 </p></dd></dl>
 
 <dl>
-<dt id="index-AT_005fCHECK-1">Macro: <strong>AT_CHECK</strong> <em>(<var>commands</var>, <span class="roman">[</span><var>status</var> = &lsquo;<samp>0</samp>&rsquo;<span class="roman">]</span></em></dt>
-<dt id="index-AT_005fCHECK_005fUNQUOTED-1">Macro: <strong>AT_CHECK_UNQUOTED</strong> <em>(<var>commands</var>, <span class="roman">[</span><var>status</var> = &lsquo;<samp>0</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AT_005fCHECK-1">Macro: <strong>AT_CHECK</strong> <em>(<var>commands</var>, <span class="roman">[</span><var>status</var> = &lsquo;<samp>0</samp>&rsquo;<span class="roman">]</span>, <span class="roman">[</span><var>stdout</var><span class="roman">]</span>,   <span class="roman">[</span><var>stderr</var><span class="roman">]</span>, <span class="roman">[</span><var>run-if-fail</var><span class="roman">]</span>, <span class="roman">[</span><var>run-if-pass</var><span class="roman">]</span>)</em></dt>
+<dt id="index-AT_005fCHECK_005fUNQUOTED-1">Macro: <strong>AT_CHECK_UNQUOTED</strong> <em>(<var>commands</var>, <span class="roman">[</span><var>status</var> = &lsquo;<samp>0</samp>&rsquo;<span class="roman">]</span>, <span class="roman">[</span><var>stdout</var><span class="roman">]</span>,   <span class="roman">[</span><var>stderr</var><span class="roman">]</span>, <span class="roman">[</span><var>run-if-fail</var><span class="roman">]</span>, <span class="roman">[</span><var>run-if-pass</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AT_005fCHECK"></span>
 <span id="index-AT_005fCHECK_005fUNQUOTED"></span>
 <p>Execute a test by performing given shell <var>commands</var>.  <var>commands</var>
@@ -25152,7 +25155,7 @@ hierarchy: the test suite ought to be shipped!  See below for an example
 </li><li>- Invoke <code>AC_CONFIG_TESTDIR</code>.
 
 <dl>
-<dt id="index-AC_005fCONFIG_005fTESTDIR-1">Macro: <strong>AC_CONFIG_TESTDIR</strong> <em>(<var>directory</var>, <span class="roman">[</span><var>test-path</var> = &lsquo;<samp>directory</samp>&rsquo;<span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fTESTDIR-1">Macro: <strong>AC_CONFIG_TESTDIR</strong> <em>(<var>directory</var>, <span class="roman">[</span><var>test-path</var> = &lsquo;<samp>directory</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fTESTDIR"></span>
 <p>An Autotest test suite is to be configured in <var>directory</var>.  This
 macro requires the instantiation of <samp><var>directory</var>/atconfig</samp> from

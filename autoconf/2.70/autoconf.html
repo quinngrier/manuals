@@ -13955,7 +13955,7 @@ list_add_x([1], list)
 </dd></dl>
 
 <dl>
-<dt id="index-m4_005fmap_005fargs_005fpair-1">Macro: <strong>m4_map_args_pair</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>macro-end</var> = <var>macro</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005fmap_005fargs_005fpair-1">Macro: <strong>m4_map_args_pair</strong> <em>(<var>macro</var>, <span class="roman">[</span><var>macro-end</var> = <var>macro</var><span class="roman">]</span>,   <var>arg</var>&hellip;)</em></dt>
 <dd><span id="index-m4_005fmap_005fargs_005fpair"></span>
 <p>For every pair of arguments <var>arg</var>, invoke <var>macro</var> with two
 arguments.  If there is an odd number of arguments, invoke
@@ -14565,7 +14565,7 @@ quadrigraphs can be used to work around this.
 </p></dd></dl>
 
 <dl>
-<dt id="index-m4_005ftext_005fwrap-1">Macro: <strong>m4_text_wrap</strong> <em>(<var>string</var>, <span class="roman">[</span><var>prefix</var><span class="roman">]</span>,   <span class="roman">[</span><var>prefix1</var> = <var>prefix</var><span class="roman">]</span></em></dt>
+<dt id="index-m4_005ftext_005fwrap-1">Macro: <strong>m4_text_wrap</strong> <em>(<var>string</var>, <span class="roman">[</span><var>prefix</var><span class="roman">]</span>,   <span class="roman">[</span><var>prefix1</var> = <var>prefix</var><span class="roman">]</span>, <span class="roman">[</span><var>width</var> = &lsquo;<samp>79</samp>&rsquo;<span class="roman">]</span>)</em></dt>
 <dd><span id="index-m4_005ftext_005fwrap"></span>
 <p>Break <var>string</var> into a series of whitespace-separated words, then
 output those words separated by spaces, and wrapping lines any time the
@@ -15430,8 +15430,8 @@ undefined if expansion of an indirect variable does not result in a
 literal variable name.
 </p>
 <dl>
-<dt id="index-AS_005fLITERAL_005fIF-1">Macro: <strong>AS_LITERAL_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span>, <span class="roman">[</span><var>if-not</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-simple-ref</var> = <var>if-not</var><span class="roman">]</span></em></dt>
-<dt id="index-AS_005fLITERAL_005fWORD_005fIF-1">Macro: <strong>AS_LITERAL_WORD_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-not</var><span class="roman">]</span>, <span class="roman">[</span><var>if-simple-ref</var> = <var>if-not</var><span class="roman">]</span></em></dt>
+<dt id="index-AS_005fLITERAL_005fIF-1">Macro: <strong>AS_LITERAL_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span>, <span class="roman">[</span><var>if-not</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-simple-ref</var> = <var>if-not</var><span class="roman">]</span>)</em></dt>
+<dt id="index-AS_005fLITERAL_005fWORD_005fIF-1">Macro: <strong>AS_LITERAL_WORD_IF</strong> <em>(<var>expression</var>, <span class="roman">[</span><var>if-literal</var><span class="roman">]</span>,   <span class="roman">[</span><var>if-not</var><span class="roman">]</span>, <span class="roman">[</span><var>if-simple-ref</var> = <var>if-not</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AS_005fLITERAL_005fIF"></span>
 <span id="index-AS_005fLITERAL_005fWORD_005fIF"></span>
 <p>If the expansion of <var>expression</var> is definitely a shell literal,
@@ -28255,7 +28255,7 @@ hierarchy: the test suite ought to be shipped!  See below for an example.
 </li><li>- Invoke <code>AC_CONFIG_TESTDIR</code> in your <samp>configure.ac</samp>.
 
 <dl>
-<dt id="index-AC_005fCONFIG_005fTESTDIR-1">Macro: <strong>AC_CONFIG_TESTDIR</strong> <em>(<var>directory</var>, <span class="roman">[</span><var>test-path</var> = <var>directory</var><span class="roman">]</span></em></dt>
+<dt id="index-AC_005fCONFIG_005fTESTDIR-1">Macro: <strong>AC_CONFIG_TESTDIR</strong> <em>(<var>directory</var>, <span class="roman">[</span><var>test-path</var> = <var>directory</var><span class="roman">]</span>)</em></dt>
 <dd><span id="index-AC_005fCONFIG_005fTESTDIR"></span>
 <p>An Autotest test suite is to be configured in <var>directory</var>.  This
 macro causes <samp><var>directory</var>/atconfig</samp> to be created by

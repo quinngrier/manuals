@@ -17,23 +17,19 @@ export LC_ALL
 
 adjust_texi() {
 
-  awk '
-    {
-      if (sub(/ @$/, " ")) {
-        printf "%s", $0;
-      } else {
-        print;
+  <"$1" \
+    sed '
+      /^@titlepage/,$ {
+        /^@ifinfo$/ d
+        /^@end ifinfo$/ d
       }
-    }
-  ' "$1" | sed '
-    /^@titlepage/,$ {
-      /^@ifinfo$/ d
-      /^@end ifinfo$/ d
-    }
-    s/Franc,ois/Fran@,{c}ois/g
-    /^@set CODESTD/a\
-@set CHAPTER chapter
-  ' >"$1".tmp
+      s/Franc,ois/Fran@,{c}ois/g
+      s/}@c$/}/
+      /^@set CODESTD/a\
+  @set CHAPTER chapter
+    ' \
+  >"$1".tmp
+
   mv -f "$1".tmp "$1"
 
 }; readonly -f adjust_texi
