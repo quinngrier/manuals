@@ -1,0 +1,3487 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>BASH_BUILTINS</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">BASH_BUILTINS</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#BASH BUILTIN COMMANDS">BASH BUILTIN COMMANDS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">bash, :, ., [,
+alias, bg, bind, break, builtin, cd, command, compgen,
+complete, continue, declare, dirs, disown, echo, enable,
+eval, exec, exit, export, fc, fg, getopts, hash, help,
+history, jobs, kill, let, local, logout, popd, printf,
+pushd, pwd, read, readonly, return, set, shift, shopt,
+source, suspend, test, times, trap, type, typeset, ulimit,
+umask, unalias, unset, wait - bash built-in commands, see
+<b>bash</b>(1)</p>
+
+<h2>BASH BUILTIN COMMANDS
+<a name="BASH BUILTIN COMMANDS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Unless
+otherwise noted, each builtin command documented in this
+section as accepting options preceded by <b>-</b> accepts
+<b>--</b> to signify the end of the options. <b><br>
+:</b> [<i>arguments</i>]</p>
+
+<p style="margin-left:22%;">No effect; the command does
+nothing beyond expanding <i>arguments</i> and performing any
+specified redirections. A zero exit code is returned.</p>
+
+<p style="margin-left:11%;"><b>.</b> <i>filename</i>
+[<i>arguments</i>] <b><br>
+source</b> <i>filename</i> [<i>arguments</i>]</p>
+
+<p style="margin-left:22%;">Read and execute commands from
+<i>filename</i> in the current shell environment and return
+the exit status of the last command executed from
+<i>filename</i>. If <i>filename</i> does not contain a
+slash, file names in <b><small>PATH</small></b> are used to
+find the directory containing <i>filename</i>. The file
+searched for in <b><small>PATH</small></b> need not be
+executable. When <b>bash</b> is not in <i>posix mode</i>,
+the current directory is searched if no file is found in
+<b><small>PATH</small></b><small>.</small> If the
+<b>sourcepath</b> option to the <b>shopt</b> builtin command
+is turned off, the <b><small>PATH</small></b> is not
+searched. If any <i>arguments</i> are supplied, they become
+the positional parameters when <i>filename</i> is executed.
+Otherwise the positional parameters are unchanged. The
+return status is the status of the last command exited
+within the script (0 if no commands are executed), and false
+if <i>filename</i> is not found or cannot be read.</p>
+
+<p style="margin-left:11%;"><b>alias</b> [<b>-p</b>]
+[<i>name</i>[=<i>value</i>] ...]</p>
+
+<p style="margin-left:22%;"><b>Alias</b> with no arguments
+or with the <b>-p</b> option prints the list of aliases in
+the form <b>alias</b> <i>name</i>=<i>value</i> on standard
+output. When arguments are supplied, an alias is defined for
+each <i>name</i> whose <i>value</i> is given. A trailing
+space in <i>value</i> causes the next word to be checked for
+alias substitution when the alias is expanded. For each
+<i>name</i> in the argument list for which no <i>value</i>
+is supplied, the name and value of the alias is printed.
+<b>Alias</b> returns true unless a <i>name</i> is given for
+which no alias has been defined.</p>
+
+<p style="margin-left:11%;"><b>bg</b> [<i>jobspec</i>]</p>
+
+<p style="margin-left:22%;">Resume the suspended job
+<i>jobspec</i> in the background, as if it had been started
+with <b>&amp;</b>. If <i>jobspec</i> is not present, the
+shell&rsquo;s notion of the <i>current job</i> is used.
+<b>bg</b> <i>jobspec</i> returns 0 unless run when job
+control is disabled or, when run with job control enabled,
+if <i>jobspec</i> was not found or started without job
+control.</p>
+
+<p style="margin-left:11%;"><b>bind</b> [<b>-m</b>
+<i>keymap</i>] [<b>-lpsvPSV</b>] <b><br>
+bind</b> [<b>-m</b> <i>keymap</i>] [<b>-q</b>
+<i>function</i>] [<b>-u</b> <i>function</i>] [<b>-r</b>
+<i>keyseq</i>] <b><br>
+bind</b> [<b>-m</b> <i>keymap</i>] <b>-f</b> <i>filename</i>
+<b><br>
+bind</b> [<b>-m</b> <i>keymap</i>] <b>-x</b>
+<i>keyseq</i>:<i>shell-command</i> <b><br>
+bind</b> [<b>-m</b> <i>keymap</i>]
+<i>keyseq</i>:<i>function-name</i> <b><br>
+bind</b> <i>readline-command</i></p>
+
+<p style="margin-left:22%;">Display current <b>readline</b>
+key and function bindings, bind a key sequence to a
+<b>readline</b> function or macro, or set a <b>readline</b>
+variable. Each non-option argument is a command as it would
+appear in <i>.inputrc</i>, but each binding or command must
+be passed as a separate argument; e.g.,
+&rsquo;&quot;\C-x\C-r&quot;: re-read-init-file&rsquo;.
+Options, if supplied, have the following meanings: <b><br>
+-m</b> <i>keymap</i></p>
+
+<p style="margin-left:32%;">Use <i>keymap</i> as the keymap
+to be affected by the subsequent bindings. Acceptable
+<i>keymap</i> names are <i>emacs, emacs-standard,
+emacs-meta, emacs-ctlx, vi, vi-move, vi-command</i>, and
+<i>vi-insert</i>. <i>vi</i> is equivalent to
+<i>vi-command</i>; <i>emacs</i> is equivalent to
+<i>emacs-standard</i>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-l</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>List the names of all <b>readline</b> functions.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Display <b>readline</b> function names and bindings in
+such a way that they can be re-read.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-P</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>List current <b>readline</b> function names and
+bindings.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-v</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Display <b>readline</b> variable names and values in
+such a way that they can be re-read.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-V</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>List current <b>readline</b> variable names and
+values.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Display <b>readline</b> key sequences bound to macros
+and the strings they output in such a way that they can be
+re-read.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-S</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Display <b>readline</b> key sequences bound to macros
+and the strings they output.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-f</b> <i>filename</i></p>
+
+<p style="margin-left:32%;">Read key bindings from
+<i>filename</i>.</p>
+
+<p style="margin-left:22%;"><b>-q</b> <i>function</i></p>
+
+<p style="margin-left:32%;">Query about which keys invoke
+the named <i>function</i>.</p>
+
+<p style="margin-left:22%;"><b>-u</b> <i>function</i></p>
+
+<p style="margin-left:32%;">Unbind all keys bound to the
+named <i>function</i>.</p>
+
+<p style="margin-left:22%;"><b>-r</b> <i>keyseq</i></p>
+
+<p style="margin-left:32%;">Remove any current binding for
+<i>keyseq</i>.</p>
+
+<p style="margin-left:22%;"><b>-x</b>
+<i>keyseq</i><b>:</b><i>shell-command</i></p>
+
+<p style="margin-left:32%;">Cause <i>shell-command</i> to
+be executed whenever <i>keyseq</i> is entered.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The return
+value is 0 unless an unrecognized option is given or an
+error occurred.</p>
+
+<p style="margin-left:11%;"><b>break</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">Exit from within a <b>for</b>,
+<b>while</b>, <b>until</b>, or <b>select</b> loop. If
+<i>n</i> is specified, break <i>n</i> levels. <i>n</i> must
+be &ge; 1. If <i>n</i> is greater than the number of
+enclosing loops, all enclosing loops are exited. The return
+value is 0 unless the shell is not executing a loop when
+<b>break</b> is executed.</p>
+
+<p style="margin-left:11%;"><b>builtin</b>
+<i>shell-builtin</i> [<i>arguments</i>]</p>
+
+<p style="margin-left:22%;">Execute the specified shell
+builtin, passing it <i>arguments</i>, and return its exit
+status. This is useful when defining a function whose name
+is the same as a shell builtin, retaining the functionality
+of the builtin within the function. The <b>cd</b> builtin is
+commonly redefined this way. The return status is false if
+<i>shell-builtin</i> is not a shell builtin command.</p>
+
+<p style="margin-left:11%;"><b>cd</b> [<b>-L|-P</b>]
+[<i>dir</i>]</p>
+
+<p style="margin-left:22%;">Change the current directory to
+<i>dir</i>. The variable <b><small>HOME</small></b> is the
+default <i>dir</i>. The variable
+<b><small>CDPATH</small></b> defines the search path for the
+directory containing <i>dir</i>. Alternative directory names
+in <b><small>CDPATH</small></b> are separated by a colon
+(:). A null directory name in <b><small>CDPATH</small></b>
+is the same as the current directory, i.e.,
+&lsquo;&lsquo;<b>.</b>&rsquo;&rsquo;. If <i>dir</i> begins
+with a slash (/), then <b><small>CDPATH</small></b> is not
+used. The <b>-P</b> option says to use the physical
+directory structure instead of following symbolic links (see
+also the <b>-P</b> option to the <b>set</b> builtin
+command); the <b>-L</b> option forces symbolic links to be
+followed. An argument of <b>-</b> is equivalent to
+<b><small>$OLDPWD</small></b><small>.</small> If a non-empty
+directory name from <b>CDPATH</b> is used, or if <b>-</b> is
+the first argument, and the directory change is successful,
+the absolute pathname of the new working directory is
+written to the standard output. The return value is true if
+the directory was successfully changed; false otherwise.</p>
+
+<p style="margin-left:11%;"><b>caller</b> [<i>expr</i>]</p>
+
+<p style="margin-left:22%;">Returns the context of any
+active subroutine call (a shell function or a script
+executed with the <b>.</b> or <b>source</b> builtins.
+Without <i>expr</i>, <b>caller</b> displays the line number
+and source filename of the current subroutine call. If a
+non-negative integer is supplied as <i>expr</i>,
+<b>caller</b> displays the line number, subroutine name, and
+source file corresponding to that position in the current
+execution call stack. This extra information may be used,
+for example, to print a stack trace. The current frame is
+frame 0. The return value is 0 unless the shell is not
+executing a subroutine call or <i>expr</i> does not
+correspond to a valid position in the call stack.</p>
+
+<p style="margin-left:11%;"><b>command</b> [<b>-pVv</b>]
+<i>command</i> [<i>arg</i> ...]</p>
+
+<p style="margin-left:22%;">Run <i>command</i> with
+<i>args</i> suppressing the normal shell function lookup.
+Only builtin commands or commands found in the
+<b><small>PATH</small></b> are executed. If the <b>-p</b>
+option is given, the search for <i>command</i> is performed
+using a default value for <b>PATH</b> that is guaranteed to
+find all of the standard utilities. If either the <b>-V</b>
+or <b>-v</b> option is supplied, a description of
+<i>command</i> is printed. The <b>-v</b> option causes a
+single word indicating the command or file name used to
+invoke <i>command</i> to be displayed; the <b>-V</b> option
+produces a more verbose description. If the <b>-V</b> or
+<b>-v</b> option is supplied, the exit status is 0 if
+<i>command</i> was found, and 1 if not. If neither option is
+supplied and an error occurred or <i>command</i> cannot be
+found, the exit status is 127. Otherwise, the exit status of
+the <b>command</b> builtin is the exit status of
+<i>command</i>.</p>
+
+<p style="margin-left:11%;"><b>compgen</b> [<i>option</i>]
+[<i>word</i>]</p>
+
+<p style="margin-left:22%;">Generate possible completion
+matches for <i>word</i> according to the <i>option</i>s,
+which may be any option accepted by the <b>complete</b>
+builtin with the exception of <b>-p</b> and <b>-r</b>, and
+write the matches to the standard output. When using the
+<b>-F</b> or <b>-C</b> options, the various shell variables
+set by the programmable completion facilities, while
+available, will not have useful values.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The matches
+will be generated in the same way as if the programmable
+completion code had generated them directly from a
+completion specification with the same flags. If <i>word</i>
+is specified, only those completions matching <i>word</i>
+will be displayed.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The return
+value is true unless an invalid option is supplied, or no
+matches were generated.</p>
+
+<p style="margin-left:11%;"><b>complete</b>
+[<b>-abcdefgjksuv</b>] [<b>-o</b> <i>comp-option</i>]
+[<b>-A</b> <i>action</i>] [<b>-G</b> <i>globpat</i>]
+[<b>-W</b> <i><br>
+wordlist</i>] [<b>-P</b> <i>prefix</i>] [<b>-S</b>
+<i>suffix</i>]</p>
+
+<p style="margin-left:22%;">[<b>-X</b> <i>filterpat</i>]
+[<b>-F</b> <i>function</i>] [<b>-C</b> <i>command</i>]
+<i>name</i> [<i>name ...</i>]</p>
+
+<p style="margin-left:11%;"><b>complete -pr</b>
+[<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">Specify how arguments to each
+<i>name</i> should be completed. If the <b>-p</b> option is
+supplied, or if no options are supplied, existing completion
+specifications are printed in a way that allows them to be
+reused as input. The <b>-r</b> option removes a completion
+specification for each <i>name</i>, or, if no <i>name</i>s
+are supplied, all completion specifications.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The process of
+applying these completion specifications when word
+completion is attempted is described above under
+<b>Programmable Completion</b>.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Other options,
+if specified, have the following meanings. The arguments to
+the <b>-G</b>, <b>-W</b>, and <b>-X</b> options (and, if
+necessary, the <b>-P</b> and <b>-S</b> options) should be
+quoted to protect them from expansion before the
+<b>complete</b> builtin is invoked. <b><br>
+-o</b> <i>comp-option</i></p>
+
+<p style="margin-left:34%;">The <i>comp-option</i> controls
+several aspects of the compspec&rsquo;s behavior beyond the
+simple generation of completions. <i>comp-option</i> may be
+one of: <b><br>
+bashdefault</b></p>
+
+<p style="margin-left:46%;">Perform the rest of the default
+<b>bash</b> completions if the compspec generates no
+matches.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>default</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Use readline&rsquo;s default filename completion if the
+compspec generates no matches.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>dirnames</b></p>
+
+<p style="margin-left:46%;">Perform directory name
+completion if the compspec generates no matches.</p>
+
+<p style="margin-left:34%;"><b>filenames</b></p>
+
+<p style="margin-left:46%;">Tell readline that the compspec
+generates filenames, so it can perform any filename-specific
+processing (like adding a slash to directory names or
+suppressing trailing spaces). Intended to be used with shell
+functions.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>nospace</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Tell readline not to append a space (the default) to
+words completed at the end of the line.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-A</b> <i>action</i></p>
+
+<p style="margin-left:34%;">The <i>action</i> may be one of
+the following to generate a list of possible
+completions:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="8%">
+
+
+<p><b>alias</b></p></td>
+<td width="4%"></td>
+<td width="54%">
+
+
+<p>Alias names. May also be specified as <b>-a</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>arrayvar</b></p>
+
+<p style="margin-left:46%;">Array variable names.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>binding</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p><b>Readline</b> key binding names.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>builtin</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Names of shell builtin commands. May also be specified
+as <b>-b</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>command</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Command names. May also be specified as <b>-c</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>directory</b></p>
+
+<p style="margin-left:46%;">Directory names. May also be
+specified as <b>-d</b>.</p>
+
+<p style="margin-left:34%;"><b>disabled</b></p>
+
+<p style="margin-left:46%;">Names of disabled shell
+builtins.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>enabled</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Names of enabled shell builtins.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>export</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Names of exported shell variables. May also be specified
+as <b>-e</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>file</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>File names. May also be specified as <b>-f</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>function</b></p>
+
+<p style="margin-left:46%;">Names of shell functions.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="8%">
+
+
+<p><b>group</b></p></td>
+<td width="4%"></td>
+<td width="54%">
+
+
+<p>Group names. May also be specified as <b>-g</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>helptopic</b></p>
+
+<p style="margin-left:46%;">Help topics as accepted by the
+<b>help</b> builtin.</p>
+
+<p style="margin-left:34%;"><b>hostname</b></p>
+
+<p style="margin-left:46%;">Hostnames, as taken from the
+file specified by the <b><small>HOSTFILE</small></b> shell
+variable.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>job</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Job names, if job control is active. May also be
+specified as <b>-j</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>keyword</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Shell reserved words. May also be specified as
+<b>-k</b>.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>running</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Names of running jobs, if job control is active.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>service</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Service names. May also be specified as <b>-s</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>setopt</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Valid arguments for the <b>-o</b> option to the
+<b>set</b> builtin.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>shopt</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Shell option names as accepted by the <b>shopt</b>
+builtin.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>signal</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Signal names.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>stopped</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Names of stopped jobs, if job control is active.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>user</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>User names. May also be specified as <b>-u</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>variable</b></p>
+
+<p style="margin-left:46%;">Names of all shell variables.
+May also be specified as <b>-v</b>.</p>
+
+<p style="margin-left:22%;"><b>-G</b> <i>globpat</i></p>
+
+<p style="margin-left:34%;">The filename expansion pattern
+<i>globpat</i> is expanded to generate the possible
+completions.</p>
+
+<p style="margin-left:22%;"><b>-W</b> <i>wordlist</i></p>
+
+<p style="margin-left:34%;">The <i>wordlist</i> is split
+using the characters in the <b><small>IFS</small></b>
+special variable as delimiters, and each resultant word is
+expanded. The possible completions are the members of the
+resultant list which match the word being completed.</p>
+
+<p style="margin-left:22%;"><b>-C</b> <i>command</i></p>
+
+<p style="margin-left:34%;"><i>command</i> is executed in a
+subshell environment, and its output is used as the possible
+completions.</p>
+
+<p style="margin-left:22%;"><b>-F</b> <i>function</i></p>
+
+<p style="margin-left:34%;">The shell function
+<i>function</i> is executed in the current shell
+environment. When it finishes, the possible completions are
+retrieved from the value of the
+<b><small>COMPREPLY</small></b> array variable.</p>
+
+<p style="margin-left:22%;"><b>-X</b> <i>filterpat</i></p>
+
+<p style="margin-left:34%;"><i>filterpat</i> is a pattern
+as used for filename expansion. It is applied to the list of
+possible completions generated by the preceding options and
+arguments, and each completion matching <i>filterpat</i> is
+removed from the list. A leading <b>!</b> in
+<i>filterpat</i> negates the pattern; in this case, any
+completion not matching <i>filterpat</i> is removed.</p>
+
+<p style="margin-left:22%;"><b>-P</b> <i>prefix</i></p>
+
+<p style="margin-left:34%;"><i>prefix</i> is added at the
+beginning of each possible completion after all other
+options have been applied.</p>
+
+<p style="margin-left:22%;"><b>-S</b> <i>suffix</i></p>
+
+<p style="margin-left:34%;"><i>suffix</i> is appended to
+each possible completion after all other options have been
+applied.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The return
+value is true unless an invalid option is supplied, an
+option other than <b>-p</b> or <b>-r</b> is supplied without
+a <i>name</i> argument, an attempt is made to remove a
+completion specification for a <i>name</i> for which no
+specification exists, or an error occurs adding a completion
+specification.</p>
+
+<p style="margin-left:11%;"><b>continue</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">Resume the next iteration of
+the enclosing <b>for</b>, <b>while</b>, <b>until</b>, or
+<b>select</b> loop. If <i>n</i> is specified, resume at the
+<i>n</i>th enclosing loop. <i>n</i> must be &ge; 1. If
+<i>n</i> is greater than the number of enclosing loops, the
+last enclosing loop (the
+&lsquo;&lsquo;top-level&rsquo;&rsquo; loop) is resumed. The
+return value is 0 unless the shell is not executing a loop
+when <b>continue</b> is executed.</p>
+
+<p style="margin-left:11%;"><b>declare</b>
+[<b>-afFirtx</b>] [<b>-p</b>] [<i>name</i>[=<i>value</i>]
+...] <b><br>
+typeset</b> [<b>-afFirtx</b>] [<b>-p</b>]
+[<i>name</i>[=<i>value</i>] ...]</p>
+
+<p style="margin-left:22%;">Declare variables and/or give
+them attributes. If no <i>name</i>s are given then display
+the values of variables. The <b>-p</b> option will display
+the attributes and values of each <i>name</i>. When
+<b>-p</b> is used, additional options are ignored. The
+<b>-F</b> option inhibits the display of function
+definitions; only the function name and attributes are
+printed. If the <b>extdebug</b> shell option is enabled
+using <b>shopt</b>, the source file name and line number
+where the function is defined are displayed as well. The
+<b>-F</b> option implies <b>-f</b>. The following options
+can be used to restrict output to variables with the
+specified attribute or to give variables attributes:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-a</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Each <i>name</i> is an array variable (see <b>Arrays</b>
+above).</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-f</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Use function names only.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-i</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The variable is treated as an integer; arithmetic
+evaluation (see <b><small>ARITHMETIC EVALUATION
+)</small></b> is performed when the variable is assigned a
+value.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-r</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Make <i>name</i>s readonly. These names cannot then be
+assigned values by subsequent assignment statements or
+unset.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-t</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Give each <i>name</i> the <i>trace</i> attribute. Traced
+functions inherit the <b>DEBUG</b> trap from the calling
+shell. The trace attribute has no special meaning for
+variables.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-x</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Mark <i>name</i>s for export to subsequent commands via
+the environment.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">Using
+&lsquo;+&rsquo; instead of &lsquo;-&rsquo; turns off the
+attribute instead, with the exception that <b>+a</b> may not
+be used to destroy an array variable. When used in a
+function, makes each <i>name</i> local, as with the
+<b>local</b> command. If a variable name is followed by
+=<i>value</i>, the value of the variable is set to
+<i>value</i>. The return value is 0 unless an invalid option
+is encountered, an attempt is made to define a function
+using &lsquo;&lsquo;-f foo=bar&rsquo;&rsquo;, an attempt is
+made to assign a value to a readonly variable, an attempt is
+made to assign a value to an array variable without using
+the compound assignment syntax (see <b>Arrays</b> above),
+one of the <i>names</i> is not a valid shell variable name,
+an attempt is made to turn off readonly status for a
+readonly variable, an attempt is made to turn off array
+status for an array variable, or an attempt is made to
+display a non-existent function with <b>-f</b>.</p>
+
+<p style="margin-left:11%;"><b>dirs [-clpv]
+[+</b><i>n</i><b>] [-</b><i>n</i><b>]</b></p>
+
+<p style="margin-left:22%;">Without options, displays the
+list of currently remembered directories. The default
+display is on a single line with directory names separated
+by spaces. Directories are added to the list with the
+<b>pushd</b> command; the <b>popd</b> command removes
+entries from the list.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>+</b><i>n</i></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Displays the <i>n</i>th entry counting from the left of
+the list shown by <b>dirs</b> when invoked without options,
+starting with zero.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-</b><i>n</i></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Displays the <i>n</i>th entry counting from the right of
+the list shown by <b>dirs</b> when invoked without options,
+starting with zero.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-c</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Clears the directory stack by deleting all of the
+entries.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-l</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Produces a longer listing; the default listing format
+uses a tilde to denote the home directory.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Print the directory stack with one entry per line.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-v</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Print the directory stack with one entry per line,
+prefixing each entry with its index in the stack.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The return
+value is 0 unless an invalid option is supplied or <i>n</i>
+indexes beyond the end of the directory stack.</p>
+
+<p style="margin-left:11%;"><b>disown</b> [<b>-ar</b>]
+[<b>-h</b>] [<i>jobspec</i> ...]</p>
+
+<p style="margin-left:22%;">Without options, each
+<i>jobspec</i> is removed from the table of active jobs. If
+the <b>-h</b> option is given, each <i>jobspec</i> is not
+removed from the table, but is marked so that
+<b><small>SIGHUP</small></b> is not sent to the job if the
+shell receives a
+<b><small>SIGHUP</small></b><small>.</small> If no
+<i>jobspec</i> is present, and neither the <b>-a</b> nor the
+<b>-r</b> option is supplied, the <i>current job</i> is
+used. If no <i>jobspec</i> is supplied, the <b>-a</b> option
+means to remove or mark all jobs; the <b>-r</b> option
+without a <i>jobspec</i> argument restricts operation to
+running jobs. The return value is 0 unless a <i>jobspec</i>
+does not specify a valid job.</p>
+
+<p style="margin-left:11%;"><b>echo</b> [<b>-neE</b>]
+[<i>arg</i> ...]</p>
+
+<p style="margin-left:22%;">Output the <i>arg</i>s,
+separated by spaces, followed by a newline. The return
+status is always 0. If <b>-n</b> is specified, the trailing
+newline is suppressed. If the <b>-e</b> option is given,
+interpretation of the following backslash-escaped characters
+is enabled. The <b>-E</b> option disables the interpretation
+of these escape characters, even on systems where they are
+interpreted by default. The <b>xpg_echo</b> shell option may
+be used to dynamically determine whether or not <b>echo</b>
+expands these escape characters by default. <b>echo</b> does
+not interpret <b>--</b> to mean the end of options.
+<b>echo</b> interprets the following escape sequences:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\a</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>alert (bell)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\b</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>backspace</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\c</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>suppress trailing newline</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\e</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>an escape character</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\f</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>form feed</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\n</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>new line</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\r</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>carriage return</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\t</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>horizontal tab</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\v</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>vertical tab</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\\</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>backslash</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\0</b><i>nnn</i></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>the eight-bit character whose value is the octal value
+<i>nnn</i> (zero to three octal digits)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\</b><i>nnn</i></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>the eight-bit character whose value is the octal value
+<i>nnn</i> (one to three octal digits)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\x</b><i>HH</i></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>the eight-bit character whose value is the hexadecimal
+value <i>HH</i> (one or two hex digits)</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>enable</b> [<b>-adnps</b>]
+[<b>-f</b> <i>filename</i>] [<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">Enable and disable builtin
+shell commands. Disabling a builtin allows a disk command
+which has the same name as a shell builtin to be executed
+without specifying a full pathname, even though the shell
+normally searches for builtins before disk commands. If
+<b>-n</b> is used, each <i>name</i> is disabled; otherwise,
+<i>names</i> are enabled. For example, to use the
+<b>test</b> binary found via the <b><small>PATH</small></b>
+instead of the shell builtin version, run
+&lsquo;&lsquo;enable -n test&rsquo;&rsquo;. The <b>-f</b>
+option means to load the new builtin command <i>name</i>
+from shared object <i>filename</i>, on systems that support
+dynamic loading. The <b>-d</b> option will delete a builtin
+previously loaded with <b>-f</b>. If no <i>name</i>
+arguments are given, or if the <b>-p</b> option is supplied,
+a list of shell builtins is printed. With no other option
+arguments, the list consists of all enabled shell builtins.
+If <b>-n</b> is supplied, only disabled builtins are
+printed. If <b>-a</b> is supplied, the list printed includes
+all builtins, with an indication of whether or not each is
+enabled. If <b>-s</b> is supplied, the output is restricted
+to the POSIX <i>special</i> builtins. The return value is 0
+unless a <i>name</i> is not a shell builtin or there is an
+error loading a new builtin from a shared object.</p>
+
+<p style="margin-left:11%;"><b>eval</b> [<i>arg</i>
+...]</p>
+
+<p style="margin-left:22%;">The <i>arg</i>s are read and
+concatenated together into a single command. This command is
+then read and executed by the shell, and its exit status is
+returned as the value of <b>eval</b>. If there are no
+<i>args</i>, or only null arguments, <b>eval</b> returns
+0.</p>
+
+<p style="margin-left:11%;"><b>exec</b> [<b>-cl</b>]
+[<b>-a</b> <i>name</i>] [<i>command</i>
+[<i>arguments</i>]]</p>
+
+<p style="margin-left:22%;">If <i>command</i> is specified,
+it replaces the shell. No new process is created. The
+<i>arguments</i> become the arguments to <i>command</i>. If
+the <b>-l</b> option is supplied, the shell places a dash at
+the beginning of the zeroth arg passed to <i>command</i>.
+This is what <i>login</i>(1) does. The <b>-c</b> option
+causes <i>command</i> to be executed with an empty
+environment. If <b>-a</b> is supplied, the shell passes
+<i>name</i> as the zeroth argument to the executed command.
+If <i>command</i> cannot be executed for some reason, a
+non-interactive shell exits, unless the shell option
+<b>execfail</b> is enabled, in which case it returns
+failure. An interactive shell returns failure if the file
+cannot be executed. If <i>command</i> is not specified, any
+redirections take effect in the current shell, and the
+return status is 0. If there is a redirection error, the
+return status is 1.</p>
+
+<p style="margin-left:11%;"><b>exit</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">Cause the shell to exit with a
+status of <i>n</i>. If <i>n</i> is omitted, the exit status
+is that of the last command executed. A trap on
+<b><small>EXIT</small></b> is executed before the shell
+terminates.</p>
+
+<p style="margin-left:11%;"><b>export</b> [<b>-fn</b>]
+[<i>name</i>[=<i>word</i>]] ... <b><br>
+export -p</b></p>
+
+<p style="margin-left:22%;">The supplied <i>names</i> are
+marked for automatic export to the environment of
+subsequently executed commands. If the <b>-f</b> option is
+given, the <i>names</i> refer to functions. If no
+<i>names</i> are given, or if the <b>-p</b> option is
+supplied, a list of all names that are exported in this
+shell is printed. The <b>-n</b> option causes the export
+property to be removed from each <i>name</i>. If a variable
+name is followed by =<i>word</i>, the value of the variable
+is set to <i>word</i>. <b>export</b> returns an exit status
+of 0 unless an invalid option is encountered, one of the
+<i>names</i> is not a valid shell variable name, or
+<b>-f</b> is supplied with a <i>name</i> that is not a
+function.</p>
+
+<p style="margin-left:11%;"><b>fc</b> [<b>-e</b>
+<i>ename</i>] [<b>-nlr</b>] [<i>first</i>] [<i>last</i>]
+<b><br>
+fc -s</b> [<i>pat</i>=<i>rep</i>] [<i>cmd</i>]</p>
+
+<p style="margin-left:22%;">Fix Command. In the first form,
+a range of commands from <i>first</i> to <i>last</i> is
+selected from the history list. <i>First</i> and <i>last</i>
+may be specified as a string (to locate the last command
+beginning with that string) or as a number (an index into
+the history list, where a negative number is used as an
+offset from the current command number). If <i>last</i> is
+not specified it is set to the current command for listing
+(so that &lsquo;&lsquo;fc -l -10&rsquo;&rsquo; prints the
+last 10 commands) and to <i>first</i> otherwise. If
+<i>first</i> is not specified it is set to the previous
+command for editing and -16 for listing.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The <b>-n</b>
+option suppresses the command numbers when listing. The
+<b>-r</b> option reverses the order of the commands. If the
+<b>-l</b> option is given, the commands are listed on
+standard output. Otherwise, the editor given by <i>ename</i>
+is invoked on a file containing those commands. If
+<i>ename</i> is not given, the value of the
+<b><small>FCEDIT</small></b> variable is used, and the value
+of <b><small>EDITOR</small></b> if
+<b><small>FCEDIT</small></b> is not set. If neither variable
+is set, is used. When editing is complete, the edited
+commands are echoed and executed.</p>
+
+<p style="margin-left:22%; margin-top: 1em">In the second
+form, <i>command</i> is re-executed after each instance of
+<i>pat</i> is replaced by <i>rep</i>. A useful alias to use
+with this is &lsquo;&lsquo;r=&quot;fc
+-s&quot;&rsquo;&rsquo;, so that typing &lsquo;&lsquo;r
+cc&rsquo;&rsquo; runs the last command beginning with
+&lsquo;&lsquo;cc&rsquo;&rsquo; and typing
+&lsquo;&lsquo;r&rsquo;&rsquo; re-executes the last
+command.</p>
+
+<p style="margin-left:22%; margin-top: 1em">If the first
+form is used, the return value is 0 unless an invalid option
+is encountered or <i>first</i> or <i>last</i> specify
+history lines out of range. If the <b>-e</b> option is
+supplied, the return value is the value of the last command
+executed or failure if an error occurs with the temporary
+file of commands. If the second form is used, the return
+status is that of the command re-executed, unless <i>cmd</i>
+does not specify a valid history line, in which case
+<b>fc</b> returns failure.</p>
+
+<p style="margin-left:11%;"><b>fg</b> [<i>jobspec</i>]</p>
+
+<p style="margin-left:22%;">Resume <i>jobspec</i> in the
+foreground, and make it the current job. If <i>jobspec</i>
+is not present, the shell&rsquo;s notion of the <i>current
+job</i> is used. The return value is that of the command
+placed into the foreground, or failure if run when job
+control is disabled or, when run with job control enabled,
+if <i>jobspec</i> does not specify a valid job or
+<i>jobspec</i> specifies a job that was started without job
+control.</p>
+
+<p style="margin-left:11%;"><b>getopts</b> <i>optstring
+name</i> [<i>args</i>]</p>
+
+<p style="margin-left:22%;"><b>getopts</b> is used by shell
+procedures to parse positional parameters. <i>optstring</i>
+contains the option characters to be recognized; if a
+character is followed by a colon, the option is expected to
+have an argument, which should be separated from it by white
+space. The colon and question mark characters may not be
+used as option characters. Each time it is invoked,
+<b>getopts</b> places the next option in the shell variable
+<i>name</i>, initializing <i>name</i> if it does not exist,
+and the index of the next argument to be processed into the
+variable <b><small>OPTIND</small></b><small>.
+<b>OPTIND</b></small> is initialized to 1 each time the
+shell or a shell script is invoked. When an option requires
+an argument, <b>getopts</b> places that argument into the
+variable <b><small>OPTARG</small></b><small>.</small> The
+shell does not reset <b><small>OPTIND</small></b>
+automatically; it must be manually reset between multiple
+calls to <b>getopts</b> within the same shell invocation if
+a new set of parameters is to be used.</p>
+
+<p style="margin-left:22%; margin-top: 1em">When the end of
+options is encountered, <b>getopts</b> exits with a return
+value greater than zero. <b>OPTIND</b> is set to the index
+of the first non-option argument, and <b>name</b> is set to
+?.</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>getopts</b>
+normally parses the positional parameters, but if more
+arguments are given in <i>args</i>, <b>getopts</b> parses
+those instead.</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>getopts</b>
+can report errors in two ways. If the first character of
+<i>optstring</i> is a colon, <i>silent</i> error reporting
+is used. In normal operation diagnostic messages are printed
+when invalid options or missing option arguments are
+encountered. If the variable <b><small>OPTERR</small></b> is
+set to 0, no error messages will be displayed, even if the
+first character of <i>optstring</i> is not a colon.</p>
+
+<p style="margin-left:22%; margin-top: 1em">If an invalid
+option is seen, <b>getopts</b> places ? into <i>name</i>
+and, if not silent, prints an error message and unsets
+<b><small>OPTARG</small></b><small>.</small> If
+<b>getopts</b> is silent, the option character found is
+placed in <b><small>OPTARG</small></b> and no diagnostic
+message is printed.</p>
+
+<p style="margin-left:22%; margin-top: 1em">If a required
+argument is not found, and <b>getopts</b> is not silent, a
+question mark (<b>?</b>) is placed in <i>name</i>,
+<b><small>OPTARG</small></b> is unset, and a diagnostic
+message is printed. If <b>getopts</b> is silent, then a
+colon (<b>:</b>) is placed in <i>name</i> and
+<b><small>OPTARG</small></b> is set to the option character
+found.</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>getopts</b>
+returns true if an option, specified or unspecified, is
+found. It returns false if the end of options is encountered
+or an error occurs.</p>
+
+<p style="margin-left:11%;"><b>hash</b> [<b>-lr</b>]
+[<b>-p</b> <i>filename</i>] [<b>-dt</b>] [<i>name</i>]</p>
+
+<p style="margin-left:22%;">For each <i>name</i>, the full
+file name of the command is determined by searching the
+directories in <b>$PATH</b> and remembered. If the <b>-p</b>
+option is supplied, no path search is performed, and
+<i>filename</i> is used as the full file name of the
+command. The <b>-r</b> option causes the shell to forget all
+remembered locations. The <b>-d</b> option causes the shell
+to forget the remembered location of each <i>name</i>. If
+the <b>-t</b> option is supplied, the full pathname to which
+each <i>name</i> corresponds is printed. If multiple
+<i>name</i> arguments are supplied with <b>-t</b>, the
+<i>name</i> is printed before the hashed full pathname. The
+<b>-l</b> option causes output to be displayed in a format
+that may be reused as input. If no arguments are given, or
+if only <b>-l</b> is supplied, information about remembered
+commands is printed. The return status is true unless a
+<i>name</i> is not found or an invalid option is
+supplied.</p>
+
+<p style="margin-left:11%;"><b>help</b> [<b>-s</b>]
+[<i>pattern</i>]</p>
+
+<p style="margin-left:22%;">Display helpful information
+about builtin commands. If <i>pattern</i> is specified,
+<b>help</b> gives detailed help on all commands matching
+<i>pattern</i>; otherwise help for all the builtins and
+shell control structures is printed. The <b>-s</b> option
+restricts the information displayed to a short usage
+synopsis. The return status is 0 unless no command matches
+<i>pattern</i>.</p>
+
+<p style="margin-left:11%;"><b>history [</b><i>n</i><b>]
+<br>
+history -c <br>
+history -d</b> <i>offset</i> <b><br>
+history -anrw</b> [<i>filename</i>] <b><br>
+history -p</b> <i>arg</i> [<i>arg ...</i>] <b><br>
+history -s</b> <i>arg</i> [<i>arg ...</i>]</p>
+
+<p style="margin-left:22%;">With no options, display the
+command history list with line numbers. Lines listed with a
+<b>*</b> have been modified. An argument of <i>n</i> lists
+only the last <i>n</i> lines. If the shell variable
+<b>HISTTIMEFORMAT</b> is set and not null, it is used as a
+format string for <i>strftime</i>(3) to display the time
+stamp associated with each displayed history entry. No
+intervening blank is printed between the formatted time
+stamp and the history line. If <i>filename</i> is supplied,
+it is used as the name of the history file; if not, the
+value of <b><small>HISTFILE</small></b> is used. Options, if
+supplied, have the following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-c</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Clear the history list by deleting all the entries.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-d</b> <i>offset</i></p>
+
+<p style="margin-left:32%;">Delete the history entry at
+position <i>offset</i>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-a</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Append the &lsquo;&lsquo;new&rsquo;&rsquo; history lines
+(history lines entered since the beginning of the current
+<b>bash</b> session) to the history file.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Read the history lines not already read from the history
+file into the current history list. These are lines appended
+to the history file since the beginning of the current
+<b>bash</b> session.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-r</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Read the contents of the history file and use them as
+the current history.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-w</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Write the current history to the history file,
+overwriting the history file&rsquo;s contents.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Perform history substitution on the following
+<i>args</i> and display the result on the standard output.
+Does not store the results in the history list. Each
+<i>arg</i> must be quoted to disable normal history
+expansion.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Store the <i>args</i> in the history list as a single
+entry. The last command in the history list is removed
+before the <i>args</i> are added.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If the
+<b>HISTTIMEFORMAT</b> is set, the time stamp information
+associated with each history entry is written to the history
+file. The return value is 0 unless an invalid option is
+encountered, an error occurs while reading or writing the
+history file, an invalid <i>offset</i> is supplied as an
+argument to <b>-d</b>, or the history expansion supplied as
+an argument to <b>-p</b> fails.</p>
+
+<p style="margin-left:11%;"><b>jobs</b> [<b>-lnprs</b>] [
+<i>jobspec</i> ... ] <b><br>
+jobs -x</b> <i>command</i> [ <i>args</i> ... ]</p>
+
+<p style="margin-left:22%;">The first form lists the active
+jobs. The options have the following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-l</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>List process IDs in addition to the normal
+information.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>List only the process ID of the job&rsquo;s process
+group leader.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Display information only about jobs that have changed
+status since the user was last notified of their status.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-r</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Restrict output to running jobs.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Restrict output to stopped jobs.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If
+<i>jobspec</i> is given, output is restricted to information
+about that job. The return status is 0 unless an invalid
+option is encountered or an invalid <i>jobspec</i> is
+supplied.</p>
+
+<p style="margin-left:22%; margin-top: 1em">If the
+<b>-x</b> option is supplied, <b>jobs</b> replaces any
+<i>jobspec</i> found in <i>command</i> or <i>args</i> with
+the corresponding process group ID, and executes
+<i>command</i> passing it <i>args</i>, returning its exit
+status.</p>
+
+<p style="margin-left:11%;"><b>kill</b> [<b>-s</b>
+<i>sigspec</i> | <b>-n</b> <i>signum</i> |
+<b>-</b><i>sigspec</i>] [<i>pid</i> | <i>jobspec</i>] ...
+<b><br>
+kill -l</b> [<i>sigspec</i> | <i>exit_status</i>]</p>
+
+<p style="margin-left:22%;">Send the signal named by
+<i>sigspec</i> or <i>signum</i> to the processes named by
+<i>pid</i> or <i>jobspec</i>. <i>sigspec</i> is either a
+case-insensitive signal name such as
+<b><small>SIGKILL</small></b> (with or without the
+<b><small>SIG</small></b> prefix) or a signal number;
+<i>signum</i> is a signal number. If <i>sigspec</i> is not
+present, then <b><small>SIGTERM</small></b> is assumed. An
+argument of <b>-l</b> lists the signal names. If any
+arguments are supplied when <b>-l</b> is given, the names of
+the signals corresponding to the arguments are listed, and
+the return status is 0. The <i>exit_status</i> argument to
+<b>-l</b> is a number specifying either a signal number or
+the exit status of a process terminated by a signal.
+<b>kill</b> returns true if at least one signal was
+successfully sent, or false if an error occurs or an invalid
+option is encountered.</p>
+
+<p style="margin-left:11%;"><b>let</b> <i>arg</i>
+[<i>arg</i> ...]</p>
+
+<p style="margin-left:22%;">Each <i>arg</i> is an
+arithmetic expression to be evaluated (see
+<b><small>ARITHMETIC EVALUATION</small></b><small>).</small>
+If the last <i>arg</i> evaluates to 0, <b>let</b> returns 1;
+0 is returned otherwise.</p>
+
+<p style="margin-left:11%;"><b>local</b> [<i>option</i>]
+[<i>name</i>[=<i>value</i>] ...]</p>
+
+<p style="margin-left:22%;">For each argument, a local
+variable named <i>name</i> is created, and assigned
+<i>value</i>. The <i>option</i> can be any of the options
+accepted by <b>declare</b>. When <b>local</b> is used within
+a function, it causes the variable <i>name</i> to have a
+visible scope restricted to that function and its children.
+With no operands, <b>local</b> writes a list of local
+variables to the standard output. It is an error to use
+<b>local</b> when not within a function. The return status
+is 0 unless <b>local</b> is used outside a function, an
+invalid <i>name</i> is supplied, or <i>name</i> is a
+readonly variable.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>logout</b></p></td>
+<td width="2%"></td>
+<td width="29%">
+
+
+<p>Exit a login shell.</p></td>
+<td width="49%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>popd</b> [-<b>n</b>]
+[+<i>n</i>] [-<i>n</i>]</p>
+
+<p style="margin-left:22%;">Removes entries from the
+directory stack. With no arguments, removes the top
+directory from the stack, and performs a <b>cd</b> to the
+new top directory. Arguments, if supplied, have the
+following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>+</b><i>n</i></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Removes the <i>n</i>th entry counting from the left of
+the list shown by <b>dirs</b>, starting with zero. For
+example: &lsquo;&lsquo;popd +0&rsquo;&rsquo; removes the
+first directory, &lsquo;&lsquo;popd +1&rsquo;&rsquo; the
+second.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-</b><i>n</i></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Removes the <i>n</i>th entry counting from the right of
+the list shown by <b>dirs</b>, starting with zero. For
+example: &lsquo;&lsquo;popd -0&rsquo;&rsquo; removes the
+last directory, &lsquo;&lsquo;popd -1&rsquo;&rsquo; the next
+to last.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Suppresses the normal change of directory when removing
+directories from the stack, so that only the stack is
+manipulated.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If the
+<b>popd</b> command is successful, a <b>dirs</b> is
+performed as well, and the return status is 0. <b>popd</b>
+returns false if an invalid option is encountered, the
+directory stack is empty, a non-existent directory stack
+entry is specified, or the directory change fails.</p>
+
+<p style="margin-left:11%;"><b>printf</b> <i>format</i>
+[<i>arguments</i>]</p>
+
+<p style="margin-left:22%;">Write the formatted
+<i>arguments</i> to the standard output under the control of
+the <i>format</i>. The <i>format</i> is a character string
+which contains three types of objects: plain characters,
+which are simply copied to standard output, character escape
+sequences, which are converted and copied to the standard
+output, and format specifications, each of which causes
+printing of the next successive <i>argument</i>. In addition
+to the standard <i>printf</i>(1) formats, <b>%b</b> causes
+<b>printf</b> to expand backslash escape sequences in the
+corresponding <i>argument</i> (except that <b>\c</b>
+terminates output, backslashes in <b>\&rsquo;</b>,
+<b>\&quot;</b>, and <b>\?</b> are not removed, and octal
+escapes beginning with <b>\0</b> may contain up to four
+digits), and <b>%q</b> causes <b>printf</b> to output the
+corresponding <i>argument</i> in a format that can be reused
+as shell input.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The
+<i>format</i> is reused as necessary to consume all of the
+<i>arguments</i>. If the <i>format</i> requires more
+<i>arguments</i> than are supplied, the extra format
+specifications behave as if a zero value or null string, as
+appropriate, had been supplied. The return value is zero on
+success, non-zero on failure.</p>
+
+<p style="margin-left:11%;"><b>pushd</b> [<b>-n</b>]
+[<i>dir</i>] <b><br>
+pushd</b> [<b>-n</b>] [+<i>n</i>] [-<i>n</i>]</p>
+
+<p style="margin-left:22%;">Adds a directory to the top of
+the directory stack, or rotates the stack, making the new
+top of the stack the current working directory. With no
+arguments, exchanges the top two directories and returns 0,
+unless the directory stack is empty. Arguments, if supplied,
+have the following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>+</b><i>n</i></p></td>
+<td width="6%"></td>
+<td width="68%">
+
+
+<p>Rotates the stack so that the <i>n</i>th directory
+(counting from the left of the list shown by <b>dirs</b>,
+starting with zero) is at the top.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>-</b><i>n</i></p></td>
+<td width="6%"></td>
+<td width="68%">
+
+
+<p>Rotates the stack so that the <i>n</i>th directory
+(counting from the right of the list shown by <b>dirs</b>,
+starting with zero) is at the top.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>-n</b></p></td>
+<td width="6%"></td>
+<td width="68%">
+
+
+<p>Suppresses the normal change of directory when adding
+directories to the stack, so that only the stack is
+manipulated.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><i>dir</i></p></td>
+<td width="6%"></td>
+<td width="68%">
+
+
+<p>Adds <i>dir</i> to the directory stack at the top,
+making it the new current working directory.</p></td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If the
+<b>pushd</b> command is successful, a <b>dirs</b> is
+performed as well. If the first form is used, <b>pushd</b>
+returns 0 unless the cd to <i>dir</i> fails. With the second
+form, <b>pushd</b> returns 0 unless the directory stack is
+empty, a non-existent directory stack element is specified,
+or the directory change to the specified new current
+directory fails.</p>
+
+<p style="margin-left:11%;"><b>pwd</b> [<b>-LP</b>]</p>
+
+<p style="margin-left:22%;">Print the absolute pathname of
+the current working directory. The pathname printed contains
+no symbolic links if the <b>-P</b> option is supplied or the
+<b>-o physical</b> option to the <b>set</b> builtin command
+is enabled. If the <b>-L</b> option is used, the pathname
+printed may contain symbolic links. The return status is 0
+unless an error occurs while reading the name of the current
+directory or an invalid option is supplied.</p>
+
+<p style="margin-left:11%;"><b>read</b> [<b>-ers</b>]
+[<b>-u</b> <i>fd</i>] [<b>-t</b> <i>timeout</i>] [<b>-a</b>
+<i>aname</i>] [<b>-p</b> <i>prompt</i>] [<b>-n</b>
+<i>nchars</i>] [<b>-d</b> <i><br>
+delim</i>] [<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">One line is read from the
+standard input, or from the file descriptor <i>fd</i>
+supplied as an argument to the <b>-u</b> option, and the
+first word is assigned to the first <i>name</i>, the second
+word to the second <i>name</i>, and so on, with leftover
+words and their intervening separators assigned to the last
+<i>name</i>. If there are fewer words read from the input
+stream than names, the remaining names are assigned empty
+values. The characters in <b><small>IFS</small></b> are used
+to split the line into words. The backslash character
+(<b>\</b>) may be used to remove any special meaning for the
+next character read and for line continuation. Options, if
+supplied, have the following meanings: <b><br>
+-a</b> <i>aname</i></p>
+
+<p style="margin-left:32%;">The words are assigned to
+sequential indices of the array variable <i>aname</i>,
+starting at 0. <i>aname</i> is unset before any new values
+are assigned. Other <i>name</i> arguments are ignored.</p>
+
+<p style="margin-left:22%;"><b>-d</b> <i>delim</i></p>
+
+<p style="margin-left:32%;">The first character of
+<i>delim</i> is used to terminate the input line, rather
+than newline.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-e</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>If the standard input is coming from a terminal,
+<b>readline</b> (see <b><small>READLINE</small></b> above)
+is used to obtain the line.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-n</b> <i>nchars</i></p>
+
+<p style="margin-left:32%;"><b>read</b> returns after
+reading <i>nchars</i> characters rather than waiting for a
+complete line of input.</p>
+
+<p style="margin-left:22%;"><b>-p</b> <i>prompt</i></p>
+
+<p style="margin-left:32%;">Display <i>prompt</i> on
+standard error, without a trailing newline, before
+attempting to read any input. The prompt is displayed only
+if input is coming from a terminal.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-r</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Backslash does not act as an escape character. The
+backslash is considered to be part of the line. In
+particular, a backslash-newline pair may not be used as a
+line continuation.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Silent mode. If input is coming from a terminal,
+characters are not echoed.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-t</b> <i>timeout</i></p>
+
+<p style="margin-left:32%;">Cause <b>read</b> to time out
+and return failure if a complete line of input is not read
+within <i>timeout</i> seconds. This option has no effect if
+<b>read</b> is not reading input from the terminal or a
+pipe.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>-u</b> <i>fd</i></p></td>
+<td width="3%"></td>
+<td width="54%">
+
+
+<p>Read input from file descriptor <i>fd</i>.</p></td>
+<td width="14%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If no
+<i>names</i> are supplied, the line read is assigned to the
+variable <b><small>REPLY</small></b><small>.</small> The
+return code is zero, unless end-of-file is encountered,
+<b>read</b> times out, or an invalid file descriptor is
+supplied as the argument to <b>-u</b>.</p>
+
+<p style="margin-left:11%;"><b>readonly</b> [<b>-apf</b>]
+[<i>name</i>[=<i>word</i>] ...]</p>
+
+<p style="margin-left:22%;">The given <i>names</i> are
+marked readonly; the values of these <i>names</i> may not be
+changed by subsequent assignment. If the <b>-f</b> option is
+supplied, the functions corresponding to the <i>names</i>
+are so marked. The <b>-a</b> option restricts the variables
+to arrays. If no <i>name</i> arguments are given, or if the
+<b>-p</b> option is supplied, a list of all readonly names
+is printed. The <b>-p</b> option causes output to be
+displayed in a format that may be reused as input. If a
+variable name is followed by =<i>word</i>, the value of the
+variable is set to <i>word</i>. The return status is 0
+unless an invalid option is encountered, one of the
+<i>names</i> is not a valid shell variable name, or
+<b>-f</b> is supplied with a <i>name</i> that is not a
+function.</p>
+
+<p style="margin-left:11%;"><b>return</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">Causes a function to exit with
+the return value specified by <i>n</i>. If <i>n</i> is
+omitted, the return status is that of the last command
+executed in the function body. If used outside a function,
+but during execution of a script by the <b>.</b>
+(<b>source</b>) command, it causes the shell to stop
+executing that script and return either <i>n</i> or the exit
+status of the last command executed within the script as the
+exit status of the script. If used outside a function and
+not during execution of a script by <b>.</b>, the return
+status is false. Any command associated with the
+<b>RETURN</b> trap is executed before execution resumes
+after the function or script.</p>
+
+<p style="margin-left:11%;"><b>set</b>
+[<b>--abefhkmnptuvxBCHP</b>] [<b>-o</b> <i>option</i>]
+[<i>arg</i> ...]</p>
+
+<p style="margin-left:22%;">Without options, the name and
+value of each shell variable are displayed in a format that
+can be reused as input. The output is sorted according to
+the current locale. When options are specified, they set or
+unset shell attributes. Any arguments remaining after the
+options are processed are treated as values for the
+positional parameters and are assigned, in order, to
+<b>$1</b>, <b>$2</b>, <b>... $</b><i>n</i>. Options, if
+specified, have the following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-a</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Automatically mark variables and functions which are
+modified or created for export to the environment of
+subsequent commands.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-b</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Report the status of terminated background jobs
+immediately, rather than before the next primary prompt.
+This is effective only when job control is enabled.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-e</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Exit immediately if a <i>simple command</i> (see
+<b><small>SHELL GRAMMAR</small></b> above) exits with a
+non-zero status. The shell does not exit if the command that
+fails is part of the command list immediately following a
+<b>while</b> or <b>until</b> keyword, part of the test in an
+<i>if</i> statement, part of a <b>&amp;&amp;</b> or
+<b>&#9130;&#9130;</b> list, or if the command&rsquo;s return
+value is being inverted via <b>!</b>. A trap on <b>ERR</b>,
+if set, is executed before the shell exits.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-f</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Disable pathname expansion.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-h</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Remember the location of commands as they are looked up
+for execution. This is enabled by default.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-k</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>All arguments in the form of assignment statements are
+placed in the environment for a command, not just those that
+precede the command name.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-m</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Monitor mode. Job control is enabled. This option is on
+by default for interactive shells on systems that support it
+(see <b><small>JOB CONTROL</small></b> above). Background
+processes run in a separate process group and a line
+containing their exit status is printed upon their
+completion.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Read commands but do not execute them. This may be used
+to check a shell script for syntax errors. This is ignored
+by interactive shells.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>-o</b>
+<i>option-name</i></p>
+
+<p style="margin-left:34%;">The <i>option-name</i> can be
+one of the following: <b><br>
+allexport</b></p>
+
+<p style="margin-left:46%;">Same as <b>-a</b>.</p>
+
+<p style="margin-left:34%;"><b>braceexpand</b></p>
+
+<p style="margin-left:46%;">Same as <b>-B</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="8%">
+
+
+<p><b>emacs</b></p></td>
+<td width="4%"></td>
+<td width="54%">
+
+
+<p>Use an emacs-style command line editing interface. This
+is enabled by default when the shell is interactive, unless
+the shell is started with the <b>--noediting</b> option.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>errtrace</b></p>
+
+<p style="margin-left:46%;">Same as <b>-E</b>.</p>
+
+<p style="margin-left:34%;"><b>functrace</b></p>
+
+<p style="margin-left:46%;">Same as <b>-T</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>errexit</b></p></td>
+<td width="1%"></td>
+<td width="17%">
+
+
+<p>Same as <b>-e</b>.</p></td>
+<td width="37%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>hashall</b></p></td>
+<td width="1%"></td>
+<td width="17%">
+
+
+<p>Same as <b>-h</b>.</p></td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>histexpand</b></p>
+
+<p style="margin-left:46%;">Same as <b>-H</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>history</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Enable command history, as described above under
+<b><small>HISTORY</small></b><small>.</small> This option is
+on by default in interactive shells.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>ignoreeof</b></p>
+
+<p style="margin-left:46%;">The effect is as if the shell
+command &lsquo;&lsquo;IGNOREEOF=10&rsquo;&rsquo; had been
+executed (see <b>Shell Variables</b> above).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>keyword</b></p></td>
+<td width="1%"></td>
+<td width="17%">
+
+
+<p>Same as <b>-k</b>.</p></td>
+<td width="37%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>monitor</b></p></td>
+<td width="1%"></td>
+<td width="17%">
+
+
+<p>Same as <b>-m</b>.</p></td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>noclobber</b></p>
+
+<p style="margin-left:46%;">Same as <b>-C</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>noexec</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-n</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>noglob</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-f</b>. <b>nolog</b> Currently ignored.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>notify</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-b</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>nounset</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-u</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>onecmd</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-t</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>physical</b></p>
+
+<p style="margin-left:46%;">Same as <b>-P</b>.</p>
+
+<p style="margin-left:34%;"><b>pipefail</b></p>
+
+<p style="margin-left:46%;">If set, the return value of a
+pipeline is the value of the last (rightmost) command to
+exit with a non-zero status, or zero if all commands in the
+pipeline exit successfully. This option is disabled by
+default.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="8%">
+
+
+<p><b>posix</b></p></td>
+<td width="4%"></td>
+<td width="54%">
+
+
+<p>Change the behavior of <b>bash</b> where the default
+operation differs from the POSIX 1003.2 standard to match
+the standard (<i>&lsquo;posix mode</i>).</p></td></tr>
+</table>
+
+<p style="margin-left:34%;"><b>privileged</b></p>
+
+<p style="margin-left:46%;">Same as <b>-p</b>.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>verbose</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-v</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>vi</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Use a vi-style command line editing interface.</p></td></tr>
+<tr valign="top" align="left">
+<td width="34%"></td>
+<td width="11%">
+
+
+<p><b>xtrace</b></p></td>
+<td width="1%"></td>
+<td width="54%">
+
+
+<p>Same as <b>-x</b>.</p></td></tr>
+</table>
+
+<p style="margin-left:34%;">If <b>-o</b> is supplied with
+no <i>option-name</i>, the values of the current options are
+printed. If <b>+o</b> is supplied with no
+<i>option-name</i>, a series of <b>set</b> commands to
+recreate the current option settings is displayed on the
+standard output.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p style="margin-top: 1em"><b>-p</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p style="margin-top: 1em">Turn on <i>privileged</i> mode.
+In this mode, the <b><small>$ENV</small></b> and
+<b><small>$BASH_ENV</small></b> files are not processed,
+shell functions are not inherited from the environment, and
+the <b><small>SHELLOPTS</small></b> variable, if it appears
+in the environment, is ignored. If the shell is started with
+the effective user (group) id not equal to the real user
+(group) id, and the <b>-p</b> option is not supplied, these
+actions are taken and the effective user id is set to the
+real user id. If the <b>-p</b> option is supplied at
+startup, the effective user id is not reset. Turning this
+option off causes the effective user and group ids to be set
+to the real user and group ids.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-t</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Exit after reading and executing one command.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-u</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Treat unset variables as an error when performing
+parameter expansion. If expansion is attempted on an unset
+variable, the shell prints an error message, and, if not
+interactive, exits with a non-zero status.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-v</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Print shell input lines as they are read.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-x</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>After expanding each <i>simple command</i>, <b>for</b>
+command, <b>case</b> command, <b>select</b> command, or
+arithmetic <b>for</b> command, display the expanded value of
+<b><small>PS4</small></b><small>,</small> followed by the
+command and its expanded arguments or associated word
+list.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-B</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>The shell performs brace expansion (see <b>Brace
+Expansion</b> above). This is on by default.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-C</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>If set, <b>bash</b> does not overwrite an existing file
+with the <b>&gt;</b>, <b>&gt;&amp;</b>, and <b>&lt;&gt;</b>
+redirection operators. This may be overridden when creating
+output files by using the redirection operator <b>&gt;|</b>
+instead of <b>&gt;</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-E</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>If set, any trap on <b>ERR</b> is inherited by shell
+functions, command substitutions, and commands executed in a
+subshell environment. The <b>ERR</b> trap is normally not
+inherited in such cases.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-H</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Enable <b>!</b> style history substitution. This option
+is on by default when the shell is interactive.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-P</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>If set, the shell does not follow symbolic links when
+executing commands such as <b>cd</b> that change the current
+working directory. It uses the physical directory structure
+instead. By default, <b>bash</b> follows the logical chain
+of directories when performing commands which change the
+current directory.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-T</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>If set, any trap on <b>DEBUG</b> is inherited by shell
+functions, command substitutions, and commands executed in a
+subshell environment. The <b>DEBUG</b> trap is normally not
+inherited in such cases.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>--</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>If no arguments follow this option, then the positional
+parameters are unset. Otherwise, the positional parameters
+are set to the <i>arg</i>s, even if some of them begin with
+a <b>-</b>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-</b></p></td>
+<td width="9%"></td>
+<td width="66%">
+
+
+<p>Signal the end of options, cause all remaining
+<i>arg</i>s to be assigned to the positional parameters. The
+<b>-x</b> and <b>-v</b> options are turned off. If there are
+no <i>arg</i>s, the positional parameters remain
+unchanged.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">The options are
+off by default unless otherwise noted. Using + rather than -
+causes these options to be turned off. The options can also
+be specified as arguments to an invocation of the shell. The
+current set of options may be found in <b>$-</b>. The return
+status is always true unless an invalid option is
+encountered.</p>
+
+<p style="margin-left:11%;"><b>shift</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">The positional parameters from
+<i>n</i>+1 ... are renamed to <b>$1 ....</b> Parameters
+represented by the numbers <b>$#</b> down to
+<b>$#</b>-<i>n</i>+1 are unset. <i>n</i> must be a
+non-negative number less than or equal to <b>$#</b>. If
+<i>n</i> is 0, no parameters are changed. If <i>n</i> is not
+given, it is assumed to be 1. If <i>n</i> is greater than
+<b>$#</b>, the positional parameters are not changed. The
+return status is greater than zero if <i>n</i> is greater
+than <b>$#</b> or less than zero; otherwise 0.</p>
+
+<p style="margin-left:11%;"><b>shopt</b> [<b>-pqsu</b>]
+[<b>-o</b>] [<i>optname</i> ...]</p>
+
+<p style="margin-left:22%;">Toggle the values of variables
+controlling optional shell behavior. With no options, or
+with the <b>-p</b> option, a list of all settable options is
+displayed, with an indication of whether or not each is set.
+The <b>-p</b> option causes output to be displayed in a form
+that may be reused as input. Other options have the
+following meanings:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Enable (set) each <i>optname</i>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-u</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Disable (unset) each <i>optname</i>.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-q</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Suppresses normal output (quiet mode); the return status
+indicates whether the <i>optname</i> is set or unset. If
+multiple <i>optname</i> arguments are given with <b>-q</b>,
+the return status is zero if all <i>optnames</i> are
+enabled; non-zero otherwise.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-o</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>Restricts the values of <i>optname</i> to be those
+defined for the <b>-o</b> option to the <b>set</b>
+builtin.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If either
+<b>-s</b> or <b>-u</b> is used with no <i>optname</i>
+arguments, the display is limited to those options which are
+set or unset, respectively. Unless otherwise noted, the
+<b>shopt</b> options are disabled (unset) by default.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The return
+status when listing options is zero if all <i>optnames</i>
+are enabled, non-zero otherwise. When setting or unsetting
+options, the return status is zero unless an <i>optname</i>
+is not a valid shell option.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The list of
+<b>shopt</b> options is: <b><br>
+cdable_vars</b></p>
+
+<p style="margin-left:34%;">If set, an argument to the
+<b>cd</b> builtin command that is not a directory is assumed
+to be the name of a variable whose value is the directory to
+change to.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="10%">
+
+
+<p><b>cdspell</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>If set, minor errors in the spelling of a directory
+component in a <b>cd</b> command will be corrected. The
+errors checked for are transposed characters, a missing
+character, and one character too many. If a correction is
+found, the corrected file name is printed, and the command
+proceeds. This option is only used by interactive
+shells.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>checkhash</b></p>
+
+<p style="margin-left:34%;">If set, <b>bash</b> checks that
+a command found in the hash table exists before trying to
+execute it. If a hashed command no longer exists, a normal
+path search is performed.</p>
+
+<p style="margin-left:22%;"><b>checkwinsize</b></p>
+
+<p style="margin-left:34%;">If set, <b>bash</b> checks the
+window size after each command and, if necessary, updates
+the values of <b><small>LINES</small></b> and
+<b><small>COLUMNS</small></b><small>.</small></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="10%">
+
+
+<p><b>cmdhist</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>If set, <b>bash</b> attempts to save all lines of a
+multiple-line command in the same history entry. This allows
+easy re-editing of multi-line commands.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="10%">
+
+
+<p><b>dotglob</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>If set, <b>bash</b> includes filenames beginning with a
+&lsquo;.&rsquo; in the results of pathname expansion.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>execfail</b></p>
+
+<p style="margin-left:34%;">If set, a non-interactive shell
+will not exit if it cannot execute the file specified as an
+argument to the <b>exec</b> builtin command. An interactive
+shell does not exit if <b>exec</b> fails.</p>
+
+<p style="margin-left:22%;"><b>expand_aliases</b></p>
+
+<p style="margin-left:34%;">If set, aliases are expanded as
+described above under
+<b><small>ALIASES</small></b><small>.</small> This option is
+enabled by default for interactive shells.</p>
+
+<p style="margin-left:22%;"><b>extdebug</b></p>
+
+<p style="margin-left:34%;">If set, behavior intended for
+use by debuggers is enabled:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="15%">
+
+
+<p><b>1.</b></p></td>
+<td width="8%"></td>
+<td width="55%">
+
+
+<p>The <b>-F</b> option to the <b>declare</b> builtin
+displays the source file name and line number corresponding
+to each function name supplied as an argument.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="15%">
+
+
+<p><b>2.</b></p></td>
+<td width="8%"></td>
+<td width="55%">
+
+
+<p>If the command run by the <b>DEBUG</b> trap returns a
+non-zero value, the next command is skipped and not
+executed.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="15%">
+
+
+<p><b>3.</b></p></td>
+<td width="8%"></td>
+<td width="55%">
+
+
+<p>If the command run by the <b>DEBUG</b> trap returns a
+value of 2, and the shell is executing in a subroutine (a
+shell function or a shell script executed by the <b>.</b> or
+<b>source</b> builtins), a call to <b>return</b> is
+simulated.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="15%">
+
+
+<p><b>extglob</b></p></td>
+<td width="8%"></td>
+<td width="55%">
+</td></tr>
+</table>
+
+<p style="margin-left:34%; margin-top: 1em">If set, the
+extended pattern matching features described above under
+<b>Pathname Expansion</b> are enabled.</p>
+
+<p style="margin-left:22%;"><b>extquote</b></p>
+
+<p style="margin-left:34%;">If set,
+<b>$</b>&rsquo;<i>string</i>&rsquo; and
+<b>$</b>&quot;<i>string</i>&quot; quoting is performed
+within <b>${</b><i>parameter</i><b>}</b> expansions enclosed
+in double quotes. This option is enabled by default.</p>
+
+<p style="margin-left:22%;"><b>failglob</b></p>
+
+<p style="margin-left:34%;">If set, patterns which fail to
+match filenames during pathname expansion result in an
+expansion error.</p>
+
+<p style="margin-left:22%;"><b>force_fignore</b></p>
+
+<p style="margin-left:34%;">If set, the suffixes specified
+by the <b>FIGNORE</b> shell variable cause words to be
+ignored when performing word completion even if the ignored
+words are the only possible completions. See <b><small>SHELL
+VARIABLES</small></b> above for a description of
+<b>FIGNORE</b>. This option is enabled by default.</p>
+
+<p style="margin-left:22%;"><b>gnu_errfmt</b></p>
+
+<p style="margin-left:34%;">If set, shell error messages
+are written in the standard GNU error message format.</p>
+
+<p style="margin-left:22%;"><b>histappend</b></p>
+
+<p style="margin-left:34%;">If set, the history list is
+appended to the file named by the value of the
+<b>HISTFILE</b> variable when the shell exits, rather than
+overwriting the file.</p>
+
+<p style="margin-left:22%;"><b>histreedit</b></p>
+
+<p style="margin-left:34%;">If set, and <b>readline</b> is
+being used, a user is given the opportunity to re-edit a
+failed history substitution.</p>
+
+<p style="margin-left:22%;"><b>histverify</b></p>
+
+<p style="margin-left:34%;">If set, and <b>readline</b> is
+being used, the results of history substitution are not
+immediately passed to the shell parser. Instead, the
+resulting line is loaded into the <b>readline</b> editing
+buffer, allowing further modification.</p>
+
+<p style="margin-left:22%;"><b>hostcomplete</b></p>
+
+<p style="margin-left:34%;">If set, and <b>readline</b> is
+being used, <b>bash</b> will attempt to perform hostname
+completion when a word containing a <b>@</b> is being
+completed (see <b>Completing</b> under
+<b><small>READLINE</small></b> above). This is enabled by
+default.</p>
+
+<p style="margin-left:22%;"><b>huponexit</b></p>
+
+<p style="margin-left:34%;">If set, <b>bash</b> will send
+<b><small>SIGHUP</small></b> to all jobs when an interactive
+login shell exits.</p>
+
+
+<p style="margin-left:22%;"><b>interactive_comments</b></p>
+
+<p style="margin-left:34%;">If set, allow a word beginning
+with <b>#</b> to cause that word and all remaining
+characters on that line to be ignored in an interactive
+shell (see <b><small>COMMENTS</small></b> above). This
+option is enabled by default.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="10%">
+
+
+<p><b>lithist</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>If set, and the <b>cmdhist</b> option is enabled,
+multi-line commands are saved to the history with embedded
+newlines rather than using semicolon separators where
+possible.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>login_shell</b></p>
+
+<p style="margin-left:34%;">The shell sets this option if
+it is started as a login shell (see
+<b><small>INVOCATION</small></b> above). The value may not
+be changed.</p>
+
+<p style="margin-left:22%;"><b>mailwarn</b></p>
+
+<p style="margin-left:34%;">If set, and a file that
+<b>bash</b> is checking for mail has been accessed since the
+last time it was checked, the message &lsquo;&lsquo;The mail
+in <i>mailfile</i> has been read&rsquo;&rsquo; is
+displayed.</p>
+
+
+<p style="margin-left:22%;"><b>no_empty_cmd_completion</b></p>
+
+<p style="margin-left:34%;">If set, and <b>readline</b> is
+being used, <b>bash</b> will not attempt to search the
+<b>PATH</b> for possible completions when completion is
+attempted on an empty line.</p>
+
+<p style="margin-left:22%;"><b>nocaseglob</b></p>
+
+<p style="margin-left:34%;">If set, <b>bash</b> matches
+filenames in a case-insensitive fashion when performing
+pathname expansion (see <b>Pathname Expansion</b>
+above).</p>
+
+<p style="margin-left:22%;"><b>nullglob</b></p>
+
+<p style="margin-left:34%;">If set, <b>bash</b> allows
+patterns which match no files (see <b>Pathname Expansion</b>
+above) to expand to a null string, rather than
+themselves.</p>
+
+<p style="margin-left:22%;"><b>progcomp</b></p>
+
+<p style="margin-left:34%;">If set, the programmable
+completion facilities (see <b>Programmable Completion</b>
+above) are enabled. This option is enabled by default.</p>
+
+<p style="margin-left:22%;"><b>promptvars</b></p>
+
+<p style="margin-left:34%;">If set, prompt strings undergo
+parameter expansion, command substitution, arithmetic
+expansion, and quote removal after being expanded as
+described in <b><small>PROMPTING</small></b> above. This
+option is enabled by default.</p>
+
+<p style="margin-left:22%;"><b>restricted_shell</b></p>
+
+<p style="margin-left:34%;">The shell sets this option if
+it is started in restricted mode (see <b><small>RESTRICTED
+SHELL</small></b> below). The value may not be changed. This
+is not reset when the startup files are executed, allowing
+the startup files to discover whether or not a shell is
+restricted.</p>
+
+<p style="margin-left:22%;"><b>shift_verbose</b></p>
+
+<p style="margin-left:34%;">If set, the <b>shift</b>
+builtin prints an error message when the shift count exceeds
+the number of positional parameters.</p>
+
+<p style="margin-left:22%;"><b>sourcepath</b></p>
+
+<p style="margin-left:34%;">If set, the <b>source</b>
+(<b>.</b>) builtin uses the value of
+<b><small>PATH</small></b> to find the directory containing
+the file supplied as an argument. This option is enabled by
+default.</p>
+
+<p style="margin-left:22%;"><b>xpg_echo</b></p>
+
+<p style="margin-left:34%;">If set, the <b>echo</b> builtin
+expands backslash-escape sequences by default.</p>
+
+<p style="margin-left:11%;"><b>suspend</b> [<b>-f</b>]</p>
+
+<p style="margin-left:22%;">Suspend the execution of this
+shell until it receives a <b><small>SIGCONT</small></b>
+signal. The <b>-f</b> option says not to complain if this is
+a login shell; just suspend anyway. The return status is 0
+unless the shell is a login shell and <b>-f</b> is not
+supplied, or if job control is not enabled.</p>
+
+<p style="margin-left:11%;"><b>test</b> <i>expr</i> <b><br>
+[</b> <i>expr</i> <b>]</b></p>
+
+<p style="margin-left:22%;">Return a status of 0 or 1
+depending on the evaluation of the conditional expression
+<i>expr</i>. Each operator and operand must be a separate
+argument. Expressions are composed of the primaries
+described above under <b><small>CONDITIONAL
+EXPRESSIONS</small></b><small>.</small></p>
+
+<p style="margin-left:22%; margin-top: 1em">Expressions may
+be combined using the following operators, listed in
+decreasing order of precedence.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="9%">
+
+
+<p><b>!</b> <i>expr</i></p></td>
+<td width="1%"></td>
+<td width="34%">
+
+
+<p>True if <i>expr</i> is false.</p></td>
+<td width="34%">
+</td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>(</b> <i>expr</i>
+<b>)</b></p>
+
+<p style="margin-left:32%;">Returns the value of
+<i>expr</i>. This may be used to override the normal
+precedence of operators.</p>
+
+<p style="margin-left:22%;"><i>expr1</i> -<b>a</b>
+<i>expr2</i></p>
+
+<p style="margin-left:32%;">True if both <i>expr1</i> and
+<i>expr2</i> are true.</p>
+
+<p style="margin-left:22%;"><i>expr1</i> -<b>o</b>
+<i>expr2</i></p>
+
+<p style="margin-left:32%;">True if either <i>expr1</i> or
+<i>expr2</i> is true.</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>test</b> and
+<b>[</b> evaluate conditional expressions using a set of
+rules based on the number of arguments. <br>
+0 arguments</p>
+
+<p style="margin-left:32%;">The expression is false.</p>
+
+<p style="margin-left:22%;">1 argument</p>
+
+<p style="margin-left:32%;">The expression is true if and
+only if the argument is not null.</p>
+
+<p style="margin-left:22%;">2 arguments</p>
+
+<p style="margin-left:32%;">If the first argument is
+<b>!</b>, the expression is true if and only if the second
+argument is null. If the first argument is one of the unary
+conditional operators listed above under
+<b><small>CONDITIONAL
+EXPRESSIONS</small></b><small>,</small> the expression is
+true if the unary test is true. If the first argument is not
+a valid unary conditional operator, the expression is
+false.</p>
+
+<p style="margin-left:22%;">3 arguments</p>
+
+<p style="margin-left:32%;">If the second argument is one
+of the binary conditional operators listed above under
+<b><small>CONDITIONAL
+EXPRESSIONS</small></b><small>,</small> the result of the
+expression is the result of the binary test using the first
+and third arguments as operands. If the first argument is
+<b>!</b>, the value is the negation of the two-argument test
+using the second and third arguments. If the first argument
+is exactly <b>(</b> and the third argument is exactly
+<b>)</b>, the result is the one-argument test of the second
+argument. Otherwise, the expression is false. The <b>-a</b>
+and <b>-o</b> operators are considered binary operators in
+this case.</p>
+
+<p style="margin-left:22%;">4 arguments</p>
+
+<p style="margin-left:32%;">If the first argument is
+<b>!</b>, the result is the negation of the three-argument
+expression composed of the remaining arguments. Otherwise,
+the expression is parsed and evaluated according to
+precedence using the rules listed above.</p>
+
+<p style="margin-left:22%;">5 or more arguments</p>
+
+<p style="margin-left:32%;">The expression is parsed and
+evaluated according to precedence using the rules listed
+above.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>times</b></p></td>
+<td width="4%"></td>
+<td width="78%">
+
+
+<p>Print the accumulated user and system times for the
+shell and for processes run from the shell. The return
+status is 0.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>trap</b> [<b>-lp</b>]
+[[<i>arg</i>] <i>sigspec</i> ...]</p>
+
+<p style="margin-left:22%;">The command <i>arg</i> is to be
+read and executed when the shell receives signal(s)
+<i>sigspec</i>. If <i>arg</i> is absent (and there is a
+single <i>sigspec</i>) or <b>-</b>, each specified signal is
+reset to its original disposition (the value it had upon
+entrance to the shell). If <i>arg</i> is the null string the
+signal specified by each <i>sigspec</i> is ignored by the
+shell and by the commands it invokes. If <i>arg</i> is not
+present and <b>-p</b> has been supplied, then the trap
+commands associated with each <i>sigspec</i> are displayed.
+If no arguments are supplied or if only <b>-p</b> is given,
+<b>trap</b> prints the list of commands associated with each
+signal. The <b>-l</b> option causes the shell to print a
+list of signal names and their corresponding numbers. Each
+<i>sigspec</i> is either a signal name defined in
+&lt;<i>signal.h</i>&gt;, or a signal number. Signal names
+are case insensitive and the SIG prefix is optional. If a
+<i>sigspec</i> is <b><small>EXIT</small></b> (0) the command
+<i>arg</i> is executed on exit from the shell. If a
+<i>sigspec</i> is
+<b><small>DEBUG</small></b><small>,</small> the command
+<i>arg</i> is executed before every <i>simple command</i>,
+<i>for</i> command, <i>case</i> command, <i>select</i>
+command, every arithmetic <i>for</i> command, and before the
+first command executes in a shell function (see
+<b><small>SHELL GRAMMAR</small></b> above). Refer to the
+description of the <b>extglob</b> option to the <b>shopt</b>
+builtin for details of its effect on the <b>DEBUG</b> trap.
+If a <i>sigspec</i> is
+<b><small>ERR</small></b><small>,</small> the command
+<i>arg</i> is executed whenever a simple command has a
+non-zero exit status, subject to the following conditions.
+The <b><small>ERR</small></b> trap is not executed if the
+failed command is part of the command list immediately
+following a <b>while</b> or <b>until</b> keyword, part of
+the test in an <i>if</i> statement, part of a
+<b>&amp;&amp;</b> or <b>&#9130;&#9130;</b> list, or if the
+command&rsquo;s return value is being inverted via <b>!</b>.
+These are the same conditions obeyed by the <b>errexit</b>
+option. If a <i>sigspec</i> is
+<b><small>RETURN</small></b><small>,</small> the command
+<i>arg</i> is executed each time a shell function or a
+script executed with the <b>.</b> or <b>source</b> builtins
+finishes executing. Signals ignored upon entry to the shell
+cannot be trapped or reset. Trapped signals are reset to
+their original values in a child process when it is created.
+The return status is false if any <i>sigspec</i> is invalid;
+otherwise <b>trap</b> returns true.</p>
+
+<p style="margin-left:11%;"><b>type</b> [<b>-aftpP</b>]
+<i>name</i> [<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">With no options, indicate how
+each <i>name</i> would be interpreted if used as a command
+name. If the <b>-t</b> option is used, <b>type</b> prints a
+string which is one of <i>alias</i>, <i>keyword</i>,
+<i>function</i>, <i>builtin</i>, or <i>file</i> if
+<i>name</i> is an alias, shell reserved word, function,
+builtin, or disk file, respectively. If the <i>name</i> is
+not found, then nothing is printed, and an exit status of
+false is returned. If the <b>-p</b> option is used,
+<b>type</b> either returns the name of the disk file that
+would be executed if <i>name</i> were specified as a command
+name, or nothing if &lsquo;&lsquo;type -t name&rsquo;&rsquo;
+would not return <i>file</i>. The <b>-P</b> option forces a
+<b><small>PATH</small></b> search for each <i>name</i>, even
+if &lsquo;&lsquo;type -t name&rsquo;&rsquo; would not return
+<i>file</i>. If a command is hashed, <b>-p</b> and <b>-P</b>
+print the hashed value, not necessarily the file that
+appears first in <b><small>PATH</small></b><small>.</small>
+If the <b>-a</b> option is used, <b>type</b> prints all of
+the places that contain an executable named <i>name</i>.
+This includes aliases and functions, if and only if the
+<b>-p</b> option is not also used. The table of hashed
+commands is not consulted when using <b>-a</b>. The
+<b>-f</b> option suppresses shell function lookup, as with
+the <b>command</b> builtin. <b>type</b> returns true if any
+of the arguments are found, false if none are found.</p>
+
+<p style="margin-left:11%;"><b>ulimit</b>
+[<b>-SHacdflmnpstuv</b> [<i>limit</i>]]</p>
+
+<p style="margin-left:22%;">Provides control over the
+resources available to the shell and to processes started by
+it, on systems that allow such control. The <b>-H</b> and
+<b>-S</b> options specify that the hard or soft limit is set
+for the given resource. A hard limit cannot be increased
+once it is set; a soft limit may be increased up to the
+value of the hard limit. If neither <b>-H</b> nor <b>-S</b>
+is specified, both the soft and hard limits are set. The
+value of <i>limit</i> can be a number in the unit specified
+for the resource or one of the special values <b>hard</b>,
+<b>soft</b>, or <b>unlimited</b>, which stand for the
+current hard limit, the current soft limit, and no limit,
+respectively. If <i>limit</i> is omitted, the current value
+of the soft limit of the resource is printed, unless the
+<b>-H</b> option is given. When more than one resource is
+specified, the limit name and unit are printed before the
+value. Other options are interpreted as follows:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-a</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>All current limits are reported</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-c</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum size of core files created</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-d</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum size of a process&rsquo;s data segment</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-f</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum size of files created by the shell</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-l</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum size that may be locked into memory</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-m</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum resident set size</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-n</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum number of open file descriptors (most
+systems do not allow this value to be set)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-p</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The pipe size in 512-byte blocks (this may not be
+set)</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-s</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum stack size</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-t</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum amount of cpu time in seconds</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-u</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum number of processes available to a single
+user</p> </td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="3%">
+
+
+<p><b>-v</b></p></td>
+<td width="7%"></td>
+<td width="68%">
+
+
+<p>The maximum amount of virtual memory available to the
+shell</p> </td></tr>
+</table>
+
+<p style="margin-left:22%; margin-top: 1em">If <i>limit</i>
+is given, it is the new value of the specified resource (the
+<b>-a</b> option is display only). If no option is given,
+then <b>-f</b> is assumed. Values are in 1024-byte
+increments, except for <b>-t</b>, which is in seconds,
+<b>-p</b>, which is in units of 512-byte blocks, and
+<b>-n</b> and <b>-u</b>, which are unscaled values. The
+return status is 0 unless an invalid option or argument is
+supplied, or an error occurs while setting a new limit.</p>
+
+<p style="margin-left:11%;"><b>umask</b> [<b>-p</b>]
+[<b>-S</b>] [<i>mode</i>]</p>
+
+<p style="margin-left:22%;">The user file-creation mask is
+set to <i>mode</i>. If <i>mode</i> begins with a digit, it
+is interpreted as an octal number; otherwise it is
+interpreted as a symbolic mode mask similar to that accepted
+by <i>chmod</i>(1). If <i>mode</i> is omitted, the current
+value of the mask is printed. The <b>-S</b> option causes
+the mask to be printed in symbolic form; the default output
+is an octal number. If the <b>-p</b> option is supplied, and
+<i>mode</i> is omitted, the output is in a form that may be
+reused as input. The return status is 0 if the mode was
+successfully changed or if no <i>mode</i> argument was
+supplied, and false otherwise.</p>
+
+<p style="margin-left:11%;"><b>unalias</b> [-<b>a</b>]
+[<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">Remove each <i>name</i> from
+the list of defined aliases. If <b>-a</b> is supplied, all
+alias definitions are removed. The return value is true
+unless a supplied <i>name</i> is not a defined alias.</p>
+
+<p style="margin-left:11%;"><b>unset</b> [-<b>fv</b>]
+[<i>name</i> ...]</p>
+
+<p style="margin-left:22%;">For each <i>name</i>, remove
+the corresponding variable or function. If no options are
+supplied, or the <b>-v</b> option is given, each <i>name</i>
+refers to a shell variable. Read-only variables may not be
+unset. If <b>-f</b> is specifed, each <i>name</i> refers to
+a shell function, and the function definition is removed.
+Each unset variable or function is removed from the
+environment passed to subsequent commands. If any of
+<b><small>RANDOM</small></b><small>, <b>SECONDS</b>,
+<b>LINENO</b>, <b>HISTCMD</b>, <b>FUNCNAME</b>,
+<b>GROUPS</b>,</small> or <b><small>DIRSTACK</small></b> are
+unset, they lose their special properties, even if they are
+subsequently reset. The exit status is true unless a
+<i>name</i> is readonly.</p>
+
+<p style="margin-left:11%;"><b>wait</b> [<i>n</i>]</p>
+
+<p style="margin-left:22%;">Wait for the specified process
+and return its termination status. <i>n</i> may be a process
+ID or a job specification; if a job spec is given, all
+processes in that job&rsquo;s pipeline are waited for. If
+<i>n</i> is not given, all currently active child processes
+are waited for, and the return status is zero. If <i>n</i>
+specifies a non-existent process or job, the return status
+is 127. Otherwise, the return status is the exit status of
+the last process or job waited for.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">bash(1),
+sh(1)</p>
+<hr>
+</body>
+</html>

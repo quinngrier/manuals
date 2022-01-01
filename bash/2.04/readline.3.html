@@ -1,0 +1,1599 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>READLINE</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">READLINE</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTATION">NOTATION</a><br>
+<a href="#INITIALIZATION FILE">INITIALIZATION FILE</a><br>
+<a href="#SEARCHING">SEARCHING</a><br>
+<a href="#EDITING COMMANDS">EDITING COMMANDS</a><br>
+<a href="#DEFAULT KEY BINDINGS">DEFAULT KEY BINDINGS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#FILES">FILES</a><br>
+<a href="#AUTHORS">AUTHORS</a><br>
+<a href="#BUG REPORTS">BUG REPORTS</a><br>
+<a href="#BUGS">BUGS</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">readline - get
+a line from a user with editing</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;readline.h&gt; <br>
+#include &lt;history.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>char
+*readline (prompt) <br>
+char *prompt;</b></p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Readline is
+Copyright (C) 1989, 1991, 1993, 1995, 1996 by the Free
+Software Foundation, Inc.</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>readline</b>
+will read a line from the terminal and return it, using
+<b>prompt</b> as a prompt. If <b>prompt</b> is null, no
+prompt is issued. The line returned is allocated with
+<i>malloc</i>(3), so the caller must free it when finished.
+The line returned has the final newline removed, so only the
+text of the line remains.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>readline</b>
+offers editing capabilities while the user is entering the
+line. By default, the line editing commands are similar to
+those of emacs. A vi-style line editing interface is also
+available.</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>readline</b>
+returns the text of the line read. A blank line returns the
+empty string. If <b>EOF</b> is encountered while reading a
+line, and the line is empty, <b>NULL</b> is returned. If an
+<b>EOF</b> is read with a non-empty line, it is treated as a
+newline.</p>
+
+<h2>NOTATION
+<a name="NOTATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">An emacs-style
+notation is used to denote keystrokes. Control keys are
+denoted by C-<i>key</i>, e.g., C-n means Control-N.
+Similarly, <i>meta</i> keys are denoted by M-<i>key</i>, so
+M-x means Meta-X. (On keyboards without a <i>meta</i> key,
+M-<i>x</i> means ESC <i>x</i>, i.e., press the Escape key
+then the <i>x</i> key. This makes ESC the <i>meta
+prefix</i>. The combination M-C-<i>x</i> means
+ESC-Control-<i>x</i>, or press the Escape key then hold the
+Control key while pressing the <i>x</i> key.)</p>
+
+<p style="margin-left:11%; margin-top: 1em">Readline
+commands may be given numeric <i>arguments</i>, which
+normally act as a repeat count. Sometimes, however, it is
+the sign of the argument that is significant. Passing a
+negative argument to a command that acts in the forward
+direction (e.g., <b>kill-line</b>) causes that command to
+act in a backward direction. Commands whose behavior with
+arguments deviates from this are noted.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When a command
+is described as <i>killing</i> text, the text deleted is
+saved for possible future retrieval (<i>yanking</i>). The
+killed text is saved in a <i>kill ring</i>. Consecutive
+kills cause the text to be accumulated into one unit, which
+can be yanked all at once. Commands which do not kill text
+separate the chunks of text on the kill ring.</p>
+
+<h2>INITIALIZATION FILE
+<a name="INITIALIZATION FILE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Readline is
+customized by putting commands in an initialization file
+(the <i>inputrc</i> file). The name of this file is taken
+from the value of the <b>INPUTRC</b> environment variable.
+If that variable is unset, the default is <i>~/.inputrc</i>.
+When a program which uses the readline library starts up,
+the init file is read, and the key bindings and variables
+are set. There are only a few basic constructs allowed in
+the readline init file. Blank lines are ignored. Lines
+beginning with a <b>#</b> are comments. Lines beginning with
+a <b>$</b> indicate conditional constructs. Other lines
+denote key bindings and variable settings. Each program
+using this library may add its own commands and
+bindings.</p>
+
+<p style="margin-left:11%; margin-top: 1em">For example,
+placing</p>
+
+<p style="margin-left:22%; margin-top: 1em">M-Control-u:
+universal-argument</p>
+
+<p style="margin-left:11%;">or</p>
+
+<p style="margin-left:22%;">C-Meta-u:
+universal-argument</p>
+
+<p style="margin-left:11%;">into the <i>inputrc</i> would
+make M-C-u execute the readline command
+<i>universal-argument</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The following
+symbolic character names are recognized while processing key
+bindings: <i>RUBOUT</i>, <i>DEL</i>, <i>ESC</i>, <i>LFD</i>,
+<i>NEWLINE</i>, <i>RET</i>, <i>RETURN</i>, <i>SPC</i>,
+<i>SPACE</i>, and <i>TAB</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In addition to
+command names, readline allows keys to be bound to a string
+that is inserted when the key is pressed (a
+<i>macro</i>).</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Key
+Bindings</b> <br>
+The syntax for controlling key bindings in the
+<i>inputrc</i> file is simple. All that is required is the
+name of the command or the text of a macro and a key
+sequence to which it should be bound. The name may be
+specified in one of two ways: as a symbolic key name,
+possibly with <i>Meta-</i> or <i>Control-</i> prefixes, or
+as a key sequence. When using the form
+<b>keyname</b>:<i>function-name</i> or <i>macro</i>,
+<i>keyname</i> is the name of a key spelled out in English.
+For example:</p>
+
+<p style="margin-left:22%; margin-top: 1em">Control-u:
+universal-argument <br>
+Meta-Rubout: backward-kill-word <br>
+Control-o: &quot;&gt;&amp;output&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">In the above
+example, <i>C-u</i> is bound to the function
+<b>universal-argument</b>, <i>M-DEL</i> is bound to the
+function <b>backward-kill-word</b>, and <i>C-o</i> is bound
+to run the macro expressed on the right hand side (that is,
+to insert the text <i>&gt;&amp;output</i> into the
+line).</p>
+
+<p style="margin-left:11%; margin-top: 1em">In the second
+form, <b>&quot;keyseq&quot;</b>:<i>function-name</i> or
+<i>macro</i>, <b>keyseq</b> differs from <b>keyname</b>
+above in that strings denoting an entire key sequence may be
+specified by placing the sequence within double quotes. Some
+GNU Emacs style key escapes can be used, as in the following
+example.</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">&quot;\C-u&quot;:
+universal-argument <br>
+&quot;\C-x\C-r&quot;: re-read-init-file <br>
+&quot;\e[11~&quot;: &quot;Function Key 1&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">In this
+example, <i>C-u</i> is again bound to the function
+<b>universal-argument</b>. <i>C-x C-r</i> is bound to the
+function <b>re-read-init-file</b>, and <i>ESC [ 1 1 ~</i> is
+bound to insert the text <b>Function Key 1</b>. The full set
+of GNU Emacs style escape sequences is</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\C-</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>control prefix</p></td>
+<td width="38%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\M-</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>meta prefix</p></td>
+<td width="38%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\e</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>an escape character</p></td>
+<td width="38%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\\</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>backslash</p></td>
+<td width="38%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\&quot;</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>literal &quot;</p></td>
+<td width="38%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="4%">
+
+
+<p><b>\&rsquo;</b></p></td>
+<td width="6%"></td>
+<td width="30%">
+
+
+<p>literal &rsquo;</p></td>
+<td width="38%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">In addition to
+the GNU Emacs style escape sequences, a second set of
+backslash escapes is available:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p style="margin-top: 1em"><b>\a</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p style="margin-top: 1em">alert (bell)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\b</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>backspace</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\d</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>delete</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\f</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>form feed</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\n</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>newline</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\r</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>carriage return</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\t</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>horizontal tab</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\v</b></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>vertical tab</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\</b><i>nnn</i></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>the character whose ASCII code is the octal value
+<i>nnn</i> (one to three digits)</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="7%">
+
+
+<p><b>\x</b><i>nnn</i></p></td>
+<td width="3%"></td>
+<td width="68%">
+
+
+<p>the character whose ASCII code is the hexadecimal value
+<i>nnn</i> (one to three digits)</p></td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">When entering
+the text of a macro, single or double quotes should be used
+to indicate a macro definition. Unquoted text is assumed to
+be a function name. In the macro body, the backslash escapes
+described above are expanded. Backslash will quote any other
+character in the macro text, including &quot; and
+&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Bash</b>
+allows the current readline key bindings to be displayed or
+modified with the <b>bind</b> builtin command. The editing
+mode may be switched during interactive use by using the
+<b>-o</b> option to the <b>set</b> builtin command. Other
+programs using this library provide similar mechanisms. The
+<i>inputrc</i> file may be edited and re-read if a program
+does not provide any other means to incorporate new
+bindings.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>Variables</b>
+<br>
+Readline has variables that can be used to further customize
+its behavior. A variable may be set in the <i>inputrc</i>
+file with a statement of the form</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>set</b>
+<i>variable-name value</i></p>
+
+<p style="margin-left:11%; margin-top: 1em">Except where
+noted, readline variables can take the values <b>On</b> or
+<b>Off</b>. The variables and their default values are:
+<b><br>
+bell-style (audible)</b></p>
+
+<p style="margin-left:22%;">Controls what happens when
+readline wants to ring the terminal bell. If set to
+<b>none</b>, readline never rings the bell. If set to
+<b>visible</b>, readline uses a visible bell if one is
+available. If set to <b>audible</b>, readline attempts to
+ring the terminal&rsquo;s bell.</p>
+
+<p style="margin-left:11%;"><b>comment-begin
+(&lsquo;&lsquo;#&rsquo;&rsquo;)</b></p>
+
+<p style="margin-left:22%;">The string that is inserted in
+<b>vi</b> mode when the <b>insert-comment</b> command is
+executed. This command is bound to <b>M-#</b> in emacs mode
+and to <b>#</b> in vi command mode.</p>
+
+<p style="margin-left:11%;"><b>completion-ignore-case
+(Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+performs filename matching and completion in a
+case-insensitive fashion.</p>
+
+<p style="margin-left:11%;"><b>completion-query-items
+(100)</b></p>
+
+<p style="margin-left:22%;">This determines when the user
+is queried about viewing the number of possible completions
+generated by the <b>possible-completions</b> command. It may
+be set to any integer value greater than or equal to zero.
+If the number of possible completions is greater than or
+equal to the value of this variable, the user is asked
+whether or not he wishes to view them; otherwise they are
+simply listed on the terminal.</p>
+
+<p style="margin-left:11%;"><b>convert-meta (On)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+will convert characters with the eighth bit set to an ASCII
+key sequence by stripping the eighth bit and prepending an
+escape character (in effect, using escape as the <i>meta
+prefix</i>).</p>
+
+<p style="margin-left:11%;"><b>disable-completion
+(Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+will inhibit word completion. Completion characters will be
+inserted into the line as if they had been mapped to
+<b>self-insert</b>.</p>
+
+<p style="margin-left:11%;"><b>editing-mode (emacs)</b></p>
+
+<p style="margin-left:22%;">Controls whether readline
+begins with a set of key bindings similar to <i>emacs</i> or
+<i>vi</i>. <b>editing-mode</b> can be set to either
+<b>emacs</b> or <b>vi</b>.</p>
+
+<p style="margin-left:11%;"><b>enable-keypad (Off)</b></p>
+
+<p style="margin-left:22%;">When set to <b>On</b>, readline
+will try to enable the application keypad when it is called.
+Some systems need this to enable the arrow keys.</p>
+
+<p style="margin-left:11%;"><b>expand-tilde (Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>on</b>, tilde
+expansion is performed when readline attempts word
+completion.</p>
+
+<p style="margin-left:11%;"><b>horizontal-scroll-mode
+(Off)</b></p>
+
+<p style="margin-left:22%;">When set to <b>On</b>, makes
+readline use a single line for display, scrolling the input
+horizontally on a single screen line when it becomes longer
+than the screen width rather than wrapping to a new
+line.</p>
+
+<p style="margin-left:11%;"><b>input-meta (Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+will enable eight-bit input (that is, it will not strip the
+high bit from the characters it reads), regardless of what
+the terminal claims it can support. The name
+<b>meta-flag</b> is a synonym for this variable.</p>
+
+<p style="margin-left:11%;"><b>isearch-terminators
+(&lsquo;&lsquo;C-[C-J&rsquo;&rsquo;)</b></p>
+
+<p style="margin-left:22%;">The string of characters that
+should terminate an incremental search without subsequently
+executing the character as a command. If this variable has
+not been given a value, the characters <i>ESC</i> and
+<i>C-J</i> will terminate an incremental search.</p>
+
+<p style="margin-left:11%;"><b>keymap (emacs)</b></p>
+
+<p style="margin-left:22%;">Set the current readline
+keymap. The set of legal keymap names is <i>emacs,
+emacs-standard, emacs-meta, emacs-ctlx, vi, vi-move,
+vi-command</i>, and <i>vi-insert</i>. <i>vi</i> is
+equivalent to <i>vi-command</i>; <i>emacs</i> is equivalent
+to <i>emacs-standard</i>. The default value is <i>emacs</i>;
+the value of <b>editing-mode</b> also affects the default
+keymap.</p>
+
+<p style="margin-left:11%;"><b>mark-directories
+(On)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>,
+complete&lt;d directory names have a slash appended.</p>
+
+<p style="margin-left:11%;"><b>mark-modified-lines
+(Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, history
+lines that have been modified are displayed with a preceding
+asterisk (<b>*</b>).</p>
+
+<p style="margin-left:11%;"><b>output-meta (Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+will display characters with the eighth bit set directly
+rather than as a meta-prefixed escape sequence.</p>
+
+
+<p style="margin-left:11%;"><b>print-completions-horizontally
+(Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, readline
+will display completions with matches sorted horizontally in
+alphabetical order, rather than down the screen.</p>
+
+<p style="margin-left:11%;"><b>show-all-if-ambiguous
+(Off)</b></p>
+
+<p style="margin-left:22%;">This alters the default
+behavior of the completion functions. If set to <b>on</b>,
+words which have more than one possible completion cause the
+matches to be listed immediately instead of ringing the
+bell.</p>
+
+<p style="margin-left:11%;"><b>visible-stats (Off)</b></p>
+
+<p style="margin-left:22%;">If set to <b>On</b>, a
+character denoting a file&rsquo;s type as reported by
+<b>stat</b>(2) is appended to the filename when listing
+possible completions.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Conditional
+Constructs</b> <br>
+Readline implements a facility similar in spirit to the
+conditional compilation features of the C preprocessor which
+allows key bindings and variable settings to be performed as
+the result of tests. There are four parser directives
+used.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p><b>$if</b></p></td>
+<td width="7%"></td>
+<td width="78%">
+
+
+<p>The <b>$if</b> construct allows bindings to be made
+based on the editing mode, the terminal being used, or the
+application using readline. The text of the test extends to
+the end of the line; no characters are required to isolate
+it.</p> </td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>mode</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="6%"></td>
+<td width="4%"></td>
+<td width="68%">
+
+
+<p style="margin-top: 1em">The <b>mode=</b> form of the
+<b>$if</b> directive is used to test whether readline is in
+emacs or vi mode. This may be used in conjunction with the
+<b>set keymap</b> command, for instance, to set bindings in
+the <i>emacs-standard</i> and <i>emacs-ctlx</i> keymaps only
+if readline is starting out in emacs mode.</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="6%">
+
+
+<p><b>term</b></p></td>
+<td width="4%"></td>
+<td width="68%">
+
+
+<p>The <b>term=</b> form may be used to include
+terminal-specific key bindings, perhaps to bind the key
+sequences output by the terminal&rsquo;s function keys. The
+word on the right side of the <b>=</b> is tested against the
+full name of the terminal and the portion of the terminal
+name before the first <b>-</b>. This allows <i>sun</i> to
+match both <i>sun</i> and <i>sun-cmd</i>, for instance.</p></td></tr>
+</table>
+
+<p style="margin-left:22%;"><b>application</b></p>
+
+<p style="margin-left:32%;">The <b>application</b>
+construct is used to include application-specific settings.
+Each program using the readline library sets the
+<i>application name</i>, and an initialization file can test
+for a particular value. This could be used to bind key
+sequences to functions useful for a specific program. For
+instance, the following command adds a key sequence that
+quotes the current or previous word in Bash:</p>
+
+<p style="margin-left:32%; margin-top: 1em"><b>$if</b> bash
+<br>
+# Quote the current or previous word <br>
+&quot;\C-xq&quot;: &quot;\eb\&quot;\ef\&quot;&quot; <b><br>
+$endif</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>$endif</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>This command, as seen in the previous example,
+terminates an <b>$if</b> command.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>$else</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Commands in this branch of the <b>$if</b> directive are
+executed if the test fails.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>$include</b></p>
+
+<p style="margin-left:22%;">This directive takes a single
+filename as an argument and reads commands and bindings from
+that file. For example, the following directive would read
+<i>/etc/inputrc</i>:</p>
+
+
+<p style="margin-left:22%; margin-top: 1em"><b>$include</b>
+<i>/etc/inputrc</i></p>
+
+<h2>SEARCHING
+<a name="SEARCHING"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Readline
+provides commands for searching through the command history
+for lines containing a specified string. There are two
+search modes: <i>incremental</i> and
+<i>non-incremental</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Incremental
+searches begin before the user has finished typing the
+search string. As each character of the search string is
+typed, readline displays the next entry from the history
+matching the string typed so far. An incremental search
+requires only as many characters as needed to find the
+desired history entry. The characters present in the value
+of the <i>isearch-terminators</i> variable are used to
+terminate an incremental search. If that variable has not
+been assigned a value the Escape and Control-J characters
+will terminate an incremental search. Control-G will abort
+an incremental search and restore the original line. When
+the search is terminated, the history entry containing the
+search string becomes the current line. To find other
+matching entries in the history list, type Control-S or
+Control-R as appropriate. This will search backward or
+forward in the history for the next line matching the search
+string typed so far. Any other key sequence bound to a
+readline command will terminate the search and execute that
+command. For instance, a <i>newline</i> will terminate the
+search and accept the line, thereby executing the command
+from the history list.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">Non-incremental
+searches read the entire search string before starting to
+search for matching history lines. The search string may be
+typed by the user or be part of the contents of the current
+line.</p>
+
+<h2>EDITING COMMANDS
+<a name="EDITING COMMANDS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+is a list of the names of the commands and the default key
+sequences to which they are bound. Command names without an
+accompanying key sequence are unbound by default.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Commands for
+Moving <br>
+beginning-of-line (C-a)</b></p>
+
+<p style="margin-left:22%;">Move to the start of the
+current line.</p>
+
+<p style="margin-left:11%;"><b>end-of-line (C-e)</b></p>
+
+<p style="margin-left:22%;">Move to the end of the
+line.</p>
+
+<p style="margin-left:11%;"><b>forward-char (C-f)</b></p>
+
+<p style="margin-left:22%;">Move forward a character.</p>
+
+<p style="margin-left:11%;"><b>backward-char (C-b)</b></p>
+
+<p style="margin-left:22%;">Move back a character.</p>
+
+<p style="margin-left:11%;"><b>forward-word (M-f)</b></p>
+
+<p style="margin-left:22%;">Move forward to the end of the
+next word. Words are composed of alphanumeric characters
+(letters and digits).</p>
+
+<p style="margin-left:11%;"><b>backward-word (M-b)</b></p>
+
+<p style="margin-left:22%;">Move back to the start of the
+current or previous word. Words are composed of alphanumeric
+characters (letters and digits).</p>
+
+<p style="margin-left:11%;"><b>clear-screen (C-l)</b></p>
+
+<p style="margin-left:22%;">Clear the screen leaving the
+current line at the top of the screen. With an argument,
+refresh the current line without clearing the screen.</p>
+
+<p style="margin-left:11%;"><b>redraw-current-line</b></p>
+
+<p style="margin-left:22%;">Refresh the current line.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Commands for
+Manipulating the History <br>
+accept-line (Newline, Return)</b></p>
+
+<p style="margin-left:22%;">Accept the line regardless of
+where the cursor is. If this line is non-empty, add it to
+the history list. If the line is a modified history line,
+then restore the history line to its original state.</p>
+
+<p style="margin-left:11%;"><b>previous-history
+(C-p)</b></p>
+
+<p style="margin-left:22%;">Fetch the previous command from
+the history list, moving back in the list.</p>
+
+<p style="margin-left:11%;"><b>next-history (C-n)</b></p>
+
+<p style="margin-left:22%;">Fetch the next command from the
+history list, moving forward in the list.</p>
+
+<p style="margin-left:11%;"><b>beginning-of-history
+(M-&lt;)</b></p>
+
+<p style="margin-left:22%;">Move to the first line in the
+history.</p>
+
+<p style="margin-left:11%;"><b>end-of-history
+(M-&gt;)</b></p>
+
+<p style="margin-left:22%;">Move to the end of the input
+history, i.e., the line currently being entered.</p>
+
+<p style="margin-left:11%;"><b>reverse-search-history
+(C-r)</b></p>
+
+<p style="margin-left:22%;">Search backward starting at the
+current line and moving &lsquo;up&rsquo; through the history
+as necessary. This is an incremental search.</p>
+
+<p style="margin-left:11%;"><b>forward-search-history
+(C-s)</b></p>
+
+<p style="margin-left:22%;">Search forward starting at the
+current line and moving &lsquo;down&rsquo; through the
+history as necessary. This is an incremental search.</p>
+
+
+<p style="margin-left:11%;"><b>non-incremental-reverse-search-history
+(M-p)</b></p>
+
+<p style="margin-left:22%;">Search backward through the
+history starting at the current line using a non-incremental
+search for a string supplied by the user.</p>
+
+
+<p style="margin-left:11%;"><b>non-incremental-forward-search-history
+(M-n)</b></p>
+
+<p style="margin-left:22%;">Search forward through the
+history using a non-incremental search for a string supplied
+by the user.</p>
+
+
+<p style="margin-left:11%;"><b>history-search-forward</b></p>
+
+<p style="margin-left:22%;">Search forward through the
+history for the string of characters between the start of
+the current line and the current cursor position (the
+<i>point</i>). This is a non-incremental search.</p>
+
+
+<p style="margin-left:11%;"><b>history-search-backward</b></p>
+
+<p style="margin-left:22%;">Search backward through the
+history for the string of characters between the start of
+the current line and the point. This is a non-incremental
+search.</p>
+
+<p style="margin-left:11%;"><b>yank-nth-arg (M-C-y)</b></p>
+
+<p style="margin-left:22%;">Insert the first argument to
+the previous command (usually the second word on the
+previous line) at point (the current cursor position). With
+an argument <i>n</i>, insert the <i>n</i>th word from the
+previous command (the words in the previous command begin
+with word 0). A negative argument inserts the <i>n</i>th
+word from the end of the previous command.</p>
+
+<p style="margin-left:11%;"><b>yank-last-arg (M-.,
+M-_)</b></p>
+
+<p style="margin-left:22%;">Insert the last argument to the
+previous command (the last word of the previous history
+entry). With an argument, behave exactly like
+<b>yank-nth-arg</b>. Successive calls to
+<b>yank-last-arg</b> move back through the history list,
+inserting the last argument of each line in turn.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Commands for
+Changing Text <br>
+delete-char (C-d)</b></p>
+
+<p style="margin-left:22%;">Delete the character under the
+cursor. If point is at the beginning of the line, there are
+no characters in the line, and the last character typed was
+not bound to <b>Bdelete-char</b>, then return
+<b><small>EOF</small></b><small>.</small></p>
+
+<p style="margin-left:11%;"><b>backward-delete-char
+(Rubout)</b></p>
+
+<p style="margin-left:22%;">Delete the character behind the
+cursor. When given a numeric argument, save the deleted text
+on the kill ring.</p>
+
+
+<p style="margin-left:11%;"><b>forward-backward-delete-char</b></p>
+
+<p style="margin-left:22%;">Delete the character under the
+cursor, unless the cursor is at the end of the line, in
+which case the character behind the cursor is deleted. By
+default, this is not bound to a key.</p>
+
+<p style="margin-left:11%;"><b>quoted-insert (C-q,
+C-v)</b></p>
+
+<p style="margin-left:22%;">Add the next character that you
+type to the line verbatim. This is how to insert characters
+like <b>C-q</b>, for example.</p>
+
+<p style="margin-left:11%;"><b>tab-insert (M-TAB)</b></p>
+
+<p style="margin-left:22%;">Insert a tab character.</p>
+
+<p style="margin-left:11%;"><b>self-insert
+(a,&nbsp;b,&nbsp;A,&nbsp;1,&nbsp;!,&nbsp;...)</b></p>
+
+<p style="margin-left:22%;">Insert the character typed.</p>
+
+<p style="margin-left:11%;"><b>transpose-chars
+(C-t)</b></p>
+
+<p style="margin-left:22%;">Drag the character before point
+forward over the character at point. Point moves forward as
+well. If point is at the end of the line, then transpose the
+two characters before point. Negative arguments don&rsquo;t
+work.</p>
+
+<p style="margin-left:11%;"><b>transpose-words
+(M-t)</b></p>
+
+<p style="margin-left:22%;">Drag the word behind the cursor
+past the word in front of the cursor moving the cursor over
+that word as well.</p>
+
+<p style="margin-left:11%;"><b>upcase-word (M-u)</b></p>
+
+<p style="margin-left:22%;">Uppercase the current (or
+following) word. With a negative argument, uppercase the
+previous word, but do not move point.</p>
+
+<p style="margin-left:11%;"><b>downcase-word (M-l)</b></p>
+
+<p style="margin-left:22%;">Lowercase the current (or
+following) word. With a negative argument, lowercase the
+previous word, but do not move point.</p>
+
+<p style="margin-left:11%;"><b>capitalize-word
+(M-c)</b></p>
+
+<p style="margin-left:22%;">Capitalize the current (or
+following) word. With a negative argument, capitalize the
+previous word, but do not move point.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Killing and
+Yanking <br>
+kill-line (C-k)</b></p>
+
+<p style="margin-left:22%;">Kill the text from the current
+cursor position to the end of the line.</p>
+
+<p style="margin-left:11%;"><b>backward-kill-line (C-x
+Rubout)</b></p>
+
+<p style="margin-left:22%;">Kill backward to the beginning
+of the line.</p>
+
+<p style="margin-left:11%;"><b>unix-line-discard
+(C-u)</b></p>
+
+<p style="margin-left:22%;">Kill backward from point to the
+beginning of the line. The killed text is saved on the
+kill-ring.</p>
+
+<p style="margin-left:11%;"><b>kill-whole-line</b></p>
+
+<p style="margin-left:22%;">Kill all characters on the
+current line, no matter where the cursor is.</p>
+
+<p style="margin-left:11%;"><b>kill-word (M-d)</b></p>
+
+<p style="margin-left:22%;">Kill from the cursor to the end
+of the current word, or if between words, to the end of the
+next word. Word boundaries are the same as those used by
+<b>forward-word</b>.</p>
+
+<p style="margin-left:11%;"><b>backward-kill-word
+(M-Rubout)</b></p>
+
+<p style="margin-left:22%;">Kill the word behind the
+cursor. Word boundaries are the same as those used by
+<b>backward-word</b>.</p>
+
+<p style="margin-left:11%;"><b>unix-word-rubout
+(C-w)</b></p>
+
+<p style="margin-left:22%;">Kill the word behind the
+cursor, using white space as a word boundary. The word
+boundaries are different from <b>backward-kill-word</b>.</p>
+
+<p style="margin-left:11%;"><b>delete-horizontal-space
+(M-\)</b></p>
+
+<p style="margin-left:22%;">Delete all spaces and tabs
+around point.</p>
+
+<p style="margin-left:11%;"><b>kill-region</b></p>
+
+<p style="margin-left:22%;">Kill the text between the point
+and <i>mark</i> (saved cursor position). This text is
+referred to as the <i>region</i>.</p>
+
+<p style="margin-left:11%;"><b>copy-region-as-kill</b></p>
+
+<p style="margin-left:22%;">Copy the text in the region to
+the kill buffer.</p>
+
+<p style="margin-left:11%;"><b>copy-backward-word</b></p>
+
+<p style="margin-left:22%;">Copy the word before point to
+the kill buffer. The word boundaries are the same as
+<b>backward-word</b>.</p>
+
+<p style="margin-left:11%;"><b>copy-forward-word</b></p>
+
+<p style="margin-left:22%;">Copy the word following point
+to the kill buffer. The word boundaries are the same as
+<b>forward-word</b>.</p>
+
+<p style="margin-left:11%;"><b>yank (C-y)</b></p>
+
+<p style="margin-left:22%;">Yank the top of the kill ring
+into the buffer at the cursor.</p>
+
+<p style="margin-left:11%;"><b>yank-pop (M-y)</b></p>
+
+<p style="margin-left:22%;">Rotate the kill ring, and yank
+the new top. Only works following <b>yank</b> or
+<b>yank-pop</b>.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Numeric
+Arguments <br>
+digit-argument (M-0, M-1, ..., M--)</b></p>
+
+<p style="margin-left:22%;">Add this digit to the argument
+already accumulating, or start a new argument. M-- starts a
+negative argument.</p>
+
+<p style="margin-left:11%;"><b>universal-argument</b></p>
+
+<p style="margin-left:22%;">This is another way to specify
+an argument. If this command is followed by one or more
+digits, optionally with a leading minus sign, those digits
+define the argument. If the command is followed by digits,
+executing <b>universal-argument</b> again ends the numeric
+argument, but is otherwise ignored. As a special case, if
+this command is immediately followed by a character that is
+neither a digit or minus sign, the argument count for the
+next command is multiplied by four. The argument count is
+initially one, so executing this function the first time
+makes the argument count four, a second time makes the
+argument count sixteen, and so on.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Completing
+<br>
+complete (TAB)</b></p>
+
+<p style="margin-left:22%;">Attempt to perform completion
+on the text before point. The actual completion performed is
+application-specific. <b>Bash</b>, for instance, attempts
+completion treating the text as a variable (if the text
+begins with <b>$</b>), username (if the text begins with
+<b>~</b>), hostname (if the text begins with <b>@</b>), or
+command (including aliases and functions) in turn. If none
+of these produces a match, filename completion is attempted.
+<b>Gdb</b>, on the other hand, allows completion of program
+functions and variables, and only attempts filename
+completion under certain circumstances.</p>
+
+<p style="margin-left:11%;"><b>possible-completions
+(M-?)</b></p>
+
+<p style="margin-left:22%;">List the possible completions
+of the text before point.</p>
+
+<p style="margin-left:11%;"><b>insert-completions
+(M-*)</b></p>
+
+<p style="margin-left:22%;">Insert all completions of the
+text before point that would have been generated by
+<b>possible-completions</b>.</p>
+
+<p style="margin-left:11%;"><b>menu-complete</b></p>
+
+<p style="margin-left:22%;">Similar to <b>complete</b>, but
+replaces the word to be completed with a single match from
+the list of possible completions. Repeated execution of
+<b>menu-complete</b> steps through the list of possible
+completions, inserting each match in turn. At the end of the
+list of completions, the bell is rung and the original text
+is restored. An argument of <i>n</i> moves <i>n</i>
+positions forward in the list of matches; a negative
+argument may be used to move backward through the list. This
+command is intended to be bound to <b>TAB</b>, but is
+unbound by default.</p>
+
+<p style="margin-left:11%;"><b>delete-char-or-list</b></p>
+
+<p style="margin-left:22%;">Deletes the character under the
+cursor if not at the beginning or end of the line (like
+<b>delete-char</b>). If at the end of the line, behaves
+identically to <b>possible-completions</b>. This command is
+unbound by default.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Keyboard
+Macros <br>
+start-kbd-macro (C-x ()</b></p>
+
+<p style="margin-left:22%;">Begin saving the characters
+typed into the current keyboard macro.</p>
+
+<p style="margin-left:11%;"><b>end-kbd-macro (C-x
+))</b></p>
+
+<p style="margin-left:22%;">Stop saving the characters
+typed into the current keyboard macro and store the
+definition.</p>
+
+<p style="margin-left:11%;"><b>call-last-kbd-macro (C-x
+e)</b></p>
+
+<p style="margin-left:22%;">Re-execute the last keyboard
+macro defined, by making the characters in the macro appear
+as if typed at the keyboard.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>Miscellaneous
+<br>
+re-read-init-file (C-x C-r)</b></p>
+
+<p style="margin-left:22%;">Read in the contents of the
+<i>inputrc</i> file, and incorporate any bindings or
+variable assignments found there.</p>
+
+<p style="margin-left:11%;"><b>abort (C-g)</b></p>
+
+<p style="margin-left:22%;">Abort the current editing
+command and ring the terminal&rsquo;s bell (subject to the
+setting of <b>bell-style</b>).</p>
+
+<p style="margin-left:11%;"><b>do-uppercase-version (M-a,
+M-b, M-</b><i>x</i><b>, ...)</b></p>
+
+<p style="margin-left:22%;">If the metafied character
+<i>x</i> is lowercase, run the command that is bound to the
+corresponding uppercase character.</p>
+
+<p style="margin-left:11%;"><b>prefix-meta (ESC)</b></p>
+
+<p style="margin-left:22%;">Metafy the next character
+typed. <b><small>ESC</small> f</b> is equivalent to
+<b>Meta-f</b>.</p>
+
+<p style="margin-left:11%;"><b>undo (C-_, C-x C-u)</b></p>
+
+<p style="margin-left:22%;">Incremental undo, separately
+remembered for each line.</p>
+
+<p style="margin-left:11%;"><b>revert-line (M-r)</b></p>
+
+<p style="margin-left:22%;">Undo all changes made to this
+line. This is like executing the <b>undo</b> command enough
+times to return the line to its initial state.</p>
+
+<p style="margin-left:11%;"><b>tilde-expand
+(M-&amp;)</b></p>
+
+<p style="margin-left:22%;">Perform tilde expansion on the
+current word.</p>
+
+<p style="margin-left:11%;"><b>set-mark (C-@,
+M-&lt;space&gt;)</b></p>
+
+<p style="margin-left:22%;">Set the mark to the current
+point. If a numeric argument is supplied, the mark is set to
+that position.</p>
+
+<p style="margin-left:11%;"><b>exchange-point-and-mark (C-x
+C-x)</b></p>
+
+<p style="margin-left:22%;">Swap the point with the mark.
+The current cursor position is set to the saved position,
+and the old cursor position is saved as the mark.</p>
+
+<p style="margin-left:11%;"><b>character-search
+(C-])</b></p>
+
+<p style="margin-left:22%;">A character is read and point
+is moved to the next occurrence of that character. A
+negative count searches for previous occurrences.</p>
+
+<p style="margin-left:11%;"><b>character-search-backward
+(M-C-])</b></p>
+
+<p style="margin-left:22%;">A character is read and point
+is moved to the previous occurrence of that character. A
+negative count searches for subsequent occurrences.</p>
+
+<p style="margin-left:11%;"><b>insert-comment (M-#)</b></p>
+
+<p style="margin-left:22%;">The value of the readline
+<b>comment-begin</b> variable is inserted at the beginning
+of the current line, and the line is accepted as if a
+newline had been typed. This makes the current line a shell
+comment.</p>
+
+<p style="margin-left:11%;"><b>dump-functions</b></p>
+
+<p style="margin-left:22%;">Print all of the functions and
+their key bindings to the readline output stream. If a
+numeric argument is supplied, the output is formatted in
+such a way that it can be made part of an <i>inputrc</i>
+file.</p>
+
+<p style="margin-left:11%;"><b>dump-variables</b></p>
+
+<p style="margin-left:22%;">Print all of the settable
+variables and their values to the readline output stream. If
+a numeric argument is supplied, the output is formatted in
+such a way that it can be made part of an <i>inputrc</i>
+file.</p>
+
+<p style="margin-left:11%;"><b>dump-macros</b></p>
+
+<p style="margin-left:22%;">Print all of the readline key
+sequences bound to macros and the strings they ouput. If a
+numeric argument is supplied, the output is formatted in
+such a way that it can be made part of an <i>inputrc</i>
+file.</p>
+
+<p style="margin-left:11%;"><b>emacs-editing-mode
+(C-e)</b></p>
+
+<p style="margin-left:22%;">When in <b>vi</b> editing mode,
+this causes a switch to <b>emacs</b> editing mode.</p>
+
+<p style="margin-left:11%;"><b>vi-editing-mode
+(M-C-j)</b></p>
+
+<p style="margin-left:22%;">When in <b>emacs</b> editing
+mode, this causes a switch to <b>vi</b> editing mode.</p>
+
+<h2>DEFAULT KEY BINDINGS
+<a name="DEFAULT KEY BINDINGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+is a list of the default emacs and vi bindings. Characters
+with the 8th bit set are written as M-&lt;character&gt;, and
+are referred to as <i>metafied</i> characters. The printable
+ASCII characters not mentioned in the list of emacs standard
+bindings are bound to the <i>self-insert</i> function, which
+just inserts the given character into the input line. In vi
+insertion mode, all characters not specifically mentioned
+are bound to <i>self-insert</i>. Characters assigned to
+signal generation by <i>stty</i>(1) or the terminal driver,
+such as C-Z or C-C, retain that function. Upper and lower
+case <i>metafied</i> characters are bound to the same
+function in the emacs mode meta keymap. The remaining
+characters are unbound, which causes readline to ring the
+bell (subject to the setting of the <b>bell-style</b>
+variable).</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Emacs
+Mode</b></p>
+
+<p style="margin-left:20%;">Emacs Standard bindings</p>
+
+
+<p style="margin-left:20%; margin-top: 1em">&quot;C-@&quot;
+set-mark <br>
+&quot;C-A&quot; beginning-of-line <br>
+&quot;C-B&quot; backward-char <br>
+&quot;C-D&quot; delete-char <br>
+&quot;C-E&quot; end-of-line <br>
+&quot;C-F&quot; forward-char <br>
+&quot;C-G&quot; abort <br>
+&quot;C-H&quot; backward-delete-char <br>
+&quot;C-I&quot; complete <br>
+&quot;C-J&quot; accept-line <br>
+&quot;C-K&quot; kill-line <br>
+&quot;C-L&quot; clear-screen <br>
+&quot;C-M&quot; accept-line <br>
+&quot;C-N&quot; next-history <br>
+&quot;C-P&quot; previous-history <br>
+&quot;C-Q&quot; quoted-insert <br>
+&quot;C-R&quot; reverse-search-history <br>
+&quot;C-S&quot; forward-search-history <br>
+&quot;C-T&quot; transpose-chars <br>
+&quot;C-U&quot; unix-line-discard <br>
+&quot;C-V&quot; quoted-insert <br>
+&quot;C-W&quot; unix-word-rubout <br>
+&quot;C-Y&quot; yank <br>
+&quot;C-]&quot; character-search <br>
+&quot;C-_&quot; undo <br>
+&quot; &quot; to &quot;/&quot; self-insert <br>
+&quot;0&quot; to &quot;9&quot; self-insert <br>
+&quot;:&quot; to &quot;~&quot; self-insert <br>
+&quot;C-?&quot; backward-delete-char</p>
+
+<p style="margin-left:20%; margin-top: 1em">Emacs Meta
+bindings</p>
+
+
+<p style="margin-left:20%; margin-top: 1em">&quot;M-C-G&quot;
+abort <br>
+&quot;M-C-H&quot; backward-kill-word <br>
+&quot;M-C-I&quot; tab-insert <br>
+&quot;M-C-J&quot; vi-editing-mode <br>
+&quot;M-C-M&quot; vi-editing-mode <br>
+&quot;M-C-R&quot; revert-line <br>
+&quot;M-C-Y&quot; yank-nth-arg <br>
+&quot;M-C-[&quot; complete <br>
+&quot;M-C-]&quot; character-search-backward <br>
+&quot;M-space&quot; set-mark <br>
+&quot;M-#&quot; insert-comment <br>
+&quot;M-&amp;&quot; tilde-expand <br>
+&quot;M-*&quot; insert-completions <br>
+&quot;M--&quot; digit-argument <br>
+&quot;M-.&quot; yank-last-arg <br>
+&quot;M-0&quot; digit-argument <br>
+&quot;M-1&quot; digit-argument <br>
+&quot;M-2&quot; digit-argument <br>
+&quot;M-3&quot; digit-argument <br>
+&quot;M-4&quot; digit-argument <br>
+&quot;M-5&quot; digit-argument <br>
+&quot;M-6&quot; digit-argument <br>
+&quot;M-7&quot; digit-argument <br>
+&quot;M-8&quot; digit-argument <br>
+&quot;M-9&quot; digit-argument <br>
+&quot;M-&lt;&quot; beginning-of-history <br>
+&quot;M-=&quot; possible-completions <br>
+&quot;M-&gt;&quot; end-of-history <br>
+&quot;M-?&quot; possible-completions <br>
+&quot;M-B&quot; backward-word <br>
+&quot;M-C&quot; capitalize-word <br>
+&quot;M-D&quot; kill-word <br>
+&quot;M-F&quot; forward-word <br>
+&quot;M-L&quot; downcase-word <br>
+&quot;M-N&quot; non-incremental-forward-search-history <br>
+&quot;M-P&quot; non-incremental-reverse-search-history <br>
+&quot;M-R&quot; revert-line <br>
+&quot;M-T&quot; transpose-words <br>
+&quot;M-U&quot; upcase-word <br>
+&quot;M-Y&quot; yank-pop <br>
+&quot;M-\&quot; delete-horizontal-space <br>
+&quot;M-~&quot; tilde-expand <br>
+&quot;M-C-?&quot; backward-delete-word <br>
+&quot;M-_&quot; yank-last-arg</p>
+
+<p style="margin-left:20%; margin-top: 1em">Emacs Control-X
+bindings</p>
+
+
+<p style="margin-left:20%; margin-top: 1em">&quot;C-XC-G&quot;
+abort <br>
+&quot;C-XC-R&quot; re-read-init-file <br>
+&quot;C-XC-U&quot; undo <br>
+&quot;C-XC-X&quot; exchange-point-and-mark <br>
+&quot;C-X(&quot; start-kbd-macro <br>
+&quot;C-X)&quot; end-kbd-macro <br>
+&quot;C-XE&quot; call-last-kbd-macro <br>
+&quot;C-XC-?&quot; backward-kill-line</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>VI Mode
+bindings</b></p>
+
+<p style="margin-left:20%;">VI Insert Mode functions</p>
+
+
+<p style="margin-left:20%; margin-top: 1em">&quot;C-D&quot;
+vi-eof-maybe <br>
+&quot;C-H&quot; backward-delete-char <br>
+&quot;C-I&quot; complete <br>
+&quot;C-J&quot; accept-line <br>
+&quot;C-M&quot; accept-line <br>
+&quot;C-R&quot; reverse-search-history <br>
+&quot;C-S&quot; forward-search-history <br>
+&quot;C-T&quot; transpose-chars <br>
+&quot;C-U&quot; unix-line-discard <br>
+&quot;C-V&quot; quoted-insert <br>
+&quot;C-W&quot; unix-word-rubout <br>
+&quot;C-Y&quot; yank <br>
+&quot;C-[&quot; vi-movement-mode <br>
+&quot;C-_&quot; undo <br>
+&quot; &quot; to &quot;~&quot; self-insert <br>
+&quot;C-?&quot; backward-delete-char</p>
+
+<p style="margin-left:20%; margin-top: 1em">VI Command Mode
+functions</p>
+
+
+<p style="margin-left:20%; margin-top: 1em">&quot;C-D&quot;
+vi-eof-maybe <br>
+&quot;C-E&quot; emacs-editing-mode <br>
+&quot;C-G&quot; abort <br>
+&quot;C-H&quot; backward-char <br>
+&quot;C-J&quot; accept-line <br>
+&quot;C-K&quot; kill-line <br>
+&quot;C-L&quot; clear-screen <br>
+&quot;C-M&quot; accept-line <br>
+&quot;C-N&quot; next-history <br>
+&quot;C-P&quot; previous-history <br>
+&quot;C-Q&quot; quoted-insert <br>
+&quot;C-R&quot; reverse-search-history <br>
+&quot;C-S&quot; forward-search-history <br>
+&quot;C-T&quot; transpose-chars <br>
+&quot;C-U&quot; unix-line-discard <br>
+&quot;C-V&quot; quoted-insert <br>
+&quot;C-W&quot; unix-word-rubout <br>
+&quot;C-Y&quot; yank <br>
+&quot; &quot; forward-char <br>
+&quot;#&quot; insert-comment <br>
+&quot;$&quot; end-of-line <br>
+&quot;%&quot; vi-match <br>
+&quot;&amp;&quot; vi-tilde-expand <br>
+&quot;*&quot; vi-complete <br>
+&quot;+&quot; next-history <br>
+&quot;,&quot; vi-char-search <br>
+&quot;-&quot; previous-history <br>
+&quot;.&quot; vi-redo <br>
+&quot;/&quot; vi-search <br>
+&quot;0&quot; beginning-of-line <br>
+&quot;1&quot; to &quot;9&quot; vi-arg-digit <br>
+&quot;;&quot; vi-char-search <br>
+&quot;=&quot; vi-complete <br>
+&quot;?&quot; vi-search <br>
+&quot;A&quot; vi-append-eol <br>
+&quot;B&quot; vi-prev-word <br>
+&quot;C&quot; vi-change-to <br>
+&quot;D&quot; vi-delete-to <br>
+&quot;E&quot; vi-end-word <br>
+&quot;F&quot; vi-char-search <br>
+&quot;G&quot; vi-fetch-history <br>
+&quot;I&quot; vi-insert-beg <br>
+&quot;N&quot; vi-search-again <br>
+&quot;P&quot; vi-put <br>
+&quot;R&quot; vi-replace <br>
+&quot;S&quot; vi-subst <br>
+&quot;T&quot; vi-char-search <br>
+&quot;U&quot; revert-line <br>
+&quot;W&quot; vi-next-word <br>
+&quot;X&quot; backward-delete-char <br>
+&quot;Y&quot; vi-yank-to <br>
+&quot;\&quot; vi-complete <br>
+&quot;^&quot; vi-first-print <br>
+&quot;_&quot; vi-yank-arg <br>
+&quot;&lsquo;&quot; vi-goto-mark <br>
+&quot;a&quot; vi-append-mode <br>
+&quot;b&quot; vi-prev-word <br>
+&quot;c&quot; vi-change-to <br>
+&quot;d&quot; vi-delete-to <br>
+&quot;e&quot; vi-end-word <br>
+&quot;f&quot; vi-char-search <br>
+&quot;h&quot; backward-char <br>
+&quot;i&quot; vi-insertion-mode <br>
+&quot;j&quot; next-history <br>
+&quot;k&quot; prev-history <br>
+&quot;l&quot; forward-char <br>
+&quot;m&quot; vi-set-mark <br>
+&quot;n&quot; vi-search-again <br>
+&quot;p&quot; vi-put <br>
+&quot;r&quot; vi-change-char <br>
+&quot;s&quot; vi-subst <br>
+&quot;t&quot; vi-char-search <br>
+&quot;u&quot; undo <br>
+&quot;w&quot; vi-next-word <br>
+&quot;x&quot; vi-delete <br>
+&quot;y&quot; vi-yank-to <br>
+&quot;|&quot; vi-column <br>
+&quot;~&quot; vi-change-case</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>The Gnu
+Readline Library</i>, Brian Fox and Chet Ramey <i><br>
+The Gnu History Library</i>, Brian Fox and Chet Ramey
+<i><br>
+bash</i>(1)</p>
+
+<h2>FILES
+<a name="FILES"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>~/.inputrc</i></p>
+
+<p style="margin-left:22%;">Individual <b>readline</b>
+initialization file</p>
+
+<h2>AUTHORS
+<a name="AUTHORS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Brian Fox, Free
+Software Foundation <br>
+bfox@gnu.org</p>
+
+<p style="margin-left:11%; margin-top: 1em">Chet Ramey,
+Case Western Reserve University <br>
+chet@ins.CWRU.Edu</p>
+
+<h2>BUG REPORTS
+<a name="BUG REPORTS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">If you find a
+bug in <b>readline,</b> you should report it. But first, you
+should make sure that it really is a bug, and that it
+appears in the latest version of the <b>readline</b> library
+that you have.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Once you have
+determined that a bug actually exists, mail a bug report to
+<i>bug-readline</i>@<i>gnu.org</i>. If you have a fix, you
+are welcome to mail that as well! Suggestions and
+&lsquo;philosophical&rsquo; bug reports may be mailed to
+<i>bug-readline</i>@<i>gnu.org</i> or posted to the Usenet
+newsgroup <b>gnu.bash.bug</b>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Comments and
+bug reports concerning this manual page should be directed
+to <i>chet@ins.CWRU.Edu</i>.</p>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">It&rsquo;s too
+big and too slow.</p>
+<hr>
+</body>
+</html>

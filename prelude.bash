@@ -70,6 +70,21 @@ readonly prelude_dir
 
 #-----------------------------------------------------------------------
 
+barf() {
+
+  declare    x
+
+  x="$@"
+  readonly x
+
+  printf '%s\n' "$0: Error: $x" >&2
+
+  exit 1
+
+}; readonly -f barf
+
+#-----------------------------------------------------------------------
+
 download() {
 
   declare    file
