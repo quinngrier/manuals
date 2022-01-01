@@ -32,7 +32,7 @@ main() {
   readonly v2
 
   download automake/automake-$v.tar.gz
-  download texinfo-6.7.tar.gz
+  download texinfo/texinfo-6.7.tar.gz
 
   rm -f -r automake-$v
   tar xzf automake-$v.tar.gz
