@@ -4124,12 +4124,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4140,6 +4140,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/1.14.7/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/1.14.7/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/1.14.7/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4174,12 +4189,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4190,6 +4205,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.0/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.0/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.0/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4224,12 +4254,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4240,6 +4270,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01.1/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01.1/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01.1/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4274,12 +4319,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4290,6 +4335,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4324,12 +4384,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4340,6 +4400,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02.1/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02.1/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02.1/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4374,12 +4449,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4390,6 +4465,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4424,12 +4514,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4440,6 +4530,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.03/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.03/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.03/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4474,12 +4579,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4495,6 +4600,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4529,12 +4649,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4545,6 +4665,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4579,12 +4714,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4595,6 +4730,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4629,12 +4779,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4645,6 +4795,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/test-minus-e.1.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/test-minus-e.2.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4679,12 +4844,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0.16/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0.16/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0.16/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4695,6 +4865,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0.16/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0.16/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0.16/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0.16/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4729,12 +4914,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4745,6 +4935,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.0/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.0/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4779,12 +4984,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.1/files</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.1/index.html</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4795,6 +5005,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.1/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.1/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4829,12 +5054,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.48/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.48/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.48/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4845,6 +5075,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.48/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.48/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.48/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.48/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4879,12 +5124,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.57/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.57/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.57/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4895,6 +5145,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2.57/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.57/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.57/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2.57/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4929,12 +5194,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2/files</loc>
-    <lastmod>2021-05-22T07:35:54+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2/index.html</loc>
-    <lastmod>2021-11-24T22:01:38+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4945,6 +5215,21 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/3.2/rbash.1.html</loc>
     <lastmod>2021-11-25T02:51:09+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/3.2/termcap.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4979,12 +5264,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0-rc1/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0-rc1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0-rc1/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -4995,6 +5285,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0-rc1/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0-rc1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0-rc1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5029,12 +5329,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5045,6 +5350,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.0/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.0/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5079,12 +5394,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.1/files</loc>
-    <lastmod>2021-05-22T07:35:54+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.1/index.html</loc>
-    <lastmod>2021-11-24T22:01:38+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5095,6 +5415,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.1/rbash.1.html</loc>
     <lastmod>2021-11-25T02:51:09+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5129,12 +5459,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2.53/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2.53/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2.53/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5145,6 +5480,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2.53/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2.53/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2.53/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5179,12 +5524,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5195,6 +5545,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.2/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5229,12 +5589,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3.30/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3.30/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3.30/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5245,6 +5610,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3.30/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3.30/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3.30/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5279,12 +5654,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5295,6 +5675,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.3/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.3/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5329,12 +5719,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5345,6 +5740,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5379,12 +5784,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta2/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta2/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5395,6 +5805,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-beta2/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-beta2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5429,12 +5849,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc1/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc1/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5445,6 +5870,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc1/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5479,12 +5914,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc2/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc2/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5495,6 +5935,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4-rc2/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4-rc2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5529,12 +5979,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.12/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.12/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.12/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5545,6 +6000,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.12/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.12/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.12/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5579,12 +6044,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.18/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.18/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.18/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5595,6 +6065,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4.18/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.18/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4.18/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5629,12 +6109,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5645,6 +6130,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/4.4/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/4.4/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5679,12 +6174,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-alpha/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-alpha/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-alpha/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5695,6 +6195,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-alpha/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-alpha/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-alpha/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5729,12 +6239,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5745,6 +6260,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5779,12 +6304,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta2/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta2/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5795,6 +6325,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-beta2/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-beta2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5829,12 +6369,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-rc1/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-rc1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-rc1/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5845,6 +6390,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0-rc1/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-rc1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0-rc1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5879,12 +6434,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5895,6 +6455,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.0/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.0/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5929,12 +6499,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-alpha/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-alpha/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-alpha/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5945,6 +6520,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-alpha/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-alpha/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-alpha/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5979,12 +6564,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-beta/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-beta/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-beta/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -5995,6 +6585,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-beta/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-beta/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-beta/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6029,12 +6629,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc1/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc1/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6045,6 +6650,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc1/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6079,12 +6694,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc2/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc2/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc2/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6095,6 +6715,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc2/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc2/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc2/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6129,12 +6759,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc3/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc3/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc3/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6145,6 +6780,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1-rc3/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc3/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1-rc3/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6179,12 +6824,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1.8/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1.8/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1.8/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6195,6 +6845,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1.8/rbash.1.html</loc>
     <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1.8/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1.8/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6229,12 +6889,17 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1/files</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1/history.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/5.1/index.html</loc>
-    <lastmod>2021-11-25T05:34:49+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -6248,13 +6913,23 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1/rlman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/5.1/rluserman.html</loc>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/bash/common/Dockerfile</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/common/build-html.bash</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
   </url>
 
   <url>
@@ -8689,7 +9364,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/sitemap.xml</loc>
-    <lastmod>2022-01-02T01:35:58+00:00</lastmod>
+    <lastmod>2022-01-02T01:36:20+00:00</lastmod>
   </url>
 
 </urlset>
