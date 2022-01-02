@@ -44,6 +44,7 @@ main() {
   } >date
 
   cp ../common/* .
+  cp "$prelude_dir"/prelude.bash .
 
   docker build --iidfile image .
   image=$(cat image)
@@ -78,6 +79,7 @@ main() {
     groff-*.tar.gz \
     image \
     out \
+    prelude.bash \
     texinfo-*.tar.gz \
   ;
 

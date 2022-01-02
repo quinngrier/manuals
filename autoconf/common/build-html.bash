@@ -8,16 +8,23 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-set -E -e -u -o pipefail || exit $?
-trap exit ERR
+. /prelude.bash
 
-LC_ALL=C
-readonly LC_ALL
-export LC_ALL
+main() {
 
-adjust_texi() {
+  declare    d
+  declare -a outs
+  declare    x
+  declare    y
 
-  <"$1" \
+  outs=()
+
+  #---------------------------------------------------------------------
+  # Patching
+  #---------------------------------------------------------------------
+
+  for x in ./**/*.texi; do
+
     sed '
       /^@titlepage/,$ {
         /^@ifinfo$/ d
@@ -27,39 +34,99 @@ adjust_texi() {
       s/}@c$/}/
       /^@set CODESTD/a\
   @set CHAPTER chapter
-    ' \
-  >"$1".tmp
+    ' "$x" >"$x.tmp"
+    mv "$x.tmp" "$x"
 
-  mv -f "$1".tmp "$1"
+  done
 
-}; readonly -f adjust_texi
+  #---------------------------------------------------------------------
+  # Texinfo
+  #---------------------------------------------------------------------
 
-main() {
+  for x in ./**/*.texi; do
 
-  declare    x
+    y=$(
+      sed -n '
+        /^@titlepage/ {
+          p
+          q
+        }
+      ' "$x"
+    )
+    if [[ ! "$y" ]]; then
+      continue
+    fi
+
+    d=${x%/*}
+    x=${x##*/}
+
+    pushd "$d" >/dev/null
+
+    y=${x/%.texi/.html}
+
+    texi2any \
+      --html \
+      --no-split \
+      -o "$y" \
+      "$x" \
+    ;
+
+    outs+=("$d/$y")
+
+    popd >/dev/null
+
+  done
+
+  #---------------------------------------------------------------------
+  # Groff
+  #---------------------------------------------------------------------
+
+  for x in ./**/*.[1-9]; do
+
+    y=$(
+      sed -n '
+        /^\.[A-Za-z]/ {
+          p
+          q
+        }
+      ' "$x"
+    )
+    if [[ ! "$y" ]]; then
+      continue
+    fi
+
+    d=${x%/*}
+    x=${x##*/}
+
+    pushd "$d" >/dev/null
+
+    y=$x.html
+
+    groff -mandoc -T html "$x" >"$y.tmp"
+    sed '
+      /^<!-- CreationDate:/ d
+    ' <"$y.tmp" >"$y"
+
+    outs+=("$d/$y")
+
+    popd >/dev/null
+
+  done
+
+  #---------------------------------------------------------------------
+
+  readonly outs
 
   mkdir out
-  if [[ -f autoconf.texi ]]; then
-    for x in autoconf standards; do
-      adjust_texi $x.texi
-      texi2any --html --no-split $x.texi
-      mv -f $x.html out
-    done
-  else
-    cd doc
-    for x in autoconf standards; do
-      adjust_texi $x.texi
-      texi2any --html --no-split $x.texi
-      mv -f $x.html ../out
-    done
-    cd ../man
-    for x in *.1; do
-      groff -mandoc -T html "$x" >"$x".tmp
-      sed '
-        /^<!-- CreationDate:/ d
-      ' <"$x".tmp >../out/"$x".html
-    done
-  fi
+  for x in ${outs[@]+"${outs[@]}"}; do
+    y=${x##*/}
+    if [[ -f "out/$y" ]]; then
+      barf "File already exists: \"out/$y\""
+    fi
+    mv "$x" out
+  done
+
+  #---------------------------------------------------------------------
 
 }; readonly -f main
 

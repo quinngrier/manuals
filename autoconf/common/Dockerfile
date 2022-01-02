@@ -53,5 +53,5 @@ WORKDIR autoconf
 RUN tar xzf ../autoconf-*.tar.gz
 RUN mv * autoconf
 WORKDIR autoconf
-COPY build-html.bash /build-html.bash
+COPY *.bash /
 RUN bash /build-html.bash
