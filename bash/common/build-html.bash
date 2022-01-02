@@ -55,7 +55,7 @@ main() {
 
     pushd "$d" >/dev/null
 
-    y=${x/%.texi/.html}
+    y=${x/%.texi@(|nfo)/.html}
 
     texi2any \
       --html \
