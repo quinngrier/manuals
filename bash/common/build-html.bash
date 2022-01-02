@@ -8,61 +8,106 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-. ./prelude.bash
+. /prelude.bash
 
 main() {
 
   declare    d
+  declare -a outs
   declare    x
   declare    y
-  declare -a outs
 
   outs=()
 
-  for d in \
-    ./doc \
-    ./documentation \
-  ; do
+  #---------------------------------------------------------------------
+  # Patching
+  #---------------------------------------------------------------------
 
-    if [[ ! -d "$d" ]]; then
+  for x in ./**/*.texi; do
+
+    sed '
+      s/^	}@$/	@}/
+    ' "$x" >"$x.tmp"
+    mv "$x.tmp" "$x"
+
+  done
+
+  #---------------------------------------------------------------------
+  # Texinfo
+  #---------------------------------------------------------------------
+
+  for x in ./**/*.texi; do
+
+    y=$(
+      sed -n '
+        /^@titlepage/ {
+          p
+          q
+        }
+      ' "$x"
+    )
+    if [[ ! "$y" ]]; then
       continue
     fi
 
+    d=${x%/*}
+    x=${x##*/}
+
     pushd "$d" >/dev/null
 
-    for x in ./*.texi; do
+    y=${x/%.texi/.html}
 
-      y=$(sed -n '/^@setfilename/ p' "$x")
-      if [[ ! "$y" ]]; then
-        continue
-      fi
+    texi2any \
+      --html \
+      --no-split \
+      -I ../lib/readline/doc \
+      -o "$y" \
+      "$x" \
+    ;
 
-      y=${x/%.texi/.html}
-      texi2any \
-        --html \
-        --no-split \
-        -I ../lib/readline/doc \
-        -o "$y" \
-        "$x" \
-      ;
-      outs+=("$d/$y")
-
-    done
-
-    for x in ./*.[1-9]; do
-
-      y=$x.html
-      groff -mandoc -T html "$x" >"$y.tmp"
-      sed '
-        /^<!-- CreationDate:/ d
-      ' <"$y.tmp" >"$y"
-      outs+=("$d/$y")
-
-    done
+    outs+=("$d/$y")
 
     popd >/dev/null
 
   done
+
+  #---------------------------------------------------------------------
+  # Groff
+  #---------------------------------------------------------------------
+
+  for x in ./**/*.[1-9]; do
+
+    y=$(
+      sed -n '
+        /^\.[A-Za-z]/ {
+          p
+          q
+        }
+      ' "$x"
+    )
+    if [[ ! "$y" ]]; then
+      continue
+    fi
+
+    d=${x%/*}
+    x=${x##*/}
+
+    pushd "$d" >/dev/null
+
+    y=$x.html
+
+    groff -mandoc -T html "$x" >"$y.tmp"
+    sed '
+      /^<!-- CreationDate:/ d
+    ' <"$y.tmp" >"$y"
+
+    outs+=("$d/$y")
+
+    popd >/dev/null
+
+  done
+
+  #---------------------------------------------------------------------
 
   readonly outs
 

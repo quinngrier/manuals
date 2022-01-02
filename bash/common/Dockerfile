@@ -53,5 +53,5 @@ WORKDIR bash
 RUN tar xzf ../bash-*.tar.gz
 RUN mv * bash
 WORKDIR bash
-COPY *.bash ./
-RUN bash build-html.bash
+COPY *.bash /
+RUN bash /build-html.bash
