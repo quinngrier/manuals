@@ -26,15 +26,24 @@ main() {
   for x in ./**/*.texi@(|nfo); do
 
     sed '
+
       /^@titlepage/,$ {
         /^@ifinfo$/ d
         /^@end ifinfo$/ d
       }
+
+      s/@value{Francois}/Fran@,{c}ois/g
+      s/Fran.ois Pinard/Fran@,{c}ois Pinard/g
+      s/Fran.ois'\''s/Fran@,{c}ois'\''s/g
       s/Franc,ois/Fran@,{c}ois/g
+
       s/}@c$/}/
+
       /^@set CODESTD/a\
   @set CHAPTER chapter
+
     ' "$x" >"$x.tmp"
+
     mv "$x.tmp" "$x"
 
   done

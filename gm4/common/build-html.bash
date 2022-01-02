@@ -33,6 +33,9 @@ main() {
       }
 
       s/@value{Francois}/Fran@,{c}ois/g
+      s/Fran.ois Pinard/Fran@,{c}ois Pinard/g
+      s/Fran.ois'\''s/Fran@,{c}ois'\''s/g
+      s/Franc,ois/Fran@,{c}ois/g
 
       s/'$'\xC2\xAB''/@U{00AB}/g
       s/'$'\xC2\xBB''/@U{00BB}/g

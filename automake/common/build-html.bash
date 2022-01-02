@@ -26,13 +26,19 @@ main() {
   for x in ./**/*.texi@(|nfo); do
 
     sed '
-      s/^@itemx \(....-..-.. Automake\)/@item \1/
-      s/Fran.ois Pinard/Fran@,{c}ois Pinard/g
-      s/Fran.ois'\''s/Fran@,{c}ois'\''s/g
+
       /^@titlepage/,$ {
         /^@ifinfo$/ d
         /^@end ifinfo$/ d
       }
+
+      s/@value{Francois}/Fran@,{c}ois/g
+      s/Fran.ois Pinard/Fran@,{c}ois Pinard/g
+      s/Fran.ois'\''s/Fran@,{c}ois'\''s/g
+      s/Franc,ois/Fran@,{c}ois/g
+
+      s/^@itemx \(....-..-.. Automake\)/@item \1/
+
     ' "$x" >"$x.tmp"
     mv "$x.tmp" "$x"
 
