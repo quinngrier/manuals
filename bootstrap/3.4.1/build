@@ -76,8 +76,7 @@ main() {
 
   cd ..
 
-  sed '/<lastmod>/ d' gh-pages/sitemap.xml >tmp
-  mv -f tmp gh-pages/sitemap.xml
+  rm -f gh-pages/sitemap.xml
 
   for x in gh-pages/**/*.html; do
     y=$(sed 's|[^/]*/|../|g' <<<${x%/*}/)qref.js
