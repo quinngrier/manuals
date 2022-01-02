@@ -8,6 +8,6 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
-# Allow everything.
 User-agent: *
 Disallow:
+Sitemap: https://manuals.quinngrier.com/sitemap.xml

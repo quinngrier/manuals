@@ -17,6 +17,13 @@ main() {
   declare    x
   declare    xs
 
+  for x in robots.txt sitemap.xml; do
+    sed '
+      s|manuals\.quinngrier\.com|manuals.netlify.app|
+    ' $x >$x.tmp
+    mv $x.tmp $x
+  done
+
   xs=$(git ls-tree --name-only HEAD:)
   readonly xs
 
