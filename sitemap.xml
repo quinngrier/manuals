@@ -34,7 +34,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/autoconf/2.10/build</loc>
-    <lastmod>2021-12-23T02:53:59+00:00</lastmod>
+    <lastmod>2022-01-02T04:43:41+00:00</lastmod>
   </url>
 
   <url>
@@ -1819,12 +1819,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/autoconf/common/Dockerfile</loc>
-    <lastmod>2021-12-21T03:50:09+00:00</lastmod>
+    <lastmod>2022-01-02T22:02:50+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/autoconf/common/build-html.bash</loc>
-    <lastmod>2021-12-23T02:53:59+00:00</lastmod>
+    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
   </url>
 
   <url>
@@ -1839,12 +1839,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/1.0/automake.html</loc>
-    <lastmod>2021-12-16T23:23:42+00:00</lastmod>
+    <lastmod>2022-01-02T22:20:55+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/1.0/build</loc>
-    <lastmod>2022-01-01T07:16:59+00:00</lastmod>
+    <lastmod>2022-01-02T04:53:01+00:00</lastmod>
   </url>
 
   <url>
@@ -4079,12 +4079,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/common/Dockerfile</loc>
-    <lastmod>2021-12-18T08:34:54+00:00</lastmod>
+    <lastmod>2022-01-02T22:02:50+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/common/build-html.bash</loc>
-    <lastmod>2021-12-18T08:34:54+00:00</lastmod>
+    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
   </url>
 
   <url>
@@ -4104,7 +4104,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/build</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-02T04:43:41+00:00</lastmod>
   </url>
 
   <url>
@@ -6924,12 +6924,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/common/Dockerfile</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-02T22:02:50+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/common/build-html.bash</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
   </url>
 
   <url>
@@ -9183,13 +9183,213 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/groff-1.22.4.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.1.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/groff-1.22.4.tar.gz.urls</loc>
-    <lastmod>2021-12-21T03:50:09+00:00</lastmod>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.1.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.10.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.10.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.11.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.11.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.12.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.12.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.13.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.13.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.14.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.14.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.15.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.15.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.16.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.16.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.17.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.17.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.18.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.18.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.19.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.19.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.2.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.2.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.3.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.3.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.4.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.4.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.5.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.5.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.6.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.6.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.7.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.7.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.8.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.8.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.9.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.9.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/gm4/m4-1.4.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:58:06+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/groff/groff-1.22.4.tar.gz.sha512sum</loc>
+    <lastmod>2022-01-02T04:43:41+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/groff/groff-1.22.4.tar.gz.urls</loc>
+    <lastmod>2022-01-02T04:43:41+00:00</lastmod>
   </url>
 
   <url>
@@ -9333,6 +9533,616 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/ansi2knr.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.1/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.10/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.11/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.12/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.13/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.14/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.15/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.16/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.17/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.18/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.19/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/ansi2knr.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.2/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/ansi2knr.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.3/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/ansi2knr.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.4/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.5/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.6/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.7/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.8/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/m4.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4.9/qref.js</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4/ansi2knr.1.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4/build</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4/date</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4/files</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/1.4/m4.html</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/common/Dockerfile</loc>
+    <lastmod>2022-01-02T22:02:50+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/common/build-html.bash</loc>
+    <lastmod>2022-01-02T22:20:55+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/gm4/ignore</loc>
+    <lastmod>2022-01-02T22:02:17+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/ignore</loc>
     <lastmod>2021-12-17T22:13:01+00:00</lastmod>
   </url>
@@ -9364,7 +10174,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/sitemap.xml</loc>
-    <lastmod>2022-01-02T01:36:20+00:00</lastmod>
+    <lastmod>2022-01-02T02:25:03+00:00</lastmod>
   </url>
 
 </urlset>
