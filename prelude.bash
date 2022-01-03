@@ -165,3 +165,38 @@ download() {
 }; readonly -f download
 
 #-----------------------------------------------------------------------
+
+download_tar_gz() {
+
+  declare    file
+  declare    x
+
+  for x in "$prelude_dir"/downloads/"$1".tar*.urls; do
+    x=${x%.urls}
+    file=${x##*/}
+    x=${x#"$prelude_dir/downloads/"}
+    download "$x"
+    break
+  done
+  readonly file
+
+  case $file in *.tar)
+    gzip <"$file" >"$file.gz"
+  ;; *.tar.Z)
+    gzip -d <"$file" | gzip >"${file/%.Z/.gz}"
+    rm "$file"
+  ;; *.tar.bz2)
+    bzip2 -d <"$file" | gzip >"${file/%.bz2/.gz}"
+    rm "$file"
+  ;; *.tar.gz)
+    :
+  ;; *.tar.xz)
+    xz -d <"$file" | gzip >"${file/%.xz/.gz}"
+    rm "$file"
+  ;; *)
+    barf "Unknown archive file: \"$file\"."
+  esac
+
+}; readonly -f download_tar_gz
+
+#-----------------------------------------------------------------------
