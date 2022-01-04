@@ -1,0 +1,445 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>TEXI2DVI</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">TEXI2DVI</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">texi2dvi -
+convert Texinfo documents to DVI</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>texi2dvi</b>
+[<i>OPTION</i>]... <i>FILE</i>...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Run each
+Texinfo or (La)TeX FILE through TeX in turn until all
+cross-references are resolved, building all indices. The
+directory containing each FILE is searched for included
+files. The suffix of FILE is used to determine its language
+((La)TeX or Texinfo). To process (e)plain TeX files, set the
+environment variable LATEX=tex.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In order to
+make texi2dvi a drop-in replacement of TeX/LaTeX in AUC-TeX,
+the FILE may also be composed of the following simple TeX
+commands. <br>
+&lsquo;\input{FILE}&rsquo;</p>
+
+<p style="margin-left:22%;">the actual file to compile</p>
+
+<p style="margin-left:11%;">&lsquo;\nonstopmode&rsquo;</p>
+
+<p style="margin-left:22%;">same as <b>--batch</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">Makeinfo is
+used to perform Texinfo macro expansion before running TeX
+when needed.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>General
+options: <br>
+-b</b>, <b>--batch</b></p>
+
+<p style="margin-left:22%;">no interaction</p>
+
+<p style="margin-left:11%;"><b>-D</b>, <b>--debug</b></p>
+
+<p style="margin-left:22%;">turn on shell debugging (set
+<b>-x</b>)</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">display this help and exit
+successfully</p>
+
+<p style="margin-left:11%;"><b>-o</b>,
+<b>--output</b>=<i>OFILE</i></p>
+
+<p style="margin-left:22%;">leave output in OFILE (implies
+<b>--clean</b>); only one input FILE may be specified in
+this case</p>
+
+<p style="margin-left:11%;"><b>-q</b>, <b>--quiet</b></p>
+
+<p style="margin-left:22%;">no output unless errors
+(implies <b>--batch</b>)</p>
+
+<p style="margin-left:11%;"><b>-s</b>, <b>--silent</b></p>
+
+<p style="margin-left:22%;">same as <b>--quiet</b></p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--version</b></p>
+
+<p style="margin-left:22%;">display version information and
+exit successfully</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--verbose</b></p>
+
+<p style="margin-left:22%;">report on what is done</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>TeX
+tuning:</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p>-@</p></td>
+<td width="4%"></td>
+<td width="76%">
+
+
+<p>use @input instead of \input for preloaded Texinfo</p></td>
+<td width="2%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>--dvi</b></p></td>
+<td width="4%"></td>
+<td width="76%">
+
+
+<p>output a DVI file [default]</p></td>
+<td width="2%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>--dvipdf</b></p>
+
+<p style="margin-left:22%;">output a PDF file via DVI
+(using dvipdf)</p>
+
+<p style="margin-left:11%;"><b>-e</b>, <b>-E</b>,
+<b>--expand</b></p>
+
+<p style="margin-left:22%;">force macro expansion using
+makeinfo</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-I</b> DIR</p></td>
+<td width="2%"></td>
+<td width="43%">
+
+
+<p>search DIR for Texinfo files</p></td>
+<td width="35%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-l</b>,
+<b>--language</b>=<i>LANG</i></p>
+
+<p style="margin-left:22%;">specify LANG for FILE, either
+latex or texinfo</p>
+
+<p style="margin-left:11%;"><b>--no-line-error</b></p>
+
+<p style="margin-left:22%;">do not pass
+<b>--file-line-error</b> to TeX</p>
+
+<p style="margin-left:11%;"><b>-p</b>, <b>--pdf</b></p>
+
+<p style="margin-left:22%;">use pdftex or pdflatex for
+processing</p>
+
+<p style="margin-left:11%;"><b>-r</b>, <b>--recode</b></p>
+
+<p style="margin-left:22%;">call recode before TeX to
+translate input</p>
+
+
+<p style="margin-left:11%;"><b>--recode-from</b>=<i>ENC</i></p>
+
+<p style="margin-left:22%;">recode from ENC to the
+@documentencoding</p>
+
+<p style="margin-left:11%;"><b>--src-specials</b></p>
+
+<p style="margin-left:22%;">pass <b>--src-specials</b> to
+TeX</p>
+
+<p style="margin-left:11%;"><b>-t</b>,
+<b>--command</b>=<i>CMD</i></p>
+
+<p style="margin-left:22%;">insert CMD in copy of input
+file</p>
+
+<p style="margin-left:11%;">or
+<b>--texinfo</b>=<i>CMD</i></p>
+
+<p style="margin-left:22%;">multiple values accumulate</p>
+
+
+<p style="margin-left:11%;"><b>--translate-file</b>=<i>FILE</i></p>
+
+<p style="margin-left:22%;">use given charset translation
+file for TeX</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Build modes:
+<br>
+--build</b>=<i>MODE</i></p>
+
+<p style="margin-left:22%;">specify the treatment of
+auxiliary files [local]</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--tidy</b></p></td>
+<td width="2%"></td>
+<td width="30%">
+
+
+<p>same as <b>--build</b>=<i>tidy</i></p></td>
+<td width="48%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-c</b>, <b>--clean</b></p>
+
+<p style="margin-left:22%;">same as
+<b>--build</b>=<i>clean</i></p>
+
+
+<p style="margin-left:11%;"><b>--build-dir</b>=<i>DIR</i></p>
+
+<p style="margin-left:22%;">specify where the tidy
+compilation is performed; implies <b>--tidy</b>; defaults to
+TEXI2DVI_BUILD_DIRECTORY [.]</p>
+
+<p style="margin-left:11%;"><b>--mostly-clean</b></p>
+
+<p style="margin-left:22%;">remove the auxiliary files and
+directories but not the output</p>
+
+<p style="margin-left:11%; margin-top: 1em">The MODE
+specifies where the TeX compilation takes place, and, as a
+consequence, how auxiliary files are treated. The build mode
+can also be set using the environment variable
+TEXI2DVI_BUILD_MODE.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Valid MODEs
+are:</b> <br>
+&lsquo;local&rsquo;</p>
+
+<p style="margin-left:22%;">compile in the current
+directory, leaving all the auxiliary files around. This is
+the traditional TeX use.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p>&lsquo;tidy&rsquo;</p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>compile in a local *.t2d directory, where the auxiliary
+files are left. Output files are copied back to the original
+file.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;">&lsquo;clean&rsquo;</p>
+
+<p style="margin-left:22%;">same as &lsquo;tidy&rsquo;, but
+remove the auxiliary directory afterwards. Every compilation
+therefore requires the full cycle.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Using the
+&lsquo;tidy&rsquo; mode brings several advantages:</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>the current directory is not cluttered with plethora of
+temporary files.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>clutter can be even reduced using
+<b>--build-dir</b>=<i>dir</i>: all the *.t2d directories are
+stored there.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>clutter can be reduced to zero using, e.g.,
+<b>--build-dir=</b>/tmp/$USER.t2d or
+<b>--build-dir=</b>$HOME/.t2d.</p> </td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>the output file is updated after every succesful TeX
+run, for sake of concurrent visualization of the output. In
+a &lsquo;local&rsquo; build the viewer stops during the
+whole TeX run.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>if the compilation fails, the previous state of the
+output file is preserved.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>-</p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>PDF and DVI compilation are kept in separate
+subdirectories preventing any possibility of auxiliary file
+incompatibility.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">On the other
+hand, because &lsquo;tidy&rsquo; compilation takes place in
+another directory, occasionally TeX won&rsquo;t be able to
+find some files (e.g., when using \graphicspath): in that
+case use <b>-I</b> to specify the additional directories to
+consider.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The values of
+the BIBTEX, LATEX (or PDFLATEX), MAKEINDEX, MAKEINFO, TEX
+(or PDFTEX), TEXINDEX, and THUMBPDF environment variables
+are used to run those commands, if they are set. Any CMD
+strings are added after @setfilename for Texinfo input, in
+the first line for LaTeX input.</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Email bug
+reports to &lt;bug-texinfo@gnu.org&gt;, general questions
+and discussion to &lt;help-texinfo@gnu.org&gt;. Texinfo home
+page: http://www.gnu.org/software/texinfo/</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2008 Free Software Foundation, Inc. License GPLv3+:
+GNU GPL version 3 or later
+&lt;http://gnu.org/licenses/gpl.html&gt; <br>
+This is free software: you are free to change and
+redistribute it. There is NO WARRANTY, to the extent
+permitted by law.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The full
+documentation for <b>texi2dvi</b> is maintained as a Texinfo
+manual. If the <b>info</b> and <b>texi2dvi</b> programs are
+properly installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+texi2dvi</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>

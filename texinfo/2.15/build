@@ -1,0 +1,106 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+cleanup() {
+
+  rm -f -r \
+    *.bash \
+    *.tar* \
+    Dockerfile \
+    image \
+    out \
+    texinfo-$v \
+  ;
+
+}; readonly -f cleanup
+
+main() {
+
+  declare    container
+  declare    image
+  declare    v
+  declare    v1
+  declare    v2
+  declare    x
+
+  v=${PWD##*/}
+  readonly v
+
+  cleanup
+
+  v1=${v%%.*}
+  readonly v1
+
+  v2=${v#"$v1."}
+  v2=${v2%%[.a-z-]*}
+  readonly v2
+
+  download_tar_gz groff/groff-1.22.4
+  mv groff-*.tar.gz build-groff.tar.gz
+
+  case $v in ([0-5].* | 6.[0-7])
+    download_tar_gz texinfo/texinfo-6.7
+  ;; *)
+    download_tar_gz texinfo/texinfo-$v
+  esac
+  mv texinfo-*.tar.gz build-texinfo.tar.gz
+
+  download_tar_gz texinfo/texinfo-$v
+
+  tar xzf texinfo-$v.tar.gz
+  mv texinfo-*/ texinfo-tmp
+  mv texinfo-tmp texinfo-$v
+  x=$(find texinfo-$v -type f -printf '%T@\n' | sort -n | tail -1)
+  {
+    printf %03d%03d: "$v1" "$v2"
+    date -d "@$x" -u +%Y-%m-%d
+  } >date
+
+  cp ../common/* .
+  cp "$prelude_dir"/prelude.bash .
+
+  docker build \
+    --build-arg package_version=$v \
+    --iidfile image \
+    . \
+  ;
+  image=$(cat image)
+  readonly image
+
+  container=$(docker create $image)
+  readonly container
+
+  rm -f -r out
+  mkdir out
+
+  docker cp $container:/texinfo/texinfo/out/. out
+
+  docker rm $container
+
+  >files
+  for x in out/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+    echo ${x#out/} >>files
+  done
+
+  mv -f out/* .
+
+  cleanup
+
+}; readonly -f main
+
+main "$@"

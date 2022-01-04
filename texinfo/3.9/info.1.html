@@ -1,0 +1,464 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>info</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">info</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#COMMANDS">COMMANDS</a><br>
+<a href="#ENVIRONMENT">ENVIRONMENT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#MANUAL AUTHOR">MANUAL AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">info -
+GNU&rsquo;s hypertext system</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>info</b> [
+<b>--option-name option-value</b> ] <b>nu-item...</b></p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright (C)
+1989, 1993 Free Software Foundation, Inc.</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The GNU project
+has a hypertext system called <i>Info</i> which allows the
+same source file to be either printed as a paper manual, or
+viewed using <b>info.</b> It is possible to use the
+<b>info</b> program from inside Emacs, or to use the
+stand-alone version described here. This manual page gives a
+brief summary of its capabilities.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>--directory
+directory-path</b></p>
+
+<p style="margin-left:22%;">Add <b>directory-path</b> to
+the list of directory paths searched when <b>info</b> needs
+to find a file. You may issue <b>--directory</b> multiple
+times. Alternatively, you may specify a value for the
+environment variable <b>INFOPATH;</b> if <b>--directory</b>
+is not given, the value of <b>INFOPATH</b> is used. The
+value of <b>INFOPATH</b> is a colon separated list of
+directory names. If you do not supply either <b>INFOPATH</b>
+or <b>--directory-path, info</b> uses a default path.</p>
+
+<p style="margin-left:11%;"><b>-f filename</b></p>
+
+<p style="margin-left:22%;">Specify a particular
+<b>info</b> file to visit. By default, <b>info</b> visits
+the file <b>dir;</b> if you use this option, <b>info</b>
+will start with <b>(FILENAME)Top</b> as the first file and
+node.</p>
+
+<p style="margin-left:11%;"><b>-n nodename</b></p>
+
+<p style="margin-left:22%;">Specify a particular node to
+visit in the initial file that <b>info</b> loads. This is
+especially useful in conjunction with <b>--file.</b> You may
+specify <b>--node</b> multiple times.</p>
+
+<p style="margin-left:11%;"><b>-o file</b></p>
+
+<p style="margin-left:22%;">Direct output to <b>file</b>
+instead of starting an interactive <b>info</b> session.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p><b>-h</b></p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>Produce a relatively brief description of the available
+<b>info</b> options.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>--version</b></p>
+
+<p style="margin-left:22%;">Print the version information
+of <b>info</b> and exit.</p>
+
+<p style="margin-left:11%;"><b>menu-item</b></p>
+
+<p style="margin-left:22%;"><b>info</b> treats its
+remaining arguments as the names of menu items. The first
+argument is a menu item in the initial node visited, while
+the second argument is a menu item in the first
+argument&rsquo;s node. You can easily move to the node of
+your choice by specifying the menu names which describe the
+path to that node. For example,</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info emacs
+buffers</b></p>
+
+<p style="margin-left:22%; margin-top: 1em">first selects
+the menu item <b>emacs</b> in the node <b>(dir)Top,</b> and
+then selects the menu item <b>buffers</b> in the node
+<b>(emacs)Top.</b></p>
+
+<h2>COMMANDS
+<a name="COMMANDS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">When in
+<b>info</b> the following commands are available:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>h</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Invoke the Info tutorial.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>?</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Get a short summary of <b>info</b> commands.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>h</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Select the <b>info</b> node from the main directory;
+this is much more complete than just using <b>?.</b></p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>Ctrl-g</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Abort whatever you are doing.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>Ctrl-l</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Redraw the screen.</p></td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">Selecting other
+nodes:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p style="margin-top: 1em"><b>n</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Move to the &quot;next&quot;
+node of this node.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p><b>p</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Move to the &quot;previous&quot; node of this node.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p><b>u</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Move to this node&rsquo;s &quot;up&quot; node.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p><b>m</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Pick a menu item specified by name. Picking a menu item
+causes another node to be selected. You do not need to type
+a complete nodename; if you type a few letters and then a
+space or tab <b>info</b> will will try to fill in the rest
+of the nodename. If you ask for further completion without
+typing any more characters you&rsquo;ll be given a list of
+possibilities; you can also get the list with <b>?.</b> If
+you type a few characters and then hit return <b>info</b>
+will try to do a completion, and if it is ambigous use the
+first possibility.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p><b>f</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Follow a cross reference. You are asked for the name of
+the reference, using command completion as for <b>m.</b></p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p><b>l</b></p></td>
+<td width="10%"></td>
+<td width="78%">
+
+
+<p>Move to the last node you were at.</p></td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">Moving within a
+node:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p style="margin-top: 1em"><b>Space</b></p></td>
+<td width="4%"></td>
+<td width="50%">
+
+
+<p style="margin-top: 1em">Scroll forward a page.</p></td>
+<td width="28%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>DEL</b></p></td>
+<td width="4%"></td>
+<td width="50%">
+
+
+<p>Scroll backward a page.</p></td>
+<td width="28%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>b</b></p></td>
+<td width="4%"></td>
+<td width="50%">
+
+
+<p>Go to the beginning of this node.</p></td>
+<td width="28%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">Advanced
+commands:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p style="margin-top: 1em"><b>q</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p style="margin-top: 1em">Quit <b>info.</b></p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>1</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Pick first item in node&rsquo;s menu.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>2 -- 5</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Pick second ... fifth item in node&rsquo;s menu.</p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>g</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Move to node specified by name. You may include a
+filename as well, as <b>(FILENAME)NODENAME.</b></p></td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>s</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>Search through this <b>info</b> file for a specified
+string, and select the node in which the next occurrence is
+found.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>M-x print-node</b></p>
+
+<p style="margin-left:22%;">Pipe the contents of the
+current node through the command in the environment variable
+<b>INFO_PRINT_COMMAND.</b> If the variable does not exist,
+the node is simply piped to <b>lpr.</b></p>
+
+<h2>ENVIRONMENT
+<a name="ENVIRONMENT"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>INFOPATH</b></p>
+
+<p style="margin-left:22%;">A colon-separated list of
+directories to search for <b>info</b> files. Used if
+<b>--directory</b> is not given.</p>
+
+<p style="margin-left:11%;"><b>INFO_PRINT_COMMAND</b></p>
+
+<p style="margin-left:22%;">The command used for
+printing.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>emacs</b>(1)</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:22%; margin-top: 1em">Brian Fox, Free
+Software Foundation <br>
+bfox@ai.mit.edu</p>
+
+<h2>MANUAL AUTHOR
+<a name="MANUAL AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:22%; margin-top: 1em">Robert Lupton;
+updated by Robert J. Chassell. <br>
+rhl@astro.princeton.edu; bob@gnu.ai.mit.edu</p>
+<hr>
+</body>
+</html>

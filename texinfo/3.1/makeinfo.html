@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Makeinfo</title>
+
+<meta name="description" content="Makeinfo">
+<meta name="keywords" content="Makeinfo">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Top" rel="start" title="Top">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+
+<p>This file is an extract from the <cite>Texinfo</cite> manual.<br>
+It documents <code>makeinfo</code>, a program that converts Texinfo
+files into Info files.  
+</p>
+<p>Copyright (C) 1992, 1993 Free Software Foundation, Inc.
+</p>
+<p>Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+</p>
+<p>Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+</p>
+<p>Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Free Software Foundation.
+</p>
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#What-is-makeinfo" accesskey="n" rel="next">What is makeinfo</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
+</div>
+<span id="makeinfo"></span><h2 class="unnumbered"><code>makeinfo</code></h2>
+
+<p>This file documents the use of the <code>makeinfo</code> program, versions
+1.51 and later.  It is an extract from the <cite>Texinfo</cite> manual.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#What-is-makeinfo" accesskey="1">What is makeinfo</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="What-is-makeinfo"></span><div class="header">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<span id="What-is-makeinfo_003f"></span><h2 class="chapter">1 What is <code>makeinfo</code>?</h2>
+
+
+<p><code>makeinfo</code> is a program for converting <em>Texinfo</em> files into <em>Info</em>
+files.  Texinfo is a documentation system that uses a single source file to
+produce both on-line information and printed output.
+</p>
+<p>You can read the on-line information using Info; type <code>info</code> to
+learn about Info.
+See <a href="texinfo.texi.html#Top">Overview of Texinfo</a> in <cite>Texinfo</cite>,
+to learn about the Texinfo documentation system.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Formatting-Control" accesskey="1">Formatting Control</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Options" accesskey="2">Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Pointer-Validation" accesskey="3">Pointer Validation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="Formatting-Control"></span><div class="header">
+<p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Up: <a href="#What-is-makeinfo" accesskey="u" rel="up">What is makeinfo</a> &nbsp; </p>
+</div>
+<span id="Controlling-Paragraph-Formats"></span><h3 class="section">1.1 Controlling Paragraph Formats</h3>
+
+<p>In general, <code>makeinfo</code> <em>fills</em> the paragraphs that it outputs
+to an Info file.  Filling is the process of breaking and connecting
+lines so that lines are the same length as or shorter than the number
+specified as the fill column.  Lines are broken between words.  With
+<code>makeinfo</code>, you can control:
+</p>
+<ul>
+<li> The width of each paragraph (the <em>fill-column</em>).
+</li><li> The amount of indentation that the first line of 
+each paragraph receives (the <em>paragraph-indentation</em>).
+</li></ul>
+
+<hr>
+<span id="Options"></span><div class="header">
+<p>
+Next: <a href="#Pointer-Validation" accesskey="n" rel="next">Pointer Validation</a>, Previous: <a href="#Formatting-Control" accesskey="p" rel="prev">Formatting Control</a>, Up: <a href="#What-is-makeinfo" accesskey="u" rel="up">What is makeinfo</a> &nbsp; </p>
+</div>
+<span id="Command-Line-Options"></span><h3 class="section">1.2 Command Line Options</h3>
+
+<p>The following command line options are available for <code>makeinfo</code>.
+</p>
+<dl compact="compact">
+<dt><code>-D <var>var</var></code></dt>
+<dd><p>Cause <var>var</var> to be defined.  This is equivalent to 
+<code>@set <var>var</var></code> in the Texinfo file.
+</p>
+</dd>
+<dt><code>--error-limit <var>limit</var></code></dt>
+<dd><p>Set the maximum number of errors that <code>makeinfo</code> will report
+before exiting (on the assumption that continuing would be useless).
+The default number of errors that can be reported before
+<code>makeinfo</code> gives up is 100.
+</p>
+</dd>
+<dt><code>--fill-column <var>width</var></code></dt>
+<dd><p>Specify the maximum number of columns in a line; this is the right-hand
+edge of a line.  Paragraphs that are filled will be filled to this
+width.  The default value for <code>fill-column</code> is 72.
+
+</p>
+</dd>
+<dt><code>--footnote-style <var>style</var></code></dt>
+<dd><p>Set the footnote style to <var>style</var>, either &lsquo;<samp>end</samp>&rsquo; for the end
+node style or &lsquo;<samp>separate</samp>&rsquo; for the separate node style.  The value
+set by this option overrides the value set in a Texinfo file by an
+<code>@footnotestyle</code> command.  When the footnote style is
+&lsquo;<samp>separate</samp>&rsquo;, <code>makeinfo</code> makes a new node containing the
+footnotes found in the current node.  When the footnote style is
+&lsquo;<samp>end</samp>&rsquo;, <code>makeinfo</code> places the footnote references at the end
+of the current node.
+</p>
+</dd>
+<dt><code>-I <var>dir</var></code></dt>
+<dd><p>Add <code>dir</code> to the directory search list for finding files that are
+included using the <code>@include</code> command.  By default,
+<code>makeinfo</code> searches only the current directory.
+</p>
+</dd>
+<dt><code>--no-headers</code></dt>
+<dd><p>Do not include menus or node lines in the output.  This results in an
+<small>ASCII</small> file that you cannot read in Info since it does not contain
+the requisite nodes or menus; but you can print such a file in a
+single, typewriter-like font and produce acceptable output.
+</p>
+</dd>
+<dt><code>--no-split</code></dt>
+<dd><p>Suppress the splitting stage of <code>makeinfo</code>.  Normally, large
+output files (where the size is greater than 70k bytes) are split into
+smaller subfiles, each one approximately 50k bytes.  If you specify
+&lsquo;<samp>--no-split</samp>&rsquo;, <code>makeinfo</code> will not split up the output
+file.
+</p>
+</dd>
+<dt><code>--no-pointer-validate</code></dt>
+<dt><code>--no-validate</code></dt>
+<dd><p>Suppress the pointer-validation phase of <code>makeinfo</code>.  Normally,
+after a Texinfo file is processed, some consistency checks are made to
+ensure that cross references can be resolved, etc.
+See <a href="#Pointer-Validation">Pointer Validation</a>.
+</p>
+</dd>
+<dt><code>--no-warn</code></dt>
+<dd><p>Suppress the output of warning messages.  This does <em>not</em>
+suppress the output of error messages, only warnings.  You might
+want this if the file you are creating has examples of Texinfo cross
+references within it, and the nodes that are referenced do not actually
+exist.
+</p>
+</dd>
+<dt><code>--no-number-footnotes</code></dt>
+<dd><p>Supress automatic footnote numbering.  By default, <code>makeinfo</code>
+numbers each footnote sequentially in a single node, resetting the
+current footnote number to 1 at the start of each node.
+</p>
+</dd>
+<dt><code>--output <var>file</var></code></dt>
+<dt><code>-o <var>file</var></code></dt>
+<dd><p>Specify that the output should be directed to <var>file</var> and not to the
+file name specified in the <code>@setfilename</code> command found in the Texinfo
+source.  <var>file</var> can be the special token &lsquo;<samp>-</samp>&rsquo;, which specifies
+standard output.
+</p>
+</dd>
+<dt><code>--paragraph-indent <var>indent</var></code></dt>
+<dd><p>Set the paragraph indentation style to <var>indent</var>.  The value set by
+this option overrides the value set in a Texinfo file by an
+<code>@paragraphindent</code> command.  The value of <var>indent</var> is
+interpreted as follows:
+</p>
+<ul>
+<li> If the value of <var>indent</var> is &lsquo;<samp>asis</samp>&rsquo;, do not change the
+existing indentation at the starts of paragraphs.
+
+</li><li> If the value of <var>indent</var> is zero, delete any existing
+indentation.
+
+</li><li> If the value of <var>indent</var> is greater than zero, indent each
+paragraph by that number of spaces.
+</li></ul>
+
+</dd>
+<dt><code>--reference-limit <var>limit</var></code></dt>
+<dd><p>Set the value of the number of references to a node that
+<code>makeinfo</code> will make without reporting a warning.  If a node has more
+than this number of references in it, <code>makeinfo</code> will make the
+references but also report a warning.
+</p>
+</dd>
+<dt><code>-U <var>var</var></code></dt>
+<dd><p>Cause <var>var</var> to be undefined.  This is equivalent to 
+<code>@clear <var>var</var></code> in the Texinfo file.
+</p>
+</dd>
+<dt><code>--verbose</code></dt>
+<dd><p>Cause <code>makeinfo</code> to display messages saying what it is doing.
+Normally, <code>makeinfo</code> only outputs messages if there are errors or
+warnings.
+</p>
+</dd>
+<dt><code>--version</code></dt>
+<dd><p>Report the version number of this copy of <code>makeinfo</code>.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Pointer-Validation"></span><div class="header">
+<p>
+Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#What-is-makeinfo" accesskey="u" rel="up">What is makeinfo</a> &nbsp; </p>
+</div>
+<span id="Pointer-Validation-1"></span><h3 class="section">1.3 Pointer Validation</h3>
+<span id="index-Pointer-validation-with-makeinfo"></span>
+<span id="index-Validation-of-pointers"></span>
+
+<p>If you do not suppress pointer-validation (by using the
+&lsquo;<samp>--no-pointer-validation</samp>&rsquo; option), <code>makeinfo</code>
+will check the validity of the final Info file.  Mostly,
+this means ensuring that nodes you have referenced
+really exist.  Here is a complete list of what is
+checked:
+</p>
+<ol>
+<li> If a &lsquo;Next&rsquo;, &lsquo;Previous&rsquo;, or &lsquo;Up&rsquo; node reference is a reference to a
+node in the current file and is not an external reference such as to
+<samp>(dir)</samp>, then the referenced node must exist.
+
+</li><li> In every node, if the &lsquo;Previous&rsquo; node is different from the &lsquo;Up&rsquo; node, 
+then the &lsquo;Previous&rsquo; node must also be pointed to by a &lsquo;Next&rsquo; node.
+
+</li><li> Every node except the &lsquo;Top&rsquo; node must have an &lsquo;Up&rsquo; pointer.
+
+</li><li> The node referenced by an &lsquo;Up&rsquo; pointer must contain a reference to the
+current node in some manner other than through a &lsquo;Next&rsquo; reference.
+This includes menu entries and cross references.
+
+</li><li> If the &lsquo;Next&rsquo; reference of a node is not the same as the &lsquo;Next&rsquo; reference
+of the &lsquo;Up&rsquo; reference, then the node referenced by the &lsquo;Next&rsquo; pointer
+must have a &lsquo;Previous&rsquo; pointer that points back to the current node.
+This rule allows the last node in a section to point to the first node
+of the next chapter.
+</li></ol>
+
+<hr>
+
+
+
+</body>
+</html>

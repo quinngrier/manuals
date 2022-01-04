@@ -1,0 +1,205 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>POD2TEXI</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">POD2TEXI</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">pod2texi -
+convert Pod to Texinfo</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">pod2texi
+[OPTION]... POD...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Translate Pod
+file(s) to Texinfo. There are two basic modes of operation.
+First, by default, each pod is translated to a standalone
+Texinfo manual.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Second, if
+&quot;--base-level&quot; is set higher than 0, each pod is
+translated to a file suitable for @include, and one more
+file with all the @includes is generated, intended to be
+@included in turn within a hand-written top-level file.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>--appendix-sections</b></p>
+
+<p style="margin-left:17%;">Use appendix sectioning
+commands (@appendix, ...) instead of the default numbered
+sectioning Texinfo @-commands (@chapter, @section, ...).</p>
+
+
+<p style="margin-left:11%;"><b>--base-level</b>=<i>NUM|NAME</i></p>
+
+<p style="margin-left:17%;">Sets the level of the
+&quot;head1&quot; commands. It may be an integer or a
+Texinfo sectioning command (without the &quot;@&quot;): 1
+corresponds to the @chapter/@unnumbered level, 2 to the
+@section level, and so on. The default is 0, meaning that
+&quot;head1&quot; commands are still output as chapters, but
+the output is arranged as a standalone manual.</p>
+
+<p style="margin-left:17%; margin-top: 1em">If the level is
+not 0, the pod file is rendered as a fragment of a Texinfo
+manual suitable for @include. In this case, each pod file
+has an additional sectioning command covering the entire
+file, one level above the &quot;--base-level&quot; value.
+Therefore, to make each pod file a chapter in a large
+manual, you should use &quot;section&quot; as the base
+level.</p>
+
+<p style="margin-left:17%; margin-top: 1em">For an example
+of making Texinfo out of the Perl documentation itself, see
+&quot;contrib/perldoc-all&quot; in the Texinfo source
+distribution, with output available at
+&lt;http://www.gnu.org/software/perl/manual&gt;.</p>
+
+<p style="margin-left:11%;"><b>--debug</b>=
+<i><small>NUM</small></i></p>
+
+<p style="margin-left:17%;">Set debugging level to
+<i><small>NUM</small></i> .</p>
+
+<p style="margin-left:11%;"><b>--help</b></p>
+
+<p style="margin-left:17%;">Display help and exit.</p>
+
+<p style="margin-left:11%;"><b>--output</b>=
+<i><small>NAME</small></i></p>
+
+<p style="margin-left:17%;">Name for the first manual, or
+the main manual if there is a main manual. Default is to
+write to standard output.</p>
+
+<p style="margin-left:11%;"><b>--no-section-nodes</b></p>
+
+<p style="margin-left:17%;">Use anchors for sections
+instead of nodes.</p>
+
+
+<p style="margin-left:11%;"><b>--no-fill-section-gaps</b></p>
+
+<p style="margin-left:17%;">Do not fill sectioning gaps
+with empty @unnumbered files. Ordinarily, it&rsquo;s good to
+keep the sectioning hierarchy intact.</p>
+
+<p style="margin-left:11%;"><b>--preamble</b>=
+<i><small>STR</small></i></p>
+
+<p style="margin-left:17%;">Insert
+<i><small>STR</small></i> as top boilerplate before
+includes. The default is a minimal beginning for a Texinfo
+document, and sets @documentencoding to &quot;utf-8&quot;
+(because the output is written that way).</p>
+
+<p style="margin-left:11%;"><b>--subdir</b>=
+<i><small>NAME</small></i></p>
+
+<p style="margin-left:17%;">If there is a main manual with
+include files (each corresponding to an input pod file),
+then those include files are put in directory
+<i><small>NAME</small></i> .</p>
+
+
+<p style="margin-left:11%;"><b>--unnumbered-sections</b></p>
+
+<p style="margin-left:17%;">Use unnumbered sectioning
+commands (@unnumbered, ...) instead of the default numbered
+sectioning Texinfo @-commands (@chapter, @section, ...).</p>
+
+<p style="margin-left:11%;"><b>--top</b>=
+<i><small>TOP</small></i></p>
+
+<p style="margin-left:17%;">Name of the @top element for
+the main manual. May contain Texinfo code.</p>
+
+<p style="margin-left:11%;"><b>--version</b></p>
+
+<p style="margin-left:17%;">Display version information and
+exit.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">Pod::Simple::Texinfo.
+perlpod. The Texinfo manual. Texinfo home page:
+&lt;http://www.gnu.org/software/texinfo/&gt;</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright 2015
+Free Software Foundation, Inc.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This program is
+free software; you can redistribute it and/or modify it
+under the terms of the <small>GNU</small> General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later
+version.</p>
+
+<p style="margin-left:11%; margin-top: 1em">There is
+<small>NO WARRANTY,</small> to the extent permitted by
+law.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Patrice Dumas
+&lt;bug-texinfo@gnu.org&gt;.</p>
+<hr>
+</body>
+</html>

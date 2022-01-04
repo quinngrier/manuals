@@ -1,0 +1,485 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>MAKEINFO</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">MAKEINFO</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">makeinfo -
+translate Texinfo documents</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>makeinfo</b>
+[<i>OPTION</i>]... <i>TEXINFO-FILE</i>...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Translate
+Texinfo source documentation to various other formats, by
+default Info files suitable for reading online with Emacs or
+standalone GNU Info.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>General
+options: <br>
+--error-limit</b>=<i>NUM</i></p>
+
+<p style="margin-left:22%;">quit after NUM errors (default
+100).</p>
+
+
+<p style="margin-left:11%;"><b>--document-language</b>=<i>STR</i>
+locale to use in translating Texinfo keywords</p>
+
+<p style="margin-left:22%;">for the output document
+(default C).</p>
+
+<p style="margin-left:11%;"><b>--force</b></p>
+
+<p style="margin-left:22%;">preserve output even if
+errors.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--help</b></p></td>
+<td width="2%"></td>
+<td width="41%">
+
+
+<p>display this help and exit.</p></td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>--no-validate</b></p>
+
+<p style="margin-left:22%;">suppress node cross-reference
+validation.</p>
+
+<p style="margin-left:11%;"><b>--no-warn</b></p>
+
+<p style="margin-left:22%;">suppress warnings (but not
+errors).</p>
+
+
+<p style="margin-left:11%;"><b>--reference-limit</b>=<i>NUM</i></p>
+
+<p style="margin-left:22%;">warn about at most NUM
+references (default 1000).</p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--verbose</b></p>
+
+<p style="margin-left:22%;">explain what is being done.</p>
+
+<p style="margin-left:11%;"><b>--version</b></p>
+
+<p style="margin-left:22%;">display version information and
+exit.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Output
+format selection (default is to produce Info): <br>
+--docbook</b></p>
+
+<p style="margin-left:22%;">output Docbook XML rather than
+Info.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--html</b></p></td>
+<td width="2%"></td>
+<td width="55%">
+
+
+<p>output HTML rather than Info.</p></td>
+<td width="23%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--xml</b></p></td>
+<td width="2%"></td>
+<td width="55%">
+
+
+<p>output Texinfo XML rather than Info.</p></td>
+<td width="23%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>--plaintext</b></p>
+
+<p style="margin-left:22%;">output plain text rather than
+Info.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>General
+output options: <br>
+-E</b>, <b>--macro-expand</b> FILE</p>
+
+<p style="margin-left:22%;">output macro-expanded source to
+FILE. ignoring any @setfilename.</p>
+
+<p style="margin-left:11%;"><b>--no-headers</b></p>
+
+<p style="margin-left:22%;">suppress node separators, Node:
+lines, and menus from Info output (thus producing plain
+text) or from HTML (thus producing shorter output); also,
+write to standard output by default.</p>
+
+<p style="margin-left:11%;"><b>--no-split</b></p>
+
+<p style="margin-left:22%;">suppress splitting of Info or
+HTML output, generate only one output file.</p>
+
+<p style="margin-left:11%;"><b>--number-sections</b></p>
+
+<p style="margin-left:22%;">output chapter and sectioning
+numbers.</p>
+
+<p style="margin-left:11%;"><b>-o</b>,
+<b>--output</b>=<i>FILE</i></p>
+
+<p style="margin-left:22%;">output to FILE (directory if
+split HTML),</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Options for
+Info and plain text: <br>
+--enable-encoding</b></p>
+
+<p style="margin-left:22%;">output accented and special
+characters in Info output based on @documentencoding.</p>
+
+
+<p style="margin-left:11%;"><b>--fill-column</b>=<i>NUM</i></p>
+
+<p style="margin-left:22%;">break Info lines at NUM
+characters (default 72).</p>
+
+
+<p style="margin-left:11%;"><b>--footnote-style</b>=<i>STYLE</i></p>
+
+<p style="margin-left:22%;">output footnotes in Info
+according to STYLE: &lsquo;separate&rsquo; to put them in
+their own node; &lsquo;end&rsquo; to put them at the end of
+the node, in which they are defined (this is the
+default).</p>
+
+
+<p style="margin-left:11%;"><b>--paragraph-indent</b>=<i>VAL</i></p>
+
+<p style="margin-left:22%;">indent Info paragraphs by VAL
+spaces (default 3). If VAL is &lsquo;none&rsquo;, do not
+indent; if VAL is &lsquo;asis&rsquo;, preserve existing
+indentation.</p>
+
+
+<p style="margin-left:11%;"><b>--split-size</b>=<i>NUM</i></p>
+
+<p style="margin-left:22%;">split Info files at size NUM
+(default 300000).</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Options for
+HTML: <br>
+--css-include</b>=<i>FILE</i></p>
+
+<p style="margin-left:22%;">include FILE in HTML
+&lt;style&gt; output; read stdin if FILE is -.</p>
+
+
+<p style="margin-left:11%;"><b>--css-ref</b>=<i>URL</i></p>
+
+<p style="margin-left:22%;">generate reference to a CSS
+file.</p>
+
+
+<p style="margin-left:11%;"><b>--transliterate-file-names</b></p>
+
+<p style="margin-left:22%;">produce file names in ASCII
+transliteration.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Options for
+XML and Docbook: <br>
+--output-indent</b>=<i>VAL</i></p>
+
+<p style="margin-left:22%;">indent XML elements by VAL
+spaces (default 2). If VAL is 0, ignorable whitespace is
+dropped.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Input file
+options: <br>
+--commands-in-node-names</b></p>
+
+<p style="margin-left:22%;">allow @ commands in node
+names.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-D</b> VAR</p></td>
+<td width="2%"></td>
+<td width="64%">
+
+
+<p>define the variable VAR, as with @set.</p></td>
+<td width="14%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-I</b> DIR</p></td>
+<td width="2%"></td>
+<td width="64%">
+
+
+<p>append DIR to the @include search path.</p></td>
+<td width="14%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-P</b> DIR</p></td>
+<td width="2%"></td>
+<td width="64%">
+
+
+<p>prepend DIR to the @include search path.</p></td>
+<td width="14%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-U</b> VAR</p></td>
+<td width="2%"></td>
+<td width="64%">
+
+
+<p>undefine the variable VAR, as with @clear.</p></td>
+<td width="14%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Conditional
+processing in input: <br>
+--ifdocbook</b></p>
+
+<p style="margin-left:22%;">process @ifdocbook and @docbook
+even if not generating Docbook.</p>
+
+<p style="margin-left:11%;"><b>--ifhtml</b></p>
+
+<p style="margin-left:22%;">process @ifhtml and @html even
+if not generating HTML.</p>
+
+<p style="margin-left:11%;"><b>--ifinfo</b></p>
+
+<p style="margin-left:22%;">process @ifinfo even if not
+generating Info.</p>
+
+<p style="margin-left:11%;"><b>--ifplaintext</b></p>
+
+<p style="margin-left:22%;">process @ifplaintext even if
+not generating plain text.</p>
+
+<p style="margin-left:11%;"><b>--iftex</b></p>
+
+<p style="margin-left:22%;">process @iftex and @tex;
+implies <b>--no-split</b>.</p>
+
+<p style="margin-left:11%;"><b>--ifxml</b></p>
+
+<p style="margin-left:22%;">process @ifxml and @xml.</p>
+
+<p style="margin-left:11%;"><b>--no-ifdocbook</b></p>
+
+<p style="margin-left:22%;">do not process @ifdocbook and
+@docbook text.</p>
+
+<p style="margin-left:11%;"><b>--no-ifhtml</b></p>
+
+<p style="margin-left:22%;">do not process @ifhtml and
+@html text.</p>
+
+<p style="margin-left:11%;"><b>--no-ifinfo</b></p>
+
+<p style="margin-left:22%;">do not process @ifinfo
+text.</p>
+
+<p style="margin-left:11%;"><b>--no-ifplaintext</b></p>
+
+<p style="margin-left:22%;">do not process @ifplaintext
+text.</p>
+
+<p style="margin-left:11%;"><b>--no-iftex</b></p>
+
+<p style="margin-left:22%;">do not process @iftex and @tex
+text.</p>
+
+<p style="margin-left:11%;"><b>--no-ifxml</b></p>
+
+<p style="margin-left:22%;">do not process @ifxml and @xml
+text.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Also, for the
+<b>--no-ifFORMAT</b> options, do process @ifnotFORMAT
+text.</p>
+
+<p style="margin-left:22%; margin-top: 1em">The defaults
+for the @if... conditionals depend on the output format: if
+generating HTML, <b>--ifhtml</b> is on and the others are
+off; if generating Info, <b>--ifinfo</b> is on and the
+others are off; if generating plain text,
+<b>--ifplaintext</b> is on and the others are off; if
+generating XML, <b>--ifxml</b> is on and the others are
+off.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">makeinfo
+foo.texi</p>
+
+<p style="margin-left:22%;">write Info to foo&rsquo;s
+@setfilename</p>
+
+<p style="margin-left:11%;">makeinfo <b>--html</b>
+foo.texi</p>
+
+<p style="margin-left:22%;">write HTML to @setfilename</p>
+
+<p style="margin-left:11%;">makeinfo <b>--xml</b>
+foo.texi</p>
+
+<p style="margin-left:22%;">write Texinfo XML to
+@setfilename</p>
+
+<p style="margin-left:11%;">makeinfo <b>--docbook</b>
+foo.texi</p>
+
+<p style="margin-left:22%;">write DocBook XML to
+@setfilename</p>
+
+<p style="margin-left:11%;">makeinfo <b>--no-headers</b>
+foo.texi</p>
+
+<p style="margin-left:22%;">write plain text to standard
+output</p>
+
+<p style="margin-left:11%;">makeinfo <b>--html
+--no-headers</b> foo.texi</p>
+
+<p style="margin-left:22%;">write html without node lines,
+menus</p>
+
+<p style="margin-left:11%;">makeinfo
+<b>--number-sections</b> foo.texi</p>
+
+<p style="margin-left:22%;">write Info with numbered
+sections</p>
+
+<p style="margin-left:11%;">makeinfo <b>--no-split</b>
+foo.texi</p>
+
+<p style="margin-left:22%;">write one Info file however
+big</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Email bug
+reports to bug-texinfo@gnu.org, general questions and
+discussion to help-texinfo@gnu.org. Texinfo home page:
+http://www.gnu.org/software/texinfo/</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2007 Free Software Foundation, Inc. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. You may redistribute copies of GNU
+texinfo under the terms of the GNU General Public License.
+For more information about these matters, see the file named
+COPYING.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The full
+documentation for <b>makeinfo</b> is maintained as a Texinfo
+manual. If the <b>info</b> and <b>makeinfo</b> programs are
+properly installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+makeinfo</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>

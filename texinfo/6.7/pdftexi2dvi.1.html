@@ -1,0 +1,395 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>TEXI2DVI</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">TEXI2DVI</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">texi2dvi -
+convert Texinfo documents to DVI or PDF</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>texi2dvi</b>
+[<i>OPTION</i>]... <i>FILE</i>... <b><br>
+texi2pdf</b> [<i>OPTION</i>]... <i>FILE</i>... <b><br>
+pdftexi2dvi</b> [<i>OPTION</i>]... <i>FILE</i>...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Run each
+Texinfo or (La)TeX FILE through TeX in turn until all
+cross-references are resolved, building all indices. The
+directory containing each FILE is searched for included
+files. The suffix of FILE is used to determine its language
+((La)TeX or Texinfo). To process (e)plain TeX files, set the
+environment variable LATEX=tex.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When invoked as
+&lsquo;texi2pdf&rsquo; or given the option <b>--pdf</b>
+generate PDF output. Otherwise, generate DVI.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>General
+options: <br>
+-D</b>, <b>--debug</b></p>
+
+<p style="margin-left:22%;">turn on shell debugging (set
+<b>-x</b>)</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">display this help and exit
+successfully</p>
+
+<p style="margin-left:11%;"><b>-o</b>,
+<b>--output</b>=<i>OFILE</i></p>
+
+<p style="margin-left:22%;">leave output in OFILE; only one
+input FILE is allowed</p>
+
+<p style="margin-left:11%;"><b>-q</b>, <b>--quiet</b></p>
+
+<p style="margin-left:22%;">no output unless errors</p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--version</b></p>
+
+<p style="margin-left:22%;">display version information and
+exit successfully</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--verbose</b></p>
+
+<p style="margin-left:22%;">report on what is done</p>
+
+
+<p style="margin-left:11%;"><b>--max-iterations</b>=<i>N</i></p>
+
+<p style="margin-left:22%;">don&rsquo;t process files more
+than N times [7]</p>
+
+<p style="margin-left:11%;"><b>--mostly-clean</b></p>
+
+<p style="margin-left:22%;">remove auxiliary files or
+directories from previous runs (but not the output)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Output
+format:</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="7%">
+
+
+<p><b>--dvi</b></p></td>
+<td width="4%"></td>
+<td width="41%">
+
+
+<p>output a DVI file [default]</p></td>
+<td width="37%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>--dvipdf</b></p>
+
+<p style="margin-left:22%;">output a PDF file via DVI
+(using a dvi-to-pdf program)</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--html</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>output an HTML file from LaTeX, using HeVeA</p></td>
+<td width="12%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--info</b></p></td>
+<td width="2%"></td>
+<td width="66%">
+
+
+<p>output an Info file from LaTeX, using HeVeA</p></td>
+<td width="12%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-p</b>, <b>--pdf</b></p>
+
+<p style="margin-left:22%;">use pdftex or pdflatex for
+processing</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--ps</b></p></td>
+<td width="2%"></td>
+<td width="73%">
+
+
+<p>output a PostScript file via DVI (using dvips)</p></td>
+<td width="5%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--text</b></p></td>
+<td width="2%"></td>
+<td width="73%">
+
+
+<p>output a plain text file from LaTeX, using HeVeA</p></td>
+<td width="5%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em"><b>TeX tuning:
+<br>
+-E</b>, <b>--expand</b></p>
+
+<p style="margin-left:22%;">macro expansion using
+makeinfo</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-I</b> DIR</p></td>
+<td width="2%"></td>
+<td width="43%">
+
+
+<p>search DIR for Texinfo files</p></td>
+<td width="35%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-l</b>,
+<b>--language</b>=<i>LANG</i></p>
+
+<p style="margin-left:22%;">specify LANG for FILE, either
+latex or texinfo</p>
+
+<p style="margin-left:11%;"><b>--no-line-error</b></p>
+
+<p style="margin-left:22%;">do not pass
+<b>--file-line-error</b> to TeX</p>
+
+<p style="margin-left:11%;"><b>--shell-escape</b></p>
+
+<p style="margin-left:22%;">pass <b>--shell-escape</b> to
+TeX</p>
+
+<p style="margin-left:11%;"><b>--src-specials</b></p>
+
+<p style="margin-left:22%;">pass <b>--src-specials</b> to
+TeX</p>
+
+
+<p style="margin-left:11%;"><b>--translate-file</b>=<i>FILE</i></p>
+
+<p style="margin-left:22%;">use given charset translation
+file for TeX</p>
+
+<p style="margin-left:11%;"><b>-t</b>,
+<b>--command</b>=<i>CMD</i></p>
+
+<p style="margin-left:22%;">insert CMD in copy of input
+file</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Build modes:
+<br>
+--build</b>=<i>MODE</i></p>
+
+<p style="margin-left:22%;">specify the treatment of
+auxiliary files [local]</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>--tidy</b></p></td>
+<td width="2%"></td>
+<td width="30%">
+
+
+<p>same as <b>--build</b>=<i>tidy</i></p></td>
+<td width="48%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-c</b>, <b>--clean</b></p>
+
+<p style="margin-left:22%;">same as
+<b>--build</b>=<i>clean</i></p>
+
+
+<p style="margin-left:11%;"><b>--build-dir</b>=<i>DIR</i></p>
+
+<p style="margin-left:22%;">specify where the tidy
+compilation is performed; implies <b>--tidy</b>; defaults to
+TEXI2DVI_BUILD_DIRECTORY [.]</p>
+
+<p style="margin-left:11%; margin-top: 1em">The MODE
+specifies where the TeX compilation takes place, and, as a
+consequence, how auxiliary files are treated. The build mode
+can also be set using the environment variable
+TEXI2DVI_BUILD_MODE.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Valid values
+of MODE are:</b> <br>
+&lsquo;local&rsquo;</p>
+
+<p style="margin-left:22%;">compile in the current
+directory, leaving all the auxiliary files around. This is
+the traditional TeX use.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p>&lsquo;tidy&rsquo;</p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>compile in a local *.t2d directory, where the auxiliary
+files are left. Output files are copied back to the original
+file.</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;">&lsquo;clean&rsquo;</p>
+
+<p style="margin-left:22%;">same as &lsquo;tidy&rsquo;, but
+remove the auxiliary directory afterwards. Every compilation
+therefore requires the full cycle.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The values of
+these environment variables are used to run the
+corresponding commands, if they are set:</p>
+
+<p style="margin-left:22%; margin-top: 1em">BIBER BIBTEX
+DVIPDF DVIPS EGREP HEVEA LATEX MAKEINDEX MAKEINFO PDFLATEX
+PDFTEX SED T4HT TEX TEX4HT TEXINDEX TEXINDY THUMBPDF_CMD</p>
+
+<p style="margin-left:11%; margin-top: 1em">Regarding
+<b>--dvipdf</b>, if DVIPDF is not set in the environment,
+the following programs are looked for (in this order):
+dvipdfmx dvipdfm dvipdf dvi2pdf dvitopdf.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If Texinfo is
+installed on your site, then the command</p>
+
+<p style="margin-left:22%; margin-top: 1em">info
+texi2dvi</p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to more documentation.</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Report bugs to
+bug-texinfo@gnu.org, general questions and discussion to
+help-texinfo@gnu.org. <br>
+GNU Texinfo home page:
+&lt;http://www.gnu.org/software/texinfo/&gt; <br>
+General help using GNU software:
+&lt;http://www.gnu.org/gethelp/&gt;</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2019 Free Software Foundation, Inc. License GPLv3+:
+GNU GPL version 3 or later
+&lt;http://gnu.org/licenses/gpl.html&gt; <br>
+This is free software: you are free to change and
+redistribute it. There is NO WARRANTY, to the extent
+permitted by law.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The full
+documentation for <b>texi2dvi</b> is maintained as a Texinfo
+manual. If the <b>info</b> and <b>texi2dvi</b> programs are
+properly installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+texi2dvi</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>

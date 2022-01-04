@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Info 1.0</title>
+
+<meta name="description" content="Info 1.0">
+<meta name="keywords" content="Info 1.0">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Top" rel="start" title="Top">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Info 1.0</h1>
+
+
+<p>This file describes how to use Info, 
+the on-line, menu-driven GNU documentation system.
+</p>
+<p>Copyright (C) 1989, 92, 96 Free Software Foundation, Inc.
+</p>
+<p>Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+</p>
+<p>Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+</p>
+<p>Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation approved
+by the Free Software Foundation.
+</p>
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#Getting-Started" accesskey="n" rel="next">Getting Started</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
+</div>
+<span id="Info_003a-An-Introduction"></span><h1 class="top">Info: An Introduction</h1>
+
+<p>Info is a program for reading documentation, which you are using now.
+</p>
+<p>To learn how to use Info, type the command <kbd>h</kbd>.  It brings you
+to a programmed instruction sequence.
+</p>
+
+<p>To learn advanced Info commands, type <kbd>n</kbd> twice.  This brings you to
+<cite>Info for Experts</cite>, skipping over the &lsquo;Getting Started&rsquo; chapter.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Getting-Started" accesskey="1">Getting Started</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Getting started using an Info reader.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Advanced-Info" accesskey="2">Advanced Info</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Advanced commands within Info.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Create-an-Info-File" accesskey="3">Create an Info File</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to make your own Info file.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="https://www.gnu.org/software/texinfo/manual/info-stnd/info-stnd.html#Top" accesskey="4">The Standalone Info Program</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="Getting-Started"></span><div class="header">
+<p>
+Next: <a href="#Advanced-Info" accesskey="n" rel="next">Advanced Info</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<span id="Getting-Started-1"></span><h2 class="chapter">1 Getting Started</h2>
+
+<p>This first part of the Info manual describes how to get around inside
+of Info.  The second part of the manual describes various advanced
+Info commands, and how to write an Info as distinct from a Texinfo
+file.  The third part is about how to generate Info files from 
+Texinfo files.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dSmall_002dScreen" accesskey="1">Help-Small-Screen</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Starting Info on a Small Screen
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help" accesskey="2">Help</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to use Info
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dP" accesskey="3">Help-P</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Returning to the Previous node
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help_002d_005eL" accesskey="4">Help-^L</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The Space, Rubout, B and ^L commands.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dM" accesskey="5">Help-M</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Menus
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dAdv" accesskey="6">Help-Adv</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some advanced Info commands
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dQ" accesskey="7">Help-Q</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Quitting Info
+</td></tr>
+</table>
+
+<hr>
+<span id="Help_002dSmall_002dScreen"></span><div class="header">
+<p>
+Next: <a href="#Help" accesskey="n" rel="next">Help</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="Starting-Info-on-a-Small-Screen"></span><h3 class="section">1.1 Starting Info on a Small Screen</h3>
+
+
+<p>Since your terminal has an unusually small number of lines on its
+screen, it is necessary to give you special advice at the beginning.
+</p>
+<p>If you see the text &lsquo;<samp>--All----</samp>&rsquo; at near the bottom right corner
+of the screen, it means the entire text you are looking at fits on the
+screen.  If you see &lsquo;<samp>--Top----</samp>&rsquo; instead, it means that there is
+more text below that does not fit.  To move forward through the text
+and see another screen full, press the Space bar, <tt class="key">SPC</tt>.  To move
+back up, press the key labeled &lsquo;<samp>Backspace</samp>&rsquo; or <tt class="key">Delete</tt>.
+</p>
+<p>Here are 40 lines of junk, so you can try Spaces and Deletes and
+see what they do.  At the end are instructions of what you should do
+next.
+</p>
+<p>This is line 17 <br>
+This is line 18 <br>
+This is line 19 <br>
+This is line 20 <br>
+This is line 21 <br>
+This is line 22 <br>
+This is line 23 <br>
+This is line 24 <br>
+This is line 25 <br>
+This is line 26 <br>
+This is line 27 <br>
+This is line 28 <br>
+This is line 29 <br>
+This is line 30 <br>
+This is line 31 <br>
+This is line 32 <br>
+This is line 33 <br>
+This is line 34 <br>
+This is line 35 <br>
+This is line 36 <br>
+This is line 37 <br>
+This is line 38 <br>
+This is line 39 <br>
+This is line 40 <br>
+This is line 41 <br>
+This is line 42 <br>
+This is line 43 <br>
+This is line 44 <br>
+This is line 45 <br>
+This is line 46 <br>
+This is line 47 <br>
+This is line 48 <br>
+This is line 49 <br>
+This is line 50 <br>
+This is line 51 <br>
+This is line 52 <br>
+This is line 53 <br>
+This is line 54 <br>
+This is line 55 <br>
+This is line 56 <br>
+</p>
+<p>If you have managed to get here, go back to the beginning with
+Delete, and come back here again, then you understand Space and
+Delete.  So now type an <kbd>n</kbd> &mdash;just one character; don&rsquo;t type
+the quotes and don&rsquo;t type the Return key afterward&mdash; to
+get to the normal start of the course.
+</p>
+<hr>
+<span id="Help"></span><div class="header">
+<p>
+Next: <a href="#Help_002dP" accesskey="n" rel="next">Help-P</a>, Previous: <a href="#Help_002dSmall_002dScreen" accesskey="p" rel="prev">Help-Small-Screen</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="How-to-use-Info"></span><h3 class="section">1.2 How to use Info</h3>
+
+<p>You are talking to the program Info, for reading documentation.
+</p>
+<p>Right now you are looking at one <em>Node</em> of Information.
+A node contains text describing a specific topic at a specific
+level of detail.  This node&rsquo;s topic is &ldquo;how to use Info&rdquo;.
+</p>
+<p>The top line of a node is its <em>header</em>.  This node&rsquo;s header (look at
+it now) says that it is the node named &lsquo;<samp>Help</samp>&rsquo; in the file
+<samp>info</samp>.  It says that the &lsquo;<samp>Next</samp>&rsquo; node after this one is the node
+called &lsquo;<samp>Help-P</samp>&rsquo;.  An advanced Info command lets you go to any node
+whose name you know.
+</p>
+<p>Besides a &lsquo;<samp>Next</samp>&rsquo;, a node can have a &lsquo;<samp>Previous</samp>&rsquo; or an &lsquo;<samp>Up</samp>&rsquo;.
+This node has a &lsquo;<samp>Previous</samp>&rsquo; but no &lsquo;<samp>Up</samp>&rsquo;, as you can see.
+</p>
+<p>Now it is time to move on to the &lsquo;<samp>Next</samp>&rsquo; node, named &lsquo;<samp>Help-P</samp>&rsquo;.
+</p>
+<p>&gt;&gt; Type &lsquo;<samp>n</samp>&rsquo; to move there.  Type just one character;
+   do not type the quotes and do not type a <tt class="key">RET</tt> afterward.
+</p>
+<p>&lsquo;<samp>&gt;&gt;</samp>&rsquo; in the margin means it is really time to try a command.
+</p>
+<hr>
+<span id="Help_002dP"></span><div class="header">
+<p>
+Next: <a href="#Help_002d_005eL" accesskey="n" rel="next">Help-^L</a>, Previous: <a href="#Help" accesskey="p" rel="prev">Help</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="Returning-to-the-Previous-node"></span><h3 class="section">1.3 Returning to the Previous node</h3>
+
+<p>This node is called &lsquo;<samp>Help-P</samp>&rsquo;.  The &lsquo;<samp>Previous</samp>&rsquo; node, as you see,
+is &lsquo;<samp>Help</samp>&rsquo;, which is the one you just came from using the <kbd>n</kbd>
+command.  Another <kbd>n</kbd> command now would take you to the next
+node, &lsquo;<samp>Help-^L</samp>&rsquo;.
+</p>
+<p>&gt;&gt; But do not do that yet.  First, try the <kbd>p</kbd> command, which takes
+   you to the &lsquo;<samp>Previous</samp>&rsquo; node.  When you get there, you can do an
+   <kbd>n</kbd> again to return here.
+</p>
+<p>This all probably seems insultingly simple so far, but <em>do not</em> be
+led into skimming.  Things will get more complicated soon.  Also,
+do not try a new command until you are told it is time to.  Otherwise,
+you may make Info skip past an important warning that was coming up.
+</p>
+<p>&gt;&gt; Now do an <kbd>n</kbd> to get to the node &lsquo;<samp>Help-^L</samp>&rsquo; and learn more.
+</p>
+<hr>
+<span id="Help_002d_005eL"></span><div class="header">
+<p>
+Next: <a href="#Help_002dM" accesskey="n" rel="next">Help-M</a>, Previous: <a href="#Help_002dP" accesskey="p" rel="prev">Help-P</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="The-Space_002c-Delete_002c-B-and-_005eL-commands_002e"></span><h3 class="section">1.4 The Space, Delete, B and ^L commands.</h3>
+
+<p>This node&rsquo;s header tells you that you are now at node &lsquo;<samp>Help-^L</samp>&rsquo;, and
+that <kbd>p</kbd> would get you back to &lsquo;<samp>Help-P</samp>&rsquo;.  The node&rsquo;s title is
+underlined; it says what the node is about (most nodes have titles).
+</p>
+<p>This is a big node and it does not all fit on your display screen.
+You can tell that there is more that is not visible because you
+can see the string &lsquo;<samp>--Top-----</samp>&rsquo; rather than &lsquo;<samp>--All----</samp>&rsquo; near
+the bottom right corner of the screen.
+</p>
+<p>The Space, Delete and <kbd>B</kbd> commands exist to allow you to &ldquo;move
+around&rdquo; in a node that does not all fit on the screen at once.
+Space moves forward, to show what was below the bottom of the screen.
+Delete moves backward, to show what was above the top of the screen
+(there is not anything above the top until you have typed some spaces).
+</p>
+<p>&gt;&gt; Now try typing a Space (afterward, type a Delete to return here).
+</p>
+<p>When you type the space, the two lines that were at the bottom of
+the screen appear at the top, followed by more lines.  Delete takes
+the two lines from the top and moves them to the bottom,
+<em>usually</em>, but if there are not a full screen&rsquo;s worth of lines
+above them they may not make it all the way to the bottom.
+</p>
+<p>If you type Space when there is no more to see, it rings the
+bell and otherwise does nothing.  The same goes for Delete when
+the header of the node is visible.
+</p>
+<p>If your screen is ever garbaged, you can tell Info to print it out
+again by typing <kbd>C-l</kbd> (<kbd>Control-L</kbd>, that is&mdash;hold down &ldquo;Control&rdquo; and
+type an <tt class="key">L</tt> or <kbd>l</kbd>).
+</p>
+<p>&gt;&gt; Type <kbd>C-l</kbd> now.
+</p>
+<p>To move back to the beginning of the node you are on, you can type
+a lot of Deletes.  You can also type simply <kbd>b</kbd> for beginning.
+&gt;&gt; Try that now.  (We have put in enough verbiage to push this past
+the first screenful, but screens are so big nowadays that perhaps it
+isn&rsquo;t enough.  You may need to shrink your Emacs or Info window.)
+Then come back, with Spaces.
+</p>
+<p>If your screen is very tall, all of this node might fit at once.
+In that case, &quot;b&quot; won&rsquo;t do anything.  Sorry; what can we do?
+</p>
+<p>You have just learned a considerable number of commands.  If you
+want to use one but have trouble remembering which, you should type
+a <tt class="key">?</tt> which prints out a brief list of commands.  When you are
+finished looking at the list, make it go away by typing a <tt class="key">SPC</tt>.
+</p>
+<p>&gt;&gt; Type a <tt class="key">?</tt> now.  After it finishes, type a <tt class="key">SPC</tt>.
+</p>
+<p>(If you are using the standalone Info reader, type &lsquo;l&rsquo; to return here.)
+</p>
+<p>From now on, you will encounter large nodes without warning, and
+will be expected to know how to use Space and Delete to move
+around in them without being told.  Since not all terminals have
+the same size screen, it would be impossible to warn you anyway.
+</p>
+<p>&gt;&gt; Now type <kbd>n</kbd> to see the description of the <kbd>m</kbd> command.
+</p>
+<hr>
+<span id="Help_002dM"></span><div class="header">
+<p>
+Next: <a href="#Help_002dAdv" accesskey="n" rel="next">Help-Adv</a>, Previous: <a href="#Help_002d_005eL" accesskey="p" rel="prev">Help-^L</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="Menus-1"></span><h3 class="section">1.5 Menus</h3>
+
+<p>Menus and the <kbd>m</kbd> command
+</p>
+<p>With only the <kbd>n</kbd> and <kbd>p</kbd> commands for moving between nodes, nodes
+are restricted to a linear sequence.  Menus allow a branching
+structure.  A menu is a list of other nodes you can move to.  It is
+actually just part of the text of the node formatted specially so that
+Info can interpret it.  The beginning of a menu is always identified
+by a line which starts with &lsquo;<samp>* Menu:</samp>&rsquo;.  A node contains a menu if and
+only if it has a line in it which starts that way.  The only menu you
+can use at any moment is the one in the node you are in.  To use a
+menu in any other node, you must move to that node first. 
+</p>
+<p>After the start of the menu, each line that starts with a &lsquo;<samp>*</samp>&rsquo;
+identifies one subtopic.  The line usually contains a brief name
+for the subtopic (followed by a &lsquo;<samp>:</samp>&rsquo;), the name of the node that talks
+about that subtopic, and optionally some further description of the
+subtopic.  Lines in the menu that do not start with a &lsquo;<samp>*</samp>&rsquo; have no
+special meaning&mdash;they are only for the human reader&rsquo;s benefit and do
+not define additional subtopics.  Here is an example:
+</p>
+<div class="example">
+<pre class="example">* Foo:  FOO's Node      This tells about FOO
+</pre></div>
+
+<p>The subtopic name is Foo, and the node describing it is &lsquo;<samp>FOO's Node</samp>&rsquo;.
+The rest of the line is just for the reader&rsquo;s Information.
+[[ But this line is not a real menu item, simply because there is
+no line above it which starts with &lsquo;<samp>* Menu:</samp>&rsquo;.]]
+</p>
+<p>When you use a menu to go to another node (in a way that will be
+described soon), what you specify is the subtopic name, the first
+thing in the menu line.  Info uses it to find the menu line, extracts
+the node name from it, and goes to that node.  The reason that there
+is both a subtopic name and a node name is that the node name must be
+meaningful to the computer and may therefore have to be ugly looking.
+The subtopic name can be chosen just to be convenient for the user to
+specify.  Often the node name is convenient for the user to specify
+and so both it and the subtopic name are the same.  There is an
+abbreviation for this:
+</p>
+<div class="example">
+<pre class="example">* Foo::   This tells about FOO
+</pre></div>
+
+<p>This means that the subtopic name and node name are the same; they are
+both &lsquo;<samp>Foo</samp>&rsquo;.
+</p>
+<p>&gt;&gt; Now use Spaces to find the menu in this node, then come back to
+   the front with a <kbd>b</kbd> and some Spaces.  As you see, a menu is
+   actually visible in its node.  If you cannot find a menu in a node
+   by looking at it, then the node does not have a menu and the
+   <kbd>m</kbd> command is not available.
+</p>
+<p>The command to go to one of the subnodes is <kbd>m</kbd>&mdash;but <em>do
+not do it yet!</em>  Before you use <kbd>m</kbd>, you must understand the
+difference between commands and arguments.  So far, you have learned
+several commands that do not need arguments.  When you type one, Info
+processes it and is instantly ready for another command.  The <kbd>m</kbd>
+command is different: it is incomplete without the <em>name of the
+subtopic</em>.  Once you have typed <kbd>m</kbd>, Info tries to read the
+subtopic name.
+</p>
+<p>Now look for the line containing many dashes near the bottom of the
+screen.  There is one more line beneath that one, but usually it is
+blank.  If it is empty, Info is ready for a command, such as <kbd>n</kbd>
+or <kbd>b</kbd> or Space or <kbd>m</kbd>.  If that line contains text ending
+in a colon, it mean Info is trying to read the <em>argument</em> to a
+command.  At such times, commands do not work, because Info tries to
+use them as the argument.  You must either type the argument and
+finish the command you started, or type <kbd>Control-g</kbd> to cancel the
+command.  When you have done one of those things, the line becomes
+blank again.
+</p>
+<p>The command to go to a subnode via a menu is <kbd>m</kbd>.  After you type
+the <kbd>m</kbd>, the line at the bottom of the screen says &lsquo;<samp>Menu item: </samp>&rsquo;.
+You must then type the name of the subtopic you want, and end it with
+a <tt class="key">RET</tt>.
+</p>
+<p>You can abbreviate the subtopic name.  If the abbreviation is not
+unique, the first matching subtopic is chosen.  Some menus put
+the shortest possible abbreviation for each subtopic name in capital
+letters, so you can see how much you need to type.  It does not
+matter whether you use upper case or lower case when you type the
+subtopic.  You should not put any spaces at the end, or inside of the
+item name, except for one space where a space appears in the item in
+the menu.
+</p>
+<p>You can also use the <em>completion</em> feature to help enter the subtopic
+name.  If you type the Tab key after entering part of a name, it will
+magically fill in more of the name&mdash;as much as follows uniquely from
+what you have entered.
+</p>
+<p>If you move the cursor to one of the menu subtopic lines, then you do
+not need to type the argument: you just type a Return, and it stands for
+the subtopic of the line you are on.
+</p>
+<p>Here is a menu to give you a chance to practice.
+</p>
+<p>* Menu:	   The menu starts here.
+</p>
+<p>This menu gives you three ways of going to one place, Help-FOO.
+</p>
+<p>* Foo:  Help-FOO.       A node you can visit for fun.<br>
+* Bar:  Help-FOO.       Strange!  two ways to get to the same place.<br>
+* Help-FOO::            And yet another!<br>
+</p>
+
+<p>&gt;&gt;  Now type just an <kbd>m</kbd> and see what happens:
+</p>
+<p>Now you are &ldquo;inside&rdquo; an <kbd>m</kbd> command.  Commands cannot be used
+now; the next thing you will type must be the name of a subtopic.
+</p>
+<p>You can change your mind about doing the <kbd>m</kbd> by typing Control-g.
+</p>
+<p>&gt;&gt; Try that now;  notice the bottom line clear.
+</p>
+<p>&gt;&gt; Then type another <kbd>m</kbd>.
+</p>
+<p>&gt;&gt; Now type &lsquo;<samp>BAR</samp>&rsquo; item name.  Do not type Return yet.
+</p>
+<p>While you are typing the item name, you can use the Delete key to
+cancel one character at a time if you make a mistake.
+</p>
+<p>&gt;&gt; Type one to cancel the &lsquo;<samp>R</samp>&rsquo;.  You could type another &lsquo;<samp>R</samp>&rsquo; to
+   replace it.  You do not have to, since &lsquo;<samp>BA</samp>&rsquo; is a valid abbreviation.
+</p>
+<p>&gt;&gt; Now you are ready to go.  Type a <tt class="key">RET</tt>.
+</p>
+<p>After visiting Help-FOO, you should return here.
+</p>
+<p>&gt;&gt; Type <kbd>n</kbd> to see more commands.
+</p>
+
+<p>Here is another way to get to  Help-FOO, a menu.  You can ignore this
+if you want, or else try it (but then please come back to here).
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dFOO" accesskey="1">Help-FOO</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="Help_002dFOO"></span><div class="header">
+<p>
+Up: <a href="#Help_002dM" accesskey="u" rel="up">Help-M</a> &nbsp; </p>
+</div>
+<span id="The-u-command"></span><h4 class="subsection">1.5.1 The <kbd>u</kbd> command</h4>
+
+<p>Congratulations!  This is the node &lsquo;<samp>Help-FOO</samp>&rsquo;.  Unlike the other
+nodes you have seen, this one has an &lsquo;<samp>Up</samp>&rsquo;: &lsquo;<samp>Help-M</samp>&rsquo;, the node you
+just came from via the <kbd>m</kbd> command.  This is the usual
+convention&mdash;the nodes you reach from a menu have &lsquo;<samp>Up</samp>&rsquo; nodes that lead
+back to the menu.  Menus move Down in the tree, and &lsquo;<samp>Up</samp>&rsquo; moves Up.
+&lsquo;<samp>Previous</samp>&rsquo;, on the other hand, is usually used to &ldquo;stay on the same
+level but go backwards&rdquo;
+</p>
+<p>You can go back to the node &lsquo;<samp>Help-M</samp>&rsquo; by typing the command
+<kbd>u</kbd> for &ldquo;Up&rdquo;.  That puts you at the <em>front</em> of the
+node&mdash;to get back to where you were reading you have to type
+some <tt class="key">SPC</tt>s.
+</p>
+<p>&gt;&gt; Now type <kbd>u</kbd> to move back up to &lsquo;<samp>Help-M</samp>&rsquo;.
+</p>
+<hr>
+<span id="Help_002dAdv"></span><div class="header">
+<p>
+Next: <a href="#Help_002dQ" accesskey="n" rel="next">Help-Q</a>, Previous: <a href="#Help_002dM" accesskey="p" rel="prev">Help-M</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="Some-advanced-Info-commands"></span><h3 class="section">1.6 Some advanced Info commands</h3>
+
+<p>The course is almost over, so please stick with it to the end.
+</p>
+<p>If you have been moving around to different nodes and wish to
+retrace your steps, the <kbd>l</kbd> command (<kbd>l</kbd> for <em>last</em>) will
+do that, one node-step at a time.  As you move from node to node, Info
+records the nodes where you have been in a special history list.  The
+<kbd>l</kbd> command revisits nodes in the history list; each successive
+<kbd>l</kbd> command moves one step back through the history.
+</p>
+<p>If you have been following directions, ad <kbd>l</kbd> command now will get
+you back to &lsquo;<samp>Help-M</samp>&rsquo;.  Another <kbd>l</kbd> command would undo the
+<kbd>u</kbd> and get you back to &lsquo;<samp>Help-FOO</samp>&rsquo;.  Another <kbd>l</kbd> would undo
+the <kbd>m</kbd> and get you back to &lsquo;<samp>Help-M</samp>&rsquo;.
+</p>
+<p>&gt;&gt; Try typing three <kbd>l</kbd>&rsquo;s, pausing in between to see what each
+    <kbd>l</kbd> does.
+</p>
+<p>Then follow directions again and you will end up back here.
+</p>
+<p>Note the difference between <kbd>l</kbd> and <kbd>p</kbd>: <kbd>l</kbd> moves to
+where <em>you</em> last were, whereas <kbd>p</kbd> always moves to the node
+which the header says is the &lsquo;<samp>Previous</samp>&rsquo; node (from this node, to
+&lsquo;<samp>Help-M</samp>&rsquo;).
+</p>
+<p>The &lsquo;<samp>d</samp>&rsquo; command gets you instantly to the Directory node.
+This node, which is the first one you saw when you entered Info,
+has a menu which leads (directly, or indirectly through other menus),
+to all the nodes that exist.
+</p>
+<p>&gt;&gt; Try doing a &lsquo;<samp>d</samp>&rsquo;, then do an <kbd>l</kbd> to return here (yes,
+   <em>do</em> return).
+</p>
+<p>Sometimes, in Info documentation, you will see a cross reference.
+Cross references look like this: See <a href="#Help_002dCross">Cross</a>.  That is a
+real, live cross reference which is named &lsquo;<samp>Cross</samp>&rsquo; and points at
+the node named &lsquo;<samp>Help-Cross</samp>&rsquo;.
+</p>
+<p>If you wish to follow a cross reference, you must use the &lsquo;<samp>f</samp>&rsquo;
+command.  The &lsquo;<samp>f</samp>&rsquo; must be followed by the cross reference name
+(in this case, &lsquo;<samp>Cross</samp>&rsquo;).  While you enter the name, you can use the
+Delete key to edit your input.  If you change your mind about following
+any reference, you can use <kbd>Control-g</kbd> to cancel the command.
+</p>
+<p>Completion is available in the &lsquo;<samp>f</samp>&rsquo; command; you can complete among
+all the cross reference names in the current node by typing a Tab.
+</p>
+<p>&gt;&gt; Type &lsquo;<samp>f</samp>&rsquo;, followed by &lsquo;<samp>Cross</samp>&rsquo;, and a <tt class="key">RET</tt>.
+</p>
+<p>To get a list of all the cross references in the current node, you can
+type <kbd>?</kbd> after an &lsquo;<samp>f</samp>&rsquo;.  The &lsquo;<samp>f</samp>&rsquo; continues to await a
+cross reference name even after printing the list, so if you don&rsquo;t
+actually want to follow a reference, you should type a <kbd>Control-g</kbd>
+to cancel the &lsquo;<samp>f</samp>&rsquo;.
+</p>
+<p>&gt;&gt; Type &quot;f?&quot; to get a list of the cross references in this node.  Then
+   type a <kbd>Control-g</kbd> and see how the &lsquo;<samp>f</samp>&rsquo; gives up.
+</p>
+<p>&gt;&gt; Now type <kbd>n</kbd> to see the last node of the course.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Help_002dCross" accesskey="1">The node reached by the cross reference in Info</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<span id="Help_002dCross"></span><div class="header">
+<p>
+Up: <a href="#Help_002dAdv" accesskey="u" rel="up">Help-Adv</a> &nbsp; </p>
+</div>
+<span id="The-node-reached-by-the-cross-reference-in-Info"></span><h4 class="unnumberedsubsec">The node reached by the cross reference in Info</h4>
+
+<p>This is the node reached by the cross reference named &lsquo;<samp>Cross</samp>&rsquo;.
+</p>
+<p>While this node is specifically intended to be reached by a cross
+reference, most cross references lead to nodes that &ldquo;belong&rdquo;
+someplace else far away in the structure of Info.  So you cannot expect
+the footnote to have a &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Previous</samp>&rsquo; or &lsquo;<samp>Up</samp>&rsquo; pointing back to
+where you came from.  In general, the <kbd>l</kbd> (el) command is the only
+way to get back there.
+</p>
+<p>&gt;&gt; Type <kbd>l</kbd> to return to the node where the cross reference was.
+</p>
+<hr>
+<span id="Help_002dQ"></span><div class="header">
+<p>
+Previous: <a href="#Help_002dAdv" accesskey="p" rel="prev">Help-Adv</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a> &nbsp; </p>
+</div>
+<span id="Quitting-Info"></span><h3 class="section">1.7 Quitting Info</h3>
+
+<p>To get out of Info, back to what you were doing before, type <kbd>q</kbd>
+for <em>Quit</em>.
+</p>
+<p>This is the end of the course on using Info.  There are some other
+commands that are meant for experienced users; they are useful, and you
+can find them by looking in the directory node for documentation on
+Info.  Finding them will be a good exercise in using Info in the usual
+manner.
+</p>
+<p>&gt;&gt; Type &lsquo;<samp>d</samp>&rsquo; to go to the Info directory node; then type
+   &lsquo;<samp>mInfo</samp>&rsquo; and Return, to get to the node about Info and
+   see what other help is available.
+</p>
+<hr>
+<span id="Advanced-Info"></span><div class="header">
+<p>
+Next: <a href="#Create-an-Info-File" accesskey="n" rel="next">Create an Info File</a>, Previous: <a href="#Getting-Started" accesskey="p" rel="prev">Getting Started</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<span id="Info-for-Experts"></span><h2 class="chapter">2 Info for Experts</h2>
+
+<p>This chapter describes various advanced Info commands, and how to write
+an Info as distinct from a Texinfo file.  (However, in most cases, writing a
+Texinfo file is better, since you can use it <em>both</em> to generate an
+Info file and to make a printed manual.  See <a href="https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of
+Texinfo</a> in <cite>Texinfo: The GNU Documentation Format</cite>.)
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Expert" accesskey="1">Expert</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Advanced Info commands: g, s, e, and 1 - 5.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Add" accesskey="2">Add</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Describes how to add new nodes to the hierarchy.
+                           Also tells what nodes look like.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Menus" accesskey="3">Menus</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add to or create menus in Info nodes.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cross_002drefs" accesskey="4">Cross-refs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add cross-references to Info nodes.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tags" accesskey="5">Tags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to make tag tables for Info files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Checking" accesskey="6">Checking</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Checking an Info File
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Emacs-Info-Variables" accesskey="7">Emacs Info Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variables modifying the behavior of Emacs Info.
+</td></tr>
+</table>
+
+<hr>
+<span id="Expert"></span><div class="header">
+<p>
+Next: <a href="#Add" accesskey="n" rel="next">Add</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Advanced-Info-Commands"></span><h3 class="section">2.1 Advanced Info Commands</h3>
+
+<p><kbd>g</kbd>, <kbd>s</kbd>, <kbd>1</kbd>, &ndash; <kbd>9</kbd>, and <kbd>e</kbd>
+</p>
+<p>If you know a node&rsquo;s name, you can go there by typing <kbd>g</kbd>, the
+name, and <tt class="key">RET</tt>.  Thus, <kbd>gTop<span class="key">RET</span></kbd> would go to the node
+called &lsquo;<samp>Top</samp>&rsquo; in this file (its directory node).
+<kbd>gExpert<span class="key">RET</span></kbd> would come back here.
+</p>
+<p>Unlike <kbd>m</kbd>, <kbd>g</kbd> does not allow the use of abbreviations.
+</p>
+<p>To go to a node in another file, you can include the filename in the
+node name by putting it at the front, in parentheses.  Thus,
+<kbd>g(dir)Top<span class="key">RET</span></kbd> would go to the Info Directory node, which is
+node &lsquo;<samp>Top</samp>&rsquo; in the file <samp>dir</samp>.
+</p>
+<p>The node name &lsquo;<samp>*</samp>&rsquo; specifies the whole file.  So you can look at
+all of the current file by typing <kbd>g*<span class="key">RET</span></kbd> or all of any
+other file with <kbd>g(FILENAME)<span class="key">RET</span></kbd>.
+</p>
+<p>The <kbd>s</kbd> command allows you to search a whole file for a string.
+It switches to the next node if and when that is necessary.  You
+type <kbd>s</kbd> followed by the string to search for, terminated by
+<tt class="key">RET</tt>.  To search for the same string again, just <kbd>s</kbd> followed
+by <tt class="key">RET</tt> will do.  The file&rsquo;s nodes are scanned in the order
+they are in in the file, which has no necessary relationship to the
+order that they may be in in the tree structure of menus and &lsquo;<samp>next</samp>&rsquo; pointers.
+But normally the two orders are not very different.  In any case,
+you can always do a <kbd>b</kbd> to find out what node you have reached, if
+the header is not visible (this can happen, because <kbd>s</kbd> puts your
+cursor at the occurrence of the string, not at the beginning of the
+node).
+</p>
+<p>If you grudge the system each character of type-in it requires, you
+might like to use the commands <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, ...
+<kbd>9</kbd>.  They are short for the <kbd>m</kbd> command together with an
+argument.  <kbd>1</kbd> goes through the first item in the current node&rsquo;s
+menu; <kbd>2</kbd> goes through the second item, etc.
+</p>
+<p>If you display supports multiple fonts, and you are using Emacs&rsquo; Info
+mode to read Info files, the &lsquo;<samp>*</samp>&rsquo; for the fifth menu item is
+underlines, and so is the &lsquo;<samp>*</samp>&rsquo; for the ninth item; these underlines
+make it easy to see at a glance which number to use for an item.
+</p>
+<p>On ordinary terminals, you won&rsquo;t have underlining.  If you need to
+actually count items, it is better to use <kbd>m</kbd> instead, and specify
+the name.
+</p>
+<p>The Info command <kbd>e</kbd> changes from Info mode to an ordinary
+Emacs editing mode, so that you can edit the text of the current node.
+Type <kbd>C-c C-c</kbd> to switch back to Info.  The <kbd>e</kbd> command is allowed
+only if the variable <code>Info-enable-edit</code> is non-<code>nil</code>.
+</p>
+<hr>
+<span id="Add"></span><div class="header">
+<p>
+Next: <a href="#Menus" accesskey="n" rel="next">Menus</a>, Previous: <a href="#Expert" accesskey="p" rel="prev">Expert</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Adding-a-new-node-to-Info"></span><h3 class="section">2.2 Adding a new node to Info</h3>
+
+<p>To add a new topic to the list in the Info directory, you must:
+</p><ol>
+<li> Create some nodes, in some file, to document that topic.
+</li><li> Put that topic in the menu in the directory.  See <a href="#Menus">Menu</a>.
+</li></ol>
+
+<p>Usually, the way to create the nodes is with Texinfo see <a href="https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of
+Texinfo</a> in <cite>Texinfo: The GNU Documentation Format</cite>); this has the
+advantage that you can also make a printed manual from them.  However,
+if hyou want to edit an Info file, here is how.
+</p>
+<p>The new node can live in an existing documentation file, or in a new
+one.  It must have a <tt class="key">^_</tt> character before it (invisible to the
+user; this node has one but you cannot see it), and it ends with either
+a <tt class="key">^_</tt>, a <tt class="key">^L</tt>, or the end of file.  Note: If you put in a
+<tt class="key">^L</tt> to end a new node, be sure that there is a <tt class="key">^_</tt> after it
+to start the next one, since <tt class="key">^L</tt> cannot <em>start</em> a node.
+Also, a nicer way to make a node boundary be a page boundary as well
+is to put a <tt class="key">^L</tt> <em>right after</em> the <tt class="key">^_</tt>.
+</p>
+<p>The <tt class="key">^_</tt> starting a node must be followed by a newline or a
+<tt class="key">^L</tt> newline, after which comes the node&rsquo;s header line.  The
+header line must give the node&rsquo;s name (by which Info finds it),
+and state the names of the &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Previous</samp>&rsquo;, and &lsquo;<samp>Up</samp>&rsquo; nodes (if
+there are any).  As you can see, this node&rsquo;s &lsquo;<samp>Up</samp>&rsquo; node is the node
+&lsquo;<samp>Top</samp>&rsquo;, which points at all the documentation for Info.  The &lsquo;<samp>Next</samp>&rsquo;
+node is &lsquo;<samp>Menus</samp>&rsquo;.
+</p>
+<p>The keywords <em>Node</em>, <em>Previous</em>, <em>Up</em>, and <em>Next</em>,
+may appear in any order, anywhere in the header line, but the
+recommended order is the one in this sentence.  Each keyword must be
+followed by a colon, spaces and tabs, and then the appropriate name.
+The name may be terminated with a tab, a comma, or a newline.  A space
+does not end it; node names may contain spaces.  The case of letters
+in the names is insignificant.
+</p>
+<p>A node name has two forms.  A node in the current file is named by
+what appears after the &lsquo;<samp>Node: </samp>&rsquo; in that node&rsquo;s first line.  For
+example, this node&rsquo;s name is &lsquo;<samp>Add</samp>&rsquo;.  A node in another file is
+named by &lsquo;<samp>(<var>filename</var>)<var>node-within-file</var></samp>&rsquo;, as in
+&lsquo;<samp>(info)Add</samp>&rsquo; for this node.  If the file name starts with &ldquo;./&rdquo;,
+then it is relative to the current directory; otherwise, it is relative
+starting from the standard Info file directory of your site.
+The name &lsquo;<samp>(<var>filename</var>)Top</samp>&rsquo; can be abbreviated to just
+&lsquo;<samp>(<var>filename</var>)</samp>&rsquo;.  By convention, the name &lsquo;<samp>Top</samp>&rsquo; is used for
+the &ldquo;highest&rdquo; node in any single file&mdash;the node whose &lsquo;<samp>Up</samp>&rsquo; points
+out of the file.  The Directory node is <samp>(dir)</samp>.  The &lsquo;<samp>Top</samp>&rsquo; node
+of a document file listed in the Directory should have an &lsquo;<samp>Up:
+(dir)</samp>&rsquo; in it.
+</p>
+<p>The node name <kbd>*</kbd> is special: it refers to the entire file.
+Thus, <kbd>g*</kbd> shows you the whole current file.  The use of the
+node <kbd>*</kbd> is to make it possible to make old-fashioned,
+unstructured files into nodes of the tree.
+</p>
+<p>The &lsquo;<samp>Node:</samp>&rsquo; name, in which a node states its own name, must not
+contain a filename, since Info when searching for a node does not
+expect one to be there.  The &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Previous</samp>&rsquo; and &lsquo;<samp>Up</samp>&rsquo; names may
+contain them.  In this node, since the &lsquo;<samp>Up</samp>&rsquo; node is in the same file,
+it was not necessary to use one.
+</p>
+<p>Note that the nodes in this file have a file name in the header
+line.  The file names are ignored by Info, but they serve as comments
+to help identify the node for the user.
+</p>
+<hr>
+<span id="Menus"></span><div class="header">
+<p>
+Next: <a href="#Cross_002drefs" accesskey="n" rel="next">Cross-refs</a>, Previous: <a href="#Add" accesskey="p" rel="prev">Add</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="How-to-Create-Menus"></span><h3 class="section">2.3 How to Create Menus</h3>
+
+<p>Any node in the Info hierarchy may have a <em>menu</em>&mdash;a list of subnodes. 
+The <kbd>m</kbd> command searches the current node&rsquo;s menu for the topic which it
+reads from the terminal.
+</p>
+<p>A menu begins with a line starting with &lsquo;<samp>* Menu:</samp>&rsquo;.  The rest of the
+line is a comment.  After the starting line, every line that begins
+with a &lsquo;<samp>* </samp>&rsquo; lists a single topic.  The name of the topic&ndash;the
+argument that the user must give to the <kbd>m</kbd> command to select this
+topic&mdash;comes right after the star and space, and is followed by a
+colon, spaces and tabs, and the name of the node which discusses that
+topic.  The node name, like node names following &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Previous</samp>&rsquo;
+and &lsquo;<samp>Up</samp>&rsquo;, may be terminated with a tab, comma, or newline; it may also
+be terminated with a period.
+</p>
+<p>If the node name and topic name are the same, then rather than
+giving the name twice, the abbreviation &lsquo;<samp>* NAME::</samp>&rsquo; may be used
+(and should be used, whenever possible, as it reduces the visual
+clutter in the menu).
+</p>
+<p>It is considerate to choose the topic names so that they differ
+from each other very near the beginning&mdash;this allows the user to type
+short abbreviations.  In a long menu, it is a good idea to capitalize
+the beginning of each item name which is the minimum acceptable
+abbreviation for it (a long menu is more than 5 or so entries).
+</p>
+<p>The nodes listed in a node&rsquo;s menu are called its &ldquo;subnodes&rdquo;, and
+it is their &ldquo;superior&rdquo;.  They should each have an &lsquo;<samp>Up:</samp>&rsquo; pointing at
+the superior.  It is often useful to arrange all or most of the
+subnodes in a sequence of &lsquo;<samp>Next</samp>&rsquo; and &lsquo;<samp>Previous</samp>&rsquo; pointers so that someone who
+wants to see them all need not keep revisiting the Menu.
+</p>
+<p>The Info Directory is simply the menu of the node &lsquo;<samp>(dir)Top</samp>&rsquo;&mdash;that
+is, node &lsquo;<samp>Top</samp>&rsquo; in file <samp>.../info/dir</samp>.  You can put new entries
+in that menu just like any other menu.  The Info Directory is <em>not</em> the
+same as the file directory called <samp>info</samp>.  It happens that many of
+Info&rsquo;s files live on that file directory, but they do not have to; and
+files on that directory are not automatically listed in the Info
+Directory node.
+</p>
+<p>Also, although the Info node graph is claimed to be a &ldquo;hierarchy&rdquo;,
+in fact it can be <em>any</em> directed graph.  Shared structures and
+pointer cycles are perfectly possible, and can be used if they are
+appropriate to the meaning to be expressed.  There is no need for all
+the nodes in a file to form a connected structure.  In fact, this file
+has two connected components.  You are in one of them, which is under
+the node &lsquo;<samp>Top</samp>&rsquo;; the other contains the node &lsquo;<samp>Help</samp>&rsquo; which the
+<kbd>h</kbd> command goes to.  In fact, since there is no garbage
+collector, nothing terrible happens if a substructure is not pointed
+to, but such a substructure is rather useless since nobody can
+ever find out that it exists.
+</p>
+<hr>
+<span id="Cross_002drefs"></span><div class="header">
+<p>
+Next: <a href="#Tags" accesskey="n" rel="next">Tags</a>, Previous: <a href="#Menus" accesskey="p" rel="prev">Menus</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Creating-Cross-References"></span><h3 class="section">2.4 Creating Cross References</h3>
+
+<p>A cross reference can be placed anywhere in the text, unlike a menu
+item which must go at the front of a line.  A cross reference looks
+like a menu item except that it has &lsquo;<samp>*note</samp>&rsquo; instead of <kbd>*</kbd>.
+It <em>cannot</em> be terminated by a &lsquo;<samp>)</samp>&rsquo;, because &lsquo;<samp>)</samp>&rsquo;&rsquo;s are
+so often part of node names.  If you wish to enclose a cross reference
+in parentheses, terminate it with a period first.  Here are two
+examples of cross references pointers:
+</p>
+<div class="example">
+<pre class="example">*Note details: commands.  (See *note 3: Full Proof.)
+</pre></div>
+
+<p>They are just examples.  The places they &ldquo;lead to&rdquo; do not really exist!
+</p>
+<hr>
+<span id="Tags"></span><div class="header">
+<p>
+Next: <a href="#Checking" accesskey="n" rel="next">Checking</a>, Previous: <a href="#Cross_002drefs" accesskey="p" rel="prev">Cross-refs</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Tag-Tables-for-Info-Files"></span><h3 class="section">2.5 Tag Tables for Info Files</h3>
+
+<p>You can speed up the access to nodes of a large Info file by giving
+it a tag table.  Unlike the tag table for a program, the tag table for
+an Info file lives inside the file itself and is used 
+automatically whenever Info reads in the file.
+</p>
+<p>To make a tag table, go to a node in the file using Emacs Info mode and type
+<kbd>M-x Info-tagify</kbd>.  Then you must use <kbd>C-x C-s</kbd> to save the
+file.
+</p>
+<p>Once the Info file has a tag table, you must make certain it is up
+to date.  If, as a result of deletion of text, any node moves back
+more than a thousand characters in the file from the position
+recorded in the tag table, Info will no longer be able to find that
+node.  To update the tag table, use the <code>Info-tagify</code> command again.
+</p>
+<p>An Info file tag table appears at the end of the file and looks like
+this:
+</p>
+<div class="example">
+<pre class="example">^_&#12;
+Tag Table:
+File: info, Node: Cross-refs^?21419
+File: info,  Node: Tags^?22145
+^_
+End Tag Table
+</pre></div>
+
+<p>Note that it contains one line per node, and this line contains
+the beginning of the node&rsquo;s header (ending just after the node name),
+a Delete character, and the character position in the file of the
+beginning of the node.
+</p>
+<hr>
+<span id="Checking"></span><div class="header">
+<p>
+Next: <a href="#Emacs-Info-Variables" accesskey="n" rel="next">Emacs Info Variables</a>, Previous: <a href="#Tags" accesskey="p" rel="prev">Tags</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Checking-an-Info-File"></span><h3 class="section">2.6 Checking an Info File</h3>
+
+<p>When creating an Info file, it is easy to forget the name of a node
+when you are making a pointer to it from another node.  If you put in
+the wrong name for a node, this is not detected until someone
+tries to go through the pointer using Info.  Verification of the Info
+file is an automatic process which checks all pointers to nodes and
+reports any pointers which are invalid.  Every &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Previous</samp>&rsquo;, and
+&lsquo;<samp>Up</samp>&rsquo; is checked, as is every menu item and every cross reference.  In
+addition, any &lsquo;<samp>Next</samp>&rsquo; which does not have a &lsquo;<samp>Previous</samp>&rsquo; pointing back is
+reported.  Only pointers within the file are checked, because checking
+pointers to other files would be terribly slow.  But those are usually
+few.
+</p>
+<p>To check an Info file, do <kbd>M-x Info-validate</kbd> while looking at
+any node of the file with Emacs Info mode.
+</p>
+<hr>
+<span id="Emacs-Info-Variables"></span><div class="header">
+<p>
+Previous: <a href="#Checking" accesskey="p" rel="prev">Checking</a>, Up: <a href="#Advanced-Info" accesskey="u" rel="up">Advanced Info</a> &nbsp; </p>
+</div>
+<span id="Emacs-Info_002dmode-Variables"></span><h3 class="section">2.7 Emacs Info-mode Variables</h3>
+
+<p>The following variables may modify the behaviour of Info-mode in Emacs;
+you may wish to set one or several of these variables interactively, or
+in your <samp>~/.emacs</samp> init file.  See <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Examining">Examining and Setting Variables</a> in <cite>The GNU Emacs
+Manual</cite>.
+</p>
+<dl compact="compact">
+<dt><code>Info-enable-edit</code>
+<span id="index-Info_002denable_002dedit"></span>
+</dt>
+<dd><p>Set to <code>nil</code>, disables the &lsquo;<samp>e</samp>&rsquo; (<code>Info-edit</code>) command.  A
+non-<code>nil</code> value enables it.  See <a href="#Add">Edit</a>.
+</p>
+</dd>
+<dt><code>Info-enable-active-nodes</code>
+<span id="index-Info_002denable_002dactive_002dnodes"></span>
+</dt>
+<dd><p>When set to a non-<code>nil</code> value, allows Info to execute Lisp code
+associated with nodes.  The Lisp code is executed when the node is
+selected.
+</p>
+</dd>
+<dt><code>Info-directory-list</code>
+<span id="index-Info_002ddirectory_002dlist"></span>
+</dt>
+<dd><p>The list of directories to search for Info files.  Each element is a
+string (directory name) or <code>nil</code> (try default directory).
+</p>
+</dd>
+<dt><code>Info-directory</code>
+<span id="index-Info_002ddirectory"></span>
+</dt>
+<dd><p>The standard directory for Info documentation files.  Only used when the
+function <code>Info-directory</code> is called.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Create-an-Info-File"></span><div class="header">
+<p>
+Previous: <a href="#Advanced-Info" accesskey="p" rel="prev">Advanced Info</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+</div>
+<span id="Creating-an-Info-File-from-a-Makeinfo-file"></span><h2 class="chapter">3 Creating an Info File from a Makeinfo file</h2>
+
+<p><code>makeinfo</code> is a utility that converts a Texinfo file into an Info
+file; <code>texinfo-format-region</code> and <code>texinfo-format-buffer</code> are
+GNU Emacs functions that do the same.
+</p>
+<p>See <a href="https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Create-an-Info-File">Creating an Info File</a> in <cite>the Texinfo
+Manual</cite>, to learn how to create an Info file from a Texinfo file.
+</p>
+<p>See <a href="https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of Texinfo</a> in <cite>Texinfo: The GNU Documentation
+Format</cite>, to learn how to write a Texinfo file.
+</p>
+<hr>
+
+
+
+</body>
+</html>

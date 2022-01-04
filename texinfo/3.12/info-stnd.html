@@ -1,0 +1,1963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>GNU Info</title>
+
+<meta name="description" content="GNU Info">
+<meta name="keywords" content="GNU Info">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Top" rel="start" title="Top">
+<link href="#GNU-Info-Global-Index" rel="index" title="GNU Info Global Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">GNU Info</h1>
+
+
+<p>This file documents GNU Info, a program for viewing the on-line formatted
+versions of Texinfo files.  This documentation is different from the
+documentation for the Info reader that is part of GNU Emacs.  If you do
+not know how to use Info, but have a working Info reader, you should
+read that documentation first.
+</p>
+<p>Copyright &copy; 1992, 93, 96, 97 Free Software Foundation, Inc.
+</p>
+<p>Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+</p>
+
+<p>Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided also that the
+sections entitled &ldquo;Copying&rdquo; and &ldquo;GNU General Public License&rdquo; are
+included exactly as in the original, and provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+</p>
+<p>Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation
+approved by the Free Software Foundation.
+</p>
+
+<span id="Top"></span><div class="header">
+<p>
+Next: <a href="#What-is-Info" accesskey="n" rel="next">What is Info</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-GNU-Info-Program"></span><h1 class="top">The GNU Info Program</h1>
+
+<p>This file documents GNU Info, a program for viewing the on-line
+formatted versions of Texinfo files, version 2.11.  This
+documentation is different from the documentation for the Info reader
+that is part of GNU Emacs.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#What-is-Info" accesskey="1">What is Info</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Options" accesskey="2">Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Options you can pass on the command line.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Cursor-Commands" accesskey="3">Cursor Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands which move the cursor within a node.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Scrolling-Commands" accesskey="4">Scrolling Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands for moving the node around 
+                                  in a window.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Node-Commands" accesskey="5">Node Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands for selecting a new node.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Searching-Commands" accesskey="6">Searching Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands for searching an Info file.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Xref-Commands" accesskey="7">Xref Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands for selecting cross references.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Window-Commands" accesskey="8">Window Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands which manipulate multiple windows.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Printing-Nodes" accesskey="9">Printing Nodes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to print out the contents of a node.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A few commands that defy categories.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Variables">Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to change the default behavior of Info.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Info-Global-Index" rel="index">GNU Info Global Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Global index containing keystrokes, 
+                                  command names, variable names, 
+                                  and general concepts.
+</td></tr>
+</table>
+
+<hr>
+<span id="What-is-Info"></span><div class="header">
+<p>
+Next: <a href="#Options" accesskey="n" rel="next">Options</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="What-is-Info_003f"></span><h2 class="chapter">1 What is Info?</h2>
+
+
+<p><em>Info</em> is a program which is used to view Info files on an ASCII
+terminal.  <em>Info files</em> are the result of processing Texinfo files
+with the program <code>makeinfo</code> or with one of the Emacs commands, such
+as <code>M-x texinfo-format-buffer</code>.  Texinfo itself is a documentation
+system that uses a single source file to produce both on-line
+information and printed output.  You can typeset and print the
+files that you read in Info.
+</p>
+<hr>
+<span id="Options"></span><div class="header">
+<p>
+Next: <a href="#Cursor-Commands" accesskey="n" rel="next">Cursor Commands</a>, Previous: <a href="#What-is-Info" accesskey="p" rel="prev">What is Info</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Command-Line-Options"></span><h2 class="chapter">2 Command Line Options</h2>
+<span id="index-command-line-options"></span>
+<span id="index-arguments_002c-command-line"></span>
+
+<p>GNU Info accepts several options to control the initial node being
+viewed, and to specify which directories to search for Info files.  Here
+is a template showing an invocation of GNU Info from the shell:
+</p>
+<div class="example">
+<pre class="example">info [--<var>option-name</var> <var>option-value</var>] <var>menu-item</var>&hellip;
+</pre></div>
+
+<p>The following <var>option-names</var> are available when invoking Info from
+the shell:
+</p>
+<dl compact="compact">
+<dd><span id="index-directory-path"></span>
+</dd>
+<dt><code>--directory <var>directory-path</var></code></dt>
+<dt><code>-d <var>directory-path</var></code></dt>
+<dd><p>Add <var>directory-path</var> to the list of directory paths searched when
+Info needs to find a file.  You may issue <code>--directory</code> multiple
+times; once for each directory which contains Info files.
+Alternatively, you may specify a value for the environment variable
+<code>INFOPATH</code>; if <code>--directory</code> is not given, the value of
+<code>INFOPATH</code> is used.  The value of <code>INFOPATH</code> is a colon
+separated list of directory names.  If you do not supply <code>INFOPATH</code>
+or <code>--directory-path</code>, Info uses a default path.
+</p>
+</dd>
+<dt><code>--file <var>filename</var></code></dt>
+<dt><code>-f <var>filename</var></code></dt>
+<dd><span id="index-Info-file_002c-selecting"></span>
+<p>Specify a particular Info file to visit.  By default, Info visits
+the file <code>dir</code>; if you use this option, Info will start with
+<code>(<var>filename</var>)Top</code> as the first file and node.
+</p>
+</dd>
+<dt><code>--index-search <var>string</var></code></dt>
+<dd><span id="index-index-search_002c-selecting"></span>
+<span id="index-online-help_002c-using-Info-as"></span>
+<p>Go to the index entry <var>string</var> in the Info file specified with
+&lsquo;<samp>--file</samp>&rsquo;.  If no such entry, print &lsquo;<samp>no entries found</samp>&rsquo; and exit
+with nonzero status.  This can used from another program as a way to
+provide online help.
+</p>
+</dd>
+<dt><code>--node <var>nodename</var></code></dt>
+<dt><code>-n <var>nodename</var></code></dt>
+<dd><span id="index-node_002c-selecting"></span>
+<p>Specify a particular node to visit in the initial file that Info
+loads.  This is especially useful in conjunction with
+<code>--file</code><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.  You may specify <code>--node</code> multiple times; for
+an interactive Info, each <var>nodename</var> is visited in its own window,
+for a non-interactive Info (such as when <code>--output</code> is given) each
+<var>nodename</var> is processed sequentially.
+</p>
+</dd>
+<dt><code>--output <var>filename</var></code></dt>
+<dt><code>-o <var>filename</var></code></dt>
+<dd><span id="index-file_002c-outputting-to"></span>
+<span id="index-outputting-to-a-file"></span>
+<p>Specify <var>filename</var> as the name of a file to which to direct output.
+Each node that Info visits will be output to <var>filename</var> instead of
+interactively viewed.  A value of <code>-</code> for <var>filename</var> specifies
+the standard output.
+</p>
+</dd>
+<dt><code>--subnodes</code></dt>
+<dd><span id="index-_002d_002dsubnodes_002c-command-line-option"></span>
+<p>This option only has meaning when given in conjunction with
+<code>--output</code>.  It means to recursively output the nodes appearing in
+the menus of each node being output.  Menu items which resolve to
+external Info files are not output, and neither are menu items which are
+members of an index.  Each node is only output once.
+</p>
+</dd>
+<dt><code>--help</code></dt>
+<dt><code>-h</code></dt>
+<dd><p>Produces a relatively brief description of the available Info options.
+</p>
+</dd>
+<dt><code>--version</code></dt>
+<dd><span id="index-version-information"></span>
+<p>Prints the version information of Info and exits.
+</p>
+</dd>
+<dt><code><var>menu-item</var></code></dt>
+<dd><span id="index-menu_002c-following"></span>
+<p>Info treats its remaining arguments as the names of menu items.  The
+first argument is a menu item in the initial node visited, while
+the second argument is a menu item in the first argument&rsquo;s node.
+You can easily move to the node of your choice by specifying the menu
+names which describe the path to that node.  For example,
+</p>
+<div class="example">
+<pre class="example">info emacs buffers
+</pre></div>
+
+<p>first selects the menu item &lsquo;<samp>Emacs</samp>&rsquo; in the node &lsquo;<samp>(dir)Top</samp>&rsquo;,
+and then selects the menu item &lsquo;<samp>Buffers</samp>&rsquo; in the node
+&lsquo;<samp>(emacs)Top</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Cursor-Commands"></span><div class="header">
+<p>
+Next: <a href="#Scrolling-Commands" accesskey="n" rel="next">Scrolling Commands</a>, Previous: <a href="#Options" accesskey="p" rel="prev">Options</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Moving-the-Cursor"></span><h2 class="chapter">3 Moving the Cursor</h2>
+<span id="index-cursor_002c-moving"></span>
+
+<p>Many people find that reading screens of text page by page is made
+easier when one is able to indicate particular pieces of text with some
+kind of pointing device.  Since this is the case, GNU Info (both the
+Emacs and standalone versions) have several commands which allow you to
+move the cursor about the screen.  The notation used in this manual to
+describe keystrokes is identical to the notation used within the Emacs
+manual, and the GNU Readline manual.  See <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Characters">Character
+Conventions</a> in <cite>the GNU Emacs Manual</cite>, if you are unfamiliar with the
+notation.
+</p>
+<p>The following table lists the basic cursor movement commands in Info.
+Each entry consists of the key sequence you should type to execute the
+cursor movement, the <code>M-x</code><a id="DOCF2" href="#FOOT2"><sup>2</sup></a> command name (displayed in parentheses), and a short
+description of what the command does.  All of the cursor motion commands
+can take an <em>numeric</em> argument (see <a href="#Miscellaneous-Commands"><code>universal-argument</code></a>), to find out how to supply them.  With a
+numeric argument, the motion commands are simply executed that
+many times; for example, a numeric argument of 4 given to
+<code>next-line</code> causes the cursor to move down 4 lines.  With a
+negative numeric argument, the motion is reversed; an argument of -4
+given to the <code>next-line</code> command would cause the cursor to move
+<em>up</em> 4 lines.
+</p>
+<dl compact="compact">
+<dt><code>C-n</code> (<code>next-line</code>)</dt>
+<dd><span id="index-C_002dn"></span>
+<span id="index-next_002dline"></span>
+<p>Move the cursor down to the next line.
+</p>
+</dd>
+<dt><code>C-p</code> (<code>prev-line</code>)</dt>
+<dd><span id="index-C_002dp"></span>
+<span id="index-prev_002dline"></span>
+<p>Move the cursor up to the previous line.
+</p>
+</dd>
+<dt><code>C-a</code> (<code>beginning-of-line</code>)</dt>
+<dd><span id="index-C_002da_002c-in-Info-windows"></span>
+<span id="index-beginning_002dof_002dline"></span>
+<p>Move the cursor to the start of the current line.
+</p>
+</dd>
+<dt><code>C-e</code> (<code>end-of-line</code>)</dt>
+<dd><span id="index-C_002de_002c-in-Info-windows"></span>
+<span id="index-end_002dof_002dline"></span>
+<p>Move the cursor to the end of the current line.
+</p>
+</dd>
+<dt><code>C-f</code> (<code>forward-char</code>)</dt>
+<dd><span id="index-C_002df_002c-in-Info-windows"></span>
+<span id="index-forward_002dchar"></span>
+<p>Move the cursor forward a character.
+</p>
+</dd>
+<dt><code>C-b</code> (<code>backward-char</code>)</dt>
+<dd><span id="index-C_002db_002c-in-Info-windows"></span>
+<span id="index-backward_002dchar"></span>
+<p>Move the cursor backward a character.
+</p>
+</dd>
+<dt><code>M-f</code> (<code>forward-word</code>)</dt>
+<dd><span id="index-M_002df_002c-in-Info-windows"></span>
+<span id="index-forward_002dword"></span>
+<p>Move the cursor forward a word.
+</p>
+</dd>
+<dt><code>M-b</code> (<code>backward-word</code>)</dt>
+<dd><span id="index-M_002db_002c-in-Info-windows"></span>
+<span id="index-backward_002dword"></span>
+<p>Move the cursor backward a word.
+</p>
+</dd>
+<dt><code>M-&lt;</code> (<code>beginning-of-node</code>)</dt>
+<dt><code>b</code></dt>
+<dd><span id="index-b_002c-in-Info-windows"></span>
+<span id="index-M_002d_003c"></span>
+<span id="index-beginning_002dof_002dnode"></span>
+<p>Move the cursor to the start of the current node.
+</p>
+</dd>
+<dt><code>M-&gt;</code> (<code>end-of-node</code>)</dt>
+<dd><span id="index-M_002d_003e"></span>
+<span id="index-end_002dof_002dnode"></span>
+<p>Move the cursor to the end of the current node.
+</p>
+</dd>
+<dt><code>M-r</code> (<code>move-to-window-line</code>)</dt>
+<dd><span id="index-M_002dr"></span>
+<span id="index-move_002dto_002dwindow_002dline"></span>
+<p>Move the cursor to a specific line of the window.  Without a numeric
+argument, <code>M-r</code> moves the cursor to the start of the line in the
+center of the window.  With a numeric argument of <var>n</var>, <code>M-r</code>
+moves the cursor to the start of the <var>n</var>th line in the window.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Scrolling-Commands"></span><div class="header">
+<p>
+Next: <a href="#Node-Commands" accesskey="n" rel="next">Node Commands</a>, Previous: <a href="#Cursor-Commands" accesskey="p" rel="prev">Cursor Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Moving-Text-Within-a-Window"></span><h2 class="chapter">4 Moving Text Within a Window</h2>
+<span id="index-scrolling"></span>
+
+<p>Sometimes you are looking at a screenful of text, and only part of the
+current paragraph you are reading is visible on the screen.  The
+commands detailed in this section are used to shift which part of the
+current node is visible on the screen.
+</p>
+<dl compact="compact">
+<dt><code>SPC</code> (<code>scroll-forward</code>)</dt>
+<dt><code>C-v</code></dt>
+<dd><span id="index-SPC_002c-in-Info-windows"></span>
+<span id="index-C_002dv"></span>
+<span id="index-scroll_002dforward"></span>
+<p>Shift the text in this window up.  That is, show more of the node which
+is currently below the bottom of the window.  With a numeric argument,
+show that many more lines at the bottom of the window; a numeric
+argument of 4 would shift all of the text in the window up 4 lines
+(discarding the top 4 lines), and show you four new lines at the bottom
+of the window.  Without a numeric argument, <tt class="key">SPC</tt> takes the bottom
+two lines of the window and places them at the top of the window,
+redisplaying almost a completely new screenful of lines.
+</p>
+</dd>
+<dt><code>DEL</code> (<code>scroll-backward</code>)</dt>
+<dt><code>M-v</code></dt>
+<dd><span id="index-DEL_002c-in-Info-windows"></span>
+<span id="index-M_002dv"></span>
+<span id="index-scroll_002dbackward"></span>
+<p>Shift the text in this window down.  The inverse of
+<code>scroll-forward</code>.
+</p></dd>
+</dl>
+
+<span id="index-scrolling-through-node-structure"></span>
+<p>The <code>scroll-forward</code> and <code>scroll-backward</code> commands can also
+move forward and backward through the node structure of the file.  If
+you press <tt class="key">SPC</tt> while viewing the end of a node, or <tt class="key">DEL</tt> while
+viewing the beginning of a node, what happens is controlled by the
+variable <code>scroll-behavior</code>.  See <a href="#Variables"><code>scroll-behavior</code></a>, for more information.
+</p>
+<dl compact="compact">
+<dt><code>C-l</code> (<code>redraw-display</code>)</dt>
+<dd><span id="index-C_002dl"></span>
+<span id="index-redraw_002ddisplay"></span>
+<p>Redraw the display from scratch, or shift the line containing the cursor
+to a specified location.  With no numeric argument, &lsquo;<samp>C-l</samp>&rsquo; clears
+the screen, and then redraws its entire contents.  Given a numeric
+argument of <var>n</var>, the line containing the cursor is shifted so that
+it is on the <var>n</var>th line of the window.
+</p>
+</dd>
+<dt><code>C-x w</code> (<code>toggle-wrap</code>)</dt>
+<dd><span id="index-C_002dw"></span>
+<span id="index-toggle_002dwrap"></span>
+<p>Toggles the state of line wrapping in the current window.  Normally,
+lines which are longer than the screen width <em>wrap</em>, i.e., they are
+continued on the next line.  Lines which wrap have a &lsquo;<samp>\</samp>&rsquo; appearing
+in the rightmost column of the screen.  You can cause such lines to be
+terminated at the rightmost column by changing the state of line
+wrapping in the window with <code>C-x w</code>.  When a line which needs more
+space than one screen width to display is displayed, a &lsquo;<samp>$</samp>&rsquo; appears
+in the rightmost column of the screen, and the remainder of the line is
+invisible.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Node-Commands"></span><div class="header">
+<p>
+Next: <a href="#Searching-Commands" accesskey="n" rel="next">Searching Commands</a>, Previous: <a href="#Scrolling-Commands" accesskey="p" rel="prev">Scrolling Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Selecting-a-New-Node"></span><h2 class="chapter">5 Selecting a New Node</h2>
+<span id="index-nodes_002c-selection-of"></span>
+
+<p>This section details the numerous Info commands which select a new node
+to view in the current window.
+</p>
+<p>The most basic node commands are &lsquo;<samp>n</samp>&rsquo;, &lsquo;<samp>p</samp>&rsquo;, &lsquo;<samp>u</samp>&rsquo;, and
+&lsquo;<samp>l</samp>&rsquo;.
+</p>
+<p>When you are viewing a node, the top line of the node contains some Info
+<em>pointers</em> which describe where the next, previous, and up nodes
+are.  Info uses this line to move about the node structure of the file
+when you use the following commands:
+</p>
+<dl compact="compact">
+<dt><code>n</code> (<code>next-node</code>)</dt>
+<dd><span id="index-n"></span>
+<span id="index-next_002dnode"></span>
+<p>Select the &lsquo;Next&rsquo; node.  
+</p>
+</dd>
+<dt><code>p</code> (<code>prev-node</code>)</dt>
+<dd><span id="index-p"></span>
+<span id="index-prev_002dnode"></span>
+<p>Select the &lsquo;Prev&rsquo; node.
+</p>
+</dd>
+<dt><code>u</code> (<code>up-node</code>)</dt>
+<dd><span id="index-u"></span>
+<span id="index-up_002dnode"></span>
+<p>Select the &lsquo;Up&rsquo; node.
+</p></dd>
+</dl>
+
+<p>You can easily select a node that you have already viewed in this window
+by using the &lsquo;<samp>l</samp>&rsquo; command &ndash; this name stands for &quot;last&quot;, and
+actually moves through the list of already visited nodes for this
+window.  &lsquo;<samp>l</samp>&rsquo; with a negative numeric argument moves forward through
+the history of nodes for this window, so you can quickly step between
+two adjacent (in viewing history) nodes.
+</p>
+<dl compact="compact">
+<dt><code>l</code> (<code>history-node</code>)</dt>
+<dd><span id="index-l"></span>
+<span id="index-history_002dnode"></span>
+<p>Select the most recently selected node in this window.
+</p></dd>
+</dl>
+
+<p>Two additional commands make it easy to select the most commonly
+selected nodes; they are &lsquo;<samp>t</samp>&rsquo; and &lsquo;<samp>d</samp>&rsquo;.
+</p>
+<dl compact="compact">
+<dt><code>t</code> (<code>top-node</code>)</dt>
+<dd><span id="index-t"></span>
+<span id="index-top_002dnode"></span>
+<p>Select the node &lsquo;<samp>Top</samp>&rsquo; in the current Info file.
+</p>
+</dd>
+<dt><code>d</code> (<code>dir-node</code>)</dt>
+<dd><span id="index-d"></span>
+<span id="index-dir_002dnode"></span>
+<p>Select the directory node (i.e., the node &lsquo;<samp>(dir)</samp>&rsquo;).
+</p></dd>
+</dl>
+
+<p>Here are some other commands which immediately result in the selection
+of a different node in the current window:
+</p>
+<dl compact="compact">
+<dt><code>&lt;</code> (<code>first-node</code>)</dt>
+<dd><span id="index-_003c"></span>
+<span id="index-first_002dnode"></span>
+<p>Selects the first node which appears in this file.  This node is most
+often &lsquo;<samp>Top</samp>&rsquo;, but it does not have to be.
+</p>
+</dd>
+<dt><code>&gt;</code> (<code>last-node</code>)</dt>
+<dd><span id="index-_003e"></span>
+<span id="index-last_002dnode"></span>
+<p>Select the last node which appears in this file.
+</p>
+</dd>
+<dt><code>]</code> (<code>global-next-node</code>)</dt>
+<dd><span id="index-_005d"></span>
+<span id="index-global_002dnext_002dnode"></span>
+<p>Move forward or down through node structure.  If the node that you are
+currently viewing has a &lsquo;<samp>Next</samp>&rsquo; pointer, that node is selected.
+Otherwise, if this node has a menu, the first menu item is selected.  If
+there is no &lsquo;<samp>Next</samp>&rsquo; and no menu, the same process is tried with the
+&lsquo;<samp>Up</samp>&rsquo; node of this node.
+</p>
+</dd>
+<dt><code>[</code> (<code>global-prev-node</code>)</dt>
+<dd><span id="index-_005b"></span>
+<span id="index-global_002dprev_002dnode"></span>
+<p>Move backward or up through node structure.  If the node that you are
+currently viewing has a &lsquo;<samp>Prev</samp>&rsquo; pointer, that node is selected.
+Otherwise, if the node has an &lsquo;<samp>Up</samp>&rsquo; pointer, that node is selected,
+and if it has a menu, the last item in the menu is selected.
+</p></dd>
+</dl>
+
+<p>You can get the same behavior as <code>global-next-node</code> and
+<code>global-prev-node</code> while simply scrolling through the file with
+<tt class="key">SPC</tt> and <tt class="key">DEL</tt>; See <a href="#Variables"><code>scroll-behavior</code></a>, for
+more information.
+</p>
+<dl compact="compact">
+<dt><code>g</code> (<code>goto-node</code>)</dt>
+<dd><span id="index-g"></span>
+<span id="index-goto_002dnode"></span>
+<p>Read the name of a node and select it.  No completion is done while
+reading the node name, since the desired node may reside in a separate
+file.  The node must be typed exactly as it appears in the Info file.  A
+file name may be included as with any node specification, for example
+</p>
+<div class="example">
+<pre class="example"><code>g(emacs)Buffers</code>
+</pre></div>
+
+<p>finds the node &lsquo;<samp>Buffers</samp>&rsquo; in the Info file <samp>emacs</samp>.
+</p>
+</dd>
+<dt><code>C-x k</code> (<code>kill-node</code>)</dt>
+<dd><span id="index-C_002dx-k"></span>
+<span id="index-kill_002dnode"></span>
+<p>Kill a node.  The node name is prompted for in the echo area, with a
+default of the current node.  <em>Killing</em> a node means that Info tries
+hard to forget about it, removing it from the list of history nodes kept
+for the window where that node is found.  Another node is selected in
+the window which contained the killed node.
+</p>
+</dd>
+<dt><code>C-x C-f</code> (<code>view-file</code>)</dt>
+<dd><span id="index-C_002dx-C_002df"></span>
+<span id="index-view_002dfile"></span>
+<p>Read the name of a file and selects the entire file.  The command
+</p><div class="example">
+<pre class="example"><code>C-x C-f <var>filename</var></code>
+</pre></div>
+<p>is equivalent to typing
+</p><div class="example">
+<pre class="example"><code>g(<var>filename</var>)*</code>
+</pre></div>
+
+</dd>
+<dt><code>C-x C-b</code> (<code>list-visited-nodes</code>)</dt>
+<dd><span id="index-C_002dx-C_002db"></span>
+<span id="index-list_002dvisited_002dnodes"></span>
+<p>Make a window containing a menu of all of the currently visited nodes.
+This window becomes the selected window, and you may use the standard
+Info commands within it.
+</p>
+</dd>
+<dt><code>C-x b</code> (<code>select-visited-node</code>)</dt>
+<dd><span id="index-C_002dx-b"></span>
+<span id="index-select_002dvisited_002dnode"></span>
+<p>Select a node which has been previously visited in a visible window.
+This is similar to &lsquo;<samp>C-x C-b</samp>&rsquo; followed by &lsquo;<samp>m</samp>&rsquo;, but no window is
+created.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Searching-Commands"></span><div class="header">
+<p>
+Next: <a href="#Xref-Commands" accesskey="n" rel="next">Xref Commands</a>, Previous: <a href="#Node-Commands" accesskey="p" rel="prev">Node Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Searching-an-Info-File"></span><h2 class="chapter">6 Searching an Info File</h2>
+<span id="index-searching"></span>
+
+<p>GNU Info allows you to search for a sequence of characters throughout an
+entire Info file, search through the indices of an Info file, or find
+areas within an Info file which discuss a particular topic.
+</p>
+<dl compact="compact">
+<dt><code>s</code> (<code>search</code>)</dt>
+<dd><span id="index-s"></span>
+<span id="index-search"></span>
+<p>Read a string in the echo area and search for it.
+</p>
+</dd>
+<dt><code>C-s</code> (<code>isearch-forward</code>)</dt>
+<dd><span id="index-C_002ds"></span>
+<span id="index-isearch_002dforward"></span>
+<p>Interactively search forward through the Info file for a string as you
+type it.
+</p>
+</dd>
+<dt><code>C-r</code> (<code>isearch-backward</code>)</dt>
+<dd><span id="index-C_002dr"></span>
+<span id="index-isearch_002dbackward"></span>
+<p>Interactively search backward through the Info file for a string as
+you type it.
+</p>
+</dd>
+<dt><code>i</code> (<code>index-search</code>)</dt>
+<dd><span id="index-i"></span>
+<span id="index-index_002dsearch"></span>
+<p>Look up a string in the indices for this Info file, and select a node
+where the found index entry points to.
+</p>
+</dd>
+<dt><code>,</code> (<code>next-index-match</code>)</dt>
+<dd><span id="index-_002c"></span>
+<span id="index-next_002dindex_002dmatch"></span>
+<p>Move to the node containing the next matching index item from the last
+&lsquo;<samp>i</samp>&rsquo; command.
+</p></dd>
+</dl>
+
+<p>The most basic searching command is &lsquo;<samp>s</samp>&rsquo; (<code>search</code>).  The
+&lsquo;<samp>s</samp>&rsquo; command prompts you for a string in the echo area, and then
+searches the remainder of the Info file for an occurrence of that string.
+If the string is found, the node containing it is selected, and the
+cursor is left positioned at the start of the found string.  Subsequent
+&lsquo;<samp>s</samp>&rsquo; commands show you the default search string within &lsquo;<samp>[</samp>&rsquo; and
+&lsquo;<samp>]</samp>&rsquo;; pressing <tt class="key">RET</tt> instead of typing a new string will use the
+default search string.
+</p>
+<p><em>Incremental searching</em> is similar to basic searching, but the
+string is looked up while you are typing it, instead of waiting until
+the entire search string has been specified.
+</p>
+<hr>
+<span id="Xref-Commands"></span><div class="header">
+<p>
+Next: <a href="#Window-Commands" accesskey="n" rel="next">Window Commands</a>, Previous: <a href="#Searching-Commands" accesskey="p" rel="prev">Searching Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Selecting-Cross-References"></span><h2 class="chapter">7 Selecting Cross References</h2>
+
+<p>We have already discussed the &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Prev</samp>&rsquo;, and &lsquo;<samp>Up</samp>&rsquo;
+pointers which appear at the top of a node.  In addition to these
+pointers, a node may contain other pointers which refer you to a
+different node, perhaps in another Info file.  Such pointers are called
+<em>cross references</em>, or <em>xrefs</em> for short.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Parts-of-an-Xref" accesskey="1">Parts of an Xref</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What a cross reference is made of.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Selecting-Xrefs" accesskey="2">Selecting Xrefs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands for selecting menu or note items.
+</td></tr>
+</table>
+
+<hr>
+<span id="Parts-of-an-Xref"></span><div class="header">
+<p>
+Next: <a href="#Selecting-Xrefs" accesskey="n" rel="next">Selecting Xrefs</a>, Up: <a href="#Xref-Commands" accesskey="u" rel="up">Xref Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Parts-of-an-Xref-1"></span><h3 class="section">7.1 Parts of an Xref</h3>
+
+<p>Cross references have two major parts: the first part is called the
+<em>label</em>; it is the name that you can use to refer to the cross
+reference, and the second is the <em>target</em>; it is the full name of
+the node that the cross reference points to.
+</p>
+<p>The target is separated from the label by a colon &lsquo;<samp>:</samp>&rsquo;; first the
+label appears, and then the target.  For example, in the sample menu
+cross reference below, the single colon separates the label from the
+target.
+</p>
+<div class="example">
+<pre class="example">* Foo Label: Foo Target.        More information about Foo.
+</pre></div>
+
+<p>Note the &lsquo;<samp>.</samp>&rsquo; which ends the name of the target.  The &lsquo;<samp>.</samp>&rsquo; is
+not part of the target; it serves only to let Info know where the target
+name ends.
+</p>
+<p>A shorthand way of specifying references allows two adjacent colons to
+stand for a target name which is the same as the label name:
+</p>
+<div class="example">
+<pre class="example">* Foo Commands::                Commands pertaining to Foo.
+</pre></div>
+
+<p>In the above example, the name of the target is the same as the name of
+the label, in this case <code>Foo Commands</code>.
+</p>
+<p>You will normally see two types of cross reference while viewing nodes:
+<em>menu</em> references, and <em>note</em> references.  Menu references
+appear within a node&rsquo;s menu; they begin with a &lsquo;<samp>*</samp>&rsquo; at the beginning
+of a line, and continue with a label, a target, and a comment which
+describes what the contents of the node pointed to contains.
+</p>
+<p>Note references appear within the body of the node text; they begin with
+<code>*Note</code>, and continue with a label and a target.
+</p>
+<p>Like &lsquo;<samp>Next</samp>&rsquo;, &lsquo;<samp>Prev</samp>&rsquo;, and &lsquo;<samp>Up</samp>&rsquo; pointers, cross references
+can point to any valid node.  They are used to refer you to a place
+where more detailed information can be found on a particular subject.
+Here is a cross reference which points to a node within the Texinfo
+documentation:  See <a href="https://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#xref">Writing an Xref</a> in <cite>the Texinfo
+Manual</cite>, for more information on creating your own texinfo cross
+references.
+</p>
+<hr>
+<span id="Selecting-Xrefs"></span><div class="header">
+<p>
+Previous: <a href="#Parts-of-an-Xref" accesskey="p" rel="prev">Parts of an Xref</a>, Up: <a href="#Xref-Commands" accesskey="u" rel="up">Xref Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Selecting-Xrefs-1"></span><h3 class="section">7.2 Selecting Xrefs</h3>
+
+<p>The following table lists the Info commands which operate on menu items.
+</p>
+<dl compact="compact">
+<dt><code>1</code> (<code>menu-digit</code>)</dt>
+<dt><code>2</code> &hellip; <code>9</code></dt>
+<dd><span id="index-1-_2026-9_002c-in-Info-windows"></span>
+<span id="index-1-_2026-9_002c-in-Info-windows-1"></span>
+<span id="index-menu_002ddigit"></span>
+<p>Within an Info window, pressing a single digit, (such as &lsquo;<samp>1</samp>&rsquo;),
+selects that menu item, and places its node in the current window.
+For convenience, there is one exception; pressing &lsquo;<samp>0</samp>&rsquo; selects the
+<em>last</em> item in the node&rsquo;s menu.
+</p>
+</dd>
+<dt><code>0</code> (<code>last-menu-item</code>)</dt>
+<dd><span id="index-0_002c-in-Info-windows"></span>
+<span id="index-last_002dmenu_002ditem"></span>
+<p>Select the last item in the current node&rsquo;s menu.
+</p>
+</dd>
+<dt><code>m</code> (<code>menu-item</code>)</dt>
+<dd><span id="index-m"></span>
+<span id="index-menu_002ditem"></span>
+<p>Reads the name of a menu item in the echo area and selects its node.
+Completion is available while reading the menu label.
+</p>
+</dd>
+<dt><code>M-x find-menu</code></dt>
+<dd><span id="index-find_002dmenu"></span>
+<p>Move the cursor to the start of this node&rsquo;s menu.
+</p></dd>
+</dl>
+
+<p>This table lists the Info commands which operate on note cross references.
+</p>
+<dl compact="compact">
+<dt><code>f</code> (<code>xref-item</code>)</dt>
+<dt><code>r</code></dt>
+<dd><span id="index-f"></span>
+<span id="index-r"></span>
+<span id="index-xref_002ditem"></span>
+<p>Reads the name of a note cross reference in the echo area and selects
+its node.  Completion is available while reading the cross reference
+label.
+</p></dd>
+</dl>
+
+<p>Finally, the next few commands operate on menu or note references alike:
+</p>
+<dl compact="compact">
+<dt><code>TAB</code> (<code>move-to-next-xref</code>)</dt>
+<dd><span id="index-TAB_002c-in-Info-windows"></span>
+<span id="index-move_002dto_002dnext_002dxref"></span>
+<p>Move the cursor to the start of the next nearest menu item or note
+reference in this node.  You can then use <tt class="key">RET</tt>
+(<code>select-reference-this-line</code>) to select the menu or note reference.
+</p>
+</dd>
+<dt><code>M-TAB</code> (<code>move-to-prev-xref</code>)</dt>
+<dd><span id="index-M_002dTAB_002c-in-Info-windows"></span>
+<span id="index-move_002dto_002dprev_002dxref"></span>
+<p>Move the cursor the start of the nearest previous menu item or note
+reference in this node.
+</p>
+</dd>
+<dt><code>RET</code> (<code>select-reference-this-line</code>)</dt>
+<dd><span id="index-RET_002c-in-Info-windows"></span>
+<span id="index-select_002dreference_002dthis_002dline"></span>
+<p>Select the menu item or note reference appearing on this line.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Window-Commands"></span><div class="header">
+<p>
+Next: <a href="#Printing-Nodes" accesskey="n" rel="next">Printing Nodes</a>, Previous: <a href="#Xref-Commands" accesskey="p" rel="prev">Xref Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Manipulating-Multiple-Windows"></span><h2 class="chapter">8 Manipulating Multiple Windows</h2>
+<span id="index-windows_002c-manipulating"></span>
+
+<p>A <em>window</em> is a place to show the text of a node.  Windows have a
+view area where the text of the node is displayed, and an associated
+<em>mode line</em>, which briefly describes the node being viewed.
+</p>
+<p>GNU Info supports multiple windows appearing in a single screen; each
+window is separated from the next by its modeline.  At any time, there
+is only one <em>active</em> window, that is, the window in which the cursor
+appears.  There are commands available for creating windows, changing
+the size of windows, selecting which window is active, and for deleting
+windows.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#The-Mode-Line" accesskey="1">The Mode Line</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What appears in the mode line?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Basic-Windows" accesskey="2">Basic Windows</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Manipulating windows in Info.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#The-Echo-Area" accesskey="3">The Echo Area</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Used for displaying errors and reading input.
+</td></tr>
+</table>
+
+<hr>
+<span id="The-Mode-Line"></span><div class="header">
+<p>
+Next: <a href="#Basic-Windows" accesskey="n" rel="next">Basic Windows</a>, Up: <a href="#Window-Commands" accesskey="u" rel="up">Window Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-Mode-Line-1"></span><h3 class="section">8.1 The Mode Line</h3>
+
+<p>A <em>mode line</em> is a line of inverse video which appears at the bottom
+of an Info window.  It describes the contents of the window just above
+it; this information includes the name of the file and node appearing in
+that window, the number of screen lines it takes to display the node,
+and the percentage of text that is above the top of the window.  It can
+also tell you if the indirect tags table for this Info file needs to be
+updated, and whether or not the Info file was compressed when stored on
+disk.
+</p>
+<p>Here is a sample mode line for a window containing an uncompressed file
+named <samp>dir</samp>, showing the node &lsquo;<samp>Top</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">-----Info: (dir)Top, 40 lines --Top---------------------------------------
+            ^^   ^   ^^^        ^^
+          (file)Node #lines    where
+</pre></div>
+
+<p>When a node comes from a file which is compressed on disk, this is
+indicated in the mode line with two small &lsquo;<samp>z</samp>&rsquo;&rsquo;s.  In addition, if
+the Info file containing the node has been split into subfiles, the name
+of the subfile containing the node appears in the modeline as well:
+</p>
+<div class="example">
+<pre class="example">--zz-Info: (emacs)Top, 291 lines --Top-- Subfile: emacs-1.Z---------------
+</pre></div>
+
+<p>When Info makes a node internally, such that there is no corresponding
+info file on disk, the name of the node is surrounded by asterisks
+(&lsquo;<samp>*</samp>&rsquo;).  The name itself tells you what the contents of the window
+are; the sample mode line below shows an internally constructed node
+showing possible completions:
+</p>
+<div class="example">
+<pre class="example">-----Info: *Completions*, 7 lines --All-----------------------------------
+</pre></div>
+
+<hr>
+<span id="Basic-Windows"></span><div class="header">
+<p>
+Next: <a href="#The-Echo-Area" accesskey="n" rel="next">The Echo Area</a>, Previous: <a href="#The-Mode-Line" accesskey="p" rel="prev">The Mode Line</a>, Up: <a href="#Window-Commands" accesskey="u" rel="up">Window Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Window-Commands-1"></span><h3 class="section">8.2 Window Commands</h3>
+
+<p>It can be convenient to view more than one node at a time.  To allow
+this, Info can display more than one <em>window</em>.  Each window has its
+own mode line (see <a href="#The-Mode-Line">The Mode Line</a>) and history of nodes viewed in that
+window (see <a href="#Node-Commands"><code>history-node</code></a>).
+</p>
+<dl compact="compact">
+<dt><code>C-x o</code> (<code>next-window</code>)</dt>
+<dd><span id="index-windows_002c-selecting"></span>
+<span id="index-C_002dx-o"></span>
+<span id="index-next_002dwindow"></span>
+<p>Select the next window on the screen.  Note that the echo area can only be
+selected if it is already in use, and you have left it temporarily.
+Normally, &lsquo;<samp>C-x o</samp>&rsquo; simply moves the cursor into the next window on
+the screen, or if you are already within the last window, into the first
+window on the screen.  Given a numeric argument, &lsquo;<samp>C-x o</samp>&rsquo; moves over
+that many windows.  A negative argument causes &lsquo;<samp>C-x o</samp>&rsquo; to select
+the previous window on the screen.
+</p>
+</dd>
+<dt><code>M-x prev-window</code></dt>
+<dd><span id="index-prev_002dwindow"></span>
+<p>Select the previous window on the screen.  This is identical to
+&lsquo;<samp>C-x o</samp>&rsquo; with a negative argument.
+</p>
+</dd>
+<dt><code>C-x 2</code> (<code>split-window</code>)</dt>
+<dd><span id="index-windows_002c-creating"></span>
+<span id="index-C_002dx-2"></span>
+<span id="index-split_002dwindow"></span>
+<p>Split the current window into two windows, both showing the same node.
+Each window is one half the size of the original window, and the cursor
+remains in the original window.  The variable <code>automatic-tiling</code>
+can cause all of the windows on the screen to be resized for you
+automatically, please see <a href="#Variables">automatic-tiling</a> for more
+information.
+</p>
+</dd>
+<dt><code>C-x 0</code> (<code>delete-window</code>)</dt>
+<dd><span id="index-windows_002c-deleting"></span>
+<span id="index-C_002dx-0"></span>
+<span id="index-delete_002dwindow"></span>
+<p>Delete the current window from the screen.  If you have made too many
+windows and your screen appears cluttered, this is the way to get rid of
+some of them.
+</p>
+</dd>
+<dt><code>C-x 1</code> (<code>keep-one-window</code>)</dt>
+<dd><span id="index-C_002dx-1"></span>
+<span id="index-keep_002done_002dwindow"></span>
+<p>Delete all of the windows excepting the current one.
+</p>
+</dd>
+<dt><code>ESC C-v</code> (<code>scroll-other-window</code>)</dt>
+<dd><span id="index-ESC-C_002dv_002c-in-Info-windows"></span>
+<span id="index-scroll_002dother_002dwindow"></span>
+<p>Scroll the other window, in the same fashion that &lsquo;<samp>C-v</samp>&rsquo; might
+scroll the current window.  Given a negative argument, scroll the
+&quot;other&quot; window backward.
+</p>
+</dd>
+<dt><code>C-x ^</code> (<code>grow-window</code>)</dt>
+<dd><span id="index-C_002dx-_005e"></span>
+<span id="index-grow_002dwindow"></span>
+<p>Grow (or shrink) the current window.  Given a numeric argument, grow
+the current window that many lines; with a negative numeric argument,
+shrink the window instead.
+</p>
+</dd>
+<dt><code>C-x t</code> (<code>tile-windows</code>)</dt>
+<dd><span id="index-tiling"></span>
+<span id="index-C_002dx-t"></span>
+<span id="index-tile_002dwindows"></span>
+<p>Divide the available screen space among all of the visible windows.
+Each window is given an equal portion of the screen in which to display
+its contents.  The variable <code>automatic-tiling</code> can cause
+<code>tile-windows</code> to be called when a window is created or deleted.
+See <a href="#Variables"><code>automatic-tiling</code></a>.
+</p></dd>
+</dl>
+
+<hr>
+<span id="The-Echo-Area"></span><div class="header">
+<p>
+Previous: <a href="#Basic-Windows" accesskey="p" rel="prev">Basic Windows</a>, Up: <a href="#Window-Commands" accesskey="u" rel="up">Window Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-Echo-Area-1"></span><h3 class="section">8.3 The Echo Area</h3>
+<span id="index-echo-area"></span>
+
+<p>The <em>echo area</em> is a one line window which appears at the bottom of
+the screen.  It is used to display informative or error messages, and to
+read lines of input from you when that is necessary.  Almost all of the
+commands available in the echo area are identical to their Emacs
+counterparts, so please refer to that documentation for greater depth of
+discussion on the concepts of editing a line of text.  The following
+table briefly lists the commands that are available while input is being
+read in the echo area:
+</p>
+<dl compact="compact">
+<dt><code>C-f</code> (<code>echo-area-forward</code>)</dt>
+<dd><span id="index-C_002df_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dforward"></span>
+<p>Move forward a character.
+</p>
+</dd>
+<dt><code>C-b</code> (<code>echo-area-backward</code>)</dt>
+<dd><span id="index-C_002db_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dbackward"></span>
+<p>Move backward a character.
+</p>
+</dd>
+<dt><code>C-a</code> (<code>echo-area-beg-of-line</code>)</dt>
+<dd><span id="index-C_002da_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dbeg_002dof_002dline"></span>
+<p>Move to the start of the input line.
+</p>
+</dd>
+<dt><code>C-e</code> (<code>echo-area-end-of-line</code>)</dt>
+<dd><span id="index-C_002de_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dend_002dof_002dline"></span>
+<p>Move to the end of the input line.
+</p>
+</dd>
+<dt><code>M-f</code> (<code>echo-area-forward-word</code>)</dt>
+<dd><span id="index-M_002df_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dforward_002dword"></span>
+<p>Move forward a word.
+</p>
+</dd>
+<dt><code>M-b</code> (<code>echo-area-backward-word</code>)</dt>
+<dd><span id="index-M_002db_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dbackward_002dword"></span>
+<p>Move backward a word.
+</p>
+</dd>
+<dt><code>C-d</code> (<code>echo-area-delete</code>)</dt>
+<dd><span id="index-C_002dd_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002ddelete"></span>
+<p>Delete the character under the cursor.
+</p>
+</dd>
+<dt><code>DEL</code> (<code>echo-area-rubout</code>)</dt>
+<dd><span id="index-DEL_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002drubout"></span>
+<p>Delete the character behind the cursor.
+</p>
+</dd>
+<dt><code>C-g</code> (<code>echo-area-abort</code>)</dt>
+<dd><span id="index-C_002dg_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dabort"></span>
+<p>Cancel or quit the current operation.  If completion is being read,
+&lsquo;<samp>C-g</samp>&rsquo; discards the text of the input line which does not match any
+completion.  If the input line is empty, &lsquo;<samp>C-g</samp>&rsquo; aborts the calling
+function.
+</p>
+</dd>
+<dt><code>RET</code> (<code>echo-area-newline</code>)</dt>
+<dd><span id="index-RET_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dnewline"></span>
+<p>Accept (or forces completion of) the current input line.
+</p>
+</dd>
+<dt><code>C-q</code> (<code>echo-area-quoted-insert</code>)</dt>
+<dd><span id="index-C_002dq_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dquoted_002dinsert"></span>
+<p>Insert the next character verbatim.  This is how you can insert control
+characters into a search string, for example.
+</p>
+</dd>
+<dt><var>printing character</var> (<code>echo-area-insert</code>)</dt>
+<dd><span id="index-printing-characters_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dinsert"></span>
+<p>Insert the character.
+</p>
+</dd>
+<dt><code>M-TAB</code> (<code>echo-area-tab-insert</code>)</dt>
+<dd><span id="index-M_002dTAB_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dtab_002dinsert"></span>
+<p>Insert a TAB character.
+</p>
+</dd>
+<dt><code>C-t</code> (<code>echo-area-transpose-chars</code>)</dt>
+<dd><span id="index-C_002dt_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dtranspose_002dchars"></span>
+<p>Transpose the characters at the cursor.
+</p></dd>
+</dl>
+
+<p>The next group of commands deal with <em>killing</em>, and <em>yanking</em>
+text.  For an in depth discussion of killing and yanking,
+see <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Killing">Killing and Deleting</a> in <cite>the GNU Emacs Manual</cite>
+</p>
+<dl compact="compact">
+<dt><code>M-d</code> (<code>echo-area-kill-word</code>)</dt>
+<dd><span id="index-M_002dd_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dkill_002dword"></span>
+<p>Kill the word following the cursor.
+</p>
+</dd>
+<dt><code>M-DEL</code> (<code>echo-area-backward-kill-word</code>)</dt>
+<dd><span id="index-M_002dDEL_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dbackward_002dkill_002dword"></span>
+<p>Kill the word preceding the cursor.
+</p>
+</dd>
+<dt><code>C-k</code> (<code>echo-area-kill-line</code>)</dt>
+<dd><span id="index-C_002dk_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dkill_002dline"></span>
+<p>Kill the text from the cursor to the end of the line.
+</p>
+</dd>
+<dt><code>C-x DEL</code> (<code>echo-area-backward-kill-line</code>)</dt>
+<dd><span id="index-C_002dx-DEL_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dbackward_002dkill_002dline"></span>
+<p>Kill the text from the cursor to the beginning of the line.
+</p>
+</dd>
+<dt><code>C-y</code> (<code>echo-area-yank</code>)</dt>
+<dd><span id="index-C_002dy_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dyank"></span>
+<p>Yank back the contents of the last kill.
+</p>
+</dd>
+<dt><code>M-y</code> (<code>echo-area-yank-pop</code>)</dt>
+<dd><span id="index-M_002dy_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dyank_002dpop"></span>
+<p>Yank back a previous kill, removing the last yanked text first.
+</p></dd>
+</dl>
+
+<p>Sometimes when reading input in the echo area, the command that needed
+input will only accept one of a list of several choices.  The choices
+represent the <em>possible completions</em>, and you must respond with one
+of them.  Since there are a limited number of responses you can make,
+Info allows you to abbreviate what you type, only typing as much of the
+response as is necessary to uniquely identify it.  In addition, you can
+request Info to fill in as much of the response as is possible; this
+is called <em>completion</em>.
+</p>
+<p>The following commands are available when completing in the echo area:
+</p>
+<dl compact="compact">
+<dt><code>TAB</code> (<code>echo-area-complete</code>)</dt>
+<dt><code>SPC</code></dt>
+<dd><span id="index-TAB_002c-in-the-echo-area"></span>
+<span id="index-SPC_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dcomplete"></span>
+<p>Insert as much of a completion as is possible.
+</p>
+</dd>
+<dt><code>?</code> (<code>echo-area-possible-completions</code>)</dt>
+<dd><span id="index-_003f_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dpossible_002dcompletions"></span>
+<p>Display a window containing a list of the possible completions of what
+you have typed so far.  For example, if the available choices are:
+</p>
+<div class="example">
+<pre class="example">bar
+foliate
+food
+forget
+</pre></div>
+
+<p>and you have typed an &lsquo;<samp>f</samp>&rsquo;, followed by &lsquo;<samp>?</samp>&rsquo;, the possible
+completions would contain:
+</p>
+<div class="example">
+<pre class="example">foliate
+food
+forget
+</pre></div>
+
+<p>i.e., all of the choices which begin with &lsquo;<samp>f</samp>&rsquo;.  Pressing <tt class="key">SPC</tt>
+or <tt class="key">TAB</tt> would result in &lsquo;<samp>fo</samp>&rsquo; appearing in the echo area, since
+all of the choices which begin with &lsquo;<samp>f</samp>&rsquo; continue with &lsquo;<samp>o</samp>&rsquo;.
+Now, typing &lsquo;<samp>l</samp>&rsquo; followed by &lsquo;<samp>TAB</samp>&rsquo; results in &lsquo;<samp>foliate</samp>&rsquo;
+appearing in the echo area, since that is the only choice which begins
+with &lsquo;<samp>fol</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>ESC C-v</code> (<code>echo-area-scroll-completions-window</code>)</dt>
+<dd><span id="index-ESC-C_002dv_002c-in-the-echo-area"></span>
+<span id="index-echo_002darea_002dscroll_002dcompletions_002dwindow"></span>
+<p>Scroll the completions window, if that is visible, or the &quot;other&quot;
+window if not.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Printing-Nodes"></span><div class="header">
+<p>
+Next: <a href="#Miscellaneous-Commands" accesskey="n" rel="next">Miscellaneous Commands</a>, Previous: <a href="#Window-Commands" accesskey="p" rel="prev">Window Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Printing-Out-Nodes"></span><h2 class="chapter">9 Printing Out Nodes</h2>
+<span id="index-printing"></span>
+
+<p>You may wish to print out the contents of a node as  a quick reference
+document for later use.  Info provides you with a command for doing
+this.  In general, we recommend that you use TeX to format the
+document and print sections of it, by running <code>tex</code> on the Texinfo
+source file.
+</p>
+<dl compact="compact">
+<dt><code>M-x print-node</code></dt>
+<dd><span id="index-print_002dnode"></span>
+<span id="index-INFO_005fPRINT_005fCOMMAND_002c-environment-variable"></span>
+<p>Pipe the contents of the current node through the command in the
+environment variable <code>INFO_PRINT_COMMAND</code>.  If the variable does not
+exist, the node is simply piped to <code>lpr</code>.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Miscellaneous-Commands"></span><div class="header">
+<p>
+Next: <a href="#Variables" accesskey="n" rel="next">Variables</a>, Previous: <a href="#Printing-Nodes" accesskey="p" rel="prev">Printing Nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Miscellaneous-Commands-1"></span><h2 class="chapter">10 Miscellaneous Commands</h2>
+
+<p>GNU Info contains several commands which self-document GNU Info:
+</p>
+<dl compact="compact">
+<dt><code>M-x describe-command</code></dt>
+<dd><span id="index-functions_002c-describing"></span>
+<span id="index-commands_002c-describing"></span>
+<span id="index-describe_002dcommand"></span>
+<p>Read the name of an Info command in the echo area and then display a
+brief description of what that command does.
+</p>
+</dd>
+<dt><code>M-x describe-key</code></dt>
+<dd><span id="index-keys_002c-describing"></span>
+<span id="index-describe_002dkey"></span>
+<p>Read a key sequence in the echo area, and then display the name and
+documentation of the Info command that the key sequence invokes.
+</p>
+</dd>
+<dt><code>M-x describe-variable</code></dt>
+<dd><p>Read the name of a variable in the echo area and then display a brief
+description of what the variable affects.
+</p>
+</dd>
+<dt><code>M-x where-is</code></dt>
+<dd><span id="index-where_002dis"></span>
+<p>Read the name of an Info command in the echo area, and then display
+a key sequence which can be typed in order to invoke that command.
+</p>
+</dd>
+<dt><code>C-h</code> (<code>get-help-window</code>)</dt>
+<dt><code>?</code></dt>
+<dd><span id="index-C_002dh"></span>
+<span id="index-_003f_002c-in-Info-windows"></span>
+<span id="index-get_002dhelp_002dwindow"></span>
+<p>Create (or Move into) the window displaying <code>*Help*</code>, and place
+a node containing a quick reference card into it.  This window displays
+the most concise information about GNU Info available.
+</p>
+</dd>
+<dt><code>h</code> (<code>get-info-help-node</code>)</dt>
+<dd><span id="index-h"></span>
+<span id="index-get_002dinfo_002dhelp_002dnode"></span>
+<p>Try hard to visit the node <code>(info)Help</code>.  The Info file
+<samp>info.texi</samp> distributed with GNU Info contains this node.  Of
+course, the file must first be processed with <code>makeinfo</code>, and then
+placed into the location of your Info directory.
+</p></dd>
+</dl>
+
+<p>Here are the commands for creating a numeric argument:
+</p>
+<dl compact="compact">
+<dt><code>C-u</code> (<code>universal-argument</code>)</dt>
+<dd><span id="index-numeric-arguments"></span>
+<span id="index-C_002du"></span>
+<span id="index-universal_002dargument"></span>
+<p>Start (or multiply by 4) the current numeric argument.  &lsquo;<samp>C-u</samp>&rsquo; is
+a good way to give a small numeric argument to cursor movement or
+scrolling commands; &lsquo;<samp>C-u C-v</samp>&rsquo; scrolls the screen 4 lines, while
+&lsquo;<samp>C-u C-u C-n</samp>&rsquo; moves the cursor down 16 lines.
+</p>
+</dd>
+<dt><code>M-1</code> (<code>add-digit-to-numeric-arg</code>)</dt>
+<dt><code>M-2</code> &hellip; <code>M-9</code></dt>
+<dd><span id="index-M_002d1-_2026-M_002d9"></span>
+<span id="index-add_002ddigit_002dto_002dnumeric_002darg"></span>
+<p>Add the digit value of the invoking key to the current numeric
+argument.  Once Info is reading a numeric argument, you may just type
+the digits of the argument, without the Meta prefix.  For example, you
+might give &lsquo;<samp>C-l</samp>&rsquo; a numeric argument of 32 by typing:
+</p>
+<div class="example">
+<pre class="example"><kbd>C-u 3 2 C-l</kbd>
+</pre></div>
+
+<p>or
+</p>
+<div class="example">
+<pre class="example"><kbd>M-3 2 C-l</kbd>
+</pre></div>
+</dd>
+</dl>
+
+<p>&lsquo;<samp>C-g</samp>&rsquo; is used to abort the reading of a multi-character key
+sequence, to cancel lengthy operations (such as multi-file searches) and
+to cancel reading input in the echo area.
+</p>
+<dl compact="compact">
+<dt><code>C-g</code> (<code>abort-key</code>)</dt>
+<dd><span id="index-cancelling-typeahead"></span>
+<span id="index-cancelling-the-current-operation"></span>
+<span id="index-C_002dg_002c-in-Info-windows"></span>
+<span id="index-abort_002dkey"></span>
+<p>Cancel current operation.
+</p></dd>
+</dl>
+
+<p>The &lsquo;<samp>q</samp>&rsquo; command of Info simply quits running Info.
+</p>
+<dl compact="compact">
+<dt><code>q</code> (<code>quit</code>)</dt>
+<dd><span id="index-quitting"></span>
+<span id="index-q"></span>
+<span id="index-quit"></span>
+<p>Exit GNU Info.
+</p></dd>
+</dl>
+
+<p>If the operating system tells GNU Info that the screen is 60 lines tall,
+and it is actually only 40 lines tall, here is a way to tell Info that
+the operating system is correct.
+</p>
+<dl compact="compact">
+<dt><code>M-x set-screen-height</code></dt>
+<dd><span id="index-set_002dscreen_002dheight"></span>
+<span id="index-screen_002c-changing-the-height-of"></span>
+<p>Read a height value in the echo area and set the height of the
+displayed screen to that value.
+</p></dd>
+</dl>
+
+<p>Finally, Info provides a convenient way to display footnotes which might
+be associated with the current node that you are viewing:
+</p>
+<dl compact="compact">
+<dt><code>ESC C-f</code> (<code>show-footnotes</code>)</dt>
+<dd><span id="index-ESC-C_002df"></span>
+<span id="index-show_002dfootnotes"></span>
+<span id="index-footnotes_002c-displaying"></span>
+<p>Show the footnotes (if any) associated with the current node in another
+window.  You can have Info automatically display the footnotes
+associated with a node when the node is selected by setting the variable
+<code>automatic-footnotes</code>.  See <a href="#Variables"><code>automatic-footnotes</code></a>.
+</p></dd>
+</dl>
+
+<hr>
+<span id="Variables"></span><div class="header">
+<p>
+Next: <a href="#GNU-Info-Global-Index" accesskey="n" rel="next">GNU Info Global Index</a>, Previous: <a href="#Miscellaneous-Commands" accesskey="p" rel="prev">Miscellaneous Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Manipulating-Variables"></span><h2 class="chapter">11 Manipulating Variables</h2>
+
+<p>GNU Info contains several <em>variables</em> whose values are looked at by
+various Info commands.  You can change the values of these variables,
+and thus change the behavior of Info to more closely match your
+environment and Info file reading manner.
+</p>
+<dl compact="compact">
+<dt><code>M-x set-variable</code></dt>
+<dd><span id="index-variables_002c-setting"></span>
+<span id="index-set_002dvariable"></span>
+<p>Read the name of a variable, and the value for it, in the echo area and
+then set the variable to that value.  Completion is available when
+reading the variable name; often, completion is available when reading
+the value to give to the variable, but that depends on the variable
+itself.  If a variable does <em>not</em> supply multiple choices to
+complete over, it expects a numeric value.
+</p>
+</dd>
+<dt><code>M-x describe-variable</code></dt>
+<dd><span id="index-variables_002c-describing"></span>
+<span id="index-describe_002dvariable"></span>
+<p>Read the name of a variable in the echo area and then display a brief
+description of what the variable affects.
+</p></dd>
+</dl>
+
+<p>Here is a list of the variables that you can set in Info.
+</p>
+<dl compact="compact">
+<dt><code>automatic-footnotes</code></dt>
+<dd><span id="index-automatic_002dfootnotes"></span>
+<p>When set to <code>On</code>, footnotes appear and disappear automatically.
+This variable is <code>On</code> by default.  When a node is selected, a
+window containing the footnotes which appear in that node is created,
+and the footnotes are displayed within the new window.  The window that
+Info creates to contain the footnotes is called &lsquo;<samp>*Footnotes*</samp>&rsquo;.  If
+a node is selected which contains no footnotes, and a &lsquo;<samp>*Footnotes*</samp>&rsquo;
+window is on the screen, the &lsquo;<samp>*Footnotes*</samp>&rsquo; window is deleted.
+Footnote windows created in this fashion are not automatically tiled so
+that they can use as little of the display as is possible.
+</p>
+</dd>
+<dt><code>automatic-tiling</code></dt>
+<dd><span id="index-automatic_002dtiling"></span>
+<p>When set to <code>On</code>, creating or deleting a window resizes other
+windows.  This variable is <code>Off</code> by default.  Normally, typing
+&lsquo;<samp>C-x 2</samp>&rsquo; divides the current window into two equal parts.  When
+<code>automatic-tiling</code> is set to <code>On</code>, all of the windows are
+resized automatically, keeping an equal number of lines visible in each
+window.  There are exceptions to the automatic tiling; specifically, the
+windows &lsquo;<samp>*Completions*</samp>&rsquo; and &lsquo;<samp>*Footnotes*</samp>&rsquo; are <em>not</em>
+resized through automatic tiling; they remain their original size.
+</p>
+</dd>
+<dt><code>visible-bell</code></dt>
+<dd><span id="index-visible_002dbell"></span>
+<p>When set to <code>On</code>, GNU Info attempts to flash the screen instead of
+ringing the bell.  This variable is <code>Off</code> by default.  Of course,
+Info can only flash the screen if the terminal allows it; in the case
+that the terminal does not allow it, the setting of this variable has no
+effect.  However, you can make Info perform quietly by setting the
+<code>errors-ring-bell</code> variable to <code>Off</code>.
+</p>
+</dd>
+<dt><code>errors-ring-bell</code></dt>
+<dd><span id="index-errors_002dring_002dbell"></span>
+<p>When set to <code>On</code>, errors cause the bell to ring.  The default
+setting of this variable is <code>On</code>.
+</p>
+</dd>
+<dt><code>gc-compressed-files</code></dt>
+<dd><span id="index-gc_002dcompressed_002dfiles"></span>
+<p>When set to <code>On</code>, Info garbage collects files which had to be
+uncompressed.  The default value of this variable is <code>Off</code>.
+Whenever a node is visited in Info, the Info file containing that node
+is read into core, and Info reads information about the tags and nodes
+contained in that file.  Once the tags information is read by Info, it
+is never forgotten.  However, the actual text of the nodes does not need
+to remain in core unless a particular Info window needs it.  For
+non-compressed files, the text of the nodes does not remain in core when
+it is no longer in use.  But de-compressing a file can be a time
+consuming operation, and so Info tries hard not to do it twice.
+<code>gc-compressed-files</code> tells Info it is okay to garbage collect the
+text of the nodes of a file which was compressed on disk.
+</p>
+</dd>
+<dt><code>show-index-match</code></dt>
+<dd><span id="index-show_002dindex_002dmatch"></span>
+<p>When set to <code>On</code>, the portion of the matched search string is
+highlighted in the message which explains where the matched search
+string was found.  The default value of this variable is <code>On</code>.
+When Info displays the location where an index match was found,
+(see <a href="#Searching-Commands"><code>next-index-match</code></a>), the portion of the
+string that you had typed is highlighted by displaying it in the inverse
+case from its surrounding characters.
+</p>
+</dd>
+<dt><code>scroll-behavior</code></dt>
+<dd><span id="index-scroll_002dbehavior"></span>
+<p>Control what happens when forward scrolling is requested at the end of
+a node, or when backward scrolling is requested at the beginning of a
+node.  The default value for this variable is <code>Continuous</code>.  There
+are three possible values for this variable:
+</p>
+<dl compact="compact">
+<dt><code>Continuous</code></dt>
+<dd><p>Try to get the first item in this node&rsquo;s menu, or failing that, the
+&lsquo;<samp>Next</samp>&rsquo; node, or failing that, the &lsquo;<samp>Next</samp>&rsquo; of the &lsquo;<samp>Up</samp>&rsquo;.
+This behavior is identical to using the &lsquo;<samp>]</samp>&rsquo;
+(<code>global-next-node</code>) and &lsquo;<samp>[</samp>&rsquo; (<code>global-prev-node</code>)
+commands.
+</p>
+</dd>
+<dt><code>Next Only</code></dt>
+<dd><p>Only try to get the &lsquo;<samp>Next</samp>&rsquo; node.
+</p>
+</dd>
+<dt><code>Page Only</code></dt>
+<dd><p>Simply give up, changing nothing.  If <code>scroll-behavior</code> is
+<code>Page Only</code>, no scrolling command can change the node that is being
+viewed.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>scroll-step</code></dt>
+<dd><span id="index-scroll_002dstep"></span>
+<p>The number of lines to scroll when the cursor moves out of the window.
+Scrolling happens automatically if the cursor has moved out of the
+visible portion of the node text when it is time to display.  Usually
+the scrolling is done so as to put the cursor on the center line of the
+current window.  However, if the variable <code>scroll-step</code> has a
+nonzero value, Info attempts to scroll the node text by that many lines;
+if that is enough to bring the cursor back into the window, that is what
+is done.  The default value of this variable is 0, thus placing the
+cursor (and the text it is attached to) in the center of the window.
+Setting this variable to 1 causes a kind of &quot;smooth scrolling&quot; which
+some people prefer.
+</p>
+</dd>
+<dt><code>ISO-Latin</code></dt>
+<dd><span id="index-ISO-Latin-characters"></span>
+<span id="index-ISO_002dLatin"></span>
+<p>When set to <code>On</code>, Info accepts and displays ISO Latin characters.
+By default, Info assumes an ASCII character set.  <code>ISO-Latin</code> tells
+Info that it is running in an environment where the European standard
+character set is in use, and allows you to input such characters to
+Info, as well as display them.
+</p></dd>
+</dl>
+
+
+
+
+<hr>
+<span id="GNU-Info-Global-Index"></span><div class="header">
+<p>
+Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#GNU-Info-Global-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Global-Index"></span><h2 class="appendix">Appendix A Global Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-1"><b>,</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-2"><b>-</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-3"><b>0</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-4"><b>1</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-5"><b>&lt;</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-6"><b>&gt;</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-7"><b>?</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-8"><b>[</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-9"><b>]</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-Q"><b>Q</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-W"><b>W</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-1">,</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002c">,</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-2">-</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002d_002dsubnodes_002c-command-line-option"><code>--subnodes</code>, command line option</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-3">0</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-0_002c-in-Info-windows">0, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-4">1</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-1-_2026-9_002c-in-Info-windows">1 &hellip; 9, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-1-_2026-9_002c-in-Info-windows-1">1 &hellip; 9, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-5">&lt;</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003c">&lt;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-6">&gt;</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003e">&gt;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-7">?</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f_002c-in-Info-windows">?, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f_002c-in-the-echo-area">?, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-8">[</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005b">[</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_symbol-9">]</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_005d">]</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-abort_002dkey">abort-key</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-add_002ddigit_002dto_002dnumeric_002darg">add-digit-to-numeric-arg</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-arguments_002c-command-line">arguments, command line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-automatic_002dfootnotes">automatic-footnotes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-automatic_002dtiling">automatic-tiling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b_002c-in-Info-windows">b, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-backward_002dchar">backward-char</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-backward_002dword">backward-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-beginning_002dof_002dline">beginning-of-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-beginning_002dof_002dnode">beginning-of-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002da_002c-in-Info-windows">C-a, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002da_002c-in-the-echo-area">C-a, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002db_002c-in-Info-windows">C-b, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002db_002c-in-the-echo-area">C-b, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dd_002c-in-the-echo-area">C-d, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002de_002c-in-Info-windows">C-e, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002de_002c-in-the-echo-area">C-e, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002df_002c-in-Info-windows">C-f, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002df_002c-in-the-echo-area">C-f, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dg_002c-in-Info-windows">C-g, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dg_002c-in-the-echo-area">C-g, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dh">C-h</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dk_002c-in-the-echo-area">C-k, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dl">C-l</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dn">C-n</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dp">C-p</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dq_002c-in-the-echo-area">C-q, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dr">C-r</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002ds">C-s</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dt_002c-in-the-echo-area">C-t, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002du">C-u</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dv">C-v</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dw">C-w</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-0">C-x 0</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-1">C-x 1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-2">C-x 2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-b">C-x b</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-C_002db">C-x C-b</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-C_002df">C-x C-f</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-DEL_002c-in-the-echo-area">C-x DEL, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-k">C-x k</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-o">C-x o</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-t">C-x t</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dx-_005e">C-x ^</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dy_002c-in-the-echo-area">C-y, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cancelling-the-current-operation">cancelling the current operation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cancelling-typeahead">cancelling typeahead</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-command-line-options">command line options</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-commands_002c-describing">commands, describing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cursor_002c-moving">cursor, moving</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d">d</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DEL_002c-in-Info-windows">DEL, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-DEL_002c-in-the-echo-area">DEL, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-delete_002dwindow">delete-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-describe_002dcommand">describe-command</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-describe_002dkey">describe-key</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-describe_002dvariable">describe-variable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dir_002dnode">dir-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-directory-path">directory path</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo-area">echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dabort">echo-area-abort</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dbackward">echo-area-backward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dbackward_002dkill_002dline">echo-area-backward-kill-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dbackward_002dkill_002dword">echo-area-backward-kill-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dbackward_002dword">echo-area-backward-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dbeg_002dof_002dline">echo-area-beg-of-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dcomplete">echo-area-complete</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002ddelete">echo-area-delete</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dend_002dof_002dline">echo-area-end-of-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dforward">echo-area-forward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dforward_002dword">echo-area-forward-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dinsert">echo-area-insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dkill_002dline">echo-area-kill-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dkill_002dword">echo-area-kill-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dnewline">echo-area-newline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dpossible_002dcompletions">echo-area-possible-completions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dquoted_002dinsert">echo-area-quoted-insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002drubout">echo-area-rubout</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dscroll_002dcompletions_002dwindow">echo-area-scroll-completions-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dtab_002dinsert">echo-area-tab-insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dtranspose_002dchars">echo-area-transpose-chars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dyank">echo-area-yank</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-echo_002darea_002dyank_002dpop">echo-area-yank-pop</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-end_002dof_002dline">end-of-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-end_002dof_002dnode">end-of-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-errors_002dring_002dbell">errors-ring-bell</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ESC-C_002df">ESC C-f</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ESC-C_002dv_002c-in-Info-windows">ESC C-v, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ESC-C_002dv_002c-in-the-echo-area">ESC C-v, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-f">f</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-file_002c-outputting-to">file, outputting to</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-find_002dmenu">find-menu</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-first_002dnode">first-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-footnotes_002c-displaying">footnotes, displaying</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-forward_002dchar">forward-char</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-forward_002dword">forward-word</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-functions_002c-describing">functions, describing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-g">g</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gc_002dcompressed_002dfiles">gc-compressed-files</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-get_002dhelp_002dwindow">get-help-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-get_002dinfo_002dhelp_002dnode">get-info-help-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-global_002dnext_002dnode">global-next-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-global_002dprev_002dnode">global-prev-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-goto_002dnode">goto-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-grow_002dwindow">grow-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-h">h</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_002dnode">history-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-i">i</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-index-search_002c-selecting">index search, selecting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-index_002dsearch">index-search</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Info-file_002c-selecting">Info file, selecting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-INFO_005fPRINT_005fCOMMAND_002c-environment-variable">INFO_PRINT_COMMAND, environment variable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printing-Nodes">Printing Nodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-isearch_002dbackward">isearch-backward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-isearch_002dforward">isearch-forward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ISO-Latin-characters">ISO Latin characters</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ISO_002dLatin">ISO-Latin</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-K">K</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-keep_002done_002dwindow">keep-one-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-keys_002c-describing">keys, describing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill_002dnode">kill-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-L">L</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-l">l</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-last_002dmenu_002ditem">last-menu-item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-last_002dnode">last-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-list_002dvisited_002dnodes">list-visited-nodes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-m">m</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002d1-_2026-M_002d9">M-1 &hellip; M-9</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002d_003c">M-&lt;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002d_003e">M-&gt;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002db_002c-in-Info-windows">M-b, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002db_002c-in-the-echo-area">M-b, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dd_002c-in-the-echo-area">M-d, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dDEL_002c-in-the-echo-area">M-DEL, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002df_002c-in-Info-windows">M-f, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002df_002c-in-the-echo-area">M-f, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dr">M-r</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dTAB_002c-in-Info-windows">M-TAB, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dTAB_002c-in-the-echo-area">M-TAB, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dv">M-v</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-M_002dy_002c-in-the-echo-area">M-y, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-menu_002c-following">menu, following</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-menu_002ddigit">menu-digit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-menu_002ditem">menu-item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move_002dto_002dnext_002dxref">move-to-next-xref</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move_002dto_002dprev_002dxref">move-to-prev-xref</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move_002dto_002dwindow_002dline">move-to-window-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n">n</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-next_002dindex_002dmatch">next-index-match</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-next_002dline">next-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-next_002dnode">next-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-next_002dwindow">next-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-node_002c-selecting">node, selecting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-nodes_002c-selection-of">nodes, selection of</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-numeric-arguments">numeric arguments</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-O">O</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-online-help_002c-using-Info-as">online help, using Info as</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-outputting-to-a-file">outputting to a file</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-p">p</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-prev_002dline">prev-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cursor-Commands">Cursor Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-prev_002dnode">prev-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-prev_002dwindow">prev-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-print_002dnode">print-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printing-Nodes">Printing Nodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-printing">printing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printing-Nodes">Printing Nodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-printing-characters_002c-in-the-echo-area">printing characters, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-Q">Q</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-q">q</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-quit">quit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-quitting">quitting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-r">r</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-redraw_002ddisplay">redraw-display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RET_002c-in-Info-windows">RET, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RET_002c-in-the-echo-area">RET, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-s">s</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-screen_002c-changing-the-height-of">screen, changing the height of</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scroll_002dbackward">scroll-backward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scroll_002dbehavior">scroll-behavior</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scroll_002dforward">scroll-forward</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scroll_002dother_002dwindow">scroll-other-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scroll_002dstep">scroll-step</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scrolling">scrolling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scrolling-through-node-structure">scrolling through node structure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-search">search</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-searching">searching</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-Commands">Searching Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-select_002dreference_002dthis_002dline">select-reference-this-line</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-select_002dvisited_002dnode">select-visited-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-set_002dscreen_002dheight">set-screen-height</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-set_002dvariable">set-variable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-show_002dfootnotes">show-footnotes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-show_002dindex_002dmatch">show-index-match</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SPC_002c-in-Info-windows">SPC, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-SPC_002c-in-the-echo-area">SPC, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-split_002dwindow">split-window</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t">t</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TAB_002c-in-Info-windows">TAB, in Info windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TAB_002c-in-the-echo-area">TAB, in the echo area</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Echo-Area">The Echo Area</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tile_002dwindows">tile-windows</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tiling">tiling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-toggle_002dwrap">toggle-wrap</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scrolling-Commands">Scrolling Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-top_002dnode">top-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-u">u</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-universal_002dargument">universal-argument</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-up_002dnode">up-node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-V">V</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-variables_002c-describing">variables, describing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-variables_002c-setting">variables, setting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-version-information">version information</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Options">Options</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-view_002dfile">view-file</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Node-Commands">Node Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-visible_002dbell">visible-bell</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variables">Variables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-W">W</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-where_002dis">where-is</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Commands">Miscellaneous Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-windows_002c-creating">windows, creating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-windows_002c-deleting">windows, deleting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-windows_002c-manipulating">windows, manipulating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Window-Commands">Window Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-windows_002c-selecting">windows, selecting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Basic-Windows">Basic Windows</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="GNU-Info-Global-Index_cp_letter-X">X</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-xref_002ditem">xref-item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-Xrefs">Selecting Xrefs</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-1"><b>,</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-2"><b>-</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-3"><b>0</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-4"><b>1</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-5"><b>&lt;</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-6"><b>&gt;</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-7"><b>?</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-8"><b>[</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_symbol-9"><b>]</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-Q"><b>Q</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-W"><b>W</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#GNU-Info-Global-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<span id="SEC_Contents"></span>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-What-is-Info_003f" href="#What-is-Info">1 What is Info?</a></li>
+  <li><a id="toc-Command-Line-Options" href="#Options">2 Command Line Options</a></li>
+  <li><a id="toc-Moving-the-Cursor" href="#Cursor-Commands">3 Moving the Cursor</a></li>
+  <li><a id="toc-Moving-Text-Within-a-Window" href="#Scrolling-Commands">4 Moving Text Within a Window</a></li>
+  <li><a id="toc-Selecting-a-New-Node" href="#Node-Commands">5 Selecting a New Node</a></li>
+  <li><a id="toc-Searching-an-Info-File" href="#Searching-Commands">6 Searching an Info File</a></li>
+  <li><a id="toc-Selecting-Cross-References" href="#Xref-Commands">7 Selecting Cross References</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Parts-of-an-Xref-1" href="#Parts-of-an-Xref">7.1 Parts of an Xref</a></li>
+    <li><a id="toc-Selecting-Xrefs-1" href="#Selecting-Xrefs">7.2 Selecting Xrefs</a></li>
+  </ul></li>
+  <li><a id="toc-Manipulating-Multiple-Windows" href="#Window-Commands">8 Manipulating Multiple Windows</a>
+  <ul class="no-bullet">
+    <li><a id="toc-The-Mode-Line-1" href="#The-Mode-Line">8.1 The Mode Line</a></li>
+    <li><a id="toc-Window-Commands-1" href="#Basic-Windows">8.2 Window Commands</a></li>
+    <li><a id="toc-The-Echo-Area-1" href="#The-Echo-Area">8.3 The Echo Area</a></li>
+  </ul></li>
+  <li><a id="toc-Printing-Out-Nodes" href="#Printing-Nodes">9 Printing Out Nodes</a></li>
+  <li><a id="toc-Miscellaneous-Commands-1" href="#Miscellaneous-Commands">10 Miscellaneous Commands</a></li>
+  <li><a id="toc-Manipulating-Variables" href="#Variables">11 Manipulating Variables</a></li>
+  <li><a id="toc-Global-Index" href="#GNU-Info-Global-Index" rel="index">Appendix A Global Index</a></li>
+</ul>
+</div>
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>Of course, you can specify both the file and node
+in a <code>--node</code> command; but don&rsquo;t forget to escape the open and
+close parentheses from the shell as in: <code>info --node
+&quot;(emacs)Buffers&quot;</code></p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h3>
+<p><code>M-x</code> is also a command; it
+invokes <code>execute-extended-command</code>.  See <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#M_002dx">Executing an
+extended command</a> in <cite>the GNU Emacs Manual</cite>, for more detailed
+information.</p>
+</div>
+<hr>
+
+
+
+</body>
+</html>

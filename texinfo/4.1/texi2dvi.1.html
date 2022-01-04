@@ -1,0 +1,209 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>TEXI2DVI</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">TEXI2DVI</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">texi2dvi -
+print Texinfo documents</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>texi2dvi</b>
+[<i>OPTION</i>]... <i>FILE</i>...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Run each
+Texinfo or LaTeX FILE through TeX in turn until all
+cross-references are resolved, building all indices. The
+directory containing each FILE is searched for included
+files. The suffix of FILE is used to determine its language
+(LaTeX or Texinfo).</p>
+
+<p style="margin-left:11%; margin-top: 1em">Makeinfo is
+used to perform Texinfo macro expansion before running TeX
+when needed.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Operation
+modes: <br>
+-b</b>, <b>--batch</b></p>
+
+<p style="margin-left:22%;">no interaction</p>
+
+<p style="margin-left:11%;"><b>-c</b>, <b>--clean</b></p>
+
+<p style="margin-left:22%;">remove all auxiliary files</p>
+
+<p style="margin-left:11%;"><b>-D</b>, <b>--debug</b></p>
+
+<p style="margin-left:22%;">turn on shell debugging (set
+<b>-x</b>)</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">display this help and exit
+successfully</p>
+
+<p style="margin-left:11%;"><b>-o</b>,
+<b>--output</b>=<i>OFILE</i></p>
+
+<p style="margin-left:22%;">leave output in OFILE (implies
+<b>--clean</b>); Only one input FILE may be specified in
+this case</p>
+
+<p style="margin-left:11%;"><b>-q</b>, <b>--quiet</b></p>
+
+<p style="margin-left:22%;">no output unless errors
+(implies <b>--batch</b>)</p>
+
+<p style="margin-left:11%;"><b>-s</b>, <b>--silent</b></p>
+
+<p style="margin-left:22%;">same as <b>--quiet</b></p>
+
+<p style="margin-left:11%;"><b>-v</b>, <b>--version</b></p>
+
+<p style="margin-left:22%;">display version information and
+exit successfully</p>
+
+<p style="margin-left:11%;"><b>-V</b>, <b>--verbose</b></p>
+
+<p style="margin-left:22%;">report on what is done</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>TeX
+tuning:</b></p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="3%">
+
+
+<p>-@</p></td>
+<td width="8%"></td>
+<td width="78%">
+
+
+<p>use @input instead of \input; for preloaded Texinfo</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-e</b>, <b>--expand</b></p>
+
+<p style="margin-left:22%;">force macro expansion using
+makeinfo</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>-I</b> DIR</p></td>
+<td width="2%"></td>
+<td width="43%">
+
+
+<p>search DIR for Texinfo files</p></td>
+<td width="35%">
+</td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>-l</b>,
+<b>--language</b>=<i>LANG</i></p>
+
+<p style="margin-left:22%;">specify the LANG of FILE (LaTeX
+or Texinfo)</p>
+
+<p style="margin-left:11%;"><b>-p</b>, <b>--pdf</b></p>
+
+<p style="margin-left:22%;">use pdftex or pdflatex for
+processing</p>
+
+<p style="margin-left:11%;"><b>-t</b>,
+<b>--texinfo</b>=<i>CMD</i></p>
+
+<p style="margin-left:22%;">insert CMD after @setfilename
+in copy of input file multiple values accumulate</p>
+
+<p style="margin-left:11%; margin-top: 1em">The values of
+the BIBTEX, LATEX (or PDFLATEX), MAKEINDEX, MAKEINFO, TEX
+(or PDFTEX), and TEXINDEX environment variables are used to
+run those commands, if they are set.</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Email bug
+reports to &lt;bug-texinfo@gnu.org&gt;, general questions
+and discussion to &lt;help-texinfo@gnu.org&gt;.</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2002 Free Software Foundation, Inc. There is NO
+warranty. You may redistribute this software under the terms
+of the GNU General Public License. For more information
+about these matters, see the files named COPYING.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The full
+documentation for <b>texi2dvi</b> is maintained as a Texinfo
+manual. If the <b>info</b> and <b>texi2dvi</b> programs are
+properly installed at your site, the command</p>
+
+<p style="margin-left:22%; margin-top: 1em"><b>info
+texi2dvi</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>
