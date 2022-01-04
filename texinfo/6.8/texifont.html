@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>GNU Texinfo font subsystem</title>
+
+<meta name="description" content="GNU Texinfo font subsystem">
+<meta name="keywords" content="GNU Texinfo font subsystem">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="#Font-management" rel="next" title="Font management">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+};
+</script><script type="text/javascript" id="MathJax-script" async
+  src="mathjax/tex-svg.js">
+</script>
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">GNU Texinfo font subsystem</h1>
+
+
+
+
+
+
+
+<div class="top" id="Top">
+<div class="header">
+<p>
+Next: <a href="#Font-management" accesskey="n" rel="next">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="GNU-Texinfo-font-subsystem"></span><h1 class="top">GNU Texinfo font subsystem</h1>
+
+<p>Unfinished chapter on GNU Texinfo font subsystem, also unfinished.
+</p>
+
+
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Font-management-1" href="#Font-management">1 Font management</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introduction-1" href="#Introduction">1.1 Introduction</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Font-features-and-attributes-1" href="#Font-features-and-attributes">1.1.1 Font features and attributes</a></li>
+      <li><a id="toc-Current-font-attribute-set-1" href="#Current-font-attribute-set">1.1.2 Current font attribute set</a></li>
+      <li><a id="toc-Font-substitution-1" href="#Font-substitution">1.1.3 Font substitution</a></li>
+      <li><a id="toc-Other-1" href="#Other">1.1.4 Other</a></li>
+    </ul></li>
+    <li><a id="toc-Font-definition-macros-1" href="#Font-definition-macros">1.2 Font definition macros</a></li>
+    <li><a id="toc-Font-selection-macros-1" href="#Font-selection-macros">1.3 Font selection macros</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Relative-font-scaling-1" href="#Relative-font-scaling">1.3.1 Relative font scaling</a></li>
+    </ul></li>
+    <li><a id="toc-Font-substitution-macros-1" href="#Font-substitution-macros">1.4 Font substitution macros</a></li>
+    <li><a id="toc-Font-collections-1" href="#Font-collections">1.5 Font collections</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Font-styles-1" href="#Font-styles">1.5.1 Font styles</a></li>
+      <li><a id="toc-Font-style-selection-1" href="#Font-style-selection">1.5.2 Font style selection</a></li>
+      <li><a id="toc-Font-styles-for-document-elements-1" href="#Font-styles-for-document-elements">1.5.3 Font styles for document elements</a></li>
+    </ul></li>
+    <li><a id="toc-Input-encodings-1" href="#Input-encodings">1.6 Input encodings</a></li>
+    <li><a id="toc-Font-encodings-1" href="#Font-encodings">1.7 Font encodings</a></li>
+  </ul></li>
+  <li><a id="toc-Index-1" href="#Index" rel="index">Index</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter" id="Font-management">
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Top" accesskey="p" rel="prev">GNU Texinfo font subsystem</a>, Up: <a href="#Top" accesskey="u" rel="up">GNU Texinfo font subsystem</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-management-1"></span><h2 class="chapter">1 Font management</h2>
+
+<p>Texinfo&rsquo;s font management macros allow customization of fonts used in
+the printed document.
+</p>
+
+
+<ul class="section-toc">
+<li><a href="#Introduction" accesskey="1">Introduction</a></li>
+<li><a href="#Font-definition-macros" accesskey="2">Font definition macros</a></li>
+<li><a href="#Font-selection-macros" accesskey="3">Font selection macros</a></li>
+<li><a href="#Font-substitution-macros" accesskey="4">Font substitution macros</a></li>
+<li><a href="#Font-collections" accesskey="5">Font collections</a></li>
+<li><a href="#Input-encodings" accesskey="6">Input encodings</a></li>
+<li><a href="#Font-encodings" accesskey="7">Font encodings</a></li>
+</ul>
+<hr>
+<div class="section" id="Introduction">
+<div class="header">
+<p>
+Next: <a href="#Font-definition-macros" accesskey="n" rel="next">Font definition macros</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-1"></span><h3 class="section">1.1 Introduction</h3>
+
+<p>In this chapter we introduce the basic concepts of font management in
+Texinfo.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Font-features-and-attributes" accesskey="1">Font features and attributes</a></li>
+<li><a href="#Current-font-attribute-set" accesskey="2">Current font attribute set</a></li>
+<li><a href="#Font-substitution" accesskey="3">Font substitution</a></li>
+<li><a href="#Other" accesskey="4">Other</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Font-features-and-attributes">
+<div class="header">
+<p>
+Next: <a href="#Current-font-attribute-set" accesskey="n" rel="next">Current font attribute set</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-features-and-attributes-1"></span><h4 class="subsection">1.1.1 Font features and attributes</h4>
+
+<span id="index-font-feature"></span>
+<span id="index-feature_002c-of-font"></span>
+<span id="index-font-attribute"></span>
+<span id="index-attribute_002c-of-font"></span>
+<p>Each font can be characterized by a number of <em>features</em>.  For
+example, a font can be characterized by weight (boldness of glyph
+strokes), slant (inclination of glyph strokes), etc.
+</p>
+<p>Font <em>attribute</em> is a particular representation of a feature.  For
+example, the &ldquo;weight&rdquo; feature can be represented by attributes
+&ldquo;light&rdquo;, &ldquo;medium&rdquo;, &ldquo;semibold&rdquo;, &ldquo;bold&rdquo;, etc.; the &ldquo;slant&rdquo;
+feature by attributes &ldquo;upright&rdquo;, &ldquo;slanted&rdquo;, &ldquo;italic&rdquo;, etc.
+</p>
+<p>Most font features describe physical appearance of a font.  However,
+two special features describe organizational aspects of fonts&mdash;font
+family and font encoding.
+</p>
+<span id="index-font-family"></span>
+<span id="index-family_002c-of-font"></span>
+<p>A collection of related fonts is grouped into a <em>font family</em>.
+All fonts in a font family generally have the same or similar design,
+representing variations on that particular design.  For example, a
+font family may include an upright font, an italic font and a bold
+upright font.  Examples of font families:  Computer Modern Roman,
+Times, Helvetica.
+</p>
+<span id="index-font-encoding"></span>
+<span id="index-encoding_002c-of-font"></span>
+<p><em>Font encoding</em> specifies the set and the order of characters
+represented within a font.  Examples of font encodings: OT1 (Latin
+upper- and lower-case characters, arabic numerals and some additional
+glyphs), T1 (characters of Western-European scripts), T2A (characters
+of Cyrillic scripts).  For a guide to TeX font encodings, see
+<a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/encguide.html">http://www.ctan.org/tex-archive/help/Catalogue/entries/encguide.html</a>.
+</p>
+
+<hr>
+</div>
+<div class="subsection" id="Current-font-attribute-set">
+<div class="header">
+<p>
+Next: <a href="#Font-substitution" accesskey="n" rel="next">Font substitution</a>, Previous: <a href="#Font-features-and-attributes" accesskey="p" rel="prev">Font features and attributes</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Current-font-attribute-set-1"></span><h4 class="subsection">1.1.2 Current font attribute set</h4>
+
+<p>At font definition time, each font is associated with a set of
+attributes.  Naturally, only one attribute can be specified per
+feature, but not every feature has to be represented.
+</p>
+<p>A font then can be selected by specifying a list of attributes.  At
+all times, Texinfo maintains a <em>current font attribute set</em>.
+Texinfo provides macros to initialize this set, as well as to modify
+it by adding attributes or removing attributes corresponding to
+certain features.  If a font definition is found which matches every
+attribute in the resulting attribute set, the corresponding font is
+selected.
+</p>
+<p>For example, let&rsquo;s assume the current font attribute set consists of
+the following attributes:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>CMRoman</samp>&rsquo;</span></dt>
+<dd><p>&ldquo;family&rdquo; feature
+</p></dd>
+<dt><span>&lsquo;<samp>OT1</samp>&rsquo;</span></dt>
+<dd><p>&ldquo;encoding&rdquo; feature
+</p></dd>
+<dt><span>&lsquo;<samp>bold</samp>&rsquo;</span></dt>
+<dd><p>&ldquo;weight&rdquo; feature
+</p></dd>
+</dl>
+
+<p>If now we instruct Texinfo to add attributes &lsquo;<samp>light</samp>&rsquo; and
+&lsquo;<samp>italic</samp>&rsquo; and to remove the &lsquo;<samp>encoding</samp>&rsquo; feature, the font
+attribute set becomes:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>CMRoman</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>light</samp>&rsquo;</span></dt>
+<dd><p>replaces the &lsquo;<samp>bold</samp>&rsquo; attribute of the &ldquo;weight&rdquo; feature
+</p></dd>
+<dt><span>&lsquo;<samp>italic</samp>&rsquo;</span></dt>
+<dd><p>&ldquo;slant&rdquo; feature
+</p></dd>
+</dl>
+
+<p>Of course, in order for this font change specification to be
+successful, a font must be associated previously with such font
+attribute set.
+</p>
+
+<hr>
+</div>
+<div class="subsection" id="Font-substitution">
+<div class="header">
+<p>
+Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#Current-font-attribute-set" accesskey="p" rel="prev">Current font attribute set</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-substitution-1"></span><h4 class="subsection">1.1.3 Font substitution</h4>
+
+<p>Sometimes it can be convenient to replace some attributes when a font
+with a certain set of attributes is requested.  For example, a font
+family may contain slanted but not italic fonts.  If we only define
+slanted fonts, all macros explicitly requesting italic font will fail
+when such font family is used.  But we may decide that it is
+acceptable to use slanted fonts wherever italic fonts are being used.
+To achieve this, one solution is to create fake italic font
+definitions by duplicating definitions of slanted fonts and replacing
+the &lsquo;<samp>slanted</samp>&rsquo; attribute with &lsquo;<samp>italic</samp>&rsquo;.  An alternative,
+simpler solution is to define font substitution, indicating that all
+requests for a font with the &lsquo;<samp>italic</samp>&rsquo; attribute should be
+satisfied with a font with the &lsquo;<samp>slanted</samp>&rsquo; attribute and all other
+font attributes unchanged.
+</p>
+<p>It is possible to specify more complex font substitutions which
+replace/add several attributes and/or remove attributes corresponding
+to certain features.  All defined substitutions are applied in turn,
+starting with the current font attribute set, with the later
+substitutions performed on the result of the previous, so that it&rsquo;s
+possible to define chains of substitutions.  Note that font
+substitution works with attribute sets; only the final attribute set
+is used to look up the corresponding font, so intermediate sets do not
+have to be associated with any font.
+</p>
+<p>Unlike font selection, font substitution is &ldquo;permissive&rdquo;, that is,
+in order for a font substitution to be applied, its attribute set
+doesn&rsquo;t need to match the current font attribute set exactly, it can
+just be a subset of the font attribute set.  For example, if a font
+substitution is defined to apply to the set of two attributes
+&lsquo;<samp>CMRoman</samp>&rsquo; and &lsquo;<samp>OT1</samp>&rsquo;, the substitution will also apply to any
+of the following attribute sets:
+</p>
+<ul>
+<li> &lsquo;<samp>CMRoman</samp>&rsquo;, &lsquo;<samp>OT1</samp>&rsquo;, &lsquo;<samp>upright</samp>&rsquo;;
+</li><li> &lsquo;<samp>CMRoman</samp>&rsquo;, &lsquo;<samp>OT1</samp>&rsquo;, &lsquo;<samp>bold</samp>&rsquo;;
+</li><li> &lsquo;<samp>CMRoman</samp>&rsquo;, &lsquo;<samp>OT1</samp>&rsquo;, &lsquo;<samp>upright</samp>&rsquo;, &lsquo;<samp>bold</samp>&rsquo;;
+</li></ul>
+
+<p>but to none of the following:
+</p>
+<ul>
+<li> &lsquo;<samp>CMRoman</samp>&rsquo;;
+</li><li> &lsquo;<samp>OT1</samp>&rsquo;;
+</li><li> &lsquo;<samp>CMRoman</samp>&rsquo;, &lsquo;<samp>upright</samp>&rsquo;;
+</li><li> &lsquo;<samp>OT1</samp>&rsquo;, &lsquo;<samp>upright</samp>&rsquo;.
+</li></ul>
+
+
+<p>&ldquo;Restrictive&rdquo; font substitutions, where attribute sets have to mach
+exactly, are (currently?) not supported.
+</p>
+
+<hr>
+</div>
+<div class="subsection" id="Other">
+<div class="header">
+<p>
+Previous: <a href="#Font-substitution" accesskey="p" rel="prev">Font substitution</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Other-1"></span><h4 class="subsection">1.1.4 Other</h4>
+
+<p><em>Scaling factor</em> is an integer equal to magnification ratio
+times&nbsp;1000.
+</p>
+
+<hr>
+</div>
+</div>
+<div class="section" id="Font-definition-macros">
+<div class="header">
+<p>
+Next: <a href="#Font-selection-macros" accesskey="n" rel="next">Font selection macros</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-definition-macros-1"></span><h3 class="section">1.2 Font definition macros</h3>
+
+<span id="index-newfontarrs"></span>
+<p>Font attributes can be defined with the command
+</p>
+<div class="example">
+<pre class="example">@newfontatrrs <var>feature</var> <var>attribute-list</var>
+</pre></div>
+
+<p>where <var>feature</var> is the font feature to associate the attributes
+with, <var>attribute-list</var> is a comma-separated list of one or more
+attributes to define.  It is not an error to define an already defined
+attribute, as long as that attribute is associated with the same font
+feature as before.
+</p>
+<p>For example, the following command
+</p>
+<div class="example">
+<pre class="example">@newfontattrs encoding OT1,OMS,OML,OMX
+</pre></div>
+
+<p>defines the classic TeX font encodings.  After the above
+definition, the following command will be valid:
+</p>
+<div class="example">
+<pre class="example">@newfontattrs encoding OT1,T1
+</pre></div>
+
+<p>but the following command will generate an error (feature names are
+case-sensitive):
+</p>
+<div class="example">
+<pre class="example">@newfontattrs Encoding OT1
+</pre></div>
+
+<span id="index-newfont"></span>
+<p>A font can be defined with the command
+</p>
+<div class="example">
+<pre class="example">@newfont <var>scale</var> <var>font</var> <var>size</var> <var>lskip</var>[,<var>reduced</var>,<var>small</var>,<var>smaller</var>] [<var>attr-list</var>]
+</pre></div>
+
+<p>Here optional parts are in square brackets.  The arguments are as
+follows:
+</p>
+<dl compact="compact">
+<dt><span><var>scale</var></span></dt>
+<dd><p>Font&rsquo;s relative scaling factor (see below).
+</p>
+</dd>
+<dt><span><var>font</var></span></dt>
+<dd><p>Font file name (e.g., <samp>cmr10</samp>).
+</p>
+</dd>
+<dt><span><var>size</var></span></dt>
+<dd><p>Design size of the font (see below) specified as a TeX dimension or
+a number (in which case TeX points are assumed).
+</p>
+</dd>
+<dt><span><var>lskip</var></span></dt>
+<dd><p>Recommended line skip scaling factor which will be multiplied by the
+selected font size to get the actual line skip.
+</p>
+</dd>
+<dt><span><var>reduced</var></span></dt>
+<dd><p>Scaling factor for a reduced-size font (&ldquo;one size smaller&rdquo;), used
+for acronyms.  Default is 909 (10/11).
+</p>
+</dd>
+<dt><span><var>small</var></span></dt>
+<dd><p>Scaling factor for a small-size font (&ldquo;two sizes smaller&rdquo;), used
+for indices, footnotes, small examples, etc.  Default is 818 (9/11).
+</p>
+</dd>
+<dt><span><var>smaller</var></span></dt>
+<dd><p>Scaling factor for an even-smaller-size font (&ldquo;three sizes
+smaller&rdquo;), used for superscripts, subscripts, the LaTeX logo, etc.
+Default is 727 (8/11).
+</p>
+</dd>
+<dt><span><var>attr-list</var></span></dt>
+<dd><p>List of attributes to associate with the font.  If omitted, attributes
+from the last <code>@newfont</code> command are applied.
+</p></dd>
+</dl>
+
+<p><i>This scheme doesn&rsquo;t provide for situation when we want different
+<var>reduced</var>, <var>small</var> and <var>smaller</var> settings for the same
+font for different size ranges.</i>
+</p>
+
+<span id="index-scaling-factor_002c-of-a-font"></span>
+<span id="index-font-scaling-factor"></span>
+<p>Different font families have different notions of font size.  For
+example, Bera fonts at 10pt look much bigger than Computer
+Modern fonts at 10pt.  When mixing fonts and font families,
+their sizes must be scaled to achieve visual uniformity.  This is what
+the relative scaling factor (the first argument of <code>@newfont</code>)
+is for&mdash;it specifies the scaling factor which needs to be applied to
+a font to match a corresponding font from the Computer Modern
+collection of fonts (which are the default fonts of Texinfo).
+</p>
+<p><i>Maybe it makes better sense to specify <var>scale</var> for the entire
+family and not for individual fonts.  Not sure if fonts from the same
+family would ever need different scaling factors.  One (hypothetical?)
+case I can think of is when a font family provides fonts at several
+design sizes, and those design sizes scale differently to the
+corresponding Computer Modern design sizes, so each design size has to
+be tweaked individually.</i>
+</p>
+<span id="index-design-size_002c-of-a-font"></span>
+<span id="index-size_002c-design_002c-of-a-font"></span>
+<span id="index-font-design-size"></span>
+<p>Each font has a <em>design size</em>, which is the size in which the
+designer intended the font to be displayed (the <var>size</var> argument of
+<code>@newfont</code>).  To produce a font in a size other than the design
+size, Texinfo can scale a font.  Many font families provide fonts in
+only one design size, usually 10pt.  When fonts are provided in
+several design sizes, it is best to define all the provided design
+sizes.
+</p>
+<p>For example, Computer Modern Roman font family provides five design
+sizes (7pt, 8pt, 9pt, 10pt and 12pt) for
+the italic medium-weight face, but only one design size (10pt)
+for the upright caps and small caps face.  The font encoding for both
+faces is <acronym>OT1</acronym>.  Therefore, part of the definition of the
+CMRoman font family dealing with italic and caps and small caps faces
+might look like the following:
+</p>
+<div class="example">
+<pre class="example">@newfontattrs family   CMRoman
+@newfontattrs encoding OT1
+@newfontattrs slant    upright,italic
+@newfontattrs caps     normalcaps,capssmallcaps
+
+@newfont 1000 cmti7   7  1350 CMRoman,OT1,italic,normalcaps
+@newfont 1000 cmti8   8  1300
+@newfont 1000 cmti9   9  1250,1
+@newfont 1000 cmti10  10 1200
+@newfont 1000 cmti12  12 1150
+@newfont 1000 cmcsc10 10 1200 CMRoman,OT1,upright,capssmallcaps
+</pre></div>
+
+
+<hr>
+</div>
+<div class="section" id="Font-selection-macros">
+<div class="header">
+<p>
+Next: <a href="#Font-substitution-macros" accesskey="n" rel="next">Font substitution macros</a>, Previous: <a href="#Font-definition-macros" accesskey="p" rel="prev">Font definition macros</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-selection-macros-1"></span><h3 class="section">1.3 Font selection macros</h3>
+
+<span id="index-setfont"></span>
+<span id="index-setting-current-attributes-list"></span>
+<span id="index-current-attributes-list_002c-setting"></span>
+<span id="index-setting-a-font"></span>
+<span id="index-selecting-a-font"></span>
+<span id="index-font_002c-setting"></span>
+<span id="index-font_002c-selecting"></span>
+<p>The <code>@setfont</code> command sets the current attribute list and then
+selects the font associated with that list:
+</p>
+<div class="example">
+<pre class="example">@setfont{<var>attribute-list</var>}
+</pre></div>
+
+<span id="index-modfont"></span>
+<p>If you don&rsquo;t want to specify all attributes but just want to add
+certain attributes to the current attribute list and/or remove
+attributes for certain features, use the command
+</p>
+<div class="example">
+<pre class="example">@modfont{<var>feature-list</var>}{<var>attribute-list</var>}
+</pre></div>
+
+<p>Any attributes corresponding to features from <var>feature-list</var> will
+be removed from the current attribute list, attributes from
+<var>attribute-list</var> will be added to it, and the resulting attribute
+list will be used by Texinfo to select a font.
+</p>
+
+
+<ul class="section-toc">
+<li><a href="#Relative-font-scaling" accesskey="1">Relative font scaling</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Relative-font-scaling">
+<div class="header">
+<p>
+Up: <a href="#Font-selection-macros" accesskey="u" rel="up">Font selection macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Relative-font-scaling-1"></span><h4 class="subsection">1.3.1 Relative font scaling</h4>
+
+<span id="index-scaling-of-fonts"></span>
+<span id="index-fontbasescale"></span>
+<p>By default, all fonts are scaled to match the Computer Modern fonts,
+and the Computer Modern fonts come out at their &ldquo;natural&rdquo; sizes.
+This happens when base font scaling factor is set to 1000, the
+relative scaling factor of the Computer Modern fonts.  You can set a
+different base scaling factor using the command
+</p>
+<div class="example">
+<pre class="example">@fontbasescale <var>scale</var>
+</pre></div>
+
+<p>If <var>scale</var> is omitted, the current font&rsquo;s relative scaling factor
+will be used.
+</p>
+
+<hr>
+</div>
+</div>
+<div class="section" id="Font-substitution-macros">
+<div class="header">
+<p>
+Next: <a href="#Font-collections" accesskey="n" rel="next">Font collections</a>, Previous: <a href="#Font-selection-macros" accesskey="p" rel="prev">Font selection macros</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-substitution-macros-1"></span><h3 class="section">1.4 Font substitution macros</h3>
+
+<p>Each font substitution consists of three sets:  filter (set of
+attributes), removed features (set of features) and added attributes
+(set of attributes).  When selecting a font, Texinfo applies the list
+of defined substitutions to the current attribute list, and uses the
+resulting attribute list to selects a font.
+</p>
+<p>examines each substitution in turn, applying
+those whose filter matches the current attribute list (i.e., those
+whose filter contains each attribute from the list) to the result of
+the previous substitutions on the current attribute list.  The
+resulting attribute list as used to select a font.
+</p>
+<p>To add a substitution to the head of the substitution list, use the
+command
+</p>
+<div class="example">
+<pre class="example">@fontsubstpre =<var>filter</var> -<var>removed-features</var> +<var>added-attributes</var>
+</pre></div>
+
+<p>The following command adds a substitution to the tail of the
+substitution list:
+</p><div class="example">
+<pre class="example">@fontsubstpost =<var>filter</var> -<var>removed-features</var> +<var>added-attributes</var>
+</pre></div>
+
+
+<hr>
+</div>
+<div class="section" id="Font-collections">
+<div class="header">
+<p>
+Next: <a href="#Input-encodings" accesskey="n" rel="next">Input encodings</a>, Previous: <a href="#Font-substitution-macros" accesskey="p" rel="prev">Font substitution macros</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-collections-1"></span><h3 class="section">1.5 Font collections</h3>
+
+<p><code>@declarefontcollection</code>
+</p>
+<p><code>@fontcollection</code>
+</p>
+
+
+<ul class="section-toc">
+<li><a href="#Font-styles" accesskey="1">Font styles</a></li>
+<li><a href="#Font-style-selection" accesskey="2">Font style selection</a></li>
+<li><a href="#Font-styles-for-document-elements" accesskey="3">Font styles for document elements</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Font-styles">
+<div class="header">
+<p>
+Next: <a href="#Font-style-selection" accesskey="n" rel="next">Font style selection</a>, Up: <a href="#Font-collections" accesskey="u" rel="up">Font collections</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-styles-1"></span><h4 class="subsection">1.5.1 Font styles</h4>
+
+<span id="index-font-styles"></span>
+<span id="index-styles_002c-fonts"></span>
+<p>Font styles are a way to apply one of the defined font families to the
+text.  It is possible to specify font styles for the various elements
+of a document individually, such as body text, page headings and
+footings, table of contents, indexes, and chapter, section, subsection
+and sub-subsection titles.
+</p>
+
+
+<hr>
+</div>
+<div class="subsection" id="Font-style-selection">
+<div class="header">
+<p>
+Next: <a href="#Font-styles-for-document-elements" accesskey="n" rel="next">Font styles for document elements</a>, Previous: <a href="#Font-styles" accesskey="p" rel="prev">Font styles</a>, Up: <a href="#Font-collections" accesskey="u" rel="up">Font collections</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-style-selection-1"></span><h4 class="subsection">1.5.2 Font style selection</h4>
+
+<p>Below are the styles defined by Texinfo, with the corresponding
+default meanings and commands which select them.  All the style
+commands take a single argument in braces and typeset it according to
+font attributes specified for the style.
+</p>
+<dl compact="compact">
+<dd><span id="index-serif"></span>
+</dd>
+<dt><span>&lsquo;<samp>serif</samp>&rsquo;</span></dt>
+<dd><p>serifed fonts (CMRoman), applied with <code>@serif</code>.
+</p>
+<span id="index-sansserif"></span>
+</dd>
+<dt><span>&lsquo;<samp>sans</samp>&rsquo;</span></dt>
+<dd><p>sans serif fonts (CMSans), applied with <code>@sansserif</code>.
+</p>
+<span id="index-t"></span>
+</dd>
+<dt><span>&lsquo;<samp>mono</samp>&rsquo;</span></dt>
+<dd><p>monospace fonts (CMMono), applied with <code>@t</code>.
+</p>
+<span id="index-r"></span>
+</dd>
+<dt><span>&lsquo;<samp>default</samp>&rsquo;</span></dt>
+<dd><p>fonts used in absence of any style switches, and applied with
+<code>@r</code> (CMRoman).
+</p>
+</dd>
+<dt><span>&lsquo;<samp>math</samp>&rsquo;</span></dt>
+<dd><p>fonts used in math mode (CMMath), no explicit switches.
+</p></dd>
+</dl>
+
+<p>For example, the command
+</p>
+<div class="example">
+<pre class="example">@sansserif{text}
+</pre></div>
+
+<p>typesets &lsquo;<samp>text</samp>&rsquo; using the &lsquo;<samp>sans</samp>&rsquo; font style (which results
+in a sans serif font by default).
+</p>
+
+<hr>
+</div>
+<div class="subsection" id="Font-styles-for-document-elements">
+<div class="header">
+<p>
+Previous: <a href="#Font-style-selection" accesskey="p" rel="prev">Font style selection</a>, Up: <a href="#Font-collections" accesskey="u" rel="up">Font collections</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-styles-for-document-elements-1"></span><h4 class="subsection">1.5.3 Font styles for document elements</h4>
+
+<p>It is possible to customize each of the above styles separately for
+each element of the document.  Texinfo associates styles with the
+following elements:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>*</samp>&rsquo;</span></dt>
+<dd><p>Default, used for body text.  Attributes from this &lsquo;element&rsquo; are also
+inherited by other elements, unless those elements redefine them.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>heading</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>footing</samp>&rsquo;</span></dt>
+<dd><p>Page headings and footings.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>toc</samp>&rsquo;</span></dt>
+<dd><p>The table of contents.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>shorttoc</samp>&rsquo;</span></dt>
+<dd><p>The short table of contents.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>shorttocchapter</samp>&rsquo;</span></dt>
+<dd><p>Chapters in the short table of contents.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>index</samp>&rsquo;</span></dt>
+<dd><p>Indexes.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>indexinitials</samp>&rsquo;</span></dt>
+<dd><p>Initials in the index.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>title</samp>&rsquo;</span></dt>
+<dd><p>Document title.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>chapter</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>section</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>subsection</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>subsubsection</samp>&rsquo;</span></dt>
+<dd><p>Chapter, section, subsection and sub-subsection titles.
+</p></dd>
+</dl>
+
+<span id="index-fontfamily"></span>
+<p>To associate a font family with a particular style for a particular
+document element, use the following command:
+</p>
+<div class="example">
+<pre class="example">@fontfamily <var>element</var> <var>style</var> <var>family</var>
+</pre></div>
+
+<span id="index-fontaxes"></span>
+<p>To specify which font axes should be used, use the command
+</p>
+<div class="example">
+<pre class="example">@fontaxes <var>element</var> <var>style</var> <var>axes</var>
+</pre></div>
+
+<p>where <var>axes</var> is a comma-separated list of axes, or a single
+&lsquo;<samp>.</samp>&rsquo; if none.
+</p>
+<span id="index-fontsize"></span>
+<span id="index-fontshape"></span>
+<span id="index-fontweight"></span>
+<p>The following commands will set font size, shape and weight to be used
+for a document element:
+</p>
+<div class="example">
+<pre class="example">@fontsize   <var>element</var> <var>point-size</var>
+@fontshape  <var>element</var> <var>shape</var>
+@fontweight <var>element</var> <var>weight</var>
+</pre></div>
+
+<span id="index-unsetfonts"></span>
+<p>Before you start defining font attributes for the styles, it might be
+a good idea to <code>@unsetfonts</code>, which unsets all font attribute
+definitions except the defaults, which are set as follows:
+</p>
+<div class="example">
+<pre class="example">@fontfamily * default CMRoman
+@fontfamily * serif   CMRoman
+@fontfamily * sans    CMSans
+@fontfamily * mono    CMMono
+@fontfamily * math    CMMath
+
+@fontaxes   * default .
+@fontaxes   * serif   .
+@fontaxes   * sans    .
+@fontaxes   * mono    .
+@fontaxes   * math    .
+
+@fontsize   * 11
+@fontweight * m
+@fontshape  * n
+</pre></div>
+
+<span id="index-setfonts"></span>
+<span id="index-resetfonts"></span>
+<p>After you have finished specifying font attributes for the styles, you
+should activate them with <code>@setfonts</code>.  To revert to the default
+styles, call <code>@resetfonts</code>.
+</p>
+<p>Below is a complete example of a document style specification.
+</p>
+<div class="example">
+<pre class="example">@c Use Computer Modern fonts with no axes (the defaults).
+@unsetfonts
+
+@c The body text will be 12pt medium-weight upright font.
+@fontsize * 12
+
+@c Page headings are in a smaller italic font; footings are in
+@c smaller upright.
+@fontsize  heading 10
+@fontshape heading it
+@fontsize  footing 10
+
+@c TOC is in the default face and smaller; indexes are in the default
+@c face and even smaller.
+@fontsize toc   11
+@fontsize index 10
+
+@c Font attributes for the title.  We are not going to use @serif,
+@c @sans, etc., so we don't care about non-default styles.
+@fontfamily title * SomeFunkyFontFamily
+@fontaxes   title * of,pf
+@fontsize   title 20
+@fontweight title bx
+@fontshape  title it
+
+@c Use sans fonts for chapters, sections and subsections.  We exchange
+@c the meanings of @sans and @serif.
+
+@fontfamily chapter *     CMSans
+@fontfamily chapter serif CMSans
+@fontfamily chapter sans  CMRoman
+@fontfamily chapter math  CMBrightMath
+@fontsize   chapter 17
+
+@fontfamily section *     CMSans
+@fontfamily section serif CMSans
+@fontfamily section sans  CMRoman
+@fontfamily section math  CMBrightMath
+@fontsize   section 14
+
+@fontfamily subsection *     CMSans
+@fontfamily subsection serif CMSans
+@fontfamily subsection sans  CMRoman
+@fontfamily subsection math  CMBrightMath
+@fontsize   subsection 12
+
+@c Don't forget to activate the styles.
+@setfonts
+</pre></div>
+
+
+<hr>
+</div>
+</div>
+<div class="section" id="Input-encodings">
+<div class="header">
+<p>
+Next: <a href="#Font-encodings" accesskey="n" rel="next">Font encodings</a>, Previous: <a href="#Font-collections" accesskey="p" rel="prev">Font collections</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Input-encodings-1"></span><h3 class="section">1.6 Input encodings</h3>
+
+
+<hr>
+</div>
+<div class="section" id="Font-encodings">
+<div class="header">
+<p>
+Previous: <a href="#Input-encodings" accesskey="p" rel="prev">Input encodings</a>, Up: <a href="#Font-management" accesskey="u" rel="up">Font management</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Font-encodings-1"></span><h3 class="section">1.7 Font encodings</h3>
+
+
+<hr>
+</div>
+</div>
+<div class="unnumbered" id="Index">
+<div class="header">
+<p>
+Previous: <a href="#Font-management" accesskey="p" rel="prev">Font management</a>, Up: <a href="#Top" accesskey="u" rel="up">GNU Texinfo font subsystem</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Index-1"></span><h2 class="unnumbered">Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-attribute_002c-of-font">attribute, of font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-current-attributes-list_002c-setting">current attributes list, setting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-design-size_002c-of-a-font">design size, of a font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-encoding_002c-of-font">encoding, of font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-family_002c-of-font">family, of font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-feature_002c-of-font">feature, of font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-attribute">font attribute</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-design-size">font design size</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-encoding">font encoding</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-family">font family</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-feature">font feature</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-features-and-attributes">Font features and attributes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-scaling-factor">font scaling factor</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font-styles">font styles</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles">Font styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font_002c-selecting">font, selecting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-font_002c-setting">font, setting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontaxes"><code>fontaxes</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontbasescale"><code>fontbasescale</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Relative-font-scaling">Relative font scaling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontfamily"><code>fontfamily</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontshape"><code>fontshape</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontsize"><code>fontsize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fontweight"><code>fontweight</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-modfont"><code>modfont</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-newfont"><code>newfont</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-newfontarrs"><code>newfontarrs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-r"><code>r</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-style-selection">Font style selection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-resetfonts"><code>resetfonts</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-sansserif"><code>sansserif</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-style-selection">Font style selection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scaling-factor_002c-of-a-font">scaling factor, of a font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-scaling-of-fonts">scaling of fonts</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Relative-font-scaling">Relative font scaling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-selecting-a-font">selecting a font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-serif"><code>serif</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-style-selection">Font style selection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-setfont"><code>setfont</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-setfonts"><code>setfonts</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-setting-a-font">setting a font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-setting-current-attributes-list">setting current attributes list</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-selection-macros">Font selection macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-size_002c-design_002c-of-a-font">size, design, of a font</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-definition-macros">Font definition macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-styles_002c-fonts">styles, fonts</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles">Font styles</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t"><code>t</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-style-selection">Font style selection</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-unsetfonts"><code>unsetfonts</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-styles-for-document-elements">Font styles for document elements</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+
+
+</div>
+</div>
+
+
+<a href='js_licenses.html' rel='jslicense'><small>JavaScript license information</small></a>
+</body>
+</html>

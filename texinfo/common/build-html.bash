@@ -129,12 +129,23 @@ main() {
 
     y=${x/%.@(texi|texinfo|txi)/.html}
 
-    texi2any \
-      --html \
-      --no-split \
-      -o "$y" \
-      "$x" \
-    ;
+    case $v in ([0-5].* | 6.[0-7])
+      texi2any \
+        --html \
+        --no-split \
+        -o "$y" \
+        "$x" \
+      ;
+    ;; *)
+      texi2any \
+        --html \
+        --no-split \
+        -c HTML_MATH=mathjax \
+        -c MATHJAX_SCRIPT=mathjax/tex-svg.js \
+        -o "$y" \
+        "$x" \
+      ;
+    esac
 
     outs+=("$d/$y")
 
