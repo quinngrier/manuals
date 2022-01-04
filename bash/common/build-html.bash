@@ -23,7 +23,7 @@ main() {
   # Patching
   #---------------------------------------------------------------------
 
-  for x in ./**/*.texi@(|nfo); do
+  for x in ./**/*.@(texi|texinfo|txi); do
 
     sed '
       s/^	}@$/	@}/
@@ -36,7 +36,7 @@ main() {
   # Texinfo
   #---------------------------------------------------------------------
 
-  for x in ./**/*.texi@(|nfo); do
+  for x in ./**/*.@(texi|texinfo|txi); do
 
     y=$(
       sed -n '
@@ -55,7 +55,7 @@ main() {
 
     pushd "$d" >/dev/null
 
-    y=${x/%.texi@(|nfo)/.html}
+    y=${x/%.@(texi|texinfo|txi)/.html}
 
     texi2any \
       --html \
