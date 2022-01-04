@@ -24,7 +24,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/README.adoc</loc>
-    <lastmod>2021-12-22T22:39:27+00:00</lastmod>
+    <lastmod>2022-01-04T02:03:03+00:00</lastmod>
   </url>
 
   <url>
@@ -1824,7 +1824,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/autoconf/common/build-html.bash</loc>
-    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
+    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
   </url>
 
   <url>
@@ -4084,7 +4084,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/common/build-html.bash</loc>
-    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
+    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
   </url>
 
   <url>
@@ -4124,7 +4124,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/1.14.7/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4140,6 +4145,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/1.14.7/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4189,7 +4199,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.0/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4205,6 +4220,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.0/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4254,7 +4274,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01.1/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4270,6 +4295,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01.1/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4319,7 +4349,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4335,6 +4370,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.01/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4384,7 +4424,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02.1/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4400,6 +4445,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02.1/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4449,7 +4499,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4465,6 +4520,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.02/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4514,7 +4574,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.03/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4530,6 +4595,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.03/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4579,7 +4649,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4600,6 +4675,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/readline.3.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.04/rluserman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4649,7 +4734,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4665,6 +4755,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05/rluserman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4714,7 +4814,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4730,6 +4835,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05a/rluserman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4779,7 +4894,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/files</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/hist.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -4795,6 +4915,16 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/rbash.1.html</loc>
     <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/rlman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/bash/2.05b/rluserman.html</loc>
+    <lastmod>2022-01-04T03:15:57+00:00</lastmod>
   </url>
 
   <url>
@@ -6929,7 +7059,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/common/build-html.bash</loc>
-    <lastmod>2022-01-02T22:29:18+00:00</lastmod>
+    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
   </url>
 
   <url>
@@ -7618,28 +7748,448 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/a11y/assistive-mml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/a11y/complexity.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/a11y/explorer.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/a11y/semantic-enrich.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/adaptors/liteDOM.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/build</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/core.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/asciimath.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/mml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/mml/entities.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex-base.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex-full.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/action.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/all-packages.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/ams.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/amscd.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/autoload.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/bbox.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/boldsymbol.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/braket.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/bussproofs.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/cancel.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/color.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/colorv2.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/configmacros.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/enclose.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/extpfeil.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/html.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/mhchem.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/newcommand.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/noerrors.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/noundefined.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/physics.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/require.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/tagformat.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/textmacros.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/unicode.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/input/tex/extensions/verb.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/latest.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/loader.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/mml-chtml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/mml-svg.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/node-main.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/tex.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/chtml/fonts/woff-v2/MathJax_Zero.woff</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/svg.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/output/svg/fonts/tex.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/de.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/en.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/es.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/fr.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/mathmaps_ie.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/mathmaps/nemeth.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/sre-node.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/sre/sre_browser.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/startup.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-chtml-full.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-chtml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-mml-chtml.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-mml-svg.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-svg-full.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/tex-svg.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/ui/menu.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/common/mathjax/3.1.2/ui/safe.js</loc>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/.gitignore</loc>
     <lastmod>2021-12-21T03:50:09+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/autoconf-2.69.tar.gz.sha256sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/autoconf-2.69.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/autoconf-2.70.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/autoconf-2.71.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
   </url>
 
   <url>
@@ -8603,151 +9153,6 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-3.2.48.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-3.2.57.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-3.2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.0-rc1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.0.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.2.53.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.3.30.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.3.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4-beta.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4-beta2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4-rc1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4-rc2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4.12.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4.18.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-4.4.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.0-alpha.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.0-beta.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.0-beta2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.0-rc1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.0.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1-alpha.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1-beta.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1-rc1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1-rc2.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1-rc3.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1.8.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/downloads/bash-5.1.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
-  </url>
-
-  <url>
     <loc>https://manuals.quinngrier.com/downloads/bash/bash-1.14.7.tar.gz.sha512sum</loc>
     <lastmod>2022-01-01T07:34:44+00:00</lastmod>
   </url>
@@ -9388,13 +9793,23 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/texinfo-6.7.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-2.15.tar.sha512sum</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-2.15.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-2.15.tar.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-2.16.tar.Z.sha512sum</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-2.16.tar.Z.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9403,8 +9818,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
-    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-3.12.tar.gz.sha512sum</loc>
-    <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-3.1.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-3.12.tar.sha512sum</loc>
+    <lastmod>2022-01-03T03:58:50+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-3.12.tar.urls</loc>
+    <lastmod>2022-01-03T03:58:50+00:00</lastmod>
   </url>
 
   <url>
@@ -9413,8 +9838,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-3.9.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.1.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.1.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9423,8 +9858,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.11.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.12.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.12.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9433,8 +9878,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.13.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.13a.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.13a.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9443,8 +9898,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.5.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.6.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.6.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9453,8 +9918,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.7.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.8.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.8.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9463,8 +9938,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.8a.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.9.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-4.9.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9473,8 +9958,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-5.0.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-5.1.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-5.1.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9483,8 +9978,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-5.2.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.0.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.0.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9493,8 +9998,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.1.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.2.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.2.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9503,8 +10018,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.3.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.4.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.4.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9513,8 +10038,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.5.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.6.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.6.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -9523,8 +10058,18 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.7.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.8.tar.gz.sha512sum</loc>
     <lastmod>2021-12-23T00:40:35+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/downloads/texinfo/texinfo-6.8.tar.gz.urls</loc>
+    <lastmod>2022-01-03T03:11:38+00:00</lastmod>
   </url>
 
   <url>
@@ -10229,7 +10774,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gm4/common/build-html.bash</loc>
-    <lastmod>2022-01-02T22:20:55+00:00</lastmod>
+    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
   </url>
 
   <url>
@@ -10244,7 +10789,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/ignore</loc>
-    <lastmod>2021-12-17T22:13:01+00:00</lastmod>
+    <lastmod>2022-01-04T01:26:15+00:00</lastmod>
   </url>
 
   <url>
@@ -10259,7 +10804,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/prelude.bash</loc>
-    <lastmod>2022-01-01T23:45:27+00:00</lastmod>
+    <lastmod>2022-01-04T01:09:20+00:00</lastmod>
   </url>
 
   <url>
@@ -10274,7 +10819,2207 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/sitemap.xml</loc>
-    <lastmod>2022-01-02T23:00:29+00:00</lastmod>
+    <lastmod>2022-01-02T23:04:31+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/texinfo2.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/texinfo2.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/makeinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/texi.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/makeinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/infokey.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/info.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/date</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/files</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/info.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texifont.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/texinfo.html</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/build</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/date</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/files</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/hello.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/ignore</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/info-stnd.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/info.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/info.5.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/install-info.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/kawa.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/makeinfo.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/mathjax</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/pdftexi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/pod2texi.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/qref.js</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/short-sample-ja.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texi2any.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texi2dvi.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texi2pdf.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texifont.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texindex.1.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texinfo.5.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/texinfo.html</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/common/Dockerfile</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/common/build-html.bash</loc>
+    <lastmod>2022-01-04T01:59:26+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/ignore</loc>
+    <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
 
 </urlset>
