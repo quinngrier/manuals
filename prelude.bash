@@ -181,17 +181,17 @@ download_tar_gz() {
   readonly file
 
   case $file in *.tar)
-    gzip <"$file" >"$file.gz"
+    gzip -n <"$file" >"$file.gz"
   ;; *.tar.Z)
-    gzip -d <"$file" | gzip >"${file/%.Z/.gz}"
+    gzip -d <"$file" | gzip -n >"${file/%.Z/.gz}"
     rm "$file"
   ;; *.tar.bz2)
-    bzip2 -d <"$file" | gzip >"${file/%.bz2/.gz}"
+    bzip2 -d <"$file" | gzip -n >"${file/%.bz2/.gz}"
     rm "$file"
   ;; *.tar.gz)
     :
   ;; *.tar.xz)
-    xz -d <"$file" | gzip >"${file/%.xz/.gz}"
+    xz -d <"$file" | gzip -n >"${file/%.xz/.gz}"
     rm "$file"
   ;; *)
     barf "Unknown archive file: \"$file\"."
