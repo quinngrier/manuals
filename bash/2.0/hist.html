@@ -1,0 +1,1052 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.7, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>GNU History Library</title>
+
+<meta name="description" content="GNU History Library">
+<meta name="keywords" content="GNU History Library">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<link href="#Using-History-Interactively" rel="start" title="Using History Interactively">
+<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">GNU History Library</h1>
+
+
+
+
+
+
+
+
+
+<span id="Using-History-Interactively"></span><div class="header">
+<p>
+Next: <a href="#Programming-with-GNU-History" accesskey="n" rel="next">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Using-History-Interactively-1"></span><h2 class="chapter">1 Using History Interactively</h2>
+
+<p>This chapter describes how to use the GNU History Library interactively,
+from a user&rsquo;s standpoint.  It should be considered a user&rsquo;s guide.  For
+information on using the GNU History Library in your own programs,
+see <a href="#Programming-with-GNU-History">Programming with GNU History</a>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#History-Interaction" accesskey="1">History Interaction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What it feels like using History as a user.
+</td></tr>
+</table>
+
+
+<hr>
+<span id="History-Interaction"></span><div class="header">
+<p>
+Up: <a href="#Using-History-Interactively" accesskey="u" rel="up">Using History Interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Interactive-History-Expansion"></span><h3 class="section">1.1 Interactive History Expansion</h3>
+<span id="index-history-expansion"></span>
+
+<p>The History library provides a history expansion feature that is similar
+to the history expansion provided by <code>csh</code>.  This section
+describes the syntax used to manipulate the history information.
+</p>
+<p>History expansions introduce words from the history list into
+the input stream, making it easy to repeat commands, insert the
+arguments to a previous command into the current input line, or
+fix errors in previous commands quickly.
+</p>
+<p>History expansion takes place in two parts.  The first is to determine
+which line from the previous history should be used during substitution.
+The second is to select portions of that line for inclusion into the
+current one.  The line selected from the previous history is called the
+<em>event</em>, and the portions of that line that are acted upon are
+called <em>words</em>.  Various <em>modifiers</em> are available to manipulate
+the selected words.  The line is broken into words in the same fashion
+that Bash does, so that several English (or Unix) words
+surrounded by quotes are considered as one word.
+History expansions are introduced by the appearance of the
+history expansion character, which is &lsquo;<samp>!</samp>&rsquo; by default.
+</p>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Event-Designators" accesskey="1">Event Designators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to specify which history line to use.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Word-Designators" accesskey="2">Word Designators</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Specifying which words are of interest.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Modifiers" accesskey="3">Modifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Modifying the results of substitution.
+</td></tr>
+</table>
+
+<hr>
+<span id="Event-Designators"></span><div class="header">
+<p>
+Next: <a href="#Word-Designators" accesskey="n" rel="next">Word Designators</a>, Up: <a href="#History-Interaction" accesskey="u" rel="up">History Interaction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Event-Designators-1"></span><h4 class="subsection">1.1.1 Event Designators</h4>
+<span id="index-event-designators"></span>
+
+<p>An event designator is a reference to a command line entry in the
+history list.
+<span id="index-history-events"></span>
+</p>
+<dl compact="compact">
+<dt><code>!</code></dt>
+<dd><p>Start a history substitution, except when followed by a space, tab,
+the end of the line, <tt class="key">=</tt> or <tt class="key">(</tt>.
+</p>
+</dd>
+<dt><code>!<var>n</var></code></dt>
+<dd><p>Refer to command line <var>n</var>.
+</p>
+</dd>
+<dt><code>!-<var>n</var></code></dt>
+<dd><p>Refer to the command <var>n</var> lines back.
+</p>
+</dd>
+<dt><code>!!</code></dt>
+<dd><p>Refer to the previous command.  This is a synonym for &lsquo;<samp>!-1</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>!<var>string</var></code></dt>
+<dd><p>Refer to the most recent command starting with <var>string</var>.
+</p>
+</dd>
+<dt><code>!?<var>string</var>[?]</code></dt>
+<dd><p>Refer to the most recent command containing <var>string</var>.  The trailing
+&lsquo;<samp>?</samp>&rsquo; may be omitted if the <var>string</var> is followed immediately by
+a newline.
+</p>
+</dd>
+<dt><code>^<var>string1</var>^<var>string2</var>^</code></dt>
+<dd><p>Quick Substitution.  Repeat the last command, replacing <var>string1</var>
+with <var>string2</var>.  Equivalent to
+<code>!!:s/<var>string1</var>/<var>string2</var>/</code>.
+</p>
+</dd>
+<dt><code>!#</code></dt>
+<dd><p>The entire command line typed so far.
+</p>
+</dd>
+</dl>
+
+<hr>
+<span id="Word-Designators"></span><div class="header">
+<p>
+Next: <a href="#Modifiers" accesskey="n" rel="next">Modifiers</a>, Previous: <a href="#Event-Designators" accesskey="p" rel="prev">Event Designators</a>, Up: <a href="#History-Interaction" accesskey="u" rel="up">History Interaction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Word-Designators-1"></span><h4 class="subsection">1.1.2 Word Designators</h4>
+
+<p>Word designators are used to select desired words from the event.
+A &lsquo;<samp>:</samp>&rsquo; separates the event specification from the word designator.  It
+can be omitted if the word designator begins with a &lsquo;<samp>^</samp>&rsquo;, &lsquo;<samp>$</samp>&rsquo;,
+&lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>-</samp>&rsquo;, or &lsquo;<samp>%</samp>&rsquo;.  Words are numbered from the beginning
+of the line, with the first word being denoted by 0 (zero).  Words are
+inserted into the current line separated by single spaces.
+</p>
+<dl compact="compact">
+<dt><code>0 (zero)</code></dt>
+<dd><p>The <code>0</code>th word.  For many applications, this is the command word.
+</p>
+</dd>
+<dt><code><var>n</var></code></dt>
+<dd><p>The <var>n</var>th word.
+</p>
+</dd>
+<dt><code>^</code></dt>
+<dd><p>The first argument; that is, word 1.
+</p>
+</dd>
+<dt><code>$</code></dt>
+<dd><p>The last argument.
+</p>
+</dd>
+<dt><code>%</code></dt>
+<dd><p>The word matched by the most recent &lsquo;<samp>?<var>string</var>?</samp>&rsquo; search.
+</p>
+</dd>
+<dt><code><var>x</var>-<var>y</var></code></dt>
+<dd><p>A range of words; &lsquo;<samp>-<var>y</var></samp>&rsquo; abbreviates &lsquo;<samp>0-<var>y</var></samp>&rsquo;.
+</p>
+</dd>
+<dt><code>*</code></dt>
+<dd><p>All of the words, except the <code>0</code>th.  This is a synonym for &lsquo;<samp>1-$</samp>&rsquo;.
+It is not an error to use &lsquo;<samp>*</samp>&rsquo; if there is just one word in the event;
+the empty string is returned in that case.
+</p>
+</dd>
+<dt><code><var>x</var>*</code></dt>
+<dd><p>Abbreviates &lsquo;<samp><var>x</var>-$</samp>&rsquo;
+</p>
+</dd>
+<dt><code><var>x</var>-</code></dt>
+<dd><p>Abbreviates &lsquo;<samp><var>x</var>-$</samp>&rsquo; like &lsquo;<samp><var>x</var>*</samp>&rsquo;, but omits the last word.
+</p>
+</dd>
+</dl>
+
+<p>If a word designator is supplied without an event specification, the
+previous command is used as the event.
+</p>
+<hr>
+<span id="Modifiers"></span><div class="header">
+<p>
+Previous: <a href="#Word-Designators" accesskey="p" rel="prev">Word Designators</a>, Up: <a href="#History-Interaction" accesskey="u" rel="up">History Interaction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Modifiers-1"></span><h4 class="subsection">1.1.3 Modifiers</h4>
+
+<p>After the optional word designator, you can add a sequence of one or more
+of the following modifiers, each preceded by a &lsquo;<samp>:</samp>&rsquo;.
+</p>
+<dl compact="compact">
+<dt><code>h</code></dt>
+<dd><p>Remove a trailing pathname component, leaving only the head.
+</p>
+</dd>
+<dt><code>t</code></dt>
+<dd><p>Remove all leading  pathname  components, leaving the tail.
+</p>
+</dd>
+<dt><code>r</code></dt>
+<dd><p>Remove a trailing suffix of the form &lsquo;<samp>.<var>suffix</var></samp>&rsquo;, leaving
+the basename.
+</p>
+</dd>
+<dt><code>e</code></dt>
+<dd><p>Remove all but the trailing suffix.
+</p>
+</dd>
+<dt><code>p</code></dt>
+<dd><p>Print the new command but do not execute it.
+</p>
+
+</dd>
+<dt><code>s/<var>old</var>/<var>new</var>/</code></dt>
+<dd><p>Substitute <var>new</var> for the first occurrence of <var>old</var> in the
+event line.  Any delimiter may be used in place of &lsquo;<samp>/</samp>&rsquo;.
+The delimiter may be quoted in <var>old</var> and <var>new</var>
+with a single backslash.  If &lsquo;<samp>&amp;</samp>&rsquo; appears in <var>new</var>,
+it is replaced by <var>old</var>.  A single backslash will quote
+the &lsquo;<samp>&amp;</samp>&rsquo;.  The final delimiter is optional if it is the last
+character on the input line.
+</p>
+</dd>
+<dt><code>&amp;</code></dt>
+<dd><p>Repeat the previous substitution.
+</p>
+</dd>
+<dt><code>g</code></dt>
+<dd><p>Cause changes to be applied over the entire event line.  Used in
+conjunction with &lsquo;<samp>s</samp>&rsquo;, as in <code>gs/<var>old</var>/<var>new</var>/</code>,
+or with &lsquo;<samp>&amp;</samp>&rsquo;.
+</p>
+</dd>
+</dl>
+
+<hr>
+<span id="Programming-with-GNU-History"></span><div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Using-History-Interactively" accesskey="p" rel="prev">Using History Interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Programming-with-GNU-History-1"></span><h2 class="chapter">2 Programming with GNU History</h2>
+
+<p>This chapter describes how to interface programs that you write
+with the GNU History Library.
+It should be considered a technical guide.
+For information on the interactive use of GNU History, see <a href="#Using-History-Interactively">Using History Interactively</a>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Introduction-to-History" accesskey="1">Introduction to History</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is the GNU History library for?
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-Storage" accesskey="2">History Storage</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How information is stored.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-Functions" accesskey="3">History Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions that you can use.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-Variables" accesskey="4">History Variables</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variables that control behaviour.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-Programming-Example" accesskey="5">History Programming Example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Example of using the GNU History Library.
+</td></tr>
+</table>
+
+<hr>
+<span id="Introduction-to-History"></span><div class="header">
+<p>
+Next: <a href="#History-Storage" accesskey="n" rel="next">History Storage</a>, Up: <a href="#Programming-with-GNU-History" accesskey="u" rel="up">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-to-History-1"></span><h3 class="section">2.1 Introduction to History</h3>
+
+<p>Many programs read input from the user a line at a time.  The GNU History
+library is able to keep track of those lines, associate arbitrary data with
+each line, and utilize information from previous lines in composing new
+ones.
+</p>
+<p>The programmer using the History library has available functions
+for remembering lines on a history list, associating arbitrary data
+with a line, removing lines from the list, searching through the list
+for a line containing an arbitrary text string, and referencing any line
+in the list directly.  In addition, a history <em>expansion</em> function
+is available which provides for a consistent user interface across
+different programs.
+</p>
+<p>The user using programs written with the History library has the
+benefit of a consistent user interface with a set of well-known
+commands for manipulating the text of previous lines and using that text
+in new commands.  The basic history manipulation commands are similar to
+the history substitution provided by <code>csh</code>.
+</p>
+<p>If the programmer desires, he can use the Readline library, which
+includes some history manipulation by default, and has the added
+advantage of command line editing.
+</p>
+<hr>
+<span id="History-Storage"></span><div class="header">
+<p>
+Next: <a href="#History-Functions" accesskey="n" rel="next">History Functions</a>, Previous: <a href="#Introduction-to-History" accesskey="p" rel="prev">Introduction to History</a>, Up: <a href="#Programming-with-GNU-History" accesskey="u" rel="up">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-Storage-1"></span><h3 class="section">2.2 History Storage</h3>
+
+<p>The history list is an array of history entries.  A history entry is
+declared as follows:
+</p>
+<div class="example">
+<pre class="example">typedef struct _hist_entry {
+  char *line;
+  char *data;
+} HIST_ENTRY;
+</pre></div>
+
+<p>The history list itself might therefore be declared as
+</p>
+<div class="example">
+<pre class="example">HIST_ENTRY **the_history_list;
+</pre></div>
+
+<p>The state of the History library is encapsulated into a single structure:
+</p>
+<div class="example">
+<pre class="example">/* A structure used to pass the current state of the history stuff around. */
+typedef struct _hist_state {
+  HIST_ENTRY **entries;         /* Pointer to the entries themselves. */
+  int offset;                   /* The location pointer within this array. */
+  int length;                   /* Number of elements within this array. */
+  int size;                     /* Number of slots allocated to this array. */
+  int flags;
+} HISTORY_STATE;
+</pre></div>
+
+<p>If the flags member includes <code>HS_STIFLED</code>, the history has been
+stifled.
+</p>
+<hr>
+<span id="History-Functions"></span><div class="header">
+<p>
+Next: <a href="#History-Variables" accesskey="n" rel="next">History Variables</a>, Previous: <a href="#History-Storage" accesskey="p" rel="prev">History Storage</a>, Up: <a href="#Programming-with-GNU-History" accesskey="u" rel="up">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-Functions-1"></span><h3 class="section">2.3 History Functions</h3>
+
+<p>This section describes the calling sequence for the various functions
+present in GNU History.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Initializing-History-and-State-Management" accesskey="1">Initializing History and State Management</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions to call when you
+						want to use history in a
+						program.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-List-Management" accesskey="2">History List Management</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions used to manage the list
+					of history entries.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Information-About-the-History-List" accesskey="3">Information About the History List</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions returning information about
+					the history list.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Moving-Around-the-History-List" accesskey="4">Moving Around the History List</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions used to change the position
+					in the history list.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Searching-the-History-List" accesskey="5">Searching the History List</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions to search the history list
+					for entries containing a string.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Managing-the-History-File" accesskey="6">Managing the History File</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions that read and write a file
+					containing the history list.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#History-Expansion" accesskey="7">History Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Functions to perform csh-like history
+					expansion.
+</td></tr>
+</table>
+
+<hr>
+<span id="Initializing-History-and-State-Management"></span><div class="header">
+<p>
+Next: <a href="#History-List-Management" accesskey="n" rel="next">History List Management</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Initializing-History-and-State-Management-1"></span><h4 class="subsection">2.3.1 Initializing History and State Management</h4>
+
+<p>This section describes functions used to initialize and manage
+the state of the History library when you want to use the history
+functions in your program.
+</p>
+<dl>
+<dt id="index-using_005fhistory">Function: <em>void</em> <strong>using_history</strong> <em>()</em></dt>
+<dd><p>Begin a session in which the history functions might be used.  This
+initializes the interactive variables.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fget_005fhistory_005fstate">Function: <em>HISTORY_STATE *</em> <strong>history_get_history_state</strong> <em>()</em></dt>
+<dd><p>Return a structure describing the current state of the input history.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fset_005fhistory_005fstate">Function: <em>void</em> <strong>history_set_history_state</strong> <em>(HISTORY_STATE *state)</em></dt>
+<dd><p>Set the state of the history list according to <var>state</var>.
+</p></dd></dl>
+
+<hr>
+<span id="History-List-Management"></span><div class="header">
+<p>
+Next: <a href="#Information-About-the-History-List" accesskey="n" rel="next">Information About the History List</a>, Previous: <a href="#Initializing-History-and-State-Management" accesskey="p" rel="prev">Initializing History and State Management</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-List-Management-1"></span><h4 class="subsection">2.3.2 History List Management</h4>
+
+<p>These functions manage individual entries on the history list, or set
+parameters managing the list itself.
+</p>
+<dl>
+<dt id="index-add_005fhistory">Function: <em>void</em> <strong>add_history</strong> <em>(char *string)</em></dt>
+<dd><p>Place <var>string</var> at the end of the history list.  The associated data
+field (if any) is set to <code>NULL</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-remove_005fhistory">Function: <em>HIST_ENTRY *</em> <strong>remove_history</strong> <em>(int which)</em></dt>
+<dd><p>Remove history entry at offset <var>which</var> from the history.  The
+removed element is returned so you can free the line, data,
+and containing structure.
+</p></dd></dl>
+
+<dl>
+<dt id="index-replace_005fhistory_005fentry">Function: <em>HIST_ENTRY *</em> <strong>replace_history_entry</strong> <em>(int which, char *line, char *data)</em></dt>
+<dd><p>Make the history entry at offset <var>which</var> have <var>line</var> and <var>data</var>.
+This returns the old entry so you can dispose of the data.  In the case
+of an invalid <var>which</var>, a <code>NULL</code> pointer is returned.
+</p></dd></dl>
+
+<dl>
+<dt id="index-clear_005fhistory">Function: <em>void</em> <strong>clear_history</strong> <em>()</em></dt>
+<dd><p>Clear the history list by deleting all the entries.
+</p></dd></dl>
+
+<dl>
+<dt id="index-stifle_005fhistory">Function: <em>void</em> <strong>stifle_history</strong> <em>(int max)</em></dt>
+<dd><p>Stifle the history list, remembering only the last <var>max</var> entries.
+</p></dd></dl>
+
+<dl>
+<dt id="index-unstifle_005fhistory">Function: <em>int</em> <strong>unstifle_history</strong> <em>()</em></dt>
+<dd><p>Stop stifling the history.  This returns the previous amount the
+history was stifled.  The value is positive if the history was
+stifled, negative if it wasn&rsquo;t.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fis_005fstifled">Function: <em>int</em> <strong>history_is_stifled</strong> <em>()</em></dt>
+<dd><p>Returns non-zero if the history is stifled, zero if it is not.
+</p></dd></dl>
+
+<hr>
+<span id="Information-About-the-History-List"></span><div class="header">
+<p>
+Next: <a href="#Moving-Around-the-History-List" accesskey="n" rel="next">Moving Around the History List</a>, Previous: <a href="#History-List-Management" accesskey="p" rel="prev">History List Management</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Information-About-the-History-List-1"></span><h4 class="subsection">2.3.3 Information About the History List</h4>
+
+<p>These functions return information about the entire history list or
+individual list entries.
+</p>
+<dl>
+<dt id="index-history_005flist">Function: <em>HIST_ENTRY **</em> <strong>history_list</strong> <em>()</em></dt>
+<dd><p>Return a <code>NULL</code> terminated array of <code>HIST_ENTRY</code> which is the
+current input history.  Element 0 of this list is the beginning of time.
+If there is no history, return <code>NULL</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-where_005fhistory">Function: <em>int</em> <strong>where_history</strong> <em>()</em></dt>
+<dd><p>Returns the offset of the current history element.
+</p></dd></dl>
+
+<dl>
+<dt id="index-current_005fhistory">Function: <em>HIST_ENTRY *</em> <strong>current_history</strong> <em>()</em></dt>
+<dd><p>Return the history entry at the current position, as determined by
+<code>where_history ()</code>.  If there is no entry there, return a <code>NULL</code>
+pointer.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fget">Function: <em>HIST_ENTRY *</em> <strong>history_get</strong> <em>(int offset)</em></dt>
+<dd><p>Return the history entry at position <var>offset</var>, starting from
+<code>history_base</code>.  If there is no entry there, or if <var>offset</var>
+is greater than the history length, return a <code>NULL</code> pointer.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005ftotal_005fbytes">Function: <em>int</em> <strong>history_total_bytes</strong> <em>()</em></dt>
+<dd><p>Return the number of bytes that the primary history entries are using.
+This function returns the sum of the lengths of all the lines in the
+history.
+</p></dd></dl>
+
+<hr>
+<span id="Moving-Around-the-History-List"></span><div class="header">
+<p>
+Next: <a href="#Searching-the-History-List" accesskey="n" rel="next">Searching the History List</a>, Previous: <a href="#Information-About-the-History-List" accesskey="p" rel="prev">Information About the History List</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Moving-Around-the-History-List-1"></span><h4 class="subsection">2.3.4 Moving Around the History List</h4>
+
+<p>These functions allow the current index into the history list to be
+set or changed.
+</p>
+<dl>
+<dt id="index-history_005fset_005fpos">Function: <em>int</em> <strong>history_set_pos</strong> <em>(int pos)</em></dt>
+<dd><p>Set the position in the history list to <var>pos</var>, an absolute index
+into the list.
+</p></dd></dl>
+
+<dl>
+<dt id="index-previous_005fhistory">Function: <em>HIST_ENTRY *</em> <strong>previous_history</strong> <em>()</em></dt>
+<dd><p>Back up the current history offset to the previous history entry, and
+return a pointer to that entry.  If there is no previous entry, return
+a <code>NULL</code> pointer.
+</p></dd></dl>
+
+<dl>
+<dt id="index-next_005fhistory">Function: <em>HIST_ENTRY *</em> <strong>next_history</strong> <em>()</em></dt>
+<dd><p>Move the current history offset forward to the next history entry, and
+return the a pointer to that entry.  If there is no next entry, return
+a <code>NULL</code> pointer.
+</p></dd></dl>
+
+<hr>
+<span id="Searching-the-History-List"></span><div class="header">
+<p>
+Next: <a href="#Managing-the-History-File" accesskey="n" rel="next">Managing the History File</a>, Previous: <a href="#Moving-Around-the-History-List" accesskey="p" rel="prev">Moving Around the History List</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Searching-the-History-List-1"></span><h4 class="subsection">2.3.5 Searching the History List</h4>
+<span id="index-History-Searching"></span>
+
+<p>These functions allow searching of the history list for entries containing
+a specific string.  Searching may be performed both forward and backward
+from the current history position.  The search may be <em>anchored</em>,
+meaning that the string must match at the beginning of the history entry.
+<span id="index-anchored-search"></span>
+</p>
+<dl>
+<dt id="index-history_005fsearch">Function: <em>int</em> <strong>history_search</strong> <em>(char *string, int direction)</em></dt>
+<dd><p>Search the history for <var>string</var>, starting at the current history
+offset.  If <var>direction</var> &lt; 0, then the search is through previous entries,
+else through subsequent.  If <var>string</var> is found, then
+the current history index is set to that history entry, and the value
+returned is the offset in the line of the entry where
+<var>string</var> was found.  Otherwise, nothing is changed, and a -1 is
+returned.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fsearch_005fprefix">Function: <em>int</em> <strong>history_search_prefix</strong> <em>(char *string, int direction)</em></dt>
+<dd><p>Search the history for <var>string</var>, starting at the current history
+offset.  The search is anchored: matching lines must begin with
+<var>string</var>.  If <var>direction</var> &lt; 0, then the search is through previous
+entries, else through subsequent.  If <var>string</var> is found, then the
+current history index is set to that entry, and the return value is 0. 
+Otherwise, nothing is changed, and a -1 is returned. 
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fsearch_005fpos">Function: <em>int</em> <strong>history_search_pos</strong> <em>(char *string, int direction, int pos)</em></dt>
+<dd><p>Search for <var>string</var> in the history list, starting at <var>pos</var>, an
+absolute index into the list.  If <var>direction</var> is negative, the search
+proceeds backward from <var>pos</var>, otherwise forward.  Returns the absolute
+index of the history element where <var>string</var> was found, or -1 otherwise.
+</p></dd></dl>
+
+<hr>
+<span id="Managing-the-History-File"></span><div class="header">
+<p>
+Next: <a href="#History-Expansion" accesskey="n" rel="next">History Expansion</a>, Previous: <a href="#Searching-the-History-List" accesskey="p" rel="prev">Searching the History List</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Managing-the-History-File-1"></span><h4 class="subsection">2.3.6 Managing the History File</h4>
+
+<p>The History library can read the history from and write it to a file.
+This section documents the functions for managing a history file.
+</p>
+<dl>
+<dt id="index-read_005fhistory">Function: <em>int</em> <strong>read_history</strong> <em>(char *filename)</em></dt>
+<dd><p>Add the contents of <var>filename</var> to the history list, a line at a
+time.  If <var>filename</var> is <code>NULL</code>, then read from
+<samp>~/.history</samp>.  Returns 0 if successful, or errno if not.
+</p></dd></dl>
+
+<dl>
+<dt id="index-read_005fhistory_005frange">Function: <em>int</em> <strong>read_history_range</strong> <em>(char *filename, int from, int to)</em></dt>
+<dd><p>Read a range of lines from <var>filename</var>, adding them to the history list.
+Start reading at line <var>from</var> and end at <var>to</var>.  If
+<var>from</var> is zero, start at the beginning.  If <var>to</var> is less than
+<var>from</var>, then read until the end of the file.  If <var>filename</var> is
+<code>NULL</code>, then read from <samp>~/.history</samp>.  Returns 0 if successful,
+or <code>errno</code> if not.
+</p></dd></dl>
+
+<dl>
+<dt id="index-write_005fhistory">Function: <em>int</em> <strong>write_history</strong> <em>(char *filename)</em></dt>
+<dd><p>Write the current history to <var>filename</var>, overwriting <var>filename</var>
+if necessary.  If <var>filename</var> is
+<code>NULL</code>, then write the history list to <samp>~/.history</samp>.  Values
+returned are as in <code>read_history ()</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-append_005fhistory">Function: <em>int</em> <strong>append_history</strong> <em>(int nelements, char *filename)</em></dt>
+<dd><p>Append the last <var>nelements</var> of the history list to <var>filename</var>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005ftruncate_005ffile">Function: <em>int</em> <strong>history_truncate_file</strong> <em>(char *filename, int nlines)</em></dt>
+<dd><p>Truncate the history file <var>filename</var>, leaving only the last
+<var>nlines</var> lines.
+</p></dd></dl>
+
+<hr>
+<span id="History-Expansion"></span><div class="header">
+<p>
+Previous: <a href="#Managing-the-History-File" accesskey="p" rel="prev">Managing the History File</a>, Up: <a href="#History-Functions" accesskey="u" rel="up">History Functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-Expansion-1"></span><h4 class="subsection">2.3.7 History Expansion</h4>
+
+<p>These functions implement <code>csh</code>-like history expansion.
+</p>
+<dl>
+<dt id="index-history_005fexpand">Function: <em>int</em> <strong>history_expand</strong> <em>(char *string, char **output)</em></dt>
+<dd><p>Expand <var>string</var>, placing the result into <var>output</var>, a pointer
+to a string (see <a href="#History-Interaction">History Interaction</a>).  Returns:
+</p><dl compact="compact">
+<dt><code>0</code></dt>
+<dd><p>If no expansions took place (or, if the only change in
+the text was the de-slashifying of the history expansion
+character);
+</p></dd>
+<dt><code>1</code></dt>
+<dd><p>if expansions did take place;
+</p></dd>
+<dt><code>-1</code></dt>
+<dd><p>if there was an error in expansion;
+</p></dd>
+<dt><code>2</code></dt>
+<dd><p>if the returned line should only be displayed, but not executed,
+as with the <code>:p</code> modifier (see <a href="#Modifiers">Modifiers</a>).
+</p></dd>
+</dl>
+
+<p>If an error ocurred in expansion, then <var>output</var> contains a descriptive
+error message.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005farg_005fextract">Function: <em>char *</em> <strong>history_arg_extract</strong> <em>(int first, int last, char *string)</em></dt>
+<dd><p>Extract a string segment consisting of the <var>first</var> through <var>last</var>
+arguments present in <var>string</var>.  Arguments are broken up as in Bash.
+</p></dd></dl>
+
+<dl>
+<dt id="index-get_005fhistory_005fevent">Function: <em>char *</em> <strong>get_history_event</strong> <em>(char *string, int *cindex, int qchar)</em></dt>
+<dd><p>Returns the text of the history event beginning at <var>string</var> +
+<var>*cindex</var>.  <var>*cindex</var> is modified to point to after the event
+specifier.  At function entry, <var>cindex</var> points to the index into
+<var>string</var> where the history event specification begins.  <var>qchar</var>
+is a character that is allowed to end the event specification in addition
+to the &ldquo;normal&rdquo; terminating characters.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005ftokenize">Function: <em>char **</em> <strong>history_tokenize</strong> <em>(char *string)</em></dt>
+<dd><p>Return an array of tokens parsed out of <var>string</var>, much as the
+shell might.  The tokens are split on white space and on the
+characters <code>()&lt;&gt;;&amp;|$</code>, and shell quoting conventions are
+obeyed.
+</p></dd></dl>
+
+<hr>
+<span id="History-Variables"></span><div class="header">
+<p>
+Next: <a href="#History-Programming-Example" accesskey="n" rel="next">History Programming Example</a>, Previous: <a href="#History-Functions" accesskey="p" rel="prev">History Functions</a>, Up: <a href="#Programming-with-GNU-History" accesskey="u" rel="up">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-Variables-1"></span><h3 class="section">2.4 History Variables</h3>
+
+<p>This section describes the externally visible variables exported by
+the GNU History Library.
+</p>
+<dl>
+<dt id="index-history_005fbase">Variable: <em>int</em> <strong>history_base</strong></dt>
+<dd><p>The logical offset of the first entry in the history list.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005flength">Variable: <em>int</em> <strong>history_length</strong></dt>
+<dd><p>The number of entries currently stored in the history list.
+</p></dd></dl>
+
+<dl>
+<dt id="index-max_005finput_005fhistory">Variable: <em>int</em> <strong>max_input_history</strong></dt>
+<dd><p>The maximum number of history entries.  This must be changed using
+<code>stifle_history ()</code>.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fexpansion_005fchar">Variable: <em>char</em> <strong>history_expansion_char</strong></dt>
+<dd><p>The character that starts a history event.  The default is &lsquo;<samp>!</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fsubst_005fchar">Variable: <em>char</em> <strong>history_subst_char</strong></dt>
+<dd><p>The character that invokes word substitution if found at the start of
+a line.  The default is &lsquo;<samp>^</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fcomment_005fchar">Variable: <em>char</em> <strong>history_comment_char</strong></dt>
+<dd><p>During tokenization, if this character is seen as the first character
+of a word, then it and all subsequent characters up to a newline are
+ignored, suppressing history expansion for the remainder of the line.
+This is disabled by default.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fno_005fexpand_005fchars">Variable: <em>char *</em> <strong>history_no_expand_chars</strong></dt>
+<dd><p>The list of characters which inhibit history expansion if found immediately
+following <var>history_expansion_char</var>.  The default is whitespace and
+&lsquo;<samp>=</samp>&rsquo;.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fsearch_005fdelimiter_005fchars">Variable: <em>char *</em> <strong>history_search_delimiter_chars</strong></dt>
+<dd><p>The list of additional characters which can delimit a history search
+string, in addition to whitespace, &lsquo;<samp>:</samp>&rsquo; and &lsquo;<samp>?</samp>&rsquo; in the case of
+a substring search.  The default is empty.
+</p></dd></dl>
+
+<dl>
+<dt id="index-history_005fquotes_005finhibit_005fexpansion">Variable: <em>int</em> <strong>history_quotes_inhibit_expansion</strong></dt>
+<dd><p>If non-zero, single-quoted words are not scanned for the history expansion
+character.  The default value is 0.
+</p></dd></dl>
+
+<hr>
+<span id="History-Programming-Example"></span><div class="header">
+<p>
+Previous: <a href="#History-Variables" accesskey="p" rel="prev">History Variables</a>, Up: <a href="#Programming-with-GNU-History" accesskey="u" rel="up">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="History-Programming-Example-1"></span><h3 class="section">2.5 History Programming Example</h3>
+
+<p>The following program demonstrates simple use of the GNU History Library.
+</p>
+<div class="example">
+<pre class="example">main ()
+{
+  char line[1024], *t;
+  int len, done = 0;
+
+  line[0] = 0;
+
+  using_history ();
+  while (!done)
+    {
+      printf (&quot;history$ &quot;);
+      fflush (stdout);
+      t = fgets (line, sizeof (line) - 1, stdin);
+      if (t &amp;&amp; *t)
+        {
+          len = strlen (t);
+          if (t[len - 1] == '\n')
+            t[len - 1] = '\0';
+        }
+
+      if (!t)
+        strcpy (line, &quot;quit&quot;);
+
+      if (line[0])
+        {
+          char *expansion;
+          int result;
+
+          result = history_expand (line, &amp;expansion);
+          if (result)
+            fprintf (stderr, &quot;%s\n&quot;, expansion);
+
+          if (result &lt; 0 || result == 2)
+            {
+              free (expansion);
+              continue;
+            }
+
+          add_history (expansion);
+          strncpy (line, expansion, sizeof (line) - 1);
+          free (expansion);
+        }
+
+      if (strcmp (line, &quot;quit&quot;) == 0)
+        done = 1;
+      else if (strcmp (line, &quot;save&quot;) == 0)
+        write_history (&quot;history_file&quot;);
+      else if (strcmp (line, &quot;read&quot;) == 0)
+        read_history (&quot;history_file&quot;);
+      else if (strcmp (line, &quot;list&quot;) == 0)
+        {
+          register HIST_ENTRY **the_list;
+          register int i;
+
+          the_list = history_list ();
+          if (the_list)
+            for (i = 0; the_list[i]; i++)
+              printf (&quot;%d: %s\n&quot;, i + history_base, the_list[i]-&gt;line);
+        }
+      else if (strncmp (line, &quot;delete&quot;, 6) == 0)
+        {
+          int which;
+          if ((sscanf (line + 6, &quot;%d&quot;, &amp;which)) == 1)
+            {
+              HIST_ENTRY *entry = remove_history (which);
+              if (!entry)
+                fprintf (stderr, &quot;No such entry %d\n&quot;, which);
+              else
+                {
+                  free (entry-&gt;line);
+                  free (entry);
+                }
+            }
+          else
+            {
+              fprintf (stderr, &quot;non-numeric arg given to `delete'\n&quot;);
+            }
+        }
+    }
+}
+</pre></div>
+
+<hr>
+<span id="Concept-Index"></span><div class="header">
+<p>
+Next: <a href="#Function-and-Variable-Index" accesskey="n" rel="next">Function and Variable Index</a>, Previous: <a href="#Programming-with-GNU-History" accesskey="p" rel="prev">Programming with GNU History</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Concept-Index-1"></span><h2 class="appendix">Appendix A Concept Index</h2>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-anchored-search">anchored search</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-the-History-List">Searching the History List</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-event-designators">event designators</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Designators">Event Designators</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history-events">history events</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Event-Designators">Event Designators</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history-expansion">history expansion</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Interaction">History Interaction</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-History-Searching">History Searching</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-the-History-List">Searching the History List</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<span id="Function-and-Variable-Index"></span><div class="header">
+<p>
+Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Function-and-Variable-Index-1"></span><h2 class="appendix">Appendix B Function and Variable Index</h2>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-add_005fhistory"><code>add_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-append_005fhistory"><code>append_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managing-the-History-File">Managing the History File</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-clear_005fhistory"><code>clear_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-current_005fhistory"><code>current_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-About-the-History-List">Information About the History List</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-get_005fhistory_005fevent"><code>get_history_event</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Expansion">History Expansion</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005farg_005fextract"><code>history_arg_extract</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Expansion">History Expansion</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fbase"><code>history_base</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fcomment_005fchar"><code>history_comment_char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fexpand"><code>history_expand</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Expansion">History Expansion</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fexpansion_005fchar"><code>history_expansion_char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fget"><code>history_get</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-About-the-History-List">Information About the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fget_005fhistory_005fstate"><code>history_get_history_state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-History-and-State-Management">Initializing History and State Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fis_005fstifled"><code>history_is_stifled</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005flength"><code>history_length</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005flist"><code>history_list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-About-the-History-List">Information About the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fno_005fexpand_005fchars"><code>history_no_expand_chars</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fquotes_005finhibit_005fexpansion"><code>history_quotes_inhibit_expansion</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fsearch"><code>history_search</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-the-History-List">Searching the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fsearch_005fdelimiter_005fchars"><code>history_search_delimiter_chars</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fsearch_005fpos"><code>history_search_pos</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-the-History-List">Searching the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fsearch_005fprefix"><code>history_search_prefix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-the-History-List">Searching the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fset_005fhistory_005fstate"><code>history_set_history_state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-History-and-State-Management">Initializing History and State Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fset_005fpos"><code>history_set_pos</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Around-the-History-List">Moving Around the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005fsubst_005fchar"><code>history_subst_char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005ftokenize"><code>history_tokenize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Expansion">History Expansion</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005ftotal_005fbytes"><code>history_total_bytes</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-About-the-History-List">Information About the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history_005ftruncate_005ffile"><code>history_truncate_file</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managing-the-History-File">Managing the History File</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-max_005finput_005fhistory"><code>max_input_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-Variables">History Variables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-next_005fhistory"><code>next_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Around-the-History-List">Moving Around the History List</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-previous_005fhistory"><code>previous_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Around-the-History-List">Moving Around the History List</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-read_005fhistory"><code>read_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managing-the-History-File">Managing the History File</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-read_005fhistory_005frange"><code>read_history_range</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managing-the-History-File">Managing the History File</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-remove_005fhistory"><code>remove_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-replace_005fhistory_005fentry"><code>replace_history_entry</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-stifle_005fhistory"><code>stifle_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-unstifle_005fhistory"><code>unstifle_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-List-Management">History List Management</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-using_005fhistory"><code>using_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Initializing-History-and-State-Management">Initializing History and State Management</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Function-and-Variable-Index_vr_letter-W">W</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-where_005fhistory"><code>where_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Information-About-the-History-List">Information About the History List</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-write_005fhistory"><code>write_history</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managing-the-History-File">Managing the History File</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Function-and-Variable-Index_vr_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<span id="SEC_Contents"></span>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+<ul class="no-bullet">
+<li><a id="toc-Using-History-Interactively-1" href="#Using-History-Interactively">1 Using History Interactively</a>
+<ul class="no-bullet">
+  <li><a id="toc-Interactive-History-Expansion" href="#History-Interaction">1.1 Interactive History Expansion</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Event-Designators-1" href="#Event-Designators">1.1.1 Event Designators</a></li>
+    <li><a id="toc-Word-Designators-1" href="#Word-Designators">1.1.2 Word Designators</a></li>
+    <li><a id="toc-Modifiers-1" href="#Modifiers">1.1.3 Modifiers</a></li>
+  </ul></li>
+</ul></li>
+<li><a id="toc-Programming-with-GNU-History-1" href="#Programming-with-GNU-History">2 Programming with GNU History</a>
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-to-History-1" href="#Introduction-to-History">2.1 Introduction to History</a></li>
+  <li><a id="toc-History-Storage-1" href="#History-Storage">2.2 History Storage</a></li>
+  <li><a id="toc-History-Functions-1" href="#History-Functions">2.3 History Functions</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Initializing-History-and-State-Management-1" href="#Initializing-History-and-State-Management">2.3.1 Initializing History and State Management</a></li>
+    <li><a id="toc-History-List-Management-1" href="#History-List-Management">2.3.2 History List Management</a></li>
+    <li><a id="toc-Information-About-the-History-List-1" href="#Information-About-the-History-List">2.3.3 Information About the History List</a></li>
+    <li><a id="toc-Moving-Around-the-History-List-1" href="#Moving-Around-the-History-List">2.3.4 Moving Around the History List</a></li>
+    <li><a id="toc-Searching-the-History-List-1" href="#Searching-the-History-List">2.3.5 Searching the History List</a></li>
+    <li><a id="toc-Managing-the-History-File-1" href="#Managing-the-History-File">2.3.6 Managing the History File</a></li>
+    <li><a id="toc-History-Expansion-1" href="#History-Expansion">2.3.7 History Expansion</a></li>
+  </ul></li>
+  <li><a id="toc-History-Variables-1" href="#History-Variables">2.4 History Variables</a></li>
+  <li><a id="toc-History-Programming-Example-1" href="#History-Programming-Example">2.5 History Programming Example</a></li>
+</ul></li>
+<li><a id="toc-Concept-Index-1" href="#Concept-Index" rel="index">Appendix A Concept Index</a></li>
+<li><a id="toc-Function-and-Variable-Index-1" href="#Function-and-Variable-Index" rel="index">Appendix B Function and Variable Index</a></li>
+
+</ul>
+</div>
+
+<hr>
+
+
+
+</body>
+</html>
