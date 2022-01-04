@@ -4134,7 +4134,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/1.14.7/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4209,7 +4209,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.0/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4284,7 +4284,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01.1/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4359,7 +4359,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.01/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4434,7 +4434,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02.1/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4509,7 +4509,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.02/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4584,7 +4584,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.03/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4659,7 +4659,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.04/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4744,7 +4744,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4824,7 +4824,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05a/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -4904,7 +4904,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/2.05b/index.html</loc>
-    <lastmod>2022-01-02T02:24:34+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -10799,7 +10799,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/index.html</loc>
-    <lastmod>2022-01-02T22:57:26+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -10819,7 +10819,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/sitemap.xml</loc>
-    <lastmod>2022-01-02T23:04:31+00:00</lastmod>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -10835,6 +10835,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/2.15/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.15/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -10863,6 +10868,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/2.16/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/2.16/qref.js</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -10885,6 +10895,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.1/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.1/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -10933,6 +10948,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.12/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.12/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -10965,6 +10985,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.9/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/3.9/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11010,6 +11035,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.1/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.1/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11080,6 +11110,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.11/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.11/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11155,6 +11190,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.12/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.12/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11243,6 +11283,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.13/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -11325,6 +11370,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.13a/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.13a/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11413,6 +11463,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.5/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.5/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -11483,6 +11538,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.6/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.6/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -11550,6 +11610,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.7/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.7/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11628,6 +11693,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.8/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -11700,6 +11770,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.8a/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.8a/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11778,6 +11853,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/4.9/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.9/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -11850,6 +11930,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.0/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.0/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -11953,6 +12038,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.1/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.1/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12050,6 +12140,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.2/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/5.2/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -12153,6 +12248,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.0/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.0/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12248,6 +12348,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.1/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.1/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12335,6 +12440,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.2/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.2/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -12433,6 +12543,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.3/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.3/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12525,6 +12640,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.4/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.4/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -12623,6 +12743,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.5/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.5/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12718,6 +12843,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.6/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.6/info-stnd.html</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
   </url>
@@ -12810,6 +12940,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.7/files</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.7/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
   <url>
@@ -12918,6 +13053,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/texinfo/6.8/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.8/info-stnd.html</loc>
     <lastmod>2022-01-04T01:59:26+00:00</lastmod>
   </url>
@@ -13020,6 +13160,11 @@ named <CC0-1.0.txt>. If not, it may be available at
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/ignore</loc>
     <lastmod>2022-01-04T01:04:28+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://manuals.quinngrier.com/texinfo/index.html</loc>
+    <lastmod>2022-01-04T03:16:43+00:00</lastmod>
   </url>
 
 </urlset>
