@@ -19,8 +19,9 @@ main() {
   declare    h
   declare    ignore
   declare    lastmod
-  declare    loc
   declare    root
+  declare    sitemap_end
+  declare    sitemap_start
   declare    skip
   declare    x
   declare    xs
@@ -193,15 +194,12 @@ EOF
   done
 
   #---------------------------------------------------------------------
-  # Generate sitemap.xml
+  # Generate the sitemap
   #---------------------------------------------------------------------
 
   if [[ $current == ./ ]]; then
 
-    >sitemap.xml
-
-    cat <<'EOF' >>sitemap.xml
-<?xml version="1.0" encoding="UTF-8"?>
+    sitemap_start='<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 The authors of this file have waived all copyright and
@@ -214,31 +212,136 @@ named <CC0-1.0.txt>. If not, it may be available at
 -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-EOF
+'
+    readonly sitemap_start
 
-    xs=$(git ls-files)
-    for x in $xs; do
-      loc=https://manuals.quinngrier.com/$x
-      lastmod=$(
-        TZ=UTC git log \
-          --date=iso-strict-local \
-          --format=%cd \
-          -1 \
-          -- \
-          "$x" \
-        ;
-      )
-      printf '%s\n' "
-  <url>
-    <loc>$loc</loc>
-    <lastmod>$lastmod</lastmod>
-  </url>" >>sitemap.xml
-    done
-
-    cat <<'EOF' >>sitemap.xml
-
+    sitemap_end='
 </urlset>
-EOF
+'
+    readonly sitemap_end
+
+    make -s do_timestamps
+
+    rm -f -r footmp1 footmp2
+
+    (
+      git clone -q . footmp1
+      cd footmp1
+      git log --date=unix --format=@%cd --name-only | awk '
+        {
+          if (/^@/) {
+            lastmod = substr($0, 2);
+          } else if (/^./ && !seen[$0]) {
+            print $0, lastmod;
+            seen[$0] = 1;
+          }
+        }
+      ' | ../do_timestamps
+      rm -f -r .git
+    )
+
+    (
+      cp -L -R -p footmp1 footmp2
+      cd footmp2
+      TZ=UTC find . -type f -printf '%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
+    ) | (sort; echo @EOF) | (
+
+      declare    i
+      declare    max_bytes
+      declare    max_entries
+      declare    max_lastmod
+      declare    n_bytes
+      declare    n_entries
+
+      max_bytes=49000000
+      readonly max_bytes
+
+      max_entries=49000
+      readonly max_entries
+
+      exec 3>sitemap.xml
+
+      printf %s '<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+The authors of this file have waived all copyright and
+related or neighboring rights to the extent permitted by
+law as described by the CC0 1.0 Universal Public Domain
+Dedication. You should have received a copy of the full
+dedication along with this file, typically as a file
+named <CC0-1.0.txt>. If not, it may be available at
+<https://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+' >&3
+
+      i=0
+      n_bytes=$((max_bytes + 1))
+      n_entries=0
+      max_lastmod=
+
+      while read -r file lastmod; do
+        if [[ "$file" == @EOF ]]; then
+          break
+        fi
+        file=${file:2}
+        lastmod=${lastmod%.*}+00:00
+        if ((n_bytes > max_bytes || n_entries > max_entries)); then
+          if ((i > 0)); then
+            printf %s "$sitemap_end" >&4
+            exec 4>&-
+            printf %s "
+  <sitemap>
+    <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
+    <lastmod>$max_lastmod</lastmod>
+  </sitemap>
+" >&3
+          fi
+          ((++i))
+          n_bytes=$((${#sitemap_start} + ${#sitemap_end}))
+          n_entries=0
+          max_lastmod=
+          exec 4>sitemap-$i.xml
+          printf %s "$sitemap_start" >&4
+        fi
+        if [[ $lastmod > $max_lastmod ]]; then
+          max_lastmod=$lastmod
+        fi
+        urlstr="
+  <url>
+    <loc>https://manuals.quinngrier.com/$file</loc>
+    <lastmod>$lastmod</lastmod>
+  </url>
+"
+        ((n_bytes += ${#urlstr}))
+        ((++n_entries))
+        printf %s "$urlstr" >&4
+      done
+      if [[ "$file" != @EOF ]]; then
+        exit 1
+      fi
+
+      if ((i > 0)); then
+        printf %s "$sitemap_end" >&4
+        exec 4>&-
+        printf %s "
+  <sitemap>
+    <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
+    <lastmod>$max_lastmod</lastmod>
+  </sitemap>
+" >&3
+      fi
+
+      printf %s '
+</sitemapindex>
+' >&3
+
+      exec 3>&-
+
+    )
+
+    rm -f -r footmp1 footmp2
 
   fi
 
