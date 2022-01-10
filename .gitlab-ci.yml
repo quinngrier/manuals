@@ -18,7 +18,7 @@ pages:
       - public
   script:
     - |
-      for x in robots.txt sitemap.xml; do
+      for x in robots.txt sitemap*.xml; do
         sed '
           s|manuals\.quinngrier\.com|quinngrier.gitlab.io/manuals|
         ' $x >$x.tmp || exit $?
@@ -32,7 +32,7 @@ pages:
 sourceforge:
   script:
     - |
-      for x in robots.txt sitemap.xml; do
+      for x in robots.txt sitemap*.xml; do
         sed '
           s|manuals\.quinngrier\.com|manuals.sourceforge.io|
         ' $x >$x.tmp || exit $?
