@@ -252,6 +252,7 @@ named <CC0-1.0.txt>. If not, it may be available at
       declare    max_lastmod
       declare    n_bytes
       declare    n_entries
+      declare    urlstr
 
       max_bytes=49000000
       readonly max_bytes
