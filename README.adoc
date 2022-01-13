@@ -8,10 +8,10 @@
 // <https://creativecommons.org/publicdomain/zero/1.0/>.
 //
 
-= Manuals
+= Quinn's Manuals Archive
 
-This repository is a static website that provides version-pinned manuals
-for long-term reference purposes.
+Quinn's Manuals Archive is a static website that provides version-pinned
+user manuals for long-term reference purposes.
 Selection permalinking has been added to the manuals wherever possible
 using link:https://github.com/quinngrier/qref[Qref].
 The manuals are eventually stable, with breaking changes only made to
