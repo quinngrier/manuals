@@ -200,3 +200,85 @@ download_tar_gz() {
 }; readonly -f download_tar_gz
 
 #-----------------------------------------------------------------------
+
+make_ignore_file() {
+
+  declare    x
+
+  cat <<'EOF'
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+#
+# This is an ignore file. Any subdirectories listed in this file will be
+# ignored by this directory's index.html page and not recursed into for
+# further indexing.
+#
+# Subdirectories should be written with a trailing slash, like "foo/".
+# If a subdirectory is listed in both an ignore file and a skip file,
+# the ignore file takes precedence. Subdirectories beginning with a .
+# character are always ignored.
+#
+EOF
+
+  if (($# > 0)); then
+    echo
+    for x; do
+      if [[ "$x" != */ ]]; then
+        x+=/
+      fi
+      printf '%s\n' "$x"
+    done
+  fi
+
+}; readonly -f make_ignore_file
+
+#-----------------------------------------------------------------------
+
+make_skip_file() {
+
+  declare    x
+
+  cat <<'EOF'
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+#
+# This is a skip file. Any subdirectories listed in this file will be
+# linked to by this directory's index.html page but not recursed into
+# for further indexing.
+#
+# Subdirectories should be written with a trailing slash, like "foo/".
+# If a subdirectory is listed in both an ignore file and a skip file,
+# the ignore file takes precedence. Subdirectories beginning with a .
+# character are always ignored.
+#
+EOF
+
+  if (($# > 0)); then
+    echo
+    for x; do
+      if [[ "$x" != */ ]]; then
+        x+=/
+      fi
+      printf '%s\n' "$x"
+    done
+  fi
+
+}; readonly -f make_skip_file
+
+#-----------------------------------------------------------------------
