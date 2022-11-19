@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>std Symbol Index - cppreference.com</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.21.2">
+
+
+<link rel="shortcut icon" href="../../favicon.ico">
+
+
+
+<link rel="stylesheet" href="../../common/ext.css">
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="../../common/site_modules.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="../../common/startup_scripts.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/symbol_index","wgTitle":"cpp/symbol index","wgCurRevisionId":87482,"wgArticleId":15682,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/symbol_index","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:ca03345b1e2c4d90a25d968753a73b92 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]-->
+<script defer src="../../../qref.js"></script></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_symbol_index skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">std Symbol Index</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../cpp.html" title="cpp">cpp</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+<div class="t-navbar" style="">
+<div class="t-navbar-sep"> </div>
+<div class="t-navbar-head">
+<a href="../cpp.html" title="cpp"> C++</a><div class="t-navbar-menu"><div>
+<div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tr class="t-nv"><td colspan="5"> <a href="language.1.html" title="cpp/language"> Language</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="header.html" title="cpp/header"> Standard library headers</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="concept.html" title="cpp/concept"> Concepts</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="utility.html" title="cpp/utility"> Utilities library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="string.html" title="cpp/string"> Strings library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="container.html" title="cpp/container"> Containers library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="algorithm.html" title="cpp/algorithm"> Algorithms library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="iterator.html" title="cpp/iterator"> Iterators library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="numeric.html" title="cpp/numeric"> Numerics library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="io.html" title="cpp/io"> Input/output library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="locale.html" title="cpp/locale"> Localizations library</a> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="filesystem.html" title="cpp/filesystem"> Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span> </td></tr>
+<tr class="t-nv"><td colspan="5"> <a href="experimental.html" title="cpp/experimental"> Technical Specifications</a> </td></tr>
+</table></div>
+<div></div>
+</div></div>
+</div>
+<div class="t-navbar-sep"> </div>
+</div>
+<p><br>
+</p>
+<table class="plainlinks fmbox fmbox-system" style="font-size: 0.8em; background-color:#ffffbb">
+<tr>
+<td class="mbox-image">
+  </td>
+<td class="mbox-text" style=""> This is work in progress, there may be inaccuracies </td>
+</tr>
+</table>
+<p><br>
+</p>
+<p>This page tries to list all the symbols that are available from the <i>Standard Library</i> in the namespace <i>std::</i>. The symbols are written as follows:
+</p>
+<ul>
+<li>Function names with <i>()</i>.</li>
+<li>Templates with <i>&lt;&gt;</i>.</li>
+</ul>
+<p>Symbols from sub-namespaces (e.g. <span class="t-c"><span class="mw-geshi cpp source-cpp">chrono</span></span>) are not listed here, but the namespace names are the links to the corresponding pages.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="symbol_index.html#A_B_C_D_E_F_G_H_I_J_K_L_M_N_O_P_Q_R_S_T_U_V_W_X_Y_Z"><span class="tocnumber">1</span> <span class="toctext">A   B   C   D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R   S   T   U   V   W   X   Y   Z</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="symbol_index.html#A"><span class="tocnumber">2</span> <span class="toctext">A</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="symbol_index.html#B"><span class="tocnumber">3</span> <span class="toctext">B</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="symbol_index.html#C"><span class="tocnumber">4</span> <span class="toctext">C</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="symbol_index.html#D"><span class="tocnumber">5</span> <span class="toctext">D</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="symbol_index.html#E"><span class="tocnumber">6</span> <span class="toctext">E</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="symbol_index.html#F"><span class="tocnumber">7</span> <span class="toctext">F</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="symbol_index.html#G"><span class="tocnumber">8</span> <span class="toctext">G</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="symbol_index.html#H"><span class="tocnumber">9</span> <span class="toctext">H</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="symbol_index.html#I"><span class="tocnumber">10</span> <span class="toctext">I</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="symbol_index.html#J"><span class="tocnumber">11</span> <span class="toctext">J</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="symbol_index.html#K"><span class="tocnumber">12</span> <span class="toctext">K</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="symbol_index.html#L"><span class="tocnumber">13</span> <span class="toctext">L</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="symbol_index.html#M"><span class="tocnumber">14</span> <span class="toctext">M</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="symbol_index.html#N"><span class="tocnumber">15</span> <span class="toctext">N</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="symbol_index.html#O"><span class="tocnumber">16</span> <span class="toctext">O</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="symbol_index.html#P"><span class="tocnumber">17</span> <span class="toctext">P</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="symbol_index.html#Q"><span class="tocnumber">18</span> <span class="toctext">Q</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="symbol_index.html#R"><span class="tocnumber">19</span> <span class="toctext">R</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="symbol_index.html#S"><span class="tocnumber">20</span> <span class="toctext">S</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="symbol_index.html#T"><span class="tocnumber">21</span> <span class="toctext">T</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="symbol_index.html#U"><span class="tocnumber">22</span> <span class="toctext">U</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="symbol_index.html#V"><span class="tocnumber">23</span> <span class="toctext">V</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="symbol_index.html#W"><span class="tocnumber">24</span> <span class="toctext">W</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="symbol_index.html#X"><span class="tocnumber">25</span> <span class="toctext">X</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="symbol_index.html#Y"><span class="tocnumber">26</span> <span class="toctext">Y</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="symbol_index.html#Z"><span class="tocnumber">27</span> <span class="toctext">Z</span></a></li>
+</ul>
+</td></tr></table>
+<h2>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z">edit</a>]</span> <span class="mw-headline" id="A_B_C_D_E_F_G_H_I_J_K_L_M_N_O_P_Q_R_S_T_U_V_W_X_Y_Z"><blockquote><tt><a href="symbol_index.html#A" title="cpp/symbol index"> A</a>  <a href="symbol_index.html#B" title="cpp/symbol index"> B</a>  <a href="symbol_index.html#C" title="cpp/symbol index"> C</a>  <a href="symbol_index.html#D" title="cpp/symbol index"> D</a>  <a href="symbol_index.html#E" title="cpp/symbol index"> E</a>  <a href="symbol_index.html#F" title="cpp/symbol index"> F</a>  <a href="symbol_index.html#G" title="cpp/symbol index"> G</a>  <a href="symbol_index.html#H" title="cpp/symbol index"> H</a>  <a href="symbol_index.html#I" title="cpp/symbol index"> I</a>  <a href="symbol_index.html#J" title="cpp/symbol index"> J</a>  <a href="symbol_index.html#K" title="cpp/symbol index"> K</a>  <a href="symbol_index.html#L" title="cpp/symbol index"> L</a>  <a href="symbol_index.html#M" title="cpp/symbol index"> M</a>  <a href="symbol_index.html#N" title="cpp/symbol index"> N</a>  <a href="symbol_index.html#O" title="cpp/symbol index"> O</a>  <a href="symbol_index.html#P" title="cpp/symbol index"> P</a>  <a href="symbol_index.html#Q" title="cpp/symbol index"> Q</a>  <a href="symbol_index.html#R" title="cpp/symbol index"> R</a>  <a href="symbol_index.html#S" title="cpp/symbol index"> S</a>  <a href="symbol_index.html#T" title="cpp/symbol index"> T</a>  <a href="symbol_index.html#U" title="cpp/symbol index"> U</a>  <a href="symbol_index.html#V" title="cpp/symbol index"> V</a>  <a href="symbol_index.html#W" title="cpp/symbol index"> W</a>  <a href="symbol_index.html#X" title="cpp/symbol index"> X</a>  <a href="symbol_index.html#Y" title="cpp/symbol index"> Y</a>  <a href="symbol_index.html#Z" title="cpp/symbol index"> Z</a> </tt></blockquote></span>
+</h2>
+<p><br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: A">edit</a>]</span> <span class="mw-headline" id="A">A</span>
+</h1>
+<p><a href="numeric/complex/abs.html" title="cpp/numeric/complex/abs"> <span class="t-c"><span class="mw-geshi cpp source-cpp">abs<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/acos.html" title="cpp/numeric/complex/acos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">acos<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/acosh.html" title="cpp/numeric/complex/acosh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">acosh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="algorithm/accumulate.html" title="cpp/algorithm/accumulate"> <span class="t-c"><span class="mw-geshi cpp source-cpp">accumulate<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/addressof.html" title="cpp/memory/addressof"> <span class="t-c"><span class="mw-geshi cpp source-cpp">addressof<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/adjacent_difference.html" title="cpp/algorithm/adjacent difference"> <span class="t-c"><span class="mw-geshi cpp source-cpp">adjacent_difference<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/adjacent_find.html" title="cpp/algorithm/adjacent find"> <span class="t-c"><span class="mw-geshi cpp source-cpp">adjacent_find<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="thread/lock_tag.html" title="cpp/thread/lock tag"> <span class="t-c"><span class="mw-geshi cpp source-cpp">adopt_lock</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_tag_t.html" title="cpp/thread/lock tag t"> <span class="t-c"><span class="mw-geshi cpp source-cpp">adopt_lock_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="iterator/advance.html" title="cpp/iterator/advance"> <span class="t-c"><span class="mw-geshi cpp source-cpp">advance<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/align.html" title="cpp/memory/align"> <span class="t-c"><span class="mw-geshi cpp source-cpp">align<span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/all_any_none_of.html" title="cpp/algorithm/all any none of"> <span class="t-c"><span class="mw-geshi cpp source-cpp">all_of<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/shared_ptr/allocate_shared.html" title="cpp/memory/shared ptr/allocate shared"> <span class="t-c"><span class="mw-geshi cpp source-cpp">allocate_shared<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/allocator.html" title="cpp/memory/allocator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">allocator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/allocator_arg.html" title="cpp/memory/allocator arg"> <span class="t-c"><span class="mw-geshi cpp source-cpp">allocator_arg</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/allocator_arg_t.html" title="cpp/memory/allocator arg t"> <span class="t-c"><span class="mw-geshi cpp source-cpp">allocator_arg_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/allocator_traits.html" title="cpp/memory/allocator traits"> <span class="t-c"><span class="mw-geshi cpp source-cpp">allocator_traits<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="utility/any.html" title="cpp/utility/any"> <span class="t-c"><span class="mw-geshi cpp source-cpp">any</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="utility/any/any_cast.html" title="cpp/utility/any/any cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">any_cast<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/all_any_none_of.html" title="cpp/algorithm/all any none of"> <span class="t-c"><span class="mw-geshi cpp source-cpp">any_of<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/arg.html" title="cpp/numeric/complex/arg"> <span class="t-c"><span class="mw-geshi cpp source-cpp">arg<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="container/array.html" title="cpp/container/array"> <span class="t-c"><span class="mw-geshi cpp source-cpp">array<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/asin.html" title="cpp/numeric/complex/asin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">asin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/asinh.html" title="cpp/numeric/complex/asinh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">asinh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="thread/async.html" title="cpp/thread/async"> <span class="t-c"><span class="mw-geshi cpp source-cpp">async<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/atan.html" title="cpp/numeric/complex/atan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atan<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/atanh.html" title="cpp/numeric/complex/atanh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atanh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+</p>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p><a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<div class="mw-collapsible-content">
+<p>atomic&lt;&gt; full specializations and typedefs: <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_bool</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_char</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_char16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_char32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_int_fast64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_intmax_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_intptr_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_llong</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_long</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_ptrdiff_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_schar</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_short</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_size_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uchar</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_fast8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_fast16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_fast32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_fast64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_least8_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_least16_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_least32_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uint_least64_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uintmax_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_uintptr_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_ullong</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_ulong</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_ushort</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic.html" title="cpp/atomic/atomic"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_wchar_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+</div>
+</div>
+<p><a href="atomic/atomic_compare_exchange.html" title="cpp/atomic/atomic compare exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_compare_exchange_strong<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_compare_exchange.html" title="cpp/atomic/atomic compare exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_compare_exchange_strong_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_compare_exchange.html" title="cpp/atomic/atomic compare exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_compare_exchange_weak<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_compare_exchange.html" title="cpp/atomic/atomic compare exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_compare_exchange_weak_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_exchange.html" title="cpp/atomic/atomic exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_exchange<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_exchange.html" title="cpp/atomic/atomic exchange"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_exchange_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_add.html" title="cpp/atomic/atomic fetch add"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_add<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_add.html" title="cpp/atomic/atomic fetch add"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_add_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_and.html" title="cpp/atomic/atomic fetch and"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_and<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_and.html" title="cpp/atomic/atomic fetch and"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_and_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_or.html" title="cpp/atomic/atomic fetch or"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_or<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_or.html" title="cpp/atomic/atomic fetch or"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_or_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_sub.html" title="cpp/atomic/atomic fetch sub"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_sub<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_sub.html" title="cpp/atomic/atomic fetch sub"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_sub_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_xor.html" title="cpp/atomic/atomic fetch xor"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_xor<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_fetch_xor.html" title="cpp/atomic/atomic fetch xor"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_fetch_xor_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_flag.html" title="cpp/atomic/atomic flag"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_flag</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_flag_clear.html" title="cpp/atomic/atomic flag clear"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_flag_clear<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_flag_clear.html" title="cpp/atomic/atomic flag clear"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_flag_clear_explicit<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_flag_test_and_set.html" title="cpp/atomic/atomic flag test and set"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_flag_test_and_set<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_flag_test_and_set.html" title="cpp/atomic/atomic flag test and set"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_flag_test_and_set_explicit<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/ATOMIC_FLAG_INIT.html" title="cpp/atomic/ATOMIC FLAG INIT"> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="atomic/ATOMIC_FLAG_INIT.html"><span class="kw1885">ATOMIC_FLAG_INIT</span></a><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_init.html" title="cpp/atomic/atomic init"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_init<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p><a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_is_lockfree<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</p>
+<div class="mw-collapsible-content">
+<p>defines for atomic_is_lock_free: <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_BOOL_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_CHAR_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_CHAR16_T_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_CHAR32_T_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_INT_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_LLONG_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_LONG_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_POINTER_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_SHORT_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_is_lock_free.html" title="cpp/atomic/atomic is lock free"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ATOMIC_WCHAR_T_LOCK_FREE<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+</div>
+</div>
+<p><a href="atomic/atomic_load.html" title="cpp/atomic/atomic load"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_load<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_load.html" title="cpp/atomic/atomic load"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_load_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_signal_fence.html" title="cpp/atomic/atomic signal fence"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_signal_fence<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_store.html" title="cpp/atomic/atomic store"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_store<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_store.html" title="cpp/atomic/atomic store"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_store_explicit<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/atomic_thread_fence.html" title="cpp/atomic/atomic thread fence"> <span class="t-c"><span class="mw-geshi cpp source-cpp">atomic_thread_fence<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="atomic/ATOMIC_VAR_INIT.html" title="cpp/atomic/ATOMIC VAR INIT"> <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="atomic/ATOMIC_VAR_INIT.html"><span class="kw1884">ATOMIC_VAR_INIT</span></a><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/auto_ptr.html" title="cpp/memory/auto ptr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">auto_ptr<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-until-cxx17">(until C++17)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: B">edit</a>]</span> <span class="mw-headline" id="B">B</span>
+</h1>
+<p><a href="iterator/back_inserter.html" title="cpp/iterator/back inserter"> <span class="t-c"><span class="mw-geshi cpp source-cpp">back_inserter<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="iterator/back_insert_iterator.html" title="cpp/iterator/back insert iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">back_insert_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="utility/any/bad_any_cast.html" title="cpp/utility/any/bad any cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">bad_any_cast</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/bad_weak_ptr.html" title="cpp/memory/bad weak ptr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">bad_weak_ptr</span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/basic_filebuf.html" title="cpp/io/basic filebuf"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_filebuf<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_fstream.html" title="cpp/io/basic fstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_fstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_ifstream.html" title="cpp/io/basic ifstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_istream.html" title="cpp/io/basic istream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_istream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_ios.html" title="cpp/io/basic ios"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ios<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_iostream.html" title="cpp/io/basic iostream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_iostream</span></span></a> <br>
+<a href="io/basic_istringstream.html" title="cpp/io/basic istringstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_istringstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_ofstream.html" title="cpp/io/basic ofstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ofstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_ostream.html" title="cpp/io/basic ostream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_ostringstream.html" title="cpp/io/basic ostringstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ostringstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_streambuf.html" title="cpp/io/basic streambuf"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_streambuf<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="string/basic_string.html" title="cpp/string/basic string"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_string<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_stringbuf.html" title="cpp/io/basic stringbuf"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_stringbuf<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/basic_stringstream.html" title="cpp/io/basic stringstream"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_stringstream<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="string/basic_string_view.html" title="cpp/string/basic string view"> <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_string_view<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="iterator/begin.html" title="cpp/iterator/begin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">begin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> (iterator)<br>
+<a href="iterator/iterator_tags.html" title="cpp/iterator/iterator tags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">bidirectional_iterator_tag</span></span></a> <br>
+<a href="algorithm/binary_search.html" title="cpp/algorithm/binary search"> <span class="t-c"><span class="mw-geshi cpp source-cpp">binary_search<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="utility/bitset.html" title="cpp/utility/bitset"> <span class="t-c"><span class="mw-geshi cpp source-cpp">bitset<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/boolalpha.html" title="cpp/io/manip/boolalpha"> <span class="t-c"><span class="mw-geshi cpp source-cpp">boolalpha<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: C">edit</a>]</span> <span class="mw-headline" id="C">C</span>
+</h1>
+<p><a href="thread/call_once.html" title="cpp/thread/call once"> <span class="t-c"><span class="mw-geshi cpp source-cpp">call_once<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="iterator/begin.html" title="cpp/iterator/begin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cbegin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="iterator/end.html" title="cpp/iterator/end"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cend<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="io/cerr.html" title="cpp/io/cerr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cerr</span></span></a> <br>
+<a href="symbol_index/chrono.html" title="cpp/symbol index/chrono"> <span class="t-c"><span class="mw-geshi cpp source-cpp">chrono</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/cin.html" title="cpp/io/cin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cin</span></span></a> <br>
+<a href="algorithm/clamp.html" title="cpp/algorithm/clamp"> <span class="t-c"><span class="mw-geshi cpp source-cpp">clamp<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="io/clog.html" title="cpp/io/clog"> <span class="t-c"><span class="mw-geshi cpp source-cpp">clog</span></span></a> <br>
+<a href="numeric/complex.html" title="cpp/numeric/complex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">complex<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="thread/condition_variable.html" title="cpp/thread/condition variable"> <span class="t-c"><span class="mw-geshi cpp source-cpp">condition_variable</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/condition_variable_any.html" title="cpp/thread/condition variable any"> <span class="t-c"><span class="mw-geshi cpp source-cpp">condition_variable_any</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/conj.html" title="cpp/numeric/complex/conj"> <span class="t-c"><span class="mw-geshi cpp source-cpp">conj<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/copy.html" title="cpp/algorithm/copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/copy_backward.html" title="cpp/algorithm/copy backward"> <span class="t-c"><span class="mw-geshi cpp source-cpp">copy_backward<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/copy.html" title="cpp/algorithm/copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">copy_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/copy_n.html" title="cpp/algorithm/copy n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">copy_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/shared_ptr/pointer_cast.html" title="cpp/memory/shared ptr/pointer cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">const_pointer_cast<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/cos.html" title="cpp/numeric/complex/cos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cos<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/cosh.html" title="cpp/numeric/complex/cosh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cosh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="algorithm/count_if.html" title="cpp/algorithm/count"> <span class="t-c"><span class="mw-geshi cpp source-cpp">count<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/count_if.html" title="cpp/algorithm/count if" class="mw-redirect"> <span class="t-c"><span class="mw-geshi cpp source-cpp">count_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/cout.html" title="cpp/io/cout"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cout</span></span></a> <br>
+<a href="iterator/rbegin.html" title="cpp/iterator/rbegin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">crbegin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="iterator/rend.html" title="cpp/iterator/rend"> <span class="t-c"><span class="mw-geshi cpp source-cpp">crend<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="thread/cv_status.html" title="cpp/thread/cv status"> <span class="t-c"><span class="mw-geshi cpp source-cpp">cv_status</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: D">edit</a>]</span> <span class="mw-headline" id="D">D</span>
+</h1>
+<p><a href="iterator/data.html" title="cpp/iterator/data"> <span class="t-c"><span class="mw-geshi cpp source-cpp">data<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="io/manip/hex.html" title="cpp/io/manip/hex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">dec<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/gc/declare_no_pointers.html" title="cpp/memory/gc/declare no pointers"> <span class="t-c"><span class="mw-geshi cpp source-cpp">declare_no_pointers<span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/gc/declare_reachable.html" title="cpp/memory/gc/declare reachable"> <span class="t-c"><span class="mw-geshi cpp source-cpp">declare_reachable<span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/default_delete.html" title="cpp/memory/default delete"> <span class="t-c"><span class="mw-geshi cpp source-cpp">default_delete</span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/fixed.html" title="cpp/io/manip/fixed"> <span class="t-c"><span class="mw-geshi cpp source-cpp">defaultfloat<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_tag.html" title="cpp/thread/lock tag"> <span class="t-c"><span class="mw-geshi cpp source-cpp">defer_lock</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_tag_t.html" title="cpp/thread/lock tag t"> <span class="t-c"><span class="mw-geshi cpp source-cpp">defer_lock_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="container/deque.html" title="cpp/container/deque"> <span class="t-c"><span class="mw-geshi cpp source-cpp">deque<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/destroy.html" title="cpp/memory/destroy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">destroy<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/destroy_at.html" title="cpp/memory/destroy at"> <span class="t-c"><span class="mw-geshi cpp source-cpp">destroy_at<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/destroy_n.html" title="cpp/memory/destroy n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">destroy_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="iterator/distance.html" title="cpp/iterator/distance"> <span class="t-c"><span class="mw-geshi cpp source-cpp">distance<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/shared_ptr/pointer_cast.html" title="cpp/memory/shared ptr/pointer cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">dynamic_pointer_cast<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: E">edit</a>]</span> <span class="mw-headline" id="E">E</span>
+</h1>
+<p><a href="iterator/empty.html" title="cpp/iterator/empty"> <span class="t-c"><span class="mw-geshi cpp source-cpp">empty<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/enable_shared_from_this.html" title="cpp/memory/enable shared from this"> <span class="t-c"><span class="mw-geshi cpp source-cpp">enable_shared_from_this<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="iterator/end.html" title="cpp/iterator/end"> <span class="t-c"><span class="mw-geshi cpp source-cpp">end<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> (iterator) <br>
+<a href="io/manip/endl.html" title="cpp/io/manip/endl"> <span class="t-c"><span class="mw-geshi cpp source-cpp">endl<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/ends.html" title="cpp/io/manip/ends"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ends<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/equal.html" title="cpp/algorithm/equal"> <span class="t-c"><span class="mw-geshi cpp source-cpp">equal<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/equal_range.html" title="cpp/algorithm/equal range"> <span class="t-c"><span class="mw-geshi cpp source-cpp">equal_range<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/exclusive_scan.html" title="cpp/algorithm/exclusive scan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">exclusive_scan<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="numeric/complex/exp.html" title="cpp/numeric/complex/exp"> <span class="t-c"><span class="mw-geshi cpp source-cpp">exp<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: F">edit</a>]</span> <span class="mw-headline" id="F">F</span>
+</h1>
+<p><a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">filebuf</span></span></a> <br>
+<a href="symbol_index/filesystem.html" title="cpp/symbol index/filesystem"> <span class="t-c"><span class="mw-geshi cpp source-cpp">filesystem</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/fill.html" title="cpp/algorithm/fill"> <span class="t-c"><span class="mw-geshi cpp source-cpp">fill<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/fill_n.html" title="cpp/algorithm/fill n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">fill_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/find_if_not.html" title="cpp/algorithm/find"> <span class="t-c"><span class="mw-geshi cpp source-cpp">find<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/find_end.html" title="cpp/algorithm/find end"> <span class="t-c"><span class="mw-geshi cpp source-cpp">find_end<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/find_first_of.html" title="cpp/algorithm/find first of"> <span class="t-c"><span class="mw-geshi cpp source-cpp">find_first_of<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/find_if.html" title="cpp/algorithm/find if" class="mw-redirect"> <span class="t-c"><span class="mw-geshi cpp source-cpp">find_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/find_if_not.html" title="cpp/algorithm/find if not" class="mw-redirect"> <span class="t-c"><span class="mw-geshi cpp source-cpp">find_if_not<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="io/manip/fixed.html" title="cpp/io/manip/fixed"> <span class="t-c"><span class="mw-geshi cpp source-cpp">fixed<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/flush.html" title="cpp/io/manip/flush"> <span class="t-c"><span class="mw-geshi cpp source-cpp">flush<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/for_each.html" title="cpp/algorithm/for each"> <span class="t-c"><span class="mw-geshi cpp source-cpp">for_each<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/for_each_n.html" title="cpp/algorithm/for each n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">for_each_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="iterator/iterator_tags.html" title="cpp/iterator/iterator tags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">forward_iterator_tag</span></span></a> <br>
+<a href="container/forward_list.html" title="cpp/container/forward list"> <span class="t-c"><span class="mw-geshi cpp source-cpp">forward_list<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/fpos.html" title="cpp/io/fpos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">fpos<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/front_inserter.html" title="cpp/iterator/front inserter"> <span class="t-c"><span class="mw-geshi cpp source-cpp">front_inserter<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="iterator/front_insert_iterator.html" title="cpp/iterator/front insert iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">front_insert_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">fstream</span></span></a> <br>
+<a href="thread/future.html" title="cpp/thread/future"> <span class="t-c"><span class="mw-geshi cpp source-cpp">future<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/future_errc.html" title="cpp/thread/future errc"> <span class="t-c"><span class="mw-geshi cpp source-cpp">future_errc</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/future_category.html" title="cpp/thread/future category"> <span class="t-c"><span class="mw-geshi cpp source-cpp">future_category<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/future_error.html" title="cpp/thread/future error"> <span class="t-c"><span class="mw-geshi cpp source-cpp">future_error</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/future_status.html" title="cpp/thread/future status"> <span class="t-c"><span class="mw-geshi cpp source-cpp">future_status</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: G">edit</a>]</span> <span class="mw-headline" id="G">G</span>
+</h1>
+<p><a href="algorithm/generate.html" title="cpp/algorithm/generate"> <span class="t-c"><span class="mw-geshi cpp source-cpp">generate<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/generate_n.html" title="cpp/algorithm/generate n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">generate_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/shared_ptr/get_deleter.html" title="cpp/memory/shared ptr/get deleter"> <span class="t-c"><span class="mw-geshi cpp source-cpp">get_deleter<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/get_money.html" title="cpp/io/manip/get money"> <span class="t-c"><span class="mw-geshi cpp source-cpp">get_money<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/gc/get_pointer_safety.html" title="cpp/memory/gc/get pointer safety"> <span class="t-c"><span class="mw-geshi cpp source-cpp">get_pointer_safety<span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/get_time.html" title="cpp/io/manip/get time"> <span class="t-c"><span class="mw-geshi cpp source-cpp">get_time<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: H">edit</a>]</span> <span class="mw-headline" id="H">H</span>
+</h1>
+<p><a href="thread/hardware_destructive_interference_size.html" title="cpp/thread/hardware destructive interference size"> <span class="t-c"><span class="mw-geshi cpp source-cpp">hardware_constructive_interference_size</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/hardware_destructive_interference_size.html" title="cpp/thread/hardware destructive interference size"> <span class="t-c"><span class="mw-geshi cpp source-cpp">hardware_destructive_interference_size</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/hex.html" title="cpp/io/manip/hex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">hex<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/fixed.html" title="cpp/io/manip/fixed"> <span class="t-c"><span class="mw-geshi cpp source-cpp">hexfloat<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: I">edit</a>]</span> <span class="mw-headline" id="I">I</span>
+</h1>
+<p><a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ifstream</span></span></a> <br>
+<a href="numeric/complex/imag2.html" title="cpp/numeric/complex/imag2"> <span class="t-c"><span class="mw-geshi cpp source-cpp">imag<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/includes.html" title="cpp/algorithm/includes"> <span class="t-c"><span class="mw-geshi cpp source-cpp">includes<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/inclusive_scan.html" title="cpp/algorithm/inclusive scan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">inclusive_scan<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/inner_product.html" title="cpp/algorithm/inner product"> <span class="t-c"><span class="mw-geshi cpp source-cpp">inner_product<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/inplace_merge.html" title="cpp/algorithm/inplace merge"> <span class="t-c"><span class="mw-geshi cpp source-cpp">inplace_merge<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/iterator_tags.html" title="cpp/iterator/iterator tags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">input_iterator_tag</span></span></a> <br>
+<a href="iterator/inserter.html" title="cpp/iterator/inserter"> <span class="t-c"><span class="mw-geshi cpp source-cpp">inserter<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="iterator/insert_iterator.html" title="cpp/iterator/insert iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">insert_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/left.html" title="cpp/io/manip/left"> <span class="t-c"><span class="mw-geshi cpp source-cpp">internal<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ios</span></span></a> <br>
+<a href="io/ios_base.html" title="cpp/io/ios base"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ios_base</span></span></a> <br>
+<a href="io/io_errc.html" title="cpp/io/io errc"> <span class="t-c"><span class="mw-geshi cpp source-cpp">io_errc</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iostream</span></span></a> <br>
+<a href="io/iostream_category.html" title="cpp/io/iostream category"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iostream_category</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/iota.html" title="cpp/algorithm/iota"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iota<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="error/error_code/is_error_code_enum.html" title="cpp/error/error code/is error code enum"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_error_code_enum<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/io_errc/is_error_code_enum.html" title="cpp/io/io errc/is error code enum"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_error_code_enum<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;</span> io_errc<span class="sy1">&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_heap.html" title="cpp/algorithm/is heap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_heap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_heap_until.html" title="cpp/algorithm/is heap until"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_heap_until<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_partitioned.html" title="cpp/algorithm/is partitioned"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_partitioned<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_permutation.html" title="cpp/algorithm/is permutation"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_permutation<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_sorted.html" title="cpp/algorithm/is sorted"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_sorted<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/is_sorted_until.html" title="cpp/algorithm/is sorted until"> <span class="t-c"><span class="mw-geshi cpp source-cpp">is_sorted_until<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">istream</span></span></a> <br>
+<a href="iterator/istreambuf_iterator.html" title="cpp/iterator/istreambuf iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">istreambuf_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/istream_iterator.html" title="cpp/iterator/istream iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">istream_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">istringstream</span></span></a> <br>
+<a href="iterator/iterator.html" title="cpp/iterator/iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iterator<span class="sy1">&lt;&gt;</span></span></span></a> notes=<span class="t-mark">(deprecated in C++17)</span> <br>
+<a href="iterator/iterator_traits.html" title="cpp/iterator/iterator traits"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iterator_traits<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/iter_swap.html" title="cpp/algorithm/iter swap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">iter_swap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: J">edit</a>]</span> <span class="mw-headline" id="J">J</span>
+</h1>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: K">edit</a>]</span> <span class="mw-headline" id="K">K</span>
+</h1>
+<p><a href="atomic/kill_dependency.html" title="cpp/atomic/kill dependency"> <span class="t-c"><span class="mw-geshi cpp source-cpp">kill_dependency<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: L">edit</a>]</span> <span class="mw-headline" id="L">L</span>
+</h1>
+<p><a href="thread/launch.html" title="cpp/thread/launch"> <span class="t-c"><span class="mw-geshi cpp source-cpp">launch</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/left.html" title="cpp/io/manip/left"> <span class="t-c"><span class="mw-geshi cpp source-cpp">left<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/lexicographical_compare.html" title="cpp/algorithm/lexicographical compare"> <span class="t-c"><span class="mw-geshi cpp source-cpp">lexicographical_compare<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="container/list.html" title="cpp/container/list"> <span class="t-c"><span class="mw-geshi cpp source-cpp">list<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="thread/lock.html" title="cpp/thread/lock"> <span class="t-c"><span class="mw-geshi cpp source-cpp">lock<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_guard.html" title="cpp/thread/lock guard"> <span class="t-c"><span class="mw-geshi cpp source-cpp">lock_guard<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/log.html" title="cpp/numeric/complex/log"> <span class="t-c"><span class="mw-geshi cpp source-cpp">log<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/log10.html" title="cpp/numeric/complex/log10"> <span class="t-c"><span class="mw-geshi cpp source-cpp">log10<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="algorithm/lower_bound.html" title="cpp/algorithm/lower bound"> <span class="t-c"><span class="mw-geshi cpp source-cpp">lower_bound<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: M">edit</a>]</span> <span class="mw-headline" id="M">M</span>
+</h1>
+<p><a href="utility/any/make_any.html" title="cpp/utility/any/make any"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_any<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="error/errc/make_error_code.html" title="cpp/error/errc/make error code"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_error_code<span class="br0">(</span> errc<span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/io_errc/make_error_code.html" title="cpp/io/io errc/make error code"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_error_code<span class="br0">(</span> io_errc<span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="error/errc/make_error_condition.html" title="cpp/error/errc/make error condition"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_error_condition<span class="br0">(</span> errc<span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/io_errc/make_error_condition.html" title="cpp/io/io errc/make error condition"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_error_condition<span class="br0">(</span> io_errc<span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/make_heap.html" title="cpp/algorithm/make heap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_heap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/make_move_iterator.html" title="cpp/iterator/make move iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_move_iterator<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="iterator/make_reverse_iterator.html" title="cpp/iterator/make reverse iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_reverse_iterator<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="memory/shared_ptr/make_shared.html" title="cpp/memory/shared ptr/make shared"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_shared<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/unique_ptr/make_unique.html" title="cpp/memory/unique ptr/make unique"> <span class="t-c"><span class="mw-geshi cpp source-cpp">make_unique<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="container/map.html" title="cpp/container/map"> <span class="t-c"><span class="mw-geshi cpp source-cpp">map<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/max.html" title="cpp/algorithm/max"> <span class="t-c"><span class="mw-geshi cpp source-cpp">max<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/max_element.html" title="cpp/algorithm/max element"> <span class="t-c"><span class="mw-geshi cpp source-cpp">max_element<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="atomic/memory_order.html" title="cpp/atomic/memory order"> <span class="t-c"><span class="mw-geshi cpp source-cpp">memory_order</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/memory_resource.html" title="cpp/memory/memory resource"> <span class="t-c"><span class="mw-geshi cpp source-cpp">memory_resource</span></span></a>  <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/merge.html" title="cpp/algorithm/merge"> <span class="t-c"><span class="mw-geshi cpp source-cpp">merge<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/min.html" title="cpp/algorithm/min"> <span class="t-c"><span class="mw-geshi cpp source-cpp">min<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/min_element.html" title="cpp/algorithm/min element"> <span class="t-c"><span class="mw-geshi cpp source-cpp">min_element<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/minmax.html" title="cpp/algorithm/minmax"> <span class="t-c"><span class="mw-geshi cpp source-cpp">minmax<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/minmax_element.html" title="cpp/algorithm/minmax element"> <span class="t-c"><span class="mw-geshi cpp source-cpp">minmax_element<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/mismatch.html" title="cpp/algorithm/mismatch"> <span class="t-c"><span class="mw-geshi cpp source-cpp">mismatch<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/move.html" title="cpp/algorithm/move"> <span class="t-c"><span class="mw-geshi cpp source-cpp">move<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> (algorithm) <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="utility/move.html" title="cpp/utility/move"> <span class="t-c"><span class="mw-geshi cpp source-cpp">move<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> (utility) <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/move_backward.html" title="cpp/algorithm/move backward"> <span class="t-c"><span class="mw-geshi cpp source-cpp">move_backward<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="iterator/move_iterator.html" title="cpp/iterator/move iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">move_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="container/multimap.html" title="cpp/container/multimap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">multimap<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="container/multiset.html" title="cpp/container/multiset"> <span class="t-c"><span class="mw-geshi cpp source-cpp">multiset<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="thread/mutex.html" title="cpp/thread/mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">mutex</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: N">edit</a>]</span> <span class="mw-headline" id="N">N</span>
+</h1>
+<p><a href="iterator/next.html" title="cpp/iterator/next"> <span class="t-c"><span class="mw-geshi cpp source-cpp">next<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/next_permutation.html" title="cpp/algorithm/next permutation"> <span class="t-c"><span class="mw-geshi cpp source-cpp">next_permutation<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/boolalpha.html" title="cpp/io/manip/boolalpha"> <span class="t-c"><span class="mw-geshi cpp source-cpp">noboolalpha<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/all_any_none_of.html" title="cpp/algorithm/all any none of"> <span class="t-c"><span class="mw-geshi cpp source-cpp">none_of<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/norm.html" title="cpp/numeric/complex/norm"> <span class="t-c"><span class="mw-geshi cpp source-cpp">norm<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/showbase.html" title="cpp/io/manip/showbase"> <span class="t-c"><span class="mw-geshi cpp source-cpp">noshowbase<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/showpoint.html" title="cpp/io/manip/showpoint"> <span class="t-c"><span class="mw-geshi cpp source-cpp">noshowpoint<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/showpos.html" title="cpp/io/manip/showpos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">noshowpos<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/skipws.html" title="cpp/io/manip/skipws"> <span class="t-c"><span class="mw-geshi cpp source-cpp">noskipws<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="thread/notify_all_at_thread_exit.html" title="cpp/thread/notify all at thread exit"> <span class="t-c"><span class="mw-geshi cpp source-cpp">notify_all_at_thread_exit<span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/unitbuf.html" title="cpp/io/manip/unitbuf"> <span class="t-c"><span class="mw-geshi cpp source-cpp">nounitbuf<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/uppercase.html" title="cpp/io/manip/uppercase"> <span class="t-c"><span class="mw-geshi cpp source-cpp">nouppercase<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/nth_element.html" title="cpp/algorithm/nth element"> <span class="t-c"><span class="mw-geshi cpp source-cpp">nth_element<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: O">edit</a>]</span> <span class="mw-headline" id="O">O</span>
+</h1>
+<p><a href="io/manip/hex.html" title="cpp/io/manip/hex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">oct<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="thread/once_flag.html" title="cpp/thread/once flag"> <span class="t-c"><span class="mw-geshi cpp source-cpp">once_flag</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ofstream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ostream</span></span></a> <br>
+<a href="iterator/ostreambuf_iterator.html" title="cpp/iterator/ostreambuf iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ostreambuf_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/ostream_iterator.html" title="cpp/iterator/ostream iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ostream_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ostringstream</span></span></a> <br>
+<a href="iterator/iterator_tags.html" title="cpp/iterator/iterator tags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">output_iterator_tag</span></span></a> <br>
+<a href="memory/owner_less.html" title="cpp/memory/owner less"> <span class="t-c"><span class="mw-geshi cpp source-cpp">owner_less<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: P">edit</a>]</span> <span class="mw-headline" id="P">P</span>
+</h1>
+<p><a href="thread/packaged_task.html" title="cpp/thread/packaged task"> <span class="t-c"><span class="mw-geshi cpp source-cpp">packaged_task<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/partial_sort.html" title="cpp/algorithm/partial sort"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partial_sort<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/partial_sort_copy.html" title="cpp/algorithm/partial sort copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partial_sort_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/partial_sum.html" title="cpp/algorithm/partial sum"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partial_sum<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/partition.html" title="cpp/algorithm/partition"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partition<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/partition_copy.html" title="cpp/algorithm/partition copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partition_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/partition_point.html" title="cpp/algorithm/partition point"> <span class="t-c"><span class="mw-geshi cpp source-cpp">partition_point<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/gc/pointer_safety.html" title="cpp/memory/gc/pointer safety"> <span class="t-c"><span class="mw-geshi cpp source-cpp">pointer_safety</span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/pointer_traits.html" title="cpp/memory/pointer traits"> <span class="t-c"><span class="mw-geshi cpp source-cpp">pointer_traits<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/polymorphic_allocator.html" title="cpp/memory/polymorphic allocator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">polymorphic_allocator<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="http://en.cppreference.com/mwiki/index.php" class="new" title="cpp/symbol index/pmr (page does not exist)"> <span class="t-c"><span class="mw-geshi cpp source-cpp">pmr</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="numeric/complex/polar.html" title="cpp/numeric/complex/polar"> <span class="t-c"><span class="mw-geshi cpp source-cpp">polar<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/pop_heap.html" title="cpp/algorithm/pop heap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">pop_heap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="numeric/complex/pow.html" title="cpp/numeric/complex/pow"> <span class="t-c"><span class="mw-geshi cpp source-cpp">pow<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="iterator/prev.html" title="cpp/iterator/prev"> <span class="t-c"><span class="mw-geshi cpp source-cpp">prev<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/prev_permutation.html" title="cpp/algorithm/prev permutation"> <span class="t-c"><span class="mw-geshi cpp source-cpp">prev_permutation<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="container/priority_queue.html" title="cpp/container/priority queue"> <span class="t-c"><span class="mw-geshi cpp source-cpp">priority_queue<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="numeric/complex/proj.html" title="cpp/numeric/complex/proj"> <span class="t-c"><span class="mw-geshi cpp source-cpp">proj<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/promise.html" title="cpp/thread/promise"> <span class="t-c"><span class="mw-geshi cpp source-cpp">promise<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/push_heap.html" title="cpp/algorithm/push heap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">push_heap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/put_money.html" title="cpp/io/manip/put money"> <span class="t-c"><span class="mw-geshi cpp source-cpp">put_money<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/put_time.html" title="cpp/io/manip/put time"> <span class="t-c"><span class="mw-geshi cpp source-cpp">put_time<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Q">edit</a>]</span> <span class="mw-headline" id="Q">Q</span>
+</h1>
+<p><a href="container/queue.html" title="cpp/container/queue"> <span class="t-c"><span class="mw-geshi cpp source-cpp">queue<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/quoted.html" title="cpp/io/manip/quoted"> <span class="t-c"><span class="mw-geshi cpp source-cpp">quoted<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: R">edit</a>]</span> <span class="mw-headline" id="R">R</span>
+</h1>
+<p><a href="iterator/iterator_tags.html" title="cpp/iterator/iterator tags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">random_access_iterator_tag</span></span></a> <br>
+<a href="algorithm/random_shuffle.html" title="cpp/algorithm/random shuffle"> <span class="t-c"><span class="mw-geshi cpp source-cpp">random_shuffle<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-until-cxx17">(until C++17)</span> <br>
+<a href="numeric/complex/real2.html" title="cpp/numeric/complex/real2"> <span class="t-c"><span class="mw-geshi cpp source-cpp">real<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="thread/recursive_mutex.html" title="cpp/thread/recursive mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">recursive_mutex</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/recursive_timed_mutex.html" title="cpp/thread/recursive timed mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">recursive_timed_mutex</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/reduce.html" title="cpp/algorithm/reduce"> <span class="t-c"><span class="mw-geshi cpp source-cpp">reduce<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/shared_ptr/pointer_cast.html" title="cpp/memory/shared ptr/pointer cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">reinterpret_pointer_cast<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/remove.html" title="cpp/algorithm/remove"> <span class="t-c"><span class="mw-geshi cpp source-cpp">remove<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/remove_copy.html" title="cpp/algorithm/remove copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">remove_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/remove_copy.html" title="cpp/algorithm/remove copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">remove_copy_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/remove.html" title="cpp/algorithm/remove"> <span class="t-c"><span class="mw-geshi cpp source-cpp">remove_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/rbegin.html" title="cpp/iterator/rbegin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">rbegin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="iterator/rend.html" title="cpp/iterator/rend"> <span class="t-c"><span class="mw-geshi cpp source-cpp">rend<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="algorithm/replace.html" title="cpp/algorithm/replace"> <span class="t-c"><span class="mw-geshi cpp source-cpp">replace<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/replace_copy_if.html" title="cpp/algorithm/replace copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">replace_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/replace_copy_if.html" title="cpp/algorithm/replace copy if" class="mw-redirect"> <span class="t-c"><span class="mw-geshi cpp source-cpp">replace_copy_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/replace.html" title="cpp/algorithm/replace"> <span class="t-c"><span class="mw-geshi cpp source-cpp">replace_if<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/resetiosflags.html" title="cpp/io/manip/resetiosflags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">resetiosflags<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/reverse.html" title="cpp/algorithm/reverse"> <span class="t-c"><span class="mw-geshi cpp source-cpp">reverse<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/reverse_copy.html" title="cpp/algorithm/reverse copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">reverse_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="iterator/reverse_iterator.html" title="cpp/iterator/reverse iterator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">reverse_iterator<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/left.html" title="cpp/io/manip/left"> <span class="t-c"><span class="mw-geshi cpp source-cpp">right<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/rotate.html" title="cpp/algorithm/rotate"> <span class="t-c"><span class="mw-geshi cpp source-cpp">rotate<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/rotate_copy.html" title="cpp/algorithm/rotate copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">rotate_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: S">edit</a>]</span> <span class="mw-headline" id="S">S</span>
+</h1>
+<p><a href="algorithm/sample.html" title="cpp/algorithm/sample"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sample<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="io/manip/fixed.html" title="cpp/io/manip/fixed"> <span class="t-c"><span class="mw-geshi cpp source-cpp">scientific<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/scoped_allocator_adaptor.html" title="cpp/memory/scoped allocator adaptor"> <span class="t-c"><span class="mw-geshi cpp source-cpp">scoped_allocator_adaptor<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/search.html" title="cpp/algorithm/search"> <span class="t-c"><span class="mw-geshi cpp source-cpp">search<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/search_n.html" title="cpp/algorithm/search n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">search_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="container/set.html" title="cpp/container/set"> <span class="t-c"><span class="mw-geshi cpp source-cpp">set<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/setbase.html" title="cpp/io/manip/setbase"> <span class="t-c"><span class="mw-geshi cpp source-cpp">setbase<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/set_difference.html" title="cpp/algorithm/set difference"> <span class="t-c"><span class="mw-geshi cpp source-cpp">set_difference<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/setfill.html" title="cpp/io/manip/setfill"> <span class="t-c"><span class="mw-geshi cpp source-cpp">setfill<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/set_intersection.html" title="cpp/algorithm/set intersection"> <span class="t-c"><span class="mw-geshi cpp source-cpp">set_intersection<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/setiosflags.html" title="cpp/io/manip/setiosflags"> <span class="t-c"><span class="mw-geshi cpp source-cpp">setiosflags<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/setprecision.html" title="cpp/io/manip/setprecision"> <span class="t-c"><span class="mw-geshi cpp source-cpp">setprecision<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/set_symmetric_difference.html" title="cpp/algorithm/set symmetric difference"> <span class="t-c"><span class="mw-geshi cpp source-cpp">set_symmetric_difference<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/set_union.html" title="cpp/algorithm/set union"> <span class="t-c"><span class="mw-geshi cpp source-cpp">set_union<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/setw.html" title="cpp/io/manip/setw"> <span class="t-c"><span class="mw-geshi cpp source-cpp">setw<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="thread/shared_future.html" title="cpp/thread/shared future"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shared_future<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/shared_lock.html" title="cpp/thread/shared lock"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shared_lock<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="thread/shared_mutex.html" title="cpp/thread/shared mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shared_mutex</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="thread/shared_timed_mutex.html" title="cpp/thread/shared timed mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shared_timed_mutex</span></span></a> <span class="t-mark-rev t-since-cxx14">(since C++14)</span> <br>
+<a href="memory/shared_ptr.html" title="cpp/memory/shared ptr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shared_ptr<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/showbase.html" title="cpp/io/manip/showbase"> <span class="t-c"><span class="mw-geshi cpp source-cpp">showbase<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/showpoint.html" title="cpp/io/manip/showpoint"> <span class="t-c"><span class="mw-geshi cpp source-cpp">showpoint<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="io/manip/showpos.html" title="cpp/io/manip/showpos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">showpos<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/random_shuffle.html" title="cpp/algorithm/random shuffle"> <span class="t-c"><span class="mw-geshi cpp source-cpp">shuffle<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="numeric/complex/sin.html" title="cpp/numeric/complex/sin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sin<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/sinh.html" title="cpp/numeric/complex/sinh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sinh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="iterator/size.html" title="cpp/iterator/size"> <span class="t-c"><span class="mw-geshi cpp source-cpp">size<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="io/manip/skipws.html" title="cpp/io/manip/skipws"> <span class="t-c"><span class="mw-geshi cpp source-cpp">skipws<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="algorithm/sort.html" title="cpp/algorithm/sort"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sort<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/sort_heap.html" title="cpp/algorithm/sort heap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sort_heap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="numeric/complex/sqrt.html" title="cpp/numeric/complex/sqrt"> <span class="t-c"><span class="mw-geshi cpp source-cpp">sqrt<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="algorithm/stable_partition.html" title="cpp/algorithm/stable partition"> <span class="t-c"><span class="mw-geshi cpp source-cpp">stable_partition<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/stable_sort.html" title="cpp/algorithm/stable sort"> <span class="t-c"><span class="mw-geshi cpp source-cpp">stable_sort<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="container/stack.html" title="cpp/container/stack"> <span class="t-c"><span class="mw-geshi cpp source-cpp">stack<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/shared_ptr/pointer_cast.html" title="cpp/memory/shared ptr/pointer cast"> <span class="t-c"><span class="mw-geshi cpp source-cpp">static_pointer_cast<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">streambuf</span></span></a> <br>
+<a href="io/streamoff.html" title="cpp/io/streamoff"> <span class="t-c"><span class="mw-geshi cpp source-cpp">streamoff</span></span></a> <br>
+<a href="io/fpos.html" title="cpp/io/fpos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">streampos</span></span></a> <br>
+<a href="io/streamsize.html" title="cpp/io/streamsize"> <span class="t-c"><span class="mw-geshi cpp source-cpp">streamsize</span></span></a> <br>
+<a href="string/basic_string.html" title="cpp/string/basic string"> <span class="t-c"><span class="mw-geshi cpp source-cpp">string</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">stringbuf</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">stringstream</span></span></a> <br>
+<a href="string/basic_string_view.html" title="cpp/string/basic string view"> <span class="t-c"><span class="mw-geshi cpp source-cpp">string_view</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/swap.html" title="cpp/algorithm/swap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">swap<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/swap_ranges.html" title="cpp/algorithm/swap ranges"> <span class="t-c"><span class="mw-geshi cpp source-cpp">swap_ranges<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: T">edit</a>]</span> <span class="mw-headline" id="T">T</span>
+</h1>
+<p><a href="numeric/complex/tan.html" title="cpp/numeric/complex/tan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">tan<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="numeric/complex/tanh.html" title="cpp/numeric/complex/tanh"> <span class="t-c"><span class="mw-geshi cpp source-cpp">tanh<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> (std::complex) <br>
+<a href="symbol_index/this_thread.html" title="cpp/symbol index/this thread"> <span class="t-c"><span class="mw-geshi cpp source-cpp">this_thread</span></span></a> <br>
+<a href="thread/thread.html" title="cpp/thread/thread"> <span class="t-c"><span class="mw-geshi cpp source-cpp">thread</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/timed_mutex.html" title="cpp/thread/timed mutex"> <span class="t-c"><span class="mw-geshi cpp source-cpp">timed_mutex</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/transform.html" title="cpp/algorithm/transform"> <span class="t-c"><span class="mw-geshi cpp source-cpp">transform<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/transform_exclusive_scan.html" title="cpp/algorithm/transform exclusive scan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">transform_exclusive_scan<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/transform_inclusive_scan.html" title="cpp/algorithm/transform inclusive scan"> <span class="t-c"><span class="mw-geshi cpp source-cpp">transform_inclusive_scan<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="algorithm/transform_reduce.html" title="cpp/algorithm/transform reduce"> <span class="t-c"><span class="mw-geshi cpp source-cpp">transform_reduce<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="thread/try_lock.html" title="cpp/thread/try lock"> <span class="t-c"><span class="mw-geshi cpp source-cpp">try_lock<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_tag.html" title="cpp/thread/lock tag"> <span class="t-c"><span class="mw-geshi cpp source-cpp">try_to_lock</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="thread/lock_tag_t.html" title="cpp/thread/lock tag t"> <span class="t-c"><span class="mw-geshi cpp source-cpp">try_to_lock_t</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: U">edit</a>]</span> <span class="mw-headline" id="U">U</span>
+</h1>
+<p><a href="string/basic_string.html" title="cpp/string/basic string"> <span class="t-c"><span class="mw-geshi cpp source-cpp">u16string</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="string/basic_string_view.html" title="cpp/string/basic string view"> <span class="t-c"><span class="mw-geshi cpp source-cpp">u16string_view</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="string/basic_string.html" title="cpp/string/basic string"> <span class="t-c"><span class="mw-geshi cpp source-cpp">u32string</span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="string/basic_string_view.html" title="cpp/string/basic string view"> <span class="t-c"><span class="mw-geshi cpp source-cpp">u32string_view</span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/gc/undeclare_no_pointers.html" title="cpp/memory/gc/undeclare no pointers"> <span class="t-c"><span class="mw-geshi cpp source-cpp">undeclare_no_pointers<span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/gc/undeclare_reachable.html" title="cpp/memory/gc/undeclare reachable"> <span class="t-c"><span class="mw-geshi cpp source-cpp">undeclare_reachable<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/uninitialized_copy.html" title="cpp/memory/uninitialized copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/uninitialized_copy_n.html" title="cpp/memory/uninitialized copy n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_copy_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/uninitialized_fill.html" title="cpp/memory/uninitialized fill"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_fill<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="memory/uninitialized_fill_n.html" title="cpp/memory/uninitialized fill n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_fill_n<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/unique.html" title="cpp/algorithm/unique"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unique<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="algorithm/unique_copy.html" title="cpp/algorithm/unique copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unique_copy<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="thread/unique_lock.html" title="cpp/thread/unique lock"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unique_lock<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/unique_ptr.html" title="cpp/memory/unique ptr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unique_ptr<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io/manip/unitbuf.html" title="cpp/io/manip/unitbuf"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unitbuf<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/uninitialized_copy.html" title="cpp/memory/uninitialized copy"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_copy<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/uninitialized_copy_n.html" title="cpp/memory/uninitialized copy n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_copy_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/uninitialized_default_construct.html" title="cpp/memory/uninitialized default construct"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_default_construct<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/uninitialized_default_construct_n.html" title="cpp/memory/uninitialized default construct n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_default_construct_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/uninitialized_value_construct.html" title="cpp/memory/uninitialized value construct"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_value_construct<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/uninitialized_value_construct_n.html" title="cpp/memory/uninitialized value construct n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_value_construct_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/uninitialized_fill.html" title="cpp/memory/uninitialized fill"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_fill<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/uninitialized_fill_n.html" title="cpp/memory/uninitialized fill n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_fill_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/uninitialized_move.html" title="cpp/memory/uninitialized move"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_move<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="memory/uninitialized_move_n.html" title="cpp/memory/uninitialized move n"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uninitialized_move_n<span class="sy1">&lt;&gt;</span><span class="br0">(</span><span class="br0">)</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+<a href="container/unordered_map.html" title="cpp/container/unordered map"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unordered_map<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="container/unordered_multimap.html" title="cpp/container/unordered multimap"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unordered_multimap<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="container/unordered_multiset.html" title="cpp/container/unordered multiset"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unordered_multiset<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="container/unordered_set.html" title="cpp/container/unordered set"> <span class="t-c"><span class="mw-geshi cpp source-cpp">unordered_set<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="algorithm/upper_bound.html" title="cpp/algorithm/upper bound"> <span class="t-c"><span class="mw-geshi cpp source-cpp">upper_bound<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/manip/uppercase.html" title="cpp/io/manip/uppercase"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uppercase<span class="br0">(</span><span class="br0">)</span></span></span></a> <br>
+<a href="memory/uses_allocator.html" title="cpp/memory/uses allocator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uses_allocator<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="memory/uses_allocator.html" title="cpp/memory/uses allocator"> <span class="t-c"><span class="mw-geshi cpp source-cpp">uses_allocator_v<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: V">edit</a>]</span> <span class="mw-headline" id="V">V</span>
+</h1>
+<p><a href="container/vector.html" title="cpp/container/vector"> <span class="t-c"><span class="mw-geshi cpp source-cpp">vector<span class="sy1">&lt;&gt;</span></span></span></a> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: W">edit</a>]</span> <span class="mw-headline" id="W">W</span>
+</h1>
+<p><a href="io/cerr.html" title="cpp/io/cerr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wcerr</span></span></a> <br>
+<a href="io/cin.html" title="cpp/io/cin"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wcin</span></span></a> <br>
+<a href="io/clog.html" title="cpp/io/clog"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wclog</span></span></a> <br>
+<a href="io/cout.html" title="cpp/io/cout"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wcout</span></span></a> <br>
+<a href="memory/weak_ptr.html" title="cpp/memory/weak ptr"> <span class="t-c"><span class="mw-geshi cpp source-cpp">weak_ptr<span class="sy1">&lt;&gt;</span></span></span></a>  <span class="t-mark-rev t-since-cxx11">(since C++11)</span> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wfilebuf</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wfstream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wifstream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wios</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wiostream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wistream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wistringstream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wofstream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wostream</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstreambuf</span></span></a> <br>
+<a href="io/manip/ws.html" title="cpp/io/manip/ws"> <span class="t-c"><span class="mw-geshi cpp source-cpp">ws<span class="br0">(</span><span class="br0">)</span><span class="sy1">&lt;&gt;</span></span></span></a> <br>
+<a href="io/fpos.html" title="cpp/io/fpos"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstreampos</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wostringstream</span></span></a> <br>
+<a href="string/basic_string.html" title="cpp/string/basic string"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstring</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstringbuf</span></span></a> <br>
+<a href="io.html" title="cpp/io"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstringstream</span></span></a> <br>
+<a href="string/basic_string_view.html" title="cpp/string/basic string view"> <span class="t-c"><span class="mw-geshi cpp source-cpp">wstring_view<span class="sy1">&lt;&gt;</span></span></span></a> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> <br>
+</p>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: X">edit</a>]</span> <span class="mw-headline" id="X">X</span>
+</h1>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Y">edit</a>]</span> <span class="mw-headline" id="Y">Y</span>
+</h1>
+<h1>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php" title="Edit section: Z">edit</a>]</span> <span class="mw-headline" id="Z">Z</span>
+</h1>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 12784/1000000
+Preprocessor generated node count: 13526/1000000
+Post‐expand include size: 95188/2097152 bytes
+Template argument size: 15014/2097152 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:15682-0!*!0!!en!*!* and timestamp 20160828125431 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="http://en.cppreference.com/mwiki/index.php">http://en.cppreference.com/mwiki/index.php?title=cpp/symbol_index&amp;oldid=87482</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id="catlinks" class="catlinks catlinks-allhidden"></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../common/skin_scripts.js"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler"], null, true);
+}</script>
+<script src="../../common/site_scripts.js"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</script><!-- Served in 0.060 secs. -->
+	</body>
+<!-- Cached 20160828125446 -->
+</html>
