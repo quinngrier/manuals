@@ -201,6 +201,29 @@ download_tar_gz() {
 
 #-----------------------------------------------------------------------
 
+extract() {
+
+  declare    x
+
+  for x; do
+    if [[ "$x" != [./]* ]]; then
+      x=./$x
+    fi
+    case $x in *.tar)
+      tar xf "$x"
+    ;; *.tar.gz)
+      tar xzf "$x"
+    ;; *.tar.xz)
+      tar xJf "$x"
+    ;; *.zip)
+      unzip "$x"
+    esac
+  done
+
+}; readonly -f extract
+
+#-----------------------------------------------------------------------
+
 make_ignore_file() {
 
   declare    x
