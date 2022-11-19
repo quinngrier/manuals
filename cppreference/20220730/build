@@ -26,7 +26,7 @@ main() {
   download cppreference/html-book-$v.tar.xz
   rm -f -r reference
   rm -f *.xml
-  tar xf html-book-$v.tar.xz
+  extract html-book-$v.tar.xz
   rm -f html-book-$v.tar.xz
 
   printf '%s\n' *.xml >files
