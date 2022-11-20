@@ -9,6 +9,15 @@
 # <https://creativecommons.org/publicdomain/zero/1.0/>.
 #
 
+#
+# By default, files are not indexed, and directories are indexed and
+# recursed into for further indexing. To index a file, add it to the
+# "files" file in the same directory. To prevent a directory from being
+# indexed and recursed into, add it to the "ignore" file in the parent
+# directory. To index a directory but prevent it from being recursed
+# into, add it to the "skip" file in the parent directory.
+#
+
 set -e || exit $?
 . ${1-./}prelude.bash
 
