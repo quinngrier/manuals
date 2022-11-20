@@ -107,15 +107,12 @@ li:first-child {
   top: 0;
 }
 
-li:not(:first-child) {
-  margin-left: calc(0.25ch + var(--tree_border_size) / 2);
-}
-
 li:not(:first-child)::before {
   border-top: var(--tree_border_triple);
   content: "";
   display: inline-block;
-  left: calc(-0.25ch - var(--tree_border_size) / 2);
+  left: 0;
+  margin-right: 0.25ch;
   position: relative;
   transform: translateY(calc((var(--line_height) - var(--tree_border_size)) / 2));
   vertical-align: top;
