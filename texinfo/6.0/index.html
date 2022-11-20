@@ -44,9 +44,9 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
+ol {
   list-style-type: none;
-  margin: 0 0 0 0.5ch;
+  margin: 0 0 0 calc(0.5ch - var(--tree_border_size) / 2);
   padding: 0;
   position: relative;
 }
@@ -62,18 +62,18 @@ li:first-child {
 }
 
 li:not(:first-child) {
-  margin-left: 0.25ch;
+  margin-left: calc(0.25ch + var(--tree_border_size) / 2);
 }
 
 li:not(:first-child)::before {
   border-top: var(--tree_border_triple);
   content: "";
   display: inline-block;
-  left: -0.25ch;
+  left: calc(-0.25ch - var(--tree_border_size) / 2);
   position: relative;
   transform: translateY(calc((var(--line_height) - var(--tree_border_size)) / 2));
   vertical-align: top;
-  width: 1.25ch;
+  width: calc(1.25ch + var(--tree_border_size) / 2);
 }
 
 </style>
@@ -81,7 +81,7 @@ li:not(:first-child)::before {
 <body>
 <h1>Quinn's Manuals Archive</h1>
 <a href="../../">/</a><a href="../">texinfo/</a><a href="./">6.0/</a>
-<ul>
+<ol>
 <li></li>
 <li><a href="info-stnd.html">info-stnd.html</a></li>
 <li><a href="info.1.html">info.1.html</a></li>
@@ -98,6 +98,6 @@ li:not(:first-child)::before {
 <li><a href="texindex.1.html">texindex.1.html</a></li>
 <li><a href="texinfo.5.html">texinfo.5.html</a></li>
 <li><a href="texinfo.html">texinfo.html</a></li>
-</ul>
+</ol>
 </body>
 </html>

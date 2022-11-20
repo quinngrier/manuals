@@ -44,9 +44,9 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
+ol {
   list-style-type: none;
-  margin: 0 0 0 0.5ch;
+  margin: 0 0 0 calc(0.5ch - var(--tree_border_size) / 2);
   padding: 0;
   position: relative;
 }
@@ -62,18 +62,18 @@ li:first-child {
 }
 
 li:not(:first-child) {
-  margin-left: 0.25ch;
+  margin-left: calc(0.25ch + var(--tree_border_size) / 2);
 }
 
 li:not(:first-child)::before {
   border-top: var(--tree_border_triple);
   content: "";
   display: inline-block;
-  left: -0.25ch;
+  left: calc(-0.25ch - var(--tree_border_size) / 2);
   position: relative;
   transform: translateY(calc((var(--line_height) - var(--tree_border_size)) / 2));
   vertical-align: top;
-  width: 1.25ch;
+  width: calc(1.25ch + var(--tree_border_size) / 2);
 }
 
 </style>
@@ -81,7 +81,7 @@ li:not(:first-child)::before {
 <body>
 <h1>Quinn's Manuals Archive</h1>
 <a href="../../">/</a><a href="../">autoconf/</a><a href="./">2.66/</a>
-<ul>
+<ol>
 <li></li>
 <li><a href="autoconf.1.html">autoconf.1.html</a></li>
 <li><a href="autoconf.html">autoconf.html</a></li>
@@ -94,6 +94,6 @@ li:not(:first-child)::before {
 <li><a href="config.sub.1.html">config.sub.1.html</a></li>
 <li><a href="ifnames.1.html">ifnames.1.html</a></li>
 <li><a href="standards.html">standards.html</a></li>
-</ul>
+</ol>
 </body>
 </html>
