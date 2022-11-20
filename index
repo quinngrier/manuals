@@ -85,11 +85,11 @@ ul {
 li:first-child {
   border-left: var(--tree_border);
   display: block;
-  height: calc(100% - 0.5em);
+  height: calc(100% - var(--line_height) / 2);
   left: 0;
   position: absolute;
   right: 100%;
-  top: calc(0px - var(--line_height) / 2 + 0.5em);
+  top: 0;
 }
 
 li:not(:first-child) {
