@@ -66,6 +66,10 @@ body {
   margin: 1em;
 }
 
+h1 {
+  font-size: 1em;
+}
+
 a {
   color: var(--text_color);
   text-decoration: none;
@@ -111,6 +115,7 @@ li:not(:first-child)::before {
 </style>
 </head>
 <body>
+<h1>Quinn's Manuals Archive</h1>
 EOF
 
   h=
