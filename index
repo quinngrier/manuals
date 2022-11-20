@@ -54,7 +54,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 :root {
   --line_height: 1.2em;
   --text_color: #CCC;
-  --tree_border_size: 1px;
+  --tree_border_size: 2px;
   --tree_border_triple: var(--tree_border_size) solid #333;
 }
 
