@@ -69,6 +69,7 @@ body {
 a {
   color: var(--text_color);
   text-decoration: none;
+  text-decoration-skip-ink: none;
 }
 
 a:hover {
