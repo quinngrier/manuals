@@ -48,7 +48,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 <html>
 <head>
 <meta charset="UTF-8">
-<title>manuals/${current#./} - Quinn's Manuals Archive</title>
+<title>/${current#./} - Quinn's Manuals Archive</title>
 <style>
 
 :root {
@@ -122,7 +122,7 @@ EOF
     d=${d#./}
     x=${x%/*}/
   done
-  h="<a href=\"$d\">manuals/</a>$h"
+  h="<a href=\"$d\">/</a>$h"
 
   cat <<EOF >>index.html
 $h
