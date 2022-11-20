@@ -90,7 +90,7 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
+ol {
   list-style-type: none;
   margin: 0 0 0 0.5ch;
   padding: 0;
@@ -142,7 +142,7 @@ EOF
 
   cat <<EOF >>index.html
 $h
-<ul>
+<ol>
 <li></li>
 EOF
 
@@ -186,7 +186,7 @@ EOF
   fi
 
   cat <<'EOF' >>index.html
-</ul>
+</ol>
 </body>
 </html>
 EOF
