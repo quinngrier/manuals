@@ -122,7 +122,6 @@ li:not(:first-child)::before {
 </style>
 </head>
 <body>
-<h1>Quinn's Manuals Archive</h1>
 EOF
 
   h=
@@ -138,6 +137,7 @@ EOF
   h="<a href=\"$d\">/</a>$h"
 
   cat <<EOF >>index.html
+<h1><a href="$d">Quinn's Manuals Archive</a></h1>
 $h
 <ol>
 <li></li>
