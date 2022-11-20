@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/language/inline by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:37:54 GMT --><head>
+<title>inline specifier - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/language/inline",
+wgTitle="cpp/language/inline",
+wgAction="view",
+wgArticleId=3085,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=11866,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_language_inline skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">inline specifier</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../language.html" title="cpp/language">language</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../language.html" title="cpp/language"> C++ language</a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  General topics
+</td></tr>
+<tr><td colspan="5">  <a href="../preprocessor.html" title="cpp/preprocessor"> Preprocessor</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../keywords.html" title="cpp/keywords"> Keywords</a>
+</td></tr>
+<tr><td colspan="5">  <a href="ascii.html" title="cpp/language/ascii"> ASCII chart</a>
+</td></tr>
+<tr><td colspan="5">  <a href="escape.html" title="cpp/language/escape"> Escape sequences</a>
+</td></tr>
+<tr><td colspan="5">  <a href="history.html" title="cpp/language/history"> History of C++</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Flow control
+</td></tr>
+<tr><td colspan="5">  <a href="if.html" title="cpp/language/if"> <tt>if</tt> statement</a>
+</td></tr>
+<tr><td colspan="5">  <a href="switch.html" title="cpp/language/switch"> <tt>switch</tt> statement</a>
+</td></tr>
+<tr><td colspan="5">  <a href="for.html" title="cpp/language/for"> <tt>for</tt> loop</a>
+</td></tr>
+<tr><td colspan="5">  <a href="range-for.html" title="cpp/language/range-for"> <tt>for</tt> loop on a range </a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="while.html" title="cpp/language/while"> <tt>while</tt> loop</a>
+</td></tr>
+<tr><td colspan="5">  <a href="do.html" title="cpp/language/do"> <tt>do-while</tt> loop</a>
+</td></tr>
+<tr><td colspan="5">  <a href="continue.html" title="cpp/language/continue"> <tt>continue</tt> statement</a>
+</td></tr>
+<tr><td colspan="5">  <a href="break.html" title="cpp/language/break"> <tt>break</tt> statement</a>
+</td></tr>
+<tr><td colspan="5">  <a href="return.html" title="cpp/language/return"> <tt>return</tt> statement</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Functions
+</td></tr>
+<tr><td colspan="5">  <a href="functionhtml.html" title="cpp/language/function"> functions declaration</a>
+</td></tr>
+<tr><td colspan="5">  <a href="except_spec.html" title="cpp/language/except spec"> exception specifications</a>
+</td></tr>
+<tr><td colspan="5">  <a href="noexcept_spechtml.html" title="cpp/language/noexcept spec"> noexcept specifier</a>
+</td></tr>
+<tr><td colspan="5">  <strong class="selflink"> inline specifier</strong>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Exceptions
+</td></tr>
+<tr><td colspan="5">  <a href="throw.html" title="cpp/language/throw"> throw expression</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/try_catch&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/try catch (page does not exist)"> try-catch block</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Namespaces
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/namespace&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/namespace (page does not exist)"> namespace declaration</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/namespace_alias&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/namespace alias (page does not exist)"> namespace aliases</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Types
+</td></tr>
+<tr><td colspan="5">  <a href="types.html" title="cpp/language/types"> fundamental types</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/class&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/class (page does not exist)"> compound types</a>
+</td></tr>
+<tr><td colspan="5">  <a href="enum.html" title="cpp/language/enum"> enumeration types</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/union&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/union (page does not exist)"> union types</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/function_types&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/function types (page does not exist)"> function types</a>
+</td></tr>
+<tr><td colspan="5">  <a href="decltype.html" title="cpp/language/decltype"> <tt>decltype</tt> specifier</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Specifiers
+</td></tr>
+<tr><td colspan="5">  <a href="cv.html" title="cpp/language/cv"> cv specifiers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="storage_duration.html" title="cpp/language/storage duration"> storage duration specifiers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="constexpr.html" title="cpp/language/constexpr"> constexpr specifier</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/auto&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/auto (page does not exist)"> auto specifier</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/alignas&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/alignas (page does not exist)"> alignas specifier</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Operators
+</td></tr>
+<tr><td colspan="5">  <a href="operators.html" title="cpp/language/operators"> operators</a>
+</td></tr>
+<tr><td colspan="5">  <a href="operator_precedence.html" title="cpp/language/operator precedence"> operator precedence</a>
+</td></tr>
+<tr><td colspan="5">  <a href="operator_alternative.html" title="cpp/language/operator alternative"> alternative representations</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Utilities
+</td></tr>
+<tr><td colspan="5">  <a href="implicit_cast.html" title="cpp/language/implicit cast"> standard conversions</a>
+</td></tr>
+<tr><td colspan="5">  <a href="static_cast.html" title="cpp/language/static cast"> <tt>static_cast</tt> conversion</a>
+</td></tr>
+<tr><td colspan="5">  <a href="dynamic_cast.html" title="cpp/language/dynamic cast"> <tt>dynamic_cast</tt> conversion</a>
+</td></tr>
+<tr><td colspan="5">  <a href="const_cast.html" title="cpp/language/const cast"> <tt>const_cast</tt> conversion</a>
+</td></tr>
+<tr><td colspan="5">  <a href="reinterpret_cast.html" title="cpp/language/reinterpret cast"> <tt>reinterpret_cast</tt> conversion</a>
+</td></tr>
+<tr><td colspan="5">  <a href="new.html" title="cpp/language/new"> <tt>new</tt> expression</a>
+</td></tr>
+<tr><td colspan="5">  <a href="delete.html" title="cpp/language/delete"> <tt>delete</tt> expression</a>
+</td></tr>
+<tr><td colspan="5">  <a href="typedefhtml.html" title="cpp/language/typedef"> <tt>typedef</tt> declaration</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/type_alias&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/type alias (page does not exist)"> type alias declaration</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/attributes&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/attributes (page does not exist)"> attributes</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Classes
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/class&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/class (page does not exist)"> class declaration</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/this&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/this (page does not exist)"> <tt>this</tt> pointer</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/access&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/access (page does not exist)"> access specifiers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="friend.html" title="cpp/language/friend"> friend specifier</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/initializer_list&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/initializer list (page does not exist)"> initializer_list</a><span class="template-mark">(C++11)</span>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Special member functions
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/default_constructor&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/default constructor (page does not exist)"> default constructor</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/copy_constructor&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/copy constructor (page does not exist)"> copy constructor</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/move_constructor&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/move constructor (page does not exist)"> move constructor</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/as_operator&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/as operator (page does not exist)"> assignment operator</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/move_operator&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/move operator (page does not exist)"> move operator</a>
+</td></tr>
+<tr><td colspan="5">  <a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/destructor&amp;action=edit&amp;redlink=1" class="new" title="cpp/language/destructor (page does not exist)"> destructor</a>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">This section is incomplete<br>Reason: needs cleanup </td>
+</tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/inline&amp;action=edit&amp;section=1" title="Edit section: Description">edit</a>]</span> <span class="mw-headline" id="Description">Description</span>
+</h3>
+<p>The inline keyword is used to inform the compiler that you would like it to 'paste' the function into the code whenever you call the function. The use of the inline keyword could potentially speed up the program as you avoid extra overhead created by the function call (placing data on stack and retrieving the result). The compiler has the freedom to ignore the request.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/language/inline&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="kw1">inline</span> <span class="kw4">int</span> sum<span class="br0">(</span><span class="kw4">int</span> a, <span class="kw4">int</span> b<span class="br0">)</span> 
+<span class="br0">{</span>
+    <span class="kw1">return</span> <span class="br0">(</span>a <span class="sy2">+</span> b<span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1057/1000000
+Post-expand include size: 36730/2097152 bytes
+Template argument size: 17593/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:3085-0!1!0!!en!2 and timestamp 20111225233746 -->
+<div class="printfooter">
+Retrieved from "<a href="inlinehtml.html">http://en.cppreference.com/w/cpp/language/inline</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 0.569 secs. -->
+</body>
+<!-- Cached 20111225233746 --><!-- Mirrored from en.cppreference.com/w/cpp/language/inline by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:37:54 GMT -->
+</html>

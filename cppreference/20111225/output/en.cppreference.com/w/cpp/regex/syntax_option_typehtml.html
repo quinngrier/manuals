@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/regex/syntax_option_type by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:31:30 GMT --><head>
+<title>std::regex_constants::syntax_option_type - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/regex/syntax_option_type",
+wgTitle="cpp/regex/syntax option type",
+wgAction="view",
+wgArticleId=2320,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=14964,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_regex_syntax_option_type skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::regex_constants::</span>syntax_option_type</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../regex.html" title="cpp/regex">regex</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../regex.html" title="cpp/regex"> Regular expressions library</a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Classes
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="basic_regex.html" title="cpp/regex/basic regex">basic_regex</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="sub_matchhtml.html" title="cpp/regex/sub match">sub_match</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="match_results.html" title="cpp/regex/match results">match_results</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Algorithms
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_match.html" title="cpp/regex/regex match">regex_match</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_search.html" title="cpp/regex/regex search">regex_search</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_replace.html" title="cpp/regex/regex replace">regex_replace</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Iterators
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_iteratorhtml.html" title="cpp/regex/regex iterator">regex_iterator</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_token_iterator.html" title="cpp/regex/regex token iterator">regex_token_iterator</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Exceptions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_error.html" title="cpp/regex/regex error">regex_error</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Traits
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="regex_traits.html" title="cpp/regex/regex traits">regex_traits</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Constants
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><strong class="selflink">syntax_option_type</strong></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="match_flag_type.html" title="cpp/regex/match flag type">match_flag_type</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="error_type.html" title="cpp/regex/error type">error_type</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="template-ddcl-list-begin">
+<tr class="template-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;regex.h&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td class="template-ddcl-list-item-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">typedef</span> <span class="coMULTI">/*unspecified*/</span> syntax_option_type<span class="sy4">;</span><br><p><span class="kw4">static</span> <span class="kw4">constexpr</span> icase <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> nosubs <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> optimize <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> collate <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> ECMAScript <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> basic <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> extended <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> awk <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br><span class="kw4">static</span> <span class="kw4">constexpr</span> grep <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span><br></p>
+<span class="kw4">static</span> <span class="kw4">constexpr</span> egrep <span class="sy1">=</span> <span class="coMULTI">/*unspecified*/</span><span class="sy4">;</span></span></div>
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+</table>
+<p>The <i>syntax_option_type</i> is a type that contains options that govern how regular expressions behave.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/syntax_option_type&amp;action=edit&amp;section=1" title="Edit section: Constants">edit</a>]</span> <span class="mw-headline" id="Constants">Constants</span>
+</h3>
+<table class="template-tdcl-list-begin">
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-hitem">
+<td>  Value
+</td>
+<td>  Effect(s)
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>icase</tt>
+</td>
+<td>   Character matching should be performed without regard to case.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>nosubs</tt>
+</td>
+<td>   When performing matches, no sub-expression matches should be stored in the supplied <span class="mw-geshi cpp source-cpp"><a href="regex_match.html"><span class="kw1096">std::<span class="me2">regex_match</span></span></a></span> structure.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>optimize</tt>
+</td>
+<td>   Instructs the regular expression engine to make matching faster, with the potential cost of making construction slower.  For example, this might mean converting a non-deterministic FSA to a deterministic FSA.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>collate</tt>
+</td>
+<td>   Character ranges of the form <i>"[a-b]"</i> will be locale sensitive.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>ECMAScript</tt>
+</td>
+<td>   Use a modified version of the ECMAScript regular expression grammar (ECMA-262).  ECMA-262 is also known as JavaScript and is effectively the same as Perl5.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>basic</tt>
+</td>
+<td>  Use the basic POSIX regular expression grammar (<a href="http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html" class="external text" rel="nofollow">grammar documentation</a>).
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>extended</tt>
+</td>
+<td>  Use the extended POSIX regular expression grammar (<a href="http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html" class="external text" rel="nofollow">grammar documentation</a>).
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>awk</tt>
+</td>
+<td>  Use the regular expression grammar used by the <i>awk</i> utility in POSIX (<a href="http://pubs.opengroup.org/onlinepubs/009604499/utilities/awk.html#tag_04_06_13_04" class="external text" rel="nofollow">grammar documentation</a>)
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>grep</tt>
+</td>
+<td>   Use the regular expression grammar used by the <i>grep</i> utility in POSIX. This is effectively the same as the <tt>basic</tt> option with the addition of newline '\n' as an alternation separator.
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <tt>egrep</tt>
+</td>
+<td>  Use the regular expression grammar used by the <i>grep</i> utility, with the <i>-E</i> option, in POSIX.  This is effectively the same as the <tt>extended</tt> option with the addition of newline '\n' as an alternation separator in addtion to '|'.
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1258/1000000
+Post-expand include size: 34088/2097152 bytes
+Template argument size: 17846/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2320-0!1!0!!en!2 and timestamp 20111226003122 --><div class="printfooter">
+Retrieved from "<a href="syntax_option_typehtml.html">http://en.cppreference.com/w/cpp/regex/syntax_option_type</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 0.796 secs. -->
+</body>
+<!-- Cached 20111226003122 --><!-- Mirrored from en.cppreference.com/w/cpp/regex/syntax_option_type by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:31:30 GMT -->
+</html>

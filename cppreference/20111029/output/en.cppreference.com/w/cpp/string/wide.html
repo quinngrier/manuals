@@ -1,0 +1,807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>Wide null-terminated strings - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/string/wide",
+wgTitle="cpp/string/wide",
+wgAction="view",
+wgArticleId=2597,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=11199,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_string_wide skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Wide null-terminated strings</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../string.html" title="cpp/string">string</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../string.html" title="cpp/string"> Strings library</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5">  <a href="narrow.html" title="cpp/string/narrow"> Narrow character strings</a>
+</td></tr>
+<tr><td colspan="5">  <strong class="selflink"> Wide character strings</strong>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Classes
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="basic_string.html" title="cpp/string/basic string">basic_string</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="char_traits.html" title="cpp/string/char traits">char_traits</a></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><strong class="selflink"> Wide null-terminated strings</strong></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><a href="http://en.cppreference.com/mwiki/index.php?title=Template:cpp/string/wide/sidebar_content&amp;action=edit&amp;redlink=1" class="new" title="Template:cpp/string/wide/sidebar content (page does not exist)">Template:cpp/string/wide/sidebar content</a></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<p>A wide null-terminated string is a sequence of valid wide characters, ending with a null-character.
+</p>
+<p><br></p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Wide_character_classification_and_manipulation"><span class="tocnumber">1</span> <span class="toctext">Wide character classification and manipulation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Conversions_to_numeric_formats"><span class="tocnumber">2</span> <span class="toctext">Conversions to numeric formats</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Wide_string_operations"><span class="tocnumber">3</span> <span class="toctext">Wide string operations</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Wide_character_array_operations"><span class="tocnumber">4</span> <span class="toctext">Wide character array operations</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Multibyte.2Fwide_character_conversions"><span class="tocnumber">5</span> <span class="toctext">Multibyte/wide character conversions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Types"><span class="tocnumber">6</span> <span class="toctext">Types</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Macros"><span class="tocnumber">7</span> <span class="toctext">Macros</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=1" title="Edit section: Wide character classification and manipulation">edit</a>]</span> <span class="mw-headline" id="Wide_character_classification_and_manipulation">Wide character classification and manipulation</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwctype&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswalnum.html" title="cpp/string/wide/iswalnum"> <tt><b>iswalnum</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is alphanumeric <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswalpha.html" title="cpp/string/wide/iswalpha"> <tt><b>iswalpha</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is alphabetic <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswlower.html" title="cpp/string/wide/iswlower"> <tt><b>iswlower</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is lowercase <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswupper.html" title="cpp/string/wide/iswupper"> <tt><b>iswupper</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is an uppercase character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswdigit.html" title="cpp/string/wide/iswdigit"> <tt><b>iswdigit</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a digit <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswxdigit.html" title="cpp/string/wide/iswxdigit"> <tt><b>iswxdigit</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a character is a hexadecimal character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswcntrl.html" title="cpp/string/wide/iswcntrl"> <tt><b>iswcntrl</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a control character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswgraph.html" title="cpp/string/wide/iswgraph"> <tt><b>iswgraph</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a graphical character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswspace.html" title="cpp/string/wide/iswspace"> <tt><b>iswspace</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a space character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="wide/iswblank.html" title="cpp/string/wide/iswblank"> <tt><b>iswblank</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a blank character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswprint.html" title="cpp/string/wide/iswprint"> <tt><b>iswprint</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a printing character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswpunct.html" title="cpp/string/wide/iswpunct"> <tt><b>iswpunct</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if a wide character is a punctuation character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/wctype.html" title="cpp/string/wide/wctype"> <tt><b>wctype</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   looks up a character classification category in the current C locale <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/iswctype.html" title="cpp/string/wide/iswctype"> <tt><b>iswctype</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   classifies a wide character according to the specified LC_CTYPE category   <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/towlower.html" title="cpp/string/wide/towlower"> <tt><b>towlower</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character to lowercase <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/towupper.html" title="cpp/string/wide/towupper"> <tt><b>towupper</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character to uppercase <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/wctrans.html" title="cpp/string/wide/wctrans"> <tt><b>wctrans</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   looks up a character mapping category in the current C locale  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="wide/towctrans.html" title="cpp/string/wide/towctrans"> <tt><b>towctrans</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   performs character mapping according to the specified LC_CTYPE mapping category  <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=2" title="Edit section: Conversions to numeric formats">edit</a>]</span> <span class="mw-headline" id="Conversions_to_numeric_formats">Conversions to numeric formats</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcstof&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcstof (page does not exist)"> <tt><b>wcstof<br>wcstod<br>wcstold</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character string to a floating point value  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcstol&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcstol (page does not exist)"> <tt><b>wcstol<br>wcstoll</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character string to an integer value   <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcstoul&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcstoul (page does not exist)"> <tt><b>wcstoul<br>wcstoull</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character string to an unsigned integer value   <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=3" title="Edit section: Wide string operations">edit</a>]</span> <span class="mw-headline" id="Wide_string_operations">Wide string operations</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcslen&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcslen (page does not exist)"> <tt><b>wcslen</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the length of a wide string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcscpy&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcscpy (page does not exist)"> <tt><b>wcscpy</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   copies one wide string to another <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsncpy&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsncpy (page does not exist)"> <tt><b>wcsncpy</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   copies a certain amount of wide characters from one string to another  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcscat&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcscat (page does not exist)"> <tt><b>wcscat</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   appends a copy of one wide string to another  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsncat&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsncat (page does not exist)"> <tt><b>wcsncat</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   appends a certain amount of wide characters from one wide string to another  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcscmp&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcscmp (page does not exist)"> <tt><b>wcscmp</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   lexicographically compares two wide strings, locale-independent  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcscoll&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcscoll (page does not exist)"> <tt><b>wcscoll</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   lexicographically compares two wide strings, locale-dependent  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsncmp&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsncmp (page does not exist)"> <tt><b>wcsncmp</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   compares a certain amount of characters from two wide strings <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsxfrm&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsxfrm (page does not exist)"> <tt><b>wcsxfrm</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   transform a wide string so that wcscmp would produce the same result as wcscoll  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcschr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcschr (page does not exist)"> <tt><b>wcschr</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   finds the first occurrence of a wide character in a wide string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsrchr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsrchr (page does not exist)"> <tt><b>wcsrchr</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   finds the last occurrence of a wide character in a wide string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcspbrk&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcspbrk (page does not exist)"> <tt><b>wcspbrk</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   finds the first occurrence of any wide character from another wide string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsspn&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsspn (page does not exist)"> <tt><b>wcsspn</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the length of the maximum prefix that consists of only the characters found in another wide string  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcscspn&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcscspn (page does not exist)"> <tt><b>wcscspn</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the length of the maximum prefix that consists of only the characters not found in another wide string  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsstr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsstr (page does not exist)"> <tt><b>wcsstr</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   finds the first occurrence of a wide string within another wide string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcstok&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcstok (page does not exist)"> <tt><b>wcstok</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">  finds the next token in a wide character string  <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=4" title="Edit section: Wide character array operations">edit</a>]</span> <span class="mw-headline" id="Wide_character_array_operations">Wide character array operations</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wmemcpy&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wmemcpy (page does not exist)"> <tt><b>wmemcpy</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   copies a certain amount of wide characters between two non-overlapping arrays  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wmemmove&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wmemmove (page does not exist)"> <tt><b>wmemmove</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   copies a certain amount of wide characters between two, possibly overlapping, arrays  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wmemcmp&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wmemcmp (page does not exist)"> <tt><b>wmemcmp</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   compares a certain amount of wide characters from two arrays  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wmemchr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wmemchr (page does not exist)"> <tt><b>wmemchr</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   finds the first occurrence of a wide character in a wide character array  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wmemset&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wmemset (page does not exist)"> <tt><b>wmemset</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   copies the given wide character to every position in a wide character array  <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=5" title="Edit section: Multibyte/wide character conversions">edit</a>]</span> <span class="mw-headline" id="Multibyte.2Fwide_character_conversions">Multibyte/wide character conversions</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cstdlib&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mblen&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mblen (page does not exist)"> <tt><b>mblen</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the number of bytes in the next multibyte character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbtowc&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbtowc (page does not exist)"> <tt><b>mbtowc</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts the next multibyte character to wide character <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wctomb&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wctomb (page does not exist)"> <tt><b>wctomb</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character to its multibyte representation <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbstowcs&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbstowcs (page does not exist)"> <tt><b>mbstowcs</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a narrow multibyte character string to wide character string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcstombs&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcstombs (page does not exist)"> <tt><b>wcstombs</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character string to narrow multibyte character string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbsinit&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbsinit (page does not exist)"> <tt><b>mbsinit</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   checks if the mbstate_t object represents initial shift state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/btowc&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/btowc (page does not exist)"> <tt><b>btowc</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   widens a single-byte narrow character to wide character, if possible <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wctob&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wctob (page does not exist)"> <tt><b>wctob</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   narrows a wide character to a single-byte narrow character, if possible <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbrlen&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbrlen (page does not exist)"> <tt><b>mbrlen</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the number of bytes in the next multibyte character, given state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbrtowc&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbrtowc (page does not exist)"> <tt><b>mbrtowc</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts the next multibyte character to wide character, given state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcrtomb&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcrtomb (page does not exist)"> <tt><b>wcrtomb</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character to its multibyte representation, given state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbsrtowcs&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbsrtowcs (page does not exist)"> <tt><b>mbsrtowcs</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a narrow multibyte character string to wide character string, given state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/wcsrtombs&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/wcsrtombs (page does not exist)"> <tt><b>wcsrtombs</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a wide character string to narrow multibyte character string, given state <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cuchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbrtoc16&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbrtoc16 (page does not exist)"> <tt><b>mbrtoc16</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   generate the next 16-bit wide character from a narrow multibyte string  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/c16rtombr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/c16rtombr (page does not exist)"> <tt><b>c16rtombr</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   convert a 16-bit wide character to narrow multibyte string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/mbrtoc32&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/mbrtoc32 (page does not exist)"> <tt><b>mbrtoc32</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   generate the next 32-bit wide character from a narrow multibyte string <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide/c32rtombr&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/wide/c32rtombr (page does not exist)"> <tt><b>c32rtombr</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   convert a 32-bit wide character to narrow multibyte string <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=6" title="Edit section: Types">edit</a>]</span> <span class="mw-headline" id="Types">Types</span>
+</h3>
+<table class="tdcl-list-begin">
+<tr><td colspan="2"> <div style="margin-left: 3em; font-size: 0.8em"> Defined in header <code>&lt;cwctype&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>wctrans_t</tt>
+</td>
+<td class="tdcl-list-item-col2">  scalar type that holds locale-specific character mapping
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>wctype_t</tt>
+</td>
+<td class="tdcl-list-item-col2">  scalar type that holds locale-specific character classification
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>wint_t</tt>
+</td>
+<td class="tdcl-list-item-col2">  integer type that can hold any valid wide character and at least one more value
+</td>
+</tr>
+<tr><td colspan="2"> <div style="margin-left: 3em; font-size: 0.8em"> Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>mbstate_t</tt>
+</td>
+<td class="tdcl-list-item-col2">  scalar type that holds the state information necessary to convert between sequences of multibyte and wide characters
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/wide&amp;action=edit&amp;section=7" title="Edit section: Macros">edit</a>]</span> <span class="mw-headline" id="Macros">Macros</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;climits&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> MB_LEN_MAX </b></tt>
+</td>
+<td class="dcl-list-item-col2">   maximum number of bytes in a multibyte character  <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cstdlib&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> MB_CUR_MAX </b></tt>
+</td>
+<td class="dcl-list-item-col2">   maximum number of bytes in a multibyte character in the current C locale <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cwchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> WEOF </b></tt>
+</td>
+<td class="dcl-list-item-col2">   a non-character value of type wint_t used to indicate errors <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> WCHAR_MIN </b></tt>
+</td>
+<td class="dcl-list-item-col2">   the smallest valid value of wchar_t  <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> WCHAR_MAX </b></tt>
+</td>
+<td class="dcl-list-item-col2">   the largest valid value of wchar_t  <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cuchar&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> __STDC_UTF_16__ </b></tt>
+</td>
+<td class="dcl-list-item-col2">   indicates that UTF-16 encoding is used by mbrtoc16 and c16rtomb <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <tt><b> __STDC_UTF_32__ </b></tt>
+</td>
+<td class="dcl-list-item-col2">   indicates that UTF-32 encoding is used by mbrtoc32 and c32rtomb <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 5915/1000000
+Post-expand include size: 187043/2097152 bytes
+Template argument size: 59529/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2597-0!1!0!!en!2 and timestamp 20111003182924 --><div class="printfooter">
+Retrieved from "<a href="wide.html">http://en.cppreference.com/w/cpp/string/wide</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 1.513 secs. -->
+</body>
+<!-- Cached 20111003182924 -->
+</html>

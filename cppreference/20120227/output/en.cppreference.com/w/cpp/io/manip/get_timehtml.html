@@ -1,0 +1,938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/io/manip/get_time by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:58:41 GMT --><head>
+<title>std::get_time - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/io/manip/get_time",
+wgTitle="cpp/io/manip/get time",
+wgAction="view",
+wgArticleId=4822,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=18589,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_io_manip_get_time skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>get_time</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../io.html" title="cpp/io">io</a> | <a href="../maniphtml.html" title="cpp/io/manip">manip</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../../io.html" title="cpp/io"> Input/output library</a></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../maniphtml.html" title="cpp/io/manip">Input/output manipulators</a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h2"><td colspan="5">  Floating-point formatting
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="showpoint.html" title="cpp/io/manip/showpoint">showpoint<br>noshowpoint</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setprecisionhtml.html" title="cpp/io/manip/setprecision">setprecision</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="fixed.html" title="cpp/io/manip/fixed">fixed<br>scientific<br>hexfloat<br>defaultfloat</a></td>
+<td>
+<br><br><span class="t-mark">(C++11)</span><br><span class="t-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Integer formatting
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setbase.html" title="cpp/io/manip/setbase">setbase</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="showbase.html" title="cpp/io/manip/showbase">showbase<br>noshowbase</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="hex.html" title="cpp/io/manip/hex">dec<br>hex<br>oct</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Boolean formatting
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="boolalphahtml.html" title="cpp/io/manip/boolalpha">boolalpha<br>noboolalpha</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Field width and fill control
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setfillhtml.html" title="cpp/io/manip/setfill">setfill</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setw.html" title="cpp/io/manip/setw">setw</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="lefthtml.html" title="cpp/io/manip/left">internal<br>left<br>right</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Other formatting
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="showpos.html" title="cpp/io/manip/showpos">showpos<br>noshowpos</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="uppercase.html" title="cpp/io/manip/uppercase">uppercase<br>nouppercase</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Whitespace processing
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ws.html" title="cpp/io/manip/ws">ws</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ends.html" title="cpp/io/manip/ends">ends</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="skipws.html" title="cpp/io/manip/skipws">skipws<br>noskipws</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Output flushing
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="flushhtml.html" title="cpp/io/manip/flush">flush</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="endl.html" title="cpp/io/manip/endl">endl</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="unitbufhtml.html" title="cpp/io/manip/unitbuf">unitbuf<br>nounitbuf</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Status flags manipulation
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="resetiosflagshtml.html" title="cpp/io/manip/resetiosflags">resetiosflags</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setiosflags.html" title="cpp/io/manip/setiosflags">setiosflags</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Time and money I/O
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="get_money.html" title="cpp/io/manip/get money">get_money</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><strong class="selflink">get_time</strong></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="put_money.html" title="cpp/io/manip/put money">put_money</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="put_time.html" title="cpp/io/manip/put time">put_time</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="t-ddcl-list-begin">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;iomanip&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+<tr class="t-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br><span class="coMULTI">/*unspecified*/</span> get_time<span class="br0">(</span> std<span class="sy4">::</span><span class="kw4">tm</span><span class="sy2">*</span> tmb, <span class="kw4">const</span> CharT<span class="sy2">*</span> fmt<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td> <span class="t-mark">(since C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+</table>
+<p>When used in an expression <span class="mw-geshi cpp source-cpp">in <span class="sy1">&gt;&gt;</span> get_time<span class="br0">(</span>tmb, fmt<span class="br0">)</span></span>, parses the character input as a date/time value according to format string <tt>fmt</tt> according to the <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">time_get</span></span> facet of the locale currently imbued in the output stream <tt>out</tt>. The resultant value is stored in a <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="kw4">tm</span></span> object pointed to by <tt>tmb</tt>.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Parameters"><span class="tocnumber">1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Return_value"><span class="tocnumber">2</span> <span class="toctext">Return value</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_time&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table class="t-param-list-begin">
+<tr class="t-param-list-item">
+<td>  tmb
+</td>
+<td> -
+</td>
+<td>  valid pointer to the std::tm object where the result will be stored
+</td>
+</tr>
+<tr class="t-param-list-item">
+<td>  fmt
+</td>
+<td> -
+</td>
+<td>  pointer to a null-terminated CharT string specifying the conversion format
+<p>The format string consists of zero or more conversion specifiers, whitespace characters, and ordinary characters (except <tt>%</tt>). Each ordinary character is expected to match one character in the input stream in case-insensitive comparison. Each whitespace character matches arbitrary whitespace in the input string. Each conversion specification begins with <tt>%</tt> character, optionally followed by <tt>E</tt> or <tt>O</tt> modifier (ignored if unsupported by the locale), followed by the character that determines the behavior of the specifier. The format specifiers match the POSIX function <tt>strptime()</tt>:
+</p>
+<table class="wikitable" style="font-size:85%; max-width:90em;">
+<tr>
+<th> Conversion<br> specifier
+</th>
+<th> Explanation
+</th>
+<th> Writes to fields
+</th>
+</tr>
+<tr>
+<th> <tt>%</tt>
+</th>
+<td> matches a literal <tt>%</tt>. The full conversion specification must be <tt>%%</tt>.
+</td>
+<td> (none)
+</td>
+</tr>
+<tr>
+<th> <tt>t</tt>
+</th>
+<td> matches any whitespace.
+</td>
+<td> (none)
+</td>
+</tr>
+<tr>
+<th> <tt>n</tt>
+</th>
+<td> matches any whitespace.
+</td>
+<td> (none)
+</td>
+</tr>
+<tr><th colspan="3"> Year
+</th></tr>
+<tr>
+<th> <tt>Y</tt>
+</th>
+<td> parses full <b>year</b> as a 4 digit decimal number, leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>EY</tt>
+</th>
+<td> parses <b>year</b> in the alternative representation, e.g.平成23年 (year Heisei 23) which writes 2011 to tm_year in ja_JP locale
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>y</tt>
+</th>
+<td> parses last 2 digits of <b>year</b> as a decimal number. Range <tt>[69,99]</tt> results in values 1969 to 1999, range <tt>[00,68]</tt> results in 2000-2068
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Oy</tt>
+</th>
+<td> parses last 2 digits of <b>year</b> using the alternative numeric system, e.g. 十一 is parsed as 11 in ja_JP locale
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Ey</tt>
+</th>
+<td> parses <b>year</b> as offset from locale's alternative calendar period <tt>%EC</tt>
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>C</tt>
+</th>
+<td> parses the first 2 digits of <b>year</b> as a decimal number (range <tt>[00,99]</tt>)
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>EC</tt>
+</th>
+<td> parses the name of the base year (period) in the locale's alternative representation, e.g. 平成 (Heisei era) in ja_JP
+</td>
+<td> <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Month
+</th></tr>
+<tr>
+<th> <tt>b</tt>
+</th>
+<td> parses the month name, either full or abbreviated, e.g. <tt>Oct</tt>
+</td>
+<td> <tt><b>tm_mon</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>h</tt>
+</th>
+<td> synonym of <tt>b</tt>
+</td>
+<td> <tt><b>tm_mon</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>B</tt>
+</th>
+<td> synonym of <tt>b</tt>
+</td>
+<td> <tt><b>tm_mon</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>m</tt>
+</th>
+<td> parses the <b>month</b> as a decimal number (range <tt>[01,12]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_mon</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Om</tt>
+</th>
+<td> parses the <b>month</b> using the alternative numeric system, e.g. 十二 parses as 12 in ja_JP locale
+</td>
+<td> <tt><b>tm_mon</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Week
+</th></tr>
+<tr>
+<th> <tt>U</tt>
+</th>
+<td> parses the <b>week of the year</b> as a decimal number (Sunday is the first day of the week) (range <tt>[00,53]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_year</b></tt>, <tt><b>tm_wday</b></tt>, <tt><b>tm_yday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OU</tt>
+</th>
+<td> parses the <b>week of the year</b>, as by <tt>%U</tt>, using the alternative numeric system, e.g. 五十二 parses as 52 in ja_JP locale
+</td>
+<td> <tt><b>tm_year</b></tt>, <tt><b>tm_wday</b></tt>, <tt><b>tm_yday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>W</tt>
+</th>
+<td> parses the <b>week of the year</b> as a decimal number (Monday is the first day of the week) (range <tt>[00,53]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_year</b></tt>, <tt><b>tm_wday</b></tt>, <tt><b>tm_yday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OW</tt>
+</th>
+<td> parses the <b>week of the year</b>, as by <tt>%W</tt>, using the alternative numeric system, e.g. 五十二 parses as 52 in ja_JP locale
+</td>
+<td> <tt><b>tm_year</b></tt>, <tt><b>tm_wday</b></tt>, <tt><b>tm_yday</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Day of the year/month
+</th></tr>
+<tr>
+<th> <tt>j</tt>
+</th>
+<td> parses <b>day of the year</b> as a decimal number (range <tt>[001,366]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_yday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>d</tt>
+</th>
+<td> parses the <b>day of the month</b> as a decimal number (range <tt>[01,31]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_mday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Od</tt>
+</th>
+<td> parses the <b>day of the month</b> using the alternative numeric system, e.g 二十七 parses as 23 in ja_JP locale, leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_mday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>e</tt>
+</th>
+<td> synonym of <tt>d</tt>
+</td>
+<td> <tt><b>tm_mday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Oe</tt>
+</th>
+<td> synonym of <tt>Od</tt>
+</td>
+<td> <tt><b>tm_mday</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Day of the week
+</th></tr>
+<tr>
+<th> <tt>a</tt>
+</th>
+<td> parses the name of the day of the week, either full or abbreviated, e.g. <tt>Fri</tt>
+</td>
+<td> <tt><b>tm_wday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>A</tt>
+</th>
+<td> synonym of <tt>a</tt>
+</td>
+<td> <tt><b>tm_wday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>w</tt>
+</th>
+<td> parses <b>weekday</b> as a decimal number, where Sunday is <tt>0</tt> (range <tt>[0-6]</tt>)
+</td>
+<td> <tt><b>tm_wday</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>Ow</tt>
+</th>
+<td> parses <b>weekday</b> as a decimal number, where Sunday is <tt>0</tt>, using the alternative numeric system, e.g. 二 parses as 2 in ja_JP locale
+</td>
+<td> <tt><b>tm_wday</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Hour, minute, second
+</th></tr>
+<tr>
+<th> <tt>H</tt>
+</th>
+<td> parses the <b>hour</b> as a decimal number, 24 hour clock (range <tt>[00-23]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_hour</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OH</tt>
+</th>
+<td> parses <b>hour</b> from 24-hour clock using the alternative numeric system, e.g. 十八 parses as 18 in ja_JP locale
+</td>
+<td> <tt><b>tm_hour</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>I</tt>
+</th>
+<td> parses <b>hour</b> as a decimal number, 12 hour clock (range <tt>[01,12]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_hour</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OI</tt>
+</th>
+<td> parses <b>hour</b> from 12-hour clock using the alternative numeric system, e.g. 六 reads as 06 in ja_JP locale
+</td>
+<td> <tt><b>tm_hour</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>M</tt>
+</th>
+<td> parses <b>minute</b> as a decimal number (range <tt>[00,59]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_min</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OM</tt>
+</th>
+<td> parses <b>minute</b> using the alternative numeric system, e.g. 二十五 parses as 25 in ja_JP locale
+</td>
+<td> <tt><b>tm_min</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>S</tt>
+</th>
+<td> parses <b>second</b> as a decimal number (range <tt>[00,60]</tt>), leading zeroes permitted but not required
+</td>
+<td> <tt><b>tm_sec</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>OS</tt>
+</th>
+<td> parses <b>second</b> using the alternative numeric system, e.g. 二十四 parses as 24 in ja_JP locale
+</td>
+<td> <tt><b>tm_sec</b></tt>
+</td>
+</tr>
+<tr><th colspan="3"> Other
+</th></tr>
+<tr>
+<th> <tt>c</tt>
+</th>
+<td> parses the locale's standard date and time string format, e.g. <tt>Sun Oct 17 04:41:13 2010</tt> (locale dependent)
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>Ec</tt>
+</th>
+<td> parses the locale's alternative date and time string format, e.g. expecting 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locale
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>x</tt>
+</th>
+<td> parses the locale's standard date representation
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>Ex</tt>
+</th>
+<td> parses the locale's alternative date representation, e.g. expecting 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locale
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>X</tt>
+</th>
+<td> parses the locale's standard time representation
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>EX</tt>
+</th>
+<td> parses the locale's alternative time representation
+</td>
+<td> all
+</td>
+</tr>
+<tr>
+<th> <tt>D</tt>
+</th>
+<td> equivalent to <b>"%m / %d / %y "</b>
+</td>
+<td> <tt><b>tm_mon</b></tt>, <tt><b>tm_mday</b></tt>, <tt><b>tm_year</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>r</tt>
+</th>
+<td> parses locale's standard 12-hour clock time (in POSIX, <b>"%I : %M : %S %p"</b>)
+</td>
+<td> <tt><b>tm_hour</b></tt>, <tt><b>tm_min</b></tt>, <tt><b>tm_sec</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>R</tt>
+</th>
+<td> equivalent to <b>"%H : %M"</b>
+</td>
+<td> <tt><b>tm_hour</b></tt>, <tt><b>tm_min</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>T</tt>
+</th>
+<td> equivalent to <b>"%H : %M : %S"</b>
+</td>
+<td> <tt><b>tm_hour</b></tt>, <tt><b>tm_min</b></tt>, <tt><b>tm_sec</b></tt>
+</td>
+</tr>
+<tr>
+<th> <tt>p</tt>
+</th>
+<td> parses the locale's equivalent of <b>a.m. or p.m.</b>
+</td>
+<td> <tt><b>tm_hour</b></tt>
+</td>
+</tr>
+</table>
+<p><br></p>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_time&amp;action=edit&amp;section=2" title="Edit section: Return value">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p>Returns an object of unspecified type such that if <tt>in</tt> is the name of an input stream of type <span class="mw-geshi cpp source-cpp"><a href="../basic_istream.html"><span class="kw1049">std::<span class="me2">basic_istream</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span></span>, then the expression <span class="mw-geshi cpp source-cpp">in <span class="sy1">&gt;&gt;</span> get_time<span class="br0">(</span>tmb, fmt<span class="br0">)</span></span> behaves as if the following code was executed:
+</p>
+<p><span class="mw-geshi cpp source-cpp"><span class="kw1">typedef</span> std<span class="sy4">::</span><span class="me2">istreambuf_iterator</span><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span> Iter<span class="sy4">;</span><br><span class="kw1">typedef</span> std<span class="sy4">::</span><span class="me2">time_get</span><span class="sy1">&lt;</span>CharT, Iter<span class="sy1">&gt;</span> TimeGet<span class="sy4">;</span><br><a href="../ios_base/iostate.html"><span class="kw1038">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">iostate</span></span></a> err <span class="sy1">=</span> <a href="../ios_base/iostate.html"><span class="kw1039">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">goodbit</span></span></a><span class="sy4">;</span><br><span class="kw4">const</span> TimeGet<span class="sy3">&amp;</span> tg <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">use_facet</span><span class="sy1">&lt;</span>TimeGet<span class="sy1">&gt;</span><span class="br0">(</span>in.<span class="me1">getloc</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br>
+tg.<span class="me1">get</span><span class="br0">(</span>Iter<span class="br0">(</span>in.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>, Iter<span class="br0">(</span><span class="br0">)</span>, in, err, tmb, fmt, fmt <span class="sy2">+</span> traits<span class="sy4">::</span><span class="me2">length</span><span class="br0">(</span>fmt<span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span><br><span class="kw1">if</span> <span class="br0">(</span>err <span class="sy3">!</span><span class="sy1">=</span> <a href="../ios_base/iostate.html"><span class="kw1039">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">goodbit</span></span></a><span class="br0">)</span><br>
+    in.<span class="me1">setstate</span><span class="br0">(</span>err<span class="br0">)</span><span class="sy4">:</span></span>
+</p>
+<p><br></p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_time&amp;action=edit&amp;section=3" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="co2">#include &lt;locale&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;ctime&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="kw4">tm</span> t<span class="sy4">;</span>
+    <a href="../basic_istringstream.html"><span class="kw1071">std::<span class="me2">istringstream</span></span></a> ss<span class="br0">(</span><span class="st0">"2011-Februar-18 23:12:34"</span><span class="br0">)</span><span class="sy4">;</span>
+    ss.<span class="me1">imbue</span><span class="br0">(</span><a href="../../locale/locale.html"><span class="kw1164">std::<span class="me2">locale</span></span></a><span class="br0">(</span><span class="st0">"de_DE"</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    ss <span class="sy1">&gt;&gt;</span> std<span class="sy4">::</span><span class="me2">get_time</span><span class="br0">(</span><span class="sy3">&amp;</span>t, <span class="st0">"%Y-%b-%d %H:%M:%S"</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">put_time</span><span class="br0">(</span><span class="sy3">&amp;</span>t, <span class="st0">"%c"</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Sun Feb 18 23:12:34 2011</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_time&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="../../locale/time_get.html" title="cpp/locale/time get"> time_get</a></div></div>
+</td>
+<td>   parses time/date values from an input character sequence into <span class="mw-geshi cpp source-cpp"><span class="kw4">struct</span> std<span class="sy4">::</span><span class="kw4">tm</span></span> <br><span class="t-mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div">
+<div><a href="put_time.html" title="cpp/io/manip/put time"> put_time</a></div>
+<div><span class="t-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   formats and outputs a date/time value according to the specified format <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2782/1000000
+Post-expand include size: 70213/2097152 bytes
+Template argument size: 33760/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:4822-0!1!0!!en!2 and timestamp 20120221161119 --><div class="printfooter">
+Retrieved from "<a href="get_timehtml.html">http://en.cppreference.com/w/cpp/io/manip/get_time</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 1.979 secs. -->
+</body>
+<!-- Cached 20120221161119 --><!-- Mirrored from en.cppreference.com/w/cpp/io/manip/get_time by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:58:41 GMT -->
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>std::clock - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/chrono/c/clock",
+wgTitle="cpp/chrono/c/clock",
+wgAction="view",
+wgArticleId=2053,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=11604,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_chrono_c_clock skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>clock</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../chrono.html" title="cpp/chrono">chrono</a> | <a href="../chtml.html" title="cpp/chrono/c">c</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../../utility.html" title="cpp/utility"> Utilities library</a></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../../chrono.html" title="cpp/chrono">Date and time utilities</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../time_point.html" title="cpp/chrono/time point">time_point</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../duration.html" title="cpp/chrono/duration">duration</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../system_clock.html" title="cpp/chrono/system clock">system_clock</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../steady_clock.html" title="cpp/chrono/steady clock">steady_clock</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../high_resolution_clock.html" title="cpp/chrono/high resolution clock">high_resolution_clock</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5">  <a href="../chtml.html" title="cpp/chrono/c"> C library facilities</a>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../chtml.html" title="cpp/chrono/c">C-style date and time utilities</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h1">  Functions
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Time manipulation
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="difftime.html" title="cpp/chrono/c/difftime">difftime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="time.html" title="cpp/chrono/c/time">time</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><strong class="selflink">clock</strong></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Format conversions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="asctime.html" title="cpp/chrono/c/asctime">asctime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="ctime.html" title="cpp/chrono/c/ctime">ctime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="strftime.html" title="cpp/chrono/c/strftime">strftime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="gmtime.html" title="cpp/chrono/c/gmtime">gmtime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="localtime.html" title="cpp/chrono/c/localtime">localtime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="mktime.html" title="cpp/chrono/c/mktime">mktime</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Constants
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="CLOCKS_PER_SEC.html" title="cpp/chrono/c/CLOCKS PER SEC">CLOCKS_PER_SEC</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Types
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="tm.html" title="cpp/chrono/c/tm">tm</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="time_t.html" title="cpp/chrono/c/time t">time_t</a></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="ddcl-list-begin">
+<tr>
+<td> <div class="ddcl-list-header-col1"> Defined in header <tt>&lt;ctime&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw4">clock_t</span> clock<span class="br0">(</span> <span class="kw4">void</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2">
+</td>
+<td class="ddcl-list-item-col3">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+</table>
+<p>Returns the approximate processor time used by the process since the beginning of an implementation-defined era related to the program's execution. To convert result value to seconds divide it by <a href="CLOCKS_PER_SEC.html" title="cpp/chrono/c/CLOCKS PER SEC"><tt>CLOCKS_PER_SEC</tt></a>. Because the beginning of the <span class="mw-geshi cpp source-cpp"><a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a></span> era does not have to coincide with the start of the program, only the difference between two values returned by different calls to <span class="mw-geshi cpp source-cpp"><a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a></span> is meaningful. If the CPU is shared by other processes, <span class="mw-geshi cpp source-cpp"><a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a></span> time may advance slower than wall clock. If the current process is multithreaded and more than one execution core is available, <span class="mw-geshi cpp source-cpp"><a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a></span> time may advance faster than wall clock.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Parameters"><span class="tocnumber">1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Return_value"><span class="tocnumber">2</span> <span class="toctext">Return value</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/chrono/c/clock&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<p>(none)
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/chrono/c/clock&amp;action=edit&amp;section=2" title="Edit section: Return value">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p>Processor time used by the program so far or <span class="mw-geshi cpp source-cpp"><span class="br0">(</span><span class="kw4">clock_t</span><span class="br0">)</span><span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span></span> if that information is unavailable.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/chrono/c/clock&amp;action=edit&amp;section=3" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline" id="Notes">Notes</span>
+</h3>
+<p>On POSIX-compatible systems, <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/clock_getres.html" class="external text" rel="nofollow">clock_gettime</a> with clock id CLOCK_PROCESS_CPUTIME_ID offers better resolution.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/chrono/c/clock&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<p> This example demonstrates the difference between clock() time and real time
+ </p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;chrono&gt;</span>
+<span class="co2">#include &lt;ctime&gt;</span>
+<span class="co2">#include &lt;thread&gt;</span>
+<span class="co1">// the function f() does some time-consuming work</span>
+<span class="kw4">void</span> f<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">volatile</span> <span class="kw4">double</span> d<span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> n<span class="sy1">=</span><span class="nu0">0</span><span class="sy4">;</span> n<span class="sy1">&lt;</span><span class="nu0">10000</span><span class="sy4">;</span> <span class="sy2">++</span>n<span class="br0">)</span>
+       <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> m<span class="sy1">=</span><span class="nu0">0</span><span class="sy4">;</span> m<span class="sy1">&lt;</span><span class="nu0">10000</span><span class="sy4">;</span> <span class="sy2">++</span>m<span class="br0">)</span>
+           d <span class="sy2">+</span><span class="sy1">=</span> d<span class="sy2">*</span>n<span class="sy2">*</span>m<span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    std<span class="sy4">::</span><span class="kw4">clock_t</span> c_start <span class="sy1">=</span> <a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> t_start <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">high_resolution_clock</span><span class="sy4">::</span><span class="me2">now</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../thread/thread.html"><span class="kw789">std::<span class="me2">thread</span></span></a> t1<span class="br0">(</span>f<span class="br0">)</span><span class="sy4">;</span> 
+    <a href="../../thread/thread.html"><span class="kw789">std::<span class="me2">thread</span></span></a> t2<span class="br0">(</span>f<span class="br0">)</span><span class="sy4">;</span> <span class="co1">// f() is called on two threads</span>
+    t1.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    t2.<span class="me1">join</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="kw4">clock_t</span> c_end <span class="sy1">=</span> <a href="clockhtml.html"><span class="kw199">std::<span class="me2">clock</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">auto</span> t_end <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">high_resolution_clock</span><span class="sy4">::</span><span class="me2">now</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"CPU time used: "</span>
+              <span class="sy1">&lt;&lt;</span> <span class="nu16">1000.0</span> <span class="sy2">*</span> <span class="br0">(</span>c_end<span class="sy2">-</span>c_start<span class="br0">)</span> <span class="sy2">/</span> <span class="kw2">CLOCKS_PER_SEC</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">" ms<span class="es1">\n</span>"</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Wall clock time passed: "</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">duration_cast</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">chrono</span><span class="sy4">::</span><span class="me2">milliseconds</span><span class="sy1">&gt;</span><span class="br0">(</span>t_end <span class="sy2">-</span> t_start<span class="br0">)</span>.<span class="me1">count</span><span class="br0">(</span><span class="br0">)</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">" ms<span class="es1">\n</span>"</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">CPU time used: 1520 ms
+Wall clock time passed: 769 ms</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/chrono/c/clock&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="ctime.html" title="cpp/chrono/c/ctime"> <tt><b>ctime</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   converts a <tt>tm</tt> object to a textual representation <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="time.html" title="cpp/chrono/c/time"> <tt><b>time</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   returns the current time of the system as time since epoch <br><span class="mark">(function)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1746/1000000
+Post-expand include size: 44424/2097152 bytes
+Template argument size: 21730/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2053-0!1!0!!en!2 and timestamp 20111028064057 --><div class="printfooter">
+Retrieved from "<a href="clockhtml.html">http://en.cppreference.com/w/cpp/chrono/c/clock</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 1.110 secs. -->
+</body>
+<!-- Cached 20111028064058 -->
+</html>

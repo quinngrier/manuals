@@ -1,0 +1,58 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+main() {
+
+  declare    v
+  declare    x
+
+  v=${PWD##*/}
+  readonly v
+
+  printf '%s\n' "$v" >date
+
+  for x in ../../downloads/cppreference/html-book-$v.*.urls; do
+    break
+  done
+  x=${x##*/}
+  x=${x%.*}
+  download cppreference/$x
+  rm -f -r output
+  extract $x
+  rm -f $x
+
+  for x in output/[!e]*; do
+    x=${x#output/}
+    break
+  done
+  make_ignore_file $x >output/ignore
+
+  for x in output/e*; do
+    x=${x#output/}
+    break
+  done
+  make_skip_file $x >output/skip
+
+  for x in output/e*/**/*.html; do
+    y=${x%/*}
+    y=${y//+([!\/])/..}/qref.js
+    sed '
+      s|</head>|<script defer src="'$y'"></script>&|
+    ' "$x" >"$x".tmp
+    mv -f "$x".tmp "$x"
+  done
+
+}; readonly -f main
+
+main "$@"

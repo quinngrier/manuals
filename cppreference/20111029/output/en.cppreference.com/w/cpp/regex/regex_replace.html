@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>std::regex_replace - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="httphtml.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/regex/regex_replace",
+wgTitle="cpp/regex/regex replace",
+wgAction="view",
+wgArticleId=3270,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=12523,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_regex_regex_replace skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>regex_replace</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../regex.html" title="cpp/regex">regex</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../regex.html" title="cpp/regex"> Regular expressions library</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h1">  Classes
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="basic_regex.html" title="cpp/regex/basic regex">basic_regex</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="sub_match.html" title="cpp/regex/sub match">sub_match</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="match_results.html" title="cpp/regex/match results">match_results</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Algorithms
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_match.html" title="cpp/regex/regex match">regex_match</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_search.html" title="cpp/regex/regex search">regex_search</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><strong class="selflink">regex_replace</strong></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Iterators
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_iterator.html" title="cpp/regex/regex iterator">regex_iterator</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_token_iterator.html" title="cpp/regex/regex token iterator">regex_token_iterator</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Exceptions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_error.html" title="cpp/regex/regex error">regex_error</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Traits
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="regex_traits.html" title="cpp/regex/regex traits">regex_traits</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Constants
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="syntax_option_type.html" title="cpp/regex/syntax option type">syntax_option_type</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="match_flag_type.html" title="cpp/regex/match flag type">match_flag_type</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="error_type.html" title="cpp/regex/error type">error_type</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="ddcl-list-begin">
+<tr>
+<td> <div class="ddcl-list-header-col1"> Defined in header <tt>&lt;regex&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> OutputIterator, <span class="kw1">class</span> BidirectionalIterator,<br><p>          <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT,<br>
+          <span class="kw1">class</span> STraits, <span class="kw1">class</span> SAlloc <span class="sy1">&gt;</span><br>
+OutputIterator <br>
+    regex_replace<span class="br0">(</span> OutputIterator out,<br>
+                   BidirectionalIterator first, BidirectionalIterator last,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> <a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span><span class="sy3">&amp;</span> fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (1)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> OutputIterator, <span class="kw1">class</span> BidirectionalIterator,<br><p>          <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br>
+OutputIterator <br>
+    regex_replace<span class="br0">(</span> OutputIterator out,<br>
+                   BidirectionalIterator first, BidirectionalIterator last,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> CharT<span class="sy2">*</span> fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (2)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT,<br><p>          <span class="kw1">class</span> STraits, <span class="kw1">class</span> SAlloc,<br>
+          <span class="kw1">class</span> FTraits, <span class="kw1">class</span> FAlloc <span class="sy1">&gt;</span><br><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span> <br>
+    regex_replace<span class="br0">(</span> <span class="kw4">const</span> <a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span><span class="sy3">&amp;</span> s,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> <a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,FTraits,FAlloc<span class="sy1">&gt;</span><span class="sy3">&amp;</span> fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (3)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT,<br><p>          <span class="kw1">class</span> STraits, <span class="kw1">class</span> SAlloc <span class="sy1">&gt;</span><br><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span> <br>
+    regex_replace<span class="br0">(</span> <span class="kw4">const</span> <a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span><span class="sy3">&amp;</span> s,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> CharT<span class="sy2">*</span> fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (4)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT,<br><p>          <span class="kw1">class</span> STraits, <span class="kw1">class</span> SAlloc <span class="sy1">&gt;</span><br><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> <br>
+    regex_replace<span class="br0">(</span> <span class="kw4">const</span> CharT<span class="sy2">*</span> s,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> <a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT,STraits,SAlloc<span class="sy1">&gt;</span><span class="sy3">&amp;</span> fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (5)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Traits, <span class="kw1">class</span> CharT <span class="sy1">&gt;</span><br><p><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> <br>
+    regex_replace<span class="br0">(</span> <span class="kw4">const</span> CharT<span class="sy2">*</span> s,<br>
+                   <span class="kw4">const</span> <a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> e,<br>
+                   <span class="kw4">const</span> CharT<span class="sy2">*</span>fmt,<br>
+                   <a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a> flags <span class="sy1">=</span> <br></p>
+                       <a href="match_flag_type.html"><span class="kw726">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_default</span></span></a> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (6)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+</table>
+<p>1) Constructs a <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw702">std::<span class="me2">regex_iterator</span></span></a></span> object <tt>i</tt> as if by <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw702">std::<span class="me2">regex_iterator</span></span></a><span class="sy1">&lt;</span>BidirectionalIterator, CharT, traits<span class="sy1">&gt;</span> i<span class="br0">(</span>first, last, e, flags<span class="br0">)</span></span>, and uses <tt>i</tt> to enumerate through all of the matches <tt>m</tt> of type <span class="mw-geshi cpp source-cpp"><a href="match_results.html"><span class="kw694">std::<span class="me2">match_results</span></span></a><span class="sy1">&lt;</span>BidirectionalIterator<span class="sy1">&gt;</span></span> that occur within the sequence [first,last
+).
+</p>
+<p>2) Same as (1).
+</p>
+<p>3) Constructs an empty string result of type <span class="mw-geshi cpp source-cpp"><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT, ST, SA<span class="sy1">&gt;</span></span> and calls <span class="mw-geshi cpp source-cpp"><a href="regex_replace.html"><span class="kw701">std::<span class="me2">regex_replace</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">back_inserter</span><span class="br0">(</span>result<span class="br0">)</span>, s.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, s.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, e, fmt, flags<span class="br0">)</span></span>.
+</p>
+<p>4) Same as (3).
+</p>
+<p>5) Constructs an empty string result of type <span class="mw-geshi cpp source-cpp"><a href="../string/basic_string.html"><span class="kw287">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span></span> and calls <span class="mw-geshi cpp source-cpp"><a href="regex_replace.html"><span class="kw701">std::<span class="me2">regex_replace</span></span></a><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">back_inserter</span><span class="br0">(</span>result<span class="br0">)</span>, s, s <span class="sy2">+</span> <a href="../string/char_traits.html"><span class="kw308">std::<span class="me2">char_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">length</span><span class="br0">(</span>s<span class="br0">)</span>, e, fmt, flags<span class="br0">)</span></span>.
+</p>
+<p>6) Same as (5).
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/regex_replace&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> out </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  an output iterator with the result
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> first, last </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  the target character range
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> m </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  the match results
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> fmt </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  a regex replacement format string <table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">This section is incomplete </td>
+</tr></table>
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> s </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  a target character std::basic_string
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> e </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  the std::regex
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> flags </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  the match flags
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/regex_replace&amp;action=edit&amp;section=2" title="Edit section: Return value">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p>Returns the result containing the replacements.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/regex_replace&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr><td colspan="2">  <span class="mw-geshi cpp source-cpp"><a href="match_flag_type.html"><span class="kw725">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">match_flag_type</span></span></a></span>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr><td colspan="2">  <span class="mw-geshi cpp source-cpp"><a href="basic_regex.html"><span class="kw686">std::<span class="me2">basic_regex</span></span></a></span>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr><td colspan="2"> <span class="mw-geshi cpp source-cpp"><a href="regex_iterator.html"><span class="kw702">std::<span class="me2">regex_iterator</span></span></a></span>
+</td></tr>
+`
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2016/1000000
+Post-expand include size: 44715/2097152 bytes
+Template argument size: 27563/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:3270-0!1!0!!en!2 and timestamp 20111028015130 --><div class="printfooter">
+Retrieved from "<a href="regex_replace.html">http://en.cppreference.com/w/cpp/regex/regex_replace</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 1.650 secs. -->
+</body>
+<!-- Cached 20111028015130 -->
+</html>

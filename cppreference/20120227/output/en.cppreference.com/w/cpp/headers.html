@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/headers by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:05:21 GMT --><head>
+<title>C++ Standard Library header files - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="stylesheet" href="../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/headers",
+wgTitle="cpp/headers",
+wgAction="view",
+wgArticleId=2125,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=18938,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../mwiki/skins/common/wikibits3905.js"></script><script src="../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_headers skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">C++ Standard Library header files</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../cpp.html" title="cpp">cpp</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<p>The interface of C++ standard library is defined by a set of files. These are as following:
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1">
+<a href="#Utilities_library"><span class="tocnumber">1</span> <span class="toctext">Utilities library</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Dynamic_memory_management"><span class="tocnumber">1.1</span> <span class="toctext">Dynamic memory management</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Numeric_limits"><span class="tocnumber">1.2</span> <span class="toctext">Numeric limits</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Error_handling"><span class="tocnumber">1.3</span> <span class="toctext">Error handling</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Strings_library"><span class="tocnumber">2</span> <span class="toctext">Strings library</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Containers_library"><span class="tocnumber">3</span> <span class="toctext">Containers library</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Algorithms_library"><span class="tocnumber">4</span> <span class="toctext">Algorithms library</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Iterators_library"><span class="tocnumber">5</span> <span class="toctext">Iterators library</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Numerics_library"><span class="tocnumber">6</span> <span class="toctext">Numerics library</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Input.2Foutput_library"><span class="tocnumber">7</span> <span class="toctext">Input/output library</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Localization_library"><span class="tocnumber">8</span> <span class="toctext">Localization library</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Regular_Expressions_library"><span class="tocnumber">9</span> <span class="toctext">Regular Expressions library</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Atomic_Operations_library"><span class="tocnumber">10</span> <span class="toctext">Atomic Operations library</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Thread_support_library"><span class="tocnumber">11</span> <span class="toctext">Thread support library</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=1" title="Edit section: Utilities library">edit</a>]</span> <span class="mw-headline" id="Utilities_library">Utilities library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;cstdlib&gt;</b></tt> - General purpose utilities: <a href="utility/program.html" title="cpp/utility/program"> program control</a>, <a href="memory/c.html" title="cpp/memory/c"> dynamic memory allocation</a>, <a href="numeric/random.html" title="cpp/numeric/random"> random numbers</a>, <a href="algorithm.html" title="cpp/algorithm"> sort and search</a> <table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">This section is incomplete </td>
+</tr></table>
+</li>
+<li> <tt><b>&lt;csignal&gt;</b></tt> - <a href="utility/program.html" title="cpp/utility/program"> Functions and macro constants for signal management</a>
+</li>
+<li> <tt><b>&lt;csetjmp&gt;</b></tt> - <a href="utility/program/setjmp.html" title="cpp/utility/program/setjmp"> Macro (and function) that saves (and jumps) to an execution context</a>
+</li>
+<li> <tt><b>&lt;cstdarg&gt;</b></tt> - <a href="http://en.cppreference.com/mwiki/index.php?title=todo&amp;action=edit&amp;redlink=1" class="new" title="todo (page does not exist)"> Handling of variable length argument lists</a>
+</li>
+<li> <tt><b>&lt;typeinfo&gt;</b></tt> - <a href="types.html" title="cpp/types"> Runtime type information utilities</a>
+</li>
+<li> <tt><b>&lt;bitset&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="utility/bitset.html"><span class="kw582">std::<span class="me2">bitset</span></span></a></span> class template 
+</li>
+<li> <tt><b>&lt;functional&gt;</b></tt> - <a href="utility/functional.html" title="cpp/functional" class="mw-redirect"> Function objects</a>, designed for use with the <a href="algorithm.html" title="cpp/algorithm"> standard algorithms</a> 
+</li>
+<li> <tt><b>&lt;utility&gt;</b></tt> - Various <a href="utility.html" title="cpp/utility"> utility components</a>
+</li>
+<li> <tt><b>&lt;ctime&gt;</b></tt> - <a href="chrono/c.html" title="cpp/chrono/c"> C-style time/date utilites</a> 
+</li>
+<li> <tt><b>&lt;chrono&gt;</b></tt> - <a href="chrono.html" title="cpp/chrono"> C++ time utilites</a> <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;cstddef&gt;</b></tt> - <a href="types.html" title="cpp/types"> typedefs for types such as size_t, NULL and others</a> 
+</li>
+<li> <tt><b>&lt;initializer_list&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="utility/initializer_list.html"><span class="kw526">std::<span class="me2">initializer_list</span></span></a></span> class template <span class="t-mark">(since C++11)</span>
+</li>
+</ul>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=2" title="Edit section: Dynamic memory management">edit</a>]</span> <span class="mw-headline" id="Dynamic_memory_management">Dynamic memory management</span>
+</h4>
+<ul>
+<li> <tt><b>&lt;new&gt;</b></tt> - <a href="memory/new.html" title="cpp/memory/new"> Low-level memory management utilities</a>
+</li>
+<li> <tt><b>&lt;memory&gt;</b></tt> - <a href="memory.html" title="cpp/memory"> Higher level memory management utilities</a> 
+</li>
+</ul>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=3" title="Edit section: Numeric limits">edit</a>]</span> <span class="mw-headline" id="Numeric_limits">Numeric limits</span>
+</h4>
+<ul>
+<li> <tt><b>&lt;climits&gt;</b></tt> - <a href="types/climits.html" title="cpp/types/climits"> limits of integral types</a>
+</li>
+<li> <tt><b>&lt;cfloat&gt;</b></tt> - <a href="types/climits.html" title="cpp/types/climits"> limits of float types</a>
+</li>
+<li> <tt><b>&lt;cstdint&gt;</b></tt> - <a href="types/climits.html" title="cpp/types/climits"> limits of other types</a>
+</li>
+<li> <tt><b>&lt;limits&gt;</b></tt> - <a href="types/numeric_limits.html" title="cpp/types/numeric limits"> standardized way to query properties of fundamental types</a>
+</li>
+</ul>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=4" title="Edit section: Error handling">edit</a>]</span> <span class="mw-headline" id="Error_handling">Error handling</span>
+</h4>
+<ul>
+<li> <tt><b>&lt;exception&gt;</b></tt> - <a href="error.html" title="cpp/error"> Exception handling utilities</a>
+</li>
+<li> <tt><b>&lt;stdexcept&gt;</b></tt> - <a href="error.html" title="cpp/error"> Standard exception objects</a> 
+</li>
+<li> <tt><b>&lt;cassert&gt;</b></tt> - <a href="error/assert.html" title="cpp/error/assert"> Conditionally compiled macro that compares its argument to zero</a>
+</li>
+<li> <tt><b>&lt;system_error&gt;</b></tt> - <a href="error/system_error/error_code.html" title="cpp/error/system error/error code"> defines std::error_code, a platform-dependent error code</a>
+</li>
+<li> <tt><b>&lt;cerrno&gt;</b></tt> - <a href="error.html" title="cpp/error"> Macro containing the last error number</a>
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=5" title="Edit section: Strings library">edit</a>]</span> <span class="mw-headline" id="Strings_library">Strings library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;cctype&gt;</b></tt> - <a href="string/byte.html" title="cpp/string/byte"> functions to determine the type contained in character data</a> 
+</li>
+<li> <tt><b>&lt;cwctype&gt;</b></tt> - <a href="string/wide.html" title="cpp/string/wide"> functions for determining the type of wide character data </a>
+</li>
+<li> <tt><b>&lt;cstring&gt;</b></tt> - various <a href="string/byte.html" title="cpp/string/byte"> narrow character string handling functions</a> 
+</li>
+<li> <tt><b>&lt;cwstring&gt;</b></tt> - various <a href="string/wide.html" title="cpp/string/wide"> wide character string handling functions</a> 
+</li>
+<li> <tt><b>&lt;cwchar&gt;</b></tt> - various <a href="string/wide.html" title="cpp/string/wide"> wide </a> and <a href="string/multibytehtml.html" title="cpp/string/multibyte"> multibyte</a> string handling functions 
+</li>
+<li> <tt><b>&lt;cuchar&gt;</b></tt> - C-style <a href="string/multibytehtml.html" title="cpp/string/multibyte"> Unicode character conversion functions</a> <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;string&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw736">std::<span class="me2">basic_string</span></span></a></span> class template 
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=6" title="Edit section: Containers library">edit</a>]</span> <span class="mw-headline" id="Containers_library">Containers library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;array&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/array.html"><span class="kw758">std::<span class="me2">array</span></span></a></span> container <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;vector&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/vector.html"><span class="kw759">std::<span class="me2">vector</span></span></a></span> container 
+</li>
+<li> <tt><b>&lt;deque&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/deque.html"><span class="kw760">std::<span class="me2">deque</span></span></a></span> container 
+</li>
+<li> <tt><b>&lt;list&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/list.html"><span class="kw762">std::<span class="me2">list</span></span></a></span> container 
+</li>
+<li> <tt><b>&lt;forward_list&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/forward_list.html"><span class="kw761">std::<span class="me2">forward_list</span></span></a></span> container <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;set&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/set.html"><span class="kw763">std::<span class="me2">set</span></span></a></span> and <span class="mw-geshi cpp source-cpp"><a href="container/multiset.html"><span class="kw764">std::<span class="me2">multiset</span></span></a></span> associative containers 
+</li>
+<li> <tt><b>&lt;map&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/map.html"><span class="kw765">std::<span class="me2">map</span></span></a></span> and <span class="mw-geshi cpp source-cpp"><a href="container/multimaphtml.html"><span class="kw766">std::<span class="me2">multimap</span></span></a></span> associative containers 
+</li>
+<li> <tt><b>&lt;unordered_set&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/unordered_set.html"><span class="kw767">std::<span class="me2">unordered_set</span></span></a></span> and <span class="mw-geshi cpp source-cpp"><a href="container/unordered_multiset.html"><span class="kw768">std::<span class="me2">unordered_multiset</span></span></a></span> unordered associative containers <span class="t-mark">(since C++11)</span> 
+</li>
+<li> <tt><b>&lt;unordered_map&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/unordered_map.html"><span class="kw769">std::<span class="me2">unordered_map</span></span></a></span> and <span class="mw-geshi cpp source-cpp"><a href="container/unordered_multimap.html"><span class="kw770">std::<span class="me2">unordered_multimap</span></span></a></span> unordered associative containers <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;stack&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/stack.html"><span class="kw771">std::<span class="me2">stack</span></span></a></span> container adaptor 
+</li>
+<li> <tt><b>&lt;queue&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="container/queuehtml.html"><span class="kw772">std::<span class="me2">queue</span></span></a></span> and <span class="mw-geshi cpp source-cpp"><a href="container/priority_queue.html"><span class="kw773">std::<span class="me2">priority_queue</span></span></a></span> container adaptors 
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=7" title="Edit section: Algorithms library">edit</a>]</span> <span class="mw-headline" id="Algorithms_library">Algorithms library</span>
+</h3>
+<ul><li> <tt><b>&lt;algorithm&gt;</b></tt> - <a href="algorithm.html" title="cpp/algorithm"> Algorithms that operate on containers</a> 
+</li></ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=8" title="Edit section: Iterators library">edit</a>]</span> <span class="mw-headline" id="Iterators_library">Iterators library</span>
+</h3>
+<ul><li> <tt><b>&lt;iterator&gt;</b></tt> - <a href="iterator.html" title="cpp/iterator"> Container iterators</a> 
+</li></ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=9" title="Edit section: Numerics library">edit</a>]</span> <span class="mw-headline" id="Numerics_library">Numerics library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;cmath&gt;</b></tt> - <a href="numeric/math.html" title="cpp/numeric/math"> Common mathematics functions</a> 
+</li>
+<li> <tt><b>&lt;complex&gt;</b></tt> - <a href="numeric/complex.html" title="cpp/numeric/complex"> Complex number type</a> 
+</li>
+<li> <tt><b>&lt;valarray&gt;</b></tt> - <a href="numeric/valarray.html" title="cpp/numeric/valarray"> Class for representing and manipulating arrays of values</a> 
+</li>
+<li> <tt><b>&lt;random&gt;</b></tt> - <a href="numeric/random.html" title="cpp/numeric/random"> Random number generators and distributions</a> 
+</li>
+<li> <tt><b>&lt;numeric&gt;</b></tt> - <a href="numeric.html" title="cpp/numeric"> Numeric operations on values in containers</a> 
+</li>
+<li> <tt><b>&lt;ratio&gt;</b></tt> - <a href="numeric/ratio.html" title="cpp/numeric/ratio"> Compile-time rational arithmetic</a> <span class="t-mark">(since C++11)</span>
+</li>
+<li> <tt><b>&lt;cfenv&gt;</b></tt> - <a href="numeric/fenv.html" title="cpp/numeric/fenv"> Floating-point environment</a> access functions <span class="t-mark">(since C++11)</span>
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=10" title="Edit section: Input/output library">edit</a>]</span> <span class="mw-headline" id="Input.2Foutput_library">Input/output library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;iosfwd&gt;</b></tt> - forward declarations of all objects in the input/output library 
+</li>
+<li> <tt><b>&lt;ios&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/ios_base.html"><span class="kw1010">std::<span class="me2">ios_base</span></span></a></span> class, <span class="mw-geshi cpp source-cpp"><a href="io/basic_ios.html"><span class="kw1048">std::<span class="me2">basic_ios</span></span></a></span> class template and several typedefs 
+</li>
+<li> <tt><b>&lt;istream&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/basic_istream.html"><span class="kw1049">std::<span class="me2">basic_istream</span></span></a></span> class template and several typedefs 
+</li>
+<li> <tt><b>&lt;ostream&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/basic_ostream.html"><span class="kw1051">std::<span class="me2">basic_ostream</span></span></a></span> class template and several typedefs 
+</li>
+<li> <tt><b>&lt;iostream&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/basic_iostream.html"><span class="kw1053">std::<span class="me2">basic_iostream</span></span></a></span> class template and several typedefs 
+</li>
+<li> <tt><b>&lt;fstream&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/basic_fstream.html"><span class="kw1056">std::<span class="me2">basic_fstream</span></span></a></span>, <span class="mw-geshi cpp source-cpp"><a href="io/basic_ifstream.html"><span class="kw1054">std::<span class="me2">basic_ifstream</span></span></a></span>, <span class="mw-geshi cpp source-cpp"><a href="io/basic_ofstream.html"><span class="kw1055">std::<span class="me2">basic_ofstream</span></span></a></span> class templates and several typedefs 
+</li>
+<li> <tt><b>&lt;sstream&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="io/basic_stringstream.html"><span class="kw1059">std::<span class="me2">basic_stringstream</span></span></a></span>, <span class="mw-geshi cpp source-cpp"><a href="io/basic_istringstream.html"><span class="kw1057">std::<span class="me2">basic_istringstream</span></span></a></span>, <span class="mw-geshi cpp source-cpp"><a href="io/basic_ostringstream.html"><span class="kw1058">std::<span class="me2">basic_ostringstream</span></span></a></span> class templates and several typedefs 
+</li>
+<li> <tt><b>&lt;iomanip&gt;</b></tt> - <a href="io/maniphtml.html" title="cpp/io/manip"> Helper functions to control the format or input and output</a> 
+</li>
+<li> <tt><b>&lt;cstdio&gt;</b></tt> - <a href="io/c.html" title="cpp/io/c"> C-style input-output functions</a> 
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=11" title="Edit section: Localization library">edit</a>]</span> <span class="mw-headline" id="Localization_library">Localization library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;locale&gt;</b></tt> - <a href="locale.html" title="cpp/locale"> Localization utilities</a> 
+</li>
+<li> <tt><b>&lt;clocale&gt;</b></tt> - <a href="locale.html" title="cpp/locale"> C localization utilities</a> 
+</li>
+<li> <tt><b>&lt;codecvt&gt;</b></tt> - <a href="locale.html" title="cpp/locale"> Unicode conversion facilities</a> <span class="t-mark">(since C++11)</span> 
+</li>
+</ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=12" title="Edit section: Regular Expressions library">edit</a>]</span> <span class="mw-headline" id="Regular_Expressions_library">Regular Expressions library</span>
+</h3>
+<ul><li> <tt><b>&lt;regex&gt;</b></tt> - <a href="regex.html" title="cpp/regex"> Classes, algorithms and iterators to support regular expression processing  </a>
+</li></ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=13" title="Edit section: Atomic Operations library">edit</a>]</span> <span class="mw-headline" id="Atomic_Operations_library">Atomic Operations library</span>
+</h3>
+<ul><li> <tt><b>&lt;atomic&gt;</b></tt> - <a href="atomic.html" title="cpp/atomic"> Atomic operations library</a> 
+</li></ul>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/headers&amp;action=edit&amp;section=14" title="Edit section: Thread support library">edit</a>]</span> <span class="mw-headline" id="Thread_support_library">Thread support library</span>
+</h3>
+<ul>
+<li> <tt><b>&lt;thread&gt;</b></tt> - <span class="mw-geshi cpp source-cpp"><a href="thread/thread.html"><span class="kw1270">std::<span class="me2">thread</span></span></a></span> class and <a href="thread.html" title="cpp/thread"> supporting functions</a> 
+</li>
+<li> <tt><b>&lt;mutex&gt;</b></tt> - <a href="thread.html" title="cpp/thread"> mutual exclusion primitives</a> 
+</li>
+<li> <tt><b>&lt;future&gt;</b></tt> - <a href="thread.html" title="cpp/thread"> primitives for asynchronous computations</a>
+</li>
+</ul>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1747/1000000
+Post-expand include size: 14539/2097152 bytes
+Template argument size: 4947/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2125-0!1!0!!en!2 and timestamp 20120220103642 --><div class="printfooter">
+Retrieved from "<a href="headers.html">http://en.cppreference.com/w/cpp/headers</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 3.366 secs. -->
+</body>
+<!-- Cached 20120220103642 --><!-- Mirrored from en.cppreference.com/w/cpp/headers by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:05:25 GMT -->
+</html>

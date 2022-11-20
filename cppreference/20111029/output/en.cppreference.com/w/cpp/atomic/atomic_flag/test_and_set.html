@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>std::atomic_flag::test_and_set - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/atomic/atomic_flag/test_and_set",
+wgTitle="cpp/atomic/atomic flag/test and set",
+wgAction="view",
+wgArticleId=2831,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=11868,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_atomic_atomic_flag_test_and_set skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::atomic_flag::</span>test_and_set</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../atomichtml.html" title="cpp/atomic">atomic</a> | <a href="../atomic_flag.html" title="cpp/atomic/atomic flag">atomic flag</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../../atomichtml.html" title="cpp/atomic"> Atomic operations library</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h1">  Types
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic (page does not exist)">atomic</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_is_lock_free&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic is lock free (page does not exist)">atomic_is_lock_free</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Functions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_store&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic store (page does not exist)">atomic_store<br>atomic_store_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_load&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic load (page does not exist)">atomic_load<br>atomic_load_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_exchange&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic exchange (page does not exist)">atomic_exchange<br>atomic_exchange_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_compare_exchange&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic compare exchange (page does not exist)">atomic_compare_exchange_weak<br>atomic_compare_exchange_weak_explicit<br>atomic_compare_exchange_strong<br>atomic_compare_exchange_strong_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span><br><span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_fetch_add&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic fetch add (page does not exist)">atomic_fetch_add<br>atomic_fetch_add_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_fetch_sub&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic fetch sub (page does not exist)">atomic_fetch_sub<br>atomic_fetch_sub_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_fetch_and&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic fetch and (page does not exist)">atomic_fetch_and<br>atomic_fetch_and_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_fetch_or&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic fetch or (page does not exist)">atomic_fetch_or<br>atomic_fetch_or_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_fetch_xor&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic fetch xor (page does not exist)">atomic_fetch_xor<br>atomic_fetch_xor_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Atomic flags
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../atomic_flag.html" title="cpp/atomic/atomic flag">atomic_flag</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../atomic_flag_test_and_set.html" title="cpp/atomic/atomic flag test and set">atomic_flag_test_and_set<br>atomic_flag_test_and_set_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../atomic_flag_clearhtml.html" title="cpp/atomic/atomic flag clear">atomic_flag_clear<br>atomic_flag_clear_explicit</a></tt></td>
+<td class="sb-list-ln-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Initialization
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_init&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/atomic init (page does not exist)">atomic_init</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/ATOMIC_VAR_INIT&amp;action=edit&amp;redlink=1" class="new" title="cpp/atomic/ATOMIC VAR INIT (page does not exist)">ATOMIC_VAR_INIT</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../ATOMIC_FLAG_INIT.html" title="cpp/atomic/ATOMIC FLAG INIT">ATOMIC_FLAG_INIT</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Memory ordering
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../memory_order.html" title="cpp/atomic/memory order">memory_order</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../kill_dependency.html" title="cpp/atomic/kill dependency">kill_dependency</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../atomic_thread_fencehtml.html" title="cpp/atomic/atomic thread fence">atomic_thread_fence</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../atomic_signal_fence.html" title="cpp/atomic/atomic signal fence">atomic_signal_fence</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../atomic_flag.html" title="cpp/atomic/atomic flag"><tt>std::atomic_flag</tt></a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h1">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="atomic_flag.html" title="cpp/atomic/atomic flag/atomic flag">atomic_flag::atomic_flag</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="operator%3d.html" title="cpp/atomic/atomic flag/operator=">atomic_flag::operator=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="clearhtml.html" title="cpp/atomic/atomic flag/clear">atomic_flag::clear</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><strong class="selflink">atomic_flag::test_and_set</strong></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="ddcl-list-begin">
+<tr>
+<td> <div class="ddcl-list-header-col1"> Defined in header <tt>&lt;atomic&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> test_and_set<span class="br0">(</span><a href="../memory_order.html"><span class="kw712">std::<span class="me2">memory_order</span></span></a> order <span class="sy1">=</span> <a href="../memory_order.html"><span class="kw718">std::<span class="me2">memory_order_seq_cst</span></span></a><span class="br0">)</span> <span class="kw4">volatile</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (1)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> test_and_set<span class="br0">(</span><a href="../memory_order.html"><span class="kw712">std::<span class="me2">memory_order</span></span></a> order <span class="sy1">=</span> <a href="../memory_order.html"><span class="kw718">std::<span class="me2">memory_order_seq_cst</span></span></a><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (2)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+</table>
+<p>Atomically changes the state of a <span class="mw-geshi cpp source-cpp"><a href="../atomic_flag.html"><span class="kw708">std::<span class="me2">atomic_flag</span></span></a></span> to set (<span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>) and returns the value it held before. 
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_flag/test_and_set&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table><tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> order </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  the memory sycnhronization ordering for this operation
+</td>
+</tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_flag/test_and_set&amp;action=edit&amp;section=2" title="Edit section: Exceptions">edit</a>]</span> <span class="mw-headline" id="Exceptions">Exceptions</span>
+</h3>
+<div style="display:inline">
+<a href="../../language/noexcept_spec.html" title="cpp/language/noexcept spec"><tt>noexcept</tt></a> specification:  <span style="display:inline-block; vertical-align:middle; padding:0;">
+<table class="ddcl-list-begin">
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">noexcept</span></span></div>
+</td>
+<td class="ddcl-list-item-col2">
+</td>
+<td class="ddcl-list-item-col3">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+</table></span>  <span class="mark">(C++11 feature)</span>
+</div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/atomic/atomic_flag/test_and_set&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="clearhtml.html" title="cpp/atomic/atomic flag/clear"> <tt><b>clear</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   atomically sets flag to <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>  <br><span class="mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="../atomic_flag_test_and_set.html" title="cpp/atomic/atomic flag test and set"> <tt><b>atomic_flag_test_and_set<br>atomic_flag_test_and_set_explicit</b></tt> </a></td>
+<td class="member-cell2">
+<span class="mark">(C++11)</span><br><span class="mark">(C++11)</span>
+</td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   atomically sets the flag to <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> and returns its previous value  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="../memory_order.html" title="cpp/atomic/memory order"> <tt><b>memory_order</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   defines memory ordering constraints for the given atomic operation  <br><span class="mark">(typedef)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2638/1000000
+Post-expand include size: 86141/2097152 bytes
+Template argument size: 38874/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2831-0!1!0!!en!2 and timestamp 20111017042908 --><div class="printfooter">
+Retrieved from "<a href="test_and_set.html">http://en.cppreference.com/w/cpp/atomic/atomic_flag/test_and_set</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 1.283 secs. -->
+</body>
+<!-- Cached 20111017042908 -->
+</html>

@@ -1,0 +1,1280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/numeric/math by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:10:06 GMT --><head>
+<title>Common mathematical functions - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/numeric/math",
+wgTitle="cpp/numeric/math",
+wgAction="view",
+wgArticleId=1333,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=13801,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_numeric_math skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Common mathematical functions</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../numeric.html" title="cpp/numeric">numeric</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../numeric.html" title="cpp/numeric"> Numerics library</a></td></tr>
+<tr><td class="template-sidebar-heading" style=""><strong class="selflink"> Common mathematical functions</strong></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Functions
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Basic operations
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/abshtml.html" title="cpp/numeric/math/abs">abs(int)<br>labs<br>llabs<br>imaxabs</a></td>
+<td>
+<br><br><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/fabs.html" title="cpp/numeric/math/fabs">abs(float)<br>fabs</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/div.html" title="cpp/numeric/math/div">div<br>ldiv<br>lldiv<br>imaxdiv</a></td>
+<td>
+<br><br><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/fmodhtml.html" title="cpp/numeric/math/fmod">fmod</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/remainder.html" title="cpp/numeric/math/remainder">remainder</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/remquo.html" title="cpp/numeric/math/remquo">remquo</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/fma.html" title="cpp/numeric/math/fma">fma</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/fmaxhtml.html" title="cpp/numeric/math/fmax">fmax</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/fmin.html" title="cpp/numeric/math/fmin">fmin</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/fdim.html" title="cpp/numeric/math/fdim">fdim</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/nanhtml.html" title="cpp/numeric/math/nan">nan<br>nanf<br>nanl</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Exponential functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/exp.html" title="cpp/numeric/math/exp">exp</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/exp2.html" title="cpp/numeric/math/exp2">exp2</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/expm1.html" title="cpp/numeric/math/expm1">expm1</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/log.html" title="cpp/numeric/math/log">log</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/log10.html" title="cpp/numeric/math/log10">log10</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/log1p.html" title="cpp/numeric/math/log1p">log1p</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Power functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/sqrthtml.html" title="cpp/numeric/math/sqrt">sqrt</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/cbrthtml.html" title="cpp/numeric/math/cbrt">cbrt</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/hypot.html" title="cpp/numeric/math/hypot">hypot</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/pow.html" title="cpp/numeric/math/pow">pow</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Trigonometric and hyperbolic functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/sin.html" title="cpp/numeric/math/sin">sin</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/cos.html" title="cpp/numeric/math/cos">cos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/tan.html" title="cpp/numeric/math/tan">tan</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/asin.html" title="cpp/numeric/math/asin">asin</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/acos.html" title="cpp/numeric/math/acos">acos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/atan.html" title="cpp/numeric/math/atan">atan</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/atan2.html" title="cpp/numeric/math/atan2">atan2</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/sinh.html" title="cpp/numeric/math/sinh">sinh</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/coshhtml.html" title="cpp/numeric/math/cosh">cosh</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/tanh.html" title="cpp/numeric/math/tanh">tanh</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/asinh.html" title="cpp/numeric/math/asinh">asinh</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/acosh.html" title="cpp/numeric/math/acosh">acosh</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/atanhhtml.html" title="cpp/numeric/math/atanh">atanh</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Error and gamma functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/erf.html" title="cpp/numeric/math/erf">erf</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/erfc.html" title="cpp/numeric/math/erfc">erfc</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/lgammahtml.html" title="cpp/numeric/math/lgamma">lgamma</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/tgamma.html" title="cpp/numeric/math/tgamma">tgamma</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Nearest integer floating point operations
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/ceil.html" title="cpp/numeric/math/ceil">ceil</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/floor.html" title="cpp/numeric/math/floor">floor</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/round.html" title="cpp/numeric/math/round">round<br>lround<br>llround</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/trunchtml.html" title="cpp/numeric/math/trunc">trunc</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/nearbyint.html" title="cpp/numeric/math/nearbyint">nearbyint</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/rint.html" title="cpp/numeric/math/rint">rint<br>lrint<br>llrint</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Floating point manipulation functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/ldexp.html" title="cpp/numeric/math/ldexp">ldexp</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/scalbnhtml.html" title="cpp/numeric/math/scalbn">scalbn<br>scalbln</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/ilogb.html" title="cpp/numeric/math/ilogb">ilogb</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/logb.html" title="cpp/numeric/math/logb">logb</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/frexp.html" title="cpp/numeric/math/frexp">frexp</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="math/modfhtml.html" title="cpp/numeric/math/modf">modf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/nextafter.html" title="cpp/numeric/math/nextafter">nextafter<br>nexttoward</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/copysign.html" title="cpp/numeric/math/copysign">copysign</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Classification
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/fpclassify.html" title="cpp/numeric/math/fpclassify">fpclassify</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/isfinitehtml.html" title="cpp/numeric/math/isfinite">isfinite</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/isinf.html" title="cpp/numeric/math/isinf">isinf</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/isnan.html" title="cpp/numeric/math/isnan">isnan</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/isnormal.html" title="cpp/numeric/math/isnormal">isnormal</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/signbithtml.html" title="cpp/numeric/math/signbit">signbit</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Macro constants
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/HUGE_VAL.html" title="cpp/numeric/math/HUGE VAL">HUGE_VALF<br>HUGE_VAL<br>HUGE_VALL</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="math/FP_categories.html" title="cpp/numeric/math/FP categories">FP_NORMAL<br>FP_SUBNORMAL<br>FP_ZERO<br>FP_INFINITE<br>FP_NAN</a></td>
+<td>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</td>
+</tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1">
+<a href="#Functions"><span class="tocnumber">1</span> <span class="toctext">Functions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Basic_operations"><span class="tocnumber">1.1</span> <span class="toctext">Basic operations</span></a></li>
+<li class="toclevel-2"><a href="#Exponential_functions"><span class="tocnumber">1.2</span> <span class="toctext">Exponential functions</span></a></li>
+<li class="toclevel-2"><a href="#Power_functions"><span class="tocnumber">1.3</span> <span class="toctext">Power functions</span></a></li>
+<li class="toclevel-2"><a href="#Trigonometric_functions"><span class="tocnumber">1.4</span> <span class="toctext">Trigonometric functions</span></a></li>
+<li class="toclevel-2"><a href="#Hyperbolic_functions"><span class="tocnumber">1.5</span> <span class="toctext">Hyperbolic functions</span></a></li>
+<li class="toclevel-2"><a href="#Error_and_gamma_functions"><span class="tocnumber">1.6</span> <span class="toctext">Error and gamma functions</span></a></li>
+<li class="toclevel-2"><a href="#Nearest_integer_floating_point_operations"><span class="tocnumber">1.7</span> <span class="toctext">Nearest integer floating point operations</span></a></li>
+<li class="toclevel-2"><a href="#Floating_point_manipulation_functions"><span class="tocnumber">1.8</span> <span class="toctext">Floating point manipulation functions</span></a></li>
+<li class="toclevel-2"><a href="#Classification"><span class="tocnumber">1.9</span> <span class="toctext">Classification</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-2">
+<a href="#Macro_constants"><span class="tocnumber">2</span> <span class="toctext">Macro constants</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Classification_2"><span class="tocnumber">2.1</span> <span class="toctext">Classification</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/math&amp;action=edit&amp;section=1" title="Edit section: Functions">edit</a>]</span> <span class="mw-headline" id="Functions">Functions</span>
+</h3>
+<table class="template-dcl-list-begin">
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;cmath&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Basic_operations">  Basic operations </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/abshtml.html" title="cpp/numeric/math/abs"> abs<span class="template-dcl-spec">(int)</span><br>labs<br>llabs<br>imaxabs</a></div>
+<div>
+<br><br><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   computes absolute value of an integral value (<span class="texhtml" style="white-space: nowrap;">|x|</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/fabs.html" title="cpp/numeric/math/fabs"> abs<span class="template-dcl-spec">(float)</span> <br> fabs</a></div></div>
+</td>
+<td>   absolute value of a floating point value (<span class="texhtml" style="white-space: nowrap;">|x|</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/div.html" title="cpp/numeric/math/div"> div<br>ldiv<br>lldiv<br>imaxdiv</a></div>
+<div>
+<br><br><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   the quotient and remainder of integer division <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/fmodhtml.html" title="cpp/numeric/math/fmod"> fmod</a></div></div>
+</td>
+<td>   remainder of the floating point division operation <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/remainder.html" title="cpp/numeric/math/remainder"> remainder</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   signed remainder of the division operation  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/remquo.html" title="cpp/numeric/math/remquo"> remquo</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   signed remainder as well as the three last bits of the division operation  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/fma.html" title="cpp/numeric/math/fma"> fma</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   fused multiply-add operation  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/fmaxhtml.html" title="cpp/numeric/math/fmax"> fmax</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   larger of two floating point values  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/fmin.html" title="cpp/numeric/math/fmin"> fmin</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   smaller of two floating point values  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/fdim.html" title="cpp/numeric/math/fdim"> fdim</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   positive difference of two floating point values (<span class="texhtml" style="white-space: nowrap;">max(0, x-y)</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/nanhtml.html" title="cpp/numeric/math/nan"> nan<br>nanf<br>nanl</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   not-a-number (NaN)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Exponential_functions">  Exponential functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/exp.html" title="cpp/numeric/math/exp"> exp</a></div></div>
+</td>
+<td>   returns <i>e</i> raised to the given power (<span class="texhtml" style="white-space: nowrap;">e<sup>x</sup></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/exp2.html" title="cpp/numeric/math/exp2"> exp2</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   returns <i>2</i> raised to the given power (<span class="texhtml" style="white-space: nowrap;">2<sup>x</sup></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/expm1.html" title="cpp/numeric/math/expm1"> expm1</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   returns <i>e</i> raised to the given power, minus one (<span class="texhtml" style="white-space: nowrap;">e<sup>x</sup>-1</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/log.html" title="cpp/numeric/math/log"> log</a></div></div>
+</td>
+<td>   computes natural (base <i>e</i>) logarithm (to base <i>e</i>) (<span class="texhtml" style="white-space: nowrap;">ln(x)</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/log10.html" title="cpp/numeric/math/log10"> log10</a></div></div>
+</td>
+<td>   computes common (base <i>10</i>) logarithm (<span class="texhtml" style="white-space: nowrap;">log<sub>10</sub>(x)</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/log1p.html" title="cpp/numeric/math/log1p"> log1p</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>    natural logarithm (to base <i>e</i>) of 1 plus the given number  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Power_functions">  Power functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/sqrthtml.html" title="cpp/numeric/math/sqrt"> sqrt</a></div></div>
+</td>
+<td>   computes square root (<span class="texhtml" style="white-space: nowrap;"><span class="template-mrad"><span>√</span><span>x</span></span></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/cbrthtml.html" title="cpp/numeric/math/cbrt"> cbrt</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   computes cubic root  (<span class="texhtml" style="white-space: nowrap;"><span class="template-mrad"><span>3</span><span>√</span><span>x</span></span></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/hypot.html" title="cpp/numeric/math/hypot"> hypot</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   computes square root of the sum of the squares of two given numbers (<span class="texhtml" style="white-space: nowrap;"><span class="template-mrad"><span>√</span><span>x<span class="template-su">2<br></span>+y<span class="template-su">2<br></span></span></span></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/pow.html" title="cpp/numeric/math/pow"> pow</a></div></div>
+</td>
+<td>   raises a number to the given power (<span class="texhtml" style="white-space: nowrap;">x<sup>y</sup></span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Trigonometric_functions">  Trigonometric functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/sin.html" title="cpp/numeric/math/sin"> sin</a></div></div>
+</td>
+<td>   computes sine (<span class="texhtml" style="white-space: nowrap;">sin(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/cos.html" title="cpp/numeric/math/cos"> cos</a></div></div>
+</td>
+<td>  computes cosine (<span class="texhtml" style="white-space: nowrap;">cos(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/tan.html" title="cpp/numeric/math/tan"> tan</a></div></div>
+</td>
+<td>   computes tangent (<span class="texhtml" style="white-space: nowrap;">tan(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/asin.html" title="cpp/numeric/math/asin"> asin</a></div></div>
+</td>
+<td>   computes arc sine (<span class="texhtml" style="white-space: nowrap;">arcsin(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/acos.html" title="cpp/numeric/math/acos"> acos</a></div></div>
+</td>
+<td>  computes arc cosine (<span class="texhtml" style="white-space: nowrap;">arccos(x)</span>)  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/atan.html" title="cpp/numeric/math/atan"> atan</a></div></div>
+</td>
+<td>  computes arc tangent (<span class="texhtml" style="white-space: nowrap;">arctan(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/atan2.html" title="cpp/numeric/math/atan2"> atan2</a></div></div>
+</td>
+<td>  arc tangent, using signs to determine quadrants  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Hyperbolic_functions">  Hyperbolic functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/sinh.html" title="cpp/numeric/math/sinh"> sinh</a></div></div>
+</td>
+<td>   computes hyperbolic sine (<span class="texhtml" style="white-space: nowrap;">sh(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/coshhtml.html" title="cpp/numeric/math/cosh"> cosh</a></div></div>
+</td>
+<td>  computes hyperbolic cosine (<span class="texhtml" style="white-space: nowrap;">ch(x)</span>) <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/tanh.html" title="cpp/numeric/math/tanh"> tanh</a></div></div>
+</td>
+<td>  hyperbolic tangent  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/asinh.html" title="cpp/numeric/math/asinh"> asinh</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>  hyperbolic arc sine  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/acosh.html" title="cpp/numeric/math/acosh"> acosh</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   hyperbolic arc cosine  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/atanhhtml.html" title="cpp/numeric/math/atanh"> atanh</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>  hyperbolic arc tangent  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Error_and_gamma_functions">  Error and gamma functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/erf.html" title="cpp/numeric/math/erf"> erf</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   error function  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/erfc.html" title="cpp/numeric/math/erfc"> erfc</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   complementary error function  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/lgammahtml.html" title="cpp/numeric/math/lgamma"> lgamma</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   natural logarithm of the gamma function  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/tgamma.html" title="cpp/numeric/math/tgamma"> tgamma</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   gamma function  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Nearest_integer_floating_point_operations">  Nearest integer floating point operations </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/ceil.html" title="cpp/numeric/math/ceil"> ceil</a></div></div>
+</td>
+<td>   nearest integer not less than the given value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/floor.html" title="cpp/numeric/math/floor"> floor</a></div></div>
+</td>
+<td>   nearest integer not greater than the given value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/trunchtml.html" title="cpp/numeric/math/trunc"> trunc</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   nearest integer not greater in magnitude than the given value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/round.html" title="cpp/numeric/math/round"> round<br>lround<br>llround</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   nearest integer, rounding away from zero in halfway cases  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/nearbyint.html" title="cpp/numeric/math/nearbyint"> nearbyint</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   nearest integer using current rounding mode  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/rint.html" title="cpp/numeric/math/rint"> rint<br>lrint<br>llrint</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   nearest integer using current rounding mode with <br> exception if the result differs  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Floating_point_manipulation_functions">  Floating point manipulation functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/frexp.html" title="cpp/numeric/math/frexp"> frexp</a></div></div>
+</td>
+<td>  decomposes a number into significand and a power of <span class="mw-geshi cpp source-cpp"><span class="nu0">2</span></span>  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/ldexp.html" title="cpp/numeric/math/ldexp"> ldexp</a></div></div>
+</td>
+<td>   multiplies a number by <span class="mw-geshi cpp source-cpp"><span class="nu0">2</span></span> raised to a power <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="math/modfhtml.html" title="cpp/numeric/math/modf"> modf</a></div></div>
+</td>
+<td>  decomposes a number into integer and fractional parts  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/scalbnhtml.html" title="cpp/numeric/math/scalbn"> scalbn<br>scalbln</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   multiplies a number by <span class="mw-geshi cpp source-cpp"><span class="kw2">FLT_RADIX</span></span> raised to a power  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/ilogb.html" title="cpp/numeric/math/ilogb"> ilogb</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   extracts exponent of the number  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/logb.html" title="cpp/numeric/math/logb"> logb</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   extracts exponent of the number  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/nextafter.html" title="cpp/numeric/math/nexttoward" class="mw-redirect"> nextafter<br>nexttoward</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   next representable floating point value towards the given value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/copysign.html" title="cpp/numeric/math/copysign"> copysign</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   copies the sign of a floating point value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Classification">  Classification </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/fpclassify.html" title="cpp/numeric/math/fpclassify"> fpclassify</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   categorizes the given floating point value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/isfinitehtml.html" title="cpp/numeric/math/isfinite"> isfinite</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   checks if the given number has finite value  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/isinf.html" title="cpp/numeric/math/isinf"> isinf</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   checks if the given number is infinite  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/isnan.html" title="cpp/numeric/math/isnan"> isnan</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   checks if the given number is NaN <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/isnormal.html" title="cpp/numeric/math/isnormal"> isnormal</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   checks if the given number is normal  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/signbithtml.html" title="cpp/numeric/math/signbit"> signbit</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   checks if the given number is negative  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/math&amp;action=edit&amp;section=2" title="Edit section: Macro constants">edit</a>]</span> <span class="mw-headline" id="Macro_constants">Macro constants</span>
+</h3>
+<table class="template-dcl-list-begin">
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;cmath&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/HUGE_VAL.html" title="cpp/numeric/math/HUGE VAL"> HUGE_VALF<br>HUGE_VAL<br>HUGE_VALL</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   indicates value too big to be representable (infinity) by <span class="mw-geshi cpp source-cpp"><span class="kw4">float</span></span>, <span class="mw-geshi cpp source-cpp"><span class="kw4">double</span></span> and <span class="mw-geshi cpp source-cpp"><span class="kw4">long</span> <span class="kw4">double</span></span> respectively   <br><span class="template-mark">(macro constant)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Classification_2">  Classification </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="math/FP_categories.html" title="cpp/numeric/math/FP categories"> FP_NORMAL<br>FP_SUBNORMAL<br>FP_ZERO<br>FP_INFINITY<br>FP_NAN</a></div>
+<div>
+<span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   indicates a floating-point category  <br><span class="template-mark">(macro constant)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 12792/1000000
+Post-expand include size: 426093/2097152 bytes
+Template argument size: 162128/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:1333-0!1!0!!en!2 and timestamp 20111224233552 --><div class="printfooter">
+Retrieved from "<a href="mathhtml.html">http://en.cppreference.com/w/cpp/numeric/math</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 4.016 secs. -->
+</body>
+<!-- Cached 20111224233552 --><!-- Mirrored from en.cppreference.com/w/cpp/numeric/math by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:15:04 GMT -->
+</html>

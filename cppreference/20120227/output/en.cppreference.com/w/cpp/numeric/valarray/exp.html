@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/numeric/valarray/exp by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:34:41 GMT --><head>
+<title>std::exp(std::valarray) - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/numeric/valarray/exp",
+wgTitle="cpp/numeric/valarray/exp",
+wgAction="view",
+wgArticleId=4317,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=18600,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_numeric_valarray_exp skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>exp<span style="font-size:0.7em; line-height:130%">(std::valarray)</span>
+</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../numeric.html" title="cpp/numeric">numeric</a> | <a href="../valarray.html" title="cpp/numeric/valarray">valarray</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../../numeric.html" title="cpp/numeric"> Numerics library</a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5">  <a href="../math.html" title="cpp/numeric/math">Common mathematical functions</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../fenv.html" title="cpp/numeric/fenv">Floating-point environment</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../complex.html" title="cpp/numeric/complex">Complex numbers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../valarray.html" title="cpp/numeric/valarray">Numeric arrays</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../random.html" title="cpp/numeric/random">Pseudo-random number generation</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../ratio.html" title="cpp/numeric/ratio"> Compile-time rational arithmetic</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Generic numeric operations
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="../../algorithm/iota.html" title="cpp/algorithm/iota">iota</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="../../algorithm/accumulate.html" title="cpp/algorithm/accumulate">accumulate</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="../../algorithm/inner_product.html" title="cpp/algorithm/inner product">inner_product</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="../../algorithm/adjacent_difference.html" title="cpp/algorithm/adjacent difference">adjacent_difference</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="../../algorithm/partial_sum.html" title="cpp/algorithm/partial sum">partial_sum</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../valarray.html" title="cpp/numeric/valarray">Numeric arrays</a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h1"><td colspan="5">  Member functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/valarray&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/valarray (page does not exist)">valarray::valarray</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/%7Evalarray&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/~valarray (page does not exist)">valarray::~valarray</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator%3D&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator= (page does not exist)">valarray::operator=</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_at&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator at (page does not exist)">valarray::operator[]</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="swap.html" title="cpp/numeric/valarray/swap">valarray::swap</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="size.html" title="cpp/numeric/valarray/size">valarray::size</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="resize.html" title="cpp/numeric/valarray/resize">valarray::resize</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="sum.html" title="cpp/numeric/valarray/sum">valarray::sum</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="min.html" title="cpp/numeric/valarray/min">valarray::min</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="max.html" title="cpp/numeric/valarray/max">valarray::max</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="shift.html" title="cpp/numeric/valarray/shift">valarray::shift</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="cshift.html" title="cpp/numeric/valarray/cshift">valarray::cshift</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="apply.html" title="cpp/numeric/valarray/apply">valarray::apply</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_unary&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator unary (page does not exist)">valarray::operator+<br>valarray::operator-<br>valarray::operator~<br>valarray::operator!</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_compound&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator compound (page does not exist)">valarray::operator*=<br>valarray::operator/=<br>valarray::operator%=<br>valarray::operator+=<br>valarray::operator-=</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_compound&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator compound (page does not exist)">valarray::operator^=<br>valarray::operator&amp;=<br>valarray::operator|=<br>valarray::operator&lt;&lt;=<br>valarray::operator&gt;&gt;=</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Non-member functions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/swap2&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/swap2 (page does not exist)">swap</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/begin2&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/begin2 (page does not exist)">begin</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/end2&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/end2 (page does not exist)">end</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="abs.html" title="cpp/numeric/valarray/abs">abs</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><strong class="selflink">exp</strong></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="log.html" title="cpp/numeric/valarray/log">log</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="log10.html" title="cpp/numeric/valarray/log10">log10</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/pow&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/pow (page does not exist)">pow</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="sqrt.html" title="cpp/numeric/valarray/sqrt">sqrt</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="sin.html" title="cpp/numeric/valarray/sin">sin</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="cos.html" title="cpp/numeric/valarray/cos">cos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="tan.html" title="cpp/numeric/valarray/tan">tan</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="asinhtml.html" title="cpp/numeric/valarray/asin">asin</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="acos.html" title="cpp/numeric/valarray/acos">acos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="atan.html" title="cpp/numeric/valarray/atan">atan</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/atan2&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/atan2 (page does not exist)">atan2</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/sinh&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/sinh (page does not exist)">sinh</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/cosh&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/cosh (page does not exist)">cosh</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/tanh&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/tanh (page does not exist)">tanh</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_binary&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator binary (page does not exist)">operator*<br>operator/<br>operator%<br>operator+<br>operator-<br>operator^</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_binary&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator binary (page does not exist)">operator&amp;<br>operator|<br>operator&lt;&lt;<br>operator&gt;&gt;<br>operator&amp;&amp;<br>operator</a></td>
+<td></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/operator_cmp&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/operator cmp (page does not exist)">operator==<br>operator!=<br>operator&lt;<br>operator&gt;<br>operator&lt;=<br>operator&gt;=</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Helper classes
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/slice_array&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/slice array (page does not exist)">slice_array</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/gslice_array&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/gslice array (page does not exist)">gslice_array</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/indirect_array&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/indirect array (page does not exist)">indirect_array</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="slice.html" title="cpp/numeric/valarray/slice">slice</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="gslice.html" title="cpp/numeric/valarray/gslice">gslice</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/mask_array&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/valarray/mask array (page does not exist)">mask_array</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="t-ddcl-list-begin">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;valarray&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+<tr class="t-ddcl-list-item">
+<td class="t-ddcl-list-item-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br>
+valarray<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> exp<span class="br0">(</span> <span class="kw4">const</span> valarray<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> va <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+</table>
+<p>For each element in <tt>va</tt> computes <i>e</i> raised to the power equal to the value of the element. This is done by applying <span class="mw-geshi cpp source-cpp">exp</span> (unqualified) function. 
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Parameters"><span class="tocnumber">1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Return_value"><span class="tocnumber">2</span> <span class="toctext">Return value</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Equivalent_function"><span class="tocnumber">4</span> <span class="toctext">Equivalent function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table class="t-param-list-begin"><tr class="t-param-list-item">
+<td>  va
+</td>
+<td> -
+</td>
+<td>  value array to apply the operation to
+</td>
+</tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=2" title="Edit section: Return value">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p>Value array containing <i>e</i> raised by the values in <tt>va</tt>.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=3" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline" id="Notes">Notes</span>
+</h3>
+<p>Unqualified function (<span class="mw-geshi cpp source-cpp">exp</span>) is used to perform the computation. If such function is not available, <span class="mw-geshi cpp source-cpp"><a href="../math/exp.html"><span class="kw789">std::<span class="me2">exp</span></span></a></span> is used due to argument dependent lookup.
+</p>
+<p>The function can be implemented with the return type different from <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">valarray</span></span>. In this case, the replacement type has the following properties:
+</p>
+<dl><dd><ul>
+<li> All <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span></span> member functions of <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">valarray</span></span> are provided.
+</li>
+<li> <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">valarray</span></span>, <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">slice_array</span></span>, <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">gslice_array</span></span>, <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">mask_array</span></span> and <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">indirect_array</span></span> can be constructed from the replacement type.
+</li>
+<li> All functions accepting a arguments of type <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> std<span class="sy4">::</span><span class="me2">valarray</span><span class="sy3">&amp;</span></span> should also accept the replacement type.
+</li>
+<li> All functions accepting two arguments of type <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> std<span class="sy4">::</span><span class="me2">valarray</span><span class="sy3">&amp;</span></span> should accept every combination of <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> std<span class="sy4">::</span><span class="me2">valarray</span><span class="sy3">&amp;</span></span> and the replacement type.
+</li>
+</ul></dd></dl>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=4" title="Edit section: Equivalent function">edit</a>]</span> <span class="mw-headline" id="Equivalent_function">Equivalent function</span>
+</h3>
+<table class="collapsible collapsed eq-fun-cpp-table"><tr><td>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span>
+valarray<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> exp<span class="br0">(</span> <span class="kw4">const</span> valarray<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy3">&amp;</span> va <span class="br0">)</span>
+<span class="br0">{</span>
+    valarray<span class="sy1">&lt;</span>T<span class="sy1">&gt;</span> other <span class="sy1">=</span> va<span class="sy4">;</span>
+    <span class="kw1">for</span> <span class="br0">(</span>T <span class="sy3">&amp;</span>i <span class="sy4">:</span> other<span class="br0">)</span> <span class="br0">{</span>
+        i <span class="sy1">=</span> exp<span class="br0">(</span>i<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <span class="kw1">return</span> other<span class="sy4">;</span> <span class="co1">// proxy object may be returned</span>
+<span class="br0">}</span></pre></div></div>
+</td></tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=5" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<p> This example demonstrates the Euler's identity <span class="texhtml" style="white-space: nowrap;">e<span class="t-su">iπ<br></span> = -1</span> and the related exponents.
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;complex&gt;</span>
+<span class="co2">#include &lt;valarray&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">const</span> <span class="kw4">double</span> pi <span class="sy1">=</span> <a href="../math/acos.html"><span class="kw805">std::<span class="me2">acos</span></span></a><span class="br0">(</span><span class="sy2">-</span><span class="nu0">1</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">valarray</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">complex</span><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;&gt;</span> v <span class="sy1">=</span> <span class="br0">{</span>
+        <span class="br0">{</span><span class="nu0">0</span>, <span class="nu0">0</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">0</span>, pi<span class="sy2">/</span><span class="nu0">2</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">0</span>, pi<span class="br0">}</span>, <span class="br0">{</span><span class="nu0">0</span>, <span class="nu0">3</span><span class="sy2">*</span>pi<span class="sy2">/</span><span class="nu0">2</span><span class="br0">}</span>, <span class="br0">{</span><span class="nu0">0</span>, <span class="nu0">2</span><span class="sy2">*</span>pi<span class="br0">}</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">valarray</span><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">complex</span><span class="sy1">&lt;</span><span class="kw4">double</span><span class="sy1">&gt;&gt;</span> v2 <span class="sy1">=</span> <a href="../math/exp.html"><span class="kw789">std::<span class="me2">exp</span></span></a><span class="br0">(</span>v<span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><span class="kw4">auto</span> n <span class="sy4">:</span> v2<span class="br0">)</span> <span class="br0">{</span>
+        <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">fixed</span> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">(1.000000,0.000000)
+(0.000000,1.000000)
+(-1.000000,0.000000)
+(-0.000000,-1.000000)
+(1.000000,-0.000000)</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/valarray/exp&amp;action=edit&amp;section=6" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="../math/exp.html" title="cpp/numeric/math/exp"> exp</a></div></div>
+</td>
+<td>   returns <i>e</i> raised to the given power (<span class="texhtml" style="white-space: nowrap;">e<sup>x</sup></span>)  <br><span class="t-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="../complex/exp.html" title="cpp/numeric/complex/exp"> exp<span class="t-dcl-small">(std::complex)</span></a></div></div>
+</td>
+<td>   complex base <i>e</i> exponential  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 3710/1000000
+Post-expand include size: 77493/2097152 bytes
+Template argument size: 40340/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:4317-0!1!0!!en!2 and timestamp 20120210133535 --><div class="printfooter">
+Retrieved from "<a href="exp.html">http://en.cppreference.com/w/cpp/numeric/valarray/exp</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 2.699 secs. -->
+</body>
+<!-- Cached 20120210133535 --><!-- Mirrored from en.cppreference.com/w/cpp/numeric/valarray/exp by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:34:41 GMT -->
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/numeric/random/binomial_distribution/operator_cmp by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:48:20 GMT --><head>
+<title>operator==,!=(std::binomial_distribution) - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/numeric/random/binomial_distribution/operator_cmp",
+wgTitle="cpp/numeric/random/binomial distribution/operator cmp",
+wgAction="view",
+wgArticleId=4143,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=15121,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_numeric_random_binomial_distribution_operator_cmp skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">operator==,!=<small>(std::binomial_distribution)</small>
+</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../../cpp.html" title="cpp">cpp</a> | <a href="../../../numeric.html" title="cpp/numeric">numeric</a> | <a href="../../random.html" title="cpp/numeric/random">random</a> | <a href="../binomial_distributionhtml.html" title="cpp/numeric/random/binomial distribution">binomial distribution</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../../../numeric.html" title="cpp/numeric"> Numerics library</a></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../../random.html" title="cpp/numeric/random">Pseudo-random number generation</a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Engines and engine adaptors
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../linear_congruential_enginehtml.html" title="cpp/numeric/random/linear congruential engine">linear_congruential_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../mersenne_twister_engine.html" title="cpp/numeric/random/mersenne twister engine">mersenne_twister_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../subtract_with_carry_engine.html" title="cpp/numeric/random/subtract with carry engine">subtract_with_carry_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../discard_block_enginehtml.html" title="cpp/numeric/random/discard block engine">discard_block_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../independent_bits_engine.html" title="cpp/numeric/random/independent bits engine">independent_bits_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../shuffle_order_engine.html" title="cpp/numeric/random/shuffle order engine">shuffle_order_engine</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Generators
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/random_device&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/random device (page does not exist)">random_device</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Distributions
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Uniform distributions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../uniform_int_distributionhtml.html" title="cpp/numeric/random/uniform int distribution">uniform_int_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../uniform_real_distribution.html" title="cpp/numeric/random/uniform real distribution">uniform_real_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/generate_canonical&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/generate canonical (page does not exist)">generate_canonical</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Bernoulli distributions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../bernoulli_distribution.html" title="cpp/numeric/random/bernoulli distribution">bernoulli_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../binomial_distributionhtml.html" title="cpp/numeric/random/binomial distribution">binomial_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../negative_binomial_distribution.html" title="cpp/numeric/random/negative binomial distribution">negative_binomial_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../geometric_distribution.html" title="cpp/numeric/random/geometric distribution">geometric_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Poisson distributions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../poisson_distributionhtml.html" title="cpp/numeric/random/poisson distribution">poisson_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../exponential_distribution.html" title="cpp/numeric/random/exponential distribution">exponential_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../gamma_distribution.html" title="cpp/numeric/random/gamma distribution">gamma_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../weibull_distributionhtml.html" title="cpp/numeric/random/weibull distribution">weibull_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../extreme_value_distribution.html" title="cpp/numeric/random/extreme value distribution">extreme_value_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Normal distributions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../normal_distribution.html" title="cpp/numeric/random/normal distribution">normal_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../lognormal_distributionhtml.html" title="cpp/numeric/random/lognormal distribution">lognormal_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../chi_squared_distribution.html" title="cpp/numeric/random/chi squared distribution">chi_squared_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../cauchy_distribution.html" title="cpp/numeric/random/cauchy distribution">cauchy_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../fisher_f_distributionhtml.html" title="cpp/numeric/random/fisher f distribution">fisher_f_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../student_t_distribution.html" title="cpp/numeric/random/student t distribution">student_t_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Sampling distributions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../discrete_distribution.html" title="cpp/numeric/random/discrete distribution">discrete_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../piecewise_constant_distributionhtml.html" title="cpp/numeric/random/piecewise constant distribution">piecewise_constant_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../piecewise_linear_distribution.html" title="cpp/numeric/random/piecewise linear distribution">piecewise_linear_distribution</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Seed Sequences
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/seed_seq&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/seed seq (page does not exist)">seed_seq</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  C library
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../rand.html" title="cpp/numeric/random/rand">rand</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../srandhtml.html" title="cpp/numeric/random/srand">srand</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../RAND_MAX.html" title="cpp/numeric/random/RAND MAX">RAND_MAX</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../binomial_distributionhtml.html" title="cpp/numeric/random/binomial distribution"><tt>std::binomial_distribution</tt></a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/binomial_distribution/binomial_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/binomial distribution/binomial distribution (page does not exist)">binomial_distribution::binomial_distribution</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="reset.html" title="cpp/numeric/random/binomial distribution/reset">binomial_distribution::reset</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Generation
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="operator().html" title="cpp/numeric/random/binomial distribution/operator()">binomial_distribution::operator()</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Characteristics
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="param.html" title="cpp/numeric/random/binomial distribution/param">binomial_distribution::param</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="minhtml.html" title="cpp/numeric/random/binomial distribution/min">binomial_distribution::min</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="max.html" title="cpp/numeric/random/binomial distribution/max">binomial_distribution::max</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Non-member functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><strong class="selflink">operator==<br>operator!=</strong></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="operator_ltltgtgthtml.html" title="cpp/numeric/random/binomial distribution/operator ltltgtgt">operator&lt;&lt;<br>operator&gt;&gt;</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="template-ddcl-list-begin">
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ResultType <span class="sy1">&gt;</span><br><p><span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span> <span class="kw4">const</span> binomial_distribution<span class="sy1">&lt;</span>ResultType<span class="sy1">&gt;</span><span class="sy3">&amp;</span> lhs,<br></p>
+                 <span class="kw4">const</span> binomial_distribution<span class="sy1">&lt;</span>ResultType<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rhs <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (1)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> ResultType <span class="sy1">&gt;</span><br><p><span class="kw4">bool</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">(</span> <span class="kw4">const</span> binomial_distribution<span class="sy1">&lt;</span>ResultType<span class="sy1">&gt;</span><span class="sy3">&amp;</span> lhs,<br></p>
+                 <span class="kw4">const</span> binomial_distribution<span class="sy1">&lt;</span>ResultType<span class="sy1">&gt;</span><span class="sy3">&amp;</span> rhs <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (2)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+</table>
+<p>Compares two distribution objects. Two distribution objects are equal when parameter values and internal state is the same.
+</p>
+<p>1) Compares two distribution objects for equality.
+</p>
+<p>2) Compares two distribution objects for inequality.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=Template:cpp/numeric/random/distribution/operator_cmp&amp;action=edit&amp;section=T-1" title="Template:cpp/numeric/random/distribution/operator cmp">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table class="template-param-list-begin"><tr class="template-param-list-item">
+<td>  lhs, rhs
+</td>
+<td> -
+</td>
+<td>  distribution objects to compare
+</td>
+</tr></table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=Template:cpp/numeric/random/distribution/operator_cmp&amp;action=edit&amp;section=T-2" title="Template:cpp/numeric/random/distribution/operator cmp">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p>1) <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> if the distribution objects are equal, <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span> otherwise
+</p>
+<p>2) <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> if the distribution objects are not equal, <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span> otherwise
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=Template:cpp/numeric/random/distribution/operator_cmp&amp;action=edit&amp;section=T-3" title="Template:cpp/numeric/random/distribution/operator cmp">edit</a>]</span> <span class="mw-headline" id="Complexity">Complexity</span>
+</h3>
+<p>Constant.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2421/1000000
+Post-expand include size: 87572/2097152 bytes
+Template argument size: 39797/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:4143-0!1!0!!en!2 and timestamp 20111226001247 -->
+<div class="printfooter">
+Retrieved from "<a href="operator_cmp.html">http://en.cppreference.com/w/cpp/numeric/random/binomial_distribution/operator_cmp</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 1.220 secs. -->
+</body>
+<!-- Cached 20111226001247 --><!-- Mirrored from en.cppreference.com/w/cpp/numeric/random/binomial_distribution/operator_cmp by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:48:20 GMT -->
+</html>

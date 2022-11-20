@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/numeric by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:10:34 GMT --><head>
+<title>Numerics library - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="stylesheet" href="../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/numeric",
+wgTitle="cpp/numeric",
+wgAction="view",
+wgArticleId=1332,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=16360,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../mwiki/skins/common/wikibits3905.js"></script><script src="../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script defer src="../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_numeric skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Numerics library</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../cpp.html" title="cpp">cpp</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <strong class="selflink"> Numerics library</strong>
+</td></tr>
+<tr><td colspan="5">  <a href="io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><strong class="selflink"> Numerics library</strong></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5">  <a href="numeric/math.html" title="cpp/numeric/math">Common mathematical functions</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric/fenv.html" title="cpp/numeric/fenv">Floating-point environment</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric/complex.html" title="cpp/numeric/complex">Complex numbers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric/valarray.html" title="cpp/numeric/valarray">Numeric arrays</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric/random.html" title="cpp/numeric/random">Pseudo-random number generation</a>
+</td></tr>
+<tr><td colspan="5">  <a href="numeric/ratio.html" title="cpp/numeric/ratio"> Compile-time rational arithmetic</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Generic numeric operations
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="algorithm/iota.html" title="cpp/algorithm/iota">iota</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="algorithm/accumulate.html" title="cpp/algorithm/accumulate">accumulate</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="algorithm/inner_product.html" title="cpp/algorithm/inner product">inner_product</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="algorithm/adjacent_difference.html" title="cpp/algorithm/adjacent difference">adjacent_difference</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="algorithm/partial_sum.html" title="cpp/algorithm/partial sum">partial_sum</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Common_mathematical_functions"><span class="tocnumber">1</span> <span class="toctext">Common mathematical functions</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Floating-point_environment"><span class="tocnumber">2</span> <span class="toctext">Floating-point environment</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Complex_numbers"><span class="tocnumber">3</span> <span class="toctext">Complex numbers</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Numeric_arrays"><span class="tocnumber">4</span> <span class="toctext">Numeric arrays</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Generic_numeric_operations"><span class="tocnumber">5</span> <span class="toctext">Generic numeric operations</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Pseudo-random_number_generation"><span class="tocnumber">6</span> <span class="toctext">Pseudo-random number generation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Compile_time_rational_arithmetic_.28since_C.2B.2B11.29"><span class="tocnumber">7</span> <span class="toctext">Compile time rational arithmetic (since C++11)</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=1" title="Edit section: Common mathematical functions">edit</a>]</span> <span class="mw-headline" id="Common_mathematical_functions"><a href="numeric/math.html" title="cpp/numeric/math">Common mathematical functions</a></span>
+</h3>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=2" title="Edit section: Floating-point environment">edit</a>]</span> <span class="mw-headline" id="Floating-point_environment"><a href="numeric/fenv.html" title="cpp/numeric/fenv">Floating-point environment</a></span>
+</h3>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=3" title="Edit section: Complex numbers">edit</a>]</span> <span class="mw-headline" id="Complex_numbers">Complex numbers</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr class="t-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;complex&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="numeric/complex.html" title="cpp/numeric/complex"> complex</a></div></div>
+</td>
+<td>   complex numbers  <br><span class="t-mark">(class template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=4" title="Edit section: Numeric arrays">edit</a>]</span> <span class="mw-headline" id="Numeric_arrays">Numeric arrays</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr class="t-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;valarray&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="numeric/valarray.html" title="cpp/numeric/valarray"> valarray</a></div></div>
+</td>
+<td>   numeric arrays and array slices  <br><span class="t-mark">(class template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=5" title="Edit section: Generic numeric operations">edit</a>]</span> <span class="mw-headline" id="Generic_numeric_operations">Generic numeric operations</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr class="t-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;numeric&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div">
+<div><a href="algorithm/iota.html" title="cpp/algorithm/iota"> iota</a></div>
+<div><span class="t-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   fills a range with successive increments of the starting value  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="algorithm/accumulate.html" title="cpp/algorithm/accumulate"> accumulate</a></div></div>
+</td>
+<td>   sums up a range of elements  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="algorithm/inner_product.html" title="cpp/algorithm/inner product"> inner_product</a></div></div>
+</td>
+<td>   computes the inner product of two ranges of elements  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="algorithm/adjacent_difference.html" title="cpp/algorithm/adjacent difference"> adjacent_difference</a></div></div>
+</td>
+<td>   computes the differences between adjacent elements in a range  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="algorithm/partial_sum.html" title="cpp/algorithm/partial sum"> partial_sum</a></div></div>
+</td>
+<td>   computes the partial sum of a range of elements  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=6" title="Edit section: Pseudo-random number generation">edit</a>]</span> <span class="mw-headline" id="Pseudo-random_number_generation"><a href="numeric/random.html" title="cpp/numeric/random">Pseudo-random number generation</a></span>
+</h3>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric&amp;action=edit&amp;section=7" title="Edit section: Compile time rational arithmetic (since C++11)">edit</a>]</span> <span class="mw-headline" id="Compile_time_rational_arithmetic_.28since_C.2B.2B11.29"><a href="numeric/ratio.html" title="cpp/numeric/ratio">Compile time rational arithmetic</a> <span class="t-mark">(since C++11)</span></span>
+</h3>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1568/1000000
+Post-expand include size: 40839/2097152 bytes
+Template argument size: 15576/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:1332-0!1!0!!en!2 and timestamp 20120121001543 -->
+<div class="printfooter">
+Retrieved from "<a href="numeric.html">http://en.cppreference.com/w/cpp/numeric</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 0.489 secs. -->
+</body>
+<!-- Cached 20120121001543 --><!-- Mirrored from en.cppreference.com/w/cpp/numeric by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:10:34 GMT -->
+</html>

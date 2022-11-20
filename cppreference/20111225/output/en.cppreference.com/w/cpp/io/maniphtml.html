@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/io/manip by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:27:09 GMT --><head>
+<title>Input/output manipulators - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/io/manip",
+wgTitle="cpp/io/manip",
+wgAction="view",
+wgArticleId=2973,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=13464,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_io_manip skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Input/output manipulators</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../io.html" title="cpp/io">io</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../io.html" title="cpp/io"> Input/output library</a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5">  <strong class="selflink"> I/O manipulators</strong>
+</td></tr>
+<tr><td colspan="5">  <a href="c.html" title="cpp/io/c"> C-style I/O</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Buffers
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_streambuf.html" title="cpp/io/basic streambuf">basic_streambuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_filebuf.html" title="cpp/io/basic filebuf">basic_filebuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_stringbufhtml.html" title="cpp/io/basic stringbuf">basic_stringbuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="strstreambuf.html" title="cpp/io/strstreambuf">strstreambuf</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Streams
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Abstractions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="ios_base.html" title="cpp/io/ios base">ios_base</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ios.html" title="cpp/io/basic ios">basic_ios</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_istream.html" title="cpp/io/basic istream">basic_istream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ostream.html" title="cpp/io/basic ostream">basic_ostream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_iostream.html" title="cpp/io/basic iostream">basic_iostream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  File I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ifstream.html" title="cpp/io/basic ifstream">basic_ifstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ofstream.html" title="cpp/io/basic ofstream">basic_ofstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_fstream.html" title="cpp/io/basic fstream">basic_fstream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  String I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_istringstream.html" title="cpp/io/basic istringstream">basic_istringstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ostringstream.html" title="cpp/io/basic ostringstream">basic_ostringstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_stringstream.html" title="cpp/io/basic stringstream">basic_stringstream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Array I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/istrstream&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/istrstream (page does not exist)">istrstream</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/ostrstream&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/ostrstream (page does not exist)">ostrstream</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Types
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/streamoff&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/streamoff (page does not exist)">streamoff</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/streampos&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/streampos (page does not exist)">streampos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="fpos.html" title="cpp/io/fpos">fpos</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Error category interface
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/iostream_category&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/iostream category (page does not exist)">iostream_category</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/io_errc&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/io errc (page does not exist)">io_errc</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><strong class="selflink">Input/output manipulators</strong></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><a href="http://en.cppreference.com/mwiki/index.php?title=Template:cpp/io/manip/sidebar_content&amp;action=edit&amp;redlink=1" class="new" title="Template:cpp/io/manip/sidebar content (page does not exist)">Template:cpp/io/manip/sidebar content</a></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<p>Manipulators are helper functions that make possible to control input/output streams using <span class="mw-geshi cpp source-cpp">operator<span class="sy1">&lt;&lt;</span></span> or <span class="mw-geshi cpp source-cpp">operator<span class="sy1">&gt;&gt;</span></span>. 
+</p>
+<p>This is implemented as additional overloads of <a href="basic_ostream/operator_ltlt.html" title="cpp/io/basic ostream/operator ltlt"><tt>basic_ostream::operator&lt;&lt;</tt></a> and <a href="basic_istream/operator_gtgt.html" title="cpp/io/basic istream/operator gtgt"><tt>basic_istream::operator&gt;&gt;</tt></a> that accept a pointer to a function accepting a reference to a stream as a parameter.
+</p>
+<table class="template-dcl-list-begin">
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;ios&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/boolalpha&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/boolalpha (page does not exist)"> boolalpha<br>noboolalpha</a></div></div>
+</td>
+<td>   switches between textual and numeric representation of booleans <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="manip/showbasehtml.html" title="cpp/io/manip/showbase"> showbase<br>noshowbase</a></div></div>
+</td>
+<td>   controls whether prefix is used to indicate numeric base  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/showpoint&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/showpoint (page does not exist)"> showpoint<br>noshowpoint</a></div></div>
+</td>
+<td>   controls whether decimal point is always included in floating-point representation  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/showpos&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/showpos (page does not exist)"> showpos<br>noshowpos</a></div></div>
+</td>
+<td>   controls whether the <tt>+</tt> sign used with non-negative numbers <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/skipws&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/skipws (page does not exist)"> skipws<br>noskipws</a></div></div>
+</td>
+<td>   controls whether leading whitespace is skipped on input <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/uppercase&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/uppercase (page does not exist)"> uppercase<br>nouppercase</a></div></div>
+</td>
+<td>   controls whether uppercase characters are used with some output formats  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/unitbuf&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/unitbuf (page does not exist)"> unitbuf<br>nounitbuf</a></div></div>
+</td>
+<td>   controls whether output is flushed after each operation <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/left&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/left (page does not exist)"> internal<br>left<br>right</a></div></div>
+</td>
+<td>   sets the placement of fill characters   <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/hex&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/hex (page does not exist)"> dec<br>hex<br>oct</a></div></div>
+</td>
+<td>   changes the base used for integer I/O <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/fixed&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/fixed (page does not exist)"> fixed<br>scientific<br>hexfloat<br>defaultfloat</a></div>
+<div>
+<br><br><span class="template-mark">(C++11)</span><br><span class="template-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   changes formatting used for floating-point I/O <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;istream&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/ws&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/ws (page does not exist)"> ws</a></div></div>
+</td>
+<td>   consumes whitespace <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;ostream&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/ends&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/ends (page does not exist)"> ends</a></div></div>
+</td>
+<td>   outputs <span class="mw-geshi cpp source-cpp"><span class="st0">'<span class="es5">\0</span>'</span></span> <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/flush&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/flush (page does not exist)"> flush</a></div></div>
+</td>
+<td>   flushes the output stream <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/endl&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/endl (page does not exist)"> endl</a></div></div>
+</td>
+<td>   outputs <span class="mw-geshi cpp source-cpp"><span class="st0">'<span class="es1">\n</span>'</span></span> and flushes the output stream <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;iomanip&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/resetiosflags&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/resetiosflags (page does not exist)"> resetiosflags</a></div></div>
+</td>
+<td>   clears the specified ios_base flags <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/setiosflags&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/setiosflags (page does not exist)"> setiosflags</a></div></div>
+</td>
+<td>   sets the specified ios_base flags <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/setbase&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/setbase (page does not exist)"> setbase</a></div></div>
+</td>
+<td>   change the base used for integer I/O <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/setfill&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/setfill (page does not exist)"> setfill</a></div></div>
+</td>
+<td>   change fill character <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/setprecision&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/setprecision (page does not exist)"> setprecision</a></div></div>
+</td>
+<td>   change floating-point precision <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/setw&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/setw (page does not exist)"> setw</a></div></div>
+</td>
+<td>   change the width of the next output <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_money&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/get money (page does not exist)"> get_money</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   parses a monetary value  <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/put_money&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/put money (page does not exist)"> put_money</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   formats and outputs a monetary value <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/get_time&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/get time (page does not exist)"> get_time</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   parses a date/time value of specified format <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/manip/put_time&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/manip/put time (page does not exist)"> put_time</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   formats and outputs a date/time value according to the specified format <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2951/1000000
+Post-expand include size: 65071/2097152 bytes
+Template argument size: 29287/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2973-0!1!0!!en!2 and timestamp 20111224232801 --><div class="printfooter">
+Retrieved from "<a href="maniphtml.html">http://en.cppreference.com/w/cpp/io/manip</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 1.156 secs. -->
+</body>
+<!-- Cached 20111224232802 --><!-- Mirrored from en.cppreference.com/w/cpp/io/manip by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:27:09 GMT -->
+</html>

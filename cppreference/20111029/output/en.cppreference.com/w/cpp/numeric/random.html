@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>Pseudo-random number generation - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/numeric/random",
+wgTitle="cpp/numeric/random",
+wgAction="view",
+wgArticleId=2063,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=11978,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_numeric_random skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Pseudo-random number generation</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../numeric.html" title="cpp/numeric">numeric</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../numeric.html" title="cpp/numeric"> Numerics library</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5">  <a href="math.html" title="cpp/numeric/math">Common mathematical functions</a>
+</td></tr>
+<tr><td colspan="5">  <a href="fenv.html" title="cpp/numeric/fenv">Floating-point environment</a>
+</td></tr>
+<tr><td colspan="5">  <a href="complex.html" title="cpp/numeric/complex">Complex numbers</a>
+</td></tr>
+<tr><td colspan="5">  <a href="valarray.html" title="cpp/numeric/valarray">Numeric arrays</a>
+</td></tr>
+<tr><td colspan="5">  <strong class="selflink">Pseudo-random number generation</strong>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Generic numeric operations
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../algorithm/iota.html" title="cpp/algorithm/iota">iota</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../algorithm/accumulate.html" title="cpp/algorithm/accumulate">accumulate</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../algorithm/inner_product.html" title="cpp/algorithm/inner product">inner_product</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../algorithm/adjacent_difference.html" title="cpp/algorithm/adjacent difference">adjacent_difference</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../algorithm/partial_sum.html" title="cpp/algorithm/partial sum">partial_sum</a></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><strong class="selflink">Pseudo-random number generation</strong></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h2">  Engines and engine adaptors
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="random/linear_congruential_engine.html" title="cpp/numeric/random/linear congruential engine">linear_congruential_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/mersenne_twister_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/mersenne twister engine (page does not exist)">mersenne_twister_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/subtract_with_carry_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/subtract with carry engine (page does not exist)">subtract_with_carry_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/discard_block_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/discard block engine (page does not exist)">discard_block_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/independent_bits_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/independent bits engine (page does not exist)">independent_bits_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/shuffle_order_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/shuffle order engine (page does not exist)">shuffle_order_engine</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Generators
+</td></tr>
+<tr><td colspan="5">  minstd_rand0
+</td></tr>
+<tr><td colspan="5">  minstd_rand
+</td></tr>
+<tr><td colspan="5">  mt19937
+</td></tr>
+<tr><td colspan="5">  mt19937_64
+</td></tr>
+<tr><td colspan="5">  ranlux24_base
+</td></tr>
+<tr><td colspan="5">  ranlux48_base
+</td></tr>
+<tr><td colspan="5">  ranlux24
+</td></tr>
+<tr><td colspan="5">  ranlux48
+</td></tr>
+<tr><td colspan="5">  knuth_b
+</td></tr>
+<tr><td colspan="5">  default_random_engine
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/random_device&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/random device (page does not exist)">random_device</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Distributions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="random/uniform_int_distribution.html" title="cpp/numeric/random/uniform int distribution">uniform_int_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/uniform_real_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/uniform real distribution (page does not exist)">uniform_real_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/generate_canonical&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/generate canonical (page does not exist)">generate_canonical</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/bernoulli_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/bernoulli distribution (page does not exist)">bernoulli_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/binomial_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/binomial distribution (page does not exist)">binomial_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/negative_binomial_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/negative binomial distribution (page does not exist)">negative_binomial_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/geometric_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/geometric distribution (page does not exist)">geometric_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/poisson_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/poisson distribution (page does not exist)">poisson_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/exponential_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/exponential distribution (page does not exist)">exponential_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/gamma_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/gamma distribution (page does not exist)">gamma_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/weibull_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/weibull distribution (page does not exist)">weibull_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/extreme_value_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/extreme value distribution (page does not exist)">extreme_value_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/normal_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/normal distribution (page does not exist)">normal_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/lognormal_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/lognormal distribution (page does not exist)">lognormal_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/chi_squared_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/chi squared distribution (page does not exist)">chi_squared_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/cauchy_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/cauchy distribution (page does not exist)">cauchy_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/fisher_f_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/fisher f distribution (page does not exist)">fisher_f_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/student_t_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/student t distribution (page does not exist)">student_t_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/discrete_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/discrete distribution (page does not exist)">discrete_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/piecewise_constant_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/piecewise constant distribution (page does not exist)">piecewise_constant_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/piecewise_linear_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/piecewise linear distribution (page does not exist)">piecewise_linear_distribution</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Seed Sequences
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/seed_seq&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/seed seq (page does not exist)">seed_seq</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  C library
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="random/rand.html" title="cpp/numeric/random/rand">rand</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="random/srandhtml.html" title="cpp/numeric/random/srand">srand</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/RAND_MAX&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/RAND MAX (page does not exist)">RAND_MAX</a></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Random_number_engines"><span class="tocnumber">1</span> <span class="toctext">Random number engines</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Random_number_engine_adaptors"><span class="tocnumber">2</span> <span class="toctext">Random number engine adaptors</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Predefined_random_number_generators"><span class="tocnumber">3</span> <span class="toctext">Predefined random number generators</span></a></li>
+<li class="toclevel-1 tocsection-4">
+<a href="#Random_number_distributions"><span class="tocnumber">4</span> <span class="toctext">Random number distributions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Uniform_distributions"><span class="tocnumber">4.1</span> <span class="toctext">Uniform distributions</span></a></li>
+<li class="toclevel-2"><a href="#Bernoulli_distributions"><span class="tocnumber">4.2</span> <span class="toctext">Bernoulli distributions</span></a></li>
+<li class="toclevel-2"><a href="#Poisson_distributions"><span class="tocnumber">4.3</span> <span class="toctext">Poisson distributions</span></a></li>
+<li class="toclevel-2"><a href="#Normal_distributions"><span class="tocnumber">4.4</span> <span class="toctext">Normal distributions</span></a></li>
+<li class="toclevel-2"><a href="#Sampling_distributions"><span class="tocnumber">4.5</span> <span class="toctext">Sampling distributions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Predefined_seed_sequence_generators"><span class="tocnumber">5</span> <span class="toctext">Predefined seed sequence generators</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#C_library"><span class="tocnumber">6</span> <span class="toctext">C library</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=1" title="Edit section: Random number engines">edit</a>]</span> <span class="mw-headline" id="Random_number_engines">Random number engines</span>
+</h3>
+<p>Random number engines generate pseudo-random numbers using seed data as entropy source. Several different classes of pseudo-random number generation algorithms are implemented as templates that can be customized.
+</p>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;random&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="random/linear_congruential_engine.html" title="cpp/numeric/random/linear congruential engine"> <tt><b>linear_congruential_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   implements <a href="http://en.wikipedia.com/wiki/Linear_congruential_generator" class="extiw" title="enwiki:Linear congruential generator"> linear congruential</a> algorithm  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/mersenne_twister_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/mersenne twister engine (page does not exist)"> <tt><b>mersenne_twister_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   implements <a href="http://en.wikipedia.com/wiki/Mersenne_twister" class="extiw" title="enwiki:Mersenne twister"> Mersenne twister</a> algorithm  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/subtract_with_carry_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/subtract with carry engine (page does not exist)"> <tt><b>subtract_with_carry_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   implements subtract with carry (a <a href="http://en.wikipedia.com/wiki/Lagged_Fibonacci_generator" class="extiw" title="enwiki:Lagged Fibonacci generator"> lagged Fibonacci</a>) algorithm  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=2" title="Edit section: Random number engine adaptors">edit</a>]</span> <span class="mw-headline" id="Random_number_engine_adaptors">Random number engine adaptors</span>
+</h3>
+<p>Random number engine adaptors generate pseudo-random numbers using another random number engine as entropy source.
+</p>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;random&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/discard_block_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/discard block engine (page does not exist)"> <tt><b>discard_block_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   discards some output of a random number engine  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/independent_bits_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/independent bits engine (page does not exist)"> <tt><b>independent_bits_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   packs the output of a random number engine into blocks of specified number of bits  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/shuffle_order_engine&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/shuffle order engine (page does not exist)"> <tt><b>shuffle_order_engine</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   delivers the output of a random number engine in different order  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=3" title="Edit section: Predefined random number generators">edit</a>]</span> <span class="mw-headline" id="Predefined_random_number_generators">Predefined random number generators</span>
+</h3>
+<p>Several specific popular algorithms are predefined.
+</p>
+<table class="tdcl-list-begin">
+<tr><td colspan="2"> <div style="margin-left: 3em; font-size: 0.8em"> Defined in header <code>&lt;random&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-hitem-col1">  Type
+</td>
+<td class="tdcl-list-hitem-col2">  Definition
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>minstd_rand0</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">linear_congruential_engine<span class="sy1">&lt;</span>uint_fast32_t, <span class="nu0">16807</span>, <span class="nu0">0</span>, <span class="nu0">2147483647</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>minstd_rand</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">linear_congruential_engine<span class="sy1">&lt;</span>uint_fast32_t, <span class="nu0">48271</span>, <span class="nu0">0</span>, <span class="nu0">2147483647</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>mt19937</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">mersenne_twister_engine<span class="sy1">&lt;</span>uint_fast32_t, <span class="nu0">32</span>, <span class="nu0">624</span>, <span class="nu0">397</span>, <span class="nu0">31</span>, <br><p>                        <span class="nu12">0x9908b0df</span>, <span class="nu0">11</span>, <br>
+                        <span class="nu12">0xffffffff</span>, <span class="nu0">7</span>, <br>
+                        <span class="nu12">0x9d2c5680</span>, <span class="nu0">15</span>, <br>
+                        <span class="nu12">0xefc60000</span>, <span class="nu0">18</span>, <span class="nu0">1812433253</span><span class="sy1">&gt;</span></p></span>
+
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>mt19937_64</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">mersenne_twister_engine<span class="sy1">&lt;</span>uint_fast64_t, <span class="nu0">64</span>, <span class="nu0">312</span>, <span class="nu0">156</span>, <span class="nu0">31</span>,<br><p>                        <span class="nu12">0xb5026f5aa96619e9</span>, <span class="nu0">29</span>,<br>
+                        <span class="nu12">0x5555555555555555</span>, <span class="nu0">17</span>,<br>
+                        <span class="nu12">0x71d67fffeda60000</span>, <span class="nu0">37</span>,<br>
+                        <span class="nu12">0xfff7eee000000000</span>, <span class="nu0">43</span>, <span class="nu0">6364136223846793005</span><span class="sy1">&gt;</span></p></span>
+
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>ranlux24_base</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">subtract_with_carry_engine<span class="sy1">&lt;</span>uint_fast32_t, <span class="nu0">24</span>, <span class="nu0">10</span>, <span class="nu0">24</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>ranlux48_base</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">subtract_with_carry_engine<span class="sy1">&lt;</span>uint_fast64_t, <span class="nu0">48</span>, <span class="nu0">5</span>, <span class="nu0">12</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>ranlux24</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">discard_block_engine<span class="sy1">&lt;</span>ranlux24_base, <span class="nu0">223</span>, <span class="nu0">23</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>ranlux48</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">discard_block_engine<span class="sy1">&lt;</span>ranlux48_base, <span class="nu0">389</span>, <span class="nu0">11</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>knuth_b</tt>
+</td>
+<td class="tdcl-list-item-col2">  <span class="mw-geshi cpp source-cpp">shuffle_order_engine<span class="sy1">&lt;</span>minstd_rand0, <span class="nu0">256</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="tdcl-list-sep">
+</td></tr>
+<tr>
+<td class="tdcl-list-item-col1">  <tt>default_random_engine</tt>
+</td>
+<td class="tdcl-list-item-col2">  <i>implementation-defined</i>
+</td>
+</tr>
+</table>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/random_device&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/random device (page does not exist)"> <tt><b>random_device</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   non-deterministic random number generator using hardware entropy source  <br><span class="mark">(class)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=4" title="Edit section: Random number distributions">edit</a>]</span> <span class="mw-headline" id="Random_number_distributions">Random number distributions</span>
+</h3>
+<p>Random number distributions are post-process the output of an random number engine or adaptors in such a way, that resulting output fits into some statistical probability distribution.
+</p>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;random&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Uniform_distributions">  Uniform distributions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="random/uniform_int_distribution.html" title="cpp/numeric/random/uniform int distribution"> <tt><b>uniform_int_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   evenly distributes integer random numbers across a range  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/uniform_real_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/uniform real distribution (page does not exist)"> <tt><b>uniform_real_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   evenly distributes floating-point random numbers across a range  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/generate_canonical&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/generate canonical (page does not exist)"> <tt><b>generate_canonical</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   evenly distributes floating-point random numbers of given precision across [0, 1)  <br><span class="mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Bernoulli_distributions">  Bernoulli distributions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/bernoulli_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/bernoulli distribution (page does not exist)"> <tt><b>bernoulli_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> values on a <a href="http://en.wikipedia.com/wiki/Bernoulli_distribution" class="extiw" title="enwiki:Bernoulli distribution"> Bernoulli distribution</a>.  <br><span class="mark">(class)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/binomial_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/binomial distribution (page does not exist)"> <tt><b>binomial_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces integer values on a  <a href="http://en.wikipedia.com/wiki/Binomial_distribution" class="extiw" title="enwiki:Binomial distribution"> binomial distribution</a>.   <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/negative_binomial_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/negative binomial distribution (page does not exist)"> <tt><b>negative_binomial_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces integer values on a  <a href="http://en.wikipedia.com/wiki/Negative_binomial_distribution" class="extiw" title="enwiki:Negative binomial distribution"> negative binomial distribution</a>.   <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/geometric_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/geometric distribution (page does not exist)"> <tt><b>geometric_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces integer values on a  <a href="http://en.wikipedia.com/wiki/Geometric_distribution" class="extiw" title="enwiki:Geometric distribution"> geometric distribution</a>.   <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Poisson_distributions">  Poisson distributions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/poisson_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/poisson distribution (page does not exist)"> <tt><b>poisson_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces integer values on a  <a href="http://en.wikipedia.com/wiki/Poisson_distribution" class="extiw" title="enwiki:Poisson distribution"> poisson distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/exponential_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/exponential distribution (page does not exist)"> <tt><b>exponential_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on an  <a href="http://en.wikipedia.com/wiki/Exponential_distribution" class="extiw" title="enwiki:Exponential distribution"> exponential distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/gamma_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/gamma distribution (page does not exist)"> <tt><b>gamma_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on an  <a href="http://en.wikipedia.com/wiki/Gamma_distribution" class="extiw" title="enwiki:Gamma distribution"> gamma distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/weibull_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/weibull distribution (page does not exist)"> <tt><b>weibull_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">  Produces real values on a  <a href="http://en.wikipedia.com/wiki/Weibull_distribution" class="extiw" title="enwiki:Weibull distribution"> Weibull distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/extreme_value_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/extreme value distribution (page does not exist)"> <tt><b>extreme_value_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on an  <a href="http://en.wikipedia.com/wiki/Generalized_extreme_value_distribution" class="extiw" title="enwiki:Generalized extreme value distribution"> extreme value distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Normal_distributions">  Normal distributions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/normal_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/normal distribution (page does not exist)"> <tt><b>normal_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/Normal_distribution" class="extiw" title="enwiki:Normal distribution"> standard normal (Gaussian) distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/lognormal_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/lognormal distribution (page does not exist)"> <tt><b>lognormal_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/Lognormal_distribution" class="extiw" title="enwiki:Lognormal distribution"> lognormal distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/chi_squared_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/chi squared distribution (page does not exist)"> <tt><b>chi_squared_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/Chi-squared_distribution" class="extiw" title="enwiki:Chi-squared distribution"> chi-squared distribution</a>.   <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/cauchy_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/cauchy distribution (page does not exist)"> <tt><b>cauchy_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/Cauchy_distribution" class="extiw" title="enwiki:Cauchy distribution"> Cauchy distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/fisher_f_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/fisher f distribution (page does not exist)"> <tt><b>fisher_f_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/F-distribution" class="extiw" title="enwiki:F-distribution"> Fisher's F-distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/student_t_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/student t distribution (page does not exist)"> <tt><b>student_t_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values on a  <a href="http://en.wikipedia.com/wiki/Student-tn" class="extiw" title="enwiki:Student-tn"> Student's t-distribution</a>.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Sampling_distributions">  Sampling distributions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/discrete_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/discrete distribution (page does not exist)"> <tt><b>discrete_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces random integers on a discrete distribution.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/piecewise_constant_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/piecewise constant distribution (page does not exist)"> <tt><b>piecewise_constant_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values distributed on constant subintervals. <br><span class="mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/piecewise_linear_distribution&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/piecewise linear distribution (page does not exist)"> <tt><b>piecewise_linear_distribution</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   Produces real values distributed on defined subintervals.  <br><span class="mark">(class template)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=5" title="Edit section: Predefined seed sequence generators">edit</a>]</span> <span class="mw-headline" id="Predefined_seed_sequence_generators">Predefined seed sequence generators</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;random&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr>
+<td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/seed_seq&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/seed seq (page does not exist)"> <tt><b>seed_seq</b></tt> </a></td>
+<td class="member-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td>
+<td class="dcl-list-item-col2">   general-purpose bias-eliminating scrambled seed sequence generator  <br><span class="mark">(class)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random&amp;action=edit&amp;section=6" title="Edit section: C library">edit</a>]</span> <span class="mw-headline" id="C_library">C library</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-header"> <div>Defined in header <code>&lt;cstdlib&gt;</code> </div>
+</td></tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="random/rand.html" title="cpp/numeric/random/rand"> <tt><b>rand</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   generates a pseudo-random number  <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="random/srandhtml.html" title="cpp/numeric/random/srand"> <tt><b>srand</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   initializes pseudo-random number generator <br><span class="mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/random/RAND_MAX&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/random/RAND MAX (page does not exist)"> <tt><b>RAND_MAX</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   maximum possible value generated by <a href="random/rand.html" title="cpp/numeric/random/rand"><tt>rand()</tt></a> <br><span class="mark">(macro constant)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 5009/1000000
+Post-expand include size: 157558/2097152 bytes
+Template argument size: 70305/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2063-0!1!0!!en!2 and timestamp 20111021060656 --><div class="printfooter">
+Retrieved from "<a href="random.html">http://en.cppreference.com/w/cpp/numeric/random</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 2.027 secs. -->
+</body>
+<!-- Cached 20111021060656 -->
+</html>

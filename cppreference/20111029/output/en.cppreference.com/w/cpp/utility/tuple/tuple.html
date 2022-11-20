@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<head>
+<title>std::tuple::tuple - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/utility/tuple/tuple",
+wgTitle="cpp/utility/tuple/tuple",
+wgAction="view",
+wgArticleId=2675,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=10206,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_utility_tuple_tuple skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::tuple::</span>tuple</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../utility.html" title="cpp/utility">utility</a> | <a href="../tuple.html" title="cpp/utility/tuple">tuple</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent; line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomichtml.html" title="cpp/atomic"> Atomic operations library</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../../utility.html" title="cpp/utility"> Utilities library</a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5">  <a href="../../types.html" title="cpp/types"> Type support</a> (basic types, RTTI, type traits)
+</td></tr>
+<tr><td colspan="5">  <a href="../../memory.html" title="cpp/memory"> Dynamic memory management</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../error.html" title="cpp/error"> Error handling</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../program.html" title="cpp/utility/program"> Program utilities</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../ratio.html" title="cpp/utility/ratio"> Compile-time rational arithmetic</a> <span class="mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../chrono.html" title="cpp/chrono"> Date and time</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../functional.html" title="cpp/utility/functional"> Function objects</a>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../initializer_list.html" title="cpp/utility/initializer list">initializer_list</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../bitset.html" title="cpp/utility/bitset">bitset</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../hash.html" title="cpp/utility/hash">hash</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Relational operators
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../rel_ops/operator_not_eq.html" title="cpp/utility/rel ops/operator not eq">rel_ops::operator!=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../rel_ops/operator_gt.html" title="cpp/utility/rel ops/operator gt">rel_ops::operator&gt;</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../rel_ops/operator_le.html" title="cpp/utility/rel ops/operator le">rel_ops::operator&lt;=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../rel_ops/operator_ge.html" title="cpp/utility/rel ops/operator ge">rel_ops::operator&gt;=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Pairs and tuples
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../pair.html" title="cpp/utility/pair">pair</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../tuple.html" title="cpp/utility/tuple">tuple</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../piecewise_construct_t.html" title="cpp/utility/piecewise construct t">piecewise_construct_t</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../piecewise_construct.html" title="cpp/utility/piecewise construct">piecewise_construct</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h2">  Swap, forward and move
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="../../algorithm/swap.html" title="cpp/algorithm/swap">swap</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../forward.html" title="cpp/utility/forward">forward</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../move.html" title="cpp/utility/move">move</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../move_if_noexcept.html" title="cpp/utility/move if noexcept">move_if_noexcept</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr>
+<td class="sb-list-ln-cell1"><tt><a href="../declval.html" title="cpp/utility/declval">declval</a></tt></td>
+<td class="sb-list-ln-cell2"><span class="mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="sidebar-heading" style=""><a href="../tuple.html" title="cpp/utility/tuple"><tt>std::tuple</tt></a></td></tr>
+<tr><td class="sidebar-content" style="text-align:left"><div>
+<table cellpadding="0" style="line-height: 1em; width: auto; background-color:transparent;">
+<tr><td colspan="5" class="sb-list-h1">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><strong class="selflink">tuple::tuple</strong></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="operator%3d.html" title="cpp/utility/tuple/operator=">tuple::operator=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="swap.html" title="cpp/utility/tuple/swap">tuple::swap</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Non-member functions
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="make_tuple.html" title="cpp/utility/tuple/make tuple">make_tuple</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="tie.html" title="cpp/utility/tuple/tie">tie</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="forward_as_tuple.html" title="cpp/utility/tuple/forward as tuple">forward_as_tuple</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="tuple_cat.html" title="cpp/utility/tuple/tuple cat">tuple_cat</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="operator_comp.html" title="cpp/utility/tuple/operator comp">operator=<br>operator!=<br>operator&lt;<br>operator&lt;=<br>operator&gt;<br>operator&gt;=</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="std_swap.html" title="cpp/utility/tuple/std swap">std::swap</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="get.html" title="cpp/utility/tuple/get">get</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5" class="sb-list-h1">  Helper classes
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="tuple_size.html" title="cpp/utility/tuple/tuple size">tuple_size</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="tuple_element.html" title="cpp/utility/tuple/tuple element">tuple_element</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="uses_allocator.html" title="cpp/utility/tuple/uses allocator">uses_allocator</a></tt></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="sb-list-ln-table"><tr><td class="sb-list-ln-cell1"><tt><a href="ignore.html" title="cpp/utility/tuple/ignore">ignore</a></tt></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="ddcl-list-begin">
+<tr>
+<td> <div class="ddcl-list-header-col1"> Defined in header <tt>&lt;tuple&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> tuple<span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (1)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">explicit</span> tuple<span class="br0">(</span> <span class="kw4">const</span> Types<span class="sy3">&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (2)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">UTypes</span> <span class="sy1">&gt;</span><br><span class="kw1">explicit</span> tuple<span class="br0">(</span> UTypes<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (3)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span>... <span class="me1">UTypes</span> <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> <span class="kw4">const</span> tuple<span class="sy1">&lt;</span>UTypes...<span class="sy1">&gt;</span><span class="sy3">&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (4)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span>... <span class="me1">UTypes</span><span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> tuple<span class="sy1">&lt;</span>UTypes...<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (5)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> U1, <span class="kw1">class</span> U2 <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> <span class="kw4">const</span> pair<span class="sy1">&lt;</span>U1,U2<span class="sy1">&gt;</span><span class="sy3">&amp;</span> p <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (6)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> U1, <span class="kw1">class</span> U2 <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> pair<span class="sy1">&lt;</span>U1,U2<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> p <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (7)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp">tuple<span class="br0">(</span><span class="kw4">const</span> tuple<span class="sy3">&amp;</span> other<span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (8)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp">tuple<span class="br0">(</span> tuple<span class="sy3">&amp;&amp;</span> other <span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (9)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (10)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, <span class="kw4">const</span> Types<span class="sy3">&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (11)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc, <span class="kw1">class</span>... <span class="me1">UTypes</span> <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, <span class="kw4">const</span> UTypes<span class="sy3">&amp;&amp;</span>... <span class="me1">args</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (12)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span> <span class="sy1">&lt;</span><span class="kw1">class</span> Alloc, <span class="kw1">class</span>... <span class="me1">UTypes</span><span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, <span class="kw4">const</span> tuple<span class="sy1">&lt;</span>UTypes...<span class="sy1">&gt;</span><span class="sy3">&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (13)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc, <span class="kw1">class</span>... <span class="me1">UTypes</span> <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, tuple<span class="sy1">&lt;</span>UTypes...<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (14)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc, <span class="kw1">class</span> U1, <span class="kw1">class</span> U2 <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, <span class="kw4">const</span> pair<span class="sy1">&lt;</span>U1, U2<span class="sy1">&gt;</span><span class="sy3">&amp;</span> p <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (15)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc, <span class="kw1">class</span> U1, <span class="kw1">class</span> U2 <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, pair<span class="sy1">&lt;</span>U1, U2<span class="sy1">&gt;</span><span class="sy3">&amp;&amp;</span> p <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (16)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, <span class="kw4">const</span> tuple<span class="sy3">&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (17)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+<tr>
+<td class="ddcl-list-item-col1pad"> <div class="ddcl-list-item-content"><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> Alloc <span class="sy1">&gt;</span><br>
+tuple<span class="br0">(</span> std<span class="sy4">::</span><span class="me2">allocator_arg_t</span>, <span class="kw4">const</span> Alloc<span class="sy3">&amp;</span> a, tuple<span class="sy3">&amp;&amp;</span> other <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td class="ddcl-list-item-col2pad"> (18)
+</td>
+<td class="ddcl-list-item-col3pad"> <span class="mark">(C++11 feature)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="ddcl-list-sep">
+</td></tr>
+</table>
+<p>Constructs a new tuple. 
+</p>
+<p>1) Default constructor. Value-initializes all elements.
+</p>
+<p>2) Initializes each element of the tuple with the corresponding parameter.
+</p>
+<p>3) Initializes each element of the tuple with the corresponding value in <span class="mw-geshi cpp source-cpp"><a href="../forward.html"><span class="kw239">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Utypes<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span></span>.
+</p>
+<p>4) For all <tt>i</tt> in <span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>UTypes<span class="br0">)</span></span>, initializes ith element of the tuple with <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">get</span><span class="sy1">&lt;</span>i<span class="sy1">&gt;</span><span class="br0">(</span>other<span class="br0">)</span></span>.
+</p>
+<p>5) For all <tt>i</tt> in <span class="mw-geshi cpp source-cpp">sizeof...<span class="br0">(</span>UTypes<span class="br0">)</span></span>, initializes ith element of the tuple with <span class="mw-geshi cpp source-cpp"><a href="../forward.html"><span class="kw239">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Ui<span class="sy1">&gt;</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">get</span><span class="sy1">&lt;</span>i<span class="sy1">&gt;</span><span class="br0">(</span>other<span class="br0">)</span><span class="br0">)</span></span>.
+</p>
+<p>6) Constructs a 2-element tuple with the first element constructed from <tt>p.first</tt> and the second element from <tt>p.second</tt>
+</p>
+<p>7) Constructs a 2-element tuple with the first element constructed from <span class="mw-geshi cpp source-cpp"><a href="../forward.html"><span class="kw239">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>U1<span class="sy1">&gt;</span><span class="br0">(</span>p.<span class="me1">first</span><span class="br0">)</span></span> and the second element from <span class="mw-geshi cpp source-cpp"><a href="../forward.html"><span class="kw239">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>U2<span class="sy1">&gt;</span><span class="br0">(</span>p.<span class="me1">second</span><span class="br0">)</span></span>
+</p>
+<p>8) Compiler-generated copy constructor. Initializes each element of the tuple with the corresponding element of <tt>other</tt>
+</p>
+<p>9) Compiler-generated move constructor. Initializes each ith element of the tuple with <span class="mw-geshi cpp source-cpp"><a href="../forward.html"><span class="kw239">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Ui<span class="sy1">&gt;</span><span class="br0">(</span>std<span class="sy4">::</span><span class="me2">get</span><span class="sy1">&lt;</span>i<span class="sy1">&gt;</span><span class="br0">(</span>other<span class="br0">)</span><span class="br0">)</span></span>.
+</p>
+<p>10 - 18) Identical to 1-9 except each element is created by <i>uses-allocator construction</i>, that is, the Allocator object <tt>a</tt> is passed as an additional argument to the constructor of each element for which <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">uses_allocator</span><span class="sy1">&lt;</span>Ui, Alloc<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">value</span></span> is <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>.
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/tuple/tuple&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> args </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  values used to initialize each element of the tuple
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> other </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  a tuple of values used to initialize each element of the tupe
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> p </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  pair of values used to initialize both elements of this 2-tuple
+</td>
+</tr>
+<tr>
+<td valign="top" class="param-list-item-col1"> <tt><b> a </b></tt>
+</td>
+<td valign="top" class="param-list-item-col2"> -
+</td>
+<td class="param-list-item-col2">  allocator to use in uses-allocator construction
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/tuple/tuple&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+<span class="co2">#include &lt;tuple&gt;</span>
+<span class="co2">#include &lt;memory&gt;</span>
+ 
+<span class="co1">// helper function to print a tuple of any size</span>
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Tuple, std<span class="sy4">::</span><span class="kw4">size_t</span> N<span class="sy1">&gt;</span>
+<span class="kw4">struct</span> TuplePrinter <span class="br0">{</span>
+    <span class="kw4">static</span> <span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">const</span> Tuple<span class="sy3">&amp;</span> t<span class="br0">)</span> 
+    <span class="br0">{</span>
+        TuplePrinter<span class="sy1">&lt;</span>Tuple, N<span class="sy2">-</span><span class="nu0">1</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">print</span><span class="br0">(</span>t<span class="br0">)</span><span class="sy4">;</span>
+        <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">", "</span> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">get</span><span class="sy1">&lt;</span>N<span class="sy2">-</span><span class="nu0">1</span><span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> Tuple<span class="sy1">&gt;</span>
+<span class="kw4">struct</span> TuplePrinter<span class="sy1">&lt;</span>Tuple, <span class="nu0">1</span><span class="sy1">&gt;</span><span class="br0">{</span>
+    <span class="kw4">static</span> <span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">const</span> Tuple<span class="sy3">&amp;</span> t<span class="br0">)</span> 
+    <span class="br0">{</span>
+        <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">get</span><span class="sy1">&lt;</span><span class="nu0">0</span><span class="sy1">&gt;</span><span class="br0">(</span>t<span class="br0">)</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span>... <span class="me1">Args</span><span class="sy1">&gt;</span>
+<span class="kw4">void</span> print<span class="br0">(</span><span class="kw4">const</span> <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span>Args...<span class="sy1">&gt;</span><span class="sy3">&amp;</span> t<span class="br0">)</span> 
+<span class="br0">{</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"("</span><span class="sy4">;</span>
+    TuplePrinter<span class="sy1">&lt;</span>decltype<span class="br0">(</span>t<span class="br0">)</span>, sizeof...<span class="br0">(</span>Args<span class="br0">)</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">print</span><span class="br0">(</span>t<span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">")<span class="es1">\n</span>"</span><span class="sy4">;</span>
+<span class="br0">}</span>
+<span class="co1">// end helper function</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="../../string/basic_string.html"><span class="kw289">std::<span class="me2">string</span></span></a>, <span class="kw4">double</span><span class="sy1">&gt;</span> t1<span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Value-initialized: "</span><span class="sy4">;</span> print<span class="br0">(</span>t1<span class="br0">)</span><span class="sy4">;</span>
+    <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="../../string/basic_string.html"><span class="kw289">std::<span class="me2">string</span></span></a>, <span class="kw4">double</span><span class="sy1">&gt;</span> t2<span class="br0">(</span><span class="nu0">42</span>, <span class="st0">"Test"</span>, <span class="sy2">-</span><span class="nu16">3.14</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Initialized with values: "</span><span class="sy4">;</span> print<span class="br0">(</span>t2<span class="br0">)</span><span class="sy4">;</span>
+    <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span>, <a href="../../string/basic_string.html"><span class="kw289">std::<span class="me2">string</span></span></a>, <span class="kw4">int</span><span class="sy1">&gt;</span> t3<span class="br0">(</span>t2<span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Implicitly converted: "</span><span class="sy4">;</span> print<span class="br0">(</span>t3<span class="br0">)</span><span class="sy4">;</span>
+    <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <span class="kw4">double</span><span class="sy1">&gt;</span> t4<span class="br0">(</span><a href="../pair/make_pair.html"><span class="kw237">std::<span class="me2">make_pair</span></span></a><span class="br0">(</span><span class="nu0">42</span>, <span class="nu16">3.14</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../io/basic_ostream.html"><span class="kw614">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Constructed from a pair"</span><span class="sy4">;</span> print<span class="br0">(</span>t4<span class="br0">)</span><span class="sy4">;</span>
+ 
+    <span class="co1">// given Allocator my_alloc with a single-argument constructor my_alloc(int)</span>
+    <span class="co1">// use my_alloc(1) to allocate 10 ints in a vector</span>
+    <a href="../../container/vector.html"><span class="kw310">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, my_alloc<span class="sy1">&gt;</span> v<span class="br0">(</span><span class="nu0">10</span>, <span class="nu0">1</span>, my_alloc<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// use my_alloc(2) to allocate 10 ints in a vector in a tuple</span>
+    <a href="../tuple.html"><span class="kw236">std::<span class="me2">tuple</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, <a href="../../container/vector.html"><span class="kw310">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span>, my_alloc<span class="sy1">&gt;</span>, <span class="kw4">double</span><span class="sy1">&gt;</span> t5<span class="br0">(</span>std<span class="sy4">::</span><span class="me2">allocator_arg</span>,
+                                                           my_alloc<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>, <span class="nu0">42</span>, v,  <span class="sy2">-</span><span class="nu16">3.14</span><span class="br0">)</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Value-initialized: (0, , 0)
+Initialized with values: (42, Test, -3.14)
+Implicitly converted: (*, Test, -3)
+Constructed from a pair(42, 3.14)</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/tuple/tuple&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="dcl-list-begin">
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="make_tuple.html" title="cpp/utility/tuple/make tuple"> <tt><b>make_tuple</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   creates a <tt>tuple</tt> object of the type defined by the argument types <br><span class="mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="tie.html" title="cpp/utility/tuple/tie"> <tt><b>tie</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   creates a <tt>tuple</tt> of lvalue references or unpacks a tuple into individual objects <br><span class="mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="dcl-list-sep">
+</td></tr>
+<tr>
+<td class="dcl-list-item-col1">  <table class="member-table"><tr><td class="member-cell1"><a href="forward_as_tuple.html" title="cpp/utility/tuple/forward as tuple"> <tt><b>forward_as_tuple</b></tt> </a></td></tr></table>
+</td>
+<td class="dcl-list-item-col2">   creates a <tt>tuple</tt> of rvalue references <br><span class="mark">(function template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 3713/1000000
+Post-expand include size: 85050/2097152 bytes
+Template argument size: 45342/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2675-0!1!0!!en!2 and timestamp 20111004233319 --><div class="printfooter">
+Retrieved from "<a href="tuple.html">http://en.cppreference.com/w/cpp/utility/tuple/tuple</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><!-- Served in 2.793 secs. -->
+</body>
+<!-- Cached 20111004233319 -->
+</html>

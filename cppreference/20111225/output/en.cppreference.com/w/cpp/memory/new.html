@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/memory/new by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 22:54:14 GMT --><head>
+<title>Low level memory management - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/memory/new",
+wgTitle="cpp/memory/new",
+wgAction="view",
+wgArticleId=1329,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=12588,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_memory_new skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Low level memory management</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../memory.html" title="cpp/memory">memory</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../utility.html" title="cpp/utility"> Utilities library</a></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../memory.html" title="cpp/memory"> Dynamic memory management</a></td></tr>
+<tr><td class="template-sidebar-heading" style=""><strong class="selflink"> Low level memory management</strong></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/operator_newhtml.html" title="cpp/memory/new/operator new">operator new<br>operator new[]</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/operator_deletehtml.html" title="cpp/memory/new/operator delete">operator delete<br>operator delete[]</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="new/get_new_handler.html" title="cpp/memory/new/get new handler">get_new_handler</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/set_new_handlerhtml.html" title="cpp/memory/new/set new handler">set_new_handler</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Classes
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/bad_allochtml.html" title="cpp/memory/new/bad alloc">bad_alloc</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="new/bad_array_new_length.html" title="cpp/memory/new/bad array new length">bad_array_new_length</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/nothrow_t.html" title="cpp/memory/new/nothrow t">nothrow_t</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Types
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/new_handler.html" title="cpp/memory/new/new handler">new_handler</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Objects
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="new/nothrow.html" title="cpp/memory/new/nothrow">nothrow</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<p>The <a href="../language/new.html" title="cpp/language/new">new-expression</a> is the only way to create an object or an array of objects with dynamic storage duration, that is, with lifetime not restricted to the scope in which it is created. A new-expression obtains storage by calling an allocation function. A <a href="../language/delete.html" title="cpp/language/delete">delete-expression</a> destroys a most derived object or an array created by a new-expression and calls the deallocation function. The default allocation and deallocation functions, along with related functions, types, and objects, are declared in the header <tt>&lt;new&gt;</tt>. 
+</p>
+<table class="template-dcl-list-begin">
+<tr class="template-dcl-list-header"><td colspan="2"> <div>Defined in header <tt>&lt;new&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2"> <table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Functions"><span class="tocnumber">1</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-1"><a href="#Classes"><span class="tocnumber">2</span> <span class="toctext">Classes</span></a></li>
+<li class="toclevel-1"><a href="#Types"><span class="tocnumber">3</span> <span class="toctext">Types</span></a></li>
+<li class="toclevel-1"><a href="#Objects"><span class="tocnumber">4</span> <span class="toctext">Objects</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h5> <span class="mw-headline" id="Functions">  Functions </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/operator_newhtml.html" title="cpp/memory/new/operator new"> operator new<br>operator new[]</a></div></div>
+</td>
+<td>   allocation functions  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/operator_deletehtml.html" title="cpp/memory/new/operator delete"> operator delete<br>operator delete[]</a></div></div>
+</td>
+<td>   deallocation functions  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="new/get_new_handler.html" title="cpp/memory/new/get new handler"> get_new_handler</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   obtains the current new handler  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/set_new_handlerhtml.html" title="cpp/memory/new/set new handler"> set_new_handler</a></div></div>
+</td>
+<td>   registers a new handler <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Classes">  Classes  </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/bad_allochtml.html" title="cpp/memory/new/bad alloc"> bad_alloc</a></div></div>
+</td>
+<td>   exception thrown when memory allocation fails  <br><span class="template-mark">(class)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="new/bad_array_new_length.html" title="cpp/memory/new/bad array new length"> bad_array_new_length</a></div>
+<div><span class="template-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   exception thrown on allocation of array with invalid length  <br><span class="template-mark">(class)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/nothrow_t.html" title="cpp/memory/new/nothrow t"> nothrow_t</a></div></div>
+</td>
+<td>   tag type used to select an non-throwing <i>allocation function</i>  <br><span class="template-mark">(class)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Types">  Types  </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/new_handler.html" title="cpp/memory/new/new handler"> new_handler</a></div></div>
+</td>
+<td>   function pointer type of the new handler  <br><span class="template-mark">(typedef)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Objects">  Objects </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="new/nothrow.html" title="cpp/memory/new/nothrow"> nothrow</a></div></div>
+</td>
+<td>   an object of type <tt>nothrow_t</tt> used to select an non-throwing <i>allocation function</i>  <br><span class="template-mark">(constant)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2148/1000000
+Post-expand include size: 63169/2097152 bytes
+Template argument size: 23270/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:1329-0!1!0!!en!2 and timestamp 20111225095008 --><div class="printfooter">
+Retrieved from "<a href="new.html">http://en.cppreference.com/w/cpp/memory/new</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 0.622 secs. -->
+</body>
+<!-- Cached 20111225095008 --><!-- Mirrored from en.cppreference.com/w/cpp/memory/new by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 22:54:41 GMT -->
+</html>

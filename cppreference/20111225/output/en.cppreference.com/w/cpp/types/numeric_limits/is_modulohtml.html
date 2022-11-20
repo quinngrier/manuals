@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/types/numeric_limits/is_modulo by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:35:08 GMT --><head>
+<title>std::numeric_limits::is_modulo - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/types/numeric_limits/is_modulo",
+wgTitle="cpp/types/numeric limits/is modulo",
+wgAction="view",
+wgArticleId=3067,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=16713,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_types_numeric_limits_is_modulo skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::numeric_limits::</span>is_modulo</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../types.html" title="cpp/types">types</a> | <a href="../numeric_limits.html" title="cpp/types/numeric limits">numeric limits</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../../types.html" title="cpp/types"> Type support</a></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../numeric_limits.html" title="cpp/types/numeric limits"><tt>std::numeric_limits</tt></a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Static constants
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_specializedhtml.html" title="cpp/types/numeric limits/is specialized">numeric_limits::is_specialized</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_signed.html" title="cpp/types/numeric limits/is signed">numeric_limits::is_signed</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_integer.html" title="cpp/types/numeric limits/is integer">numeric_limits::is_integer</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_exact.html" title="cpp/types/numeric limits/is exact">numeric_limits::is_exact</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="has_infinityhtml.html" title="cpp/types/numeric limits/has infinity">numeric_limits::has_infinity</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="has_quiet_NaN.html" title="cpp/types/numeric limits/has quiet NaN">numeric_limits::has_quiet_NaN</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="has_signaling_NaN.html" title="cpp/types/numeric limits/has signaling NaN">numeric_limits::has_signaling_NaN</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="has_denorm.html" title="cpp/types/numeric limits/has denorm">numeric_limits::has_denorm</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="has_denorm_loss.html" title="cpp/types/numeric limits/has denorm loss">numeric_limits::has_denorm_loss</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="round_style.html" title="cpp/types/numeric limits/round style">numeric_limits::round_style</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_iec559.html" title="cpp/types/numeric limits/is iec559">numeric_limits::is_iec559</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="is_bounded.html" title="cpp/types/numeric limits/is bounded">numeric_limits::is_bounded</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><strong class="selflink">numeric_limits::is_modulo</strong></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="digits.html" title="cpp/types/numeric limits/digits">numeric_limits::digits</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="digits10.html" title="cpp/types/numeric limits/digits10">numeric_limits::digits10</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="max_digits10html.html" title="cpp/types/numeric limits/max digits10">numeric_limits::max_digits10</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="radix.html" title="cpp/types/numeric limits/radix">numeric_limits::radix</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="min_exponent.html" title="cpp/types/numeric limits/min exponent">numeric_limits::min_exponent</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="min_exponent10html.html" title="cpp/types/numeric limits/min exponent10">numeric_limits::min_exponent10</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="max_exponent.html" title="cpp/types/numeric limits/max exponent">numeric_limits::max_exponent</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="max_exponent10html.html" title="cpp/types/numeric limits/max exponent10">numeric_limits::max_exponent10</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="traps.html" title="cpp/types/numeric limits/traps">numeric_limits::traps</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="tinyness_before.html" title="cpp/types/numeric limits/tinyness before">numeric_limits::tinyness_before</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Static member functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="min.html" title="cpp/types/numeric limits/min">numeric_limits::min</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="lowesthtml.html" title="cpp/types/numeric limits/lowest">numeric_limits::lowest</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="max.html" title="cpp/types/numeric limits/max">numeric_limits::max</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="epsilon.html" title="cpp/types/numeric limits/epsilon">numeric_limits::epsilon</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="round_errorhtml.html" title="cpp/types/numeric limits/round error">numeric_limits::round_error</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="infinity.html" title="cpp/types/numeric limits/infinity">numeric_limits::infinity</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="quiet_NaN.html" title="cpp/types/numeric limits/quiet NaN">numeric_limits::quiet_NaN</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="signaling_NaNhtml.html" title="cpp/types/numeric limits/signaling NaN">numeric_limits::signaling_NaN</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="denorm_min.html" title="cpp/types/numeric limits/denorm min">numeric_limits::denorm_min</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Helper types
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="float_round_style.html" title="cpp/types/numeric limits/float round style">float_round_style</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="float_denorm_stylehtml.html" title="cpp/types/numeric limits/float denorm style">float_denorm_style</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="template-ddcl-list-begin">
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">const</span> <span class="kw4">bool</span> is_modulo</span></div>
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td> <span class="template-mark">(until C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">static</span> <span class="kw4">constexpr</span> <span class="kw4">bool</span> is_modulo</span></div>
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td> <span class="template-mark">(since C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+</table>
+<p>The value of <span class="mw-geshi cpp source-cpp"><a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">is_modulo</span></span> is <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span> for all arithmetic types <tt>T</tt> that handle overflows with modulo arithmetic, that is, if the result of addition, subtraction, multiplication, or division of this type would fall outside the range <span class="mw-geshi cpp source-cpp"><span class="br0">[</span>min<span class="br0">(</span><span class="br0">)</span>, max<span class="br0">(</span><span class="br0">)</span><span class="br0">]</span></span>, the value returned by such operation differs from the expected value by a multiple of <span class="mw-geshi cpp source-cpp">max<span class="br0">(</span><span class="br0">)</span><span class="sy2">-</span>min<span class="br0">(</span><span class="br0">)</span><span class="sy2">+</span><span class="nu0">1</span></span>. 
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/types/numeric_limits/is_modulo&amp;action=edit&amp;section=1" title="Edit section: Standard specializations">edit</a>]</span> <span class="mw-headline" id="Standard_specializations">Standard specializations</span>
+</h3>
+<table class="template-tdcl-list-begin">
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-hitem">
+<td>  <tt>T</tt>
+</td>
+<td>  value of <span class="mw-geshi cpp source-cpp"><a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">is_modulo</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  /* non-specialized */
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">signed</span> <span class="kw4">char</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">char</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">wchar_t</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">char16_t</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">char32_t</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">short</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">short</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">int</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">int</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">long</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">long</span> <span class="kw4">long</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">float</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">double</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-tdcl-list-sep">
+</td></tr>
+<tr class="template-tdcl-list-item">
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw4">long</span> <span class="kw4">double</span></span>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/types/numeric_limits/is_modulo&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<p> Demonstrates the behavior of modulo types
+ </p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;type_traits&gt;</span>
+<span class="co2">#include &lt;limits&gt;</span>
+ 
+<span class="kw1">template</span><span class="sy1">&lt;</span><span class="kw1">class</span> T<span class="sy1">&gt;</span>
+<span class="kw1">typename</span> <a href="../enable_if.html"><span class="kw295">std::<span class="me2">enable_if</span></span></a><span class="sy1">&lt;</span><a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">is_modulo</span><span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">type</span>
+    check_overflow<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="../../io/basic_ostream.html"><span class="kw1011">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"<span class="es1">\n</span>max value is "</span> <span class="sy1">&lt;&lt;</span> <a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">"min value is "</span> <span class="sy1">&lt;&lt;</span> <a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">min</span><span class="br0">(</span><span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">"max value + 1 is "</span> <span class="sy1">&lt;&lt;</span> <a href="../numeric_limits.html"><span class="kw176">std::<span class="me2">numeric_limits</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span><span class="sy4">::</span><span class="me2">max</span><span class="br0">(</span><span class="br0">)</span><span class="sy2">+</span><span class="nu0">1</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    check_overflow<span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    check_overflow<span class="sy1">&lt;</span><span class="kw4">unsigned</span> <span class="kw4">long</span><span class="sy1">&gt;</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="co1">// check_overflow&lt;float&gt;(); // compile-time error, not a modulo type</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">max value is 2147483647
+min value is -2147483648
+max value + 1 is -2147483648
+ 
+max value is 18446744073709551615
+min value is 0
+max value + 1 is 0</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/types/numeric_limits/is_modulo&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="template-dcl-list-begin">
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="is_integer.html" title="cpp/types/numeric limits/is integer"> is_integer</a></div>
+<div><span class="template-cmark">[static]</span></div>
+</div>
+</td>
+<td>   identifies integer types  <br><span class="template-mark">(public static member constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="is_iec559.html" title="cpp/types/numeric limits/is iec559"> is_iec559</a></div>
+<div><span class="template-cmark">[static]</span></div>
+</div>
+</td>
+<td>   identifies the IEC 559/IEEE 754 floating-point types <br><span class="template-mark">(public static member constant)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div">
+<div><a href="is_exact.html" title="cpp/types/numeric limits/is exact"> is_exact</a></div>
+<div><span class="template-cmark">[static]</span></div>
+</div>
+</td>
+<td>   identifies exact types  <br><span class="template-mark">(public static member constant)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 3675/1000000
+Post-expand include size: 77985/2097152 bytes
+Template argument size: 37485/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:3067-0!1!0!!en!2 and timestamp 20111226003500 --><div class="printfooter">
+Retrieved from "<a href="is_modulohtml.html">http://en.cppreference.com/w/cpp/types/numeric_limits/is_modulo</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 4.901 secs. -->
+</body>
+<!-- Cached 20111226003500 --><!-- Mirrored from en.cppreference.com/w/cpp/types/numeric_limits/is_modulo by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 26 Dec 2011 00:35:08 GMT -->
+</html>

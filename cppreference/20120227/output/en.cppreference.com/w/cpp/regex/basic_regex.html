@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/regex/basic_regex by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:25:56 GMT --><head>
+<title>std::basic_regex - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/regex/basic_regex",
+wgTitle="cpp/regex/basic regex",
+wgAction="view",
+wgArticleId=2279,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=16440,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_regex_basic_regex skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>basic_regex</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../regex.html" title="cpp/regex">regex</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../regex.html" title="cpp/regex"> Regular expressions library</a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h1"><td colspan="5">  Classes
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><strong class="selflink">basic_regex</strong></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="sub_match.html" title="cpp/regex/sub match">sub_match</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="match_results.html" title="cpp/regex/match results">match_results</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Algorithms
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_match.html" title="cpp/regex/regex match">regex_match</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_search.html" title="cpp/regex/regex search">regex_search</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_replace.html" title="cpp/regex/regex replace">regex_replace</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Iterators
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_iterator.html" title="cpp/regex/regex iterator">regex_iterator</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_token_iteratorhtml.html" title="cpp/regex/regex token iterator">regex_token_iterator</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Exceptions
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_error.html" title="cpp/regex/regex error">regex_error</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Traits
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="regex_traits.html" title="cpp/regex/regex traits">regex_traits</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="t-sb-list-h1"><td colspan="5">  Constants
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="syntax_option_type.html" title="cpp/regex/syntax option type">syntax_option_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="match_flag_type.html" title="cpp/regex/match flag type">match_flag_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="error_type.html" title="cpp/regex/error type">error_type</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><strong class="selflink"><tt>std::basic_regex</tt></strong></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h1"><td colspan="5">  Member Functions
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="basic_regex/basic_regex.html" title="cpp/regex/basic regex/basic regex">basic_regex::basic_regex</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/%7Ebasic_regex&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/~basic regex (page does not exist)">basic_regex::~basic_regex</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/assign&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/assign (page does not exist)">basic_regex::assign</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Observers
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/mark_count&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/mark count (page does not exist)">basic_regex::mark_count</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/flags&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/flags (page does not exist)">basic_regex::flags</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Locale
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/getloc&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/getloc (page does not exist)">basic_regex::getloc</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/imbue&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/imbue (page does not exist)">basic_regex::imbue</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Modifiers
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/swap&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/swap (page does not exist)">basic_regex::swap</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="t-ddcl-list-begin">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;regex&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+<tr class="t-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span><br><p>    <span class="kw1">class</span> CharT <span class="sy1">=</span> <span class="kw4">char</span>,<br>
+    <span class="kw1">class</span> Traits <span class="sy1">=</span> <a href="regex_traits.html"><span class="kw1188">std::<span class="me2">regex_traits</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span><br></p>
+<span class="sy1">&gt;</span> <span class="kw1">class</span> basic_regex<span class="sy4">;</span></span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td> <span class="t-mark">(since C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+</table>
+<p>The class template basic_regex provides a general framework for holding regular expressions. 
+</p>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr>
+<td class="mbox-empty-cell"></td>
+<td class="mbox-text" style="">This section is incomplete </td>
+</tr></table>
+<p>Several specializations for common character types are provided:
+</p>
+<table class="t-tdcl-list-begin">
+<tr class="t-tdcl-list-header"><td colspan="2"> <div> Defined in header <tt>&lt;regex&gt;</tt> </div>
+</td></tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-hitem">
+<td>  Type
+</td>
+<td>  Definition
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>regex</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">basic_regex<span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>wregex</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">basic_regex<span class="sy1">&lt;</span><span class="kw2">wchar_t</span><span class="sy1">&gt;</span></span>
+</td>
+</tr>
+</table>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Member_types"><span class="tocnumber">1</span> <span class="toctext">Member types</span></a></li>
+<li class="toclevel-1 tocsection-2">
+<a href="#Member_functions"><span class="tocnumber">2</span> <span class="toctext">Member functions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Observers"><span class="tocnumber">2.1</span> <span class="toctext">Observers</span></a></li>
+<li class="toclevel-2"><a href="#Locale"><span class="tocnumber">2.2</span> <span class="toctext">Locale</span></a></li>
+<li class="toclevel-2"><a href="#Modifiers"><span class="tocnumber">2.3</span> <span class="toctext">Modifiers</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex&amp;action=edit&amp;section=1" title="Edit section: Member types">edit</a>]</span> <span class="mw-headline" id="Member_types">Member types</span>
+</h3>
+<table class="t-tdcl-list-begin">
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-hitem">
+<td>  Member type
+</td>
+<td>  Definition
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>value_type</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">CharT</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>traits_type</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">Traits</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>string_type</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">string_type</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>locale_type</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp">Traits<span class="sy4">::</span><span class="me2">locale_type</span></span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>flag_type</tt>
+</td>
+<td>  <span class="mw-geshi cpp source-cpp"><a href="syntax_option_type.html"><span class="kw1189">std::<span class="me2">regex_constants</span><span class="sy4">::</span><span class="me2">syntax_option_type</span></span></a></span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex&amp;action=edit&amp;section=2" title="Edit section: Member functions">edit</a>]</span> <span class="mw-headline" id="Member_functions">Member functions</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div t-dcl-member-nobold-div"><div><a href="basic_regex/basic_regex.html" title="cpp/regex/basic regex/basic regex"> (constructor)</a></div></div>
+</td>
+<td>  constructs the regex object <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div t-dcl-member-nobold-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/%7Ebasic_regex&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/~basic regex (page does not exist)"> (destructor)</a></div></div>
+</td>
+<td>  destructs the regex object <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/operator%3D&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/operator= (page does not exist)"> operator=</a></div></div>
+</td>
+<td>   assigns the contents <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/assign&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/assign (page does not exist)"> assign</a></div></div>
+</td>
+<td>   assigns the contents <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Observers">  Observers </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/mark_count&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/mark count (page does not exist)"> mark_count</a></div></div>
+</td>
+<td>   returns the number of marked sub-expressions within the regular expression  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/flags&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/flags (page does not exist)"> flags</a></div></div>
+</td>
+<td>   returns the syntax flags  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Locale">  Locale </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/getloc&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/getloc (page does not exist)"> getloc</a></div></div>
+</td>
+<td>   get locale information <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/imbue&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/imbue (page does not exist)"> imbue</a></div></div>
+</td>
+<td>   set locale information <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2"> <h5> <span class="mw-headline" id="Modifiers">  Modifiers </span>
+</h5>
+</td></tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/regex/basic_regex/swap&amp;action=edit&amp;redlink=1" class="new" title="cpp/regex/basic regex/swap (page does not exist)"> swap</a></div></div>
+</td>
+<td>   swaps the contents  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2946/1000000
+Post-expand include size: 53100/2097152 bytes
+Template argument size: 24727/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:2279-0!1!0!!en!2 and timestamp 20120121015956 --><div class="printfooter">
+Retrieved from "<a href="basic_regex.html">http://en.cppreference.com/w/cpp/regex/basic_regex</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 1.593 secs. -->
+</body>
+<!-- Cached 20120121015958 --><!-- Mirrored from en.cppreference.com/w/cpp/regex/basic_regex by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:26:04 GMT -->
+</html>

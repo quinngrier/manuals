@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/io/basic_ostream/operator_ltlt by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:26:56 GMT --><head>
+<title>std::basic_ostream::operator&lt;&lt; - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="httphtml.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/io/basic_ostream/operator_ltlt",
+wgTitle="cpp/io/basic ostream/operator ltlt",
+wgAction="view",
+wgArticleId=549,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=16269,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_io_basic_ostream_operator_ltlt skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::basic_ostream::</span>operator&lt;&lt;</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../io.html" title="cpp/io">io</a> | <a href="../basic_ostream.html" title="cpp/io/basic ostream">basic ostream</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks template-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="template-sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="template-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="template-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../../io.html" title="cpp/io"> Input/output library</a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5">  <a href="../maniphtml.html" title="cpp/io/manip"> I/O manipulators</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../c.html" title="cpp/io/c"> C-style I/O</a>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Buffers
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_streambuf.html" title="cpp/io/basic streambuf">basic_streambuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_filebuf.html" title="cpp/io/basic filebuf">basic_filebuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_stringbufhtml.html" title="cpp/io/basic stringbuf">basic_stringbuf</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="../strstreambuf.html" title="cpp/io/strstreambuf">strstreambuf</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Streams
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Abstractions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../ios_base.html" title="cpp/io/ios base">ios_base</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_ios.html" title="cpp/io/basic ios">basic_ios</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_istream.html" title="cpp/io/basic istream">basic_istream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_ostream.html" title="cpp/io/basic ostream">basic_ostream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_iostream.html" title="cpp/io/basic iostream">basic_iostream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  File I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_ifstream.html" title="cpp/io/basic ifstream">basic_ifstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_ofstream.html" title="cpp/io/basic ofstream">basic_ofstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_fstream.html" title="cpp/io/basic fstream">basic_fstream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  String I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_istringstream.html" title="cpp/io/basic istringstream">basic_istringstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_ostringstream.html" title="cpp/io/basic ostringstream">basic_ostringstream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../basic_stringstream.html" title="cpp/io/basic stringstream">basic_stringstream</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Array I/O
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/istrstream&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/istrstream (page does not exist)">istrstream</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/ostrstream&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/ostrstream (page does not exist)">ostrstream</a></td>
+<td><span class="template-mark">(deprecated)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Types
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/streamoff&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/streamoff (page does not exist)">streamoff</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/streampos&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/streampos (page does not exist)">streampos</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../fpos.html" title="cpp/io/fpos">fpos</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Error category interface
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/iostream_category&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/iostream category (page does not exist)">iostream_category</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/io_errc&amp;action=edit&amp;redlink=1" class="new" title="cpp/io/io errc (page does not exist)">io_errc</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="template-sidebar-heading" style=""><a href="../basic_ostream.html" title="cpp/io/basic ostream"><tt>std::basic_ostream</tt></a></td></tr>
+<tr><td class="template-sidebar-content" style="text-align:left"><div>
+<table class="template-sb-list-begin" cellpadding="0" style="">
+<tr class="template-sb-list-h1"><td colspan="5">  Global objects
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../cout.html" title="cpp/io/cout">cout<br>wcout</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../cerr.html" title="cpp/io/cerr">cerr<br>wcerr</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="template-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="../clog.html" title="cpp/io/clog">clog<br>wclog</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="basic_ostreamhtml.html" title="cpp/io/basic ostream/basic ostream">basic_ostream::basic_ostream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="_basic_ostream.html" title="cpp/io/basic ostream/~basic ostream">basic_ostream::~basic_ostream</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="operator%3d.html" title="cpp/io/basic ostream/operator=">basic_ostream::operator=</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Formatted input
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><strong class="selflink">basic_ostream::operator&lt;&lt;</strong></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Unformatted input
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="puthtml.html" title="cpp/io/basic ostream/put">basic_ostream::put</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="write.html" title="cpp/io/basic ostream/write">basic_ostream::write</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Positioning
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="tellp.html" title="cpp/io/basic ostream/tellp">basic_ostream::tellp</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="seekphtml.html" title="cpp/io/basic ostream/seekp">basic_ostream::seekp</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h2"><td colspan="5">  Miscellaneous
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="flush.html" title="cpp/io/basic ostream/flush">basic_ostream::flush</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr>
+<td><a href="swap.html" title="cpp/io/basic ostream/swap">basic_ostream::swap</a></td>
+<td><span class="template-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Member classes
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="sentryhtml.html" title="cpp/io/basic ostream/sentry">basic_ostream::sentry</a></td></tr></table>
+</td></tr>
+<tr class="template-sb-list-h1"><td colspan="5">  Non-member functions
+</td></tr>
+<tr><td colspan="5"> <table class="template-sb-list-ln-table"><tr><td><a href="operator_ltlt2.html" title="cpp/io/basic ostream/operator ltlt2">operator&lt;&lt;<span class="template-dcl-spec">(std::basic_ostream)</span></a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="template-ddcl-list-begin">
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">short</span> value <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">unsigned</span> <span class="kw4">short</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (1)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">int</span> value <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">unsigned</span> <span class="kw4">int</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (2)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">long</span> value <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">unsigned</span> <span class="kw4">long</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (3)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">long</span> <span class="kw4">long</span> value <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">unsigned</span> <span class="kw4">long</span> <span class="kw4">long</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (4)
+</td>
+<td> <span class="template-mark">(since C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">float</span> value <span class="br0">)</span><span class="sy4">;</span><br><p>basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">double</span> value <span class="br0">)</span><span class="sy4">;</span><br></p>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">long</span> <span class="kw4">double</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (5)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">bool</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (6)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <span class="kw4">const</span> <span class="kw4">void</span><span class="sy2">*</span> value <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (7)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> <a href="../basic_streambuf.html"><span class="kw928">std::<span class="me2">basic_streambuf</span></span></a><span class="sy1">&lt;</span>CharT, Traits<span class="sy1">&gt;</span><span class="sy2">*</span> sb<span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (8)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+<tr class="template-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> basic_ostream<span class="sy3">&amp;</span> st, <br><p>                           <a href="../ios_base.html"><span class="kw931">std::<span class="me2">ios_base</span></span></a><span class="sy3">&amp;</span> <span class="br0">(</span><span class="sy2">*</span>func<span class="br0">)</span><span class="br0">(</span><a href="../ios_base.html"><span class="kw931">std::<span class="me2">ios_base</span></span></a><span class="sy3">&amp;</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> basic_ostream<span class="sy3">&amp;</span> st, <br>
+                           <a href="../basic_ios.html"><span class="kw969">std::<span class="me2">basic_ios</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span> <span class="br0">(</span><span class="sy2">*</span>func<span class="br0">)</span><span class="br0">(</span><a href="../basic_ios.html"><span class="kw969">std::<span class="me2">basic_ios</span></span></a><span class="sy1">&lt;</span>CharT,Traits<span class="sy1">&gt;</span><span class="sy3">&amp;</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span><br>
+basic_ostream<span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span><span class="br0">(</span> basic_ostream<span class="sy3">&amp;</span> st, <br></p>
+                           <a href="../basic_ostream.html"><span class="kw972">std::<span class="me2">basic_ostream</span></span></a><span class="sy3">&amp;</span> <span class="br0">(</span><span class="sy2">*</span>func<span class="br0">)</span><span class="br0">(</span><a href="../basic_ostream.html"><span class="kw972">std::<span class="me2">basic_ostream</span></span></a><span class="sy3">&amp;</span><span class="br0">)</span> <span class="br0">)</span><span class="sy4">;</span></span></div>
+</td>
+<td> (9)
+</td>
+<td class="template-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="template-ddcl-list-sep">
+</td></tr>
+</table>
+<p>Inserts data into the stream. 
+</p>
+<p>The (1-7) versions of the operator behave as formatted output functions, and the 8) version behaves as unformatted output function. These functions begin execution by constructing an object of type <a href="sentryhtml.html" title="cpp/io/basic ostream/sentry"><tt>sentry</tt></a>, which flushes the <span class="mw-geshi cpp source-cpp">tie<span class="br0">(</span><span class="br0">)</span></span>'d output buffers if necessary and checks the stream errors. After construction, if the sentry object returns <span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span>, the functions return without attempting any output. If an error occurs during output, formatted output functions set <span class="mw-geshi cpp source-cpp">setstate<span class="br0">(</span>ios_base<span class="sy4">::</span><span class="me2">failbit</span><span class="br0">)</span></span>. If an exception is thrown during output, then ios::badbit is set (the exception is suppressed unless <span class="mw-geshi cpp source-cpp"><span class="br0">{</span><span class="br0">{</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">}</span><span class="br0">}</span></span>, in which case it is rethrown)
+</p>
+<p>1-2) If <tt>value</tt> is <span class="mw-geshi cpp source-cpp"><span class="kw4">short</span></span> or <span class="mw-geshi cpp source-cpp"><span class="kw4">int</span></span>, then casts it to <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">short</span></span> or <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">int</span></span> if <span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">flags</span><span class="br0">(</span><span class="br0">)</span> <span class="sy3">&amp;</span> ios_base<span class="sy4">::</span><span class="me2">basefield</span></span> is <span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">oct</span></span> or <span class="mw-geshi cpp source-cpp">ios_base<span class="sy4">::</span><span class="me2">hex</span></span>. After that, casts to <span class="mw-geshi cpp source-cpp"><span class="kw4">long</span></span> in any case and outputs as in 3). If <tt>value</tt> is <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">short</span></span> or <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">int</span></span>, casts to <span class="mw-geshi cpp source-cpp"><span class="kw4">unsigned</span> <span class="kw4">long</span></span> and outputs as in 3)
+</p>
+<p>3-4) Inserts an integer value by calling <a href="../../locale/num_put/do_put.html" title="cpp/locale/num put/do put"><tt>num_put::put()</tt></a>
+</p>
+<p>5) Inserts a floating point value by calling <a href="../../locale/num_put/do_put.html" title="cpp/locale/num put/do put"><tt>num_put::put()</tt></a>
+</p>
+<p>6) Inserts <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span> value by calling <a href="../../locale/num_put/do_put.html" title="cpp/locale/num put/do put"><tt>num_put::put()</tt></a>
+</p>
+<p>7) Inserts a generic pointer value by calling <a href="../../locale/num_put/do_put.html" title="cpp/locale/num put/do put"><tt>num_put::put()</tt></a>
+</p>
+<p>8) Inserts all data from <tt>sb</tt>. After constructing the sentry object, checks if <tt>sb</tt> is a null pointer. If it is, executes {{cpp|setstate(badbit)} and exits. Otherwise, extracts characters from the input sequence controlled by <tt>sb</tt> and inserts them into <span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span> until one of the following conditions are met:
+</p>
+<dl><dd><ul>
+<li> end-of-file occurs on the input sequence;
+</li>
+<li> inserting in the output sequence fails (in which case the character to be inserted is not extracted);
+</li>
+<li> an exception occurs (in which case the exception is caught).
+</li>
+</ul></dd></dl>
+<p>If no characters were inserted, executes {{cpp|setstate(badbit)}. If an exception was thrown while extracting, sets <span class="mw-geshi cpp source-cpp">failbit</span>
+</p>
+<p>9) Calls <span class="mw-geshi cpp source-cpp">func<span class="br0">(</span><span class="sy2">*</span>this<span class="br0">)</span><span class="sy4">;</span></span>. This overload is used to implement output I/O manipulators such as <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">endl</span></span>.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Parameters"><span class="tocnumber">1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Return_value"><span class="tocnumber">2</span> <span class="toctext">Return value</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/basic_ostream/operator_ltlt&amp;action=edit&amp;section=1" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline" id="Parameters">Parameters</span>
+</h3>
+<table class="template-param-list-begin">
+<tr class="template-param-list-item">
+<td>  value
+</td>
+<td> -
+</td>
+<td>  integer, floating-point, boolean, or pointer value to insert
+</td>
+</tr>
+<tr class="template-param-list-item">
+<td>  func
+</td>
+<td> -
+</td>
+<td>  function to call
+</td>
+</tr>
+<tr class="template-param-list-item">
+<td>  sb
+</td>
+<td> -
+</td>
+<td>  pointer to the streambuffer to read the data from
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/basic_ostream/operator_ltlt&amp;action=edit&amp;section=2" title="Edit section: Return value">edit</a>]</span> <span class="mw-headline" id="Return_value">Return value</span>
+</h3>
+<p><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span>
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/basic_ostream/operator_ltlt&amp;action=edit&amp;section=3" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline" id="Notes">Notes</span>
+</h3>
+<p>There are no overload for pointers to volatile or function pointers (other than the ones with signatures accepted by the 9) overload). Attempting to output such objects invokes implicit conversion to <span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span>, and, for any non-null pointer value, the value <span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span> is printed (unless <span class="mw-geshi cpp source-cpp">boolalpha</span> was set).
+</p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/basic_ostream/operator_ltlt&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;sstream&gt;</span>
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="../basic_istringstream.html"><span class="kw992">std::<span class="me2">istringstream</span></span></a> input<span class="br0">(</span><span class="st0">" <span class="es1">\"</span>Some text.<span class="es1">\"</span> "</span><span class="br0">)</span><span class="sy4">;</span>
+    <span class="kw4">volatile</span> <span class="kw4">int</span> n <span class="sy1">=</span> <span class="nu0">42</span><span class="sy4">;</span>
+    <span class="kw4">double</span> f <span class="sy1">=</span> <span class="nu16">3.14</span><span class="sy4">;</span>
+    <span class="kw4">bool</span> b <span class="sy1">=</span> <span class="kw2">true</span><span class="sy4">;;</span>
+    <a href="../basic_ostream.html"><span class="kw1011">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n   <span class="co1">// int overload</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">' '</span> <span class="co1">// non-member overload</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">boolalpha</span> <span class="sy1">&lt;&lt;</span> b <span class="co1">// bool overload</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">" "</span> <span class="co1">// non-member overload</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">fixed</span> <span class="sy1">&lt;&lt;</span> f <span class="co1">// double overload</span>
+              <span class="sy1">&lt;&lt;</span> input.<span class="me1">rdbuf</span><span class="br0">(</span><span class="br0">)</span> <span class="co1">// streambuf overload</span>
+              <span class="sy1">&lt;&lt;</span> <span class="sy3">&amp;</span>n <span class="co1">// bool overload</span>
+              <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span> <span class="co1">// function overload</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">42 true 3.140000 "Some text." true</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/io/basic_ostream/operator_ltlt&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="template-dcl-list-begin">
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="operator_ltlt2.html" title="cpp/io/basic ostream/operator ltlt2"> operator&lt;&lt;<span class="template-dcl-spec">(std::basic_ostream)</span></a></div></div>
+</td>
+<td>   inserts character data <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/string/basic_string/operator_ltltgtgt&amp;action=edit&amp;redlink=1" class="new" title="cpp/string/basic string/operator ltltgtgt (page does not exist)"> operator&lt;&lt;<br>operator&gt;&gt;</a></div></div>
+</td>
+<td>   performs stream I/O of strings  <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/bitset/operator_ltltgtgt2&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/bitset/operator ltltgtgt2 (page does not exist)"> operator&lt;&lt;<br>operator&gt;&gt;</a></div></div>
+</td>
+<td>   performs stream input and output of bitsets <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/numeric/complex/operator_ltltgtgt&amp;action=edit&amp;redlink=1" class="new" title="cpp/numeric/complex/operator ltltgtgt (page does not exist)"> operator&lt;&lt;<br>operator&gt;&gt;</a></div></div>
+</td>
+<td>   serializes and deserializes a complex number  <br><span class="template-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="../../numeric/random/linear_congruential_engine/operator_ltltgtgt.html" title="cpp/numeric/random/linear congruential engine/operator ltltgtgt"> operator&lt;&lt;<br>operator&gt;&gt;</a></div></div>
+</td>
+<td>   performs stream input and output on pseudo-random number engine  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="../../numeric/random/uniform_int_distribution/operator_ltltgtgt.html" title="cpp/numeric/random/uniform int distribution/operator ltltgtgt"> operator&lt;&lt;<br>operator&gt;&gt;</a></div></div>
+</td>
+<td>   performs stream input and output on pseudo-random number distribution  <br><span class="template-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="puthtml.html" title="cpp/io/basic ostream/put"> put</a></div></div>
+</td>
+<td>   inserts a character <br><span class="template-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="template-dcl-list-sep">
+</td></tr>
+<tr class="template-dcl-list-item">
+<td>  <div class="template-member-div"><div><a href="write.html" title="cpp/io/basic ostream/write"> write</a></div></div>
+</td>
+<td>   inserts blocks of characters <br><span class="template-mark">(public member function)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 4341/1000000
+Post-expand include size: 94818/2097152 bytes
+Template argument size: 45424/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:549-0!1!0!!en!2 and timestamp 20111225081833 --><div class="printfooter">
+Retrieved from "<a href="operator_ltlt.html">http://en.cppreference.com/w/cpp/io/basic_ostream/operator_ltlt</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 4.291 secs. -->
+</body>
+<!-- Cached 20111225081833 --><!-- Mirrored from en.cppreference.com/w/cpp/io/basic_ostream/operator_ltlt by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 25 Dec 2011 23:27:04 GMT -->
+</html>

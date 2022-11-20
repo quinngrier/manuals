@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/utility/functional/reference_wrapper by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:14:23 GMT --><head>
+<title>std::reference_wrapper - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="stylesheet" href="../../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/utility/functional/reference_wrapper",
+wgTitle="cpp/utility/functional/reference wrapper",
+wgAction="view",
+wgArticleId=5219,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=18910,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_utility_functional_reference_wrapper skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>reference_wrapper</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp.html" title="cpp">cpp</a> | <a href="../../utility.html" title="cpp/utility">utility</a> | <a href="../functional.html" title="cpp/utility/functional">functional</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../../utility.html" title="cpp/utility"> Utilities library</a></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../functional.html" title="cpp/utility/functional"> Function objects</a></td></tr>
+<tr><td class="t-sidebar-heading" style=""><strong class="selflink"> std::reference_wrapper</strong></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h1"><td colspan="5">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/reference_wrapper&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/reference wrapper (page does not exist)">reference_wrapper::reference_wrapper</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator%3D&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator= (page does not exist)">reference_wrapper::operator=</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator_T%26&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator T&amp; (page does not exist)">reference_wrapper::operator T&amp;</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapperget&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapperget (page does not exist)">functional::reference_wrapperget</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator()&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator() (page does not exist)">reference_wrapper::operator()</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="t-ddcl-list-begin">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;functional&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+<tr class="t-ddcl-list-item">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;</span> <span class="kw1">class</span> T <span class="sy1">&gt;</span><br><span class="kw1">class</span> reference_wrapper<span class="sy4">;</span></span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td> <span class="t-mark">(since C++11)</span>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+</table>
+<p>Class template <tt>std::reference_wrapper</tt> is a copy-constructible and copy-assignable wrapper around a reference to object or reference to function of type <tt>T</tt>. Instances of <tt>std::reference_wrapper</tt> are objects (can be copied or stored in containers), but have reference semantics: calling a member function on a <tt>reference_wrapper</tt> invokes the member function of the underlying object.
+</p>
+<p>Helper functions <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">ref</span></span> and <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">cref</span></span> are often used to generate <tt>std::reference_wrapper</tt> objects. 
+</p>
+<p><tt>std::reference_wrapper</tt> is also used to pass objects to <span class="mw-geshi cpp source-cpp"><a href="bind.html"><span class="kw605">std::<span class="me2">bind</span></span></a></span> or to the constructor of <span class="mw-geshi cpp source-cpp"><a href="../../thread/thread.html"><span class="kw1270">std::<span class="me2">thread</span></span></a></span> by reference.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Member_types"><span class="tocnumber">1</span> <span class="toctext">Member types</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Member_functions"><span class="tocnumber">2</span> <span class="toctext">Member functions</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper&amp;action=edit&amp;section=1" title="Edit section: Member types">edit</a>]</span> <span class="mw-headline" id="Member_types">Member types</span>
+</h3>
+<table class="t-tdcl-list-begin">
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-hitem">
+<td>  type
+</td>
+<td>  definition
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>type</tt>
+</td>
+<td>  <tt>T</tt>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>result_type</tt>
+</td>
+<td>  The return type of <tt>T</tt> if <tt>T</tt> is a function. Otherwise, not defined
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>argument_type</tt>
+</td>
+<td>  1) if <tt>T</tt> is a function or pointer to function that takes one argument of type <tt>A1</tt>,  then <tt>argument_type</tt> is <tt>A1</tt>.<br><p>2) if <tt>T</tt> is a pointer to member function of class <tt>T0</tt> that takes no arguments, then <tt>argument_type</tt> is <tt>T0*</tt>, possibly cv-qualified<br>
+3) if <tt>T</tt> is a class type with a member type <tt>T::argument_type</tt>, then <tt>argument_type</tt> is an alias of that
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>first_argument_type</tt>
+</td>
+<td>  1) if <tt>T</tt> is a function or pointer to function that takes two arguments of type s <tt>A1</tt> and <tt>A2</tt>, then <tt>first_argument_type</tt> is <tt>A1</tt>.<br><p>2) if <tt>T</tt> is a pointer to member function of class <tt>T0</tt> that takes one argument, then <tt>first_argument_type</tt> is <tt>T0*</tt>, possibly cv-qualified<br>
+3) if <tt>T</tt> is a class type with a member type <tt>T::first_argument_type</tt>, then <tt>first_argument_type</tt> is an alias of that
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td>  <tt>second_argument_type</tt>
+</td>
+<td> 1) if <tt>T</tt> is a function or pointer to function that takes two arguments of type s <tt>A1</tt> and <tt>A2</tt>, then <tt>second_argument_type</tt> is <tt>A2</tt>.<br><p>2) if <tt>T</tt> is a pointer to member function of class <tt>T0</tt> that takes one argument <tt>A1</tt>, then <tt>second_argument_type</tt> is <tt>A1</tt>, possibly cv-qualified<br>
+3) if <tt>T</tt> is a class type with a member type <tt>T::second_argument_type</tt>, then <tt>first_argument_type</tt> is an alias of that
+</p>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper&amp;action=edit&amp;section=2" title="Edit section: Member functions">edit</a>]</span> <span class="mw-headline" id="Member_functions">Member functions</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div t-dcl-member-nobold-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/reference_wrapper&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/reference wrapper (page does not exist)"> (constructor)</a></div></div>
+</td>
+<td>  stores a reference in a new <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">reference_wrapper</span></span> object <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator%3D&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator= (page does not exist)"> operator=</a></div></div>
+</td>
+<td>   rebinds a <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">reference_wrapper</span></span> <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator_T%26&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator T&amp; (page does not exist)"> operator T&amp;</a></div></div>
+</td>
+<td>   accesses the stored reference  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/get&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/get (page does not exist)"> get</a></div></div>
+</td>
+<td>   accesses the stored reference  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper/operator()&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/reference wrapper/operator() (page does not exist)"> operator()</a></div></div>
+</td>
+<td>   calls the stored function  <br><span class="t-mark">(public member function)</span>
+</td>
+</tr>
+</table>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper&amp;action=edit&amp;section=3" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<p> Demonstrates the use of reference_wrapper as a container of references, which makes it possible to access the same container using multiple indexes
+ </p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;algorithm&gt;</span>
+<span class="co2">#include &lt;list&gt;</span>
+<span class="co2">#include &lt;vector&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;functional&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="../../container/list.html"><span class="kw762">std::<span class="me2">list</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span> l <span class="sy1">=</span> <span class="br0">{</span><span class="sy2">-</span><span class="nu0">4</span>, <span class="sy2">-</span><span class="nu0">3</span>, <span class="sy2">-</span><span class="nu0">2</span>, <span class="sy2">-</span><span class="nu0">1</span>, <span class="nu0">0</span>, <span class="nu0">1</span>, <span class="nu0">2</span>, <span class="nu0">3</span>, <span class="nu0">4</span><span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="../../container/vector.html"><span class="kw759">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">reference_wrapper</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span> v<span class="br0">(</span>l.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, l.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../algorithm/random_shufflehtml.html"><span class="kw957">std::<span class="me2">random_shuffle</span></span></a><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="../../container/vector.html"><span class="kw759">std::<span class="me2">vector</span></span></a><span class="sy1">&lt;</span>std<span class="sy4">::</span><span class="me2">reference_wrapper</span><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;&gt;</span> v2<span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../../algorithm/partition.html"><span class="kw962">std::<span class="me2">partition</span></span></a><span class="br0">(</span>v2.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v2.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span>, <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><span class="kw4">int</span> n<span class="br0">)</span><span class="br0">{</span><span class="kw1">return</span> n<span class="sy1">&lt;</span><span class="nu0">0</span><span class="sy4">;</span><span class="br0">}</span><span class="br0">)</span><span class="sy4">;</span>
+ 
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Contents of the list: "</span><span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> n<span class="sy4">:</span> l<span class="br0">)</span> <span class="br0">{</span>
+        <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> n <span class="sy1">&lt;&lt;</span> <span class="st0">' '</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+ 
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Contents of the list, shuffled: "</span><span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> i<span class="sy4">:</span> v<span class="br0">)</span> <span class="br0">{</span>
+        <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">' '</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+ 
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Shuffled elements, partitioned: "</span><span class="sy4">;</span>
+    <span class="kw1">for</span><span class="br0">(</span><span class="kw4">int</span> i<span class="sy4">:</span> v2<span class="br0">)</span> <span class="br0">{</span>
+        <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> <span class="st0">' '</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+    <a href="../../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Contents of the list: -4 -3 -2 -1 0 1 2 3 4 
+Contents of the list, shuffled: 0 -1 3 4 -4 1 -2 -3 2 
+Shuffled elements, partitioned: -3 -1 -2 -4 4 1 3 0 2</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/reference_wrapper&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div">
+<div><a href="ref.html" title="cpp/utility/functional/ref"> ref<br>cref</a></div>
+<div>
+<span class="t-mark">(C++11)</span><br><span class="t-mark">(C++11)</span>
+</div>
+</div>
+</td>
+<td>   creates a reference_wrapper of type, deduced from its argument  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div">
+<div><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/utility/functional/cref&amp;action=edit&amp;redlink=1" class="new" title="cpp/utility/functional/cref (page does not exist)"> cref</a></div>
+<div><span class="t-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   creates a reference_wrapper to const, of type, deduced from its argument  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div">
+<div><a href="bind.html" title="cpp/utility/functional/bind"> bind</a></div>
+<div><span class="t-mark">(C++11)</span></div>
+</div>
+</td>
+<td>   binds one or more arguments to a function object  <br><span class="t-mark">(function template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2166/1000000
+Post-expand include size: 48833/2097152 bytes
+Template argument size: 24957/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:5219-0!1!0!!en!2 and timestamp 20120220013227 --><div class="printfooter">
+Retrieved from "<a href="reference_wrapper.html">http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 1.633 secs. -->
+</body>
+<!-- Cached 20120220013227 --><!-- Mirrored from en.cppreference.com/w/cpp/utility/functional/reference_wrapper by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:14:23 GMT -->
+</html>

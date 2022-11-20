@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" dir="ltr">
+<!-- Mirrored from en.cppreference.com/w/cpp/locale/lconv by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:25:56 GMT --><head>
+<title>std::lconv - Cppreference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../../mwiki/skins/vector/main-ltr3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/shared3905.css" media="screen">
+<link rel="stylesheet" href="../../../mwiki/skins/common/commonPrint3905.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index31a6.css">
+<link rel="stylesheet" href="../../../mwiki/index663f.css" media="print">
+<link rel="stylesheet" href="../../../mwiki/index0cd5.css">
+<script>
+var skin="vector",
+stylepath="/mwiki/skins",
+wgUrlProtocols="http.html\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/w/$1",
+wgScriptPath="/mwiki",
+wgScriptExtension=".php",
+wgScript="../../cpp.html",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="../../../index.html",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="cpp/locale/lconv",
+wgTitle="cpp/locale/lconv",
+wgAction="view",
+wgArticleId=5136,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=18596,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Cppreference", "5": "Cppreference talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "cppreference": 4, "cppreference_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Cppreference",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="../../../mwiki/skins/common/wikibits3905.js"></script><script src="../../../mwiki/skins/common/ajax3905.js"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/vector/csshover.htc")}</style><![endif]--><style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<script defer src="../../../../../qref.js"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-cpp_locale_lconv skin-vector">
+		
+		
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+<span style="font-size:0.7em; line-height:130%">std::</span>lconv</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Cppreference</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a> | <a href="../locale.html" title="cpp/locale">locale</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="vertical-navbox nowraplinks t-sidebar-body" cellspacing="5" style="" cellpadding="0">
+<tr><th class="t-sidebar-title" style=""><a href="../../cpp.html" title="cpp"> C++ Standard Library</a></th></tr>
+<tr><td class="t-sidebar-content" style="padding-top:0.2em; text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="line-height:1.1em;">
+<tr><td colspan="5">  <a href="../language.html" title="cpp/language"> Language</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../utility.html" title="cpp/utility"> Utilities library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../string.html" title="cpp/string"> Strings library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../container.html" title="cpp/container"> Containers library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../algorithm.html" title="cpp/algorithm"> Algorithms library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../iterator.html" title="cpp/iterator"> Iterators library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../numeric.html" title="cpp/numeric"> Numerics library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../io.html" title="cpp/io"> Input/output library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../locale.html" title="cpp/locale"> Localizations library</a>
+</td></tr>
+<tr><td colspan="5">  <a href="../regex.html" title="cpp/regex"> Regular expressions library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../atomic.html" title="cpp/atomic"> Atomic operations library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+<tr><td colspan="5">  <a href="../thread.html" title="cpp/thread"> Thread support library</a> <span class="t-mark">(C++11)</span>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="../locale.html" title="cpp/locale"> Localizations library</a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h1"><td colspan="5">  Locales and facets
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale.html" title="cpp/locale/locale">locale</a></td></tr></table>
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="use_facet.html" title="cpp/locale/use facet">use_facet</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="has_facet.html" title="cpp/locale/has facet">has_facet</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Character classification
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isspace.html" title="cpp/locale/isspace">isspace</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="isblank.html" title="cpp/locale/isblank">isblank</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="iscntrl.html" title="cpp/locale/iscntrl">iscntrl</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isupper.html" title="cpp/locale/isupper">isupper</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="islower.html" title="cpp/locale/islower">islower</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isalpha.html" title="cpp/locale/isalpha">isalpha</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isdigit.html" title="cpp/locale/isdigit">isdigit</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ispunct.html" title="cpp/locale/ispunct">ispunct</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isxdigit.html" title="cpp/locale/isxdigit">isxdigit</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isalnum.html" title="cpp/locale/isalnum">isalnum</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isprint.html" title="cpp/locale/isprint">isprint</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="isgraphhtml.html" title="cpp/locale/isgraph">isgraph</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Conversions
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="toupper.html" title="cpp/locale/toupper">toupper</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="tolower.html" title="cpp/locale/tolower">tolower</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="wstring_convert.html" title="cpp/locale/wstring convert">wstring_convert</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="wbuffer_convert.html" title="cpp/locale/wbuffer convert">wbuffer_convert</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Facet category base classes
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ctype_base.html" title="cpp/locale/ctype base">ctype_base</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="codecvt_base.html" title="cpp/locale/codecvt base">codecvt_base</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="messages_base.html" title="cpp/locale/messages base">messages_base</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="time_basehtml.html" title="cpp/locale/time base">time_base</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="money_base.html" title="cpp/locale/money base">money_base</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Facet categories
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ctype.html" title="cpp/locale/ctype">ctype</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="ctype_char.html" title="cpp/locale/ctype char">ctype&lt;char&gt;</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="codecvt.html" title="cpp/locale/codecvt">codecvt</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="collate.html" title="cpp/locale/collate">collate</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="messages.html" title="cpp/locale/messages">messages</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="time_get.html" title="cpp/locale/time get">time_get</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="time_put.html" title="cpp/locale/time put">time_put</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="num_get.html" title="cpp/locale/num get">num_get</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="num_put.html" title="cpp/locale/num put">num_put</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="numpunct.html" title="cpp/locale/numpunct">numpunct</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="money_get.html" title="cpp/locale/money get">money_get</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="money_put.html" title="cpp/locale/money put">money_put</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="moneypunct.html" title="cpp/locale/moneypunct">moneypunct</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Locale-specific facets
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/ctype_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/ctype byname (page does not exist)">ctype_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/ctype_byname_char&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/ctype byname char (page does not exist)">ctype_byname&lt;char&gt;</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="codecvt_byname.html" title="cpp/locale/codecvt byname">codecvt_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/messages_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/messages byname (page does not exist)">messages_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/collate_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/collate byname (page does not exist)">collate_byname</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/time_get_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/time get byname (page does not exist)">time_get_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/time_put_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/time put byname (page does not exist)">time_put_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="numpunct_bynamehtml.html" title="cpp/locale/numpunct byname">numpunct_byname</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/moneypunct_byname&amp;action=edit&amp;redlink=1" class="new" title="cpp/locale/moneypunct byname (page does not exist)">moneypunct_byname</a></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Code conversion facets
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="codecvt_utf8.html" title="cpp/locale/codecvt utf8">codecvt_utf8</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="codecvt_utf16.html" title="cpp/locale/codecvt utf16">codecvt_utf16</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="codecvt_utf8_utf16.html" title="cpp/locale/codecvt utf8 utf16">codecvt_utf8_utf16</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr>
+<td><a href="codecvt_mode.html" title="cpp/locale/codecvt mode">codecvt_mode</a></td>
+<td><span class="t-mark">(C++11)</span></td>
+</tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+<tr class="t-sb-list-h2"><td colspan="5">  C locale
+</td></tr>
+<tr><td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="setlocale.html" title="cpp/locale/setlocale">setlocale</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="localeconv.html" title="cpp/locale/localeconv">localeconv</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><strong class="selflink">lconv</strong></td></tr></table>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-sb-list-begin" cellpadding="0" style=""><tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="LC_categories.html" title="cpp/locale/LC categories">LC_ALL<br>LC_COLLATE<br>LC_CTYPE<br>LC_MONETARY<br>LC_NUMERIC<br>LC_TIME</a></td></tr></table>
+</td></tr></table>
+</div>
+</td>
+</tr>
+</table>
+</div></td></tr>
+<tr><td class="t-sidebar-heading" style=""><a href="locale.html" title="cpp/locale/locale"><tt>std::locale</tt></a></td></tr>
+<tr><td class="t-sidebar-content" style="text-align:left"><div>
+<table class="t-sb-list-begin" cellpadding="0" style="">
+<tr class="t-sb-list-h2"><td colspan="5">  Member types
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/id.html" title="cpp/locale/locale/id">locale::id</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/facethtml.html" title="cpp/locale/locale/facet">locale::facet</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Member functions
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/locale.html" title="cpp/locale/locale/locale">locale::locale</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/_locale.html" title="cpp/locale/locale/~locale">locale::~locale</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/operator%3d.html" title="cpp/locale/locale/operator=">locale::operator=</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/combine.html" title="cpp/locale/locale/combine">locale::combine</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/name.html" title="cpp/locale/locale/name">locale::name</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/operator_cmp.html" title="cpp/locale/locale/operator cmp">locale::operator==<br>locale::operator!=</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/operator().html" title="cpp/locale/locale/operator()">locale::operator()</a></td></tr></table>
+</td></tr>
+<tr class="t-sb-list-h2"><td colspan="5">  Static member functions
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/globalhtml.html" title="cpp/locale/locale/global">locale::global</a></td></tr></table>
+</td></tr>
+<tr><td colspan="5"> <table class="t-sb-list-ln-table"><tr><td><a href="locale/classic.html" title="cpp/locale/locale/classic">locale::classic</a></td></tr></table>
+</td></tr>
+</table>
+</div></td></tr>
+<tr><td style="text-align:right;"></td></tr>
+</table>
+<table class="t-ddcl-list-begin">
+<tr class="t-ddcl-list-header">
+<td> <div>Defined in header <tt>&lt;clocale&gt;</tt>
+ </div>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+<tr class="t-ddcl-list-item">
+<td class="t-ddcl-list-item-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">struct</span> lconv<span class="sy4">;</span></span></div>
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td class="t-ddcl-list-item-nopad">
+</td>
+<td style="display:none"> <br>
+</td>
+</tr>
+<tr><td colspan="3" class="t-ddcl-list-sep">
+</td></tr>
+</table>
+<p>The class <tt>std::lconv</tt> contains numeric and monetary formatting rules as defined by a C locale. Objects of this struct may be obtained with <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">localeconv</span></span>. The members of <tt>std::lconv</tt> are values of type <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> and of type <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span><span class="sy2">*</span></span>. Each <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span><span class="sy2">*</span></span> member except <tt>decimal_point</tt> may be pointing at a null character (that is, at an empty C-string). The members of type <span class="mw-geshi cpp source-cpp"><span class="kw4">char</span></span> are all non-negative numbers, any of which may be <span class="mw-geshi cpp source-cpp"><a href="../types/climits.html"><span class="kw222">CHAR_MAX</span></a></span> if the corresponding value is not available in the current C locale.
+</p>
+<table id="toc" class="toc"><tr><td>
+<div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1">
+<a href="#Member_objects"><span class="tocnumber">1</span> <span class="toctext">Member objects</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Non-monetary_numeric_formatting_parameters"><span class="tocnumber">1.1</span> <span class="toctext">Non-monetary numeric formatting parameters</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Monetary_numeric_formatting_parameters"><span class="tocnumber">1.2</span> <span class="toctext">Monetary numeric formatting parameters</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Local_monetary_numeric_formatting_parameters"><span class="tocnumber">1.3</span> <span class="toctext">Local monetary numeric formatting parameters</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#International_monetary_numeric_formatting_parameters"><span class="tocnumber">1.4</span> <span class="toctext">International monetary numeric formatting parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td></tr></table>
+<script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script><h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=1" title="Edit section: Member objects">edit</a>]</span> <span class="mw-headline" id="Member_objects">Member objects</span>
+</h3>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=2" title="Edit section: Non-monetary numeric formatting parameters">edit</a>]</span> <span class="mw-headline" id="Non-monetary_numeric_formatting_parameters">Non-monetary numeric formatting parameters</span>
+</h4>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> decimal_point</div></div>
+</td>
+<td>   the character used as the decimal point <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> thousands_sep</div></div>
+</td>
+<td>   the character used to separate groups of digits before the decimal point <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> grouping</div></div>
+</td>
+<td>   a string whose elements indicate the sizes of digit groups <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+</table>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=3" title="Edit section: Monetary numeric formatting parameters">edit</a>]</span> <span class="mw-headline" id="Monetary_numeric_formatting_parameters">Monetary numeric formatting parameters</span>
+</h4>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> mon_decimal_point</div></div>
+</td>
+<td>   the character used as the decimal point <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> mon_thousands_sep</div></div>
+</td>
+<td>   the character used to separate groups of digits before the decimal point <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> mon_grouping</div></div>
+</td>
+<td>   a string whose elements indicate the sizes of digit groups <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> positive_sign</div></div>
+</td>
+<td>   a string used to indicate non-negative monetary quantity <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> negative_sign</div></div>
+</td>
+<td>   a string used to indicate negative monetary quantity <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+</table>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=4" title="Edit section: Local monetary numeric formatting parameters">edit</a>]</span> <span class="mw-headline" id="Local_monetary_numeric_formatting_parameters">Local monetary numeric formatting parameters</span>
+</h4>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> currency_symbol</div></div>
+</td>
+<td>   the symbol used for currency in the current C locale <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> frac_digits</div></div>
+</td>
+<td>   the number of digits after the decimal point to display in a monetary quantity <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> p_cs_precedes</div></div>
+</td>
+<td>   <span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span> if currency_symbol is placed before non-negative value, <span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span> if after <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> n_cs_precedes</div></div>
+</td>
+<td>   <span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span> if currency_symbol is placed before negative value, <span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span> if after <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> p_sep_by_space</div></div>
+</td>
+<td>   indicates the separation of <tt>currency_symbol</tt>, <tt>positive_sign</tt>, and the non-negative monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> n_sep_by_space</div></div>
+</td>
+<td>   indicates the separation of <tt>currency_symbol</tt>, <tt>negative_sign</tt>, and the negative monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> p_sign_posn</div></div>
+</td>
+<td>   indicates the position of <tt>positive_sign</tt> in a non-negative monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> n_sign_posn</div></div>
+</td>
+<td>   indicates the position of <tt>negative_sign</tt> in a negative monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+</table>
+<h4>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=5" title="Edit section: International monetary numeric formatting parameters">edit</a>]</span> <span class="mw-headline" id="International_monetary_numeric_formatting_parameters">International monetary numeric formatting parameters</span>
+</h4>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char*</span> int_curr_symbol</div></div>
+</td>
+<td>   the string used as international currency name in the current C locale <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_frac_digits</div></div>
+</td>
+<td>   the number of digits after the decimal point to display in an international monetary quantity <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_p_cs_precedes</div></div>
+</td>
+<td>   <span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span> if currency_symbol is placed before non-negative international monetary value, <span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span> if after <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_n_cs_precedes</div></div>
+</td>
+<td>   <span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span> if currency_symbol is placed before negative international monetary value, <span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span> if after <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_p_sep_by_space</div></div>
+</td>
+<td>   indicates the separation of <tt>currency_symbol</tt>, <tt>positive_sign</tt>, and the non-negative international monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_n_sep_by_space</div></div>
+</td>
+<td>   indicates the separation of <tt>currency_symbol</tt>, <tt>negative_sign</tt>, and the negative international monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_p_sign_posn</div></div>
+</td>
+<td>   indicates the position of <tt>positive_sign</tt> in a non-negative international monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div>
+<span class="t-dcl-small">char</span> int_n_sign_posn</div></div>
+</td>
+<td>   indicates the position of <tt>negative_sign</tt> in a negative international monetary value <br><span class="t-mark">(public member object)</span>
+</td>
+</tr>
+</table>
+<p><br>
+The characters of the C-strings pointed to by <tt>grouping</tt> and <tt>mon_grouping</tt> are interpreted according to their numeric values. When the terminating <span class="mw-geshi cpp source-cpp"><span class="st0">'<span class="es5">\0</span>'</span></span> is encountered, the last value seen is assumed to repeat for the remainder of digits. If <span class="mw-geshi cpp source-cpp"><a href="../types/climits.html"><span class="kw222">CHAR_MAX</span></a></span> is encountered, no further digits are grouped. the typical grouping of three digits at a time is <span class="mw-geshi cpp source-cpp"><span class="st0">"<span class="es5">\003</span>"</span></span>.
+</p>
+<p>The values of <tt>p_sep_by_space</tt>, <tt>n_sep_by_space</tt>, <tt>int_p_sep_by_space</tt>, <tt>int_n_sep_by_space</tt> are interpreted as follows:
+</p>
+<table class="t-tdcl-list-begin">
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 0
+</td>
+<td> no space separates the currency symbol and the value
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 1
+</td>
+<td> sign sticks to the currency symbol, value is separated by a space
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 2
+</td>
+<td> sign sticks to the value. Currency symbol is separated by a space
+</td>
+</tr>
+</table>
+<p>The values of <tt>p_sign_posn</tt>, <tt>n_sign_posn</tt>, <tt>int_p_sign_posn</tt>, <tt>int_n_sign_posn</tt> are interpreted as follows:
+</p>
+<table class="t-tdcl-list-begin">
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 0
+</td>
+<td> parentheses around the value and the currency symbol are used to represent the sign
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 1
+</td>
+<td> sign before the value and the currency symbol
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 2
+</td>
+<td> sign after the value and the currency symbol
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 3
+</td>
+<td> sign before the currency symbol
+</td>
+</tr>
+<tr><td colspan="2" class="t-tdcl-list-sep">
+</td></tr>
+<tr class="t-tdcl-list-item">
+<td> 4
+</td>
+<td> sign after the currency symbol
+</td>
+</tr>
+</table>
+<p><br></p>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=6" title="Edit section: Example">edit</a>]</span> <span class="mw-headline" id="Example">Example</span>
+</h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;clocale&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <a href="setlocale.html"><span class="kw1161">std::<span class="me2">setlocale</span></span></a><span class="br0">(</span>LC_ALL, <span class="st0">"ja_JP.UTF-8"</span><span class="br0">)</span><span class="sy4">;</span>
+    std<span class="sy4">::</span><span class="me2">lconv</span><span class="sy2">*</span> lc <span class="sy1">=</span> std<span class="sy4">::</span><span class="me2">localeconv</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream.html"><span class="kw1090">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Japanese currency symbol: "</span> <span class="sy1">&lt;&lt;</span> lc<span class="sy2">-</span><span class="sy1">&gt;</span>currency_symbol
+              <span class="sy1">&lt;&lt;</span> <span class="st0">'('</span> <span class="sy1">&lt;&lt;</span> lc<span class="sy2">-</span><span class="sy1">&gt;</span>int_curr_symbol <span class="sy1">&lt;&lt;</span> <span class="st0">")<span class="es1">\n</span>"</span><span class="sy4">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Japanese currency symbol: ￥(JPY )</pre></div></div>
+<h3>
+<span class="editsection">[<a href="http://en.cppreference.com/mwiki/index.php?title=cpp/locale/lconv&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a>]</span> <span class="mw-headline" id="See_also">See also</span>
+</h3>
+<table class="t-dcl-list-begin">
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="localeconv.html" title="cpp/locale/localeconv"> localeconv</a></div></div>
+</td>
+<td>   queries numeric and monetary formatting details of the current locale <br><span class="t-mark">(function)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="numpunct.html" title="cpp/locale/numpunct"> numpunct</a></div></div>
+</td>
+<td>   defines numeric punctuation rules  <br><span class="t-mark">(class template)</span>
+</td>
+</tr>
+<tr><td colspan="2" class="t-dcl-list-sep">
+</td></tr>
+<tr class="t-dcl-list-item">
+<td>  <div class="t-dcl-member-div"><div><a href="moneypunct.html" title="cpp/locale/moneypunct"> moneypunct</a></div></div>
+</td>
+<td>   defines monetary formatting parameters used by <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">money_get</span></span> and <span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">money_put</span></span>  <br><span class="t-mark">(class template)</span>
+</td>
+</tr>
+</table>
+<!-- 
+NewPP limit report
+Preprocessor node count: 6587/1000000
+Post-expand include size: 130723/2097152 bytes
+Template argument size: 64473/2097152 bytes
+Expensive parser function count: 0/100
+--><!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:5136-0!1!0!!en!2 and timestamp 20120209033741 --><div class="printfooter">
+Retrieved from "<a href="lconv.html">http://en.cppreference.com/w/cpp/locale/lconv</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		
+		<!-- /header -->
+		<!-- panel -->
+			
+		<!-- /panel -->
+		<!-- footer -->
+		
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script><!-- /fixalpha --><script>if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2828341-1");
+pageTracker._trackPageview();
+</script><!-- Served in 3.834 secs. -->
+</body>
+<!-- Cached 20120209033741 --><!-- Mirrored from en.cppreference.com/w/cpp/locale/lconv by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 27 Feb 2012 20:25:56 GMT -->
+</html>
