@@ -25,11 +25,10 @@ int main(int const argc, char ** const argv) {
     std::cin.exceptions(std::cin.badbit);
     std::string file;
     long long lastmod;
-    while (std::cin >> file) {
-      std::cin >> lastmod;
-      if (std::cin.fail()) {
-        throw std::runtime_error("Malformed input.");
-      }
+    while (std::getline(std::cin, file)) {
+      auto const i = file.rfind(' ');
+      lastmod = std::strtoll(&file.c_str()[i + 1], nullptr, 10);
+      file.resize(i);
       struct stat st = {0};
       if (lstat(file.c_str(), &st) != 0) {
         int const e = errno;

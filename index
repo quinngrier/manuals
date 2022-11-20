@@ -246,7 +246,9 @@ named <CC0-1.0.txt>. If not, it may be available at
       TZ=UTC find . -type f -printf '%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
     ) | (sort; echo @EOF) | (
 
+      declare    file
       declare    i
+      declare    lastmod
       declare    max_bytes
       declare    max_entries
       declare    max_lastmod
@@ -282,7 +284,9 @@ named <CC0-1.0.txt>. If not, it may be available at
       n_entries=0
       max_lastmod=
 
-      while read -r file lastmod; do
+      while IFS= read -r file; do
+        lastmod=${file##* }
+        file=${file% *}
         if [[ "$file" == @EOF ]]; then
           break
         fi
