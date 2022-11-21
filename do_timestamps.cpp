@@ -27,6 +27,9 @@ int main(int const argc, char ** const argv) {
     long long lastmod;
     while (std::getline(std::cin, file)) {
       auto const i = file.rfind(' ');
+      if (i == file.npos) {
+        throw std::runtime_error("Missing space character: " + file);
+      }
       lastmod = std::strtoll(&file.c_str()[i + 1], nullptr, 10);
       file.resize(i);
       struct stat st = {0};
