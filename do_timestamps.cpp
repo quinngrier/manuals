@@ -38,7 +38,7 @@ int main(int const argc, char ** const argv) {
         if (e == ENOENT) {
           continue;
         }
-        throw std::runtime_error("lstat() failed on " + file + ".");
+        throw std::runtime_error("lstat() failed: " + file);
       }
       if (S_ISLNK(st.st_mode)) {
         continue;
@@ -47,7 +47,7 @@ int main(int const argc, char ** const argv) {
       tb.actime = static_cast<time_t>(lastmod);
       tb.modtime = tb.actime;
       if (utime(file.c_str(), &tb) != 0) {
-        throw std::runtime_error("utime() failed on " + file + ".");
+        throw std::runtime_error("utime() failed: " + file);
       }
     }
   } catch (std::exception const & e) {
