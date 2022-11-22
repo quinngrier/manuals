@@ -64,6 +64,6 @@ x=$?
 
 mv "$tmpgit" .git
 
-git reset --hard
+git reset --hard -q
 
 exit $x
