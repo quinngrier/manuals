@@ -256,8 +256,12 @@ named <CC0-1.0.txt>. If not, it may be available at
     (
       cp -L -R -p footmp1 footmp2
       cd footmp2
-      TZ=UTC find . -type f -printf '%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
-    ) | (sort; echo @EOF) | (
+      f='%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
+      for x in './sitemap*' .; do
+        TZ=UTC find $x -type f -printf "$f" | sort
+      done
+      echo @EOF
+    ) | (
 
       declare    file
       declare    i
@@ -302,12 +306,12 @@ named <CC0-1.0.txt>. If not, it may be available at
         if [[ "$file" == @EOF ]]; then
           break
         fi
-        if [[ "$file" == ./sitemap* ]]; then
+        file=${file:2}
+        lastmod=${lastmod%.*}+00:00
+        if [[ "$file" == sitemap* ]]; then
           sitemap_lastmod[$file]=$lastmod
           continue
         fi
-        file=${file:2}
-        lastmod=${lastmod%.*}+00:00
         if ((n_bytes >= max_bytes || n_entries >= max_entries)); then
           if ((i > 0)); then
             printf %s "$sitemap_end" >&4
@@ -315,7 +319,7 @@ named <CC0-1.0.txt>. If not, it may be available at
             printf %s "
   <sitemap>
     <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
-    <lastmod>${sitemap_lastmod[./sitemap-$i.xml]-}</lastmod>
+    <lastmod>${sitemap_lastmod[sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3
           fi
@@ -345,7 +349,7 @@ named <CC0-1.0.txt>. If not, it may be available at
         printf %s "
   <sitemap>
     <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
-    <lastmod>${sitemap_lastmod[./sitemap-$i.xml]-}</lastmod>
+    <lastmod>${sitemap_lastmod[sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3
       fi
