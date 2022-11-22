@@ -264,9 +264,9 @@ named <CC0-1.0.txt>. If not, it may be available at
       declare    lastmod
       declare    max_bytes
       declare    max_entries
-      declare    max_lastmod
       declare    n_bytes
       declare    n_entries
+      declare -A sitemap_lastmod
       declare    urlstr
 
       max_bytes=49000000
@@ -295,7 +295,6 @@ named <CC0-1.0.txt>. If not, it may be available at
       i=0
       n_bytes=$((max_bytes + 1))
       n_entries=0
-      max_lastmod=
 
       while IFS= read -r file; do
         lastmod=${file##* }
@@ -304,6 +303,7 @@ named <CC0-1.0.txt>. If not, it may be available at
           break
         fi
         if [[ "$file" == ./sitemap* ]]; then
+          sitemap_lastmod[$file]=$lastmod
           continue
         fi
         file=${file:2}
@@ -315,19 +315,15 @@ named <CC0-1.0.txt>. If not, it may be available at
             printf %s "
   <sitemap>
     <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
-    <lastmod>$max_lastmod</lastmod>
+    <lastmod>${sitemap_lastmod[./sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3
           fi
           ((++i))
           n_bytes=$((${#sitemap_start} + ${#sitemap_end}))
           n_entries=0
-          max_lastmod=
           exec 4>sitemap-$i.xml
           printf %s "$sitemap_start" >&4
-        fi
-        if [[ $lastmod > $max_lastmod ]]; then
-          max_lastmod=$lastmod
         fi
         urlstr="
   <url>
@@ -349,7 +345,7 @@ named <CC0-1.0.txt>. If not, it may be available at
         printf %s "
   <sitemap>
     <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
-    <lastmod>$max_lastmod</lastmod>
+    <lastmod>${sitemap_lastmod[./sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3
       fi
