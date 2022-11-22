@@ -12,12 +12,22 @@
 set -e || exit $?
 . ./prelude.bash
 
+x=$(git status --ignored --short)
+if [[ "$x" ]]; then
+  printf '%s\n' "Repository is not clean." >&2
+  exit 1
+fi
+
+tmpgit=../${PWD##*/}.tmpgit
+readonly tmpgit
+
+if [[ -e "$tmpgit" ]]; then
+  printf '%s\n' "$tmpgit already exists." >&2
+  exit 1
+fi
+
 make -s do_timestamps
 
-rm -f -r footmp1
-
-git clone -q . footmp1
-cd footmp1
 git log --date=unix --format=@%cd --name-only | awk '
   {
     if (/^@/) {
@@ -27,15 +37,20 @@ git log --date=unix --format=@%cd --name-only | awk '
       seen[$0] = 1;
     }
   }
-' | ../do_timestamps
-rm -f -r .git
+' | ./do_timestamps
 
-xs=$(find . -type l)
+rm do_timestamps
+
+skip_git='( ! -name .git -o -prune )'
+
+xs=$(find . $skip_git -type l)
 for x in $xs; do
   cp -L -R -p "$x" flatten.tmp
   rm -f -r "$x"
   mv flatten.tmp "$x"
 done
+
+mv .git "$tmpgit"
 
 aws s3 sync \
   . \
@@ -44,8 +59,11 @@ aws s3 sync \
   --exact-timestamps \
   --profile quinn \
   --storage-class INTELLIGENT_TIERING \
-;
+&& :
+x=$?
 
-cd ..
+mv "$tmpgit" .git
 
-rm -f -r footmp1
+git reset --hard
+
+exit $x

@@ -41,6 +41,14 @@ main() {
   current=${2-./}
   readonly current
 
+  if [[ "$current" == ./ ]]; then
+    x=$(git status --ignored --short)
+    if [[ "$x" ]]; then
+      printf '%s\n' "Repository is not clean." >&2
+      exit 1
+    fi
+  fi
+
   >index.html
 
   cat <<EOF >>index.html
@@ -207,8 +215,6 @@ EOF
   done
 
   #---------------------------------------------------------------------
-  # Generate the sitemap
-  #---------------------------------------------------------------------
 
   if [[ $current == ./ ]]; then
 
@@ -235,11 +241,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
     make -s do_timestamps
 
-    rm -f -r footmp1
-
     (
-      git clone -q . footmp1
-      cd footmp1
 
       git log --date=unix --format=@%cd --name-only | awk '
         {
@@ -250,11 +252,13 @@ named <CC0-1.0.txt>. If not, it may be available at
             seen[$0] = 1;
           }
         }
-      ' | ../do_timestamps
+      ' | ./do_timestamps
 
-      rm -f -r .git
+      rm do_timestamps
 
-      xs=$(find . -type l)
+      skip_git='( ! -name .git -o -prune )'
+
+      xs=$(find . $skip_git -type l)
       for x in $xs; do
         cp -L -R -p "$x" flatten.tmp
         rm -f -r "$x"
@@ -263,7 +267,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
       f='%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
       for x in './sitemap*' .; do
-        TZ=UTC find $x -type f -printf "$f" | sort
+        TZ=UTC find $x $skip_git -type f -printf "$f" | sort
       done
       echo @EOF
 
@@ -368,7 +372,10 @@ named <CC0-1.0.txt>. If not, it may be available at
 
     )
 
-    rm -f -r footmp1
+    git add -u '*/index.html' 'sitemap*'
+    git add [!.]*/**/index.html sitemap*
+    git checkout .
+    git clean -dffx
 
   fi
 
