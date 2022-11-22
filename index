@@ -374,8 +374,8 @@ named <CC0-1.0.txt>. If not, it may be available at
 
     git add -u '*/index.html' 'sitemap*'
     git add [!.]*/**/index.html sitemap*
-    git checkout .
-    git clean -dffx
+    git checkout -q .
+    git clean -dffxq
 
   fi
 
