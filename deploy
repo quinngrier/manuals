@@ -14,7 +14,7 @@ set -e || exit $?
 
 make -s do_timestamps
 
-rm -f -r footmp1 footmp2
+rm -f -r footmp1
 
 git clone -q . footmp1
 cd footmp1
@@ -30,9 +30,12 @@ git log --date=unix --format=@%cd --name-only | awk '
 ' | ../do_timestamps
 rm -f -r .git
 
-cd ..
-cp -L -R -p footmp1 footmp2
-cd footmp2
+xs=$(find . -type l)
+for x in $xs; do
+  cp -L -R -p "$x" flatten.tmp
+  rm -f -r "$x"
+  mv flatten.tmp "$x"
+done
 
 aws s3 sync \
   . \
@@ -45,4 +48,4 @@ aws s3 sync \
 
 cd ..
 
-rm -f -r footmp1 footmp2
+rm -f -r footmp1

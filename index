@@ -235,11 +235,12 @@ named <CC0-1.0.txt>. If not, it may be available at
 
     make -s do_timestamps
 
-    rm -f -r footmp1 footmp2
+    rm -f -r footmp1
 
     (
       git clone -q . footmp1
       cd footmp1
+
       git log --date=unix --format=@%cd --name-only | awk '
         {
           if (/^@/) {
@@ -250,17 +251,22 @@ named <CC0-1.0.txt>. If not, it may be available at
           }
         }
       ' | ../do_timestamps
-      rm -f -r .git
-    )
 
-    (
-      cp -L -R -p footmp1 footmp2
-      cd footmp2
+      rm -f -r .git
+
+      xs=$(find . -type l)
+      for x in $xs; do
+        cp -L -R -p "$x" flatten.tmp
+        rm -f -r "$x"
+        mv flatten.tmp "$x"
+      done
+
       f='%p %TY-%Tm-%TdT%TH:%TM:%TS\n'
       for x in './sitemap*' .; do
         TZ=UTC find $x -type f -printf "$f" | sort
       done
       echo @EOF
+
     ) | (
 
       declare    file
@@ -362,7 +368,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
     )
 
-    rm -f -r footmp1 footmp2
+    rm -f -r footmp1
 
   fi
 
