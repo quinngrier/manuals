@@ -308,7 +308,7 @@ named <CC0-1.0.txt>. If not, it may be available at
         fi
         file=${file:2}
         lastmod=${lastmod%.*}+00:00
-        if ((n_bytes > max_bytes || n_entries > max_entries)); then
+        if ((n_bytes >= max_bytes || n_entries >= max_entries)); then
           if ((i > 0)); then
             printf %s "$sitemap_end" >&4
             exec 4>&-
