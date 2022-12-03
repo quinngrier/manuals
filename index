@@ -32,6 +32,7 @@ main() {
   declare    sitemap_end
   declare    sitemap_start
   declare    skip
+  declare    title
   declare    x
   declare    xs
 
@@ -49,6 +50,10 @@ main() {
     fi
   fi
 
+  title="/${current#./} - Quinn's Manuals Archive"
+  title=${title#/ - }
+  readonly title
+
   >index.html
 
   cat <<EOF >>index.html
@@ -65,7 +70,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/${current#./} - Quinn's Manuals Archive</title>
+<title>$title</title>
 <style>
 
 :root {
