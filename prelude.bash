@@ -40,31 +40,18 @@ declare -r -x LC_ALL=C
 # prelude_dir
 #-----------------------------------------------------------------------
 
-if [[ "$BASH_SOURCE" == */* ]]; then
-  prelude_dir=${BASH_SOURCE%/*}/
-  if [[ "$prelude_dir" != /* ]]; then
-    if [[ "$PWD" == / ]]; then
-      prelude_dir=/$prelude_dir
-    else
-      prelude_dir=$PWD/$prelude_dir
-    fi
-  fi
-else
+unset prelude_dir
+if [[ "$BASH_SOURCE" != */* ]]; then
   prelude_dir=$PWD
+elif [[ "${BASH_SOURCE:0:1}" == / ]]; then
+  prelude_dir=${BASH_SOURCE%/*}/
+elif [[ "${PWD: -1}" == / ]]; then
+  prelude_dir=$PWD${BASH_SOURCE%/*}/
+else
+  prelude_dir=$PWD/${BASH_SOURCE%/*}/
 fi
-if [[ "$prelude_dir" == */ ]]; then
+if [[ "${prelude_dir: -1}" == / ]]; then
   prelude_dir+=.
-fi
-if [[ "$prelude_dir" != //* ]]; then
-  while [[ "$prelude_dir" == */./* ]]; do
-    prelude_dir=${prelude_dir//'/./'/'/'}
-  done
-  while [[ "$prelude_dir" == *//* ]]; do
-    prelude_dir=${prelude_dir//'//'/'/'}
-  done
-  if [[ "$prelude_dir" != /. ]]; then
-    prelude_dir=${prelude_dir%/.}
-  fi
 fi
 readonly prelude_dir
 
