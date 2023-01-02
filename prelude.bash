@@ -153,6 +153,87 @@ download() {
 
 #-----------------------------------------------------------------------
 
+# TODO: download2() should eventually replace download().
+
+download2() {
+
+  declare    file
+  declare    i
+  declare    sum
+  declare -a sums
+  declare    url
+  declare -a urls
+
+  for file; do
+
+    if [[ ! "$file" ]]; then
+      barf "Arguments must not be empty."
+    fi
+
+    if [[ "$file" == */* ]]; then
+      barf "Arguments must not contain slash characters."
+    fi
+
+    file=${file%.urls}
+
+    sums=()
+    for sum in "$file".*sum; do
+      sum=${sum#"$file".}
+      sums+=("$sum")
+    done
+    if ((${#sums[@]} == 0)); then
+      barf "No hashes for file: $file"
+    fi
+
+    if [[ -f "$file" ]]; then
+      for sum in "${sums[@]}"; do
+        if ! "$sum" --check --quiet "./$file.$sum"; then
+          barf "File failed hash check: $file"
+        fi
+      done
+      continue
+    fi
+
+    urls=$(
+      sed '
+        s/'\''/'\''\\'\'''\''/g
+        s/^/'\''/
+        s/$/'\''/
+      ' <"$file.urls"
+    )
+    eval "urls=($urls)"
+    if ((${#urls[@]} == 0)); then
+      barf "No URLs for file: $file"
+    fi
+
+    for sum in "${sums[@]}"; do
+      sed 's/$/.tmp/' <"$file.$sum" >"$file.tmp.$sum"
+    done
+
+    for ((i = 0; i < ${#urls[@]}; ++i)); do
+      url=${urls[i]}
+      if ! wget -O "$file.tmp" -T 5 -- "$url"; then
+        continue
+      fi
+      for sum in "${sums[@]}"; do
+        if ! "$sum" --check --quiet "./$file.tmp.$sum"; then
+          continue 2
+        fi
+      done
+      break
+    done
+    if ((i == ${#urls[@]})); then
+      barf "All download attempts failed: $file"
+    fi
+
+    mv -f "./$file.tmp" "./$file"
+
+  done
+
+}; readonly -f download2
+
+#-----------------------------------------------------------------------
+
 download_tar_gz() {
 
   declare    file
