@@ -1,0 +1,86 @@
+#! /bin/sh -
+#
+# The authors of this file have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
+
+set -e || exit $?
+. ../../prelude.bash
+
+clean() {
+
+  rm -f -r \
+    *.tmp \
+    *.tmp.* \
+    make-*/ \
+  ;
+
+}; readonly -f clean
+
+main() {
+
+  declare    container
+  declare    image
+  declare    p
+  declare    v
+  declare    v1
+  declare    v2
+  declare    x
+
+  clean
+
+  v=${PWD##*/}
+  readonly v
+
+  v1=${v%%.*}
+  readonly v1
+
+  v2=${v#"$v1."}
+  readonly v2
+
+  download2 *.urls
+
+  extract make-*.tar.gz
+  mv -f make-*/ dist.tmp
+
+  x=$(find dist.tmp -type f -printf '%T@\n' | sort -n | tail -1)
+  {
+    printf '%03d%03d:' "$v1" "$v2"
+    date -d "@$x" -u '+%Y-%m-%d'
+  } >date
+
+  for x in *.bash; do
+    cp "./$x" "./${x%.bash}.tmp.bash"
+  done
+
+  docker build --iidfile image.tmp .
+  image=$(cat image.tmp)
+  readonly image
+
+  container=$(docker create $image)
+  readonly container
+
+  mkdir out.tmp
+  docker cp $container:/out.tmp/. out.tmp
+
+  >files
+  for x in out.tmp/*; do
+    sed '
+      s|</head>|<script defer src="qref.js"></script>&|
+    ' $x >$x.tmp
+    mv -f $x.tmp $x
+    echo ${x#out.tmp/} >>files
+  done
+
+  mv -f out.tmp/* .
+
+  clean
+
+}; readonly -f main
+
+main "$@"
