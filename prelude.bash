@@ -166,12 +166,12 @@ download2() {
 
   for file; do
 
-    if [[ ! "$file" ]]; then
-      barf "Arguments must not be empty."
+    if [[ "$file" != ?*.urls ]]; then
+      barf "File path is not of the form *.urls: $file"
     fi
 
     if [[ "$file" == */* ]]; then
-      barf "Arguments must not contain slash characters."
+      barf "File path must not contain slash characters: $file"
     fi
 
     file=${file%.urls}
