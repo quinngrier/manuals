@@ -30,6 +30,7 @@ step() {
   declare    h
   declare    ignore
   declare    lastmod
+  declare    reverse
   declare    root
   declare    sitemap_end
   declare    sitemap_start
@@ -167,6 +168,13 @@ EOF
   fi
   readonly ignore
 
+  if [[ -f reverse ]]; then
+    reverse=-r
+  else
+    reverse=
+  fi
+  readonly reverse
+
   xs=$(
     for x in */; do
       if [[ $x == .* || "$ignore" == *" $x "* ]]; then
@@ -179,7 +187,7 @@ EOF
         d=0000-00-00
       fi
       printf '%s\n' "$d $x"
-    done | sort -r | cut -d ' ' -f 2
+    done | sort $reverse | cut -d ' ' -f 2
   )
 
   for x in $xs; do
