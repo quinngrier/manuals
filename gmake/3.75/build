@@ -12,17 +12,6 @@
 set -e || exit $?
 . ../../prelude.bash
 
-clean() {
-
-  rm -f -r \
-    *.tmp* \
-    make-*.tar.gz \
-    make-*/ \
-    texinfo-*.tar.gz \
-  ;
-
-}; readonly -f clean
-
 main() {
 
   declare    container
@@ -33,7 +22,7 @@ main() {
   declare    v2
   declare    x
 
-  clean
+  rm -f -r *.tmp*
 
   v=${PWD##*/}
   readonly v
@@ -46,9 +35,12 @@ main() {
 
   download2 *.urls
 
-  extract make-*.tar.gz
+  mkdir extract.tmp
 
-  x=$(find make-*/ -type f -printf '%T@\n' | sort -n | tail -1)
+  (cd extract.tmp; extract ../make-*.tar.gz)
+  mv -f extract.tmp/* dist.tmp
+
+  x=$(find dist.tmp -type f -printf '%T@\n' | sort -n | tail -1)
   {
     printf '%03d%03d:' "$v1" "$v2"
     date -d "@$x" -u '+%Y-%m-%d'
@@ -79,7 +71,7 @@ main() {
 
   mv -f out.tmp/* .
 
-  clean
+  rm -f -r *.tmp*
 
 }; readonly -f main
 
