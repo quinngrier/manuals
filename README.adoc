@@ -10,12 +10,12 @@
 
 = Quinn's Manuals Archive
 
-link:https://manuals.quinngrier.com/[Quinn's Manuals Archive]
-is a static website hosted at that provides version-pinned user manuals
-for long-term reference purposes.
+link:https://manuals.quinngrier.com/[Quinn's Manuals Archive] is a
+static website that provides version-pinned user manuals for long-term
+reference purposes.
 Selection permalinking has been added to the manuals wherever possible
 using link:https://github.com/quinngrier/qref[Qref].
 The manuals are eventually stable with respect to Qref links, with
-breaking changes made only to fix strong rendering deficiencies.
+breaking changes made only to fix significant rendering problems.
 
 //
