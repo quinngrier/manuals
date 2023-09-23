@@ -21,7 +21,9 @@
 set -e || exit $?
 . ${1-./}prelude.bash
 
-main() {
+#-----------------------------------------------------------------------
+
+step() {
 
   declare    current
   declare    d
@@ -214,9 +216,10 @@ EOF
     if [[ $d == .* || "$ignore $skip" == *" $d "* ]]; then
       continue
     fi
-    cd $d
-    ../$0 ../$root $current$d
-    cd ..
+    (
+      cd $d
+      step ../$root $current$d
+    )
   done
 
   #---------------------------------------------------------------------
@@ -386,6 +389,36 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   #---------------------------------------------------------------------
 
+}; readonly -f step
+
+#-----------------------------------------------------------------------
+
+main() {
+
+  declare    x
+
+  x=$(git status --ignored --short)
+  if [[ "$x" ]]; then
+    printf '%s\n' "Repository is not clean." >&2
+    exit 1
+  fi
+
+  while :; do
+
+    step
+
+    x=$(git status --ignored --short)
+    if [[ ! "$x" ]]; then
+      break
+    fi
+
+    git add .
+    git commit -m 'Run ./index'
+
+  done
+
 }; readonly -f main
+
+#-----------------------------------------------------------------------
 
 main "$@"
