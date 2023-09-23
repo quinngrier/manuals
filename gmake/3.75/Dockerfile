@@ -36,6 +36,6 @@ RUN mv * make
 WORKDIR make
 RUN ./configure
 
-COPY *.tmp.bash /
-RUN bash /patch.tmp.bash
-RUN bash /render.tmp.bash
+COPY *.bash.tmp /
+RUN bash /patch.bash.tmp
+RUN bash /render.bash.tmp

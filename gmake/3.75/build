@@ -15,8 +15,7 @@ set -e || exit $?
 clean() {
 
   rm -f -r \
-    *.tmp \
-    *.tmp.* \
+    *.tmp* \
     make-*/ \
   ;
 
@@ -55,7 +54,7 @@ main() {
   } >date
 
   for x in *.bash; do
-    cp "./$x" "./${x%.bash}.tmp.bash"
+    cp $x $x.tmp
   done
 
   docker build --iidfile image.tmp .
