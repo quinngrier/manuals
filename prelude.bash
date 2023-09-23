@@ -187,7 +187,7 @@ download2() {
 
     if [[ -f "$file" ]]; then
       for sum in "${sums[@]}"; do
-        if ! "$sum" --check --quiet "./$file.$sum"; then
+        if ! "$sum" --check --quiet -- "$file.$sum"; then
           barf "File failed hash check: $file"
         fi
       done
@@ -216,7 +216,7 @@ download2() {
         continue
       fi
       for sum in "${sums[@]}"; do
-        if ! "$sum" --check --quiet "./$file.tmp.$sum"; then
+        if ! "$sum" --check --quiet -- "$file.tmp.$sum"; then
           continue 2
         fi
       done
