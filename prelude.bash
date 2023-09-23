@@ -159,6 +159,8 @@ download2() {
 
   declare    file
   declare    i
+  declare    ok
+  declare    real
   declare    sum
   declare -a sums
   declare    url
@@ -166,7 +168,7 @@ download2() {
 
   for file; do
 
-    if [[ "$file" != ?*.urls ]]; then
+    if [[ "$file" != [!/]*.urls ]]; then
       barf "File path is not of the form *.urls: $file"
     fi
 
@@ -186,47 +188,82 @@ download2() {
     fi
 
     if [[ -f "$file" ]]; then
-      for sum in "${sums[@]}"; do
-        if ! "$sum" --check --quiet -- "$file.$sum"; then
-          barf "File failed hash check: $file"
-        fi
+      while :; do
+        for sum in "${sums[@]}"; do
+          if ! "$sum" --check --quiet -- "$file.$sum"; then
+            rm -- "$file"
+            break 2
+          fi
+        done
+        continue 2
       done
-      continue
-    fi
-
-    urls=$(
-      sed '
-        s/'\''/'\''\\'\'''\''/g
-        s/^/'\''/
-        s/$/'\''/
-      ' <"$file.urls"
-    )
-    eval "urls=($urls)"
-    if ((${#urls[@]} == 0)); then
-      barf "No URLs for file: $file"
     fi
 
     for sum in "${sums[@]}"; do
       sed 's/$/.tmp/' <"$file.$sum" >"$file.tmp.$sum"
     done
 
-    for ((i = 0; i < ${#urls[@]}; ++i)); do
-      url=${urls[i]}
-      if ! wget -O "$file.tmp" -T 5 -- "$url"; then
-        continue
+    ok=0
+
+    if [[ -h "$file.urls" ]]; then
+      real=$(readlink -- "$file.urls")
+      if [[ "$real" != [!/]*.urls ]]; then
+        barf "File path is not of the form *.urls: $real"
       fi
-      for sum in "${sums[@]}"; do
-        if ! "$sum" --check --quiet -- "$file.tmp.$sum"; then
-          continue 2
-        fi
-      done
-      break
-    done
-    if ((i == ${#urls[@]})); then
-      barf "All download attempts failed: $file"
+      real=${real%.urls}
+      if [[ -f "$real" ]]; then
+        cp -- "$real" "$file.tmp"
+        while :; do
+          for sum in "${sums[@]}"; do
+            if ! "$sum" --check --quiet -- "$file.tmp.$sum"; then
+              rm -- "$real"
+              break 2
+            fi
+          done
+          ok=1
+          break
+        done
+      fi
     fi
 
-    mv -f "./$file.tmp" "./$file"
+    if ((!ok)); then
+
+      urls=$(
+        sed '
+          s/'\''/'\''\\'\'''\''/g
+          s/^/'\''/
+          s/$/'\''/
+        ' <"$file.urls"
+      )
+      eval "urls=($urls)"
+      if ((${#urls[@]} == 0)); then
+        barf "No URLs for file: $file"
+      fi
+
+      for ((i = 0; i < ${#urls[@]}; ++i)); do
+        url=${urls[i]}
+        if ! wget -O "$file.tmp" -T 5 -- "$url"; then
+          continue
+        fi
+        for sum in "${sums[@]}"; do
+          if ! "$sum" --check --quiet -- "$file.tmp.$sum"; then
+            continue 2
+          fi
+        done
+        ok=1
+        break
+      done
+      if ((!ok)); then
+        barf "All download attempts failed: $file"
+      fi
+
+    fi
+
+    mv -f -- "$file.tmp" "$file"
+    if [[ -h "$file.urls" && ! -f "$real" ]]; then
+      cp -- "$file" "$real.tmp"
+      mv -f -- "$real.tmp" "$real"
+    fi
 
   done
 
