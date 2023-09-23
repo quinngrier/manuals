@@ -177,7 +177,7 @@ EOF
         d=0000-00-00
       fi
       printf '%s\n' "$d $x"
-    done | sort | cut -d ' ' -f 2
+    done | sort -r | cut -d ' ' -f 2
   )
 
   for x in $xs; do
