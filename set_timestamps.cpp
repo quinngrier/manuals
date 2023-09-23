@@ -20,7 +20,7 @@
 #include <utime.h>
 
 int main(int const argc, char ** const argv) {
-  char const * const argv0 = argc > 0 ? argv[0] : "do_timestamps";
+  char const * const argv0 = argc > 0 ? argv[0] : "set_timestamps";
   try {
     std::cin.exceptions(std::cin.badbit);
     std::string file;

@@ -26,7 +26,7 @@ if [[ -e "$tmpgit" ]]; then
   exit 1
 fi
 
-make -s do_timestamps
+make -s set_timestamps
 
 git log --date=unix --format=@%cd --name-only | awk '
   {
@@ -37,9 +37,9 @@ git log --date=unix --format=@%cd --name-only | awk '
       seen[$0] = 1;
     }
   }
-' | ./do_timestamps
+' | ./set_timestamps
 
-rm do_timestamps
+rm set_timestamps
 
 skip_git='( ! -name .git -o -prune )'
 
