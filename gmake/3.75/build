@@ -20,6 +20,7 @@ main() {
   declare    v
   declare    v1
   declare    v2
+  declare    v3
   declare    x
 
   rm -f -r *.tmp*
@@ -27,11 +28,19 @@ main() {
   v=${PWD##*/}
   readonly v
 
-  v1=${v%%.*}
+  if [[ $v == *.*.* ]]; then
+    v1=${v%%.*}
+    v2=${v#$v1.}
+    v2=${v2%%.*}
+    v3=${v##*.}
+  else
+    v1=${v%%.*}
+    v2=${v##*.}
+    v3=0
+  fi
   readonly v1
-
-  v2=${v#"$v1."}
   readonly v2
+  readonly v3
 
   download2 *.urls
 
@@ -42,7 +51,7 @@ main() {
 
   x=$(find dist.tmp -type f -printf '%T@\n' | sort -n | tail -1)
   {
-    printf '%03d%03d:' "$v1" "$v2"
+    printf '%03d%03d%03d:' $v1 $v2 $v3
     date -d "@$x" -u '+%Y-%m-%d'
   } >date
 
