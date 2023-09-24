@@ -59,7 +59,7 @@ main() {
     cp $x $x.tmp
   done
 
-  docker build --iidfile image.tmp .
+  docker build --iidfile image.tmp -f - . <Dockerfile
   image=$(cat image.tmp)
   readonly image
 
