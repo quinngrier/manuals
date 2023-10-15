@@ -9,3 +9,7 @@ sufficient in their directories modulo symbolic link flattening:
       cppreference/*/build
       gm4/*/build
       texinfo/*/build
+
+Add man page renders to these:
+
+      gmake/*
