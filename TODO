@@ -13,3 +13,5 @@ sufficient in their directories modulo symbolic link flattening:
 Add man page renders to these:
 
       gmake/*
+
+Add groff manuals.
