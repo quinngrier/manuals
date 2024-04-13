@@ -21,11 +21,11 @@ clean() {
 
 main() {
 
-  declare    g
-  declare    u
-  declare    url
-  declare    x
-  declare    y
+  local    g
+  local    u
+  local    url
+  local    x
+  local    y
 
   url=https://github.com/twbs/bootstrap.git
   rm -f -r repo
