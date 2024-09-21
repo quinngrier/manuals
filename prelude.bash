@@ -421,12 +421,12 @@ output() {
       barf "Invalid parameter"
     esac
     if [[ ! -e "$src" ]]; then
-      barf "File does not exist: $src"
+      barf "Path does not exist: $src"
     fi
     src=${src%%+(/)}
     dst=/out.tmp/$src
     if [[ -e "$dst" ]]; then
-      barf "File already exists: $dst"
+      barf "Path already exists: $dst"
     fi
     mkdir -p "$dst"
     rmdir "$dst"
