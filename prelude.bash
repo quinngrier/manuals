@@ -410,3 +410,29 @@ EOF
 }; readonly -f make_skip_file
 
 #-----------------------------------------------------------------------
+
+output() {
+
+  declare    dst
+  declare    src
+
+  for src; do
+    case $src in '' | /* | ../* | */../* | */..)
+      barf "Invalid parameter"
+    esac
+    if [[ ! -e "$src" ]]; then
+      barf "File does not exist: $src"
+    fi
+    src=${src%%+(/)}
+    dst=/out.tmp/$src
+    if [[ -e "$dst" ]]; then
+      barf "File already exists: $dst"
+    fi
+    mkdir -p "$dst"
+    rmdir "$dst"
+    cp -L -R "./$src" "$dst"
+  done
+
+}; readonly -f output
+
+#-----------------------------------------------------------------------
