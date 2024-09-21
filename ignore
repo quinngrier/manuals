@@ -19,5 +19,10 @@
 # character are always ignored.
 #
 
+# TODO: Unignore groff/ once I actually add the groff manuals. For now,
+#       I'm just using the correct ultimate .urls file location to
+#       download the groff source code.
+
 common/
 downloads/
+groff/
