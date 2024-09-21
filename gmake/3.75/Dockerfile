@@ -13,8 +13,20 @@ FROM alpine
 RUN apk --no-cache add \
   bash \
   build-base \
+  m4 \
   perl \
 ;
+
+COPY groff-*.tar.gz /
+WORKDIR /
+RUN mkdir groff
+WORKDIR groff
+RUN tar xzf ../groff-*.tar.gz
+RUN mv * groff
+WORKDIR groff
+RUN ./configure
+RUN make
+RUN make install
 
 COPY texinfo-*.tar.gz /
 WORKDIR /

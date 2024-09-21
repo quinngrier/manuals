@@ -79,6 +79,31 @@ main() {
   done
 
   #---------------------------------------------------------------------
+  # Compile all man pages
+  #---------------------------------------------------------------------
+
+  for x in ./**/*.1; do
+    d=./${x%/*}
+    pushd "$d" >/dev/null
+    x=./${x##*/}
+    if [[ '' \
+      || "$x" == *ChangeLog* \
+      || "$x" == *ansi2knr* \
+    ]]; then
+      continue
+    fi
+    y=$x.html
+    groff -mandoc -T html "$x" >"$y.tmp1"
+    sed '
+      /^<!-- CreationDate:/ d
+    ' <"$y.tmp1" >"$y.tmp2"
+    mv -f "$y.tmp2" "$y"
+    output "$y"
+    popd >/dev/null
+  done
+
+
+  #---------------------------------------------------------------------
 
 }; readonly -f main
 
