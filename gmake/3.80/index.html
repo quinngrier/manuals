@@ -15,14 +15,24 @@ named <CC0-1.0.txt>. If not, it may be available at
 <style>
 
 :root {
+  --background_color: #000;
   --line_height: 1.2em;
   --text_color: #CCC;
+  --tree_border_color: #333;
   --tree_border_size: 2px;
-  --tree_border_triple: var(--tree_border_size) solid #333;
+  --tree_border_triple: var(--tree_border_size) solid var(--tree_border_color);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background_color: #FFF;
+    --text_color: #333;
+    --tree_border_color: #CCC;
+  }
 }
 
 body {
-  background: #000;
+  background: var(--background_color);
   color: var(--text_color);
   font-family: monospace;
   font-size: 20px;
@@ -80,6 +90,7 @@ li:not(:first-child)::before {
 <a href="../../">/</a><a href="../">gmake/</a><a href="./">3.80/</a>
 <ol>
 <li></li>
+<li><a href="make.1.html">make.1.html</a></li>
 <li><a href="make.html">make.html</a></li>
 </ol>
 </body>
