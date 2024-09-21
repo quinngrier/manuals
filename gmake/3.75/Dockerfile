@@ -24,6 +24,14 @@ WORKDIR groff
 RUN tar xzf ../groff-*.tar.gz
 RUN mv * groff
 WORKDIR groff
+RUN sed -i.old \
+  -e 's/{ "\\\\-", "2212" }/{ "\\\\-", "002D" }/' \
+  src/libs/libgroff/glyphuni.cpp \
+;
+RUN sed -i.old \
+  -e 's/{ "002C", "," },/& { "002D", "\\\\-" },/' \
+  src/libs/libgroff/uniglyph.cpp \
+;
 RUN ./configure
 RUN make
 RUN make install
