@@ -1,0 +1,311 @@
+<!-- Creator     : groff version 1.23.0 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>LIBTOOLIZE</title>
+
+<script defer src="qref.js"></script></head>
+<body>
+
+<h1 align="center">LIBTOOLIZE</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#Warning categories include:">Warning categories include:</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#REPORTING BUGS">REPORTING BUGS</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">libtoolize
+&minus; manual page for libtoolize 2.4.7</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>libtoolize</b>
+[<i>OPTION</i>]...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Prepare a
+package to use libtool.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+
+<p style="margin-left:9%; margin-top: 1em"><b>&minus;c</b>,
+<b>&minus;&minus;copy</b></p>
+
+<p style="margin-left:18%;">copy files rather than
+symlinking them</p>
+
+<p style="margin-left:9%;"><b>&minus;&minus;debug</b></p>
+
+<p style="margin-left:18%;">enable verbose shell
+tracing</p>
+
+<p style="margin-left:9%;"><b>&minus;n</b>,
+<b>&minus;&minus;dry&minus;run</b></p>
+
+<p style="margin-left:18%;">print commands rather than
+running them</p>
+
+<p style="margin-left:9%;"><b>&minus;f</b>,
+<b>&minus;&minus;force</b></p>
+
+<p style="margin-left:18%;">replace existing files</p>
+
+<p style="margin-left:9%;"><b>&minus;i</b>,
+<b>&minus;&minus;install</b></p>
+
+<p style="margin-left:18%;">copy missing auxiliary
+files</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;ltdl</b>[=<i>DIR</i>]</p>
+
+<p style="margin-left:18%;">install libltdl sources
+[default: libltdl]</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;no&minus;warnings</b></p>
+
+<p style="margin-left:18%;">equivalent to
+&rsquo;&minus;Wnone&rsquo;</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;nonrecursive</b></p>
+
+<p style="margin-left:18%;">prepare ltdl for
+non&minus;recursive make</p>
+
+<p style="margin-left:9%;"><b>&minus;q</b>,
+<b>&minus;&minus;quiet</b></p>
+
+<p style="margin-left:18%;">work silently</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;recursive</b></p>
+
+<p style="margin-left:18%;">prepare ltdl for recursive
+make</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;subproject</b></p>
+
+<p style="margin-left:18%;">prepare ltdl to configure and
+build independently</p>
+
+<p style="margin-left:9%;"><b>&minus;v</b>,
+<b>&minus;&minus;verbose</b></p>
+
+<p style="margin-left:18%;">verbosely report processing</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;version</b></p>
+
+<p style="margin-left:18%;">print version information and
+exit</p>
+
+<p style="margin-left:9%;"><b>&minus;W</b>,
+<b>&minus;&minus;warnings</b>=<i>CATEGORY</i></p>
+
+<p style="margin-left:18%;">report the warnings falling in
+CATEGORY [all]</p>
+
+<p style="margin-left:9%;"><b>&minus;h</b>,
+<b>&minus;&minus;help</b></p>
+
+<p style="margin-left:18%;">print short or long help
+message</p>
+
+<h3>Warning categories include:
+<a name="Warning categories include:"></a>
+</h3>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p style="margin-top: 1em">&rsquo;all&rsquo;</p></td>
+<td width="1%"></td>
+<td width="32%">
+
+
+<p style="margin-top: 1em">show all warnings</p></td>
+<td width="50%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p>&rsquo;none&rsquo;</p></td>
+<td width="1%"></td>
+<td width="32%">
+
+
+<p>turn off all the warnings</p></td>
+<td width="50%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%;">&rsquo;error&rsquo;</p>
+
+<p style="margin-left:18%;">warnings are treated as fatal
+errors</p>
+
+<p style="margin-left:9%;">&rsquo;environment&rsquo;</p>
+
+<p style="margin-left:18%;">show warnings about
+LIBTOOLIZE_OPTIONS content</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="9%"></td>
+<td width="8%">
+
+
+<p>&rsquo;file&rsquo;</p></td>
+<td width="1%"></td>
+<td width="56%">
+
+
+<p>show warnings about file copying and linking</p></td>
+<td width="26%">
+</td></tr>
+</table>
+
+<p style="margin-left:9%; margin-top: 1em">The following
+space or comma delimited options can be passed to libtoolize
+via the environment variable LIBTOOLIZE_OPTIONS, unknown
+environment options are ignored: <b><br>
+&minus;&minus;debug</b></p>
+
+<p style="margin-left:18%;">enable verbose shell
+tracing</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;no&minus;warnings</b></p>
+
+<p style="margin-left:18%;">don&rsquo;t display warning
+messages</p>
+
+<p style="margin-left:9%;"><b>&minus;&minus;quiet</b></p>
+
+<p style="margin-left:18%;">work silently</p>
+
+
+<p style="margin-left:9%;"><b>&minus;&minus;verbose</b></p>
+
+<p style="margin-left:18%;">verbosely report processing</p>
+
+<p style="margin-left:9%; margin-top: 1em">You must
+&rsquo;cd&rsquo; to the top directory of your package before
+you run &rsquo;libtoolize&rsquo;.</p>
+
+<p style="margin-left:9%; margin-top: 1em">When reporting a
+bug, please describe a test case to reproduce it and include
+the following information: <br>
+host&minus;triplet:</p>
+
+
+<p style="margin-left:18%;">x86_64&minus;pc&minus;linux&minus;gnu</p>
+
+<p style="margin-left:9%;">version:</p>
+
+<p style="margin-left:18%;">libtoolize (GNU libtool)
+2.4.7</p>
+
+<p style="margin-left:9%;">automake:</p>
+
+<p style="margin-left:18%;">automake (GNU automake)
+1.16.3</p>
+
+<p style="margin-left:9%;">autoconf:</p>
+
+<p style="margin-left:18%;">autoconf (GNU Autoconf)
+2.69</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Written by Gary
+V. Vaughan &lt;gary@gnu.org&gt;, 2003</p>
+
+<h2>REPORTING BUGS
+<a name="REPORTING BUGS"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Report bugs to
+&lt;bug&minus;libtool@gnu.org&gt;. <br>
+GNU libtool home page:
+&lt;http://www.gnu.org/software/libtool/&gt;. <br>
+General help using GNU software:
+&lt;http://www.gnu.org/gethelp/&gt;.</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">Copyright &copy;
+2022 Free Software Foundation, Inc.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:9%; margin-top: 1em">The full
+documentation for <b>libtoolize</b> is maintained as a
+Texinfo manual. If the <b>info</b> and <b>libtoolize</b>
+programs are properly installed at your site, the
+command</p>
+
+<p style="margin-left:18%; margin-top: 1em"><b>info
+libtoolize</b></p>
+
+<p style="margin-left:9%; margin-top: 1em">should give you
+access to the complete manual.</p>
+<hr>
+</body>
+</html>

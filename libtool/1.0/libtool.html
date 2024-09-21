@@ -1,0 +1,3332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Libtool</title>
+
+<meta name="description" content="Libtool">
+<meta name="keywords" content="Libtool">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<link href="#Introduction" rel="next" title="Introduction">
+<link href="dir.html#Top" rel="prev" title="(dir)">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<script defer src="qref.js"></script></head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Libtool</h1>
+
+
+
+
+
+
+
+
+<div class="top" id="Top">
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Shared-library-support-for-GNU"></span><h1 class="top">Shared library support for GNU</h1>
+
+<p>This file documents GNU Libtool, a script that allows package developers
+to provide generic shared library support.  This edition documents
+version 1.0.
+</p>
+
+
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Motivation-for-writing-libtool" href="#Motivation">1.1 Motivation for writing libtool</a></li>
+    <li><a id="toc-Implementation-issues" href="#Issues">1.2 Implementation issues</a></li>
+    <li><a id="toc-Other-implementations-1" href="#Other-implementations">1.3 Other implementations</a></li>
+    <li><a id="toc-A-postmortem-analysis-of-other-implementations" href="#Postmortem">1.4 A postmortem analysis of other implementations</a></li>
+  </ul></li>
+  <li><a id="toc-The-libtool-paradigm" href="#Libtool-paradigm">2 The libtool paradigm</a></li>
+  <li><a id="toc-Using-libtool-1" href="#Using-libtool">3 Using libtool</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Creating-object-files-1" href="#Creating-object-files">3.1 Creating object files</a></li>
+    <li><a id="toc-Linking-libraries-1" href="#Linking-libraries">3.2 Linking libraries</a></li>
+    <li><a id="toc-Linking-executables-1" href="#Linking-executables">3.3 Linking executables</a></li>
+    <li><a id="toc-Installing-libraries-1" href="#Installing-libraries">3.4 Installing libraries</a></li>
+    <li><a id="toc-Installing-executables-1" href="#Installing-executables">3.5 Installing executables</a></li>
+    <li><a id="toc-Linking-static-libraries" href="#Static-libraries">3.6 Linking static libraries</a></li>
+  </ul></li>
+  <li><a id="toc-Invoking-libtool-1" href="#Invoking-libtool">4 Invoking <code>libtool</code></a>
+  <ul class="no-bullet">
+    <li><a id="toc-Compile-mode-1" href="#Compile-mode">4.1 Compile mode</a></li>
+    <li><a id="toc-Link-mode-1" href="#Link-mode">4.2 Link mode</a></li>
+    <li><a id="toc-Dlname-mode-1" href="#Dlname-mode">4.3 Dlname mode</a></li>
+    <li><a id="toc-Install-mode-1" href="#Install-mode">4.4 Install mode</a></li>
+    <li><a id="toc-Finish-mode-1" href="#Finish-mode">4.5 Finish mode</a></li>
+    <li><a id="toc-Uninstall-mode-1" href="#Uninstall-mode">4.6 Uninstall mode</a></li>
+  </ul></li>
+  <li><a id="toc-Integrating-libtool-with-your-own-packages" href="#Integrating-libtool">5 Integrating libtool with your own packages</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Writing-Makefile-rules-for-libtool" href="#Makefile-rules">5.1 Writing <samp>Makefile</samp> rules for libtool</a></li>
+    <li><a id="toc-Using-Automake-with-libtool" href="#Using-Automake">5.2 Using Automake with libtool</a></li>
+    <li><a id="toc-Configuring-libtool" href="#Configuring">5.3 Configuring libtool</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Invoking-ltconfig-1" href="#Invoking-ltconfig">5.3.1 Invoking <code>ltconfig</code></a></li>
+      <li><a id="toc-Using-ltconfig" href="#ltconfig-example">5.3.2 Using <code>ltconfig</code></a></li>
+      <li><a id="toc-The-AM_005fPROG_005fLIBTOOL-macro" href="#AM_005fPROG_005fLIBTOOL">5.3.3 The <code>AM_PROG_LIBTOOL</code> macro</a></li>
+    </ul></li>
+    <li><a id="toc-Including-libtool-with-your-package" href="#Distributing">5.4 Including libtool with your package</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Invoking-libtoolize-1" href="#Invoking-libtoolize">5.4.1 Invoking <code>libtoolize</code></a></li>
+      <li><a id="toc-Autoconf-_002eo-macros-1" href="#Autoconf-_002eo-macros">5.4.2 Autoconf &lsquo;<samp>.o</samp>&rsquo; macros</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Library-interface-versions" href="#Versioning">6 Library interface versions</a>
+  <ul class="no-bullet">
+    <li><a id="toc-What-are-library-interfaces_003f" href="#Interfaces">6.1 What are library interfaces?</a></li>
+    <li><a id="toc-Libtool_0027s-versioning-system" href="#Libtool-versioning">6.2 Libtool&rsquo;s versioning system</a></li>
+    <li><a id="toc-Updating-library-version-information" href="#Updating-version-info">6.3 Updating library version information</a></li>
+  </ul></li>
+  <li><a id="toc-Tips-for-interface-design" href="#Library-tips">7 Tips for interface design</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Writing-C-header-files" href="#C-header-files">7.1 Writing C header files</a></li>
+  </ul></li>
+  <li><a id="toc-Inter_002dlibrary-dependencies-1" href="#Inter_002dlibrary-dependencies">8 Inter-library dependencies</a></li>
+  <li><a id="toc-Dlopened-modules-1" href="#Dlopened-modules">9 Dlopened modules</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Exporting-dynamic-symbols-1" href="#Exporting-dynamic-symbols">9.1 Exporting dynamic symbols</a></li>
+    <li><a id="toc-Finding-the-correct-name-to-dlopen" href="#Finding-the-dlname">9.2 Finding the correct name to dlopen</a></li>
+    <li><a id="toc-Unresolved-dlopen-issues" href="#Dlopen-issues">9.3 Unresolved dlopen issues</a></li>
+  </ul></li>
+  <li><a id="toc-Using-libtool-with-other-languages" href="#Other-languages">10 Using libtool with other languages</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Writing-libraries-for-C_002b_002b" href="#C_002b_002b-libraries">10.1 Writing libraries for C++</a></li>
+  </ul></li>
+  <li><a id="toc-Troubleshooting-1" href="#Troubleshooting">11 Troubleshooting</a>
+  <ul class="no-bullet">
+    <li><a id="toc-The-libtool-test-suite" href="#Libtool-test-suite">11.1 The libtool test suite</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Description-of-test-suite" href="#Test-descriptions">11.1.1 Description of test suite</a></li>
+      <li><a id="toc-When-tests-fail-1" href="#When-tests-fail">11.1.2 When tests fail</a></li>
+    </ul></li>
+    <li><a id="toc-Reporting-bugs-1" href="#Reporting-bugs">11.2 Reporting bugs</a></li>
+  </ul></li>
+  <li><a id="toc-Maintainance-notes-for-libtool" href="#Maintaining">12 Maintainance notes for libtool</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Porting-libtool-to-new-systems" href="#New-ports">12.1 Porting libtool to new systems</a></li>
+    <li><a id="toc-Tested-platforms-1" href="#Tested-platforms">12.2 Tested platforms</a></li>
+    <li><a id="toc-Platform-quirks-1" href="#Platform-quirks">12.3 Platform quirks</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Compilers-1" href="#Compilers">12.3.1 Compilers</a></li>
+      <li><a id="toc-Reloadable-objects-1" href="#Reloadable-objects">12.3.2 Reloadable objects</a></li>
+      <li><a id="toc-Archivers-1" href="#Archivers">12.3.3 Archivers</a></li>
+      <li><a id="toc-The-strip-program" href="#Strip">12.3.4 The <code>strip</code> program</a></li>
+    </ul></li>
+    <li><a id="toc-libtool-script-contents-1" href="#libtool-script-contents">12.4 <code>libtool</code> script contents</a></li>
+  </ul></li>
+  <li><a id="toc-Index-1" href="#Index" rel="index">Index</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter" id="Introduction">
+<div class="header">
+<p>
+Next: <a href="#Libtool-paradigm" accesskey="n" rel="next">The libtool paradigm</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
+
+<p>In the past, if a source code package developer wanted to take advantage
+of the power of shared libraries, he needed to write custom support code
+for each platform on which his package ran.  He also had to design a
+configuration interface so that the package installer could choose what sort of
+libraries were built.
+</p>
+<p>GNU Libtool simplifies the developer&rsquo;s job by encapsulating both the
+platform-specific dependencies, and the user interface, in a single
+script.  GNU Libtool is designed so that the complete functionality of
+each host type is available via a generic interface, but nasty quirks
+are hidden from the programmer.
+</p>
+<p>GNU Libtool&rsquo;s consistent interface is reassuring&hellip; users don&rsquo;t need
+to read obscure documentation in order to have their favorite source
+package build shared libraries.  They just run your package
+<code>configure</code> script (or equivalent), and libtool does all the dirty
+work.
+</p>
+<p>There are several examples throughout this document.  All assume the
+same environment: we want to build a library, <samp>libhello</samp>, in a
+generic way.
+</p>
+<p><samp>libhello</samp> could be a shared library, a static library, or
+both&hellip; whatever is available on the host system, as long as libtool
+has been ported to it.
+</p>
+<p>This chapter explains the original design philosophy of libtool.  Feel
+free to skip to the next chapter, unless you are interested in history,
+or want to write code to extend libtool in a consistent way.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Motivation" accesskey="1">Motivation for writing libtool</a></li>
+<li><a href="#Issues" accesskey="2">Implementation issues</a></li>
+<li><a href="#Other-implementations" accesskey="3">Other implementations</a></li>
+<li><a href="#Postmortem" accesskey="4">A postmortem analysis of other implementations</a></li>
+</ul>
+<hr>
+<div class="section" id="Motivation">
+<div class="header">
+<p>
+Next: <a href="#Issues" accesskey="n" rel="next">Implementation issues</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Motivation-for-writing-libtool"></span><h3 class="section">1.1 Motivation for writing libtool</h3>
+
+<span id="index-Motivation-for-writing-libtool"></span>
+<span id="index-Design-philosophy"></span>
+<p>Since early 1995, several different GNU developers have recognized the
+importance of having shared library support for their packages.  The
+primary motivation for such a change is to encourage modularity and
+reuse of code (both conceptually and physically) in GNU programs.
+</p>
+<p>Such a demand means that the way libraries are built in GNU packages
+needs to be general, to allow for any library type the package installer
+might want.
+The problem is compounded by the absence of a standard procedure for
+creating shared libraries on different platforms.
+</p>
+<p>The following sections outline the major issues facing shared library
+support in GNU, and how I propose that shared library support could be
+standardized with libtool.
+</p>
+<span id="index-Specifications-for-libtool"></span>
+<span id="index-Libtool-specifications"></span>
+<p>The following specifications were used in developing and evaluating this
+system:
+</p>
+<ol>
+<li> The system must be as elegant as possible.
+
+</li><li> The system must be fully integrated with the GNU Autoconf and Automake
+utilities, so that it will be easy for GNU maintainers to use.  However,
+the system must not require these tools, so that it can be used by
+non-GNU packages.
+
+</li><li> Portability to other (non-GNU) architectures and tools is desirable.
+</li></ol>
+
+<hr>
+</div>
+<div class="section" id="Issues">
+<div class="header">
+<p>
+Next: <a href="#Other-implementations" accesskey="n" rel="next">Other implementations</a>, Previous: <a href="#Motivation" accesskey="p" rel="prev">Motivation for writing libtool</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Implementation-issues"></span><h3 class="section">1.2 Implementation issues</h3>
+
+<span id="index-Tricky-design-issues"></span>
+<span id="index-Design-issues"></span>
+<p>The following issues need to be addressed in any reusable shared library
+system, specifically libtool:
+</p>
+<ol>
+<li> The package installer should be able to control what sort of libraries
+are built.
+
+</li><li> It can be tricky to run dynamically linked programs whose libraries have
+not yet been installed.  <var>LD_LIBRARY_PATH</var> must be set properly (if
+it is supported), or programs fail to run.
+
+</li><li> The system must operate consistently even on hosts which don&rsquo;t support
+shared libraries.
+
+</li><li> The commands required to build shared libraries may differ wildly from
+host to host.  These need to be determined at configure time in
+a consistent way.
+
+</li><li> It is not always obvious with which suffix a shared library should be
+installed.  This makes it difficult for <samp>Makefile</samp> rules, since they
+generally assume that file names are the same from host to host.
+
+</li><li> The system needs a simple library version number abstraction, so that
+shared libraries can be upgraded in place.  The programmer should be
+informed how to design the interfaces to the library to maximize binary
+compatibility.
+
+</li><li> The install <samp>Makefile</samp> target should warn the package installer to set
+the proper environment variables (<var>LD_LIBRARY_PATH</var> or equivalent),
+or run <code>ldconfig(8)</code>.
+</li></ol>
+
+<hr>
+</div>
+<div class="section" id="Other-implementations">
+<div class="header">
+<p>
+Next: <a href="#Postmortem" accesskey="n" rel="next">A postmortem analysis of other implementations</a>, Previous: <a href="#Issues" accesskey="p" rel="prev">Implementation issues</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Other-implementations-1"></span><h3 class="section">1.3 Other implementations</h3>
+
+<p>I have investigated several different implementations of systems that
+build shared
+libraries as part of a freeware package.  At first, I made notes on the
+features of each of these packages for comparison purposes.
+</p>
+<p>Now it is clear that none of these packages have documented the details
+of shared library systems that libtool requires.  So, other packages
+have been more or less abandoned as influences.
+</p>
+<hr>
+</div>
+<div class="section" id="Postmortem">
+<div class="header">
+<p>
+Previous: <a href="#Other-implementations" accesskey="p" rel="prev">Other implementations</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="A-postmortem-analysis-of-other-implementations"></span><h3 class="section">1.4 A postmortem analysis of other implementations</h3>
+
+<span id="index-Other-implementations_002c-flaws-in"></span>
+<span id="index-Reusability-of-library-systems"></span>
+<p>In all fairness, each of the implementations that I examined do the job
+that they were intended to do, for a number of different host systems.
+However, none of these solutions seem to function well as a generalized,
+reusable component.
+</p>
+<span id="index-Complexity-of-library-systems"></span>
+<p>Most were too complex for me to use (much less modify) without
+understanding exactly what the implementation does, and they were
+generally not documented.
+</p>
+<p>I think the main problem is that different vendors have different views
+of what libraries are, and none of the packages I examined seemed to be
+confident enough to settle on a single paradigm that just <em>works</em>.
+</p>
+<p>Ideally, libtool would be a standard that would be implemented as series
+of extensions and modifications to existing library systems to make them
+work consistently.  However, I don&rsquo;t have the time or power to convince
+operating system developers to mend their evil ways, and I want to build
+shared libraries right now, even on buggy, broken, confused operating
+systems.
+</p>
+<p>For this reason, I have designed libtool as an independent shell script.
+It isolates the problems and inconsistencies in library building that
+plague <samp>Makefile</samp> writers by wrapping the compiler suite on different
+platforms with a consistent, powerful interface.
+</p>
+<p>I hope that libtool will be useful to and used by the GNU community, and
+that the lessons I&rsquo;ve learned in writing it will be taken up and
+implemented by designers of library systems.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Libtool-paradigm">
+<div class="header">
+<p>
+Next: <a href="#Using-libtool" accesskey="n" rel="next">Using libtool</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-libtool-paradigm"></span><h2 class="chapter">2 The libtool paradigm</h2>
+
+<p>At first, libtool was designed to support an arbitrary number of library
+object types.  After porting libtool to more platforms, I discovered a
+new paradigm for describing the relationship between libraries and
+programs.
+</p>
+<span id="index-Definition-of-libraries"></span>
+<span id="index-Libraries_002c-definition-of"></span>
+<p>In summary, &ldquo;libraries are programs with multiple entry points, and
+more formally defined interfaces.&rdquo;
+</p>
+<p>Version 0.7 of libtool was a complete redesign and rewrite of libtool to
+reflect this new paradigm.  So far, it has proved to be successful:
+libtool is simpler and more useful than before.
+</p>
+<p>The best way to introduce the libtool paradigm is to contrast it with
+the paradigm of existing library systems, with examples from each.  It
+is a new way of thinking, so it may take a little time to absorb, but
+when you understand it, the world becomes simpler.
+</p>
+<hr>
+</div>
+<div class="chapter" id="Using-libtool">
+<div class="header">
+<p>
+Next: <a href="#Invoking-libtool" accesskey="n" rel="next">Invoking <code>libtool</code></a>, Previous: <a href="#Libtool-paradigm" accesskey="p" rel="prev">The libtool paradigm</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Using-libtool-1"></span><h2 class="chapter">3 Using libtool</h2>
+
+<span id="index-Examples-of-using-libtool"></span>
+<span id="index-Libtool-examples"></span>
+<p>It makes little sense to talk about using libtool in your own packages
+until you have seen how it makes your life simpler.  The examples in
+this chapter introduce the main features of libtool by comparing the
+standard library building procedure to libtool&rsquo;s operation on two
+different platforms:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>a23</samp>&rsquo;</span></dt>
+<dd><p>An Ultrix 4.2 platform with only static libraries.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>burger</samp>&rsquo;</span></dt>
+<dd><p>A NetBSD/i386 1.2 platform with shared libraries.
+</p></dd>
+</dl>
+
+<p>You can follow these examples on your own platform, using the
+preconfigured libtool script that was installed with libtool
+(see <a href="#Configuring">Configuring libtool</a>).
+</p>
+<p>Source files for the following examples are taken from the <samp>demo</samp>
+subdirectory of the libtool distribution.  Assume that we are building a
+library, <samp>libhello</samp>, out of the files <samp>foo.c</samp> and
+<samp>hello.c</samp>.
+</p>
+<p>Note that the <samp>foo.c</samp> source file uses the <code>cos(3)</code> math library
+function, which is usually found in the standalone math library, and not
+the C library.  So, we need to add <kbd>-lm</kbd> to the end of
+the link line whenever we link <samp>foo.o</samp> or <samp>foo.lo</samp> into an
+executable or a library (see <a href="#Inter_002dlibrary-dependencies">Inter-library dependencies</a>).
+</p>
+<p>The same rule applies whenever you use functions that don&rsquo;t appear in
+the standard C library&hellip; you need to add the appropriate
+<kbd>-l<var>name</var></kbd> flag to the end of the link line when you link
+against those objects.
+</p>
+<p>After we have built that library, we want to create a program by linking
+<samp>main.o</samp> against <samp>libhello</samp>.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Creating-object-files" accesskey="1">Creating object files</a></li>
+<li><a href="#Linking-libraries" accesskey="2">Linking libraries</a></li>
+<li><a href="#Linking-executables" accesskey="3">Linking executables</a></li>
+<li><a href="#Installing-libraries" accesskey="4">Installing libraries</a></li>
+<li><a href="#Installing-executables" accesskey="5">Installing executables</a></li>
+<li><a href="#Static-libraries" accesskey="6">Linking static libraries</a></li>
+</ul>
+<hr>
+<div class="section" id="Creating-object-files">
+<div class="header">
+<p>
+Next: <a href="#Linking-libraries" accesskey="n" rel="next">Linking libraries</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Creating-object-files-1"></span><h3 class="section">3.1 Creating object files</h3>
+
+<span id="index-Compiling-object-files"></span>
+<span id="index-Object-files_002c-compiling"></span>
+<p>To create an object file from a source file, the compiler is invoked
+with the &lsquo;-c&rsquo; flag (and any other desired flags):
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>gcc -g -O -c main.c</kbd>
+burger$
+</pre></div>
+
+<p>The above compiler command produces an object file, <samp>main.o</samp>, from
+the source file <samp>main.c</samp>.
+</p>
+<p>For most library systems, creating object files that become part of a
+static library is as simple as creating object files that are linked to
+form an executable:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>gcc -g -O -c foo.c</kbd>
+burger$ <kbd>gcc -g -O -c hello.c</kbd>
+burger$
+</pre></div>
+
+<span id="index-Position_002dindependent-code"></span>
+<span id="index-PIC-_0028position_002dindependent-code_0029"></span>
+<p>Shared libraries, however, may only be built from
+<em>position-independent code</em> (PIC).  So, special flags must be passed
+to the compiler to tell it to generate PIC rather than the standard
+position-dependent code.
+</p>
+<span id="index-Library-object-file"></span>
+<span id="index-_002elo-files"></span>
+<span id="index-Object-files_002c-library"></span>
+<p>Since this is a library implementation detail, libtool hides the
+complexity of PIC compiler flags by using separate library object files
+(which end in &lsquo;<samp>.lo</samp>&rsquo; instead of &lsquo;<samp>.o</samp>&rsquo;).  On systems without shared
+libraries (or without special PIC compiler flags), these library object
+files are identical to &ldquo;standard&rdquo; object files.
+</p>
+<p>To create library object files for <samp>foo.c</samp> and <samp>hello.c</samp>,
+simply invoke libtool with the standard compilation command as
+arguments:
+</p>
+<div class="example">
+<pre class="example">a23$ <kbd>libtool gcc -g -O -c foo.c</kbd>
+gcc -g -O -c foo.c
+ln -s foo.o foo.lo
+a23$ <kbd>libtool gcc -g -O -c hello.c</kbd>
+gcc -g -O -c hello.c
+ln -s hello.o hello.lo
+a23$
+</pre></div>
+
+<p>Note that libtool creates two object files for each invocation.  The
+&lsquo;<samp>.lo</samp>&rsquo; file is a library object, and the &lsquo;<samp>.o</samp>&rsquo; file is a standard object
+file.  On &lsquo;<samp>a23</samp>&rsquo;, these files are identical, because only static
+libraries are supported.
+</p>
+<p>On shared library systems, libtool automatically inserts the PIC
+generation flags into the compilation command, so that the library
+object and the standard object differ:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -g -O -c foo.c</kbd>
+gcc -g -O -c -fPIC -DPIC foo.c
+mv -f foo.o foo.lo
+gcc -g -O -c foo.c
+burger$ <kbd>libtool gcc -g -O -c hello.c</kbd>
+gcc -g -O -c -fPIC -DPIC hello.c
+mv -f hello.o hello.lo
+gcc -g -O -c hello.c
+burger$
+</pre></div>
+
+<hr>
+</div>
+<div class="section" id="Linking-libraries">
+<div class="header">
+<p>
+Next: <a href="#Linking-executables" accesskey="n" rel="next">Linking executables</a>, Previous: <a href="#Creating-object-files" accesskey="p" rel="prev">Creating object files</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Linking-libraries-1"></span><h3 class="section">3.2 Linking libraries</h3>
+
+<span id="index-ar"></span>
+<p>Without libtool, the programmer would invoke the <code>ar</code> command to
+create a static library:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>ar cru libhello.a hello.o foo.o</kbd>
+burger$
+</pre></div>
+
+<span id="index-ranlib"></span>
+<p>But of course, that would be too simple, so many systems require that
+you run the <code>ranlib</code> command on the resulting library (to give it
+better karma, or something):
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>ranlib libhello.a</kbd>
+burger$
+</pre></div>
+
+<p>It seems more natural to use the C compiler for this task, given
+libtool&rsquo;s &ldquo;libraries are programs&rdquo; approach.  So, on platforms without
+shared libraries, libtool simply acts as a wrapper for the system
+<code>ar</code> (and possibly <code>ranlib</code>) commands.
+</p>
+<span id="index-Libtool-libraries"></span>
+<span id="index-_002ela-files"></span>
+<p>Again, the libtool library name differs from the standard name (it has a
+&lsquo;<samp>.la</samp>&rsquo; suffix instead of a &lsquo;<samp>.a</samp>&rsquo; suffix).  The arguments to libtool are
+the same ones you would use to produce an executable named
+<samp>libhello.la</samp> with your compiler:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -g -O -o libhello.la foo.o hello.o</kbd>
+libtool: cannot build libtool library `libhello.la' from non-libtool \
+                objects
+burger$
+</pre></div>
+
+<p>Aha!  Libtool caught a common error&hellip; trying to build a library
+from standard objects instead of library objects.  This doesn&rsquo;t matter
+for static libraries, but on shared library systems, it is of great
+importance.
+</p>
+<p>So, let&rsquo;s try again, this time with the library object
+files:<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+</p>
+<div class="example">
+<pre class="example">a23$ <kbd>libtool gcc -g -O -o libhello.la foo.lo hello.lo -lm</kbd>
+libtool: you must specify an installation directory with `-rpath'
+a23$
+</pre></div>
+
+<p>Argh.  Another complication in building shared libraries is that we need
+to specify the path to the directory in which they (eventually) will be
+installed.  So, we try again, with an <code>rpath</code> setting of
+<samp>/usr/local/lib</samp>:
+</p>
+<div class="example">
+<pre class="example">a23$ <kbd>libtool gcc -g -O -o libhello.la foo.lo hello.lo \
+                -rpath /usr/local/lib -lm</kbd>
+mkdir .libs
+ar cru .libs/libhello.a foo.o hello.o
+ranlib .libs/libhello.a
+creating libhello.la
+a23$
+</pre></div>
+
+<p>Now, let&rsquo;s try the same trick on the shared library platform:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -g -O -o libhello.la foo.lo hello.lo \
+                -rpath /usr/local/lib -lm</kbd>
+mkdir .libs
+ld -Bshareable -o .libs/libhello.so.0.0 foo.lo hello.lo -lm
+ar cru .libs/libhello.a foo.o hello.o
+ranlib .libs/libhello.a
+creating libhello.la
+burger$
+</pre></div>
+
+<p>Now that&rsquo;s significantly cooler&hellip; libtool just ran an obscure
+<code>ld</code> command to create a shared library, as well as the static
+library.
+</p>
+<span id="index-_002elibs-subdirectory"></span>
+<p>Note how libtool creates extra files in the <samp>.libs</samp> subdirectory,
+rather than the current directory.  This feature is to make it easier to
+clean up the build directory, and to help ensure that other programs
+fail horribly if you accidentally forget to use libtool when you should.
+</p>
+<hr>
+</div>
+<div class="section" id="Linking-executables">
+<div class="header">
+<p>
+Next: <a href="#Installing-libraries" accesskey="n" rel="next">Installing libraries</a>, Previous: <a href="#Linking-libraries" accesskey="p" rel="prev">Linking libraries</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Linking-executables-1"></span><h3 class="section">3.3 Linking executables</h3>
+
+<span id="index-Linking-against-installed-libraries"></span>
+<p>If you choose at this point to <em>install</em> the library (put it in a
+permanent location) before linking executables against it, then you
+don&rsquo;t need to use libtool to do the linking.  Simply use the appropriate
+&lsquo;<samp>-L</samp>&rsquo; and &lsquo;<samp>-l</samp>&rsquo; flags to specify the library&rsquo;s location.
+</p>
+<span id="index-Buggy-system-linkers"></span>
+<p>Some system linkers insist on encoding the full directory name of each
+shared library in the resulting executable.  Libtool has to work around
+this misfeature by special magic to ensure that only permanent directory
+names are put into installed executables.
+</p>
+<span id="index-Security-problems-with-buggy-linkers"></span>
+<span id="index-Bugs_002c-subtle-ones-caused-by-buggy-linkers"></span>
+<p>The importance of this bug must not be overlooked: it won&rsquo;t cause
+programs to crash in obvious ways.  It creates a security hole,
+and possibly even worse, if you are modifying the library source code
+after you have installed the package, you will change the behaviour of
+the installed programs!
+</p>
+<p>So, if you want to link programs against the library before you install
+it, you must use libtool to do the linking.
+</p>
+<span id="index-Linking-against-uninstalled-libraries"></span>
+<p>Here&rsquo;s the old way of linking against an uninstalled library:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>gcc -g -O -o hell.old main.o libhello.a -lm</kbd>
+burger$
+</pre></div>
+
+<p>Libtool&rsquo;s way is almost the same<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>:
+</p>
+<div class="example">
+<pre class="example">a23$ <kbd>libtool gcc -g -O -o hell main.o libhello.la -lm</kbd>
+gcc -g -O -o hell main.o ./.libs/libhello.a -lm
+a23$
+</pre></div>
+
+<p>That looks too simple to be true.  All libtool did was transform
+<samp>libhello.la</samp> to <samp>./.libs/libhello.a</samp>, but remember that
+&lsquo;<samp>a23</samp>&rsquo; has no shared libraries.
+</p>
+<p>On &lsquo;<samp>burger</samp>&rsquo; the situation is different:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -g -O -o hell main.o libhello.la -lm</kbd>
+gcc -g -O -o .libs/hell main.o -L./.libs -R/usr/local/lib -lhello -lm
+creating hell
+burger$
+</pre></div>
+
+<span id="index-Wrapper-scripts-for-programs"></span>
+<span id="index-Program-wrapper-scripts"></span>
+<p>Notice that the executable, <code>hell</code>, was actually created in the
+<samp>.libs</samp> subdirectory.  Then, a wrapper script was created in the
+current directory.
+</p>
+<p>On NetBSD 1.2, libtool encodes the installation directory of
+<samp>libhello</samp>, by using the &lsquo;<samp>-R/usr/local/lib</samp>&rsquo; compiler
+flag.  Then, the wrapper script guarantees that the executable finds the
+correct shared library (the one in <samp>./.libs</samp>) until it is properly
+installed.
+</p>
+<p>Let&rsquo;s compare the two different programs:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>time ./hell.old</kbd>
+Welcome to GNU Hell!
+** This is not GNU Hello.  There is no built-in mail reader. **
+        0.21 real         0.02 user         0.08 sys
+burger$ <kbd>time ./hell</kbd>
+Welcome to GNU Hell!
+** This is not GNU Hello.  There is no built-in mail reader. **
+        0.63 real         0.09 user         0.59 sys
+burger$
+</pre></div>
+
+<p>The wrapper script takes significantly longer to execute, but at least
+the results are correct, even though the shared library hasn&rsquo;t been
+installed yet.
+</p>
+<p>So, what about all the space savings that shared libraries are supposed
+to yield?
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>ls -l hell.old libhello.a</kbd>
+-rwxr-xr-x  1 gord  gord  15481 Nov 14 12:11 hell.old
+-rw-r--r--  1 gord  gord   4274 Nov 13 18:02 libhello.a
+burger$ <kbd>ls -l .libs/hell .libs/libhello.*</kbd>
+-rwxr-xr-x  1 gord  gord  11647 Nov 14 12:10 .libs/hell
+-rw-r--r--  1 gord  gord   4274 Nov 13 18:44 .libs/libhello.a
+-rwxr-xr-x  1 gord  gord  12205 Nov 13 18:44 .libs/libhello.so.0.0
+burger$
+</pre></div>
+
+<p>Well, that sucks.  Maybe I should just scrap this project and take up
+basket weaving.
+</p>
+<p>Actually, it just proves an important point: shared libraries incur
+overhead because of their (relative) complexity.  In this situation, the
+price of being dynamic is eight kilobytes, and the payoff is about four
+kilobytes.  So, having a shared <samp>libhello</samp> won&rsquo;t be an advantage
+until we link it against at least a few more programs.
+</p>
+<hr>
+</div>
+<div class="section" id="Installing-libraries">
+<div class="header">
+<p>
+Next: <a href="#Installing-executables" accesskey="n" rel="next">Installing executables</a>, Previous: <a href="#Linking-executables" accesskey="p" rel="prev">Linking executables</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Installing-libraries-1"></span><h3 class="section">3.4 Installing libraries</h3>
+
+<span id="index-strip"></span>
+<p>Installing libraries on a non-libtool system is quite
+straightforward&hellip; just copy them into place:<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
+</p>
+<span id="index-su"></span>
+<div class="example">
+<pre class="example">burger$ <kbd>su</kbd>
+Password: <kbd>********</kbd>
+burger# <kbd>cp libhello.a /usr/local/lib/libhello.a</kbd>
+burger#
+</pre></div>
+
+<p>Oops, don&rsquo;t forget the <code>ranlib</code> command:
+</p>
+<div class="example">
+<pre class="example">burger# <kbd>ranlib /usr/local/lib/libhello.a</kbd>
+burger#
+</pre></div>
+
+<span id="index-install"></span>
+<p>Libtool installation is quite simple, as well.  Just use the
+<code>install</code> or <code>cp</code> command that you normally would:
+</p>
+<div class="example">
+<pre class="example">a23# <kbd>libtool cp libhello.la /usr/local/lib/libhello.la</kbd>
+cp libhello.la /usr/local/lib/libhello.la
+cp .libs/libhello.a /usr/local/lib/libhello.a
+ranlib /usr/local/lib/libhello.a
+a23#
+</pre></div>
+
+<p>Note that the libtool library <samp>libhello.la</samp> is also installed, for
+informational purposes, and to help libtool with uninstallation
+(see <a href="#Uninstall-mode">Uninstall mode</a>).
+</p>
+<p>Here is the shared library example:
+</p>
+<div class="example">
+<pre class="example">burger# <kbd>libtool install -c libhello.la /usr/local/lib/libhello.la</kbd>
+install -c .libs/libhello.so.0.0 /usr/local/lib/libhello.so.0.0
+install -c libhello.la /usr/local/lib/libhello.la
+install -c .libs/libhello.a /usr/local/lib/libhello.a
+ranlib /usr/local/lib/libhello.a
+burger#
+</pre></div>
+
+<span id="index-Stripping-libraries"></span>
+<span id="index-Libraries_002c-stripping"></span>
+<p>It is safe to specify the &lsquo;<samp>-s</samp>&rsquo; (strip symbols) flag if you use a
+BSD-compatible install program when installing libraries.
+Libtool will either ignore the &lsquo;<samp>-s</samp>&rsquo; flag, or will run a program
+that will strip only debugging and compiler symbols from the library.
+</p>
+<p>Once the libraries have been put in place, there may be some additional
+configuration that you need to do before using them.  First, you must
+make sure that where the library is installed actually agrees with the
+&lsquo;<samp>-rpath</samp>&rsquo; flag you used to build it.
+</p>
+<span id="index-Postinstallation"></span>
+<span id="index-Installation_002c-finishing"></span>
+<span id="index-Libraries_002c-finishing-installation"></span>
+<p>Then, running &lsquo;<samp>libtool -n --finish <var>libdir</var></samp>&rsquo; can give you
+further hints on what to do:
+</p>
+<div class="example">
+<pre class="example">burger# <kbd>libtool -n --finish /usr/local/lib</kbd>
+ldconfig -m /usr/local/lib
+To link against installed libraries in LIBDIR, users may have to:
+   - add LIBDIR to their `LD_LIBRARY_PATH' environment variable
+   - use the `-LLIBDIR' linker flag
+burger#
+</pre></div>
+
+<p>After you have completed these steps, you can go on to begin using the
+installed libraries.  You may also install any executables that depend
+on libraries you created.
+</p>
+<hr>
+</div>
+<div class="section" id="Installing-executables">
+<div class="header">
+<p>
+Next: <a href="#Static-libraries" accesskey="n" rel="next">Linking static libraries</a>, Previous: <a href="#Installing-libraries" accesskey="p" rel="prev">Installing libraries</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Installing-executables-1"></span><h3 class="section">3.5 Installing executables</h3>
+
+<p>If you used libtool to link any executables against uninstalled libtool
+libraries (see <a href="#Linking-executables">Linking executables</a>), you need to use libtool to
+install the executables after the libraries have been installed
+(see <a href="#Installing-libraries">Installing libraries</a>).
+</p>
+<p>So, for our Ultrix example, we would run:
+</p>
+<div class="example">
+<pre class="example">a23# libtool install -c hell /usr/local/bin/hell
+install -c hell /usr/local/bin/hell
+a23#
+</pre></div>
+
+<p>On shared library systems, libtool just ignores the wrapper script and
+installs the correct binary:
+</p>
+<div class="example">
+<pre class="example">burger# libtool install -c hell /usr/local/bin/hell
+install -c .libs/hell /usr/local/bin/hell
+burger#
+</pre></div>
+
+<hr>
+</div>
+<div class="section" id="Static-libraries">
+<div class="header">
+<p>
+Previous: <a href="#Installing-executables" accesskey="p" rel="prev">Installing executables</a>, Up: <a href="#Using-libtool" accesskey="u" rel="up">Using libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Linking-static-libraries"></span><h3 class="section">3.6 Linking static libraries</h3>
+
+<span id="index-Static-linking"></span>
+<span id="index-Convenience-libraries"></span>
+<p>Why return to <code>ar</code> and <code>ranlib</code> silliness when you&rsquo;ve had a
+taste of libtool?  Well, sometimes it is desirable to create a static
+archive that can never be shared.  The most frequent case is when you
+have a &ldquo;convenience library&rdquo; that is a collection of related object
+files without a really nice interface.
+</p>
+<p>To do this, you should ignore libtool entirely, and just use the old
+<code>ar</code> and <code>ranlib</code> commands to create a static library.
+</p>
+<p>If you want to install the library (but you probably don&rsquo;t), then you
+may use libtool if you want:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool ./install-sh -c libhello.a /local/lib/libhello.a</kbd>
+./install-sh -c libhello.a /local/lib/libhello.a
+ranlib /local/lib/libhello.a
+burger$
+</pre></div>
+
+<p>Using libtool for static library installation protects your library from
+being accidentally stripped (if the installer used the &lsquo;<samp>-s</samp>&rsquo; flag),
+as well as automatically running the correct <code>ranlib</code> command.
+</p>
+<span id="index-Standalone-binaries"></span>
+<p>Another common situation where static linking is desirable is in
+creating a standalone binary.  Use libtool to do the linking and add the
+&lsquo;<samp>-static</samp>&rsquo; flag.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Invoking-libtool">
+<div class="header">
+<p>
+Next: <a href="#Integrating-libtool" accesskey="n" rel="next">Integrating libtool with your own packages</a>, Previous: <a href="#Using-libtool" accesskey="p" rel="prev">Using libtool</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Invoking-libtool-1"></span><h2 class="chapter">4 Invoking <code>libtool</code></h2>
+<span id="index-libtool"></span>
+<span id="index-libtool-command-options"></span>
+<span id="index-Options_002c-libtool-command"></span>
+<span id="index-Command-options_002c-libtool"></span>
+
+<p>The <code>libtool</code> program has the following synopsis:
+</p>
+<div class="example">
+<pre class="example">libtool [<var>option</var>]&hellip; [<var>mode-arg</var>]...
+</pre></div>
+
+<p>and accepts the following options:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>-n</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>--dry-run</samp>&rsquo;</span></dt>
+<dd><p>Don&rsquo;t create, modify, or delete any files, just show what commands would
+be executed by libtool.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--features</samp>&rsquo;</span></dt>
+<dd><p>Display libtool configuration information and exit.  This provides a way
+for packages to determine whether shared or static libraries will be
+built.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--finish</samp>&rsquo;</span></dt>
+<dd><p>Same as &lsquo;<samp>--mode=finish</samp>&rsquo;.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--help</samp>&rsquo;</span></dt>
+<dd><p>Display a help message and exit.  If &lsquo;<samp>--mode=<var>mode</var></samp>&rsquo; is
+specified, then detailed help for <var>mode</var> is
+displayed.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--mode=<var>mode</var></samp>&rsquo;</span></dt>
+<dd><p>Use <var>mode</var> as the operation mode.  By default, the operation mode is
+inferred from the contents of <var>mode-args</var>.
+</p>
+<p>If <var>mode</var> is specified, it must be one of the following:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>compile</samp>&rsquo;</span></dt>
+<dd><p>Compile a source file into a libtool object.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>dlname</samp>&rsquo;</span></dt>
+<dd><p>Find the correct name that programs should <code>dlopen(3)</code>.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>finish</samp>&rsquo;</span></dt>
+<dd><p>Complete the installation of libtool libraries on the system.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>install</samp>&rsquo;</span></dt>
+<dd><p>Install libraries or executables.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>link</samp>&rsquo;</span></dt>
+<dd><p>Create a library or an executable.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>uninstall</samp>&rsquo;</span></dt>
+<dd><p>Delete libraries or executables.
+</p></dd>
+</dl>
+
+</dd>
+<dt><span>&lsquo;<samp>--version</samp>&rsquo;</span></dt>
+<dd><p>Print libtool version information and exit.
+</p></dd>
+</dl>
+
+
+<ul class="section-toc">
+<li><a href="#Compile-mode" accesskey="1">Compile mode</a></li>
+<li><a href="#Link-mode" accesskey="2">Link mode</a></li>
+<li><a href="#Dlname-mode" accesskey="3">Dlname mode</a></li>
+<li><a href="#Install-mode" accesskey="4">Install mode</a></li>
+<li><a href="#Finish-mode" accesskey="5">Finish mode</a></li>
+<li><a href="#Uninstall-mode" accesskey="6">Uninstall mode</a></li>
+</ul>
+<hr>
+<div class="section" id="Compile-mode">
+<div class="header">
+<p>
+Next: <a href="#Link-mode" accesskey="n" rel="next">Link mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Compile-mode-1"></span><h3 class="section">4.1 Compile mode</h3>
+<span id="index-Mode_002c-compile"></span>
+<span id="index-Compile-mode"></span>
+
+<p>For &lsquo;<samp>compile</samp>&rsquo; mode, <var>mode-args</var> is a compiler command to be
+used in creating a &lsquo;standard&rsquo; object file.  These arguments should begin
+with the name of the C compiler, and contain the &lsquo;<samp>-c</samp>&rsquo; compiler flag
+so that only an object file is created.
+</p>
+<p>Libtool determines the name of the output file by removing the directory
+component from the source file name, then substituting the C source code
+suffix &lsquo;<samp>.c</samp>&rsquo; with the library object suffix, &lsquo;<samp>.lo</samp>&rsquo;.
+</p>
+<p>If shared libraries are being built, any necessary PIC generation flags
+are substituted into the compilation command.
+</p>
+<hr>
+</div>
+<div class="section" id="Link-mode">
+<div class="header">
+<p>
+Next: <a href="#Dlname-mode" accesskey="n" rel="next">Dlname mode</a>, Previous: <a href="#Compile-mode" accesskey="p" rel="prev">Compile mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Link-mode-1"></span><h3 class="section">4.2 Link mode</h3>
+<span id="index-Link-mode"></span>
+<span id="index-Mode_002c-link"></span>
+
+<p>&lsquo;<samp>link</samp>&rsquo; mode links together object files (including library
+objects) to form another library or to create an executable program.
+</p>
+<p><var>mode-args</var> consist of a command using the C compiler to create an
+output file (with the &lsquo;<samp>-o</samp>&rsquo; flag) from several object files.
+</p>
+<p>The following components of <var>mode-args</var> are treated specially:
+</p>
+<dl compact="compact">
+<dd><span id="index-Undefined-symbols_002c-allowing"></span>
+<span id="index-Unresolved-symbols_002c-allowing"></span>
+</dd>
+<dt><span>&lsquo;<samp>-allow-undefined</samp>&rsquo;</span></dt>
+<dd><p>If <var>output-file</var> is a libtool library, allow it to contain
+references to symbols that aren&rsquo;t defined in that library or its
+dependencies (see <a href="#Inter_002dlibrary-dependencies">Inter-library dependencies</a>).
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-export-dynamic</samp>&rsquo;</span></dt>
+<dd><p>Allow symbols from <var>output-file</var> to be resolved with <code>dlsym(3)</code>
+(see <a href="#Dlopened-modules">Dlopened modules</a>).
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-L<var>libdir</var></samp>&rsquo;</span></dt>
+<dd><p>Search <var>libdir</var> for required libraries that have already been
+installed.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-l<var>name</var></samp>&rsquo;</span></dt>
+<dd><p><var>output-file</var> requires the installed library <samp>lib<var>name</var></samp>.
+This option is required even when <var>output-file</var> is not an
+executable.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-o <var>output-file</var></samp>&rsquo;</span></dt>
+<dd><p>Create <var>output-file</var> from the specified objects and libraries.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-rpath <var>libdir</var></samp>&rsquo;</span></dt>
+<dd><p>If <var>output-file</var> is a library, it will eventually be installed in
+<var>libdir</var>.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-static</samp>&rsquo;</span></dt>
+<dd><p>If <var>output-file</var> is a program, then do not link it against any
+shared libraries.  If <var>output-file</var> is a library, then only create a
+static library.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>-version-info <var>current</var>[:<var>revision</var>[:<var>age</var>]]</samp>&rsquo;</span></dt>
+<dd><p>If <var>output-file</var> is a libtool library, use library version
+information <var>current</var>, <var>revision</var>, and <var>age</var> to build it.
+If not specified, each of these variables defaults to 0
+(see <a href="#Versioning">Library interface versions</a>).
+</p></dd>
+</dl>
+
+<p>If the <var>output-file</var> ends in &lsquo;<samp>.la</samp>&rsquo;, then a libtool library is
+created, which must be built only from library objects (&lsquo;<samp>.lo</samp>&rsquo; files).
+The &lsquo;<samp>-rpath</samp>&rsquo; option is required.  In the current implementation,
+libtool libraries may not depend on other uninstalled libtool libraries
+(see <a href="#Inter_002dlibrary-dependencies">Inter-library dependencies</a>).
+</p>
+<p>If the <var>output-file</var> ends in &lsquo;<samp>.a</samp>&rsquo;, then a standard library is
+created using <code>ar</code> and possibly <code>ranlib</code>.
+</p>
+<span id="index-Partial-linking"></span>
+<span id="index-Linking_002c-partial"></span>
+<p>If <var>output-file</var> ends in &lsquo;<samp>.o</samp>&rsquo; or &lsquo;<samp>.lo</samp>&rsquo;, then a reloadable object
+file is created from the input files (generally using &lsquo;<samp>ld -r</samp>&rsquo;).
+This method is often called <em>partial linking</em>.
+</p>
+<p>Otherwise, an executable program is created.
+</p>
+<hr>
+</div>
+<div class="section" id="Dlname-mode">
+<div class="header">
+<p>
+Next: <a href="#Install-mode" accesskey="n" rel="next">Install mode</a>, Previous: <a href="#Link-mode" accesskey="p" rel="prev">Link mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Dlname-mode-1"></span><h3 class="section">4.3 Dlname mode</h3>
+<span id="index-Dlname-mode"></span>
+<span id="index-Mode_002c-dlname"></span>
+
+<p>The &lsquo;<samp>dlname</samp>&rsquo; mode simply prints the name of a libtool library that
+can be passed to the <code>dlopen(3)</code> function call (see <a href="#Dlopened-modules">Dlopened modules</a>).
+</p>
+<p>Each of the <var>mode-args</var> specifies a libtool library linked
+using the &lsquo;<samp>-export-dynamic</samp>&rsquo; option (see <a href="#Link-mode">Link mode</a>).  The names
+of the modules to load are printed to standard output, one per line.
+</p>
+<p>If one of the <var>mode-args</var> was not linked with
+&lsquo;<samp>-export-dynamic</samp>&rsquo;, then an error is displayed.
+</p>
+<hr>
+</div>
+<div class="section" id="Install-mode">
+<div class="header">
+<p>
+Next: <a href="#Finish-mode" accesskey="n" rel="next">Finish mode</a>, Previous: <a href="#Dlname-mode" accesskey="p" rel="prev">Dlname mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Install-mode-1"></span><h3 class="section">4.4 Install mode</h3>
+<span id="index-Install-mode"></span>
+<span id="index-Mode_002c-install"></span>
+
+<p>In &lsquo;<samp>install</samp>&rsquo; mode, libtool interprets <var>mode-args</var> as an
+installation command beginning with <code>cp</code>, or a BSD-compatible
+<code>install</code> program.
+</p>
+<p>The rest of the <var>mode-args</var> are interpreted as arguments to that
+command.
+</p>
+<p>The command is run, and any necessary unprivileged post-installation
+commands are also completed.
+</p>
+<hr>
+</div>
+<div class="section" id="Finish-mode">
+<div class="header">
+<p>
+Next: <a href="#Uninstall-mode" accesskey="n" rel="next">Uninstall mode</a>, Previous: <a href="#Install-mode" accesskey="p" rel="prev">Install mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Finish-mode-1"></span><h3 class="section">4.5 Finish mode</h3>
+<span id="index-Finish-mode"></span>
+<span id="index-Mode_002c-finish"></span>
+
+<p>&lsquo;<samp>finish</samp>&rsquo; mode helps system administrators install libtool
+libraries so that they can be located and linked into user programs.
+</p>
+<p>Each <var>mode-arg</var> is interpreted as the name of a library directory.
+Running this command may require superuser privileges, so the
+&lsquo;<samp>--dry-run</samp>&rsquo; option may be useful.
+</p>
+<hr>
+</div>
+<div class="section" id="Uninstall-mode">
+<div class="header">
+<p>
+Previous: <a href="#Finish-mode" accesskey="p" rel="prev">Finish mode</a>, Up: <a href="#Invoking-libtool" accesskey="u" rel="up">Invoking <code>libtool</code></a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Uninstall-mode-1"></span><h3 class="section">4.6 Uninstall mode</h3>
+<span id="index-Uninstall-mode"></span>
+<span id="index-Mode_002c-uninstall"></span>
+
+<p>This mode deletes installed libraries (and other files).
+</p>
+<p>The first <var>mode-arg</var> is the name of the program to use to delete
+files (typically <samp>/bin/rm</samp>).
+</p>
+<p>The remaining <var>mode-args</var> are either flags for the deletion program
+(beginning with a &lsquo;-&rsquo;), or the names of files to delete.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Integrating-libtool">
+<div class="header">
+<p>
+Next: <a href="#Versioning" accesskey="n" rel="next">Library interface versions</a>, Previous: <a href="#Invoking-libtool" accesskey="p" rel="prev">Invoking <code>libtool</code></a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Integrating-libtool-with-your-own-packages"></span><h2 class="chapter">5 Integrating libtool with your own packages</h2>
+
+<p>This chapter describes how to integrate libtool with your packages so
+that your users can install hassle-free shared libraries.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Makefile-rules" accesskey="1">Writing <samp>Makefile</samp> rules for libtool</a></li>
+<li><a href="#Using-Automake" accesskey="2">Using Automake with libtool</a></li>
+<li><a href="#Configuring" accesskey="3">Configuring libtool</a></li>
+<li><a href="#Distributing" accesskey="4">Including libtool with your package</a></li>
+</ul>
+<hr>
+<div class="section" id="Makefile-rules">
+<div class="header">
+<p>
+Next: <a href="#Using-Automake" accesskey="n" rel="next">Using Automake with libtool</a>, Up: <a href="#Integrating-libtool" accesskey="u" rel="up">Integrating libtool with your own packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Writing-Makefile-rules-for-libtool"></span><h3 class="section">5.1 Writing <samp>Makefile</samp> rules for libtool</h3>
+<span id="index-Makefile"></span>
+<span id="index-Makefile_002eam"></span>
+<span id="index-Makefile_002ein"></span>
+
+<p>Libtool is fully integrated with Automake (see <a data-manual="automake" href="https://www.gnu.org/software/automake/manual/automake.html#Top">Introduction</a> in <cite>The Automake Manual</cite>), starting with Automake version 1.2.
+</p>
+<p>If you want to use libtool in a regular <samp>Makefile</samp> (or
+<samp>Makefile.in</samp>), you are on your own.  If you&rsquo;re not using Automake
+1.2, and you don&rsquo;t know how to incorporate libtool into your package you
+need to do one of the following:
+</p>
+<ol>
+<li> Download Automake (version 1.2 or later) from your nearest GNU mirror,
+install it, and start using it.
+
+</li><li> Learn how to write <samp>Makefile</samp> rules by hand.  They&rsquo;re sometimes complex,
+but if you&rsquo;re clever enough to write rules for compiling your old
+libraries, then you should be able to figure out new rules for libtool
+libraries (hint: examine the <samp>Makefile.in</samp> in the <samp>demo</samp>
+subdirectory of the libtool distribution&hellip; note especially that it
+was automatically generated from the <samp>Makefile.am</samp> by Automake).
+</li></ol>
+
+<hr>
+</div>
+<div class="section" id="Using-Automake">
+<div class="header">
+<p>
+Next: <a href="#Configuring" accesskey="n" rel="next">Configuring libtool</a>, Previous: <a href="#Makefile-rules" accesskey="p" rel="prev">Writing <samp>Makefile</samp> rules for libtool</a>, Up: <a href="#Integrating-libtool" accesskey="u" rel="up">Integrating libtool with your own packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Using-Automake-with-libtool"></span><h3 class="section">5.2 Using Automake with libtool</h3>
+
+<span id="index-LTLIBRARIES"></span>
+<p>Libtool library support is implemented under the &lsquo;<samp>LTLIBRARIES</samp>&rsquo;
+primary.
+</p>
+<p>Here are some samples from the Automake <samp>Makefile.am</samp> in the
+libtool distribution&rsquo;s <samp>demo</samp> subdirectory.
+</p>
+<p>First, to link a program against a libtool library, just use the
+&lsquo;<samp>program_LDADD</samp>&rsquo; variable:
+</p>
+<div class="example">
+<pre class="example">bin_PROGRAMS = hell hell.static
+
+# Build hell from main.c and libhello.la
+hell_SOURCES = main.c
+hell_LDADD = libhello.la
+
+# Create a statically-linked version of hell.
+hell_static_SOURCES = main.c
+hell_static_LDADD = libhello.la
+hell_static_LDFLAGS = -static
+</pre></div>
+
+<p>You may use the &lsquo;<samp>program_LDFLAGS</samp>&rsquo; variable to stuff in any flags
+you want to pass to libtool while linking &lsquo;<samp>program</samp>&rsquo; (such as
+&lsquo;<samp>-static</samp>&rsquo; to create a statically-linked executable).
+</p>
+<p>Building a libtool library is almost as trivial&hellip; note the use of
+&lsquo;<samp>libhello_la_LDFLAGS</samp>&rsquo; to pass the &lsquo;<samp>-version-info</samp>&rsquo;
+(see <a href="#Versioning">Library interface versions</a>) option to libtool:
+</p>
+<div class="example">
+<pre class="example"># Build a libtool library, libhello.la for installation in libdir.
+lib_LTLIBRARIES = libhello.la
+libhello_la_SOURCES = hello.c foo.c
+libhello_la_LDFLAGS = -version-info 3:12:1
+</pre></div>
+
+<p>The &lsquo;<samp>-rpath</samp>&rsquo; option is passed automatically by Automake, so you
+should not specify it.
+</p>
+<p>See <a data-manual="automake" href="https://www.gnu.org/software/automake/manual/automake.html#A-Shared-Library">The Automake Manual</a> in <cite>The Automake Manual</cite>, for more information.
+</p>
+<hr>
+</div>
+<div class="section" id="Configuring">
+<div class="header">
+<p>
+Next: <a href="#Distributing" accesskey="n" rel="next">Including libtool with your package</a>, Previous: <a href="#Using-Automake" accesskey="p" rel="prev">Using Automake with libtool</a>, Up: <a href="#Integrating-libtool" accesskey="u" rel="up">Integrating libtool with your own packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Configuring-libtool"></span><h3 class="section">5.3 Configuring libtool</h3>
+<span id="index-Configuring-libtool"></span>
+
+<p>Libtool requires intimate knowledge of your compiler suite and operating
+system in order to be able to create shared libraries and link against
+them properly.  When you install the libtool distribution, a
+system-specific libtool script is installed into your binary directory.
+</p>
+<p>However, when you distribute libtool with your own packages
+(see <a href="#Distributing">Including libtool with your package</a>), you do not always know which compiler suite and
+operating system are used to compile your package.
+</p>
+<p>For this reason, libtool must be <em>configured</em> before it can be
+used.  This idea should be familiar to anybody who has used a GNU
+<code>configure</code> script.  <code>configure</code> runs a number of tests for
+system features, then generates the <samp>Makefiles</samp> (and possibly a
+<samp>config.h</samp> header file), after which you can run <code>make</code> and
+build the package.
+</p>
+<p>Libtool has its own equivalent to the <code>configure</code> script,
+<code>ltconfig</code>.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Invoking-ltconfig" accesskey="1">Invoking <code>ltconfig</code></a></li>
+<li><a href="#ltconfig-example" accesskey="2">Using <code>ltconfig</code></a></li>
+<li><a href="#AM_005fPROG_005fLIBTOOL" accesskey="3">The <code>AM_PROG_LIBTOOL</code> macro</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Invoking-ltconfig">
+<div class="header">
+<p>
+Next: <a href="#ltconfig-example" accesskey="n" rel="next">Using <code>ltconfig</code></a>, Up: <a href="#Configuring" accesskey="u" rel="up">Configuring libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Invoking-ltconfig-1"></span><h4 class="subsection">5.3.1 Invoking <code>ltconfig</code></h4>
+<span id="index-ltconfig"></span>
+<span id="index-ltconfig-command-options"></span>
+<span id="index-Options_002c-ltconfig-command"></span>
+<span id="index-Command-options_002c-ltconfig"></span>
+
+<p><code>ltconfig</code> runs a series of configuration tests, then creates a
+system-specific <code>libtool</code> in the current directory.  The
+<code>ltconfig</code> program has the following synopsis:
+</p>
+<div class="example">
+<pre class="example">ltconfig [<var>option</var>]&hellip; <var>ltmain</var> [<var>host</var>]
+</pre></div>
+
+<p>and accepts the following options:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>--disable-shared</samp>&rsquo;</span></dt>
+<dd><p>Create a <code>libtool</code> that only builds static libraries.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--disable-static</samp>&rsquo;</span></dt>
+<dd><p>Create a <code>libtool</code> that builds only shared libraries if they are
+available.  If only static libraries can be built, then this flag has
+no effect.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--help</samp>&rsquo;</span></dt>
+<dd><p>Display a help message and exit.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--no-verify</samp>&rsquo;</span></dt>
+<dd><p>Do not use <code>config.sub</code> to verify that <var>host</var> is a valid
+canonical host system name.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--quiet</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>--silent</samp>&rsquo;</span></dt>
+<dd><p>Do not print informational messages when running configuration tests.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--srcdir=<var>dir</var></samp>&rsquo;</span></dt>
+<dd><p>Look for <code>config.guess</code> and <code>config.sub</code> in <var>dir</var>.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--version</samp>&rsquo;</span></dt>
+<dd><p>Print <code>ltconfig</code> version information and exit.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--with-gcc</samp>&rsquo;</span></dt>
+<dd><p>Assume that the GNU C compiler will be used when invoking the created
+<code>libtool</code> to compile and link object files.
+</p></dd>
+</dl>
+
+<p><var>ltmain</var> is the <code>ltmain.sh</code> shell script fragment that provides
+the basic libtool functionality (see <a href="#Distributing">Including libtool with your package</a>).
+</p>
+<p><var>host</var> is the canonical host system name, which by default is
+guessed by running <code>config.guess</code>.
+</p>
+<p><code>ltconfig</code> also recognizes the following environment variables:
+</p>
+<dl class="def">
+<dt id="index-CC"><span class="category">Variable: </span><span><strong>CC</strong><a href='#index-CC' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The C compiler that will be used by the generated <code>libtool</code>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-CFLAGS"><span class="category">Variable: </span><span><strong>CFLAGS</strong><a href='#index-CFLAGS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Compiler flags used to generate standard object files.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-CPPFLAGS"><span class="category">Variable: </span><span><strong>CPPFLAGS</strong><a href='#index-CPPFLAGS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>C preprocessor flags.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-LD"><span class="category">Variable: </span><span><strong>LD</strong><a href='#index-LD' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The system linker to use (if the generated <code>libtool</code> requires one).
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-RANLIB"><span class="category">Variable: </span><span><strong>RANLIB</strong><a href='#index-RANLIB' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Program to use rather than checking for <code>ranlib</code>.
+</p></dd></dl>
+
+<hr>
+</div>
+<div class="subsection" id="ltconfig-example">
+<div class="header">
+<p>
+Next: <a href="#AM_005fPROG_005fLIBTOOL" accesskey="n" rel="next">The <code>AM_PROG_LIBTOOL</code> macro</a>, Previous: <a href="#Invoking-ltconfig" accesskey="p" rel="prev">Invoking <code>ltconfig</code></a>, Up: <a href="#Configuring" accesskey="u" rel="up">Configuring libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Using-ltconfig"></span><h4 class="subsection">5.3.2 Using <code>ltconfig</code></h4>
+
+<p>Here is a simple example of using <code>ltconfig</code> to configure libtool
+on my NetBSD/i386 1.2 system:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>./ltconfig ltmain.sh</kbd>
+checking host system type... i386-unknown-netbsd1.2
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking whether we are using GNU C... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking for gcc option to statically link programs... -static
+checking if ld is GNU ld... no
+checking if ld supports shared libraries... yes
+checking dynamic linker characteristics... netbsd1.2 ld.so
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+creating libtool
+burger$
+</pre></div>
+
+<p>This example shows how to configure <code>libtool</code> for cross-compiling
+to a i486 GNU/Hurd 0.1 system (assuming compiler tools reside in
+<samp>/local/i486-gnu/bin</samp>):
+</p>
+<div class="example">
+<pre class="example">burger$ export PATH=/local/i486-gnu/bin:$PATH
+burger$ ./ltconfig ltmain.sh i486-gnu0.1
+checking host system type... i486-unknown-gnu0.1
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking whether we are using GNU C... yes
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking for gcc option to statically link programs... -static
+checking if ld is GNU ld... yes
+checking if GNU ld supports shared libraries... yes
+checking dynamic linker characteristics... gnu0.1 ld.so
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+creating libtool
+burger$
+</pre></div>
+
+<hr>
+</div>
+<div class="subsection" id="AM_005fPROG_005fLIBTOOL">
+<div class="header">
+<p>
+Previous: <a href="#ltconfig-example" accesskey="p" rel="prev">Using <code>ltconfig</code></a>, Up: <a href="#Configuring" accesskey="u" rel="up">Configuring libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-AM_005fPROG_005fLIBTOOL-macro"></span><h4 class="subsection">5.3.3 The <code>AM_PROG_LIBTOOL</code> macro</h4>
+
+<p>If you are using GNU Autoconf (or Automake), you should add a call to
+<code>AM_PROG_LIBTOOL</code> to your <samp>configure.in</samp> file.  This macro
+offers seamless integration between the <code>configure</code> script and
+<code>ltconfig</code>:
+</p>
+<dl class="def">
+<dt id="index-AM_005fPROG_005fLIBTOOL"><span class="category">Macro: </span><span><strong>AM_PROG_LIBTOOL</strong><a href='#index-AM_005fPROG_005fLIBTOOL' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Add support for the &lsquo;<samp>--enable-shared</samp>&rsquo; and &lsquo;<samp>--disable-shared</samp>&rsquo;
+<code>configure</code> flags.  Invoke <code>ltconfig</code> with the correct
+arguments to configure the package.<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
+</p></dd></dl>
+
+<span id="index-aclocal"></span>
+<p>When you invoke the <code>libtoolize</code> program (see <a href="#Invoking-libtoolize">Invoking <code>libtoolize</code></a>), it will tell you where to find a definition of
+<code>AM_PROG_LIBTOOL</code>.  If you use Automake, the <code>aclocal</code> program
+will automatically add <code>AM_PROG_LIBTOOL</code> support to your
+<code>configure</code> script.
+</p>
+<hr>
+</div>
+</div>
+<div class="section" id="Distributing">
+<div class="header">
+<p>
+Previous: <a href="#Configuring" accesskey="p" rel="prev">Configuring libtool</a>, Up: <a href="#Integrating-libtool" accesskey="u" rel="up">Integrating libtool with your own packages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Including-libtool-with-your-package"></span><h3 class="section">5.4 Including libtool with your package</h3>
+
+<p>In order to use libtool, you need to include the following files with
+your package:
+</p>
+<dl compact="compact">
+<dt id='index-config_002eguess'><span><samp>config.guess</samp><a href='#index-config_002eguess' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Attempt to guess a canonical system name.
+</p>
+</dd>
+<dt id='index-config_002esub'><span><samp>config.sub</samp><a href='#index-config_002esub' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Canonical system name validation subroutine script.
+</p>
+</dd>
+<dt><span><samp>ltconfig</samp></span></dt>
+<dd><p>Generate a libtool script for a given system.
+</p>
+</dd>
+<dt id='index-ltmain_002esh'><span><samp>ltmain.sh</samp><a href='#index-ltmain_002esh' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>A generic script implementing basic libtool functionality.
+</p></dd>
+</dl>
+
+<p>Note that the libtool script itself should <em>not</em> be included with
+your package.  See <a href="#Configuring">Configuring libtool</a>.
+</p>
+<p>You should use the <code>libtoolize</code> program, rather than manually
+copying these files into your package.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Invoking-libtoolize" accesskey="1">Invoking <code>libtoolize</code></a></li>
+<li><a href="#Autoconf-_002eo-macros" accesskey="2">Autoconf &lsquo;<samp>.o</samp>&rsquo; macros</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Invoking-libtoolize">
+<div class="header">
+<p>
+Next: <a href="#Autoconf-_002eo-macros" accesskey="n" rel="next">Autoconf &lsquo;<samp>.o</samp>&rsquo; macros</a>, Up: <a href="#Distributing" accesskey="u" rel="up">Including libtool with your package</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Invoking-libtoolize-1"></span><h4 class="subsection">5.4.1 Invoking <code>libtoolize</code></h4>
+<span id="index-libtoolize"></span>
+<span id="index-libtoolize-command-options"></span>
+<span id="index-Command-options_002c-libtoolize"></span>
+<span id="index-Options_002c-libtoolize-command"></span>
+
+<p>The <code>libtoolize</code> program provides a standard way to add libtool
+support to your package.  In the future, it may implement better usage
+checking, or other features to make libtool even easier to use.
+</p>
+<p>The <code>libtoolize</code> program has the following synopsis:
+</p>
+<div class="example">
+<pre class="example">libtoolize [<var>option</var>]&hellip;
+</pre></div>
+
+<p>and accepts the following options:
+</p>
+<dl compact="compact">
+<dt><span>&lsquo;<samp>--automake</samp>&rsquo;</span></dt>
+<dd><p>Work silently, and assume that Automake libtool support is used.
+</p>
+<p>&lsquo;<samp>libtoolize --automake</samp>&rsquo; is used by Automake to add libtool files to
+your package, when &lsquo;<samp>AM_PROG_LIBTOOL</samp>&rsquo; appears in your
+<samp>configure.in</samp>.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--copy</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>-c</samp>&rsquo;</span></dt>
+<dd><p>Copy files from the libtool data directory rather than creating
+symlinks.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--dry-run</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>-n</samp>&rsquo;</span></dt>
+<dd><p>Don&rsquo;t run any commands that modify the file system, just print them
+out.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--force</samp>&rsquo;</span></dt>
+<dt><span>&lsquo;<samp>-f</samp>&rsquo;</span></dt>
+<dd><p>Replace existing libtool files.  By default, <code>libtoolize</code> won&rsquo;t
+overwrite existing files.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--help</samp>&rsquo;</span></dt>
+<dd><p>Display a help message and exit.
+</p>
+</dd>
+<dt><span>&lsquo;<samp>--version</samp>&rsquo;</span></dt>
+<dd><p>Print <code>libtoolize</code> version information and exit.
+</p></dd>
+</dl>
+
+<span id="index-AC_005fCONFIG_005fAUX_005fDIR"></span>
+<p>If <code>libtoolize</code> detects an explicit call to
+<code>AC_CONFIG_AUX_DIR</code> (see <a data-manual="autoconf" href="https://www.gnu.org/software/autoconf/manual/autoconf.html#Input">The Autoconf Manual</a> in <cite>The Autoconf Manual</cite>) in your <samp>configure.in</samp>, it
+will put the files in the specified directory.
+</p>
+<p><code>libtoolize</code> displays hints for adding libtool support to your
+package, as well.
+</p>
+<hr>
+</div>
+<div class="subsection" id="Autoconf-_002eo-macros">
+<div class="header">
+<p>
+Previous: <a href="#Invoking-libtoolize" accesskey="p" rel="prev">Invoking <code>libtoolize</code></a>, Up: <a href="#Distributing" accesskey="u" rel="up">Including libtool with your package</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Autoconf-_002eo-macros-1"></span><h4 class="subsection">5.4.2 Autoconf &lsquo;<samp>.o</samp>&rsquo; macros</h4>
+
+<p>The Autoconf package comes with a few macros that run tests, then set a
+variable corresponding to the name of an object file.  Sometimes it is
+necessary to use corresponding names for libtool objects.
+</p>
+<p>Here are the names of variables that list libtool objects:
+</p>
+<dl class="def">
+<dt id="index-LTALLOCA"><span class="category">Variable: </span><span><strong>LTALLOCA</strong><a href='#index-LTALLOCA' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-AC_005fFUNC_005fALLOCA"></span>
+<p>Substituted by <code>AC_FUNC_ALLOCA</code> (see <a data-manual="autoconf" href="https://www.gnu.org/software/autoconf/manual/autoconf.html#Particular-Functions">The Autoconf Manual</a> in <cite>The Autoconf
+Manual</cite>).  Is either empty, or contains &lsquo;<samp>alloca.lo</samp>&rsquo;.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-LTLIBOBJS"><span class="category">Variable: </span><span><strong>LTLIBOBJS</strong><a href='#index-LTLIBOBJS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-AC_005fREPLACE_005fFUNCS"></span>
+<p>Substituted by <code>AC_REPLACE_FUNCS</code> (see <a data-manual="autoconf" href="https://www.gnu.org/software/autoconf/manual/autoconf.html#Generic-Functions">The Autoconf Manual</a> in <cite>The Autoconf
+Manual</cite>), and a few other functions.
+</p></dd></dl>
+
+<p>Unfortunately, the most recent version of Autoconf (2.12, at the time of
+this writing) does not have any way for libtool to provide support for
+these variables.  So, if you depend on them, use the following code
+immediately before the call to <code>AC_OUTPUT</code> in your
+<samp>configure.in</samp>:
+</p>
+<div class="example">
+<pre class="example">LTLIBOBJS=`echo &quot;$LIBOBJS&quot; | sed 's/\.o/.lo/g'`
+AC_SUBST(LTLIBOBJS)
+LTALLOCA=`echo &quot;$ALLOCA&quot; | sed 's/\.o/.lo/g'`
+AC_SUBST(LTALLOCA)
+AC_OUTPUT(&hellip;)
+</pre></div>
+
+<hr>
+</div>
+</div>
+</div>
+<div class="chapter" id="Versioning">
+<div class="header">
+<p>
+Next: <a href="#Library-tips" accesskey="n" rel="next">Tips for interface design</a>, Previous: <a href="#Integrating-libtool" accesskey="p" rel="prev">Integrating libtool with your own packages</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Library-interface-versions"></span><h2 class="chapter">6 Library interface versions</h2>
+<span id="index-Dynamic-dependencies"></span>
+<span id="index-Dependency-versioning"></span>
+<span id="index-Shared-library-versions"></span>
+
+<p>The most difficult issue introduced by shared libraries is that of
+creating and resolving runtime dependencies.  Dependencies on programs
+and libraries are often described in terms of a single name, such as
+<code>sed</code>.  So, I may say &ldquo;libtool depends on sed,&rdquo; and that is good
+enough for most purposes.
+</p>
+<p>However, when an interface changes regularly, we need to be more
+specific: &ldquo;Gnus 5.1 requires Emacs 19.28 or above.&rdquo;  Here, the
+description of an interface consists of a name, and a &ldquo;version
+number.&rdquo;
+</p>
+<p>Even that sort of description is not accurate enough for some purposes.
+What if Emacs 20 changes enough to break Gnus 5.1?
+</p>
+<p>The same problem exists in shared libraries: we require a formal version
+system to describe the sorts of dependencies that programs have on
+shared libraries, so that the dynamic linker can guarantee that programs
+are linked only against libraries that provide the interface they
+require.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Interfaces" accesskey="1">What are library interfaces?</a></li>
+<li><a href="#Libtool-versioning" accesskey="2">Libtool&rsquo;s versioning system</a></li>
+<li><a href="#Updating-version-info" accesskey="3">Updating library version information</a></li>
+</ul>
+<hr>
+<div class="section" id="Interfaces">
+<div class="header">
+<p>
+Next: <a href="#Libtool-versioning" accesskey="n" rel="next">Libtool&rsquo;s versioning system</a>, Up: <a href="#Versioning" accesskey="u" rel="up">Library interface versions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="What-are-library-interfaces_003f"></span><h3 class="section">6.1 What are library interfaces?</h3>
+<span id="index-Library-interfaces"></span>
+
+<p>Interfaces for libraries may be any of the following (and more):
+</p>
+<ul>
+<li> global variables: both names and types
+
+</li><li> global functions: argument types and number, return types, and function names
+
+</li><li> standard input, standard output, standard error, and file formats
+
+</li><li> sockets, pipes, and other inter-process communication protocol formats
+</li></ul>
+
+<p>Note that static functions do not count as interfaces, because they are
+not directly available to the user of the library.
+</p>
+<hr>
+</div>
+<div class="section" id="Libtool-versioning">
+<div class="header">
+<p>
+Next: <a href="#Updating-version-info" accesskey="n" rel="next">Updating library version information</a>, Previous: <a href="#Interfaces" accesskey="p" rel="prev">What are library interfaces?</a>, Up: <a href="#Versioning" accesskey="u" rel="up">Library interface versions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Libtool_0027s-versioning-system"></span><h3 class="section">6.2 Libtool&rsquo;s versioning system</h3>
+<span id="index-Libtool-library-versions"></span>
+<span id="index-Formal-versioning"></span>
+<span id="index-Versioning_002c-formal"></span>
+
+<p>Libtool has its own formal versioning system.  It is not as flexible as
+some, but it is definitely the simplest of the more powerful versioning
+systems.
+</p>
+<p>Think of a library as exporting several sets of interfaces, arbitrarily
+represented by integers.  When a program is linked against a library, it
+may use any subset of those interfaces.
+</p>
+<p>Libtool&rsquo;s description of the interfaces that a program uses is very
+simple: it encodes the least and the greatest interface numbers in the
+resulting binary (<var>first-interface</var>, <var>last-interface</var>).
+</p>
+<p>Then, the dynamic linker is guaranteed that if a library supports
+<em>every</em> interface number between <var>first-interface</var> and
+<var>last-interface</var>, then the program can be relinked against that
+library.
+</p>
+<p>Note that this can cause problems because libtool&rsquo;s compatibility
+requirements are actually stricter than is necessary.
+</p>
+<p>Say <samp>libhello</samp> supports interfaces 5, 16, 17, 18, and 19, and that
+libtool is used to link <samp>test</samp> against <samp>libhello</samp>.
+</p>
+<p>Libtool encodes the numbers 5 and 19 in <samp>test</samp>, and the dynamic
+linker will only link <samp>test</samp> against libraries that support
+<em>every</em> interface between 5 and 19.  So, the dynamic linker refuses
+to link <samp>test</samp> against <samp>libhello</samp>!
+</p>
+<p>In order to eliminate this problem, libtool only allows libraries to
+declare consecutive interface numbers.  So, <samp>libhello</samp> can declare at
+most that it supports interfaces 16 through 19.  Then, the dynamic
+linker will link <samp>test</samp> against <samp>libhello</samp>.
+</p>
+<p>So, libtool library versions are described by three integers:
+</p>
+<dl compact="compact">
+<dt><span><var>current</var></span></dt>
+<dd><p>The most recent interface number that this library implements.
+</p>
+</dd>
+<dt><span><var>age</var></span></dt>
+<dd><p>The difference between the oldest and newest interfaces that this
+library implements.  In other words, the library implements all the
+interface numbers in the range from number <code><var>current</var> -
+<var>age</var></code> to <code><var>current</var></code>.
+</p>
+</dd>
+<dt><span><var>revision</var></span></dt>
+<dd><p>The implementation number of the <var>current</var> interface.
+</p></dd>
+</dl>
+
+<p>If two libraries have identical <var>current</var> and <var>age</var> numbers,
+then the dynamic linker chooses the library with the greater
+<var>revision</var> number.
+</p>
+<hr>
+</div>
+<div class="section" id="Updating-version-info">
+<div class="header">
+<p>
+Previous: <a href="#Libtool-versioning" accesskey="p" rel="prev">Libtool&rsquo;s versioning system</a>, Up: <a href="#Versioning" accesskey="u" rel="up">Library interface versions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Updating-library-version-information"></span><h3 class="section">6.3 Updating library version information</h3>
+
+<p>If you want to use libtool&rsquo;s versioning system, then you must specify
+the version information to libtool using the &lsquo;<samp>-version-info</samp>&rsquo; flag
+during link mode (see <a href="#Link-mode">Link mode</a>).
+</p>
+<p>This flag accepts an argument of the form
+&lsquo;<samp><var>current</var>[:<var>revision</var>[:<var>age</var>]]</samp>&rsquo;.  So, passing
+&lsquo;<samp>-version-info 3:12:1</samp>&rsquo; sets <var>current</var> to 3, <var>revision</var> to
+12, and <var>age</var> to 1.
+</p>
+<p>If either <var>age</var> or <var>revision</var> are omitted, they default to 0.
+Also note that <var>age</var> must be less than or equal to the <var>current</var>
+interface number.
+</p>
+<p>Here are a set of rules to help you update your library version
+information:
+</p>
+<ol>
+<li> Start with version information of &lsquo;<samp>0:0:0</samp>&rsquo; for each libtool library.
+
+</li><li> Update the version information only immediately before a public release
+of your software.  More frequent updates are unnecessary, and only
+guarantee that the current interface number gets larger faster.
+
+</li><li> If the library source code has changed at all since the last update,
+then increment <var>revision</var> (&lsquo;<samp><var>c</var>:<var>r</var>:<var>a</var></samp>&rsquo; becomes
+&lsquo;<samp><var>c</var>:<var>r+1</var>:<var>a</var></samp>&rsquo;).
+
+</li><li> If any interfaces have been added, removed, or changed since the last
+update, increment <var>current</var>, and set <var>revision</var> to 0.
+
+</li><li> If any interfaces have been added since the last public release, then
+increment <var>age</var>.
+
+</li><li> If any interfaces have been removed since the last public release, then
+set <var>age</var> to 0.
+</li></ol>
+
+<p><strong><em>Never</em></strong> try to set library version numbers so that they
+correspond to the release number of your package.  This is an abuse that
+only fosters misunderstanding of the purpose of library versions.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Library-tips">
+<div class="header">
+<p>
+Next: <a href="#Inter_002dlibrary-dependencies" accesskey="n" rel="next">Inter-library dependencies</a>, Previous: <a href="#Versioning" accesskey="p" rel="prev">Library interface versions</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Tips-for-interface-design"></span><h2 class="chapter">7 Tips for interface design</h2>
+<span id="index-Library-interfaces_002c-design"></span>
+<span id="index-Design-of-library-interfaces"></span>
+
+<p>Writing a good library interface takes a lot of practice and thorough
+understanding of the problem that the library is intended to solve.
+</p>
+<p>If you design a good interface, it won&rsquo;t have to change often, you won&rsquo;t
+have to keep updating documentation, and users won&rsquo;t have to keep
+relearning how to use the library.
+</p>
+<p>Here is a brief list of tips for library interface design, which may
+help you in your exploits:
+</p>
+<dl compact="compact">
+<dt><span>Plan ahead</span></dt>
+<dd><p>Try to make every interface truly minimal, so that you won&rsquo;t need to
+delete entry points very often.
+</p>
+</dd>
+<dt id='index-Renaming-interface-functions'><span>Avoid interface changes<a href='#index-Renaming-interface-functions' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Some people love redesigning and changing entry points just for the heck
+of it (note: <em>renaming</em> a function is considered changing an entry
+point).  Don&rsquo;t be one of those people.  If you must redesign an
+interface, then try to leave compatibility functions behind so that
+users don&rsquo;t need to rewrite their existing code.
+</p>
+</dd>
+<dt id='index-Opaque-data-types'><span>Use opaque data types<a href='#index-Opaque-data-types' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The fewer data type definitions a library user has access to, the
+better.  If possible, design your functions to accept a generic pointer
+(which you can cast to an internal data type), and provide access
+functions rather than allowing the library user to directly manipulate
+the data.
+That way, you have the freedom to change the data structures without
+changing the interface.
+</p>
+<p>This is essentially the same thing as using abstract data types and
+inheritance in an object-oriented system.
+</p>
+</dd>
+<dt id='index-Header-files'><span>Use header files<a href='#index-Header-files' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>If you are careful to document each of your library&rsquo;s global functions
+and variables in header files, and include them in your library source
+files, then the compiler will let you know if you make any interface
+changes by accident (see <a href="#C-header-files">Writing C header files</a>).
+</p>
+</dd>
+<dt id='index-Global-functions'><span>Use the <code>static</code> keyword (or equivalent) whenever possible<a href='#index-Global-functions' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The fewer global functions your library has, the more flexibility you&rsquo;ll
+have in changing them.  Static functions and variables may change forms
+as often as you like&hellip; your users cannot access them, so they
+aren&rsquo;t interface changes.
+</p></dd>
+</dl>
+
+
+<ul class="section-toc">
+<li><a href="#C-header-files" accesskey="1">Writing C header files</a></li>
+</ul>
+<hr>
+<div class="section" id="C-header-files">
+<div class="header">
+<p>
+Up: <a href="#Library-tips" accesskey="u" rel="up">Tips for interface design</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Writing-C-header-files"></span><h3 class="section">7.1 Writing C header files</h3>
+<span id="index-Portable-C-headers"></span>
+<span id="index-C-header-files_002c-portable"></span>
+<span id="index-Include-files_002c-portable"></span>
+
+<p>Writing portable C header files can be difficult, since they may be read
+by different types of compilers:
+</p>
+<dl compact="compact">
+<dt><span>C++ compilers</span></dt>
+<dd><p>C++ compilers require that functions be declared with full prototypes,
+since C++ is more strongly typed than C.  C functions and variables also
+need to be declared with the <code>extern &quot;C&quot;</code> directive, so that the
+names aren&rsquo;t mangled.  See <a href="#C_002b_002b-libraries">Writing libraries for C++</a>, for other issues relevant
+to using C++ with libtool.
+</p>
+</dd>
+<dt><span>ANSI C compilers</span></dt>
+<dd><p>ANSI C compilers are not as strict as C++ compilers, but functions
+should be prototyped to avoid unnecessary warnings when the header file
+is <code>#include</code>d.
+</p>
+</dd>
+<dt><span>non-ANSI C compilers</span></dt>
+<dd><p>Non-ANSI compilers will report errors if functions are prototyped.
+</p></dd>
+</dl>
+
+<p>These complications mean that your library interface headers must use
+some C preprocessor magic in order to be usable by each of the above
+compilers.
+</p>
+<p><samp>foo.h</samp> in the <samp>demo</samp> subdirectory of the libtool distribution
+serves as an example for how to write a header file that can be
+safely installed in a system directory.
+</p>
+<p>Here are the relevant portions of that file:
+</p>
+<div class="example">
+<pre class="example">/* __BEGIN_DECLS should be used at the beginning of your declarations,
+   so that C++ compilers don't mangle their names.  Use __END_DECLS at
+   the end of C declarations. */
+#undef __BEGIN_DECLS
+#undef __END_DECLS
+#ifdef __cplusplus
+# define __BEGIN_DECLS extern &quot;C&quot; {
+# define __END_DECLS }
+#else
+# define __BEGIN_DECLS /* empty */
+# define __END_DECLS /* empty */
+#endif
+
+/* __P is a macro used to wrap function prototypes, so that compilers
+   that don't understand ANSI C prototypes still work, and ANSI C
+   compilers can issue warnings about type mismatches. */
+#undef __P
+#if defined (__STDC__) || defined (_AIX) \
+        || (defined (__mips) &amp;&amp; defined (_SYSTYPE_SVR4)) \
+        || defined(WIN32) || defined(__cplusplus)
+# define __P(protos) protos
+#else
+# define __P(protos) ()
+#endif
+</pre></div>
+
+<p>These macros are used in <samp>foo.h</samp> as follows:
+</p>
+<div class="example">
+<pre class="example">#ifndef _FOO_H_
+#define _FOO_H_ 1
+
+/* The above macro definitions. */
+&hellip;
+
+__BEGIN_DECLS
+int foo __P((void));
+int hello __P((void));
+__END_DECLS
+
+#endif /* !_FOO_H_ */
+</pre></div>
+
+<p>Note that the <samp>#ifndef _FOO_H_</samp> prevents the body of <samp>foo.h</samp>
+from being read more than once in a given compilation.
+</p>
+<p>Feel free to copy the definitions of <code>__P</code>, <code>__BEGIN_DECLS</code>,
+and <code>__END_DECLS</code> into your own headers.  Then, you may use them to
+create header files that are valid for C++, ANSI, and non-ANSI
+compilers.
+</p>
+<p>Do not be naive about writing portable code.  Following the tips given
+above will help you miss the most obvious problems, but there are
+definitely other subtle portability issues.  You may need to cope with
+some of the following issues:
+</p>
+<ul>
+<li> Pre-ANSI compilers do not always support the <code>void *</code> generic
+pointer type, and so need to use <code>char *</code> in its place.
+
+</li><li> The <code>const</code> and <code>signed</code> keywords are not supported by some
+compilers, especially pre-ANSI compilers.
+
+</li><li> The <code>long double</code> type is not supported by many compilers.
+</li></ul>
+
+<hr>
+</div>
+</div>
+<div class="chapter" id="Inter_002dlibrary-dependencies">
+<div class="header">
+<p>
+Next: <a href="#Dlopened-modules" accesskey="n" rel="next">Dlopened modules</a>, Previous: <a href="#Library-tips" accesskey="p" rel="prev">Tips for interface design</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Inter_002dlibrary-dependencies-1"></span><h2 class="chapter">8 Inter-library dependencies</h2>
+<span id="index-Dependencies-between-libraries"></span>
+<span id="index-Inter_002dlibrary-dependencies"></span>
+
+<p>By definition, every shared library system provides a way for
+executables to depend on libraries, so that symbol resolution is
+deferred until runtime.
+</p>
+<p>An <em>inter-library dependency</em> is one in which a library depends on
+other libraries.  For example, if the libtool library <samp>libhello</samp>
+uses the <code>cos(3)</code> function, then it has an inter-library dependency
+on <samp>libm</samp>, the math library that implements <code>cos(3)</code>.
+</p>
+<p>Some shared library systems provide this feature in an
+internally-consistent way: these systems allow chains of dependencies of
+potentially infinite length.
+</p>
+<p>However, most shared library systems are restricted in that they only
+allow a single level of dependencies.  In these systems, programs may
+depend on shared libraries, but shared libraries may not depend on other
+shared libraries.
+</p>
+<p>In any event, libtool provides a simple mechanism for you to declare
+inter-library dependencies: for every library <samp>lib<var>name</var></samp> that
+your own library depends on, simply add a corresponding
+<code>-l<var>name</var></code> option to the link line when you create your
+library.<a id="DOCF5" href="#FOOT5"><sup>5</sup></a>  To make an example of our
+<samp>libhello</samp> that depends on <samp>libm</samp>:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -g -O -o libhello.la foo.lo hello.lo \
+                -rpath /usr/local/lib -lm</kbd>
+burger$
+</pre></div>
+
+<p>In order to link a program against <samp>libhello</samp>, you need to specify
+the same &lsquo;<samp>-l</samp>&rsquo; options, in order to guarantee that all the required
+libraries are found.  This restriction is only necessary to preserve
+compatibility with static library systems and simple dynamic library
+systems.
+</p>
+<p>If your library depends on symbols that are defined in executables or
+static libraries, then you cannot express the dependency with a
+&lsquo;<samp>-l<var>name</var></samp>&rsquo; flag,<a id="DOCF6" href="#FOOT6"><sup>6</sup></a> so you need to use the
+&lsquo;<samp>-allow-undefined</samp>&rsquo; link flag (see <a href="#Link-mode">Link mode</a>).
+</p>
+<hr>
+</div>
+<div class="chapter" id="Dlopened-modules">
+<div class="header">
+<p>
+Next: <a href="#Other-languages" accesskey="n" rel="next">Using libtool with other languages</a>, Previous: <a href="#Inter_002dlibrary-dependencies" accesskey="p" rel="prev">Inter-library dependencies</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Dlopened-modules-1"></span><h2 class="chapter">9 Dlopened modules</h2>
+<span id="index-dlopen_00283_0029"></span>
+<span id="index-dlsym_00283_0029"></span>
+<span id="index-dlclose_00283_0029"></span>
+<span id="index-shl_005fload_00283_0029"></span>
+<span id="index-Dynamic-linking_002c-applications"></span>
+<span id="index-dlopening-modules"></span>
+<span id="index-Modules_002c-dynamic"></span>
+<span id="index-Application_002dlevel-dynamic-linking"></span>
+
+<p>It can sometimes be confusing to discuss <em>dynamic linking</em>, because
+the term is used to refer to two different concepts:
+</p>
+<ol>
+<li> Compiling and linking a program against a shared library, which is
+resolved automatically at run time by the dynamic linker.  In this
+process, dynamic linking is transparent to the application.
+
+</li><li> The application calling functions such as
+<code>dlopen(3)</code>,<a id="DOCF7" href="#FOOT7"><sup>7</sup></a> which load arbitrary, user-specified modules at
+runtime.  This type of dynamic linking is explicitly controlled by the
+application.
+</li></ol>
+
+<p>To mitigate confusion, this manual refers to the second type of dynamic
+linking as <em>dlopening</em> a module.
+</p>
+<p>The main benefit to dlopening object modules is the ability to access
+compiled object code to extend your program, rather than using an
+interpreted language.  In fact, dlopen calls are frequently used in
+language interpreters to provide an efficient way to extend the
+language.
+</p>
+<p>On most operating systems, dlopened modules must be compiled as PIC.
+This restriction simplifies the implementation of the <code>dlopen(3)</code>
+family of functions by avoiding symbol relocation.  &ldquo;True&rdquo; dlopen
+implementations, such as the unportable GNU DLD 3 implementation
+(see <a data-manual="dld" href="dld.html#Top">Introduction</a> in <cite>The DLD Manual</cite>), don&rsquo;t have this
+restriction, as they can perform relocation at runtime.
+</p>
+<p>As of version 1.0, libtool provides only minimal support for
+dlopened modules, and this support is guaranteed to change and be
+redesigned in the near future.  Because there is not a very high
+proportion of applications that use dlopening, adding this support to
+libtool was not deemed a priority for the 1.0 release.
+</p>
+<p>This chapter discusses the preliminary support that libtool offers, and
+how you as a dlopen application developer might use libtool to generate
+dlopen-accessible modules.  It is important to remember that these are
+experimental features, and not to rely on them for easy answers to the
+problems associated with dlopened modules.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Exporting-dynamic-symbols" accesskey="1">Exporting dynamic symbols</a></li>
+<li><a href="#Finding-the-dlname" accesskey="2">Finding the correct name to dlopen</a></li>
+<li><a href="#Dlopen-issues" accesskey="3">Unresolved dlopen issues</a></li>
+</ul>
+<hr>
+<div class="section" id="Exporting-dynamic-symbols">
+<div class="header">
+<p>
+Next: <a href="#Finding-the-dlname" accesskey="n" rel="next">Finding the correct name to dlopen</a>, Up: <a href="#Dlopened-modules" accesskey="u" rel="up">Dlopened modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Exporting-dynamic-symbols-1"></span><h3 class="section">9.1 Exporting dynamic symbols</h3>
+
+<p>In order for a symbol to be dynamically resolved (typically using the
+<code>dlsym(3)</code> function), it must be specially declared in the object
+module where it is defined.
+</p>
+<p>Libtool provides the &lsquo;<samp>-export-dynamic</samp>&rsquo; link flag (see <a href="#Link-mode">Link mode</a>), which does this declaration.  You need to use this flag if you
+are linking a shared library that will be dlopened.
+</p>
+<p>For example, if we wanted to build a shared library, <samp>libhello</samp>,
+that would later be dlopened by an application, we would add
+&lsquo;<samp>-export-dynamic</samp>&rsquo; to the other link flags:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -export-dynamic -o libhello.la foo.lo \
+                hello.lo -rpath /usr/local/lib -lm</kbd>
+burger$
+</pre></div>
+
+<p>Another situation where you would use &lsquo;<samp>-export-dynamic</samp>&rsquo; is if
+symbols from your <em>executable</em> are needed to satisfy unresolved
+references in a library you want to dlopen.  In this case, you should
+use &lsquo;<samp>-export-dynamic</samp>&rsquo; while linking the executable that calls
+dlopen:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool gcc -export-dynamic -o hell-dlopener main.o</kbd>
+burger$
+</pre></div>
+
+<hr>
+</div>
+<div class="section" id="Finding-the-dlname">
+<div class="header">
+<p>
+Next: <a href="#Dlopen-issues" accesskey="n" rel="next">Unresolved dlopen issues</a>, Previous: <a href="#Exporting-dynamic-symbols" accesskey="p" rel="prev">Exporting dynamic symbols</a>, Up: <a href="#Dlopened-modules" accesskey="u" rel="up">Dlopened modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Finding-the-correct-name-to-dlopen"></span><h3 class="section">9.2 Finding the correct name to dlopen</h3>
+<span id="index-Names-of-dynamic-modules"></span>
+<span id="index-Dynamic-modules_002c-names"></span>
+
+<p>After a library has been linked with &lsquo;<samp>-export-dynamic</samp>&rsquo;, it can be
+dlopened.  Unfortunately, because of the variation in library names,
+your package needs to determine the correct file to dlopen.
+</p>
+<p>Dlname mode (see <a href="#Dlname-mode">Dlname mode</a>) was designed for this purpose.  It
+returns the name that should be given as the first argument to a
+<code>dlopen(3)</code> function call.
+</p>
+<p>For example, on NetBSD 1.2:
+</p>
+<div class="example">
+<pre class="example">burger$ <kbd>libtool --mode=dlname libhello.la</kbd>
+libhello.so.3.12
+burger$
+</pre></div>
+
+<p>The trick is in finding a way to hardcode this name into your program at
+compilation time, so that it opens the correct library.
+</p>
+<p>An alternative implementation that avoids hardcoding is to determine the
+name at runtime, by finding the installed &lsquo;<samp>.la</samp>&rsquo; file, and searching
+it for the following lines:
+</p>
+<div class="example">
+<pre class="example"># The name that we can <code>dlopen(3)</code>.
+dlname='<var>dlname</var>'
+</pre></div>
+
+<p>If <var>dlname</var> is empty, then the library cannot be dlopened.
+Otherwise, it gives the dlname of the library.  So, if the library was
+installed as <samp>/usr/local/lib/libhello.la</samp>, and the <var>dlname</var> was
+<samp>libhello.so.3</samp>, then <samp>/usr/local/lib/libhello.so.3</samp> should be
+dlopened.
+</p>
+<p>If your program uses this approach, then it should search the
+directories listed in the <var>LD_LIBRARY_PATH</var><a id="DOCF8" href="#FOOT8"><sup>8</sup></a> environment variable, as well as
+the directory where libraries will eventually be installed.  Searching
+this variable (or equivalent) will guarantee that your program can find
+its dlopened modules, even before installation, provided you have linked
+them using libtool.
+</p>
+<hr>
+</div>
+<div class="section" id="Dlopen-issues">
+<div class="header">
+<p>
+Previous: <a href="#Finding-the-dlname" accesskey="p" rel="prev">Finding the correct name to dlopen</a>, Up: <a href="#Dlopened-modules" accesskey="u" rel="up">Dlopened modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Unresolved-dlopen-issues"></span><h3 class="section">9.3 Unresolved dlopen issues</h3>
+<span id="index-Pitfalls-with-dlopen"></span>
+<span id="index-Dlopening_002c-pitfalls"></span>
+<span id="index-Trouble-with-dlopen"></span>
+
+<p>The following problems are not solved by using libtool&rsquo;s dlopen support:
+</p>
+<ul>
+<li> Dlopen functions are generally only available on shared library
+platforms.  If you want your package to be portable to static platforms,
+you have to develop your own alternatives to dlopening dynamic code.
+Most reasonable solutions involve writing wrapper functions for the
+<code>dlopen(3)</code> family, which do package-specific tricks when dlopening
+is unsupported or not available on a given platform.
+
+</li><li> There are major differences in implementations of the <code>dlopen(3)</code>
+family of functions.  Some platforms do not even use the same function
+names (notably HP-UX, with its &lsquo;<samp>shl_load(3)</samp>&rsquo; family).
+
+</li><li> It is the burden of the libtool user to find a way to get the results of
+dlname mode (see <a href="#Dlname-mode">Dlname mode</a>) into the call to <code>dlopen(3)</code>.
+</li></ul>
+
+<p>Each of these limitations will be addressed in GNU DLD
+4.<a id="DOCF9" href="#FOOT9"><sup>9</sup></a>
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Other-languages">
+<div class="header">
+<p>
+Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Dlopened-modules" accesskey="p" rel="prev">Dlopened modules</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Using-libtool-with-other-languages"></span><h2 class="chapter">10 Using libtool with other languages</h2>
+<span id="index-C_002c-not-using"></span>
+<span id="index-Languages_002c-non_002dC"></span>
+<span id="index-C_002b_002b_002c-using"></span>
+
+<p>Libtool was first implemented in order to add support for writing shared
+libraries in the C language.  However, over time, libtool is being
+integrated with other languages, so that programmers are free to reap
+the benefits of shared libraries in their favorite programming language.
+</p>
+<p>This chapter describes how libtool interacts with other languages,
+and what special considerations you need to make if you do not use C.
+</p>
+
+<ul class="section-toc">
+<li><a href="#C_002b_002b-libraries" accesskey="1">Writing libraries for C++</a></li>
+</ul>
+<hr>
+<div class="section" id="C_002b_002b-libraries">
+<div class="header">
+<p>
+Up: <a href="#Other-languages" accesskey="u" rel="up">Using libtool with other languages</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Writing-libraries-for-C_002b_002b"></span><h3 class="section">10.1 Writing libraries for C++</h3>
+<span id="index-Trouble-with-C_002b_002b"></span>
+<span id="index-Pitfalls-using-C_002b_002b"></span>
+<span id="index-C_002b_002b_002c-pitfalls"></span>
+
+<p>Creating libraries of C++ code is a fairly straightforward process, and
+differs from C code in only two ways:
+</p>
+<ol>
+<li> Because of name mangling, C++ libraries are only usable by the C++
+compiler that created them.  This decision was made by the designers of
+C++ in order to protect users from conflicting implementations of
+features such as constructors, exception handling, and RTTI.
+
+</li><li> On some systems, notably SunOS 4, the dynamic linker does not call
+non-constant initializers.  This can lead to hard-to-pinpoint bugs in
+your library.  GCC 2.7 and later versions work around this problem, but
+previous versions and other compilers do not.
+</li></ol>
+
+<p>This second issue is very complex.  Basically, you should avoid any
+global or static variable initializations that would cause an
+&ldquo;initializer element is not constant&rdquo; error if you compiled them with
+a standard C compiler.
+</p>
+<p>There are other ways of working around this problem, but they are beyond
+the scope of this manual.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Troubleshooting">
+<div class="header">
+<p>
+Next: <a href="#Maintaining" accesskey="n" rel="next">Maintainance notes for libtool</a>, Previous: <a href="#Other-languages" accesskey="p" rel="prev">Using libtool with other languages</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Troubleshooting-1"></span><h2 class="chapter">11 Troubleshooting</h2>
+<span id="index-Troubleshooting"></span>
+<span id="index-Problems_002c-solving"></span>
+<span id="index-Solving-problems"></span>
+<span id="index-Problems_002c-blaming-somebody-else-for"></span>
+
+<p>Libtool is under constant development, changing to remain up-to-date
+with modern operating systems.  If libtool doesn&rsquo;t work the way you
+think it should on your platform, you should read this chapter to help
+determine what the problem is, and how to resolve it.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Libtool-test-suite" accesskey="1">The libtool test suite</a></li>
+<li><a href="#Reporting-bugs" accesskey="2">Reporting bugs</a></li>
+</ul>
+<hr>
+<div class="section" id="Libtool-test-suite">
+<div class="header">
+<p>
+Next: <a href="#Reporting-bugs" accesskey="n" rel="next">Reporting bugs</a>, Up: <a href="#Troubleshooting" accesskey="u" rel="up">Troubleshooting</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-libtool-test-suite"></span><h3 class="section">11.1 The libtool test suite</h3>
+<span id="index-Test-suite"></span>
+
+<p>Libtool comes with its own set of programs that test its capabilities,
+and report obvious bugs in the libtool program.  These tests, too, are
+constantly evolving, based on past problems with libtool, and known
+deficiencies in other operating systems.
+</p>
+<p>As described in the <samp>INSTALL</samp> file, you may run <kbd>make check</kbd>
+after you have built libtool (possibly before you install it) in order
+to make sure that it meets basic functional requirements.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Test-descriptions" accesskey="1">Description of test suite</a></li>
+<li><a href="#When-tests-fail" accesskey="2">When tests fail</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Test-descriptions">
+<div class="header">
+<p>
+Next: <a href="#When-tests-fail" accesskey="n" rel="next">When tests fail</a>, Up: <a href="#Libtool-test-suite" accesskey="u" rel="up">The libtool test suite</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Description-of-test-suite"></span><h4 class="subsection">11.1.1 Description of test suite</h4>
+
+<p>Here is a list of the current programs in the test suite, and what they
+test for:
+</p>
+<dl compact="compact">
+<dt id='index-demo_002dconf_002etest'><span><code>demo-conf.test</code><a href='#index-demo_002dconf_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dt><span><code>demo-exec.test</code></span></dt>
+<dt><span><code>demo-inst.test</code></span></dt>
+<dt><span><code>demo-make.test</code></span></dt>
+<dt><span><code>demo-unst.test</code></span></dt>
+<dd><span id="index-demo_002dexec_002etest"></span>
+<span id="index-demo_002dinst_002etest"></span>
+<span id="index-demo_002dmake_002etest"></span>
+<span id="index-demo_002dunst_002etest"></span>
+<p>These programs check to see that the <samp>demo</samp> subdirectory of the
+libtool distribution can be configured, built, installed, and
+uninstalled correctly.
+</p>
+<p>The <samp>demo</samp> subdirectory contains a demonstration of a trivial
+package that uses libtool.
+</p>
+</dd>
+<dt id='index-hardcode_002etest'><span><code>hardcode.test</code><a href='#index-hardcode_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>On all systems with shared libraries, the location of the library can be
+encoded in executables that are linked against it see <a href="#Linking-executables">Linking executables</a>.  This test checks the conditions under which your system
+linker hardcodes the library location, and guarantees that they
+correspond to libtool&rsquo;s own notion of how your linker behaves.
+</p>
+</dd>
+<dt id='index-link_002etest'><span><code>link.test</code><a href='#index-link_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This test guarantees that linking directly against a non-libtool static
+library works properly.
+</p>
+</dd>
+<dt id='index-link_002d2_002etest'><span><code>link-2.test</code><a href='#index-link_002d2_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This test makes sure that files ending in &lsquo;<samp>.lo</samp>&rsquo; are never linked
+directly into a program file.
+</p>
+</dd>
+<dt id='index-suffix_002etest'><span><code>suffix.test</code><a href='#index-suffix_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>When other programming languages are used with libtool (see <a href="#Other-languages">Using libtool with other languages</a>), the source files may end in suffixes other than &lsquo;<samp>.c</samp>&rsquo;.
+This test validates that libtool can handle suffixes for all the file
+types that it supports, and that it fails when the suffix is invalid.
+</p>
+</dd>
+<dt id='index-test_002de_002etest'><span><code>test-e.test</code><a href='#index-test_002de_002etest' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This program checks that the <code>test -e</code> construct is <em>never</em>
+used in the libtool scripts.  Checking for the existence of a file can
+only be done in a portable way by using <code>test -f</code>.
+</p></dd>
+</dl>
+
+<hr>
+</div>
+<div class="subsection" id="When-tests-fail">
+<div class="header">
+<p>
+Previous: <a href="#Test-descriptions" accesskey="p" rel="prev">Description of test suite</a>, Up: <a href="#Libtool-test-suite" accesskey="u" rel="up">The libtool test suite</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="When-tests-fail-1"></span><h4 class="subsection">11.1.2 When tests fail</h4>
+<span id="index-Failed-tests"></span>
+<span id="index-Tests_002c-failed"></span>
+
+<p>Each of the above tests are designed to produce no output when they are
+run via <kbd>make check</kbd>.  The exit status of each program tells the
+<samp>Makefile</samp> whether or not the test succeeded.
+</p>
+<p>If a test fails, it means that there is either a programming error in
+libtool, or in the test program itself.
+</p>
+<p>To investigate a particular test, you may run it directly, as you would
+a normal program.  When the test is invoked in this way, it produces
+output which may be useful in determining what the problem is.
+</p>
+<p>Another way to have the test programs produce output is to set the
+<var>VERBOSE</var> environment variable to &lsquo;<samp>yes</samp>&rsquo; before running them.
+For example, <kbd>env VERBOSE=yes make check</kbd> runs all the tests, and
+has each of them display debugging information.
+</p>
+<hr>
+</div>
+</div>
+<div class="section" id="Reporting-bugs">
+<div class="header">
+<p>
+Previous: <a href="#Libtool-test-suite" accesskey="p" rel="prev">The libtool test suite</a>, Up: <a href="#Troubleshooting" accesskey="u" rel="up">Troubleshooting</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Reporting-bugs-1"></span><h3 class="section">11.2 Reporting bugs</h3>
+<span id="index-Bug-reports"></span>
+<span id="index-Reporting-bugs"></span>
+<span id="index-Problem-reports"></span>
+
+<p>If you think you have discovered a bug in libtool, you should think
+twice: the libtool maintainer is notorious for passing the buck (or
+maybe that should be &ldquo;passing the bug&rdquo;).  Libtool was invented to fix
+known deficiencies in shared library implementations, so, in a way, most
+of the bugs in libtool are actually bugs in other operating systems.
+However, the libtool maintainer would definitely be happy to add support
+for somebody else&rsquo;s buggy operating system.  [I wish there was a good
+way to do winking smiley-faces in texinfo.]
+</p>
+<p>Genuine bugs in libtool include problems with shell script portability,
+documentation errors, and failures in the test suite (see <a href="#Libtool-test-suite">The libtool test suite</a>).
+</p>
+<p>First, check the documentation and help screens to make sure that the
+behaviour you think is a problem is not already mentioned as a feature.
+</p>
+<p>Then, you should read the Emacs guide to reporting bugs (see <a data-manual="emacs" href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Bugs">Reporting Bugs</a> in <cite>The Emacs Manual</cite>).  Some of the details
+listed there are specific to Emacs, but the principle behind them is a
+general one.
+</p>
+<p>Finally, send a bug report to the libtool mailing list <code>&lt;bug-libtool@gnu.ai.mit.edu&gt;</code> with any appropriate
+<em>facts</em>, such as test suite output (see <a href="#When-tests-fail">When tests fail</a>), all
+the details needed to reproduce the bug, and a brief description of why
+you think the behaviour is a bug.  Be sure to include the word
+&ldquo;libtool&rdquo; in the subject line, as well as the version number you are
+using (which can be found by typing <kbd>ltconfig --version</kbd>).
+</p>
+<p>Please include the generated <code>libtool</code> script with your bug report,
+so that I can see what values <code>ltconfig</code> guessed for your system.
+</p>
+<hr>
+</div>
+</div>
+<div class="chapter" id="Maintaining">
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Troubleshooting" accesskey="p" rel="prev">Troubleshooting</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Maintainance-notes-for-libtool"></span><h2 class="chapter">12 Maintainance notes for libtool</h2>
+
+<p>This chapter contains information that the libtool maintainer finds
+important.  It will be of no use to you unless you are considering
+porting libtool to new systems, or writing your own libtool.
+</p>
+
+<ul class="section-toc">
+<li><a href="#New-ports" accesskey="1">Porting libtool to new systems</a></li>
+<li><a href="#Tested-platforms" accesskey="2">Tested platforms</a></li>
+<li><a href="#Platform-quirks" accesskey="3">Platform quirks</a></li>
+<li><a href="#libtool-script-contents" accesskey="4"><code>libtool</code> script contents</a></li>
+</ul>
+<hr>
+<div class="section" id="New-ports">
+<div class="header">
+<p>
+Next: <a href="#Tested-platforms" accesskey="n" rel="next">Tested platforms</a>, Up: <a href="#Maintaining" accesskey="u" rel="up">Maintainance notes for libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Porting-libtool-to-new-systems"></span><h3 class="section">12.1 Porting libtool to new systems</h3>
+
+<p>To port libtool to a new system, you&rsquo;ll generally need the following
+information:
+</p>
+<dl compact="compact">
+<dt><span>man pages for <code>ld(1)</code> and <code>cc(1)</code></span></dt>
+<dd><p>These generally describe what flags are used to generate PIC, to create
+shared libraries, and to link against only static libraries.  You may
+need to follow some cross references to find the information that is
+required.
+</p>
+</dd>
+<dt><span>man pages for <code>ld.so(8)</code>, <code>rtld(8)</code>, or equivalent</span></dt>
+<dd><p>These are a valuable resource for understanding how shared libraries are
+loaded on the system.
+</p>
+</dd>
+<dt><span>man page for <code>ldconfig(8)</code>, or equivalent</span></dt>
+<dd><p>This page usually describes how to install shared libraries.
+</p>
+</dd>
+<dt><span>output from <kbd>ls -l /lib /usr/lib</kbd></span></dt>
+<dd><p>This shows the naming convention for shared libraries on the system,
+including which names should be symbolic links.
+</p>
+</dd>
+<dt><span>any additional documentation</span></dt>
+<dd><p>Some systems have special documentation on how to build and install
+shared libraries.
+</p></dd>
+</dl>
+
+<hr>
+</div>
+<div class="section" id="Tested-platforms">
+<div class="header">
+<p>
+Next: <a href="#Platform-quirks" accesskey="n" rel="next">Platform quirks</a>, Previous: <a href="#New-ports" accesskey="p" rel="prev">Porting libtool to new systems</a>, Up: <a href="#Maintaining" accesskey="u" rel="up">Maintainance notes for libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Tested-platforms-1"></span><h3 class="section">12.2 Tested platforms</h3>
+
+<p>This table describes when libtool was last known to be tested on
+platforms where it claims to support shared libraries:
+</p>
+<div class="example">
+<pre class="example">--------------------------------------------------------
+canonical host name          compiler  libtool   results
+                                       release
+--------------------------------------------------------
+alpha-dec-osf3.2             cc        0.8       ok
+alpha-dec-osf3.2             gcc       0.8       ok
+alpha-dec-osf4.0             cc        0.9       ok
+alpha-dec-osf4.0             gcc       0.9       ok
+alpha-unknown-linux          gcc       0.9h      ok
+hppa1.1-hp-hpux9.05          cc        0.8       ok
+hppa1.1-hp-hpux9.05          gcc       0.8       ok
+hppa1.1-hp-hpux10.10         cc        0.9h      ok
+hppa1.1-hp-hpux10.10         gcc       0.9h      ok
+i386-unknown-freebsd2.1.5    gcc       0.5       ok
+i386-unknown-gnu0.0          gcc       0.5       ok
+i386-unknown-netbsd1.2       gcc       0.9g      ok
+i586-pc-linux-gnu1.3.20      gcc       1.0       ok
+i586-pc-linux-gnu2.0.16      gcc       1.0       ok
+mips-sgi-irix5.3             cc        0.8       ok
+mips-sgi-irix5.3             gcc       0.8       ok
+mips-sgi-irix6.2             cc -32    0.9       ok
+mips-sgi-irix6.2             cc -n32   0.9       ok
+mipsel-unknown-openbsd2.1    gcc       1.0       ok
+powerpc-ibm-aix4.1.4.0       xlc       1.0       ok
+powerpc-ibm-aix4.1.4.0       gcc       1.0       ok
+rs6000-ibm-aix3.2.5          xlc       0.9h      ok
+rs6000-ibm-aix3.2.5          gcc       0.9h      ok*
+sparc-sun-linux2.1.23        gcc       0.9h      ok
+sparc-sun-sunos4.1.4         cc        1.0       ok
+sparc-sun-sunos4.1.4         gcc       1.0       ok
+sparc-sun-solaris2.4         cc        0.9       ok
+sparc-sun-solaris2.4         gcc       0.9       ok
+sparc-sun-solaris2.5         cc        0.9       ok
+sparc-sun-solaris2.5         gcc       1.0       ok
+--------------------------------------------------------
+
+* Libtool will not build shared libraries because of a bug in
+GCC 2.7.2.2's collect2 linker program.
+</pre></div>
+
+<hr>
+</div>
+<div class="section" id="Platform-quirks">
+<div class="header">
+<p>
+Next: <a href="#libtool-script-contents" accesskey="n" rel="next"><code>libtool</code> script contents</a>, Previous: <a href="#Tested-platforms" accesskey="p" rel="prev">Tested platforms</a>, Up: <a href="#Maintaining" accesskey="u" rel="up">Maintainance notes for libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Platform-quirks-1"></span><h3 class="section">12.3 Platform quirks</h3>
+
+<p>This section is dedicated to the sanity of the libtool maintainer.  It
+describes the programs that libtool uses, how they vary from system to
+system, and how to test for them.
+</p>
+<p>Because libtool is a shell script, it is <em>very</em> difficult to
+understand just by reading it from top to bottom.  This section helps
+show why libtool does things a certain way.  After reading it, then
+reading the scripts themselves, you should have a better sense of how to
+improve libtool, or write your own.
+</p>
+
+<ul class="section-toc">
+<li><a href="#Compilers" accesskey="1">Compilers</a></li>
+<li><a href="#Reloadable-objects" accesskey="2">Reloadable objects</a></li>
+<li><a href="#Archivers" accesskey="3">Archivers</a></li>
+<li><a href="#Strip" accesskey="4">The <code>strip</code> program</a></li>
+</ul>
+<hr>
+<div class="subsection" id="Compilers">
+<div class="header">
+<p>
+Next: <a href="#Reloadable-objects" accesskey="n" rel="next">Reloadable objects</a>, Up: <a href="#Platform-quirks" accesskey="u" rel="up">Platform quirks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Compilers-1"></span><h4 class="subsection">12.3.1 Compilers</h4>
+
+<p>The only compiler characteristics that affect libtool are the flags
+needed (if any) to generate PIC objects.  In general, if a C compiler
+supports certain PIC flags, then any derivative compilers support the
+same flags.  Until there are some noteworthy exceptions to this rule,
+this section will document only C compilers.
+</p>
+<p>The following C compilers have standard command line options, regardless
+of the platform:
+</p>
+<dl compact="compact">
+<dt><span><code>gcc</code></span></dt>
+<dd>
+<p>This is the GNU C compiler, which is also the system compiler for many
+free operating systems (FreeBSD, GNU/Hurd, Linux/GNU, Lites, NetBSD, and
+OpenBSD, to name a few).
+</p>
+<p>The &lsquo;<samp>-fpic</samp>&rsquo; or &lsquo;<samp>-fPIC</samp>&rsquo; flags can be used to generate
+position-independent code.  &lsquo;<samp>-fPIC</samp>&rsquo; is guaranteed to generate
+working code, but the code is slower on m68k, m88k, and Sparc chips.
+However, using &lsquo;<samp>-fpic</samp>&rsquo; on those chips imposes arbitrary size limits
+on the shared libraries.
+</p></dd>
+</dl>
+
+<p>The rest of this subsection lists compilers by the operating system that
+they are bundled with:
+</p>
+
+<dl compact="compact">
+<dt><span><code>aix3*</code></span></dt>
+<dt><span><code>aix4*</code></span></dt>
+<dd><p>AIX compilers have no PIC flags, since AIX has been ported only to
+PowerPC and RS/6000 chips. <a id="DOCF10" href="#FOOT10"><sup>10</sup></a>
+</p>
+</dd>
+<dt><span><code>hpux10*</code></span></dt>
+<dd><p>Use &lsquo;<samp>+Z</samp>&rsquo; to generate PIC.
+</p>
+</dd>
+<dt><span><code>osf3*</code></span></dt>
+<dd><p>Digital/UNIX 3.x does not have PIC flags, at least not on the PowerPC
+platform.
+</p>
+</dd>
+<dt><span><code>solaris2*</code></span></dt>
+<dd><p>Use &lsquo;<samp>-KPIC</samp>&rsquo; to generate PIC.
+</p>
+</dd>
+<dt><span><code>sunos4*</code></span></dt>
+<dd><p>Use &lsquo;<samp>-PIC</samp>&rsquo; to generate PIC.
+</p></dd>
+</dl>
+
+<hr>
+</div>
+<div class="subsection" id="Reloadable-objects">
+<div class="header">
+<p>
+Next: <a href="#Archivers" accesskey="n" rel="next">Archivers</a>, Previous: <a href="#Compilers" accesskey="p" rel="prev">Compilers</a>, Up: <a href="#Platform-quirks" accesskey="u" rel="up">Platform quirks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Reloadable-objects-1"></span><h4 class="subsection">12.3.2 Reloadable objects</h4>
+
+<p>On all known systems, a reloadable object can be created by running
+<kbd>ld -r -o <var>output</var>.o <var>input1</var>.o <var>input2</var>.o</kbd>.  This
+reloadable object may be treated as exactly equivalent to other
+objects.
+</p>
+<hr>
+</div>
+<div class="subsection" id="Archivers">
+<div class="header">
+<p>
+Next: <a href="#Strip" accesskey="n" rel="next">The <code>strip</code> program</a>, Previous: <a href="#Reloadable-objects" accesskey="p" rel="prev">Reloadable objects</a>, Up: <a href="#Platform-quirks" accesskey="u" rel="up">Platform quirks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Archivers-1"></span><h4 class="subsection">12.3.3 Archivers</h4>
+
+<p>On all known systems, building a static library can be accomplished by
+running <kbd>ar cru lib<var>name</var>.a <var>obj1</var>.o <var>obj2</var>.o &hellip;</kbd>,
+where the &lsquo;<samp>.a</samp>&rsquo; file is the output library, and each &lsquo;<samp>.o</samp>&rsquo; file is an
+object file.
+</p>
+<p>On all known systems, if there is a program named <code>ranlib</code>, then it
+must be used to &ldquo;bless&rdquo; the created library before linking against it,
+with the <kbd>ranlib lib<var>name</var>.a</kbd> command.
+</p>
+<hr>
+</div>
+<div class="subsection" id="Strip">
+<div class="header">
+<p>
+Previous: <a href="#Archivers" accesskey="p" rel="prev">Archivers</a>, Up: <a href="#Platform-quirks" accesskey="u" rel="up">Platform quirks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="The-strip-program"></span><h4 class="subsection">12.3.4 The <code>strip</code> program</h4>
+
+<p>Stripping a library is essentially the same problem as stripping an
+object file.  Only local and debugging symbols must be removed, or else
+linking against a stripped library will fail.
+</p>
+<p>With GNU <code>strip</code>, the &lsquo;<samp>--discard-all</samp>&rsquo; (or equivalent
+&lsquo;<samp>-x</samp>&rsquo;) flag will do the appropriate stripping, for both shared and
+static libraries.
+</p>
+<p>Here is a list of some other operating systems, and what their bundled
+<code>strip</code> programs will do:
+</p>
+
+<dl compact="compact">
+<dt><span><code>netbsd*</code></span></dt>
+<dd><p>The &lsquo;<samp>-x</samp>&rsquo; flag works for shared libraries, but fails with
+&ldquo;Inappropriate file type or format&rdquo; when used on static libraries.
+</p>
+</dd>
+<dt><span><code>hpux10*</code></span></dt>
+<dd><p>HP-UX <code>strip</code> requires the &lsquo;<samp>-r</samp>&rsquo; and &lsquo;<samp>-x</samp>&rsquo; flags in order
+to strip libraries.
+</p></dd>
+</dl>
+
+<hr>
+</div>
+</div>
+<div class="section" id="libtool-script-contents">
+<div class="header">
+<p>
+Previous: <a href="#Platform-quirks" accesskey="p" rel="prev">Platform quirks</a>, Up: <a href="#Maintaining" accesskey="u" rel="up">Maintainance notes for libtool</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="libtool-script-contents-1"></span><h3 class="section">12.4 <code>libtool</code> script contents</h3>
+<span id="index-Implementation-of-libtool"></span>
+<span id="index-libtool-implementation"></span>
+
+<p>The <code>libtool</code> script is generated by <code>ltconfig</code>
+(see <a href="#Configuring">Configuring libtool</a>).  Ever since libtool version 0.7, this script
+simply sets shell variables, then sources the libtool backend,
+<code>ltmain.sh</code>.
+</p>
+<p>Here is a listing of each of these variables, and how they are used
+within <code>ltmain.sh</code>:
+</p>
+<dl class="def">
+<dt id="index-AR"><span class="category">Variable: </span><span><strong>AR</strong><a href='#index-AR' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The name of the system library archiver.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-LD-1"><span class="category">Variable: </span><span><strong>LD</strong><a href='#index-LD-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The name of the linker that libtool should use internally for reloadable
+linking and possibly shared libraries.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-LTCONFIG_005fVERSION"><span class="category">Variable: </span><span><strong>LTCONFIG_VERSION</strong><a href='#index-LTCONFIG_005fVERSION' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This is set to the version number of the <code>ltconfig</code> script, to
+prevent mismatches between the configuration information in
+<code>libtool</code>, and how that information is used in <code>ltmain.sh</code>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-RANLIB-1"><span class="category">Variable: </span><span><strong>RANLIB</strong><a href='#index-RANLIB-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set to the name of the ranlib program, if any.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-allow_005fundefined_005fflag"><span class="category">Variable: </span><span><strong>allow_undefined_flag</strong><a href='#index-allow_005fundefined_005fflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The flag that is used by &lsquo;<samp>archive_cmds</samp>&rsquo; in order to declare that
+there will be unresolved symbols in the resulting shared library.
+Empty, if no such flag is required.  Set to &lsquo;<samp>unsupported</samp>&rsquo; if there
+is no way to generate a shared library with references to symbols that
+aren&rsquo;t defined in that library.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-archive_005fcmds"><span class="category">Variable: </span><span><strong>archive_cmds</strong><a href='#index-archive_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-old_005farchive_005fcmds"><span class="category">Variable: </span><span><strong>old_archive_cmds</strong><a href='#index-old_005farchive_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Commands used to create shared and static libraries, respectively.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-build_005flibtool_005flibs"><span class="category">Variable: </span><span><strong>build_libtool_libs</strong><a href='#index-build_005flibtool_005flibs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Whether libtool should build shared libraries on this system.  Set to
+&lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-build_005fold_005flibs"><span class="category">Variable: </span><span><strong>build_old_libs</strong><a href='#index-build_005fold_005flibs' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Whether libtool should build static libraries on this system.  Set to
+&lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-export_005fdynamic_005fflag"><span class="category">Variable: </span><span><strong>export_dynamic_flag</strong><a href='#index-export_005fdynamic_005fflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Compiler link flag that allows a dlopened shared library to reference
+symbols that are defined in the program.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-finish_005fcmds"><span class="category">Variable: </span><span><strong>finish_cmds</strong><a href='#index-finish_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Commands to tell the dynamic linker how to find shared libraries in a
+specific directory.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005faction"><span class="category">Variable: </span><span><strong>hardcode_action</strong><a href='#index-hardcode_005faction' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Either &lsquo;<samp>immediate</samp>&rsquo; or &lsquo;<samp>relink</samp>&rsquo;, depending on whether shared
+library paths can be hardcoded into executables before they are installed,
+or if they need to be relinked.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005fdirect"><span class="category">Variable: </span><span><strong>hardcode_direct</strong><a href='#index-hardcode_005fdirect' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set to &lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;, depending on whether the linker
+hardcodes directories if a library is directly specified on the command
+line (such as &lsquo;<samp><var>dir</var>/lib<var>name</var>.a</samp>&rsquo;).
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005flibdir_005fflag_005fspec"><span class="category">Variable: </span><span><strong>hardcode_libdir_flag_spec</strong><a href='#index-hardcode_005flibdir_005fflag_005fspec' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Flag to hardcode a <var>libdir</var> variable into a binary, so that the
+dynamic linker searches <var>libdir</var> for shared libraries at runtime.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005flibdir_005fseparator"><span class="category">Variable: </span><span><strong>hardcode_libdir_separator</strong><a href='#index-hardcode_005flibdir_005fseparator' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>If the compiler only accepts a single <var>hardcode_libdir_flag</var>, then
+this variable contains the string that should separate multiple
+arguments to that flag.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005fminus_005fL"><span class="category">Variable: </span><span><strong>hardcode_minus_L</strong><a href='#index-hardcode_005fminus_005fL' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set to &lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;, depending on whether the linker
+hardcodes directories specified by &lsquo;<samp>-L</samp>&rsquo; flags into the resulting
+executable.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005frunpath_005fvar"><span class="category">Variable: </span><span><strong>hardcode_runpath_var</strong><a href='#index-hardcode_005frunpath_005fvar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set to &lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;, depending on whether the linker
+hardcodes directories by writing the contents of &lsquo;<samp>$runpath_var</samp>&rsquo;
+into the resulting executable.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-hardcode_005fshlibpath_005fvar"><span class="category">Variable: </span><span><strong>hardcode_shlibpath_var</strong><a href='#index-hardcode_005fshlibpath_005fvar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set to &lsquo;<samp>yes</samp>&rsquo; or &lsquo;<samp>no</samp>&rsquo;, depending on whether the linker
+hardcodes directories by writing the contents of &lsquo;<samp>$shlibpath_var</samp>&rsquo;
+into the resulting executable.  Set to &lsquo;<samp>unsupported</samp>&rsquo; if directories
+specified by &lsquo;<samp>$shlibpath_var</samp>&rsquo; are searched at run time, but not at
+link time.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-host"><span class="category">Variable: </span><span><strong>host</strong><a href='#index-host' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-host_005falias"><span class="category">Variable: </span><span><strong>host_alias</strong><a href='#index-host_005falias' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>For information purposes, set to the specified and canonical names of
+the system that libtool was configured for.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-library_005fnames_005fspec"><span class="category">Variable: </span><span><strong>library_names_spec</strong><a href='#index-library_005fnames_005fspec' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>A list of shared library names.  The first is the name of the file,
+the rest are symbolic links to the file.  The name in the list is
+the file name that the linker finds when given &lsquo;<samp>-l<var>name</var></samp>&rsquo;.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-link_005fstatic_005fflag"><span class="category">Variable: </span><span><strong>link_static_flag</strong><a href='#index-link_005fstatic_005fflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Linker flag (passed through the C compiler) used to prevent dynamic
+linking.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-pic_005fflag"><span class="category">Variable: </span><span><strong>pic_flag</strong><a href='#index-pic_005fflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Any additional compiler flags for building library object files.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-postinstall_005fcmds"><span class="category">Variable: </span><span><strong>postinstall_cmds</strong><a href='#index-postinstall_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-old_005fpostinstall_005fcmds"><span class="category">Variable: </span><span><strong>old_postinstall_cmds</strong><a href='#index-old_005fpostinstall_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Commands run after installing a shared or static library, respectively.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-reload_005fcmds"><span class="category">Variable: </span><span><strong>reload_cmds</strong><a href='#index-reload_005fcmds' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-reload_005fflag"><span class="category">Variable: </span><span><strong>reload_flag</strong><a href='#index-reload_005fflag' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Commands to create a reloadable object.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-runpath_005fvar"><span class="category">Variable: </span><span><strong>runpath_var</strong><a href='#index-runpath_005fvar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The environment variable that tells the linker which directories to
+hardcode in the resulting executable.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-shlibpath_005fvar"><span class="category">Variable: </span><span><strong>shlibpath_var</strong><a href='#index-shlibpath_005fvar' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The environment variable that tells the dynamic linker where to find
+shared libraries.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-soname_005fspec"><span class="category">Variable: </span><span><strong>soname_spec</strong><a href='#index-soname_005fspec' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The name coded into shared libraries, if different from the real name of
+the file.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-striplib"><span class="category">Variable: </span><span><strong>striplib</strong><a href='#index-striplib' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-old_005fstriplib"><span class="category">Variable: </span><span><strong>old_striplib</strong><a href='#index-old_005fstriplib' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Programs to strip shared and static libraries, respectively.<a id="DOCF11" href="#FOOT11"><sup>11</sup></a>
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-version_005ftype"><span class="category">Variable: </span><span><strong>version_type</strong><a href='#index-version_005ftype' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The library version numbering type.  One of &lsquo;<samp>libtool</samp>&rsquo;,
+&lsquo;<samp>linux</samp>&rsquo;, &lsquo;<samp>osf</samp>&rsquo;, &lsquo;<samp>sunos</samp>&rsquo;, or &lsquo;<samp>none</samp>&rsquo;.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-wl"><span class="category">Variable: </span><span><strong>wl</strong><a href='#index-wl' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The C compiler flag that allows libtool to pass a flag directly to the
+linker.  Used as: &lsquo;<samp>${wl}<var>some-flag</var></samp>&rsquo;.
+</p></dd></dl>
+
+<p>Variables ending in &lsquo;<samp>_cmds</samp>&rsquo; contain a semicolon-separated list of
+commands that are <code>eval</code>ed one after another.  If any of the
+commands return a nonzero exit status, libtool generally exits with an
+error message.
+</p>
+<p>Variables ending in &lsquo;<samp>_spec</samp>&rsquo; are <code>eval</code>ed before being used by
+libtool.
+</p>
+<hr>
+</div>
+</div>
+<div class="unnumbered" id="Index">
+<div class="header">
+<p>
+Previous: <a href="#Maintaining" accesskey="p" rel="prev">Maintainance notes for libtool</a>, Up: <a href="#Top" accesskey="u" rel="up">Shared library support for GNU</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<span id="Index-1"></span><h2 class="unnumbered">Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_symbol-1">.</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002ela-files">&lsquo;<samp>.la</samp>&rsquo; files</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-libraries">Linking libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002elibs-subdirectory"><samp>.libs</samp> subdirectory</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-libraries">Linking libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002elo-files">&lsquo;<samp>.lo</samp>&rsquo; files</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aclocal">aclocal</a>:</td><td>&nbsp;</td><td valign="top"><a href="#AM_005fPROG_005fLIBTOOL">AM_PROG_LIBTOOL</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fCONFIG_005fAUX_005fDIR"><code>AC_CONFIG_AUX_DIR</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtoolize">Invoking libtoolize</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fFUNC_005fALLOCA"><code>AC_FUNC_ALLOCA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autoconf-_002eo-macros">Autoconf .o macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AC_005fREPLACE_005fFUNCS"><code>AC_REPLACE_FUNCS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autoconf-_002eo-macros">Autoconf .o macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-allow_005fundefined_005fflag"><code>allow_undefined_flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AM_005fPROG_005fLIBTOOL"><code>AM_PROG_LIBTOOL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#AM_005fPROG_005fLIBTOOL">AM_PROG_LIBTOOL</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Application_002dlevel-dynamic-linking">Application-level dynamic linking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ar">ar</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-libraries">Linking libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-AR"><code>AR</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-archive_005fcmds"><code>archive_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Bug-reports">Bug reports</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reporting-bugs">Reporting bugs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Buggy-system-linkers">Buggy system linkers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Bugs_002c-subtle-ones-caused-by-buggy-linkers">Bugs, subtle ones caused by buggy linkers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-build_005flibtool_005flibs"><code>build_libtool_libs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-build_005fold_005flibs"><code>build_old_libs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C-header-files_002c-portable">C header files, portable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C-header-files">C header files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002b_002b_002c-pitfalls">C++, pitfalls</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C_002b_002b-libraries">C++ libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002b_002b_002c-using">C++, using</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-languages">Other languages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002c-not-using">C, not using</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-languages">Other languages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CC"><code>CC</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CFLAGS"><code>CFLAGS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Command-options_002c-libtool">Command options, libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtool">Invoking libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Command-options_002c-libtoolize">Command options, libtoolize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtoolize">Invoking libtoolize</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Command-options_002c-ltconfig">Command options, ltconfig</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Compile-mode">Compile mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-mode">Compile mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Compiling-object-files">Compiling object files</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Complexity-of-library-systems">Complexity of library systems</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Postmortem">Postmortem</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002eguess">config.guess</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Distributing">Distributing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-config_002esub">config.sub</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Distributing">Distributing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Configuring-libtool">Configuring libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuring">Configuring</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Convenience-libraries">Convenience libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Static-libraries">Static libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CPPFLAGS"><code>CPPFLAGS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Definition-of-libraries">Definition of libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-paradigm">Libtool paradigm</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demo_002dconf_002etest">demo-conf.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demo_002dexec_002etest">demo-exec.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demo_002dinst_002etest">demo-inst.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demo_002dmake_002etest">demo-make.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demo_002dunst_002etest">demo-unst.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dependencies-between-libraries">Dependencies between libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inter_002dlibrary-dependencies">Inter-library dependencies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dependency-versioning">Dependency versioning</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Versioning">Versioning</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Design-issues">Design issues</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Issues">Issues</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Design-of-library-interfaces">Design of library interfaces</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Design-philosophy">Design philosophy</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivation">Motivation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlclose_00283_0029"><code>dlclose(3)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dlname-mode">Dlname mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlname-mode">Dlname mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlopen_00283_0029"><code>dlopen(3)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlopening-modules">dlopening modules</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dlopening_002c-pitfalls">Dlopening, pitfalls</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopen-issues">Dlopen issues</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlsym_00283_0029"><code>dlsym(3)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dynamic-dependencies">Dynamic dependencies</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Versioning">Versioning</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dynamic-linking_002c-applications">Dynamic linking, applications</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dynamic-modules_002c-names">Dynamic modules, names</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Finding-the-dlname">Finding the dlname</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Examples-of-using-libtool">Examples of using libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-libtool">Using libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-export_005fdynamic_005fflag"><code>export_dynamic_flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Failed-tests">Failed tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#When-tests-fail">When tests fail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Finish-mode">Finish mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Finish-mode">Finish mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-finish_005fcmds"><code>finish_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Formal-versioning">Formal versioning</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-versioning">Libtool versioning</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Global-functions">Global functions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-H">H</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_002etest">hardcode.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005faction"><code>hardcode_action</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005fdirect"><code>hardcode_direct</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005flibdir_005fflag_005fspec"><code>hardcode_libdir_flag_spec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005flibdir_005fseparator"><code>hardcode_libdir_separator</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005fminus_005fL"><code>hardcode_minus_L</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005frunpath_005fvar"><code>hardcode_runpath_var</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-hardcode_005fshlibpath_005fvar"><code>hardcode_shlibpath_var</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Header-files">Header files</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host"><code>host</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-host_005falias"><code>host_alias</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-I">I</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Implementation-of-libtool">Implementation of libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Include-files_002c-portable">Include files, portable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C-header-files">C header files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-install">install</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Install-mode">Install mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install-mode">Install mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Installation_002c-finishing">Installation, finishing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Inter_002dlibrary-dependencies">Inter-library dependencies</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inter_002dlibrary-dependencies">Inter-library dependencies</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-L">L</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Languages_002c-non_002dC">Languages, non-C</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-languages">Other languages</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LD"><code>LD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LD-1"><code>LD</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libraries_002c-definition-of">Libraries, definition of</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-paradigm">Libtool paradigm</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libraries_002c-finishing-installation">Libraries, finishing installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libraries_002c-stripping">Libraries, stripping</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Library-interfaces">Library interfaces</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interfaces">Interfaces</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Library-interfaces_002c-design">Library interfaces, design</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Library-object-file">Library object file</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-library_005fnames_005fspec"><code>library_names_spec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libtool">libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtool">Invoking libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libtool-command-options">libtool command options</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtool">Invoking libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libtool-examples">Libtool examples</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-libtool">Using libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libtool-implementation">libtool implementation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libtool-libraries">Libtool libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-libraries">Linking libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libtool-library-versions">Libtool library versions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-versioning">Libtool versioning</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Libtool-specifications">Libtool specifications</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivation">Motivation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libtoolize">libtoolize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtoolize">Invoking libtoolize</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-libtoolize-command-options">libtoolize command options</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtoolize">Invoking libtoolize</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Link-mode">Link mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002d2_002etest">link-2.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002etest">link.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Linking-against-installed-libraries">Linking against installed libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Linking-against-uninstalled-libraries">Linking against uninstalled libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Linking_002c-partial">Linking, partial</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_005fstatic_005fflag"><code>link_static_flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LTALLOCA"><code>LTALLOCA</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autoconf-_002eo-macros">Autoconf .o macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ltconfig">ltconfig</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ltconfig-command-options">ltconfig command options</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LTCONFIG_005fVERSION"><code>LTCONFIG_VERSION</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LTLIBOBJS"><code>LTLIBOBJS</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autoconf-_002eo-macros">Autoconf .o macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LTLIBRARIES"><code>LTLIBRARIES</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-Automake">Using Automake</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ltmain_002esh">ltmain.sh</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Distributing">Distributing</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-M">M</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile">Makefile</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Makefile-rules">Makefile rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002eam">Makefile.am</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Makefile-rules">Makefile rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Makefile_002ein">Makefile.in</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Makefile-rules">Makefile rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-compile">Mode, compile</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-mode">Compile mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-dlname">Mode, dlname</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlname-mode">Dlname mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-finish">Mode, finish</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Finish-mode">Finish mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-install">Mode, install</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Install-mode">Install mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-link">Mode, link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Mode_002c-uninstall">Mode, uninstall</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Uninstall-mode">Uninstall mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Modules_002c-dynamic">Modules, dynamic</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Motivation-for-writing-libtool">Motivation for writing libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivation">Motivation</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Names-of-dynamic-modules">Names of dynamic modules</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Finding-the-dlname">Finding the dlname</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-O">O</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Object-files_002c-compiling">Object files, compiling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Object-files_002c-library">Object files, library</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-old_005farchive_005fcmds"><code>old_archive_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-old_005fpostinstall_005fcmds"><code>old_postinstall_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-old_005fstriplib"><code>old_striplib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Opaque-data-types">Opaque data types</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Options_002c-libtool-command">Options, libtool command</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtool">Invoking libtool</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Options_002c-libtoolize-command">Options, libtoolize command</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-libtoolize">Invoking libtoolize</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Options_002c-ltconfig-command">Options, ltconfig command</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Other-implementations_002c-flaws-in">Other implementations, flaws in</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Postmortem">Postmortem</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-P">P</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Partial-linking">Partial linking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-PIC-_0028position_002dindependent-code_0029">PIC (position-independent code)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-pic_005fflag"><code>pic_flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Pitfalls-using-C_002b_002b">Pitfalls using C++</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C_002b_002b-libraries">C++ libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Pitfalls-with-dlopen">Pitfalls with dlopen</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopen-issues">Dlopen issues</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Portable-C-headers">Portable C headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C-header-files">C header files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Position_002dindependent-code">Position-independent code</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Creating-object-files">Creating object files</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Postinstallation">Postinstallation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-postinstall_005fcmds"><code>postinstall_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Problem-reports">Problem reports</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reporting-bugs">Reporting bugs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Problems_002c-blaming-somebody-else-for">Problems, blaming somebody else for</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Troubleshooting">Troubleshooting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Problems_002c-solving">Problems, solving</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Troubleshooting">Troubleshooting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Program-wrapper-scripts">Program wrapper scripts</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-R">R</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ranlib">ranlib</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-libraries">Linking libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RANLIB"><code>RANLIB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Invoking-ltconfig">Invoking ltconfig</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-RANLIB-1"><code>RANLIB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reload_005fcmds"><code>reload_cmds</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reload_005fflag"><code>reload_flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Renaming-interface-functions">Renaming interface functions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Library-tips">Library tips</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Reporting-bugs">Reporting bugs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reporting-bugs">Reporting bugs</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Reusability-of-library-systems">Reusability of library systems</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Postmortem">Postmortem</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-runpath_005fvar"><code>runpath_var</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Security-problems-with-buggy-linkers">Security problems with buggy linkers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Shared-library-versions">Shared library versions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Versioning">Versioning</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-shlibpath_005fvar"><code>shlibpath_var</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-shl_005fload_00283_0029"><code>shl_load(3)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopened-modules">Dlopened modules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Solving-problems">Solving problems</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Troubleshooting">Troubleshooting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-soname_005fspec"><code>soname_spec</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Specifications-for-libtool">Specifications for libtool</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivation">Motivation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standalone-binaries">Standalone binaries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Static-libraries">Static libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Static-linking">Static linking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Static-libraries">Static libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-strip">strip</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-striplib"><code>striplib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Stripping-libraries">Stripping libraries</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-su">su</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing-libraries">Installing libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-suffix_002etest">suffix.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Test-suite">Test suite</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-test-suite">Libtool test suite</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-test_002de_002etest">test-e.test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-descriptions">Test descriptions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Tests_002c-failed">Tests, failed</a>:</td><td>&nbsp;</td><td valign="top"><a href="#When-tests-fail">When tests fail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Tricky-design-issues">Tricky design issues</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Issues">Issues</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Trouble-with-C_002b_002b">Trouble with C++</a>:</td><td>&nbsp;</td><td valign="top"><a href="#C_002b_002b-libraries">C++ libraries</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Trouble-with-dlopen">Trouble with dlopen</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Dlopen-issues">Dlopen issues</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Troubleshooting">Troubleshooting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Troubleshooting">Troubleshooting</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-U">U</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Undefined-symbols_002c-allowing">Undefined symbols, allowing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Uninstall-mode">Uninstall mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Uninstall-mode">Uninstall mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Unresolved-symbols_002c-allowing">Unresolved symbols, allowing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Link-mode">Link mode</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-V">V</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Versioning_002c-formal">Versioning, formal</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Libtool-versioning">Libtool versioning</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-version_005ftype"><code>version_type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Index_cp_letter-W">W</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wl"><code>wl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#libtool-script-contents">libtool script contents</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Wrapper-scripts-for-programs">Wrapper scripts for programs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Linking-executables">Linking executables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+
+</div>
+</div>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>Remember that we need to add <kbd>-lm</kbd> to the link
+command line because <samp>foo.c</samp> uses the <code>cos(3)</code> math library
+function.  See <a href="#Using-libtool">Using libtool</a>.</p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p>However, you should never use
+&lsquo;<samp>-L</samp>&rsquo; or &lsquo;<samp>-l</samp>&rsquo; flags to link against an uninstalled libtool
+library.  Just specify the relative path to the &lsquo;<samp>.la</samp>&rsquo; file, such as
+<samp>../intl/libintl.la</samp>.  This is a design decision to eliminate
+any ambiguity when linking against uninstalled shared libraries.</p>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<p>Don&rsquo;t
+accidentally strip the libraries, though, or they will be unusable.</p>
+<h5><a id="FOOT4" href="#DOCF4">(4)</a></h5>
+<p><code>AM_PROG_LIBTOOL</code>
+requires that you define the <samp>Makefile</samp> variable <code>top_builddir</code> in
+your <samp>Makefile.in</samp>.  Automake does this automatically, but Autoconf
+users should set it to the relative path to the top of your build
+directory (<samp>../..</samp>, for example).</p>
+<h5><a id="FOOT5" href="#DOCF5">(5)</a></h5>
+<p>Unfortunately, as of libtool version 1.0,
+there is no way to specify inter-library dependencies on libtool
+libraries that have not yet been installed.</p>
+<h5><a id="FOOT6" href="#DOCF6">(6)</a></h5>
+<p>For static libraries, you
+<em>could</em> use a &lsquo;<samp>-l</samp>&rsquo; flag, but it would cause conflicts
+on systems which have non-PIC objects.</p>
+<h5><a id="FOOT7" href="#DOCF7">(7)</a></h5>
+<p>HP-UX, to be different, uses a function named
+<code>shl_load(3)</code>.</p>
+<h5><a id="FOOT8" href="#DOCF8">(8)</a></h5>
+<p><var>LIBPATH</var>
+on AIX, and <var>SHLIB_PATH</var> on HP-UX.</p>
+<h5><a id="FOOT9" href="#DOCF9">(9)</a></h5>
+<p>Unfortunately, the DLD maintainer is also the libtool
+maintainer, so time spent on one of these projects takes time away from
+the other.  When libtool is reasonably stable, DLD 4 development will
+proceed.</p>
+<h5><a id="FOOT10" href="#DOCF10">(10)</a></h5>
+<p>All code compiled for the PowerPC
+and RS/6000 chips (<code>powerpc-*-*</code>, <code>powerpcle-*-*</code>, and
+<code>rs6000-*-*</code>) is position-independent, regardless of the operating
+system or compiler suite.  So, &ldquo;regular objects&rdquo; can be used to build
+shared libraries on these systems and no special PIC compiler flags are
+required.</p>
+<h5><a id="FOOT11" href="#DOCF11">(11)</a></h5>
+<p>In
+the current implementation, libtool does not use any programs to strip
+libraries.  Support will be added after it is clear how to write a
+portable test for library stripping programs.</p>
+</div>
+
+
+
+</body>
+</html>
