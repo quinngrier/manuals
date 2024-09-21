@@ -37,8 +37,8 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">make &minus; GNU
-make utility to maintain groups of programs</p>
+<p style="margin-left:9%; margin-top: 1em">make - GNU make
+utility to maintain groups of programs</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -91,9 +91,9 @@ the commands recorded in the makefile.</p>
 <p style="margin-left:9%; margin-top: 1em"><b>make</b>
 executes commands in the <i>makefile</i> to update one or
 more <i>targets</i>, where <i>target</i> is typically a
-program. If no <b>&minus;f</b> option is present,
-<b>make</b> will look for the makefiles <i>GNUmakefile</i>,
-<i>makefile</i>, and <i>Makefile</i>, in that order.</p>
+program. If no <b>-f</b> option is present, <b>make</b> will
+look for the makefiles <i>GNUmakefile</i>, <i>makefile</i>,
+and <i>Makefile</i>, in that order.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Normally you
 should call your makefile either <i>makefile</i> or
@@ -104,8 +104,8 @@ listing, right near other important files such as
 is not recommended for most makefiles. You should use this
 name if you have a makefile that is specific to GNU
 <b>make</b>, and will not be understood by other versions of
-<b>make</b>. If <i>makefile</i> is &rsquo;&minus;&rsquo;,
-the standard input is read.</p>
+<b>make</b>. If <i>makefile</i> is &rsquo;-&rsquo;, the
+standard input is read.</p>
 
 <p style="margin-left:9%; margin-top: 1em"><b>make</b>
 updates a target if it depends on prerequisite files that
@@ -117,28 +117,27 @@ the target does not exist.</p>
 </h2>
 
 
-
-<p style="margin-left:9%; margin-top: 1em"><b>&minus;b</b>,
-<b>&minus;m</b></p>
+<p style="margin-left:9%; margin-top: 1em"><b>-b</b>,
+<b>-m</b></p>
 
 <p style="margin-left:15%;">These options are ignored for
 compatibility with other versions of <b>make</b>.</p>
 
-<p style="margin-left:9%;"><b>&minus;B</b>,
-<b>&minus;&minus;always&minus;make</b></p>
+<p style="margin-left:9%;"><b>-B</b>,
+<b>--always-make</b></p>
 
 <p style="margin-left:15%;">Unconditionally make all
 targets.</p>
 
-<p style="margin-left:9%;"><b>&minus;C</b> <i>dir</i>,
-<b>&minus;&minus;directory</b>=<i>dir</i></p>
+<p style="margin-left:9%;"><b>-C</b> <i>dir</i>,
+<b>--directory</b>=<i>dir</i></p>
 
 <p style="margin-left:15%;">Change to directory <i>dir</i>
 before reading the makefiles or doing anything else. If
-multiple <b>&minus;C</b> options are specified, each is
-interpreted relative to the previous one: <b>&minus;C</b> /
-<b>&minus;C</b> etc is equivalent to <b>&minus;C</b> /etc.
-This is typically used with recursive invocations of
+multiple <b>-C</b> options are specified, each is
+interpreted relative to the previous one: <b>-C</b> /
+<b>-C</b> etc is equivalent to <b>-C</b> /etc. This is
+typically used with recursive invocations of
 <b>make</b>.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -148,7 +147,7 @@ This is typically used with recursive invocations of
 <td width="3%">
 
 
-<p><b>&minus;d</b></p></td>
+<p><b>-d</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -163,91 +162,88 @@ decides what to do.</p></td></tr>
 </table>
 
 
-<p style="margin-left:9%;"><b>&minus;&minus;debug</b><i>[=FLAGS]</i></p>
+<p style="margin-left:9%;"><b>--debug</b><i>[=FLAGS]</i></p>
 
 <p style="margin-left:15%;">Print debugging information in
 addition to normal processing. If the <i>FLAGS</i> are
-omitted, then the behavior is the same as if <b>&minus;d</b>
-was specified. <i>FLAGS</i> may be any or all of the
-following names, comma- or space-separated. Only the first
-character is significant: the rest may be omitted:
-<i>all</i> for all debugging output (same as using
-<b>&minus;d</b>), <i>basic</i> for basic debugging,
-<i>verbose</i> for more verbose basic debugging,
-<i>implicit</i> for showing implicit rule search operations,
-<i>jobs</i> for details on invocation of commands,
-<i>makefile</i> for debugging while remaking makefiles,
-<i>print</i> shows all recipes that are run even if they are
-silent, and <i>why</i> shows the reason <b>make</b> decided
-to rebuild each target. Use <i>none</i> to disable all
-previous debugging flags.</p>
+omitted, then the behavior is the same as if <b>-d</b> was
+specified. <i>FLAGS</i> may be any or all of the following
+names, comma- or space-separated. Only the first character
+is significant: the rest may be omitted: <i>all</i> for all
+debugging output (same as using <b>-d</b>), <i>basic</i> for
+basic debugging, <i>verbose</i> for more verbose basic
+debugging, <i>implicit</i> for showing implicit rule search
+operations, <i>jobs</i> for details on invocation of
+commands, <i>makefile</i> for debugging while remaking
+makefiles, <i>print</i> shows all recipes that are run even
+if they are silent, and <i>why</i> shows the reason
+<b>make</b> decided to rebuild each target. Use <i>none</i>
+to disable all previous debugging flags.</p>
 
-<p style="margin-left:9%;"><b>&minus;e</b>,
-<b>&minus;&minus;environment&minus;overrides</b></p>
+<p style="margin-left:9%;"><b>-e</b>,
+<b>--environment-overrides</b></p>
 
 <p style="margin-left:15%;">Give variables taken from the
 environment precedence over variables from makefiles.</p>
 
-<p style="margin-left:9%;"><b>&minus;E</b> <i>string</i>,
-<b>&minus;&minus;eval</b> <i>string</i></p>
+<p style="margin-left:9%;"><b>-E</b> <i>string</i>,
+<b>--eval</b> <i>string</i></p>
 
 <p style="margin-left:15%;">Interpret <i>string</i> using
 the <b>eval</b> function, before parsing any makefiles.</p>
 
-<p style="margin-left:9%;"><b>&minus;f</b> <i>file</i>,
-<b>&minus;&minus;file</b>=<i>file</i>,
-<b>&minus;&minus;makefile</b>=<i>FILE</i></p>
+<p style="margin-left:9%;"><b>-f</b> <i>file</i>,
+<b>--file</b>=<i>file</i>, <b>--makefile</b>=<i>FILE</i></p>
 
 <p style="margin-left:15%;">Use <i>file</i> as a
 makefile.</p>
 
-<p style="margin-left:9%;"><b>&minus;i</b>,
-<b>&minus;&minus;ignore&minus;errors</b></p>
+<p style="margin-left:9%;"><b>-i</b>,
+<b>--ignore-errors</b></p>
 
 <p style="margin-left:15%;">Ignore all errors in commands
 executed to remake files.</p>
 
-<p style="margin-left:9%;"><b>&minus;I</b> <i>dir</i>,
-<b>&minus;&minus;include&minus;dir</b>=<i>dir</i></p>
+<p style="margin-left:9%;"><b>-I</b> <i>dir</i>,
+<b>--include-dir</b>=<i>dir</i></p>
 
 <p style="margin-left:15%;">Specifies a directory
 <i>dir</i> to search for included makefiles. If several
-<b>&minus;I</b> options are used to specify several
-directories, the directories are searched in the order
-specified. Unlike the arguments to other flags of
-<b>make</b>, directories given with <b>&minus;I</b> flags
-may come directly after the flag: <b>&minus;I</b><i>dir</i>
-is allowed, as well as <b>&minus;I</b> <i>dir</i>. This
-syntax is allowed for compatibility with the C
-preprocessor&rsquo;s <b>&minus;I</b> flag.</p>
+<b>-I</b> options are used to specify several directories,
+the directories are searched in the order specified. Unlike
+the arguments to other flags of <b>make</b>, directories
+given with <b>-I</b> flags may come directly after the flag:
+<b>-I</b><i>dir</i> is allowed, as well as <b>-I</b>
+<i>dir</i>. This syntax is allowed for compatibility with
+the C preprocessor&rsquo;s <b>-I</b> flag.</p>
 
-<p style="margin-left:9%;"><b>&minus;j</b> [<i>jobs</i>],
-<b>&minus;&minus;jobs</b>[=<i>jobs</i>]</p>
+<p style="margin-left:9%;"><b>-j</b> [<i>jobs</i>],
+<b>--jobs</b>[=<i>jobs</i>]</p>
 
 <p style="margin-left:15%;">Specifies the number of
 <i>jobs</i> (commands) to run simultaneously. If there is
-more than one <b>&minus;j</b> option, the last one is
-effective. If the <b>&minus;j</b> option is given without an
-argument, <b>make</b> will not limit the number of jobs that
-can run simultaneously.</p>
+more than one <b>-j</b> option, the last one is effective.
+If the <b>-j</b> option is given without an argument,
+<b>make</b> will not limit the number of jobs that can run
+simultaneously.</p>
 
 
-<p style="margin-left:9%;"><b>&minus;-jobserver-style=</b><i>style</i></p>
+<p style="margin-left:9%;"><b>--jobserver-style=</b><i>style</i></p>
 
 <p style="margin-left:15%;">The style of jobserver to use.
 The <i>style</i> may be one of <b>fifo</b>, <b>pipe</b>, or
 <b>sem</b> (Windows only).</p>
 
-<p style="margin-left:9%;"><b>&minus;k</b>,
-<b>&minus;&minus;keep&minus;going</b></p>
+<p style="margin-left:9%;"><b>-k</b>,
+<b>--keep-going</b></p>
 
 <p style="margin-left:15%;">Continue as much as possible
 after an error. While the target that failed, and those that
 depend on it, cannot be remade, the other dependencies of
 these targets can be processed all the same.</p>
 
-<p style="margin-left:9%;"><b>&minus;l</b> [<i>load</i>],
-<b>&minus;&minus;load&minus;average</b>[=<i>load</i>]</p>
+<p style="margin-left:9%;"><b>-l</b> [<i>load</i>],
+<b>--load-average</b>[=<i>load</i>]</p>
 
 <p style="margin-left:15%;">Specifies that no new jobs
 (commands) should be started if there are others jobs
@@ -255,24 +251,22 @@ running and the load average is at least <i>load</i> (a
 floating-point number). With no argument, removes a previous
 load limit.</p>
 
-<p style="margin-left:9%;"><b>&minus;L</b>,
-<b>&minus;&minus;check&minus;symlink&minus;times</b></p>
+<p style="margin-left:9%;"><b>-L</b>,
+<b>--check-symlink-times</b></p>
 
 <p style="margin-left:15%;">Use the latest mtime between
 symlinks and target.</p>
 
-<p style="margin-left:9%;"><b>&minus;n</b>,
-<b>&minus;&minus;just&minus;print</b>,
-<b>&minus;&minus;dry&minus;run</b>,
-<b>&minus;&minus;recon</b></p>
+<p style="margin-left:9%;"><b>-n</b>, <b>--just-print</b>,
+<b>--dry-run</b>, <b>--recon</b></p>
 
 <p style="margin-left:15%;">Print the commands that would
 be executed, but do not execute them (except in certain
 circumstances).</p>
 
-<p style="margin-left:9%;"><b>&minus;o</b> <i>file</i>,
-<b>&minus;&minus;old&minus;file</b>=<i>file</i>,
-<b>&minus;&minus;assume&minus;old</b>=<i>file</i></p>
+<p style="margin-left:9%;"><b>-o</b> <i>file</i>,
+<b>--old-file</b>=<i>file</i>,
+<b>--assume-old</b>=<i>file</i></p>
 
 <p style="margin-left:15%;">Do not remake the file
 <i>file</i> even if it is older than its dependencies, and
@@ -280,8 +274,8 @@ do not remake anything on account of changes in <i>file</i>.
 Essentially the file is treated as very old and its rules
 are ignored.</p>
 
-<p style="margin-left:9%;"><b>&minus;O</b>[<i>type</i>],
-<b>&minus;&minus;output&minus;sync</b>[=<i>type</i>]</p>
+<p style="margin-left:9%;"><b>-O</b>[<i>type</i>],
+<b>--output-sync</b>[=<i>type</i>]</p>
 
 <p style="margin-left:15%;">When running multiple jobs in
 parallel with <b>-j</b>, ensure the output of each job is
@@ -294,19 +288,17 @@ together. If <i>type</i> is <b>recurse</b> output from an
 entire recursive make is grouped together. If <i>type</i> is
 <b>none</b> output synchronization is disabled.</p>
 
-<p style="margin-left:9%;"><b>&minus;p</b>,
-<b>&minus;&minus;print&minus;data&minus;base</b></p>
+<p style="margin-left:9%;"><b>-p</b>,
+<b>--print-data-base</b></p>
 
 <p style="margin-left:15%;">Print the data base (rules and
 variable values) that results from reading the makefiles;
 then execute as usual or as otherwise specified. This also
-prints the version information given by the <b>&minus;v</b>
-switch (see below). To print the data base without trying to
-remake any files, use <i>make &minus;p
-&minus;f/dev/null</i>.</p>
+prints the version information given by the <b>-v</b> switch
+(see below). To print the data base without trying to remake
+any files, use <i>make -p -f/dev/null</i>.</p>
 
-<p style="margin-left:9%;"><b>&minus;q</b>,
-<b>&minus;&minus;question</b></p>
+<p style="margin-left:9%;"><b>-q</b>, <b>--question</b></p>
 
 <p style="margin-left:15%;">&lsquo;&lsquo;Question
 mode&rsquo;&rsquo;. Do not run any commands, or print
@@ -314,40 +306,37 @@ anything; just return an exit status that is zero if the
 specified targets are already up to date, nonzero
 otherwise.</p>
 
-<p style="margin-left:9%;"><b>&minus;r</b>,
-<b>&minus;&minus;no&minus;builtin&minus;rules</b></p>
+<p style="margin-left:9%;"><b>-r</b>,
+<b>--no-builtin-rules</b></p>
 
-<p style="margin-left:15%;">Eliminate use of the
-built&minus;in implicit rules. Also clear out the default
-list of suffixes for suffix rules.</p>
+<p style="margin-left:15%;">Eliminate use of the built-in
+implicit rules. Also clear out the default list of suffixes
+for suffix rules.</p>
 
-<p style="margin-left:9%;"><b>&minus;R</b>,
-<b>&minus;&minus;no&minus;builtin&minus;variables</b></p>
+<p style="margin-left:9%;"><b>-R</b>,
+<b>--no-builtin-variables</b></p>
 
-<p style="margin-left:15%;">Don&rsquo;t define any
-built&minus;in variables.</p>
+<p style="margin-left:15%;">Don&rsquo;t define any built-in
+variables.</p>
 
-<p style="margin-left:9%;"><b>&minus;s</b>,
-<b>&minus;&minus;silent</b>, <b>&minus;&minus;quiet</b></p>
+<p style="margin-left:9%;"><b>-s</b>, <b>--silent</b>,
+<b>--quiet</b></p>
 
 <p style="margin-left:15%;">Silent operation; do not print
 the commands as they are executed.</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;no&minus;silent</b></p>
-
-<p style="margin-left:15%;">Cancel the effect of the
-<b>&minus;s</b> option.</p>
-
-<p style="margin-left:9%;"><b>&minus;S</b>,
-<b>&minus;&minus;no&minus;keep&minus;going</b>,
-<b>&minus;&minus;stop</b></p>
+<p style="margin-left:9%;"><b>--no-silent</b></p>
 
 <p style="margin-left:15%;">Cancel the effect of the
-<b>&minus;k</b> option.</p>
+<b>-s</b> option.</p>
 
-<p style="margin-left:9%;"><b>&minus;t</b>,
-<b>&minus;&minus;touch</b></p>
+<p style="margin-left:9%;"><b>-S</b>,
+<b>--no-keep-going</b>, <b>--stop</b></p>
+
+<p style="margin-left:15%;">Cancel the effect of the
+<b>-k</b> option.</p>
+
+<p style="margin-left:9%;"><b>-t</b>, <b>--touch</b></p>
 
 <p style="margin-left:15%;">Touch files (mark them up to
 date without really changing them) instead of running their
@@ -355,35 +344,33 @@ commands. This is used to pretend that the commands were
 done, in order to fool future invocations of
 <b>make</b>.</p>
 
-<p style="margin-left:9%;"><b>&minus;&minus;trace</b></p>
+<p style="margin-left:9%;"><b>--trace</b></p>
 
 <p style="margin-left:15%;">Information about the
 disposition of each target is printed (why the target is
 being rebuilt and what commands are run to rebuild it).</p>
 
-<p style="margin-left:9%;"><b>&minus;v</b>,
-<b>&minus;&minus;version</b></p>
+<p style="margin-left:9%;"><b>-v</b>, <b>--version</b></p>
 
 <p style="margin-left:15%;">Print the version of the
 <b>make</b> program plus a copyright, a list of authors and
 a notice that there is no warranty.</p>
 
-<p style="margin-left:9%;"><b>&minus;w</b>,
-<b>&minus;&minus;print&minus;directory</b></p>
+<p style="margin-left:9%;"><b>-w</b>,
+<b>--print-directory</b></p>
 
 <p style="margin-left:15%;">Print a message containing the
 working directory before and after other processing. This
 may be useful for tracking down errors from complicated
 nests of recursive <b>make</b> commands.</p>
 
+<p style="margin-left:9%;"><b>--no-print-directory</b></p>
 
-<p style="margin-left:9%;"><b>&minus;&minus;no&minus;print&minus;directory</b></p>
-
-<p style="margin-left:15%;">Turn off <b>&minus;w</b>, even
-if it was turned on implicitly.</p>
+<p style="margin-left:15%;">Turn off <b>-w</b>, even if it
+was turned on implicitly.</p>
 
 
-<p style="margin-left:9%;"><b>&minus;&minus;shuffle</b><i>[=MODE]</i></p>
+<p style="margin-left:9%;"><b>--shuffle</b><i>[=MODE]</i></p>
 
 <p style="margin-left:15%;">Enable shuffling of goal and
 prerequisite ordering. <i>MODE</i> is one of <i>none</i> to
@@ -394,22 +381,20 @@ enables <i>random</i> mode with a specific <i>seed</i>
 value. If <i>MODE</i> is omitted the default is
 <i>random</i>.</p>
 
-<p style="margin-left:9%;"><b>&minus;W</b> <i>file</i>,
-<b>&minus;&minus;what&minus;if</b>=<i>file</i>,
-<b>&minus;&minus;new&minus;file</b>=<i>file</i>,
-<b>&minus;&minus;assume&minus;new</b>=<i>file</i></p>
+<p style="margin-left:9%;"><b>-W</b> <i>file</i>,
+<b>--what-if</b>=<i>file</i>, <b>--new-file</b>=<i>file</i>,
+<b>--assume-new</b>=<i>file</i></p>
 
 <p style="margin-left:15%;">Pretend that the target
 <i>file</i> has just been modified. When used with the
-<b>&minus;n</b> flag, this shows you what would happen if
-you were to modify that file. Without <b>&minus;n</b>, it is
-almost the same as running a <i>touch</i> command on the
-given file before running <b>make</b>, except that the
-modification time is changed only in the imagination of
-<b>make</b>.</p>
+<b>-n</b> flag, this shows you what would happen if you were
+to modify that file. Without <b>-n</b>, it is almost the
+same as running a <i>touch</i> command on the given file
+before running <b>make</b>, except that the modification
+time is changed only in the imagination of <b>make</b>.</p>
 
 
-<p style="margin-left:9%;"><b>&minus;&minus;warn&minus;undefined&minus;variables</b></p>
+<p style="margin-left:9%;"><b>--warn-undefined-variables</b></p>
 
 <p style="margin-left:15%;">Warn when an undefined variable
 is referenced.</p>
@@ -422,10 +407,10 @@ is referenced.</p>
 <p style="margin-left:9%; margin-top: 1em">GNU <b>make</b>
 exits with a status of zero if all makefiles were
 successfully parsed and no targets that were built failed. A
-status of one will be returned if the <b>&minus;q</b> flag
-was used and <b>make</b> determines that a target needs to
-be rebuilt. A status of two will be returned if any errors
-were encountered.</p>
+status of one will be returned if the <b>-q</b> flag was
+used and <b>make</b> determines that a target needs to be
+rebuilt. A status of two will be returned if any errors were
+encountered.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

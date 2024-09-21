@@ -36,8 +36,8 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">make &minus; GNU
-make utility to maintain groups of programs</p>
+<p style="margin-left:9%; margin-top: 1em">make - GNU make
+utility to maintain groups of programs</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -45,8 +45,7 @@ make utility to maintain groups of programs</p>
 
 
 <p style="margin-left:9%; margin-top: 1em"><b>make</b> [
-<b>&minus;f</b> <i>makefile</i> ] [ option ] ... target
-...</p>
+<b>-f</b> <i>makefile</i> ] [ option ] ... target ...</p>
 
 <h2>WARNING
 <a name="WARNING"></a>
@@ -103,9 +102,9 @@ the commands recorded in the data base.</p>
 <p style="margin-left:9%; margin-top: 1em"><i>make</i>
 executes commands in the <i>makefile</i> to update one or
 more target <i>names</i>, where <i>name</i> is typically a
-program. If no <b>&minus;f</b> option is present,
-<i>make</i> will look for the makefiles <i>GNUmakefile</i>,
-<i>makefile</i>, and <i>Makefile</i>, in that order.</p>
+program. If no <b>-f</b> option is present, <i>make</i> will
+look for the makefiles <i>GNUmakefile</i>, <i>makefile</i>,
+and <i>Makefile</i>, in that order.</p>
 
 <p style="margin-left:9%; margin-top: 1em">Normally you
 should call your makefile either <i>makefile</i> or
@@ -116,8 +115,8 @@ listing, right near other important files such as
 is not recommended for most makefiles. You should use this
 name if you have a makefile that is specific to GNU
 <i>make</i>, and will not be understood by other versions of
-<i>make</i>. If <i>makefile</i> is &lsquo;&minus;&rsquo;,
-the standard input is read.</p>
+<i>make</i>. If <i>makefile</i> is &lsquo;-&rsquo;, the
+standard input is read.</p>
 
 <p style="margin-left:9%; margin-top: 1em"><i>make</i>
 updates a target if it depends on prerequisite files that
@@ -136,7 +135,7 @@ the target does not exist.</p>
 <td width="3%">
 
 
-<p style="margin-top: 1em"><b>&minus;b</b></p></td>
+<p style="margin-top: 1em"><b>-b</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 </td></tr>
@@ -145,7 +144,7 @@ the target does not exist.</p>
 <td width="3%">
 
 
-<p><b>&minus;m</b></p></td>
+<p><b>-m</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -154,14 +153,14 @@ the target does not exist.</p>
 versions of <i>make</i>.</p></td></tr>
 </table>
 
-<p style="margin-left:9%;"><b>&minus;C</b> <i>dir</i></p>
+<p style="margin-left:9%;"><b>-C</b> <i>dir</i></p>
 
 <p style="margin-left:15%;">Change to directory <i>dir</i>
 before reading the makefiles or doing anything else. If
-multiple <b>&minus;C</b> options are specified, each is
-interpreted relative to the previous one: <b>&minus;C</b> /
-<b>&minus;C</b> etc is equivalent to <b>&minus;C</b> /etc.
-This is typically used with recursive invocations of
+multiple <b>-C</b> options are specified, each is
+interpreted relative to the previous one: <b>-C</b> /
+<b>-C</b> etc is equivalent to <b>-C</b> /etc. This is
+typically used with recursive invocations of
 <i>make</i>.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -171,7 +170,7 @@ This is typically used with recursive invocations of
 <td width="3%">
 
 
-<p><b>&minus;d</b></p></td>
+<p><b>-d</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -188,7 +187,7 @@ decides what to do.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;e</b></p></td>
+<p><b>-e</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -197,7 +196,7 @@ decides what to do.</p></td></tr>
 over variables from makefiles.</p></td></tr>
 </table>
 
-<p style="margin-left:9%;"><b>&minus;f</b> <i>file</i></p>
+<p style="margin-left:9%;"><b>-f</b> <i>file</i></p>
 
 <p style="margin-left:15%;">Use <i>file</i> as a
 makefile.</p>
@@ -209,7 +208,7 @@ makefile.</p>
 <td width="3%">
 
 
-<p><b>&minus;i</b></p></td>
+<p><b>-i</b></p></td>
 <td width="3%"></td>
 <td width="71%">
 
@@ -220,26 +219,25 @@ files.</p> </td>
 </td></tr>
 </table>
 
-<p style="margin-left:9%;"><b>&minus;I</b> <i>dir</i></p>
+<p style="margin-left:9%;"><b>-I</b> <i>dir</i></p>
 
 <p style="margin-left:15%;">Specifies a directory
 <i>dir</i> to search for included makefiles. If several
-<b>&minus;I</b> options are used to specify several
-directories, the directories are searched in the order
-specified. Unlike the arguments to other flags of
-<i>make</i>, directories given with <b>&minus;I</b> flags
-may come directly after the flag: <b>&minus;I</b><i>dir</i>
-is allowed, as well as <b>&minus;I</b> <i>dir.</i> This
-syntax is allowed for compatibility with the C
-preprocessor&rsquo;s <b>&minus;I</b> flag.</p>
+<b>-I</b> options are used to specify several directories,
+the directories are searched in the order specified. Unlike
+the arguments to other flags of <i>make</i>, directories
+given with <b>-I</b> flags may come directly after the flag:
+<b>-I</b><i>dir</i> is allowed, as well as <b>-I</b>
+<i>dir.</i> This syntax is allowed for compatibility with
+the C preprocessor&rsquo;s <b>-I</b> flag.</p>
 
-<p style="margin-left:9%;"><b>&minus;j</b> <i>jobs</i></p>
+<p style="margin-left:9%;"><b>-j</b> <i>jobs</i></p>
 
 <p style="margin-left:15%;">Specifies the number of jobs
 (commands) to run simultaneously. If there is more than one
-<b>&minus;j</b> option, the last one is effective. If the
-<b>&minus;j</b> option is given without an argument,
-<i>make</i> will not limit the number of jobs that can run
+<b>-j</b> option, the last one is effective. If the
+<b>-j</b> option is given without an argument, <i>make</i>
+will not limit the number of jobs that can run
 simultaneously.</p>
 
 <table width="100%" border="0" rules="none" frame="void"
@@ -249,7 +247,7 @@ simultaneously.</p>
 <td width="3%">
 
 
-<p><b>&minus;k</b></p></td>
+<p><b>-k</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -263,13 +261,13 @@ processed all the same.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;l</b></p></td>
+<p><b>-l</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 </td></tr>
 </table>
 
-<p style="margin-left:9%; margin-top: 1em"><b>&minus;l</b>
+<p style="margin-left:9%; margin-top: 1em"><b>-l</b>
 <i>load</i></p>
 
 <p style="margin-left:15%;">Specifies that no new jobs
@@ -285,7 +283,7 @@ load limit.</p>
 <td width="3%">
 
 
-<p><b>&minus;n</b></p></td>
+<p><b>-n</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -294,7 +292,7 @@ load limit.</p>
 execute them.</p></td></tr>
 </table>
 
-<p style="margin-left:9%;"><b>&minus;o</b> <i>file</i></p>
+<p style="margin-left:9%;"><b>-o</b> <i>file</i></p>
 
 <p style="margin-left:15%;">Do not remake the file
 <i>file</i> even if it is older than its dependencies, and
@@ -309,7 +307,7 @@ are ignored.</p>
 <td width="3%">
 
 
-<p><b>&minus;p</b></p></td>
+<p><b>-p</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -317,15 +315,15 @@ are ignored.</p>
 <p>Print the data base (rules and variable values) that
 results from reading the makefiles; then execute as usual or
 as otherwise specified. This also prints the version
-information given by the <b>&minus;v</b> switch (see below).
-To print the data base without trying to remake any files,
-use <b>make &minus;p &minus;f</b><i>/dev/null.</i></p></td></tr>
+information given by the <b>-v</b> switch (see below). To
+print the data base without trying to remake any files, use
+<b>make -p -f</b><i>/dev/null.</i></p></td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="3%">
 
 
-<p><b>&minus;q</b></p></td>
+<p><b>-q</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -339,7 +337,7 @@ date, nonzero otherwise.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;r</b></p></td>
+<p><b>-r</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -351,7 +349,7 @@ out the default list of suffixes for suffix rules.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;s</b></p></td>
+<p><b>-s</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -363,22 +361,22 @@ executed.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;S</b></p></td>
+<p><b>-S</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
 
-<p>Cancel the effect of the <b>&minus;k</b> option. This is
-never necessary except in a recursive <i>make</i> where
-<b>&minus;k</b> might be inherited from the top-level
-<i>make</i> via MAKEFLAGS or if you set <b>&minus;k</b> in
-MAKEFLAGS in your environment.</p></td></tr>
+<p>Cancel the effect of the <b>-k</b> option. This is never
+necessary except in a recursive <i>make</i> where <b>-k</b>
+might be inherited from the top-level <i>make</i> via
+MAKEFLAGS or if you set <b>-k</b> in MAKEFLAGS in your
+environment.</p> </td></tr>
 <tr valign="top" align="left">
 <td width="9%"></td>
 <td width="3%">
 
 
-<p><b>&minus;t</b></p></td>
+<p><b>-t</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -392,7 +390,7 @@ fool future invocations of <i>make</i>.</p></td></tr>
 <td width="3%">
 
 
-<p><b>&minus;v</b></p></td>
+<p><b>-v</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -405,7 +403,7 @@ warranty.</p> </td></tr>
 <td width="3%">
 
 
-<p><b>&minus;w</b></p></td>
+<p><b>-w</b></p></td>
 <td width="3%"></td>
 <td width="85%">
 
@@ -416,16 +414,15 @@ down errors from complicated nests of recursive <i>make</i>
 commands.</p> </td></tr>
 </table>
 
-<p style="margin-left:9%;"><b>&minus;W</b> <i>file</i></p>
+<p style="margin-left:9%;"><b>-W</b> <i>file</i></p>
 
 <p style="margin-left:15%;">Pretend that the target
 <i>file</i> has just been modified. When used with the
-<b>&minus;n</b> flag, this shows you what would happen if
-you were to modify that file. Without <b>&minus;n</b>, it is
-almost the same as running a <i>touch</i> command on the
-given file before running <i>make</i>, except that the
-modification time is changed only in the imagination of
-<i>make</i>.</p>
+<b>-n</b> flag, this shows you what would happen if you were
+to modify that file. Without <b>-n</b>, it is almost the
+same as running a <i>touch</i> command on the given file
+before running <i>make</i>, except that the modification
+time is changed only in the imagination of <i>make</i>.</p>
 
 <h2>SEE ALSO
 <a name="SEE ALSO"></a>

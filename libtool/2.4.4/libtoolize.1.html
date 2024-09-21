@@ -37,8 +37,8 @@
 </h2>
 
 
-<p style="margin-left:9%; margin-top: 1em">libtoolize
-&minus; manual page for libtoolize 2.4.3.44-9b01</p>
+<p style="margin-left:9%; margin-top: 1em">libtoolize -
+manual page for libtoolize 2.4.3.44-9b01</p>
 
 <h2>SYNOPSIS
 <a name="SYNOPSIS"></a>
@@ -62,89 +62,76 @@ package to use libtool.</p>
 </h2>
 
 
-
-<p style="margin-left:9%; margin-top: 1em"><b>&minus;c</b>,
-<b>&minus;&minus;copy</b></p>
+<p style="margin-left:9%; margin-top: 1em"><b>-c</b>,
+<b>--copy</b></p>
 
 <p style="margin-left:18%;">copy files rather than
 symlinking them</p>
 
-<p style="margin-left:9%;"><b>&minus;&minus;debug</b></p>
+<p style="margin-left:9%;"><b>--debug</b></p>
 
 <p style="margin-left:18%;">enable verbose shell
 tracing</p>
 
-<p style="margin-left:9%;"><b>&minus;n</b>,
-<b>&minus;&minus;dry&minus;run</b></p>
+<p style="margin-left:9%;"><b>-n</b>, <b>--dry-run</b></p>
 
 <p style="margin-left:18%;">print commands rather than
 running them</p>
 
-<p style="margin-left:9%;"><b>&minus;f</b>,
-<b>&minus;&minus;force</b></p>
+<p style="margin-left:9%;"><b>-f</b>, <b>--force</b></p>
 
 <p style="margin-left:18%;">replace existing files</p>
 
-<p style="margin-left:9%;"><b>&minus;i</b>,
-<b>&minus;&minus;install</b></p>
+<p style="margin-left:9%;"><b>-i</b>, <b>--install</b></p>
 
 <p style="margin-left:18%;">copy missing auxiliary
 files</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;ltdl</b>[=<i>DIR</i>]</p>
+<p style="margin-left:9%;"><b>--ltdl</b>[=<i>DIR</i>]</p>
 
 <p style="margin-left:18%;">install libltdl sources
 [default: libltdl]</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;no&minus;warnings</b></p>
+<p style="margin-left:9%;"><b>--no-warnings</b></p>
 
 <p style="margin-left:18%;">equivalent to
-&rsquo;&minus;Wnone&rsquo;</p>
+&rsquo;-Wnone&rsquo;</p>
 
+<p style="margin-left:9%;"><b>--nonrecursive</b></p>
 
-<p style="margin-left:9%;"><b>&minus;&minus;nonrecursive</b></p>
+<p style="margin-left:18%;">prepare ltdl for non-recursive
+make</p>
 
-<p style="margin-left:18%;">prepare ltdl for
-non&minus;recursive make</p>
-
-<p style="margin-left:9%;"><b>&minus;q</b>,
-<b>&minus;&minus;quiet</b></p>
+<p style="margin-left:9%;"><b>-q</b>, <b>--quiet</b></p>
 
 <p style="margin-left:18%;">work silently</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;recursive</b></p>
+<p style="margin-left:9%;"><b>--recursive</b></p>
 
 <p style="margin-left:18%;">prepare ltdl for recursive
 make</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;subproject</b></p>
+<p style="margin-left:9%;"><b>--subproject</b></p>
 
 <p style="margin-left:18%;">prepare ltdl to configure and
 build independently</p>
 
-<p style="margin-left:9%;"><b>&minus;v</b>,
-<b>&minus;&minus;verbose</b></p>
+<p style="margin-left:9%;"><b>-v</b>, <b>--verbose</b></p>
 
 <p style="margin-left:18%;">verbosely report processing</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;version</b></p>
+<p style="margin-left:9%;"><b>--version</b></p>
 
 <p style="margin-left:18%;">print version information and
 exit</p>
 
-<p style="margin-left:9%;"><b>&minus;W</b>,
-<b>&minus;&minus;warnings</b>=<i>CATEGORY</i></p>
+<p style="margin-left:9%;"><b>-W</b>,
+<b>--warnings</b>=<i>CATEGORY</i></p>
 
 <p style="margin-left:18%;">report the warnings falling in
 CATEGORY [all]</p>
 
-<p style="margin-left:9%;"><b>&minus;h</b>,
-<b>&minus;&minus;help</b></p>
+<p style="margin-left:9%;"><b>-h</b>, <b>--help</b></p>
 
 <p style="margin-left:18%;">print short or long help
 message</p>
@@ -215,23 +202,21 @@ LIBTOOLIZE_OPTIONS content</p>
 space or comma delimited options can be passed to libtoolize
 via the environment variable LIBTOOLIZE_OPTIONS, unknown
 environment options are ignored: <b><br>
-&minus;&minus;debug</b></p>
+--debug</b></p>
 
 <p style="margin-left:18%;">enable verbose shell
 tracing</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;no&minus;warnings</b></p>
+<p style="margin-left:9%;"><b>--no-warnings</b></p>
 
 <p style="margin-left:18%;">don&rsquo;t display warning
 messages</p>
 
-<p style="margin-left:9%;"><b>&minus;&minus;quiet</b></p>
+<p style="margin-left:9%;"><b>--quiet</b></p>
 
 <p style="margin-left:18%;">work silently</p>
 
-
-<p style="margin-left:9%;"><b>&minus;&minus;verbose</b></p>
+<p style="margin-left:9%;"><b>--verbose</b></p>
 
 <p style="margin-left:18%;">verbosely report processing</p>
 
@@ -242,15 +227,14 @@ you run &rsquo;libtoolize&rsquo;.</p>
 <p style="margin-left:9%; margin-top: 1em">When reporting a
 bug, please describe a test case to reproduce it and include
 the following information: <br>
-host&minus;triplet:</p>
+host-triplet:</p>
 
-
-<p style="margin-left:18%;">x86_64&minus;apple&minus;darwin14.0.0</p>
+<p style="margin-left:18%;">x86_64-apple-darwin14.0.0</p>
 
 <p style="margin-left:9%;">version:</p>
 
 <p style="margin-left:18%;">libtoolize (GNU libtool)
-2.4.3.44&minus;9b01</p>
+2.4.3.44-9b01</p>
 
 <p style="margin-left:9%;">automake:</p>
 
@@ -276,7 +260,7 @@ V. Vaughan &lt;gary@gnu.org&gt;, 2003</p>
 
 
 <p style="margin-left:9%; margin-top: 1em">Report bugs to
-&lt;bug&minus;libtool@gnu.org&gt;. <br>
+&lt;bug-libtool@gnu.org&gt;. <br>
 GNU libtool home page:
 &lt;http://www.gnu.org/software/libtool/&gt;. <br>
 General help using GNU software:
