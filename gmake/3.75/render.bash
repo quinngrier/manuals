@@ -90,6 +90,7 @@ main() {
       || "$x" == ./ChangeLog* \
       || "$x" == ./ansi2knr* \
     ]]; then
+      popd >/dev/null
       continue
     fi
     y=$x.html
