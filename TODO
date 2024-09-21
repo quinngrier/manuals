@@ -11,3 +11,6 @@ sufficient in their directories modulo symbolic link flattening:
       texinfo/*/build
 
 Add groff manuals.
+
+Remove ansi2knr everywhere. This is just part of the build system when
+the "ansi2knr" option is used with Automake.
