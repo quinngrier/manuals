@@ -59,7 +59,7 @@ readonly prelude_dir
 
 barf() {
 
-  declare    x
+  local    x
 
   x="$@"
   readonly x
@@ -74,12 +74,12 @@ barf() {
 
 download() {
 
-  declare    file
-  declare    path
-  declare    sum
-  declare -a sums
-  declare    url
-  declare    urls
+  local    file
+  local    path
+  local    sum
+  local -a sums
+  local    url
+  local    urls
 
   path=./$1
   readonly path
@@ -157,14 +157,14 @@ download() {
 
 download2() {
 
-  declare    file
-  declare    i
-  declare    ok
-  declare    real
-  declare    sum
-  declare -a sums
-  declare    url
-  declare -a urls
+  local    file
+  local    i
+  local    ok
+  local    real
+  local    sum
+  local -a sums
+  local    url
+  local -a urls
 
   for file; do
 
@@ -273,8 +273,8 @@ download2() {
 
 download_tar_gz() {
 
-  declare    file
-  declare    x
+  local    file
+  local    x
 
   for x in "$prelude_dir"/downloads/"$1".tar*.urls; do
     x=${x%.urls}
@@ -308,7 +308,7 @@ download_tar_gz() {
 
 extract() {
 
-  declare    x
+  local    x
 
   for x; do
     if [[ "$x" != [./]* ]]; then
@@ -331,7 +331,7 @@ extract() {
 
 make_ignore_file() {
 
-  declare    x
+  local    x
 
   cat <<'EOF'
 #
@@ -372,7 +372,7 @@ EOF
 
 make_skip_file() {
 
-  declare    x
+  local    x
 
   cat <<'EOF'
 #
@@ -413,8 +413,8 @@ EOF
 
 output() {
 
-  declare    dst
-  declare    src
+  local    dst
+  local    src
 
   for src; do
     case $src in '' | /* | ../* | */../* | */..)
