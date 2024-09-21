@@ -83,12 +83,12 @@ main() {
   #---------------------------------------------------------------------
 
   for x in ./**/*.1; do
-    d=./${x%/*}
+    d=${x%/*}
     pushd "$d" >/dev/null
     x=./${x##*/}
     if [[ '' \
-      || "$x" == *ChangeLog* \
-      || "$x" == *ansi2knr* \
+      || "$x" == ./ChangeLog* \
+      || "$x" == ./ansi2knr* \
     ]]; then
       continue
     fi
