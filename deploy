@@ -54,11 +54,10 @@ mv .git "$tmpgit"
 
 aws s3 sync \
   . \
-  s3://manuals.quinngrier.com \
+  s3://manuals \
   --delete \
   --exact-timestamps \
-  --profile quinn \
-  --storage-class INTELLIGENT_TIERING \
+  --profile manuals \
 && :
 x=$?
 
