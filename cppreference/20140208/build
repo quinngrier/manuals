@@ -42,12 +42,16 @@ main() {
   make_skip_file en >reference/skip
 
   for x in reference/en/**/*.html; do
-    y=${x%/*}
-    y=${y//+([!\/])/..}/qref.js
-    sed '
-      s|</head>|<script defer src="'$y'"></script>&|
-    ' "$x" >"$x".tmp
-    mv -f "$x".tmp "$x"
+    for z in notification.js qref.js; do
+      y=${x%/*}
+      y=${y//+([!\/])/..}/$z
+      sed '
+        s|</head>|\
+<script defer src="'$y'"></script>\
+&|
+      ' "$x" >"$x".tmp
+      mv -f "$x".tmp "$x"
+    done
   done
 
 }; readonly -f main

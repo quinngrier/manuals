@@ -79,11 +79,15 @@ main() {
   rm -f gh-pages/sitemap.xml
 
   for x in gh-pages/**/*.html; do
-    y=$(sed 's|[^/]*/|../|g' <<<${x%/*}/)qref.js
-    sed '
-      s|</head>|<script defer src="'$y'"></script>&|
-    ' $x >$x.tmp
-    mv -f $x.tmp $x
+    for z in notification.js qref.js; do
+      y=$(sed 's|[^/]*/|../|g' <<<${x%/*}/)$z
+      sed '
+        s|</head>|\
+<script defer src="'$y'"></script>\
+&|
+      ' $x >$x.tmp
+      mv -f $x.tmp $x
+    done
   done
 
   rm -f -r repo

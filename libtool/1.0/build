@@ -78,7 +78,12 @@ main() {
   >files
   for x in out.tmp/*; do
     sed '
-      s|</head>|<script defer src="qref.js"></script>&|
+      s|</head>|\
+<script defer src="notification.js"></script>\
+&|
+      s|</head>|\
+<script defer src="qref.js"></script>\
+&|
     ' $x >$x.tmp
     mv -f $x.tmp $x
     echo ${x#out.tmp/} >>files
