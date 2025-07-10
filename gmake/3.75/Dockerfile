@@ -54,7 +54,10 @@ WORKDIR make
 RUN tar xzf ../make-*.tar.gz
 RUN mv * make
 WORKDIR make
-RUN ./configure
+RUN CFLAGS=-std=gnu90 ./configure \
+  --build=i386-unknown-linux-gnu \
+  --host=i386-unknown-linux-gnu \
+;
 
 COPY *.bash.tmp /
 RUN bash /patch.bash.tmp

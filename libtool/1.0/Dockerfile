@@ -54,7 +54,7 @@ WORKDIR libtool
 RUN tar xzf ../libtool-*.tar.gz
 RUN mv * libtool
 WORKDIR libtool
-RUN ./configure \
+RUN CFLAGS=-std=gnu90 ./configure \
   --build=i386-unknown-linux-gnu \
   --host=i386-unknown-linux-gnu \
 ;
