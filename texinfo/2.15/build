@@ -12,19 +12,6 @@
 set -e || exit $?
 . ../../prelude.bash
 
-cleanup() {
-
-  rm -f -r \
-    *.bash \
-    *.tar* \
-    Dockerfile \
-    image \
-    out \
-    texinfo-$v \
-  ;
-
-}; readonly -f cleanup
-
 main() {
 
   declare    container
@@ -34,10 +21,10 @@ main() {
   declare    v2
   declare    x
 
+  rm -f -r *.tmp*
+
   v=${PWD##*/}
   readonly v
-
-  cleanup
 
   v1=${v%%.*}
   readonly v1
@@ -46,50 +33,50 @@ main() {
   v2=${v2%%[.a-z-]*}
   readonly v2
 
-  download_tar_gz groff/groff-1.22.4
-  mv groff-*.tar.gz build-groff.tar.gz
+  download2 *.urls
+
+  mkdir extract.tmp
+
+  for x in texinfo-$v.tar*; do
+    (cd extract.tmp; extract ../$x)
+    break
+  done
+  mv -f extract.tmp/* dist.tmp
 
   case $v in ([0-5].* | 6.[0-7])
-    download_tar_gz texinfo/texinfo-6.7
+    cp texinfo-6.7.tar.gz texinfo.tmp.tar.gz
   ;; *)
-    download_tar_gz texinfo/texinfo-$v
+    cp texinfo-$v.tar.gz texinfo.tmp.tar.gz
   esac
-  mv texinfo-*.tar.gz build-texinfo.tar.gz
 
-  download_tar_gz texinfo/texinfo-$v
-
-  tar xzf texinfo-$v.tar.gz
-  mv texinfo-*/ texinfo-tmp
-  mv texinfo-tmp texinfo-$v
-  x=$(find texinfo-$v -type f -printf '%T@\n' | sort -n | tail -1)
+  x=$(find dist.tmp -type f -printf '%T@\n' | sort -n | tail -1)
   {
     printf %03d%03d: "$v1" "$v2"
     date -d "@$x" -u +%Y-%m-%d
   } >date
 
-  cp ../common/* .
-  cp "$prelude_dir"/prelude.bash .
+  for x in *.bash; do
+    cp $x $x.tmp
+  done
 
   docker build \
-    --build-arg package_version=$v \
-    --iidfile image \
+    --build-arg v=$v \
+    --iidfile image.tmp \
+    -f - \
     . \
+    <Dockerfile \
   ;
-  image=$(cat image)
+  image=$(cat image.tmp)
   readonly image
 
   container=$(docker create $image)
   readonly container
 
-  rm -f -r out
-  mkdir out
-
-  docker cp $container:/texinfo/texinfo/out/. out
-
-  docker rm $container
+  mkdir out.tmp
+  docker cp $container:/out.tmp/. out.tmp
 
   >files
-  for x in out/*; do
+  for x in out.tmp/*; do
     sed '
       s|</head>|\
 <script defer src="notification.js"></script>\
@@ -99,12 +86,13 @@ main() {
 &|
     ' $x >$x.tmp
     mv -f $x.tmp $x
-    echo ${x#out/} >>files
+    echo ${x#out.tmp/} >>files
   done
 
-  mv -f out/* .
+  mv -f out.tmp/* .
 
-  cleanup
+  rm -f -r *.tmp*
+  docker rm -f $container
 
 }; readonly -f main
 
