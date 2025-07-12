@@ -316,6 +316,10 @@ extract() {
     fi
     case $x in *.tar)
       tar xf "$x"
+    ;; *.tar.Z)
+      # xZf would be traditional, but xzf also handles it and is more
+      # likely to be installed.
+      tar xzf "$x"
     ;; *.tar.gz)
       tar xzf "$x"
     ;; *.tar.xz)
