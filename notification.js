@@ -70,12 +70,7 @@ Object.assign(button.style, {
 });
 
 span.innerHTML = `
-  This site archives manuals.
-  You are looking at an archived manual.
-  <div style="height: 0.6em"></div>
-  If you're looking for this specific version of this manual, you're in
-  the right place.
-  Otherwise, please check the version.
+  This is an archived manual for a specific version.
 `.trim();
 
 button.textContent = "OK";
