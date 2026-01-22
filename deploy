@@ -57,7 +57,7 @@ aws s3 sync \
   s3://manuals \
   --delete \
   --exact-timestamps \
-  --profile manuals \
+  --profile quinn_r2 \
 && :
 x=$?
 
