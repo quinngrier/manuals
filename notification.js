@@ -70,7 +70,7 @@ Object.assign(button.style, {
 });
 
 span.innerHTML = `
-  This is an archived manual for a specific version.
+  This is an archived copy of this specific version of this manual.
 `.trim();
 
 button.textContent = "OK";
