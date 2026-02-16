@@ -90,7 +90,7 @@ main() {
   for x in ${outs[@]+"${outs[@]}"}; do
     y=${x##*/}
     if [[ -f "out/$y" ]]; then
-      barf "File already exists: \"out/$y\""
+      qsh_barf "File already exists: \"out/$y\""
     fi
     mv "$x" out
   done

@@ -56,19 +56,36 @@ fi
 readonly prelude_dir
 
 #-----------------------------------------------------------------------
+#
+# This section was generated using qsh.
+# See <https://github.com/quinngrier/qsh>.
+#
+# The authors of this section have waived all copyright and
+# related or neighboring rights to the extent permitted by
+# law as described by the CC0 1.0 Universal Public Domain
+# Dedication. You should have received a copy of the full
+# dedication along with this file, typically as a file
+# named <CC0-1.0.txt>. If not, it may be available at
+# <https://creativecommons.org/publicdomain/zero/1.0/>.
+#
 
-barf() {
+qsh_barf() {
 
-  local    x
+  case $# in (0)
+    set "Unknown error"
+  esac
 
-  x="$@"
-  readonly x
+  qsh_barf_message="$0: Error:"
+  for qsh_barf_text; do
+    qsh_barf_message="$qsh_barf_message $qsh_barf_text"
+  done
+  qsh_barf_message=$qsh_barf_message.
 
-  printf '%s\n' "$0: Error: $x" >&2
+  printf '%s\n' "$qsh_barf_message" >&2
 
-  exit 1
+  exit "${qsh_exit_status-1}"
 
-}; readonly -f barf
+}
 
 #-----------------------------------------------------------------------
 
@@ -169,11 +186,11 @@ download2() {
   for file; do
 
     if [[ "$file" != [!/]*.urls ]]; then
-      barf "File path is not of the form *.urls: $file"
+      qsh_barf "File path is not of the form *.urls: $file"
     fi
 
     if [[ "$file" == */* ]]; then
-      barf "File path must not contain slash characters: $file"
+      qsh_barf "File path must not contain slash characters: $file"
     fi
 
     file=${file%.urls}
@@ -184,7 +201,7 @@ download2() {
       sums+=("$sum")
     done
     if ((${#sums[@]} == 0)); then
-      barf "No hashes for file: $file"
+      qsh_barf "No hashes for file: $file"
     fi
 
     if [[ -f "$file" ]]; then
@@ -208,7 +225,7 @@ download2() {
     if [[ -h "$file.urls" ]]; then
       real=$(readlink -- "$file.urls")
       if [[ "$real" != [!/]*.urls ]]; then
-        barf "File path is not of the form *.urls: $real"
+        qsh_barf "File path is not of the form *.urls: $real"
       fi
       real=${real%.urls}
       if [[ -f "$real" ]]; then
@@ -237,7 +254,7 @@ download2() {
       )
       eval "urls=($urls)"
       if ((${#urls[@]} == 0)); then
-        barf "No URLs for file: $file"
+        qsh_barf "No URLs for file: $file"
       fi
 
       for ((i = 0; i < ${#urls[@]}; ++i)); do
@@ -254,7 +271,7 @@ download2() {
         break
       done
       if ((!ok)); then
-        barf "All download attempts failed: $file"
+        qsh_barf "All download attempts failed: $file"
       fi
 
     fi
@@ -299,7 +316,7 @@ download_tar_gz() {
     xz -d <"$file" | gzip -n >"${file/%.xz/.gz}"
     rm "$file"
   ;; *)
-    barf "Unknown archive file: \"$file\"."
+    qsh_barf "Unknown archive file: \"$file\"."
   esac
 
 }; readonly -f download_tar_gz
@@ -422,15 +439,15 @@ output() {
 
   for src; do
     case $src in '' | /* | ../* | */../* | */..)
-      barf "Invalid parameter"
+      qsh_barf "Invalid parameter"
     esac
     if [[ ! -e "$src" ]]; then
-      barf "Path does not exist: $src"
+      qsh_barf "Path does not exist: $src"
     fi
     src=${src%%+(/)}
     dst=/out.tmp/$src
     if [[ -e "$dst" ]]; then
-      barf "Path already exists: $dst"
+      qsh_barf "Path already exists: $dst"
     fi
     mkdir -p "$dst"
     rmdir "$dst"
