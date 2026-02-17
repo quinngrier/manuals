@@ -78,7 +78,6 @@ mv .git ../manuals.git
        . \
        s3://manuals \
        --delete \
-       --exact-timestamps \
        --profile quinn_r2 \
 ) && :
 x=$?
