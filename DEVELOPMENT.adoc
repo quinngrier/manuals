@@ -15,8 +15,8 @@
 * Be careful about using the verbatim string
 `https://manuals.{quinngrier}.com/`,
 as the URL rebasing code in the Mirroring section in `README.adoc` uses
-this string for a find-and-replace operation.
-That find-and-replace operation should generally only be hitting built
+this string for a find and replace operation.
+That find and replace operation should generally only be hitting built
 files.
 
 //
