@@ -19,8 +19,7 @@ if [[ "$x" ]]; then
 fi
 
 if [[ -e ../manuals.git ]]; then
-  printf '%s\n' "../manuals.git already exists." >&2
-  exit 1
+  qsh_barf "../manuals.git already exists"
 fi
 
 make -s set_timestamps
