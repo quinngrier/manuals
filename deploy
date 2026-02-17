@@ -18,11 +18,8 @@ if [[ "$x" ]]; then
   qsh_barf "Repository is not clean"
 fi
 
-tmpgit=../${PWD##*/}.tmpgit
-readonly tmpgit
-
-if [[ -e "$tmpgit" ]]; then
-  printf '%s\n' "$tmpgit already exists." >&2
+if [[ -e ../manuals.git ]]; then
+  printf '%s\n' "../manuals.git already exists." >&2
   exit 1
 fi
 
@@ -50,7 +47,7 @@ for x in $xs; do
   mv flatten.tmp "$x"
 done
 
-mv .git "$tmpgit"
+mv .git ../manuals.git
 
 aws s3 sync \
   . \
@@ -61,7 +58,7 @@ aws s3 sync \
 && :
 x=$?
 
-mv "$tmpgit" .git
+mv ../manuals.git .git
 
 git reset --hard -q
 
