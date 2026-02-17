@@ -32,27 +32,30 @@ Here's how to change this to your own URL:
 
 [source,subs="{subs_source}"]
 ----
-old_url='https://manuals.{quinngrier}.com/'
-new_url='https://example.com/'
-grep -F -I -Z -l -r "$old_url" manuals | xargs -0 sh -c '
-  set -e -u || exit
-  old_url=$(sed '\''s/./[&]/g'\'' <<EOF
+(
+  set -e -o pipefail -u || exit
+  old_url='https://manuals.{quinngrier}.com/'
+  new_url='https://example.com/'
+  grep -F -I -Z -l -r "$old_url" manuals | xargs -0 sh -c '
+    set -e -u || exit
+    old_url=$(sed '\''s/./[&]/g'\'' <<EOF
 $1
 EOF
-  )
-  new_url=$(sed '\''s/&/\\&/g'\'' <<EOF
+    )
+    new_url=$(sed '\''s/&/\\&/g'\'' <<EOF
 $2
 EOF
-  )
-  shift 2
-  for x; do
-    sed "s|$old_url|$new_url|g" "$x" >tmp
-    touch -r "$x" tmp
-    cat tmp >"$x"
-    touch -r tmp "$x"
-  done
-  rm -f tmp
-' sh "$old_url" "$new_url"
+    )
+    shift 2
+    for x; do
+      sed "s|$old_url|$new_url|g" "$x" >tmp
+      touch -r "$x" tmp
+      cat tmp >"$x"
+      touch -r tmp "$x"
+    done
+    rm -f tmp
+  ' sh "$old_url" "$new_url"
+)
 ----
 
 Optionally, you can also list `sitemap.xml` in your `robots.txt`.
