@@ -27,8 +27,8 @@ Download the
 link:https://manuals.{quinngrier}.com/manuals.tar.zst[tarball]
 of the site, extract it, and host it however you like.
 
-Some of the files hardcode `https://manuals.{quinngrier}.com/`.
-You can change this to your own URL as follows:
+Some files hardcode `+https://manuals.{quinngrier}.com/+`.
+Here's how to change this to your own URL:
 
 [source,subs="{subs_source}"]
 ----
