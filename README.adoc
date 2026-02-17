@@ -27,7 +27,7 @@ Download the
 link:https://manuals.{quinngrier}.com/manuals.tar.zst[tarball]
 of the site, extract it, and host it however you like.
 
-Some files hardcode `+https://manuals.{quinngrier}.com/+`.
+Some files hardcode `++https++://manuals.quinngrier.com/`.
 Here's how to change this to your own URL:
 
 [source,subs="{subs_source}"]
@@ -55,7 +55,7 @@ EOF
 ' sh "$old_url" "$new_url"
 ----
 
-Optionally, you can also add `sitemap.xml` to your `robots.txt`.
+Optionally, you can also list `sitemap.xml` in your `robots.txt`.
 
 Optionally, you can also host the tarball.
 
