@@ -37,9 +37,7 @@ git log --date=unix --format=@%cd --name-only | awk '
 
 rm set_timestamps
 
-skip_git='( ! -name .git -o -prune )'
-
-xs=$(find . $skip_git -type l)
+xs=$(find . -name .git -prune -o -type l -print)
 for x in $xs; do
   cp -L -R -p "$x" flatten.tmp
   rm -f -r "$x"
