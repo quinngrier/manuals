@@ -15,8 +15,7 @@ set -e || exit $?
 
 x=$(git status --ignored --short)
 if [[ "$x" ]]; then
-  printf '%s\n' "Repository is not clean." >&2
-  exit 1
+  qsh_barf "Repository is not clean"
 fi
 
 tmpgit=../${PWD##*/}.tmpgit
