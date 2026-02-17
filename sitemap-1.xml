@@ -18,8 +18,13 @@ named <CC0-1.0.txt>. If not, it may be available at
   </url>
 
   <url>
+    <loc>https://manuals.quinngrier.com/DEVELOPMENT.adoc</loc>
+    <lastmod>2026-02-17T04:20:13+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/README.adoc</loc>
-    <lastmod>2026-01-22T01:14:09+00:00</lastmod>
+    <lastmod>2026-02-17T04:09:35+00:00</lastmod>
   </url>
 
   <url>
@@ -1949,7 +1954,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/autoconf/common/build-html.bash</loc>
-    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -4569,7 +4574,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/automake/common/build-html.bash</loc>
-    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -7764,7 +7769,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/bash/common/build-html.bash</loc>
-    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -245004,11 +245009,6 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/cppreference/20160903/reference/en/cpp/experimental/source_location/function_name.html</loc>
-    <lastmod>2025-07-10T08:58:18+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/cppreference/20160903/reference/en/cpp/experimental/source_location/line.html</loc>
     <lastmod>2025-07-10T08:58:18+00:00</lastmod>
   </url>
 

@@ -13,6 +13,11 @@ named <CC0-1.0.txt>. If not, it may be available at
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>https://manuals.quinngrier.com/cppreference/20190607/reference/en/cpp/container/priority_queue/uses_allocator.html</loc>
+    <lastmod>2025-07-10T08:58:18+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/cppreference/20190607/reference/en/cpp/container/priority_queue/~priority_queue.html</loc>
     <lastmod>2025-07-10T08:58:18+00:00</lastmod>
   </url>
@@ -215609,7 +215614,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/deploy</loc>
-    <lastmod>2026-02-12T20:48:12+00:00</lastmod>
+    <lastmod>2026-02-17T04:17:26+00:00</lastmod>
   </url>
 
   <url>
@@ -218444,7 +218449,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gm4/common/build-html.bash</loc>
-    <lastmod>2022-01-04T01:10:40+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218529,7 +218534,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.75/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218619,7 +218624,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.76.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218714,7 +218719,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.77/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218809,7 +218814,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.78.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218904,7 +218909,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.79.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -218999,7 +219004,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.79/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219094,7 +219099,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.80/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219189,7 +219194,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.81/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219284,7 +219289,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/3.82/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219379,7 +219384,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.0/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219474,7 +219479,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219569,7 +219574,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.2.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219664,7 +219669,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219759,7 +219764,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219854,7 +219859,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.4.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -219949,7 +219954,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/gmake/4.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220014,7 +220019,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/index</loc>
-    <lastmod>2026-02-12T20:42:16+00:00</lastmod>
+    <lastmod>2026-02-17T04:09:35+00:00</lastmod>
   </url>
 
   <url>
@@ -220089,7 +220094,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.0/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220179,7 +220184,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220269,7 +220274,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220359,7 +220364,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.3.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220449,7 +220454,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.3.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220539,7 +220544,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.3.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220629,7 +220634,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.3.5/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220719,7 +220724,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220809,7 +220814,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.4.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220899,7 +220904,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.4.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -220989,7 +220994,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.4.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221079,7 +221084,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221169,7 +221174,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.10/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221259,7 +221264,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.12/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221349,7 +221354,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.14/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221439,7 +221444,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.16/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221529,7 +221534,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.18/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221619,7 +221624,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221709,7 +221714,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.20/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221799,7 +221804,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.22/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221889,7 +221894,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.24/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -221979,7 +221984,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.26/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222069,7 +222074,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222159,7 +222164,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.6/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222249,7 +222254,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5.8/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222339,7 +222344,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/1.5/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222439,7 +222444,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.10/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222529,7 +222534,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222619,7 +222624,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222709,7 +222714,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.6a/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222799,7 +222804,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.6b/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222899,7 +222904,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2.8/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -222989,7 +222994,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223089,7 +223094,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223189,7 +223194,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223289,7 +223294,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223389,7 +223394,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.5/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223489,7 +223494,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.6/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223589,7 +223594,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4.7/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223689,7 +223694,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/libtool/2.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223729,7 +223734,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223799,7 +223804,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/2.15/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223889,7 +223894,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/2.16/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -223999,7 +224004,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224099,7 +224104,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.12/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224209,7 +224214,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/3.9/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224329,7 +224334,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224469,7 +224474,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.11/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224614,7 +224619,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.12/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224764,7 +224769,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.13/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -224914,7 +224919,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.13a/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225054,7 +225059,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.5/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225189,7 +225194,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.6/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225329,7 +225334,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.7/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225469,7 +225474,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.8/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225609,7 +225614,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.8a/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225749,7 +225754,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/4.9/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -225899,7 +225904,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.0/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226064,7 +226069,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226229,7 +226234,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/5.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226389,7 +226394,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.0/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226544,7 +226549,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.1/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226699,7 +226704,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.2/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -226859,7 +226864,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.3/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -227019,7 +227024,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.4/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -227179,7 +227184,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.5/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -227339,7 +227344,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.6/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -227499,7 +227504,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.7/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>
@@ -228104,7 +228109,7 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/texinfo/6.8/prelude.bash</loc>
-    <lastmod>2025-07-12T02:23:21+00:00</lastmod>
+    <lastmod>2026-02-16T23:35:17+00:00</lastmod>
   </url>
 
   <url>

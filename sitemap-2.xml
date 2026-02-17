@@ -13,6 +13,11 @@ named <CC0-1.0.txt>. If not, it may be available at
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>https://manuals.quinngrier.com/cppreference/20160903/reference/en/cpp/experimental/source_location/line.html</loc>
+    <lastmod>2025-07-10T08:58:18+00:00</lastmod>
+  </url>
+
+  <url>
     <loc>https://manuals.quinngrier.com/cppreference/20160903/reference/en/cpp/experimental/source_location/source_location.html</loc>
     <lastmod>2025-07-10T08:58:18+00:00</lastmod>
   </url>
@@ -245004,11 +245009,6 @@ named <CC0-1.0.txt>. If not, it may be available at
 
   <url>
     <loc>https://manuals.quinngrier.com/cppreference/20171015/reference/en/cpp/container/multiset/~multiset.html</loc>
-    <lastmod>2025-07-10T08:58:18+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://manuals.quinngrier.com/cppreference/20171015/reference/en/cpp/container/node_handle.html</loc>
     <lastmod>2025-07-10T08:58:18+00:00</lastmod>
   </url>
 
