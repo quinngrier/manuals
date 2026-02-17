@@ -22,6 +22,8 @@
 set -e || exit $?
 . ./prelude.bash
 
+readonly quinngrier=quinngrier
+
 #-----------------------------------------------------------------------
 
 step() {
@@ -355,7 +357,7 @@ named <CC0-1.0.txt>. If not, it may be available at
             exec 4>&-
             printf %s "
   <sitemap>
-    <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
+    <loc>https://manuals.$quinngrier.com/sitemap-$i.xml</loc>
     <lastmod>${sitemap_lastmod[sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3
@@ -368,7 +370,7 @@ named <CC0-1.0.txt>. If not, it may be available at
         fi
         urlstr="
   <url>
-    <loc>https://manuals.quinngrier.com/$file</loc>
+    <loc>https://manuals.$quinngrier.com/$file</loc>
     <lastmod>$lastmod</lastmod>
   </url>
 "
@@ -385,7 +387,7 @@ named <CC0-1.0.txt>. If not, it may be available at
         exec 4>&-
         printf %s "
   <sitemap>
-    <loc>https://manuals.quinngrier.com/sitemap-$i.xml</loc>
+    <loc>https://manuals.$quinngrier.com/sitemap-$i.xml</loc>
     <lastmod>${sitemap_lastmod[sitemap-$i.xml]-}</lastmod>
   </sitemap>
 " >&3

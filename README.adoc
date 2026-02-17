@@ -10,7 +10,10 @@
 
 = Quinn's Manuals Archive
 
-link:https://manuals.quinngrier.com/[Quinn's Manuals Archive]
+:quinngrier: quinngrier
+:subs_source: specialchars,attributes,quotes,macros
+
+link:https://manuals.{quinngrier}.com/[Quinn's Manuals Archive]
 is a static site that archives manuals for long-term reference purposes.
 
 Selection permalinking has been added to the manuals wherever possible
@@ -21,14 +24,15 @@ breaking changes made only to fix significant rendering problems.
 == Mirroring
 
 Download the
-link:https://manuals.quinngrier.com/manuals.tar.zst[tarball]
+link:https://manuals.{quinngrier}.com/manuals.tar.zst[tarball]
 of the site, extract it, and host it however you like.
 
-Some of the files hardcode `https://manuals.quinngrier.com/`.
+Some of the files hardcode `https://manuals.{quinngrier}.com/`.
 Here's how you can change these to use your own URL:
 
+[source,subs="{subs_source}"]
 ----
-old_url=https://manuals.quinngrier.com/
+old_url=https://manuals.{quinngrier}.com/
 new_url=https://example.com/
 grep -I -Z -l -r $old_url manuals | xargs -0 sh -c '
   set -e -u || exit
