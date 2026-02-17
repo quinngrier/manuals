@@ -13,7 +13,7 @@
 set -e || exit $?
 . ./prelude.bash
 
-x=$(git status --ignored --short)
+x=$(git status --ignored -s)
 if [[ "$x" ]]; then
   qsh_barf "Repository is not clean"
 fi
