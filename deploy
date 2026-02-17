@@ -26,6 +26,10 @@ if [[ -e ../manuals.git ]]; then
   qsh_barf "../manuals.git already exists"
 fi
 
+if [[ -e ../manuals.tar.zst ]]; then
+  qsh_barf "../manuals.tar.zst already exists"
+fi
+
 make -s set_timestamps
 
 git log --date=unix --format=@%cd --name-only | awk '
@@ -48,18 +52,37 @@ for x in $xs; do
   mv flatten.tmp "$x"
 done
 
+t=$(git log -1 --format=@%ct)
+readonly t
+
 mv .git ../manuals.git
 
-aws s3 sync \
-  . \
-  s3://manuals \
-  --delete \
-  --exact-timestamps \
-  --profile quinn_r2 \
-&& :
+( : \
+  && cd .. \
+  && find manuals -type d -exec touch -d $t {} + \
+  && tar -c \
+       --group=0 \
+       --mode=u=rwX,go=rX \
+       --numeric-owner \
+       --owner=0 \
+       --sort=name \
+       manuals \
+     | zstd -19 -T0 >manuals.tar.zst \
+  && touch -d $t manuals.tar.zst \
+  && mv manuals.tar.zst manuals \
+  && cd manuals \
+  && aws s3 sync \
+       . \
+       s3://manuals \
+       --delete \
+       --exact-timestamps \
+       --profile quinn_r2 \
+) && :
 x=$?
 
 mv ../manuals.git .git
+
+rm -f manuals.tar.zst ../manuals.tar.zst
 
 git reset --hard -q
 

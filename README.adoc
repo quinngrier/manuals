@@ -18,4 +18,35 @@ using link:https://github.com/quinngrier/qref[Qref].
 The manuals are eventually stable with respect to Qref links, with
 breaking changes made only to fix significant rendering problems.
 
+== Mirroring
+
+Download the
+link:https://manuals.quinngrier.com/manuals.tar.zst[tarball]
+of the site, extract it, and host it however you like.
+
+Some of the files hardcode `https://manuals.quinngrier.com/`.
+Here's how you can change these to use your own URL:
+
+----
+old_url=https://manuals.quinngrier.com/
+new_url=https://example.com/
+grep -I -Z -l -r $old_url manuals | xargs -0 sh -c '
+  set -e -u || exit
+  old_url=$1
+  new_url=$2
+  shift 2
+  for x; do
+    sed "s|$old_url|$new_url|g" "$x" >tmp
+    touch -r "$x" tmp
+    cat tmp >"$x"
+    touch -r tmp "$x"
+  done
+  rm tmp
+' sh $old_url $new_url
+----
+
+Optionally, you can also add `sitemap.xml` to your `robots.txt`.
+
+Optionally, you can also host the tarball.
+
 //
