@@ -13,6 +13,8 @@
 set -e || exit $?
 . ./prelude.bash
 
+./index
+
 if [[ ${PWD##*/} != manuals ]]; then
   qsh_barf "Current directory must be named \"manuals\""
 fi
