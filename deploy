@@ -72,6 +72,7 @@ mv .git ../manuals.git
      | zstd -19 -T0 >manuals.tar.zst \
   && touch -d $t manuals.tar.zst \
   && mv manuals.tar.zst manuals \
+  && touch -d $t manuals \
   && cd manuals \
   && aws s3 sync \
        . \
