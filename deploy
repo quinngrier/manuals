@@ -13,6 +13,10 @@
 set -e || exit $?
 . ./prelude.bash
 
+if [[ ${PWD##*/} != manuals ]]; then
+  qsh_barf "Current directory must be named \"manuals\""
+fi
+
 x=$(git status --ignored -s)
 if [[ "$x" ]]; then
   qsh_barf "Repository is not clean"
