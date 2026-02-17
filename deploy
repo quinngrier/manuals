@@ -13,6 +13,12 @@
 set -e || exit $?
 . ./prelude.bash
 
+reset=0
+if [[ ${1-} == reset ]]; then
+  reset=1
+fi
+readonly reset
+
 ./index
 
 if [[ ${PWD##*/} != manuals ]]; then
@@ -74,6 +80,14 @@ mv .git ../manuals.git
   && mv manuals.tar.zst manuals \
   && touch -d $t manuals \
   && cd manuals \
+  && if ((reset)); then \
+       aws s3 cp \
+         . \
+         s3://manuals \
+         --profile quinn_r2 \
+         --recursive \
+       ; \
+     fi \
   && aws s3 sync \
        . \
        s3://manuals \
